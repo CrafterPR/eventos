@@ -1,0 +1,180 @@
+.error-message {
+	color: darkred !important;
+	/*background-color: #ff6b6b;*/
+	font-size: 11px  !important;
+	margin-top: 5px  !important;
+	text-align: center  !important;
+	font-style: italic  !important; /* Italics */
+}
+
+.error-message::before {
+	content: '❌ ' !important;
+}
+
+.error-message a {
+	color: #ff0000 !important;
+	text-decoration: underline !important;
+}
+
+.error-message a:hover {
+	text-decoration: none !important;
+}
+
+.left_item{
+	margin-left: 5em;
+	width: 100vh;
+}
+.position_image{
+	margin: 2em;
+}
+
+.height_image{
+	height: 50px;
+}
+
+.banner-wrap {
+	height:  min-content !important;
+	background-size: cover !important;
+}
+.title_h3{
+	font-size: 1.875rem;
+	font-weight: 900;
+	line-height: 2.25rem;
+	text-align: center;
+	padding: 1em;
+}
+
+.newsletter-wrap form {
+	grid-template-columns: auto !important;
+}
+
+.custom-input {
+	background-color: #F4F9F8 !important;
+}
+
+.input_color{
+	color: black !important;
+	background-color: #F4F9F8 !important;
+
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+	color: #616161 !important;;
+	opacity: 1 !important;; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+	color: #616161 !important;;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+	color: #616161 !important;;
+}
+
+.position_logo {
+	height: 5em;
+	width: 5em;
+	margin: auto;
+}
+
+.caption-p{
+	margin-top: 1em;
+	color: #616161 !important;;
+
+}
+
+.newsletter-wrap form {
+	display: grid;
+	gap: 0rem !important;
+}
+
+
+
+
+.container {
+	width: 100% !important;
+}
+
+
+.banner-wrap_content {
+	max-width: min-content !important;
+}
+@media (min-width: 640px) {
+	.container {
+		max-width:640px !important;
+	}
+
+	/*span.select2-selection.select2-selection--single.form-select {*/
+	/*	height: 80% !important;*/
+	/*}*/
+
+
+
+}
+
+@media (max-width: 1024px)  {
+	.banner-wrap_content {
+		display: none !important;
+	}
+}
+
+@media (min-width: 768px) {
+	.container {
+		max-width:768px !important;
+	}
+	/*.span.select2-selection.select2-selection--single.form-select {*/
+	/*    height: 80% !important;*/
+	/*}*/
+
+}
+
+@media (min-width: 1024px) {
+	.container {
+		max-width:1024px !important;
+	}
+	/*.span.select2-selection.select2-selection--single.form-select {*/
+	/*    height: 60% !important;*/
+	/*}*/
+
+}
+@media (min-width: 1280px) {
+	.container {
+		max-width:1280px !important;
+	}
+	/*.span.select2-selection.select2-selection--single.form-select {*/
+	/*    height: 80% !important;*/
+	/*}*/
+
+}
+
+@media (min-width: 1536px) {
+	.container {
+		max-width:1536px !important;
+	}
+	/*.span.select2-selection.select2-selection--single.form-select {*/
+	/*    height: 80% !important;*/
+	/*}*/
+
+}
+
+ .select2-selection.select2-selection--multiple.form-select{
+	height: 70% !important;
+ }
+
+.select2-container--bootstrap5 .select2-selection--multiple .select2-selection__choice .select2-selection__choice__remove {
+	height: 0.8rem !important;
+	width: 0.6rem !important;
+	padding: 5px !important;
+}
+
+/*.main-nav li a {*/
+/*	font-size: .875rem !important;*/
+/*	font-weight: 700 !important;*/
+/*	line-height: 1.25rem !important;*/
+/*	padding-bottom: 0.375rem !important;*/
+/*	padding-top: 0.375rem !important;*/
+/*	text-transform: uppercase !important;*/
+/*}*/
+
+/* Custom CSS for select2 */
+
