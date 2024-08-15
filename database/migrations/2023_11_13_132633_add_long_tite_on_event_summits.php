@@ -1,6 +1,5 @@
 <?php
 
-use App\Enum\VoterStatus;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -12,9 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('voters', function (Blueprint $table) {
-            $table->softDeletes()->after('status');
-            $table->index(['status']);
+        Schema::table('event_summits', function (Blueprint $table) {
+            $table->string('longtitle')->after('targets')->nullable();
         });
     }
 
@@ -23,7 +21,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('voters', function (Blueprint $table) {
+        Schema::table('event_summits', function (Blueprint $table) {
             //
         });
     }

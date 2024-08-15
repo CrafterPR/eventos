@@ -26,14 +26,17 @@ class UserFactory extends Factory
             'salutation' => fake()->randomElement(config("setting.salutation")),
             'first_name' => fake()->firstName(),
             'last_name' => fake()->lastName(),
-            'username' => fake()->userName(),
             'email' => fake()->unique()->safeEmail(),
-            'password' => bcrypt("password"),
-            'mobile' => "+2547" . rand(10000000, 99999999),
+            'mobile' => "2547" . rand(10000000, 99999999),
             'id_number' => rand(10000000, 99999999),
+            'institution' => fake()->domainWord(),
+            'position' => fake()->jobTitle(),
             'gender' => fake()->randomElement(["Male", "Female"]),
+            'disability' => fake()->randomElement(["Yes", "No"]),
             'email_verified_at' => now(),
+            'password' => bcrypt("password"),
             'remember_token' => Str::random(10),
+            'user_type' => fake()->randomElement(UserType::cases())
         ];
     }
 
@@ -44,7 +47,7 @@ class UserFactory extends Factory
      */
     public function unverified(): static
     {
-        return $this->state(fn (array $attributes) => [
+        return $this->state(fn(array $attributes) => [
             'email_verified_at' => null,
         ]);
     }
@@ -52,5 +55,15 @@ class UserFactory extends Factory
     /**
      * Configure the model factory.
      */
-
+    public function configure(): static
+    {
+        return $this->afterCreating(function (User $user) {
+            if (in_array($user->user_type->value, [UserType::DELEGATE->value, UserType::EXHIBITOR->value])) {
+                $user->assignRole($user->user_type->value);
+            } else {
+                $role = Role::inRandomOrder()->first();
+                $user->assignRole($role);
+            }
+        });
+    }
 }

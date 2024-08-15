@@ -1,6 +1,5 @@
 <?php
 
-use Carbon\Carbon;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -12,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('voting_periods', function (Blueprint $table) {
-            $table->date('election_date')->after('name')->default(Carbon::now()->toDateString());
+        Schema::table('order_items', function (Blueprint $table) {
+            $table->string('reference_no', 20)->after('id')->nullable();
         });
     }
 
@@ -22,8 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('voting_periods', function (Blueprint $table) {
-            //
+        Schema::table('order_items', function (Blueprint $table) {
+            $table->dropColumn('reference_no');
         });
     }
 };

@@ -12,8 +12,10 @@ use App\Http\Controllers\CountyController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')->group(function () {
+    Route::get('/', function () {
+        redirect('login');
+    })->name('index');
 
-    require __DIR__ . '/website.php';
 
     Route::get('registration/{coupon?}', [RegisteredUserController::class, 'create'])
                 ->name('register');

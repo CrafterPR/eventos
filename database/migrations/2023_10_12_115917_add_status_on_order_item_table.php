@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('voters', function (Blueprint $table) {
-            $table->foreignId('creator_id')->after('mobile')->nullable()->constrained('users', 'id');
+        Schema::table('order_items', function (Blueprint $table) {
+            $table->enum('status', ['pending', 'paid', 'approved', 'cancelled'])->after('total')->default('pending');
         });
     }
 
@@ -21,8 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('voters', function (Blueprint $table) {
-            //
+        Schema::table('order_items', function (Blueprint $table) {
+            $table->dropColumn('status');
         });
     }
 };

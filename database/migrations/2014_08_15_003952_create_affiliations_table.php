@@ -11,8 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('voting_periods', function (Blueprint $table) {
-            $table->index(['starts_at', 'ends_at', 'status']);
+        Schema::create('affiliations', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->boolean('status')->default(true);
+            $table->timestamps();
         });
     }
 
@@ -21,8 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('voting_periods', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('affiliations');
     }
 };

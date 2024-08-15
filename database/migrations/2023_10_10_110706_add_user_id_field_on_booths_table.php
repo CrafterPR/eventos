@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('contestants', function (Blueprint $table) {
-            $table->string('unique_code', 2)->after('full_name');
+        Schema::table('booths', function (Blueprint $table) {
+            $table->foreignId('user_id')->after('status')->nullable()->constrained();
         });
     }
 
@@ -21,8 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('contestants', function (Blueprint $table) {
-            $table->dropColumn('code');
+        Schema::table('booths', function (Blueprint $table) {
+            //
         });
     }
 };
