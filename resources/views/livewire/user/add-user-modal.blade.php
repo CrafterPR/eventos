@@ -98,6 +98,8 @@
                             </div>
 
                         </div>
+                        <!--end::Input group-->
+                        <!--begin::Input group-->
                         <div class="fv-row mb-7">
                             <!--begin::Label-->
                             <label class="required fw-semibold fs-6 mb-2">Email</label>
@@ -108,33 +110,16 @@
                             @error('user.email')
                             <span class="text-danger">{{ $message }}</span> @enderror
                         </div>
-                        <!--end::Input group-->
-                        <!--begin::Input group-->
-                        <div class="fv-row mb-7 row">
-                            <div class="col-md-6">
-                                 <!--begin::Label-->
-                               <label class="required fw-semibold fs-6 mb-2">Mobile</label>
-                                <!--end::Label-->
-                                <!--begin::Input-->
+                        <div class="fv-row mb-7">
+                            <!--begin::Label-->
+                            <label class="required fw-semibold fs-6 mb-2">Mobile</label>
+                            <!--end::Label-->
+                            <!--begin::Input-->
                             <input type="text" wire:model="user.mobile" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="+254700000000"/>
-                                <!--end::Input-->
-                                @error('user.mobile')
-                                <span class="text-danger">{{ $message }}</span> @enderror
-                            </div>
-                            <div class="col-md-6">
-                                <!--begin::Label-->
-                            <label class="required fw-semibold fs-6 mb-2">ID Number/Passport</label>
-                                    <!--end::Label-->
-                                    <!--begin::Input-->
-                            <input type="text" wire:model="user.id_number" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="ID Number/Passport"/>
-                                    <!--end::Input-->
-                                    @error('user.id_number')
-                                    <span class="text-danger">{{ $message }}</span> @enderror
-                            </div>
-
+                            <!--end::Input-->
+                            @error('user.mobile')
+                            <span class="text-danger">{{ $message }}</span> @enderror
                         </div>
-
-
                         <!--end::Input group-->
                         <!--begin::Input group-->
                         <div class="mb-7">

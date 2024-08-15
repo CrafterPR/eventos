@@ -4,7 +4,6 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Enum\UserType;
-use App\Models\Traits\Uuidable;
 use Eloquent;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
@@ -19,6 +18,7 @@ use Illuminate\Notifications\DatabaseNotification;
 use Illuminate\Notifications\DatabaseNotificationCollection;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Carbon;
+use Lab404\Impersonate\Models\Impersonate;
 use Laravel\Sanctum\HasApiTokens;
 use Laravel\Sanctum\PersonalAccessToken;
 use Spatie\Permission\Models\Permission;
@@ -114,7 +114,7 @@ use Spatie\Permission\Traits\HasRoles;
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
-    use HasRoles;
+    use HasRoles, Impersonate;
 
 
     /**
@@ -125,7 +125,6 @@ class User extends Authenticatable
     protected $guarded = [
         'id',
     ];
-
 
     /**
      * The attributes that should be hidden for serialization.
@@ -145,6 +144,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
         'last_login_at' => 'datetime',
+        'area_of_interest' => 'array',
+        'user_type' => UserType::class,
     ];
 
     protected $appends = [
@@ -185,9 +186,58 @@ class User extends Authenticatable
         return "$this->salutation $this->first_name $this->last_name";
     }
 
-    public function isSuperAdmin(): bool
+    public function orders(): HasMany
     {
-       return $this->hasRole(Role::SUPER_ADMIN);
+        return $this->hasMany(Order::class);
     }
 
+    public function bookings(): HasMany
+    {
+        return $this->hasMany(Booking::class);
+    }
+
+    public function country(): BelongsTo
+    {
+        return $this->belongsTo(Country::class);
+    }
+
+    public function county(): BelongsTo
+    {
+        return $this->belongsTo(County::class);
+    }
+
+    public function affiliation(): BelongsTo
+    {
+        return $this->belongsTo(Affiliation::class);
+    }
+
+    public function coupon(): HasOneThrough
+    {
+        return $this->hasOneThrough(Coupon::class, UserCoupon::class, 'user_id', 'id');
+    }
+
+    public function coupons(): HasMany
+    {
+        return $this->hasMany(UserCoupon::class);
+    }
+
+    public function paymentVerifications(): HasMany
+    {
+        return $this->hasMany(Order::class);
+    }
+
+    public function canImpersonate(): bool
+    {
+        return $this->user_type == UserType::STAFF;
+    }
+
+    public function canBeImpersonated(): bool
+    {
+        return $this->can_be_impersonated == ($this->user_type == UserType::DELEGATE->value || $this->user_type == UserType::EXHIBITOR->value);
+    }
+
+    public function orderItem(): HasOne
+    {
+        return $this->hasOne(OrderItem::class);
+    }
 }

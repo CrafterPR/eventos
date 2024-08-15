@@ -44,7 +44,7 @@
                                 <input type="file" id="file-upload-{{ $fileIteration }}"
                                        accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
                                        class="form-control @error('importFile') is-invalid @enderror" @disabled($isImporting && !$importFinished)
-                                       wire:model="importFile" wire:loading.attr="disabled">
+                                       wire:model.live="importFile" wire:loading.attr="disabled">
                                 @error('importFile') <span class="text-danger">{{ $message }}</span> @enderror
                             </div>
                         </div>

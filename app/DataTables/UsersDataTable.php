@@ -4,7 +4,6 @@ namespace App\DataTables;
 
 use App\Enum\UserType;
 use App\Models\User;
-use Illuminate\Support\Facades\DB;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\Services\DataTable;
@@ -46,7 +45,9 @@ class UsersDataTable extends DataTable
      */
     public function query(User $model): QueryBuilder
     {
-        return $model->newQuery();
+        return $model->where('user_type', '!=', UserType::EXHIBITOR)
+            ->where('user_type', '!=', UserType::DELEGATE)
+        ->newQuery();
     }
 
     /**
@@ -62,7 +63,7 @@ class UsersDataTable extends DataTable
             ->addTableClass('table align-middle table-row-dashed fs-6 gy-5 dataTable no-footer text-gray-600 fw-semibold')
             ->setTableHeadClass('text-start text-muted fw-bold fs-7 text-uppercase gs-0')
             ->orderBy(2)
-            ->drawCallback("function() {" . file_get_contents(resource_path('views/pages/apps/user-management/users/columns/_draw-scripts.js')) . "}");
+            ->drawCallback("function() {" . file_get_contents(resource_path('views/pages//apps/user-management/users/columns/_draw-scripts.js')) . "}");
     }
 
     /**
@@ -71,10 +72,8 @@ class UsersDataTable extends DataTable
     public function getColumns(): array
     {
         return [
-            Column::make('user')->addClass('flex align-items-center')->name('fullname'),
+            Column::make('user')->addClass('d-flex align-items-center')->name('name'),
             Column::make('role')->searchable(false),
-            Column::make('mobile')->addClass('flex align-items-center')->name('mobile'),
-            Column::make('id_number')->addClass('flex align-items-center')->name('id_number'),
             Column::make('last_login_at')->title('Last Login'),
             Column::make('created_at')->title('Joined Date')->addClass('text-nowrap'),
             Column::computed('action')

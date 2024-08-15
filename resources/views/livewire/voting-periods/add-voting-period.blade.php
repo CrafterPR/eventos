@@ -30,7 +30,7 @@
                     <div class="row mb-6">
                         <div class="col-md-7">
                             <div class="form-floating mb-3">
-                                <input type="text" wire:model="name"
+                                <input type="text" wire:model.live="name"
                                        autocomplete="off"
                                        class="form-control  @error('name') border-danger @enderror "/>
                                 <label for="name">
@@ -44,7 +44,7 @@
                         </div>
                         <div  class="col-md-5">
                             <div wire:ignore class="form-floating mb-3">
-                                <input type="text" wire:model="election_date" id="kt_daterangepicker"
+                                <input type="text" wire:model.live="election_date" id="kt_daterangepicker"
                                        class="form-control @error('election_date') border-danger @enderror "/>
                                 <label for="election_date">
                                     Election date
@@ -60,7 +60,7 @@
                     <div class="row mb-6">
                         <div  class="col-md-6">
                             <div wire:ignore class="form-floating mb-3">
-                                <input type="text" wire:model="starts_at" id="starts_at_picker"
+                                <input type="text" wire:model.live="starts_at" id="starts_at_picker"
                                        class="form-control @error('starts_at') border-danger @enderror "/>
                                 <label for="starts_at">
                                     Start at (time)
@@ -73,7 +73,7 @@
                         </div>
                         <div  class="col-md-6">
                             <div wire:ignore class="form-floating mb-3">
-                                <input type="text" wire:model="ends_at" id="ends_at_picker"
+                                <input type="text" wire:model.live="ends_at" id="ends_at_picker"
                                        class="form-control @error('ends_at') border-danger @enderror "/>
                                 <label for="ends_at">
                                     Ends at (time)

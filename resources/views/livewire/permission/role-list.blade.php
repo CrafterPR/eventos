@@ -43,9 +43,7 @@
                 <!--begin::Card footer-->
                 <div class="card-footer flex-wrap pt-0">
                     <a href="{{ route('users.role.show', $role) }}" class="btn btn-light btn-active-primary my-1 me-2">View Role</a>
-                    @can('edit-role')
                     <button type="button" class="btn btn-light btn-active-light-primary my-1" data-role-id="{{ $role->name }}" data-bs-toggle="modal" data-bs-target="#kt_modal_update_role">Edit Role</button>
-                    @endcan
                 </div>
                 <!--end::Card footer-->
             </div>

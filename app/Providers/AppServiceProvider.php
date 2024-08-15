@@ -3,16 +3,16 @@
 namespace App\Providers;
 
 use App\Core\KTBootstrap;
-use App\Models\Contestant;
+use App\Models\Booking;
+use App\Models\Booth;
+use App\Models\PaymentService;
+use App\Models\Summit;
+use App\Models\Ticket;
+use App\Models\TicketPayment;
 use App\Models\User;
-use App\Models\Voter;
-use App\Models\VotingPeriod;
-use App\Models\VotingPosition;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Database\Schema\Builder;
 use Illuminate\Support\ServiceProvider;
-use Spatie\Permission\Models\Permission;
-use Spatie\Permission\Models\Role;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -39,14 +39,13 @@ class AppServiceProvider extends ServiceProvider
         KTBootstrap::init();
 
         Relation::enforceMorphMap([
-            "user"          =>  User::class,
-            'votingPeriod'  =>  VotingPeriod::class,
-            'votingPosition'  =>  VotingPosition::class,
-            'contestant'    =>  Contestant::class,
-            'role'          => Role::class,
-            'permission'    => Permission::class,
-            'voter'         => Voter::class,
+            "user" => User::class,
+            "forum" => Summit::class,
+            "booth" => Booth::class,
+            "booking" => Booking::class,
+            "ticket" => Ticket::class,
+            "payment_service" => PaymentService::class,
+            "ticket_payment" => TicketPayment::class
         ]);
-
     }
 }

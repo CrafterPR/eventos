@@ -24,6 +24,22 @@ class RedirectIfAuthenticated
     {
         $guards = empty($guards) ? [null] : $guards;
 
+        /*foreach ($guards as $guard) {
+            if (Auth::guard($guard)->check()) {
+
+                $userType = Auth::user()->user_type;
+
+                if ($userType == UserType::DELEGATE) {
+                    return redirect(RouteServiceProvider::DELEGATE_HOME);
+                }
+
+                if ($userType == UserType::EXHIBITOR) {
+                    return redirect(RouteServiceProvider::EXHIBITOR_HOME);
+                }
+
+                return redirect(RouteServiceProvider::HOME);
+            }
+        }*/
 
         return $next($request);
     }

@@ -30,7 +30,7 @@
                     <div class="row mb-6">
                         <div class="col-md-12">
                             <div class="form-floating mb-3">
-                                <input type="text" wire:model="title"
+                                <input type="text" wire:model.live="title"
                                        autocomplete="off"
                                        class="form-control  @error('name') border-danger @enderror "/>
                                 <label for="title">
@@ -46,7 +46,7 @@
                     <div class="row mb-6">
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
-                                <select wire:model="voting_period"
+                                <select wire:model.live="voting_period"
                                         data-control="select2"
                                         id="voting_period"
                                        class="form-select form-control-solid @error('voting_period') border-danger @enderror ">
@@ -66,7 +66,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
-                                <input type="text" wire:model="code"
+                                <input type="text" wire:model.live="code"
                                        autocomplete="off"
                                        class="form-control  @error('code') border-danger @enderror "/>
                                 <label for="code">

@@ -30,7 +30,7 @@
                     <div class="row mb-6">
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
-                                <input type="text" wire:model="first_name"
+                                <input type="text" wire:model.live="first_name"
                                        autocomplete="off"
                                        placeholder="e.g James"
                                        class="form-control  @error('first_name') border-danger @enderror "/>
@@ -45,7 +45,7 @@
                         </div>
                          <div class="col-md-6">
                             <div class="form-floating mb-3">
-                                 <input type="text" wire:model="last_name"
+                                 <input type="text" wire:model.live="last_name"
                                         autocomplete="off"
                                         placeholder="e.g James"
                                         class="form-control  @error('last_name') border-danger @enderror "/>
@@ -62,7 +62,7 @@
                     <div class="row mb-6">
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
-                                <input type="text" wire:model="mobile"
+                                <input type="text" wire:model.live="mobile"
                                        autocomplete="off"
                                        placeholder="e.g 0722123456"
                                        class="form-control  @error('mobile') border-danger @enderror "/>
@@ -77,7 +77,7 @@
                         </div>
                          <div class="col-md-6">
                             <div class="form-floating mb-3">
-                                 <input type="text" wire:model="email"
+                                 <input type="text" wire:model.live="email"
                                         autocomplete="off"
                                         placeholder="e.g james@vote.com"
                                         class="form-control  @error('email') border-danger @enderror "/>
