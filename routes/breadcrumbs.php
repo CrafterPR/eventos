@@ -32,27 +32,30 @@ Breadcrumbs::for('users.user.index', function (BreadcrumbTrail $trail) {
     $trail->push('Users', route('users.user.index'));
 });
 // Home > Dashboard > Programme > Speakers
-Breadcrumbs::for('voting', function (BreadcrumbTrail $trail) {
-    $trail->push('Voting Module', '#');
+Breadcrumbs::for('programme.speaker.index', function (BreadcrumbTrail $trail) {
+    $trail->parent('programme');
+    $trail->push('Speakers', route('programme.speakers.index'));
 });
 
-Breadcrumbs::for('voting.manage-periods', function (BreadcrumbTrail $trail) {
-    $trail->parent('voting');
-    $trail->push('Voting periods', route('vote.view-periods'));
+//Home > Dashboard > Ticket Management > Tickets > purchased tickets
+Breadcrumbs::for('tickets.view-purchased', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push('Purchased Tickets', route('tickets.view-purchased'));
 });
 
-Breadcrumbs::for('voting.manage-positions', function (BreadcrumbTrail $trail) {
-    $trail->parent('voting');
-    $trail->push('Voting positions', route('vote.view-positions'));
+Breadcrumbs::for('tickets.manage-tickets.index', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push('Manage Tickets', route('tickets.manage-tickets.index'));
 });
 
-Breadcrumbs::for('voting.manage-contestants', function (BreadcrumbTrail $trail) {
-    $trail->parent('voting');
-    $trail->push('Voting contestants', route('vote.view-contestants'));
+Breadcrumbs::for('booths.view-booth-bookings', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push('View Bookings', route('booths.view-booth-bookings'));
 });
-Breadcrumbs::for('voting.voters', function (BreadcrumbTrail $trail) {
-    $trail->parent('voting');
-    $trail->push('Voters', route('vote.view-voters'));
+
+Breadcrumbs::for('tickets.manage-coupons.index', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push('Manage Coupons', route('tickets.manage-coupons.index'));
 });
 
 // Home > Dashboard > User Management > Users > [User]
@@ -77,6 +80,27 @@ Breadcrumbs::for('users.role.show', function (BreadcrumbTrail $trail, Role $role
 Breadcrumbs::for('users.permission.index', function (BreadcrumbTrail $trail) {
     $trail->parent('users.index');
     $trail->push('Permissions', route('users.permission.index'));
+});
+
+// Home > Dashboard > Payments > Show
+Breadcrumbs::for('pages.payments.index', function (BreadcrumbTrail $trail) {
+    $trail->parent('payments.index');
+    $trail->push('Payments', route('pages.payments.index'));
+});
+
+Breadcrumbs::for('summits.events', function (BreadcrumbTrail $trail) {
+    $trail->parent('dashboard');
+    $trail->push('Summits', route('summits.events.index'));
+});
+
+Breadcrumbs::for('summits.events.index', function (BreadcrumbTrail $trail) {
+    $trail->parent('summits.events');
+    $trail->push('Events', route('summits.events.index'));
+});
+
+Breadcrumbs::for('summits.events.create', function (BreadcrumbTrail $trail) {
+    $trail->parent('summits.events');
+    $trail->push('Create summit', route('summits.events.create'));
 });
 
 Breadcrumbs::for('reports.export', function (BreadcrumbTrail $trail) {

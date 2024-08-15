@@ -10,7 +10,7 @@ class Theme
      * @var bool
      */
     public static $modeSwitchEnabled = false;
-    public static $modeDefault = 'light';
+    public static $modeDefault = 'dark';
 
     public static $direction = 'ltr';
 

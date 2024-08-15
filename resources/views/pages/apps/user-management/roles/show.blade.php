@@ -53,10 +53,7 @@
                     <!--end::Card body-->
                     <!--begin::Card footer-->
                     <div class="card-footer pt-0">
-                        @can('edit-role')
-                            <button type="button" class="btn btn-light btn-active-primary" data-role-id="{{ $role->name }}"
-                                data-bs-toggle="modal" data-bs-target="#kt_modal_update_role">Edit Role</button>
-                            @endcan
+                        <button type="button" class="btn btn-light btn-active-primary" data-role-id="{{ $role->name }}" data-bs-toggle="modal" data-bs-target="#kt_modal_update_role">Edit Role</button>
                     </div>
                     <!--end::Card footer-->
                 </div>

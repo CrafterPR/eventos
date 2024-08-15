@@ -1,0 +1,7 @@
+---
+- nodejs-extensions:
+  - .js
+
+  ignore-rules:
+  - vue_template
+  - generic_header_injection

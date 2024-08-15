@@ -30,7 +30,7 @@
                     <div class="row mb-6">
                         <div class="col-md-8">
                             <div class="form-floating mb-3">
-                                <input type="text" wire:model="full_name"
+                                <input type="text" wire:model.live="full_name"
                                        autocomplete="off"
                                        placeholder="e.g Dr. James Mwali Makau, E.G.H"
                                        class="form-control  @error('full_name') border-danger @enderror "/>
@@ -45,7 +45,7 @@
                         </div>
                          <div class="col-md-4">
                             <div class="form-floating mb-3">
-                                <input type="text" wire:model="unique_code"
+                                <input type="text" wire:model.live="unique_code"
                                        autocomplete="off"
                                        maxlength="2"
                                        placeholder="e.g 1"
@@ -63,7 +63,7 @@
                         <div class="row mb-6">
                             <div class="col-md-6">
                                 <div class="form-floating mb-3">
-                                    <select wire:model="period"
+                                    <select wire:model.live="period"
                                             data-control="select2"
                                             id="period"
                                             class="form-select form-control-solid @error('period') border-danger @enderror ">
@@ -83,7 +83,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating mb-3">
-                                    <select wire:model="position"
+                                    <select wire:model.live="position"
                                             data-control="select2"
                                             id="position"
                                             class="form-select form-control-solid @error('position') border-danger @enderror ">
