@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+bash ./scripts/hooks/run-npm-install.sh
+bash ./scripts/hooks/sync-env-files.sh .env.example .env

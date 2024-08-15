@@ -2,15 +2,8 @@
 
 namespace App\Http\Livewire\User;
 
-use App\Enum\VoterStatus;
-use App\Http\Requests\SMSRequest;
 use App\Models\User;
 use App\Enum\UserType;
-use App\Models\Voter;
-use App\Models\VotingPeriod;
-use App\Notifications\SendSMSNotification;
-use Illuminate\View\View;
-use Livewire\Attributes\On;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Illuminate\Validation\Rule;
@@ -30,31 +23,34 @@ class AddUserModal extends Component
 
     public $edit_mode = false;
 
-    protected function rules(): array
+    protected function rules()
     {
         return [
            'user.first_name' => 'required|string',
            'user.last_name' => 'required|string',
            'user.email' => ['required', 'email:rfc,dns', 'max:255', Rule::unique('users', 'email')->ignore($this->user->id) ],
            'user.mobile' => ['required', Rule::unique('users', 'mobile')->ignore($this->user->id)],
-           'user.id_number' => ['required', Rule::unique('users', 'id_number')->ignore($this->user->id)],
            'role' => 'required|string',
            'avatar' => 'nullable|sometimes|image|max:4096',
     ];
     }
 
+    protected $listeners = [
+        'delete_user' => 'deleteUser',
+        'update_user' => 'updateUser',
+    ];
 
-    public function mount(): void
+    public function mount()
     {
         $this->user = new User();
     }
 
-    public function render(): View
+    public function render()
     {
         $roles = Role::all();
 
         $roles_description = [
-            'Administrator' => 'Best for business owners and company administrators',
+            'administrator' => 'Best for business owners and company administrators',
             'developer' => 'Best for developers or people primarily using the API',
             'analyst' => 'Best for people who need full access to analytics data, but don\'t need to update business settings',
             'support' => 'Best for employees who regularly refund payments and respond to disputes',
@@ -68,10 +64,7 @@ class AddUserModal extends Component
         return view('livewire.user.add-user-modal', compact('roles'));
     }
 
-    /**
-     * @throws \Throwable
-     */
-    public function submit(): void
+    public function submit()
     {
         // Validate the form input data
         $this->validate();
@@ -82,6 +75,7 @@ class AddUserModal extends Component
             } else {
                 $this->user->profile_photo_path = null;
             }
+
             if (!$this->edit_mode) {
                 $password = generate_random_password();
                 $this->user->password = $password;
@@ -93,12 +87,23 @@ class AddUserModal extends Component
             if ($this->edit_mode) {
                 // Assign selected role for user
                 $this->user->syncRoles($this->role);
+                if ($this->role == UserType::DELEGATE->value || $this->role == UserType::EXHIBITOR->value) {
+                    $this->user->user_type = $this->role;
+                } else {
+                    $this->user->user_type = UserType::STAFF->value;
+                }
 
                 // Emit a success event with a message
                 $this->dispatch('success', __('User has been updated'));
             } else {
                 // Assign selected role for user
                 $this->user->assignRole($this->role);
+                if ($this->role == UserType::DELEGATE->value || $this->role == UserType::EXHIBITOR->value) {
+                    $this->user->user_type = $this->role;
+                } else {
+                    $this->user->user_type = UserType::STAFF->value;
+                }
+
                 // Emit a success event with a message
                 $this->dispatch('success', __('New user has been created'));
             }
@@ -108,38 +113,32 @@ class AddUserModal extends Component
             if (! $this->edit_mode) {
                 SendPasswordResetLink::dispatch($this->user->only('email'))->afterCommit();
             }
-
-            DB::commit();
         });
-
-
 
         // Reset the form fields after successful submission
         $this->reset();
     }
 
-    #[On('delete_user')]
-    public function deleteUser(User $id): void
+    public function deleteUser($id)
     {
         // Prevent deletion of current user
-        if ($id->id === Auth::id()) {
-            $this->dispatch('error', 'You cannot delete your account!');
+        if ($id == Auth::id()) {
+            $this->dispatch('error', 'User cannot be deleted');
             return;
         }
-        if ($id->hasRole(\App\Models\Role::SUPER_ADMIN)) {
+        if (in_array($id, [1 ,2])) {
             $this->dispatch('error', 'You cannot delete SUPERUSER accounts');
             return;
         }
 
         // Delete the user record with the specified ID
-        $id->delete();
+        User::destroy($id);
 
         // Emit a success event with a message
         $this->dispatch('success', 'User successfully deleted');
     }
 
-    #[On('update_user')]
-    public function updateUser($id): void
+    public function updateUser($id)
     {
         $this->edit_mode = true;
 
@@ -151,8 +150,7 @@ class AddUserModal extends Component
     }
 
 
-
-    public function hydrate(): void
+    public function hydrate()
     {
         $this->resetErrorBag();
         $this->resetValidation();

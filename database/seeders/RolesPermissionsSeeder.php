@@ -2,12 +2,12 @@
 
 namespace Database\Seeders;
 
-use App\Models\Role;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Str;
 use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 class RolesPermissionsSeeder extends Seeder
 {
@@ -17,47 +17,46 @@ class RolesPermissionsSeeder extends Seeder
     public function run(): void
     {
         $permissions_by_role = [
-           Role::SUPER_ADMIN => [
-                'view staff',
-                'create staff',
-                'edit staff',
-                'delete staff',
-                'view roles',
-                'create role',
-                'edit role',
-                'delete role',
-                'view voters',
-                'create voter',
-                'disable voter',
-                'enable voter',
-                'view voting periods',
-                'create voting period',
-                'enable voting period',
-                'close voting period',
-                'delete voting period',
-                'view voting positions',
-                'create voting position',
-                'enable voting position',
-                'disable voting position',
-                'delete voting position',
-                'view contestants',
-                'create contestant',
-                'enable contestant',
-                'disable contestant',
-                'delete contestant',
-                'view voting period activity logs',
-                'send voting reminders',
-                'view vote results',
+            'administrator' => [
+                'user management',
+                'role management',
+                'ticket management',
+                'booths management',
+                'purchased tickets',
+                'view booth bookings',
+                'view reserve details',
+                'view purchased tickets',
+                'reserve booth',
+                'coupon management',
+                'generate coupon',
+                'edit booth details',
+                'revoke booth booking',
+                'send payment reminders',
+                'manage events',
+                'add speakers',
+                'manage speakers',
+                'edit delegate',
+                'financial management',
+                'view delegates',
+                'view exhibitors',
                 'view reports',
+                'manage summits',
+                'update payment manually',
+                'send emails',
+                'manage users',
                 'view dashboard',
+                'login as delegate',
+                'redeem coupon for delegates',
+                'secretariat',
+                'activate coupon',
+                'edit coupon capacity',
             ],
 
         ];
 
-        Schema::disableForeignKeyConstraints();
-        DB::table('roles')->truncate();
-        DB::table('permissions')->truncate();
-        Schema::enableForeignKeyConstraints();
+        //Schema::disableForeignKeyConstraints();
+        //DB::table('roles')->truncate();
+        //DB::table('permissions')->truncate();
 
         foreach ($permissions_by_role as $role) {
             foreach ($role as $permission) {

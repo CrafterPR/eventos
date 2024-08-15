@@ -5,16 +5,12 @@ namespace App\Http\Controllers\Apps;
 use App\DataTables\UsersDataTable;
 use App\Enum\OrderItemStatus;
 use App\Enum\UserType;
-use App\Enum\VoterStatus;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\EmailRequest;
-use App\Http\Requests\SMSRequest;
 use App\Models\EmailGroup;
 use App\Models\TicketPayment;
 use App\Models\User;
-use App\Models\Voter;
 use App\Notifications\SendEmailsNotification;
-use App\Notifications\SendSMSNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
@@ -29,6 +25,46 @@ class UserManagementController extends Controller
     {
         return $dataTable->render('pages.apps.user-management.users.list');
     }
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function viewSendEmail()
+    {
+        $groups = EmailGroup::all();
+        return view('pages.apps.user-management.users.send-email', compact('groups'));
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function sendEmail(EmailRequest $request)
+    {
+        $users = match ($request->group_id) {
+            1 => $this->getAllRegistered(),
+            2 => $this->getAllDelegates(),
+            3 => $this->getAllExhibitors(),
+            4 => $this->getPaidDelegates(),
+            5 => $this->getUnPaidDelegates(),
+            6 => $this->getPaidExhibitors(),
+            7 => $this->getUNPaidExhibitors(),
+            default => $this->getAllStaff(),
+        };
+
+        if ($users) {
+            try {
+                foreach ($users as $user) {
+                    $user->notify(new SendEmailsNotification($request->all(), $user));
+                }
+                return redirect()->back()->with('message', 'Emails successfully queued for sending!');
+
+            } catch (\Throwable $e) {
+                return redirect()->back()->with('message', $e->getMessage());
+            }
+        }
+    }
+
+
 
     /**
      * Display the specified resource.

@@ -1,32 +1,18 @@
 <?php
 
+use App\Enum\SummitStatus;
+use App\Models\EmailTemplate;
+use App\Models\Schedule;
+use App\Models\Summit;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Model;
 
 /**
  * @param $dayId
  * @return Collection|array
  */
-
-if (! function_exists('getIconVal')) {
-     function getIconVal($key): string
-    {
-        $mapping = [
-            0 => 'success',
-            1 => 'primary',
-            2 => 'warning',
-            3 => 'info',
-            4 => 'default',
-            5 => 'danger',
-        ];
-
-
-
-        // Calculate the index in the sequence and map it to the corresponding value
-        $index = (($key - 1) % 6) + 1;
-        return $mapping[$index];
-    }
-}
 
 if (! function_exists('transform_config')) {
     function trim_text($text, $count = 10)
@@ -61,6 +47,13 @@ if (! function_exists('transform_config')) {
     }
 }
 
+if (!function_exists('getDaySchedules')) {
+    function getDaySchedules($dayId): Collection|array
+    {
+        return Schedule::query()->where('programme_id', $dayId)
+            ->get();
+    }
+}
 
 
 if (!function_exists('checkEventDateTime')) {
@@ -595,6 +588,25 @@ if (!function_exists('generate_reference_no')) {
         } while (!$unique);
 
         return $random;
+    }
+}
+
+if (!function_exists("get_current_summit")) {
+    /**
+     * @return Model|Builder|Summit
+     * @throws Exception
+     */
+    function get_current_summit(): Model|Builder|Summit
+    {
+        $summit = Summit::whereStatus(SummitStatus::ACTIVE)
+            ->latest()
+            ->first();
+
+        if ($summit) {
+            return $summit;
+        }
+
+        throw new Exception("No active summit found");
     }
 }
 

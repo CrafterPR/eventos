@@ -13,9 +13,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')->group(function () {
     Route::get('/', function () {
-        return redirect('login');
-    });
+        redirect('login');
+    })->name('index');
 
+
+    Route::get('registration/{coupon?}', [RegisteredUserController::class, 'create'])
+                ->name('register');
+
+    Route::post('register', [RegisteredUserController::class, 'store'])->name('register_save');
 
     Route::get('login', [AuthenticatedSessionController::class, 'create'])
                 ->name('login');
@@ -33,6 +38,8 @@ Route::middleware('guest')->group(function () {
 
     Route::post('reset-password', [NewPasswordController::class, 'store'])
                 ->name('password.update');
+    Route::get('/get-counties/{countryId}', [CountyController::class, 'counties'])->name('counties');
+    Route::get('/get-categories', [CountyController::class, 'categories'])->name('coupon-categories');
 });
 
 Route::middleware('auth')->group(function () {

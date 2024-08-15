@@ -1,0 +1,2 @@
+#!/usr/bin/env sh
+bash ./scripts/hooks/prepare-commit-msg.sh $1

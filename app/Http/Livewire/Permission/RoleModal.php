@@ -4,8 +4,6 @@ namespace App\Http\Livewire\Permission;
 
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Str;
-use Illuminate\View\View;
-use Livewire\Attributes\On;
 use Livewire\Component;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
@@ -24,9 +22,10 @@ class RoleModal extends Component
     ];
 
     // This is the list of listeners that this component listens to.
+    protected $listeners = ['modal.show.role_name' => 'mountRole'];
 
-    #[On('modal.show.role_name')]
-    public function mountRole($role_name = ''): void
+    // This function is called when the component receives the `modal.show.role_name` event.
+    public function mountRole($role_name = '')
     {
         if (empty($role_name)) {
             // Create new
@@ -50,7 +49,7 @@ class RoleModal extends Component
     }
 
     // This function is called when the component is mounted.
-    public function mount(): void
+    public function mount()
     {
         // Get all permissions.
         $this->permissions = Permission::all();
@@ -60,7 +59,7 @@ class RoleModal extends Component
     }
 
     // This function renders the component's view.
-    public function render(): View
+    public function render()
     {
         // Create an array of permissions grouped by ability.
         $permissions_by_group = [];
@@ -75,7 +74,7 @@ class RoleModal extends Component
     }
 
     // This function submits the form and updates the role's permissions.
-    public function submit(): void
+    public function submit()
     {
         $this->validate();
 
@@ -91,7 +90,7 @@ class RoleModal extends Component
     }
 
     // This function checks all of the permissions.
-    public function checkAll(): void
+    public function checkAll()
     {
         // If the check_all property is true, set the checked permissions property to all of the permissions.
         if ($this->check_all) {
@@ -102,7 +101,7 @@ class RoleModal extends Component
         }
     }
 
-    public function hydrate(): void
+    public function hydrate()
     {
         $this->resetErrorBag();
         $this->resetValidation();
