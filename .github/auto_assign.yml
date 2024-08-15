@@ -1,0 +1,12 @@
+addReviewers: true
+addAssignees: author
+numberOfReviewers: 0
+numberOfAssignees: 1
+useReviewGroups: false
+useAssigneeGroups: false
+runOnDraft: true
+skipKeywords:
+    - DO NOT REVIEW
+    - WIP
+reviewers:
+    - jacjimus
