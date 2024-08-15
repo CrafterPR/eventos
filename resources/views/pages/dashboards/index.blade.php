@@ -83,9 +83,8 @@
                     <div class="d-flex align-items-center flex-column mt-3 w-100">
                         <div
                             class="d-block justify-content-between fw-bold fs-6 text-white opacity-75 w-100 mt-auto mb-2">
-                            @foreach($tickets as $ticket)
-                                <span class="d-grid">( {{ $ticket->name}} ) $ticket->name</span>
-                            @endforeach
+                                <span class="d-grid">( {{ $ticket['one_day']}} ) One day ticket</span>
+                                <span class="d-grid">( {{ $ticket['five_day']}} ) Full event ticket</span>
                         </div>
                     </div>
                 </div>
