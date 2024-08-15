@@ -12,8 +12,8 @@ use App\Http\Controllers\CountyController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')->group(function () {
-    Route::get('/', function () {
-        redirect('login');
+    Route::get('/', static function () {
+        return redirect('login');
     })->name('index');
 
 
