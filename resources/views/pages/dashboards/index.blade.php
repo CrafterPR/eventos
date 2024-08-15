@@ -1,3 +1,4 @@
+@php use App\Models\User; @endphp
 @php(extract($data))
 
 <x-default-layout>
