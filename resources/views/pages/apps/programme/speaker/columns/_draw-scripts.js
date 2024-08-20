@@ -17,7 +17,7 @@ document.querySelectorAll('[data-kt-action="delete_row"]').forEach(function (ele
             }
         }).then((result) => {
             if (result.isConfirmed) {
-                Livewire.emit('delete_speaker', this.getAttribute('data-kt-speaker-id'));
+                Livewire.dispatch('delete_speaker', this.getAttribute('data-kt-speaker-id'));
             }
         });
     });
@@ -26,13 +26,13 @@ document.querySelectorAll('[data-kt-action="delete_row"]').forEach(function (ele
 // Add click event listener to update buttons
 document.querySelectorAll('[data-kt-action="update_speaker"]').forEach(function (element) {
     element.addEventListener('click', function () {
-        Livewire.emit('update_speaker', this.getAttribute('data-kt-speaker-id'));
+        Livewire.dispatch('update_speaker', this.getAttribute('data-kt-speaker-id'));
     });
 });
 
 document.querySelectorAll('[data-kt-action="add_speaker"]').forEach(function (element) {
     element.addEventListener('click', function () {
-        Livewire.emit('add_speaker');
+        Livewire.dispatch('add_speaker');
     });
 });
 

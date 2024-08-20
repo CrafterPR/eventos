@@ -155,7 +155,7 @@ class User extends Authenticatable
     protected function password(): Attribute
     {
         return Attribute::make(
-            set: fn(string $value) => bcrypt($value),
+            set: fn (string $value) => bcrypt($value),
         );
     }
 
@@ -239,5 +239,10 @@ class User extends Authenticatable
     public function orderItem(): HasOne
     {
         return $this->hasOne(OrderItem::class);
+    }
+
+    public function isSuperAdmin():bool
+    {
+        return $this->hasRole(Role::SUPER_ADMIN);
     }
 }

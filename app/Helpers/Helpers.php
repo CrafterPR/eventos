@@ -1,6 +1,6 @@
 <?php
 
-use App\Enum\SummitStatus;
+use App\Enum\EventStatus;
 use App\Models\EmailTemplate;
 use App\Models\Schedule;
 use App\Models\Summit;
@@ -598,7 +598,7 @@ if (!function_exists("get_current_summit")) {
      */
     function get_current_summit(): Model|Builder|Summit
     {
-        $summit = Summit::whereStatus(SummitStatus::ACTIVE)
+        $summit = Summit::whereStatus(EventStatus::ACTIVE)
             ->latest()
             ->first();
 

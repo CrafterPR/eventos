@@ -18,7 +18,7 @@ document.querySelectorAll('[data-kt-action="inactivate_row"]').forEach(function 
             }
         }).then((result) => {
             if (result.isConfirmed) {
-                Livewire.emit('inactivate_row', this.getAttribute('data-kt-coupon-id'));
+                Livewire.dispatch('inactivate_row', this.getAttribute('data-kt-coupon-id'));
             }
         });
     });
@@ -38,7 +38,7 @@ document.querySelectorAll('[data-kt-action="activate_row"]').forEach(function (e
             }
         }).then((result) => {
             if (result.isConfirmed) {
-                Livewire.emit('activate_row', this.getAttribute('data-kt-coupon-id'));
+                Livewire.dispatch('activate_row', this.getAttribute('data-kt-coupon-id'));
             }
         });
     });
@@ -48,14 +48,14 @@ document.querySelectorAll('[data-kt-action="activate_row"]').forEach(function (e
 document.querySelectorAll('[data-kt-action="update_ticket"]').forEach(function (element) {
     element.addEventListener('click', function () {
 
-                Livewire.emit('emit_update_ticket', this.getAttribute('data-kt-ticket-id'));
+                Livewire.dispatch('emit_update_ticket', this.getAttribute('data-kt-ticket-id'));
     });
 });
 
 document.querySelectorAll('[data-kt-action="edit_coupon"]').forEach(function (element) {
     element.addEventListener('click', function () {
 
-                Livewire.emit('edit_coupon', this.getAttribute('data-kt-coupon-id'));
+                Livewire.dispatch('edit_coupon', this.getAttribute('data-kt-coupon-id'));
     });
 });
 document.querySelectorAll('[data-kt-action="send_coupon"]').forEach(function (element) {
@@ -73,7 +73,7 @@ document.querySelectorAll('[data-kt-action="send_coupon"]').forEach(function (el
             }
         }).then((result) => {
             if (result.isConfirmed) {
-                Livewire.emit('send_coupon', this.getAttribute('data-kt-coupon-id'));
+                Livewire.dispatch('send_coupon', this.getAttribute('data-kt-coupon-id'));
             }
         });
     });
@@ -82,7 +82,7 @@ document.querySelectorAll('[data-kt-action="send_coupon"]').forEach(function (el
 // Add click event listener to update buttons
 document.querySelectorAll('[data-kt-action="update_row"]').forEach(function (element) {
     element.addEventListener('click', function () {
-        Livewire.emit('update_user', this.getAttribute('data-kt-user-id'));
+        Livewire.dispatch('update_user', this.getAttribute('data-kt-user-id'));
     });
 });
 

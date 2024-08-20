@@ -1,11 +1,11 @@
 <x-default-layout>
 
     @section('title')
-        Manage Tickets
+        Manage Events
     @endsection
 
     @section('breadcrumbs')
-        {{ Breadcrumbs::render('tickets.manage-tickets.index') }}
+        {{ Breadcrumbs::render('events.manage-events.index') }}
     @endsection
 
     <div class="card">
@@ -16,7 +16,7 @@
                 <!--begin::Search-->
                 <div class="d-flex align-items-center position-relative my-1">
                     {!! getIcon('magnifier', 'fs-3 position-absolute ms-5') !!}
-                    <input type="text" data-kt-user-table-filter="search" class="form-control form-control-solid w-250px ps-13" placeholder="Search ticket" id="mySearchInput"/>
+                    <input type="text" data-kt-user-table-filter="search" class="form-control form-control-solid w-250px ps-13" placeholder="Search event" id="mySearchInput"/>
                 </div>
                 <!--end::Search-->
             </div>
@@ -27,10 +27,10 @@
                 <!--begin::Toolbar-->
                 <div class="d-flex justify-content-end" data-kt-user-table-toolbar="base">
                     <!--begin::Add user-->
-                    @can('generate-tickets')
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_create_ticket">
+                    @can('create-event')
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_create_event">
                             {!! getIcon('plus', 'fs-2', '', 'i') !!}
-                            Create Ticket
+                            Register Event
                         </button>
                     @endcan
                     <!--end::Add user-->
@@ -38,8 +38,8 @@
                 <!--end::Toolbar-->
 
                 <!--begin::Modal-->
-                <livewire:tickets.create-ticket />
-                <livewire:tickets.edit-ticket />
+                <livewire:events.create-event />
+                <livewire:events.edit-event />
                 <!--end::Modal-->
             </div>
             <!--end::Card toolbar-->
@@ -62,12 +62,12 @@
         <script>
 
             document.getElementById('mySearchInput').addEventListener('keyup', function () {
-                window.LaravelDataTables['tickets'].search(this.value).draw();
+                window.LaravelDataTables['events'].search(this.value).draw();
             });
             document.addEventListener('livewire:init', function () {
                 Livewire.on('success', function () {
-                    $('#kt_modal_edit_ticket,#kt_modal_create_ticket').modal('hide');
-                        window.LaravelDataTables['tickets'].ajax.reload();
+                    $('#kt_modal_edit_event,#kt_modal_create_event').modal('hide');
+                        window.LaravelDataTables['events'].ajax.reload();
                 });
             });
 

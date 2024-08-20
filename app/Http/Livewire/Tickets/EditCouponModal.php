@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Tickets;
 use App\Models\Coupon;
 use App\Models\CouponModification;
 use App\Rules\ValidateCouponUpdate;
+use Livewire\Attributes\On;
 use Livewire\Component;
 
 class EditCouponModal extends Component
@@ -16,10 +17,6 @@ class EditCouponModal extends Component
     public $initial_value;
 
     public $reason ='';
-
-    protected $listeners = [
-        'edit_coupon' =>  'updateCoupon'
-    ];
 
     protected function rules()
     {
@@ -52,6 +49,7 @@ class EditCouponModal extends Component
         $this->dispatch('closeModal');
     }
 
+    #[On('edit_coupon')]
     public function updateCoupon(Coupon $coupon)
     {
         $this->coupon = $coupon;

@@ -1,11 +1,11 @@
 <x-default-layout>
 
     @section('title')
-        Manage Tickets
+        Purchased Tickets
     @endsection
 
     @section('breadcrumbs')
-        {{ Breadcrumbs::render('tickets.manage-tickets.index') }}
+        {{ Breadcrumbs::render('tickets.view-purchased') }}
     @endsection
 
     <div class="card">
@@ -28,9 +28,9 @@
                 <div class="d-flex justify-content-end" data-kt-user-table-toolbar="base">
                     <!--begin::Add user-->
                     @can('generate-tickets')
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_create_ticket">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_generate_ticket">
                             {!! getIcon('plus', 'fs-2', '', 'i') !!}
-                            Create Ticket
+                            Generate Ticket
                         </button>
                     @endcan
                     <!--end::Add user-->
@@ -38,8 +38,9 @@
                 <!--end::Toolbar-->
 
                 <!--begin::Modal-->
-                <livewire:tickets.create-ticket />
-                <livewire:tickets.edit-ticket />
+                <livewire:tickets.approve-ticket-modal></livewire:tickets.approve-ticket-modal>
+                <livewire:tickets.generate-ticket-modal></livewire:tickets.generate-ticket-modal>
+                <livewire:tickets.update-manually-modal></livewire:tickets.update-manually-modal>
                 <!--end::Modal-->
             </div>
             <!--end::Card toolbar-->
@@ -60,17 +61,21 @@
     @push('scripts')
         {{ $dataTable->scripts() }}
         <script>
-
             document.getElementById('mySearchInput').addEventListener('keyup', function () {
-                window.LaravelDataTables['tickets'].search(this.value).draw();
+                window.LaravelDataTables['purchased-tickets'].search(this.value).draw();
             });
             document.addEventListener('livewire:init', function () {
                 Livewire.on('success', function () {
-                    $('#kt_modal_edit_ticket,#kt_modal_create_ticket').modal('hide');
-                        window.LaravelDataTables['tickets'].ajax.reload();
+                    $('#kt_modal_add_user').modal('hide');
+                    window.LaravelDataTables['purchased-tickets'].ajax.reload();
+                });
+             });
+            document.addEventListener('livewire:init', function () {
+                Livewire.on('success', function () {
+                    $('#kt_modal_update_purchase').modal('hide');
+                    window.LaravelDataTables['purchased-tickets'].ajax.reload();
                 });
             });
-
         </script>
     @endpush
 

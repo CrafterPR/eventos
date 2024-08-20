@@ -17,7 +17,7 @@ document.querySelectorAll('[data-kt-action="delete_row"]').forEach(function (ele
             }
         }).then((result) => {
             if (result.isConfirmed) {
-                Livewire.emit('delete_delegate', this.getAttribute('data-kt-delegate-id'));
+                Livewire.dispatch('delete_delegate', this.getAttribute('data-kt-delegate-id'));
             }
         });
     });
@@ -26,13 +26,13 @@ document.querySelectorAll('[data-kt-action="delete_row"]').forEach(function (ele
 // Add click event listener to update buttons
 document.querySelectorAll('[data-kt-action="update_row"]').forEach(function (element) {
     element.addEventListener('click', function () {
-        Livewire.emit('update_delegate', this.getAttribute('data-kt-delegate-id'));
+        Livewire.dispatch('update_delegate', this.getAttribute('data-kt-delegate-id'));
     });
 });
 
 document.querySelectorAll('[data-kt-action="redeem_coupon"]').forEach(function (element) {
     element.addEventListener('click', function () {
-        Livewire.emit('redeem_coupon', this.getAttribute('data-kt-delegate-id'));
+        Livewire.dispatch('redeem_coupon', this.getAttribute('data-kt-delegate-id'));
     });
 });
 

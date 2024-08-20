@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Enum\SummitStatus;
+use App\Enum\EventStatus;
 use App\Models\Summit;
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
@@ -26,7 +26,7 @@ class SummitSeeder extends Seeder
             "start_date" => Carbon::parse("27-08-2023"),
             "end_date" => Carbon::parse("1-12-2023"),
             "venue" => "Nairobi",
-            "status" => SummitStatus::ACTIVE
+            "status" => EventStatus::ACTIVE
         ]);
     }
 }

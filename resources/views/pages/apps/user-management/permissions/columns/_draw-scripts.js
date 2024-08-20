@@ -14,7 +14,7 @@ document.querySelectorAll('[data-kt-action="delete_row"]').forEach(function (ele
             }
         }).then((result) => {
             if (result.isConfirmed) {
-                Livewire.emit('delete_permission', this.getAttribute('data-permission-id'));
+                Livewire.dispatch('delete_permission', this.getAttribute('data-permission-id'));
             }
         });
     });

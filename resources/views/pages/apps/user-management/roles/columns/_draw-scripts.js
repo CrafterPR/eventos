@@ -5,7 +5,7 @@ KTMenu.init();
 document.querySelectorAll('[data-kt-action="delete_row"]').forEach(function (element) {
     element.addEventListener('click', function () {
         if (confirm('Are you sure you want to remove?')) {
-            Livewire.emit('delete_user', this.getAttribute('data-kt-user-id'));
+            Livewire.dispatch('delete_user', this.getAttribute('data-kt-user-id'));
         }
     });
 });
@@ -13,7 +13,7 @@ document.querySelectorAll('[data-kt-action="delete_row"]').forEach(function (ele
 // Add click event listener to update buttons
 document.querySelectorAll('[data-kt-action="update_row"]').forEach(function (element) {
     element.addEventListener('click', function () {
-        Livewire.emit('update_user', this.getAttribute('data-kt-user-id'));
+        Livewire.dispatch('update_user', this.getAttribute('data-kt-user-id'));
     });
 });
 

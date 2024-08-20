@@ -140,7 +140,7 @@
         const modal = document.querySelector('#kt_modal_update_event');
 
         modal.addEventListener('show.bs.modal', (e) => {
-            Livewire.emit('modal.show.event_name', e.relatedTarget.getAttribute('data-role-id'));
+            Livewire.dispatch('modal.show.event_name', e.relatedTarget.getAttribute('data-role-id'));
         });
 
         modal.addEventListener('closeModal', () => {

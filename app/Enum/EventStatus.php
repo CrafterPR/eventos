@@ -2,7 +2,7 @@
 
 namespace App\Enum;
 
-enum SummitStatus: string
+enum EventStatus: string
 {
     case DRAFT = "draft";
     case ACTIVE = "active";

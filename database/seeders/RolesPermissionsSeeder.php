@@ -20,8 +20,9 @@ class RolesPermissionsSeeder extends Seeder
             'administrator' => [
                 'user management',
                 'role management',
+                'event management',
                 'ticket management',
-                'booths management',
+                'booth management',
                 'purchased tickets',
                 'view booth bookings',
                 'view reserve details',
