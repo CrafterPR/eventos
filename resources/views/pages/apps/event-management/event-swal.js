@@ -116,7 +116,7 @@ document.querySelectorAll('[data-kt-action="activate_row"]').forEach(function (e
 
 document.querySelectorAll('[data-kt-action="update_event"]').forEach(function (element) {
     element.addEventListener('click', function () {
-         Livewire.dispatch('emit_update_event', { 'event': this.getAttribute('data-kt-event-id')});
+         Livewire.dispatch('update_event', { 'event': this.getAttribute('data-kt-event-id')});
     });
 });
 document.querySelectorAll('[data-kt-action="un_approve_row"]').forEach(function (element) {

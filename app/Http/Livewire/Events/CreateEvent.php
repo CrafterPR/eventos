@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Events;
 
+use App\Enum\EventStatus;
 use App\Models\Event;
 use Livewire\Component;
 
@@ -13,8 +14,9 @@ class CreateEvent extends Component
         'event.title' => ['required', 'max:255'],
         'event.theme' => ['required', 'max:255'],
         'event.organization' => ['required'],
-        'event.start_date' => ['date', 'after:today'],
+        'event.start_date' => ['date', 'after:yesterday'],
         'event.end_date' => ['date', 'after:event.start_date'],
+        'event.venue' => ['required'],
 
     ];
 
@@ -31,6 +33,7 @@ class CreateEvent extends Component
     {
         try {
             $this->validate();
+            $this->event->status = EventStatus::ACTIVE;
             $this->event->save();
             $this->dispatch('success', 'Event registered successfully');
         } catch(\Throwable $e) {

@@ -116,23 +116,45 @@
                .create(document.querySelector('#create_theme_ckeditor_classic'))
                .then(editor => {
                    editor.model.document.on('change:data', () => {
-                   @this.set('event.theme', editor.getData());
+                   @this.set('event.theme', editor.getData())
                    })
                })
                .catch(error => {
                    console.error(error);
                });
+
            $('#startDate').daterangepicker({
                singleDatePicker: true,
-               minDate: moment().add(1, 'days'),
-               startDate: moment().add(1, 'days')
-           }),function(start) {
-               // When the start date is selected, update the end date picker's minDate
+               minDate: moment().add(0, 'days'),
+               startDate: moment().add(0, 'days')
+           }, function(start) {
+
                $('#endDate').daterangepicker({
                    singleDatePicker: true,
-                   minDate: start, // End date can't be before the start date
-                   startDate: start.add(1, 'days') // Default end date is one day after the start date
+                   minDate: start,
+                   startDate: start.add(0, 'days')
                });
+           });
+
+
+           $('#endDate').daterangepicker({
+               singleDatePicker: true,
+               minDate: moment().add(0, 'days'),
+               startDate: moment().add(0, 'days')
+           });
+           document.getElementById('kt_modal_create_event_form').addEventListener('submit', function(event) {
+               event.preventDefault();
+
+               // Get the selected dates
+               let startDate = $('#startDate').data('daterangepicker').startDate.format('YYYY-MM-DD');
+               let endDate = $('#endDate').data('daterangepicker').endDate.format('YYYY-MM-DD');
+
+               // Set the dates in Livewire component
+           @this.set('event.start_date', startDate);
+           @this.set('event.end_date', endDate);
+
+               // Trigger the form submission in Livewire
+           @this.call('submit');
            });
        });
 

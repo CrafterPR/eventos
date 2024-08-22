@@ -34,7 +34,19 @@
                         </div>
                         <!--end::Input group-->
                         <!--begin::Input group-->
-
+                        <div class="fv-row mb-7">
+                            <!--begin::Label-->
+                            <label class="required fw-semibold fs-6 mb-2">Select Event</label>
+                            <!--end::Label-->
+                           <select wire:model="ticket.event_id" class="form-select form-control-solid mb-3 mb-lg-0"  data-control="select2">
+                                <option value="">Select event</option>
+                               @foreach($events as $event)
+                                   <option value="{{$event->id}}">{{$event->title}}</option>
+                               @endforeach
+                            </select>
+                            @error('ticket.title')
+                            <span class="text-danger">{{ $message }}</span> @enderror
+                        </div>
                         <div class="row fv-row mb-7">
                             <div class="col-md-6">
                                <label class="required fw-semibold fs-6 mb-2">Days</label>

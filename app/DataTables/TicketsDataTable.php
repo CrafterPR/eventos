@@ -24,10 +24,13 @@ class TicketsDataTable extends DataTable
     public function dataTable(QueryBuilder $query): EloquentDataTable
     {
         return (new EloquentDataTable($query))
-            ->rawColumns(['title', 'covers', 'priority', 'days', 'persons', 'kes_amount', 'usd_amount', 'status'])
+            ->rawColumns(['title', 'covers', 'event_id', 'priority', 'days', 'persons', 'kes_amount', 'usd_amount', 'status'])
 
             ->editColumn('title', function (Ticket $ticket) {
                 return Str::upper($ticket->title);
+            })
+            ->editColumn('event_id', function (Ticket $ticket) {
+                return Str::upper($ticket->event->title);
             })
             ->editColumn('covers', function (Ticket $ticket) {
                 return $ticket->covers;
@@ -89,6 +92,7 @@ class TicketsDataTable extends DataTable
     {
         return [
             Column::make('title')->title('Title')->addClass('align-items-center'),
+            Column::make('event_id')->title('Event')->addClass('align-items-center'),
             Column::make('covers')->title('Covers')->addClass('align-items-left'),
             Column::make('days')->title('Days')->addClass('align-items-center'),
             Column::make('persons')->title('Persons')->addClass('align-items-right'),
