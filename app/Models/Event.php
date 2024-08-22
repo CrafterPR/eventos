@@ -87,8 +87,8 @@ class Event extends Model implements Auditable, HasMedia
     protected $casts = [
         "status" => EventStatus::class,
         "meta" => "json",
-        "start_date" => "datetime",
-        "end_date" => "datetime",
+        "start_date" => "date",
+        "end_date" => "date",
     ];
 
     public function bookings(): HasMany

@@ -113,7 +113,7 @@
 
                         <div class="menu-item">
                             <!--begin:Menu link-->
-                            <a class="menu-link {{ request()->routeIs('tickets.manage-tickets.*') ? 'active' : '' }}"
+                            <a class="menu-link {{ request()->routeIs('events.manage-events.*') ? 'active' : '' }}"
                                href="{{ route('events.manage-events.index') }}">
 							<span class="menu-bullet">
 								<span class="bullet bullet-line"></span>

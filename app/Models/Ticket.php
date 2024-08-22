@@ -72,9 +72,9 @@ class Ticket extends Model implements Auditable, HasMedia
         //"covers" => "json"
     ];
 
-    public function summit(): BelongsTo
+    public function event(): BelongsTo
     {
-        return $this->belongsTo(Summit::class);
+        return $this->belongsTo(Event::class);
     }
 
     public function orderItem(): MorphOne

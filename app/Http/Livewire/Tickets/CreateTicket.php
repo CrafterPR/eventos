@@ -2,21 +2,19 @@
 
 namespace App\Http\Livewire\Tickets;
 
-use App\Enum\OrderItemStatus;
-use App\Enum\OrderStatus;
-use App\Enum\UserType;
-use App\Models\OrderItem;
+use App\Enum\EventStatus;
+use App\Models\Event;
 use App\Models\Ticket;
-use App\Models\User;
-use App\Notifications\PaymentReminderNotification;
-use Livewire\Attributes\On;
+use Illuminate\Database\Eloquent\Collection;
 use Livewire\Component;
 
 class CreateTicket extends Component
 {
     public Ticket $ticket;
+    public array|Collection $events;
 
     protected $rules = [
+        'ticket.event_id' => ['required', 'exists:events,id'],
         'ticket.title' => ['required'],
         'ticket.covers' => ['required'],
         'ticket.days' => ['required'],
@@ -25,9 +23,11 @@ class CreateTicket extends Component
         'ticket.usd_amount' => ['required'],
     ];
 
+
     public function mount()
     {
         $this->ticket = new Ticket;
+        $this->events = Event::where('status', EventStatus::ACTIVE)->get();
     }
 
     public function submit()
