@@ -27,7 +27,7 @@
                 <!--begin::Toolbar-->
                 <div class="d-flex justify-content-end" data-kt-user-table-toolbar="base">
                     <!--begin::Add user-->
-                    @can('create-event')
+                    @can('register-event')
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_create_event">
                             {!! getIcon('plus', 'fs-2', '', 'i') !!}
                             Register Event
