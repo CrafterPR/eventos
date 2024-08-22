@@ -12,6 +12,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Str;
+use Livewire\Attributes\On;
 use Livewire\Component;
 
 class ManageCouponModal extends Component
@@ -21,9 +22,6 @@ class ManageCouponModal extends Component
     public Collection $categories;
 
     public Collection $types;
-
-    protected $listeners = [
-    'send_coupon' => 'sendCoupon'];
 
     protected $rules = [
         'coupon.organization' => ['required'],
@@ -68,6 +66,7 @@ class ManageCouponModal extends Component
         $this->coupon = null;
     }
 
+   #[On('send_coupon')]
     public function sendCoupon($id)
     {
         $coupon = Coupon::findOrFail($id);

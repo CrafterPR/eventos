@@ -9,6 +9,7 @@ use App\Http\Controllers\Apps\UserManagementController;
 use App\Http\Controllers\BoothController;
 use App\Http\Controllers\CouponController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\EventController;
 use App\Http\Controllers\ExportController;
 use App\Http\Controllers\Payment\PesaflowController;
 use App\Http\Controllers\PaymentController;
@@ -55,9 +56,13 @@ Route::middleware(['auth', 'verified'])->group(function () {
             Route::get('view-purchased', [TicketController::class, 'view_purchased'])->name('view-purchased');
             Route::get('view-purchased/{ticketId}', [TicketController::class, 'view_ticket'])->name('view-ticket');
         });
+        // manage events
+        Route::middleware(['can:event-management'])->name('events.')->group(function () {
+            Route::resource('manage-events', EventController::class);
+        });
 
-        // manate booths
-        Route::middleware(['can:booths-management'])->prefix('booths')->name('booths.')->group(function () {
+        // manage booths
+        Route::middleware(['can:booth-management'])->prefix('booths')->name('booths.')->group(function () {
             Route::resource('booth', BoothController::class);
             Route::get('bookings', [BoothController::class, 'view_bookings'])->name('view-booth-bookings');
             Route::get('booking/{boothId}', [BoothController::class, 'view_ticket'])->name('view-booth');

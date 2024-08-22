@@ -8,7 +8,7 @@ Livewire.on('success', (message) => {
 
 document.querySelectorAll('[data-kt-action="reserve_booth"]').forEach(function (element) {
     element.addEventListener('click', function () {
-        Livewire.emit('emit_reserve_booth', this.getAttribute('data-kt-booth-id'));
+        Livewire.dispatch('emit_reserve_booth', this.getAttribute('data-kt-booth-id'));
     });
 });
 
@@ -27,7 +27,7 @@ document.querySelectorAll('[data-kt-action="revoke_booking"]').forEach(function 
             }
         }).then((result) => {
             if (result.isConfirmed) {
-                Livewire.emit('revoke_booth_booking', this.getAttribute('data-kt-booth-id'));
+                Livewire.dispatch('revoke_booth_booking', this.getAttribute('data-kt-booth-id'));
             }
         });
     });

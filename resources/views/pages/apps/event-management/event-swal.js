@@ -5,7 +5,7 @@ KTMenu.init();
 document.querySelectorAll('[data-kt-action="delete_row"]').forEach(function (element) {
     element.addEventListener('click', function () {
         Swal.fire({
-            text: 'Are you sure you want to delete the ticket?',
+            text: 'Are you sure you want to delete the event?',
             icon: 'warning',
             buttonsStyling: false,
             showCancelButton: true,
@@ -17,7 +17,7 @@ document.querySelectorAll('[data-kt-action="delete_row"]').forEach(function (ele
             }
         }).then((result) => {
             if (result.isConfirmed) {
-                Livewire.dispatch('delete_ticket', { 'ticket': this.getAttribute('data-kt-ticket-id')});
+                Livewire.dispatch('delete_event', { 'event': this.getAttribute('data-kt-event-id')});
             }
         });
     });
@@ -27,7 +27,7 @@ document.querySelectorAll('[data-kt-action="delete_row"]').forEach(function (ele
 document.querySelectorAll('[data-kt-action="approve_row"]').forEach(function (element) {
     element.addEventListener('click', function () {
         Swal.fire({
-            text: 'Are you sure you want to approve this ticket?',
+            text: 'Are you sure you want to approve this event?',
             icon: 'success',
             buttonsStyling: false,
             showCancelButton: true,
@@ -39,7 +39,7 @@ document.querySelectorAll('[data-kt-action="approve_row"]').forEach(function (el
             }
         }).then((result) => {
             if (result.isConfirmed) {
-                Livewire.dispatch('approve_ticket', { 'ticket': this.getAttribute('data-kt-ticket-id')});
+                Livewire.dispatch('approve_event', { 'event': this.getAttribute('data-kt-event-id')});
             }
         });
     });
@@ -60,7 +60,7 @@ document.querySelectorAll('[data-kt-action="reminder_row"]').forEach(function (e
             }
         }).then((result) => {
             if (result.isConfirmed) {
-                Livewire.dispatch('remind_payment',{ 'ticket': this.getAttribute('data-kt-ticket-id')});
+                Livewire.dispatch('remind_payment',{ 'event': this.getAttribute('data-kt-event-id')});
             }
         });
     });
@@ -68,14 +68,14 @@ document.querySelectorAll('[data-kt-action="reminder_row"]').forEach(function (e
 
 document.querySelectorAll('[data-kt-action="update_manually"]').forEach(function (element) {
     element.addEventListener('click', function () {
-        Livewire.dispatch('update_manually', this.getAttribute('data-kt-ticket-id'));
+        Livewire.dispatch('update_manually', this.getAttribute('data-kt-event-id'));
     });
 });
 
 document.querySelectorAll('[data-kt-action="inactivate_row"]').forEach(function (element) {
     element.addEventListener('click', function () {
         Swal.fire({
-            text: 'Are you sure you want to Inactivate this ticket?',
+            text: 'Are you sure you want to Inactivate this event?',
             icon: 'warning',
             buttonsStyling: false,
             showCancelButton: true,
@@ -87,7 +87,7 @@ document.querySelectorAll('[data-kt-action="inactivate_row"]').forEach(function 
             }
         }).then((result) => {
             if (result.isConfirmed) {
-                Livewire.dispatch('inactivate_row',{ 'ticket': this.getAttribute('data-kt-ticket-id')});
+                Livewire.dispatch('inactivate_row',{ 'event': this.getAttribute('data-kt-event-id')});
             }
         });
     });
@@ -95,7 +95,7 @@ document.querySelectorAll('[data-kt-action="inactivate_row"]').forEach(function 
 document.querySelectorAll('[data-kt-action="activate_row"]').forEach(function (element) {
     element.addEventListener('click', function () {
         Swal.fire({
-            text: 'Are you sure you want to activate this ticket?',
+            text: 'Are you sure you want to activate this event?',
             icon: 'success',
             buttonsStyling: false,
             showCancelButton: true,
@@ -107,22 +107,22 @@ document.querySelectorAll('[data-kt-action="activate_row"]').forEach(function (e
             }
         }).then((result) => {
             if (result.isConfirmed) {
-                Livewire.dispatch('activate_row', { 'ticket': this.getAttribute('data-kt-ticket-id')});
+                Livewire.dispatch('activate_row', { 'event': this.getAttribute('data-kt-event-id')});
             }
         });
     });
 });
 
 
-document.querySelectorAll('[data-kt-action="update_ticket"]').forEach(function (element) {
+document.querySelectorAll('[data-kt-action="update_event"]').forEach(function (element) {
     element.addEventListener('click', function () {
-         Livewire.dispatch('emit_update_ticket', { 'ticket': this.getAttribute('data-kt-ticket-id')});
+         Livewire.dispatch('emit_update_event', { 'event': this.getAttribute('data-kt-event-id')});
     });
 });
 document.querySelectorAll('[data-kt-action="un_approve_row"]').forEach(function (element) {
     element.addEventListener('click', function () {
         Swal.fire({
-            text: 'Are you sure you want to Un-approve this ticket?',
+            text: 'Are you sure you want to Un-approve this event?',
             icon: 'warning',
             buttonsStyling: false,
             showCancelButton: true,
@@ -134,17 +134,12 @@ document.querySelectorAll('[data-kt-action="un_approve_row"]').forEach(function 
             }
         }).then((result) => {
             if (result.isConfirmed) {
-                Livewire.dispatch('un_approve_ticket', this.getAttribute('data-kt-ticket-id'));
+                Livewire.dispatch('un_approve_event', this.getAttribute('data-kt-event-id'));
             }
         });
     });
 });
 
-// Add click event listener to update buttons
-document.querySelectorAll('[data-kt-action="update_row"]').forEach(function (element) {
-    element.addEventListener('click', function () {
-        Livewire.dispatch('update_user', this.getAttribute('data-kt-user-id'));
-    });
-});
+
 
 

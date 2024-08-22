@@ -32,5 +32,7 @@ class Role extends \Spatie\Permission\Models\Role
 {
     use HasFactory;
 
+    public const SUPER_ADMIN = 'superadmin';
+
 
 }

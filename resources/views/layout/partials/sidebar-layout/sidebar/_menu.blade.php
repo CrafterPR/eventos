@@ -99,6 +99,34 @@
                 </div>
             </div>
             @endcan
+            @can('events-management')
+                <div data-kt-menu-trigger="click"
+                     class="menu-item menu-accordion {{ request()->routeIs('events.*') ? 'here show' : '' }}">
+                <!--begin:Menu link-->
+                <span class="menu-link">
+					<span class="menu-icon">{!! getIcon('abstract-28', 'fs-2') !!}</span>
+					<span class="menu-title">Events Module</span>
+					<span class="menu-arrow"></span>
+				</span>
+                <div class="menu-sub menu-sub-accordion">
+                    <!--begin:Menu item-->
+
+                        <div class="menu-item">
+                            <!--begin:Menu link-->
+                            <a class="menu-link {{ request()->routeIs('tickets.manage-tickets.*') ? 'active' : '' }}"
+                               href="{{ route('events.manage-events.index') }}">
+							<span class="menu-bullet">
+								<span class="bullet bullet-line"></span>
+							</span>
+                                <span class="menu-title">Manage events</span>
+                            </a>
+                            <!--end:Menu link-->
+                        </div>
+
+                </div>
+                    <!--end:Menu sub-->
+            </div>
+            @endcan
             @can('ticket-management')
             <div data-kt-menu-trigger="click"
                  class="menu-item menu-accordion {{ request()->routeIs('tickets.*') ? 'here show' : '' }}">

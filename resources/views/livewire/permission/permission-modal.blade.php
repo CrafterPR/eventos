@@ -83,7 +83,7 @@
         const modal = document.querySelector('#kt_modal_update_permission');
 
         modal.addEventListener('show.bs.modal', (e) => {
-            Livewire.emit('modal.show.permission_name', e.relatedTarget.getAttribute('data-permission-id'));
+            Livewire.dispatch('modal.show.permission_name', e.relatedTarget.getAttribute('data-permission-id'));
         });
     </script>
 @endpush

@@ -1,9 +1,8 @@
 <?php
 
-use App\Enum\SummitStatus;
-use App\Models\EmailTemplate;
+use App\Enum\EventStatus;
+use App\Models\Event;
 use App\Models\Schedule;
-use App\Models\Summit;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
@@ -593,20 +592,14 @@ if (!function_exists('generate_reference_no')) {
 
 if (!function_exists("get_current_summit")) {
     /**
-     * @return Model|Builder|Summit
+     * @return Model|Builder|Event
      * @throws Exception
      */
-    function get_current_summit(): Model|Builder|Summit
+    function get_current_summit(): Model|Builder|Event
     {
-        $summit = Summit::whereStatus(SummitStatus::ACTIVE)
-            ->latest()
-            ->first();
-
-        if ($summit) {
-            return $summit;
-        }
-
-        throw new Exception("No active summit found");
+        return Event::where('status', EventStatus::ACTIVE)
+             ->latest()
+             ->firstOrFail();
     }
 }
 

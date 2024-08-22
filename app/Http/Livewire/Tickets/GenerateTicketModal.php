@@ -18,6 +18,7 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\DB;
+use Livewire\Attributes\On;
 use Livewire\Component;
 
 class GenerateTicketModal extends Component
@@ -27,90 +28,6 @@ class GenerateTicketModal extends Component
     public Collection $users;
 
     public Collection $tickets;
-
-    protected $listeners =  [
-        'un_approve_ticket' => 'unApproveTicket',
-        'approve_ticket' => 'approveTicket',
-        'remind_payment' => 'remindPayment',
-        'activate_row' => 'activateTicket',
-        'inactivate_row' => 'inactivateTicket',
-    ];
-
-
-
-    public function approveTicket($id): void
-    {
-        $orderItem = OrderItem::findOrFail($id);
-        $orderItem->update([
-            'status' => OrderItemStatus::APPROVED,
-            'ticket_sent_at' => now()]);
-
-        $orderItem->order->fill(['payment_verified_by' => auth()->id(), 'payment_verified_at' => now()])->push();
-
-        //event(new TicketApprovedEvent($orderItem));
-
-        // Emit a success event with a message
-        $this->dispatch('success', 'Payment approved and Ticket send to Delegate');
-    }
-
-    public function activateTicket($id): void
-    {
-        $orderItem = Ticket::findOrFail($id);
-        $orderItem->update([
-            'status' => 'active',
-        ]);
-
-        // Emit a success event with a message
-        $this->dispatch('success', 'Ticket has been activated successfully');
-    }
-    public function inactivateTicket($id): void
-    {
-        $orderItem = Ticket::findOrFail($id);
-        $orderItem->update([
-            'status' => 'inactive',
-        ]);
-
-        // Emit a success event with a message
-        $this->dispatch('info', 'Ticket has been inactivated');
-    }
-
-    public function remindPayment($id): void
-    {
-        $orderItem = OrderItem::findOrFail($id);
-        try {
-            if ($orderItem->status == OrderStatus::PENDING->value) {
-                if ($this->userDoesntHaveAPaidTicket($orderItem)) {
-                    $orderItem->order?->user->notify(new PaymentReminderNotification($orderItem));
-                }
-            }
-        } catch(\Throwable $e) {
-            $this->dispatch('warning', 'Cannot sent email: '. $e->getMessage());
-        }
-
-        $this->dispatch('success', 'Email reminder for payment has been send to the delegate');
-    }
-    public function unApproveTicket($id)
-    {
-        $orderItem = OrderItem::findOrFail($id);
-        $orderItem->update([
-            'status' => OrderItemStatus::PAID
-        ]);
-
-        // Emit a success event with a message
-        $this->dispatch('success', 'Payment un-approved successfully!');
-    }
-    public function mount()
-    {
-        $this->users = User::query()
-        ->where('user_type', UserType::DELEGATE->value)
-        ->get();
-
-        $this->tickets = Ticket::query()
-        ->where('status', 'active')
-        ->get();
-
-        $this->orderItem = new OrderItem();
-    }
 
     /**
      * @return Application|Factory|View|\Illuminate\Foundation\Application

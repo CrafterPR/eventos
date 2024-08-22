@@ -1,12 +1,12 @@
-<div  class="modal fade" id="kt_modal_edit_ticket" tabindex="-1" aria-hidden="true" wire:ignore.self>
+<div  class="modal fade" id="kt_modal_create_ticket" tabindex="-1" aria-hidden="true" wire:ignore.self>
     <!--begin::Modal dialog-->
     <div class="modal-dialog modal-dialog-centered mw-650px">
         <!--begin::Modal content-->
         <div class="modal-content">
             <!--begin::Modal header-->
-            <div class="modal-header" id="kt_modal_edit_ticket">
+            <div class="modal-header" id="kt_create_ticket">
                 <!--begin::Modal title-->
-                <h2 class="fw-bold">Edit Ticket</h2>
+                <h2 class="fw-bold">Create a Ticket</h2>
                 <!--end::Modal title-->
                 <!--begin::Close-->
                 <div class="btn btn-icon btn-sm btn-active-icon-primary" data-bs-dismiss="modal" aria-label="Close">
@@ -18,9 +18,9 @@
             <!--begin::Modal body-->
             <div class="modal-body px-5 my-7">
                 <!--begin::Form-->
-                <form id="kt_modal_add_user_form" class="form" action="#" wire:submit="submit" enctype="multipart/form-data">
+                <form id="kt_modal_create_ticket_form" class="form" action="#" wire:submit="submit" enctype="multipart/form-data">
                     <!--begin::Scroll-->
-                    <div class="d-flex flex-column scroll-y px-5 px-lg-10" id="kt_modal_add_user_scroll" data-kt-scroll="true" data-kt-scroll-activate="true" data-kt-scroll-max-height="auto" data-kt-scroll-dependencies="#kt_modal_add_user_header" data-kt-scroll-wrappers="#kt_modal_add_user_scroll" data-kt-scroll-offset="300px">
+                    <div class="d-flex flex-column scroll-y px-5 px-lg-10" id="kt_modal_ticket_scroll" data-kt-scroll="true" data-kt-scroll-activate="true" data-kt-scroll-max-height="auto" data-kt-scroll-dependencies="#kt_modal_add_user_header" data-kt-scroll-wrappers="#kt_modal_add_user_scroll" data-kt-scroll-offset="300px">
                         <!--begin::Input group-->
                         <div class="fv-row mb-7">
                             <!--begin::Label-->
@@ -84,9 +84,8 @@
                             <label class="required fw-semibold fs-6 mb-2">Covers</label>
                               <!--end::Label-->
                               <!--begin::Input-->
-                              <textarea wire:model="ticket.covers" id="description_ckeditor_classic" class="form-control form-control-solid mb-3 mb-lg-0">
-                                    {{ $ticket->covers }}
-                              </textarea>
+                              <textarea wire:model="ticket.covers" id="create_description_ckeditor_classic" class="form-control form-control-solid mb-3 mb-lg-0"></textarea>
+
                               <!--end::Input-->
                               @error('ticket.covers')
                               <span class="text-danger">{{ $message }}</span> @enderror
@@ -118,11 +117,9 @@
     <script src="{{ asset('assets//plugins/custom/ckeditor/ckeditor-classic.bundle.js') }}"></script>
     <script>
        $(function() {
-            Livewire.on('loadCkeditorData', function (content) {
                 ClassicEditor
-                    .create(document.querySelector('#description_ckeditor_classic'))
+                    .create(document.querySelector('#create_description_ckeditor_classic'))
                     .then(editor => {
-                        editor.setData(content[0]['content']);
                         editor.model.document.on('change:data', () => {
                             @this.set('ticket.covers', editor.getData());
                         })
@@ -131,7 +128,6 @@
                         console.error(error);
                     });
             });
-        });
 
       </script>
     @endpush
