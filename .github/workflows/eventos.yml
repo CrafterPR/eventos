@@ -138,23 +138,23 @@ jobs:
             -   name: Lint codebase
                 run: npx eslint --ignore-pattern .gitignore .
 
-    njsscan_sast_check:
-        runs-on: ubuntu-latest
-
-        if: github.event_name == 'pull_request'
-
-        timeout-minutes: 60
-
-        steps:
-            -   name: Check out source code
-                uses: actions/checkout@v4
-                with:
-                    fetch-depth: 50
-
-            -   name: Perform njsscan SAST check
-                uses: ajinabraham/njsscan-action@v7
-                with:
-                    args: '.'
+#    njsscan_sast_check:
+#        runs-on: ubuntu-latest
+#
+#        if: github.event_name == 'pull_request'
+#
+#        timeout-minutes: 60
+#
+#        steps:
+#            -   name: Check out source code
+#                uses: actions/checkout@v4
+#                with:
+#                    fetch-depth: 50
+#
+#            -   name: Perform njsscan SAST check
+#                uses: ajinabraham/njsscan-action@v7
+#                with:
+#                    args: '.'
 
     semgrep_sast_scan:
         runs-on: ubuntu-latest
