@@ -16,7 +16,7 @@
                     <div class="col-md-2">
                         <div class="form-floating mb-3">
                             <select name="salutation" id="salutation"
-                                    class="form-select custom-select2 @error('salutation') border-danger @enderror"
+                                    class="form-select form-control-solid mb-3 mb-lg-0 @error('salutation') border-danger @enderror"
                                     data-control="select2" data-placeholder="">
                                 <option value=""></option>
                                 @foreach (config("setting.salutation") as $salutation)
@@ -31,36 +31,22 @@
                             @enderror
                         </div>
                     </div>
-                    <div class="col-md-5">
+                    <div class="col-md-10">
                         <div class="form-floating mb-3">
-                            <input type="text" name="first_name" autocomplete="off" value="{{old("first_name")}}"
-                                   class="form-control  @error('first_name') border-danger @enderror"/>
-                            <label for="first_name">
-                                First name
+                            <input type="text" name="name" autocomplete="off" value="{{old("name")}}"
+                                   class="form-control  @error('name') border-danger @enderror"/>
+                            <label for="name">
+                                Full name
                                 <span class="required"></span>
                             </label>
-                            @error('first_name')
+                            @error('name')
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
                     </div>
-                    <div class="col-md-5">
-                        <div class="form-floating mb-3">
-                            <input type="text" name="last_name" id="last_name"
-                                   autocomplete="off"
-                                   value="{{ old("last_name") }}"
-                                   class="form-control   @error('last_name') border-danger @enderror"/>
-                            <label for="last_name">
-                                Last name
-                                <span class="required"></span>
-                            </label>
-                            @error('last_name')
-                            <div class="text-danger">{{ $message }}</div>
-                            @enderror
-                        </div>
-                    </div>
+
                 </div>
-                <div class="row mb-6">
+                <div class="row">
                     <div class="col-md-6">
                         <div class="form-floating mb-3">
                             <input type="email" name="email" id="email"
@@ -84,15 +70,14 @@
                                    class="form-control  @error('mobile') border-danger @enderror "/>
                             <label for="mobile">
                                 Phone number
-                                <span class="required"></span>
                             </label>
                             @error('mobile')
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
                     </div>
-                </div>
-                <div class="row mb-6">
+                    </div>
+                <div class="row">
                     <div class="col-md-6">
                         <div class="form-floating mb-3">
                             <input type="text" name="institution" id="institution"
@@ -100,7 +85,7 @@
                                    autocomplete="off"
                                    class="form-control  @error('institution') border-danger @enderror "/>
                             <label for="institution">
-                                Institution
+                                Organization
                                 <span class="required"></span>
                             </label>
                             @error('institution')
@@ -108,46 +93,7 @@
                             @enderror
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="form-floating mb-3">
-                            <input type="text" name="position" id="position"
-                                   value="{{ old("position") }}"
-                                   autocomplete="off"
-                                   class="form-control  @error('position') border-danger @enderror "/>
-                            <label for="position">
-                                Position in Institution
-                                <span class="required"></span>
-                            </label>
-                            @error('position')
-                            <div class="text-danger">{{ $message }}</div>
-                            @enderror
-                        </div>
-                    </div>
-                </div>
-                <div class="row mb-6">
-                    <div class="col-md-6">
-                        <div class="form-floating mb-3">
-                            <select name="affiliation_id" id="select_affiliation_id"
-                                    class="form-select custom-select2  @error('affiliation_id') border-danger @enderror "
-                                    data-control="select2"
-                                    data-placeholder="">
-                                <option value=""></option>
-                                @foreach($affiliations as $affiliation)
-                                    <option @selected(old('affiliation_id') == $affiliation->id)
-                                            value="{{ $affiliation->id }}">
-                                        {{ $affiliation->name }}
-                                    </option>
-                                @endforeach
-                            </select>
-                            <label for="affiliation_id">
-                                Affiliation
-                                <span class="required"></span>
-                            </label>
-                            @error('affiliation_id')
-                            <div class="text-danger">{{ $message }}</div>
-                            @enderror
-                        </div>
-                    </div>
+
                     <div class="col-md-6">
                         <div class="form-floating mb-3">
                             <select name="gender"
@@ -168,6 +114,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="row mb-6">
                     <div class="col-md-6">
                         <div class="form-floating mb-3">
@@ -183,7 +130,7 @@
                                 @endforeach
                             </select>
                             <label for="country_id">
-                                Home country
+                                Home Country
                                 <span class="required"></span>
                             </label>
                             @error('country_id')
@@ -229,65 +176,9 @@
                             @enderror
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="radio-inline  @error('delegate.disability') border-danger @enderror ">
-                            <p style="padding-bottom: 10px;">
-                                Do you identify as a person with a disability?
-                                <span class="required"></span>
-                            </p>
-                            <label class="radio" style="display: revert; float: right;  min-width: 50%;">
-                                <input type="radio" name="disability"
-                                       value="Yes" {{ old('disability') == 'Yes' ? 'checked' : '' }}/>
-                                <span></span>
-                                Yes
-                            </label>
-                            <label class="radio">
-                                <input type="radio" name="disability"
-                                       value="No" {{ old('disability') == 'No' ? 'checked' : '' }}/>
-                                <span></span>
-                                No
-                            </label>
-                            @error('disability')
-                            <div class="text-danger">{{ $message }}</div>
-                            @enderror
-                        </div>
-                    </div>
+
                 </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-floating mb-3">
-                            <select name="area_of_interest[]" id="select_area_of_interest"
-                                    class="form-select @error('area_of_interest') border-danger @enderror"
-                                    data-control="select2" multiple="multiple">
-                                <option value=""></option>
-                                @foreach(config("setting.area_of_interest") as $interest)
-                                    <option value="{{$interest}}"
-                                        @selected(in_array($interest,old("area_of_interest",[])))>
-                                        {{$interest}}
-                                    </option>
-                                @endforeach
-                            </select>
-                            <label for="area_of_interest">
-                                Area(s) of Interest?
-                                <span class="required"></span>
-                            </label>
-                            @error('area_of_interest')
-                            <div class="text-danger">{{ $message }}</div>
-                            @enderror
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-floating mb-3">
-                            <input type="text" name="coupon" id="coupon" value="{{old('coupon') }}"
-                                   autocomplete="off"
-                                   class="form-control  @error('coupon') border-danger @enderror "/>
-                            <label for="coupon">Enter Coupon to redeem (Optional)</label>
-                            @error('coupon')
-                            <div class="error-message">{{ $message }}</div>
-                            @enderror
-                        </div>
-                    </div>
-                </div>
+
                 <div class="text-center pt-15">
                     <button type="reset" class="btn btn-light me-3" data-bs-dismiss="modal" aria-label="Close">
                         Discard
@@ -312,13 +203,22 @@
 
                 $('#country_id').on('change', function () {
                     const selectedCountryId = $(this).val();
-                    switchView(selectedCountryId)
+
+                    var selectElement = this;
+
+                    // Get the selected option
+                    var selectedOption = selectElement.options[selectElement.selectedIndex];
+
+                    // Get the text content of the selected option
+                    var selectedText = selectedOption.text;
+
+                    switchView(selectedText, selectedCountryId)
                 });
 
-                function switchView(selectedCountryId) {
+                function switchView(selectedText, selectedCountryId) {
                     const countyDropdown = $('#county_id');
 
-                    if (selectedCountryId == 112) {
+                    if (selectedText === 'Kenya') {
                         $('#county').removeClass('d-none');
                     } else {
                         $('#county').addClass('d-none');

@@ -17,7 +17,7 @@ class RolesPermissionsSeeder extends Seeder
     public function run(): void
     {
         $permissions_by_role = [
-            'administrator' => [
+            \App\Models\Role::ADMINISTRATOR => [
                 'user management',
                 'role management',
                 'event management',
@@ -51,12 +51,15 @@ class RolesPermissionsSeeder extends Seeder
                 'send emails',
                 'manage users',
                 'view dashboard',
-                'login as delegate',
+                'print pass',
                 'redeem coupon for delegates',
                 'secretariat',
                 'activate coupon',
                 'edit coupon capacity',
             ],
+            \App\Models\Role::SUPER_ADMIN => [
+
+            ]
 
         ];
 

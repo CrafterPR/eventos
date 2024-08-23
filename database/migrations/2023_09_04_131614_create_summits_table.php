@@ -11,23 +11,16 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('summits', function (Blueprint $table) {
-            $table->id();
+        Schema::create('events', function (Blueprint $table) {
+            $table->ulid('id')->primary();
             $table->string("title")->index();
-            $table->string("slug");
-            $table->string("edition_title")->nullable();
-            $table->string("edition_description")->nullable();
             $table->string("theme")->nullable();
-            $table->string("short_description")->nullable();
-            $table->longText("long_description")->nullable();
-            $table->string("banner_type")->default("video");
-            $table->string("banner_url")->nullable();
+            $table->string("organization")->nullable();
+            $table->string("venue")->nullable();
             $table->timestamp("start_date")->nullable();
             $table->timestamp("end_date")->nullable();
-            $table->string("venue")->nullable();
             $table->string("status")->default("draft");
-            $table->json("meta")->nullable();
-            $table->foreignIdFor(User::class, "created_by")->nullable()
+            $table->foreignUlid("created_by")->nullable()
                 ->constrained("users")
                 ->cascadeOnDelete();
             $table->timestamps();

@@ -14,10 +14,10 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('order_items', function (Blueprint $table) {
-            $table->id();
-            $table->foreignIdFor(User::class)->nullable()->constrained()->cascadeOnDelete();
-            $table->foreignIdFor(Order::class)->constrained()->cascadeOnDelete();
-            $table->foreignIdFor(Summit::class)->nullable()->constrained()->cascadeOnDelete();
+            $table->ulid('id')->primary();
+            $table->foreignUlid('user_id')->nullable()->constrained()->cascadeOnDelete();
+            $table->foreignUlid('order_id')->constrained()->cascadeOnDelete();
+            $table->foreignUlid('event_id')->nullable()->constrained()->cascadeOnDelete();
             $table->integer("quantity")->default(1);
             $table->decimal("price", 10, 2);
             $table->decimal("total", 10, 2);

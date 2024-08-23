@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# @author Diamond Mubaarak
+# @author James Makau
 #
 # Git prepare-commit-msg hook
 #
@@ -9,8 +9,8 @@
 # Get current git branch
 BRANCH_NAME=$(git symbolic-ref --short HEAD 2>/dev/null)
 
-# Match HTR-XYZ, feature/HTR-XYZ, bugfix/HTR-XYZ and hotfix/HTR-XYZ
-TICKET_NUMBER=$(echo "$BRANCH_NAME" | grep -Eo "(?:feature|bugfix|hotfix)?(?:\/)?(HTR-[0-9]*)" )
+# Match EVT-XYZ, feature/EVT-XYZ, bugfix/EVT-XYZ and hotfix/EVT-XYZ
+TICKET_NUMBER=$(echo "$BRANCH_NAME" | grep -Eo "(?:feature|bugfix|hotfix)?(?:\/)?(EVT-[0-9]*)" )
 
 # Get the first line of the commit message
 first_line=$(head -n 1 $1)

@@ -13,8 +13,8 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('tickets', function (Blueprint $table) {
-            $table->id();
-            $table->foreignIdFor(Summit::class)->constrained()->cascadeOnDelete();
+            $table->ulid('id')->primary();
+            $table->foreignUlid('event_id')->constrained()->cascadeOnDelete();
             $table->string("title");
             $table->text("covers")->nullable();
             $table->bigInteger("priority")->default(0);
@@ -23,7 +23,7 @@ return new class extends Migration {
             $table->decimal("kes_amount");
             $table->decimal("usd_amount");
             $table->string("status")->default("active");
-            $table->foreignIdFor(User::class, "created_by")->nullable()
+            $table->foreignUlid("created_by")->nullable()
                 ->constrained("users")
                 ->nullOnDelete();
             $table->timestamps();

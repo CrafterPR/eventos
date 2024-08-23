@@ -13,7 +13,7 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('pesaflow_requests', function (Blueprint $table) {
-            $table->id();
+            $table->ulid('id')->primary();
             $table->string("api_client_id")->index();
             $table->string("service_id")->index();
             $table->string("currency");
@@ -22,8 +22,8 @@ return new class extends Migration {
             $table->string("invoice_number")->nullable();
             $table->longText("invoice_link")->nullable();
             $table->string("status")->index()->default("pending");
-            $table->foreignIdFor(User::class)->nullable()->constrained()->nullOnDelete();
-            $table->foreignIdFor(Order::class)->nullable()->constrained()->nullOnDelete();
+            $table->foreignUlid('user_id')->nullable()->constrained()->nullOnDelete();
+            $table->foreignUlid('order_id')->nullable()->constrained()->nullOnDelete();
             $table->timestamps();
         });
     }

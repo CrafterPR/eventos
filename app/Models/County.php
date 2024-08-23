@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Eloquent;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
@@ -29,8 +30,10 @@ use Illuminate\Support\Carbon;
 class County extends Model
 {
     use HasFactory;
+    use HasUlids;
 
     protected $fillable = [
+        'id',
         'country_id',
         'name'
     ];

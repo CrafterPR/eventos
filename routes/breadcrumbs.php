@@ -31,6 +31,11 @@ Breadcrumbs::for('users.user.index', function (BreadcrumbTrail $trail) {
     $trail->parent('users.index');
     $trail->push('Users', route('users.user.index'));
 });
+
+Breadcrumbs::for('delegates.index', function (BreadcrumbTrail $trail) {
+    $trail->parent('users.index');
+    $trail->push('Delegates', route('users.user.index'));
+});
 // Home > Dashboard > Programme > Speakers
 Breadcrumbs::for('programme.speaker.index', function (BreadcrumbTrail $trail) {
     $trail->parent('programme');

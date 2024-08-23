@@ -12,7 +12,7 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('booths', function (Blueprint $table) {
-            $table->id();
+            $table->ulid('id')->primary();
             $table->string("label")->index();
             $table->string("uuid")->unique();
             $table->decimal("kes_price")->nullable();

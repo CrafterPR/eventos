@@ -5,13 +5,11 @@
 <!--begin::Menu-->
 <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
     <!--begin::Menu item-->
-    @can('login-as-delegate')
+    @can('print-pass')
     <div class="menu-item px-3">
-        @canBeImpersonated($user, $guard = null)
-        <a href="{{ route('impersonate', $user->id) }}"  target="_blank" class="menu-link px-3">
-            Login as {{ $user->first_name }}
+        <a href="{{ route('impersonate', $user->id) }}"  class="menu-link px-3">
+            Print Pass
         </a>
-        @endCanBeImpersonated
     </div>
     @endcan
     @can('redeem-coupon-for-delegates')

@@ -15,6 +15,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Validation\Rule;
+use Livewire\Attributes\On;
 use Livewire\Component;
 
 class AddDelegateModal extends Component
@@ -24,8 +25,6 @@ class AddDelegateModal extends Component
     public $edit_mode = false;
     /**
      */
-    public Collection $affiliations;
-
     public Collection $countries;
 
     public Collection $categories;
@@ -36,40 +35,38 @@ class AddDelegateModal extends Component
             'delegate.first_name' => ['required', 'string'],
             'delegate.last_name' => ['required', 'string'],
             'delegate.email' => ['required', 'email:rfc,dns', 'max:255', Rule::unique('users', 'email')->ignore($this->delegate->id)],
-            'delegate.mobile' => ['required', Rule::unique('users', 'mobile')->ignore($this->delegate->id)],
+            'delegate.mobile' => [Rule::unique('users', 'mobile')->ignore($this->delegate->id)],
             'delegate.salutation' => ["sometimes"],
-            'delegate.id_number' => ['nullable', 'string', 'unique:users'],
             'delegate.country_id' => ['required', 'exists:countries,id'],
-            'delegate.category_id' => ['required', 'exists:categories,id'],
-            'delegate.county_id' => [Rule::requiredIf(fn () => $this->delegate->country_id == 112)],
             'delegate.institution' => ['required', 'max:255'],
-            'delegate.position' => ['required', 'max:255'],
             'delegate.gender' => ['required'],
-            'delegate.affiliation_id' => ['required', 'exists:affiliations,id'],
-            'delegate.disability' => ['required', 'max:255'],
-            'delegate.area_of_interest' => ['required', 'array'],
         ];
     }
 
-    protected $listeners = [
-        'update_delegate' => 'updateDelegate',
-    ];
-
+    /**
+     * @return void
+     */
     public function mount()
     {
         $this->delegate = new User();
         $this->categories = Category::query()
                ->where('status', CategoryStatus::ACTIVE)
                ->get();
-        $this->affiliations = Affiliation::get();
         $this->countries = Country::orderBy('name')->get();
     }
 
+    /**
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Foundation\Application
+     */
     public function render()
     {
         return view('livewire.delegate.add-delegate');
     }
 
+    /**
+     * @return void
+     * @throws \Throwable
+     */
     public function submit()
     {
         // Validate the form input data
@@ -110,6 +107,10 @@ class AddDelegateModal extends Component
         $this->dispatch('closeModal');
     }
 
+    /**
+     * @param $id
+     * @return void
+     */
     public function deleteDelegate($id)
     {
         // Delete the user record with the specified ID
@@ -119,15 +120,20 @@ class AddDelegateModal extends Component
         $this->dispatch('success', 'Delegate successfully deleted');
     }
 
+    /**
+     * @param $id
+     * @return void
+     */
+    #[On('update_delegate')]
     public function updateDelegate($id)
     {
         $this->edit_mode = true;
-
         $this->delegate = User::find($id);
     }
 
-
-
+    /**
+     * @return void
+     */
     public function hydrate()
     {
         $this->resetErrorBag();

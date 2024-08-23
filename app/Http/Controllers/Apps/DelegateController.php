@@ -46,11 +46,9 @@ class DelegateController extends Controller
             ->where('status', CategoryStatus::ACTIVE)
             ->get();
 
-        $affiliations = Affiliation::get();
-
         $countries = Country::orderBy('name')->get();
 
-        return view("pages.apps.delegates.create", compact("categories", "affiliations", "countries"));
+        return view("pages.apps.delegates.create", compact("categories", "countries"));
     }
 
     /**
@@ -61,8 +59,7 @@ class DelegateController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $data = $request->validate([
-            'first_name' => ['required', 'string'],
-            'last_name' => ['required', 'string'],
+            'name' => ['required', 'string'],
             'email' => ['required', 'email:rfc,dns', 'max:255', 'unique:users'],
             'mobile' => ['nullable', 'unique:users'],
             'salutation' => ["required"],
@@ -71,27 +68,24 @@ class DelegateController extends Controller
             'category_id' => ['required', 'exists:categories,id'],
             'county_id' => "required_if:country_id,==,112",
             'institution' => ['required', 'max:255'],
-            'position' => ['required', 'max:255'],
             'gender' => ['required'],
-            'affiliation_id' => ['required', 'exists:affiliations,id'],
-            'disability' => ['required', 'max:255'],
-            'area_of_interest' => ['required', 'array'],
             'coupon' => ['sometimes', new CouponValidator]
         ]);
 
         if (!$request->filled("mobile")) {
             $data["mobile"] = NULL;
         }
-
+        $split_name = explode(' ', $data['name']);
+        $data['first_name'] = $split_name[0];
+        $data['last_name'] = $split_name[1] ?? '';
         $data["password"] = generate_random_password();
         $data["user_type"] = UserType::DELEGATE->value;
 
         DB::transaction(function () use ($data) {
             $user = User::create($data);
-            $user->assignRole(UserType::DELEGATE->value);
 
             //save delegate coupon
-            $coupon = $data["coupon"];
+            $coupon = $data["coupon"] ?? '';
             if (!empty($coupon)) {
                 $coupon = Coupon::where('code', $coupon)->first();
                 if ($coupon) {

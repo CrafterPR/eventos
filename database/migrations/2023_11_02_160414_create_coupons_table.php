@@ -12,12 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('coupons', function (Blueprint $table) {
-            $table->id();
+            $table->ulid('id')->primary();
             $table->string('code', 20);
             $table->string('organization')->nullable();
             $table->string('email')->nullable();
             $table->unsignedInteger('no_of_delegates');
-            $table->foreignId('generated_by')->constrained('users', 'id');
+            $table->foreignUlid('generated_by')->constrained('users', 'id');
             $table->string('payment_reference')->nullable();
             $table->enum('status', ['active', 'inactive']);
             $table->timestamps();

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Eloquent;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -57,6 +58,9 @@ use Spatie\MediaLibrary\InteractsWithMedia;
  * @method static Builder|Ticket whereUsdAmount($value)
  * @method static Builder|Ticket withTrashed()
  * @method static Builder|Ticket withoutTrashed()
+ * @property string $event_id
+ * @property-read \App\Models\Event $event
+ * @method static Builder|Ticket whereEventId($value)
  * @mixin Eloquent
  */
 class Ticket extends Model implements Auditable, HasMedia
@@ -65,6 +69,7 @@ class Ticket extends Model implements Auditable, HasMedia
     use SoftDeletes;
     use \OwenIt\Auditing\Auditable;
     use InteractsWithMedia;
+    use HasUlids;
 
     protected $guarded = [];
 

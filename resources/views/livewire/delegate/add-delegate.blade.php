@@ -100,7 +100,6 @@
                                        class="form-control  @error('delegate.mobile') border-danger @enderror "/>
                                 <label for="mobile">
                                     Phone number
-                                    <span class="required"></span>
                                 </label>
                                 @error('delegate.mobile')
                                 <div class="text-danger">{{ $message }}</div>
@@ -116,7 +115,7 @@
                                        autocomplete="off"
                                        class="form-control  @error('delegate.institution') border-danger @enderror "/>
                                 <label for="institution">
-                                    Institution
+                                    Organization
                                     <span class="required"></span>
                                 </label>
                                 @error('delegate.institution')
@@ -124,45 +123,10 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="form-floating mb-3">
-                                <input type="text" wire:model="delegate.position" id="position"
-                                       value="{{ old("position") }}"
-                                       autocomplete="off"
-                                       class="form-control  @error('delegate.position') border-danger @enderror "/>
-                                <label for="position">
-                                    Position in Institution
-                                    <span class="required"></span>
-                                </label>
-                                @error('delegate.position')
-                                <div class="text-danger">{{ $message }}</div>
-                                @enderror
-                            </div>
-                        </div>
+
                     </div>
                     <div class="row mb-6">
-                        <div class="col-md-6">
-                            <div class="form-floating mb-3">
-                                <select wire:model="delegate.affiliation_id" id="select_affiliation_id"
-                                        class="form-select custom-select2  @error('delegate.affiliation_id') border-danger @enderror "
-                                        data-control="select2"
-                                        data-placeholder="">
-                                    <option value=""></option>
-                                    @foreach($affiliations as $affiliation)
-                                        <option value="{{ $affiliation->id  }}">
-                                            {{ $affiliation->name }}
-                                        </option>
-                                    @endforeach
-                                </select>
-                                <label for="affiliation_id">
-                                    Affiliation
-                                    <span class="required"></span>
-                                </label>
-                                @error('delegate.affiliation_id')
-                                <div class="text-danger">{{ $message }}</div>
-                                @enderror
-                            </div>
-                        </div>
+
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
                                 <select wire:model="delegate.gender"
@@ -245,52 +209,9 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="radio-inline  @error('delegate.disability') border-danger @enderror ">
-                                    <p style="padding-bottom: 10px;">Do you identify as a person with a disability?<span
-                                            class="required"></span>
-                                    </p>
-                                    <label class="radio" style="display: revert; float: right;  min-width: 50%;">
-                                        <input type="radio" wire:model="delegate.disability"
-                                               value="Yes" {{ old('disability') == 'Yes' ? 'checked' : '' }}/>
-                                        <span></span>
-                                        Yes
-                                    </label>
-                                    <label class="radio">
-                                        <input type="radio" wire:model="delegate.disability"
-                                               value="No" {{ old('disability') == 'No' ? 'checked' : '' }}/>
-                                        <span></span>
-                                        No
-                                    </label>
-                                    @error('delegate.disability')
-                                    <div class="text-danger">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                            </div>
+
                         </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-floating mb-3">
-                                    <select wire:model="delegate.area_of_interest" id="select_area_of_interest"
-                                            class="form-select @error('delegate.area_of_interest') border-danger @enderror"
-                                            data-control="select2" multiple="multiple">
-                                        <option value=""></option>
-                                        @foreach(config("setting.area_of_interest") as $interest)
-                                            <option value="{{$interest}}">
-                                                {{$interest}}
-                                            </option>
-                                        @endforeach
-                                    </select>
-                                    <label for="area_of_interest">
-                                        Area(s) of Interest?
-                                        <span class="required"></span>
-                                    </label>
-                                    @error('delegate.area_of_interest')
-                                    <div class="text-danger">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                            </div>
-                        </div>
+
                         <!--end::Scroll-->
                         <!--begin::Actions-->
                         <div class="text-center pt-15">
@@ -320,14 +241,12 @@
     <script>
         $(function () {
 
-            let selectOptions = ['gender', 'salutation', 'affiliation_id', 'country_id', 'county_id', 'category_id', 'area_of_interest'];
+            let selectOptions = ['gender', 'salutation', 'country_id', 'county_id'];
 
             selectOptions.map(function (option) {
                 $(`#select_${option}`).on('change', function (e) {
                     var data = $(`#select_${option}`).select2("val");
-                @this.set(`delegate.${option}`, data)
-                    ;
-                    ;
+                @this.set(`delegate.${option}`, data);
                 });
             });
 

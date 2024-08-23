@@ -16,8 +16,8 @@
                  style="background-color: blue; background-image:url({{ asset('assets/media/patterns/vector-1.png') }})">
                 <div class="card-header pt-5">
                     <div class="card-title d-flex flex-column">
-                        <span class="fs-2hx fw-bold text-white me-2 lh-1 ls-n2">{{$booths["paid"]}}</span>
-                        <span class="text-white opacity-75 pt-1 fw-semibold fs-6">Purchased Booths</span>
+                        <span class="fs-2hx fw-bold text-white me-2 lh-1 ls-n2">{{ 20 }}</span>
+                        <span class="text-white opacity-75 pt-1 fw-semibold fs-6">Booked Booths</span>
                     </div>
                 </div>
                 <div class="card-body d-flex align-items-end pt-0">
@@ -75,16 +75,18 @@
                  style="background-color: green;background-image:url('{{ asset('assets/media/patterns/vector-1.png') }}')">
                 <div class="card-header pt-5">
                     <div class="card-title d-flex flex-column">
-                        <span class="fs-2hx fw-bold text-white me-2 lh-1 ls-n2">{{$ticket["total"]}}</span>
-                        <span class="text-white opacity-75 pt-1 fw-semibold fs-6">Attending Delegates (paid tickets)</span>
+                        <span class="fs-2hx fw-bold text-white me-2 lh-1 ls-n2">{{  200}}</span>
+                        <span class="text-white opacity-75 pt-1 fw-semibold fs-6">Printed Passes</span>
                     </div>
                 </div>
                 <div class="card-body d-flex align-items-end pt-0">
                     <div class="d-flex align-items-center flex-column mt-3 w-100">
                         <div
                             class="d-block justify-content-between fw-bold fs-6 text-white opacity-75 w-100 mt-auto mb-2">
-                                <span class="d-grid">( {{ $ticket['one_day']}} ) One day ticket</span>
-                                <span class="d-grid">( {{ $ticket['five_day']}} ) Full event ticket</span>
+                                <span class="d-grid">( {{ 40 }} ) Delegates</span>
+                                <span class="d-grid">( {{ 45 }} ) Speakers</span>
+                                <span class="d-grid">( {{ 15 }} ) Exhibitors</span>
+                                <span class="d-grid">( {{ 4 }} ) Moderators</span>
                         </div>
                     </div>
                 </div>
@@ -92,7 +94,7 @@
             <div class="card card-flush h-md-50 mb-5 mb-xl-10">
                 <div class="card-header pt-5">
                     <div class="card-title d-flex flex-column">
-                        <span class="fs-2hx fw-bold text-dark me-2 lh-1 ls-n2">{{$exhibitor["total"]}}</span>
+                        <span class="fs-2hx fw-bold text-dark me-2 lh-1 ls-n2">{{ $exhibitor["total"] }}</span>
                         <a href="{{route("users.delegates.index")}}">
                             <span class="text-gray-400 pt-1 fw-semibold fs-6">Exhibitors</span>
                         </a>

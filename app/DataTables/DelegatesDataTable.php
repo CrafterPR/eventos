@@ -9,6 +9,7 @@ use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\Html\Builder as HtmlBuilder;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
+use function Clue\StreamFilter\fun;
 
 class DelegatesDataTable extends DataTable
 {
@@ -20,35 +21,24 @@ class DelegatesDataTable extends DataTable
     public function dataTable(QueryBuilder $query): EloquentDataTable
     {
         return (new EloquentDataTable($query))
-            ->rawColumns(['user', 'last_login_at'])
+            ->rawColumns(['user', 'last_login_at', 'created_at'])
             ->editColumn('name', function (User $user) {
                 return $user->name;
+            })
+            ->editColumn('created_at', function (User $user) {
+                return format_date($user->created_at);
             })
            ->editColumn('institution', function (User $user) {
                return $user->institution;
            })
-            ->editColumn('position', function (User $user) {
-                return $user->position;
-            })
 
             ->editColumn('gender', function (User $user) {
                 return $user->gender;
             })
 
-            ->editColumn('disability', function (User $user) {
-                return $user->disability;
-            })
-
-            ->editColumn('affiliation', function (User $user) {
-                return $user->affiliation?->name;
-            })
 
             ->editColumn('country', function (User $user) {
                 return $user->country?->name;
-            })
-
-            ->editColumn('areas_of_interest', function (User $user) {
-                return $user->area_of_interest;
             })
 
            ->addColumn('action', function (User $user) {
@@ -63,8 +53,10 @@ class DelegatesDataTable extends DataTable
      */
     public function query(User $model): QueryBuilder
     {
-        return $model->with('affiliation', 'country')
+        return $model->with('country')
             ->where('user_type', UserType::DELEGATE->value)
+            ->Orwhere('user_type', UserType::EXHIBITOR->value)
+            ->orderBy('created_at', 'DESC')
         ->newQuery();
     }
 
@@ -91,14 +83,14 @@ class DelegatesDataTable extends DataTable
     {
         return [
             Column::make('name')->addClass('align-items-center')->title('name')->name('first_name'),
+            Column::make('salutation')->addClass('align-items-center')->title('salutation')->name('salutation')->hidden(),
+            Column::make('first_name')->addClass('align-items-center')->title('first_name')->name('first_name')->hidden(),
+            Column::make('last_name')->addClass('align-items-center')->title('last_name')->name('last_name')->hidden(),
+            Column::make('created_at')->addClass('align-items-center')->title('Date registered')->name('created_at'),
             Column::make('email')->addClass('align-items-center')->title('Email')->name('email'),
-            Column::make('institution')->addClass('align-items-center')->title('Institution')->name('institution'),
-            Column::make('position')->addClass('align-items-center')->title('Position'),
+            Column::make('institution')->addClass('align-items-center')->title('Organization')->name('institution'),
             Column::make('gender')->addClass('align-items-center')->title('Gender'),
-            Column::make('disability')->addClass('align-items-center')->title('Disabled?'),
-            Column::make('affiliation')->addClass('align-items-center')->title('Affiliation')->name('affiliation.name'),
             Column::make('country')->addClass('align-items-center')->title('Country')->name('country.name'),
-            Column::make('area_of_interest')->addClass('align-items-center')->title('Areas of Interests '),
             Column::computed('action')
                 ->addClass('text-end text-nowrap')
                 ->exportable(false)

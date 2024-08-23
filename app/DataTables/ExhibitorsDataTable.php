@@ -20,35 +20,15 @@ class ExhibitorsDataTable extends DataTable
     public function dataTable(QueryBuilder $query): EloquentDataTable
     {
         return (new EloquentDataTable($query))
-            ->rawColumns(['user', 'affiliation_id', 'country_id', 'institution', 'position'])
+            ->rawColumns(['user', 'country_id', 'institution'])
             ->editColumn('name', function (User $user) {
                 return $user->name;
             })
             ->editColumn('institution', function (User $user) {
                 return $user->institution;
             })
-            ->editColumn('position', function (User $user) {
-                return $user->position;
-            })
-
-            ->editColumn('gender', function (User $user) {
-                return $user->gender;
-            })
-
-            ->editColumn('disability', function (User $user) {
-                return $user->disability;
-            })
-
-            ->editColumn('affiliation_id', function (User $user) {
-                return $user->affiliation?->name;
-            })
-
             ->editColumn('country_id', function (User $user) {
                 return $user->country?->name;
-            })
-
-            ->editColumn('areas_of_interest', function (User $user) {
-                return $user->area_of_interest;
             })
 
             ->addColumn('action', function (User $user) {
@@ -90,13 +70,9 @@ class ExhibitorsDataTable extends DataTable
     {
         return [
             Column::make('name')->addClass('align-items-center')->title('Name')->name('first_name'),
-            Column::make('institution')->addClass('align-items-center')->title('Institution'),
-            Column::make('position')->addClass('align-items-center')->title('Position'),
+            Column::make('institution')->addClass('align-items-center')->title('Organization'),
             Column::make('gender')->addClass('align-items-center')->title('Gender'),
-            Column::make('disability')->addClass('align-items-center')->title('Disabled?'),
-            Column::make('affiliation_id')->addClass('align-items-center')->title('Affiliation'),
             Column::make('country_id')->addClass('align-items-center')->title('Country')->name('country_id'),
-            Column::make('area_of_interest')->addClass('align-items-center')->title('Areas of Interests '),
             Column::computed('action')
                 ->addClass('text-end text-nowrap')
                 ->exportable(true)

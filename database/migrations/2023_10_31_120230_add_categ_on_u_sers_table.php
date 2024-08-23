@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->foreignId('category_id')->after('user_type')->nullable()->constrained();
+            $table->foreignUlid('category_id')->after('user_type')->nullable()->constrained();
             $table->string('other_affiliation')->after('category_id')->nullable();
         });
     }

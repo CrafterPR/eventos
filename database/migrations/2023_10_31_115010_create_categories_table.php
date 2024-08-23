@@ -13,10 +13,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('categories', function (Blueprint $table) {
-            $table->id();
+            $table->ulid('id')->primary();
             $table->string('title');
+            $table->string('code', 3);
             $table->enum('status', [CategoryStatus::ACTIVE->value, CategoryStatus::INACTIVE->value])->default(CategoryStatus::ACTIVE->value);
-            $table->foreignId('created_by')->constrained('users', 'id');
+            $table->foreignUlid('created_by')->constrained('users', 'id');
             $table->timestamps();
         });
     }

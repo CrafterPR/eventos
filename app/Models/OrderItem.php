@@ -6,6 +6,7 @@ use App\Enum\Currency;
 use App\Enum\OrderItemStatus;
 use Eloquent;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -54,11 +55,14 @@ use Illuminate\Support\Carbon;
  * @method static Builder|OrderItem whereTotal($value)
  * @method static Builder|OrderItem whereUpdatedAt($value)
  * @method static Builder|OrderItem whereUserId($value)
+ * @property string|null $event_id
+ * @method static Builder|OrderItem whereEventId($value)
  * @mixin Eloquent
  */
 class OrderItem extends Model
 {
     use HasFactory;
+    use HasUlids;
 
     protected $guarded = [];
 

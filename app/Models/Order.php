@@ -9,6 +9,7 @@ use App\Models\Pesaflow\PesaflowRequest;
 use Eloquent;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -81,11 +82,14 @@ use Illuminate\Support\Carbon;
  * @method static Builder|Order whereTransactionReference($value)
  * @method static Builder|Order whereUpdatedAt($value)
  * @method static Builder|Order whereUserId($value)
+ * @property string|null $event_id
+ * @method static Builder|Order whereEventId($value)
  * @mixin Eloquent
  */
 class Order extends Model
 {
     use HasFactory;
+    use HasUlids;
 
     protected $guarded = [];
 
