@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# @author Diamond Mubaarak <diamond@diamonddev.group>
+# @author James Makau <jacjimura@gmail.com>
 #
 # Runs database migrations and seeds for the application.
 # Also flushes and reimport Scout indexes and sets Scout attributes.
