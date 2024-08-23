@@ -36,7 +36,7 @@ class EditTicket extends Component
         $this->events = Event::where('status', EventStatus::ACTIVE)->get();
     }
 
-    public function submit()
+    public function submit(): void
     {
         try {
             $this->validate();
@@ -46,7 +46,6 @@ class EditTicket extends Component
         } catch(\Throwable $e) {
             $this->dispatch('error', $e->getMessage());
         }
-        //$this->reset();
     }
 
     public function render()
