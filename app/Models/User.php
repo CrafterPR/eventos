@@ -215,6 +215,11 @@ class User extends Authenticatable
         return $this->hasOneThrough(Coupon::class, UserCoupon::class, 'user_id', 'id');
     }
 
+    public function category(): BelongsTo
+    {
+        return $this->belongsTo(Category::class)->withDefault();
+    }
+
     public function coupons(): HasMany
     {
         return $this->hasMany(UserCoupon::class);
