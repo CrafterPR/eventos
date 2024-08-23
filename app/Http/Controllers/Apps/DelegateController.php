@@ -7,6 +7,7 @@ use App\DataTables\DelegatesDataTable;
 use App\Enum\CategoryStatus;
 use App\Enum\UserType;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\DelegateRequest;
 use App\Models\Affiliation;
 use App\Models\Category;
 use App\Models\Country;
@@ -56,33 +57,10 @@ class DelegateController extends Controller
      * @return RedirectResponse
      * @throws Throwable
      */
-    public function store(Request $request): RedirectResponse
+    public function store(DelegateRequest $request): RedirectResponse
     {
-        $data = $request->validate([
-            'name' => ['required', 'string'],
-            'email' => ['required', 'email:rfc,dns', 'max:255', 'unique:users'],
-            'mobile' => ['nullable', 'unique:users'],
-            'salutation' => ["required"],
-            'id_number' => ['nullable', 'string', 'unique:users'],
-            'country_id' => ['required', 'exists:countries,id'],
-            'category_id' => ['required', 'exists:categories,id'],
-            'county_id' => "required_if:country_id,==,112",
-            'institution' => ['required', 'max:255'],
-            'gender' => ['required'],
-            'coupon' => ['sometimes', new CouponValidator]
-        ]);
-
-        if (!$request->filled("mobile")) {
-            $data["mobile"] = NULL;
-        }
-        $split_name = explode(' ', $data['name']);
-        $data['first_name'] = $split_name[0];
-        $data['last_name'] = $split_name[1] ?? '';
-        $data["password"] = generate_random_password();
-        $data["user_type"] = UserType::DELEGATE->value;
-
-        DB::transaction(function () use ($data) {
-            $user = User::create($data);
+        DB::transaction(function () use ($request) {
+            $user = User::create($request->validated());
 
             //save delegate coupon
             $coupon = $data["coupon"] ?? '';
@@ -94,16 +72,8 @@ class DelegateController extends Controller
             }
 
             // Send a password reset link to the delegate's email
-            Password::sendResetLink(collect($data)->only('email', 'password')->toArray());
+            // Password::sendResetLink(collect($data)->only('email', 'password')->toArray());
 
-            try {
-                if (GenerateInvitationLetter::run($user)) {
-                    $user->notify(new SendInvitationNotification());
-                    $user->update(['invitation_sent' => true]);
-                }
-            } catch (Exception $exception) {
-                Log::error($exception->getMessage());
-            }
         });
 
         return to_route("users.delegates.index");

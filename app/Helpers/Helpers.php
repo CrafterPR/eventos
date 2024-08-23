@@ -633,7 +633,7 @@ if (!function_exists("generate_random_password")) {
      * @param int $length
      * @return string
      */
-    function generate_random_password(int $length = 8): string
+    function generate_random_password(int $length = 12): string
     {
         $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*';
         $password = '';

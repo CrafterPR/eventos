@@ -36,11 +36,12 @@ class DelegatesDataTable extends DataTable
                 return $user->gender;
             })
 
-
             ->editColumn('country', function (User $user) {
-                return $user->country?->name;
+                return $user->country->name;
             })
-
+            ->editColumn('category_id', function (User $user) {
+                return $user->category->title;
+            })
            ->addColumn('action', function (User $user) {
                return view('pages.apps.delegates.columns._actions', compact('user'));
            })
@@ -53,9 +54,8 @@ class DelegatesDataTable extends DataTable
      */
     public function query(User $model): QueryBuilder
     {
-        return $model->with('country')
-            ->where('user_type', UserType::DELEGATE->value)
-            ->Orwhere('user_type', UserType::EXHIBITOR->value)
+        return $model->with('country', 'category')
+            ->where('user_type', '!=', 'staff')
             ->orderBy('created_at', 'DESC')
         ->newQuery();
     }
@@ -89,6 +89,7 @@ class DelegatesDataTable extends DataTable
             Column::make('created_at')->addClass('align-items-center')->title('Date registered')->name('created_at'),
             Column::make('email')->addClass('align-items-center')->title('Email')->name('email'),
             Column::make('institution')->addClass('align-items-center')->title('Organization')->name('institution'),
+            Column::make('category_id')->addClass('align-items-center')->title('Category')->name('category.title'),
             Column::make('gender')->addClass('align-items-center')->title('Gender'),
             Column::make('country')->addClass('align-items-center')->title('Country')->name('country.name'),
             Column::computed('action')
