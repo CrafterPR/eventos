@@ -6,6 +6,7 @@ use App\Enum\EventStatus;
 use Eloquent;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -73,6 +74,10 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
  * @method static Builder|Event whereVenue($value)
  * @method static Builder|Event withTrashed()
  * @method static Builder|Event withoutTrashed()
+ * @property string|null $organization
+ * @property-read Collection<int, \App\Models\Ticket> $tickets
+ * @property-read int|null $tickets_count
+ * @method static Builder|Event whereOrganization($value)
  * @mixin Eloquent
  */
 class Event extends Model implements Auditable, HasMedia
@@ -81,6 +86,7 @@ class Event extends Model implements Auditable, HasMedia
     use SoftDeletes;
     use \OwenIt\Auditing\Auditable;
     use InteractsWithMedia;
+    use HasUlids;
 
     protected $guarded = [];
 

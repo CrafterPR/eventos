@@ -27,7 +27,6 @@ class DashboardController extends Controller
 
         $data = [
             ...$this->getBoothStats(),
-            ...$this->getTicketsStats(),
             ...$this->getUsersStats(),
             "kes_earning" => $this->getEarnings(Currency::KES),
             "usd_earning" => $this->getEarnings(Currency::USD),
@@ -147,32 +146,7 @@ class DashboardController extends Controller
         ];
     }
 
-    /**
-     * Retrieve ticket stats
-     * @return array[]
-     */
-    public function getTicketsStats(): array
-    {
-        $ticketCount = TicketPayment::query()
-            ->where("payment_status", PaymentStatus::SETTLED)
-            ->orWhere("payment_status", PaymentStatus::APPROVED)
-            ->selectRaw("count(*) as total")
-            ->selectRaw("count(case when ticket_id = '7' then 1 end) as one_day")
-            ->selectRaw("count(case when ticket_id = '8' then 1 end) as five_day")
-            ->selectRaw("count(case when ticket_id = '9' then 1 end) as summit")
-            ->selectRaw("count(case when ticket_id = '10' then 1 end) as students")
-            ->first();
 
-        return [
-            "ticket" => [
-                "total" => number_format($ticketCount->total),
-                "one_day" => number_format($ticketCount->one_day),
-                "five_day" => number_format($ticketCount->five_day),
-                "summit" => number_format($ticketCount->five_day),
-                "students" => number_format($ticketCount->five_day),
-            ]
-        ];
-    }
 
     /**
      * Retrieve recent transactions

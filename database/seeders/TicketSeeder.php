@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Event;
 use App\Models\Ticket;
 use Illuminate\Database\Seeder;
 
@@ -12,9 +13,10 @@ class TicketSeeder extends Seeder
      */
     public function run(): void
     {
+        $event_id = Event::first()->id;
         $tickets = [
             [
-                "summit_id" => 1,
+                "event_id" =>$event_id,
                 "title" => "One-day ticket",
                 "covers" => "<ul>
                     <li>Access to sessions & exhibition for one day</li>
@@ -28,7 +30,7 @@ class TicketSeeder extends Seeder
                 "status" => "active",
             ],
             [
-                "summit_id" => 1,
+                "event_id" => $event_id,
                 "title" => "Five-days ticket",
                 "covers" => "<ul>
                     <li>Access to sessions & exhibition for five days</li>
@@ -41,34 +43,7 @@ class TicketSeeder extends Seeder
                 "usd_amount" => 220,
                 "status" => "active",
             ],
-            [
-            "summit_id" => 1,
-            "title" => "Summit ticket",
-            "covers" => "<ul>
-                <li>This ticket is valid for one adult only. It can be redeemed at a day of your choice. </li>
-                <li>With this ticket, you will get access to summit proceedings and exhibitions only</li>
-                <li>Meals and refreshments are not included in the package</li></ul>"
-            ,
-            "days" => 1,
-            "persons" => 1,
-            "kes_amount" => 1_000,
-            "usd_amount" => 10,
-            "status" => "active",
-        ],
-            [
-                "summit_id" => 1,
-                "title" => "Student ticket",
-                "covers" => "<ul>
-                    <li>This ticket is valid for one student only. It can be redeemed at a day of your choice. </li>
-                    <li>With this ticket, you will get access to summit proceedings,</li>
-                    <li>Exhibitions and one student-lunch coupon</li>
-                </ul>",
-                "days" => 1,
-                "persons" => 1,
-                "kes_amount" => 1_000,
-                "usd_amount" => 10,
-                "status" => "active",
-            ]
+
         ];
 
         $priority = 0;

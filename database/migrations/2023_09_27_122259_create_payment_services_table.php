@@ -17,7 +17,7 @@ return new class extends Migration {
             $table->string("name");
             $table->unsignedBigInteger("code")->index();
             $table->string("category");
-            $table->foreignIdFor(Summit::class)->constrained()->cascadeOnDelete();
+            $table->foreignUlid('event_id')->constrained()->cascadeOnDelete();
             $table->string("agency");
             $table->string("type");
             $table->string("currency");
@@ -25,7 +25,7 @@ return new class extends Migration {
             $table->string("bank_account_no")->nullable();
             $table->string("bank_branch")->nullable();
             $table->string("status")->default("active");
-            $table->foreignIdFor(User::class, "created_by")
+            $table->foreignUlid("created_by")
                 ->nullable()
                 ->constrained("users")
                 ->nullOnDelete();

@@ -8,6 +8,7 @@ use App\Enum\PaymentStatus;
 use Eloquent;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -59,12 +60,15 @@ use OwenIt\Auditing\Models\Audit;
  * @method static Builder|Booking whereSummitId($value)
  * @method static Builder|Booking whereUpdatedAt($value)
  * @method static Builder|Booking whereUserId($value)
+ * @property string|null $event_id
+ * @method static Builder|Booking whereEventId($value)
  * @mixin Eloquent
  */
 class Booking extends Model implements Auditable
 {
     use HasFactory;
     use \OwenIt\Auditing\Auditable;
+    use HasUlids;
 
     protected $guarded = [];
 

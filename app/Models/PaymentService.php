@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Eloquent;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -55,6 +56,8 @@ use OwenIt\Auditing\Contracts\Auditable;
  * @method static Builder|PaymentService whereUpdatedAt($value)
  * @method static Builder|PaymentService withTrashed()
  * @method static Builder|PaymentService withoutTrashed()
+ * @property string $event_id
+ * @method static Builder|PaymentService whereEventId($value)
  * @mixin Eloquent
  */
 class PaymentService extends Model implements Auditable
@@ -62,6 +65,7 @@ class PaymentService extends Model implements Auditable
     use HasFactory;
     use SoftDeletes;
     use \OwenIt\Auditing\Auditable;
+    use HasUlids;
 
     protected $guarded = [];
 

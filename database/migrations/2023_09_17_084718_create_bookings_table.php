@@ -16,17 +16,17 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('bookings', function (Blueprint $table) {
-            $table->id();
-            $table->foreignIdFor(User::class)->nullable()->constrained()->nullOnDelete();
-            $table->foreignIdFor(Summit::class)->nullable()->constrained()->nullOnDelete();
-            $table->foreignIdFor(Booth::class)->nullable()->constrained()->nullOnDelete();
-            $table->foreignIdFor(Order::class)->nullable()->constrained()->nullOnDelete();
-            $table->foreignIdFor(OrderItem::class)->nullable()->constrained()->nullOnDelete();
+            $table->ulid('id')->primary();
+            $table->foreignUlid('user_id')->nullable()->constrained()->nullOnDelete();
+            $table->foreignUlid('event_id')->nullable()->constrained()->nullOnDelete();
+            $table->foreignUlid('booth_id')->nullable()->constrained()->nullOnDelete();
+            $table->foreignUlid('order_id')->nullable()->constrained()->nullOnDelete();
+            $table->foreignUlid('order_item_id')->nullable()->constrained()->nullOnDelete();
             $table->string("booking_status")->default("reserved")->index();
             $table->string("payment_status")->default("pending")->index();
             $table->string("confirmation_status")->default("pending")->index();
             $table->timestamp("confirmed_at")->nullable()->index();
-            $table->foreignIdFor(User::class, "confirmed_by")->nullable()
+            $table->foreignUlid("confirmed_by")->nullable()
                 ->constrained("users")
                 ->nullOnDelete();
             $table->longText("notes")->nullable();

@@ -25,8 +25,6 @@ class AddDelegateModal extends Component
     public $edit_mode = false;
     /**
      */
-    public Collection $affiliations;
-
     public Collection $countries;
 
     public Collection $categories;
@@ -45,22 +43,30 @@ class AddDelegateModal extends Component
         ];
     }
 
-
+    /**
+     * @return void
+     */
     public function mount()
     {
         $this->delegate = new User();
         $this->categories = Category::query()
                ->where('status', CategoryStatus::ACTIVE)
                ->get();
-        $this->affiliations = Affiliation::get();
         $this->countries = Country::orderBy('name')->get();
     }
 
+    /**
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Foundation\Application
+     */
     public function render()
     {
         return view('livewire.delegate.add-delegate');
     }
 
+    /**
+     * @return void
+     * @throws \Throwable
+     */
     public function submit()
     {
         // Validate the form input data
@@ -101,7 +107,10 @@ class AddDelegateModal extends Component
         $this->dispatch('closeModal');
     }
 
-    #[On('update_delegate')]
+    /**
+     * @param $id
+     * @return void
+     */
     public function deleteDelegate($id)
     {
         // Delete the user record with the specified ID
@@ -111,15 +120,20 @@ class AddDelegateModal extends Component
         $this->dispatch('success', 'Delegate successfully deleted');
     }
 
+    /**
+     * @param $id
+     * @return void
+     */
+    #[On('update_delegate')]
     public function updateDelegate($id)
     {
         $this->edit_mode = true;
-
         $this->delegate = User::find($id);
     }
 
-
-
+    /**
+     * @return void
+     */
     public function hydrate()
     {
         $this->resetErrorBag();

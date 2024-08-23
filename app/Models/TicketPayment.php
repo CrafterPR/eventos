@@ -7,6 +7,7 @@ use App\Enum\PaymentStatus;
 use Eloquent;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -68,6 +69,7 @@ class TicketPayment extends Model implements Auditable
 {
     use HasFactory;
     use \OwenIt\Auditing\Auditable;
+    use HasUlids;
 
     protected $guarded = [];
 
@@ -83,9 +85,9 @@ class TicketPayment extends Model implements Auditable
         return $this->belongsTo(User::class);
     }
 
-    public function summit(): BelongsTo
+    public function event(): BelongsTo
     {
-        return $this->belongsTo(Summit::class);
+        return $this->belongsTo(Event::class);
     }
 
     public function ticket(): BelongsTo

@@ -13,9 +13,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('coupon_modifications', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('coupon_id')->constrained();
-            $table->foreignId('user_id')->constrained();
+            $table->ulid('id')->primary();
+            $table->foreignUlid('coupon_id')->constrained();
+            $table->foreignUlid('user_id')->constrained();
             $table->unsignedInteger('initial_value');
             $table->unsignedInteger('new_value');
             $table->string('reason')->nullable();

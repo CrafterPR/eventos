@@ -246,9 +246,7 @@
             selectOptions.map(function (option) {
                 $(`#select_${option}`).on('change', function (e) {
                     var data = $(`#select_${option}`).select2("val");
-                @this.set(`delegate.${option}`, data)
-                    ;
-                    ;
+                @this.set(`delegate.${option}`, data);
                 });
             });
 

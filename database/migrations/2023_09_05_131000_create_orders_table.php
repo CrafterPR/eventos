@@ -14,11 +14,11 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('orders', function (Blueprint $table) {
-            $table->id();
+            $table->ulid('id')->primary();
             $table->string("reference")->unique()->index();
             $table->unsignedBigInteger("service_code")->index();
-            $table->foreignIdFor(Summit::class)->nullable()->constrained()->nullOnDelete();
-            $table->foreignIdFor(User::class)->nullable()->constrained()->nullOnDelete();
+            $table->foreignUlid('event_id')->nullable()->constrained()->nullOnDelete();
+            $table->foreignUlid('user_id')->nullable()->constrained()->nullOnDelete();
             $table->string("currency")->default("KES");
             $table->decimal("items_total", 13)->nullable();
             $table->decimal("tax_total")->default(0);

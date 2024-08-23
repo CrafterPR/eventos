@@ -8,6 +8,7 @@ use Eloquent;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -55,7 +56,6 @@ use Spatie\Permission\Traits\HasRoles;
  * @property string|null $remember_token
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- * @property-read \App\Models\Affiliation|null $affiliation
  * @property-read Collection<int, \App\Models\Booking> $bookings
  * @property-read int|null $bookings_count
  * @property-read \App\Models\Country|null $country
@@ -109,12 +109,21 @@ use Spatie\Permission\Traits\HasRoles;
  * @method static Builder|User whereSalutation($value)
  * @method static Builder|User whereUpdatedAt($value)
  * @method static Builder|User whereUserType($value)
+ * @property string|null $email_delivered_at
+ * @property-read Collection<int, \App\Models\UserCoupon> $coupons
+ * @property-read int|null $coupons_count
+ * @property-read \App\Models\OrderItem|null $orderItem
+ * @method static Builder|User whereEmailDeliveredAt($value)
  * @mixin Eloquent
  */
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
-    use HasRoles, Impersonate;
+    use    HasApiTokens;
+    use    HasFactory;
+    use    Notifiable;
+    use    HasRoles;
+    use    Impersonate;
+    use    HasUlids;
 
 
     /**
@@ -159,12 +168,6 @@ class User extends Authenticatable
         );
     }
 
-    // protected function fullname(): Attribute
-    // {
-    //     return Attribute::make(
-    //         get: fn (string $value) => $this->first_name. ' '. $this->last_name,
-    //     );
-    // }
 
     /**
      * @return string|null
@@ -206,10 +209,6 @@ class User extends Authenticatable
         return $this->belongsTo(County::class);
     }
 
-    public function affiliation(): BelongsTo
-    {
-        return $this->belongsTo(Affiliation::class);
-    }
 
     public function coupon(): HasOneThrough
     {

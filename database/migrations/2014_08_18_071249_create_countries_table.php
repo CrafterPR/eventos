@@ -11,7 +11,7 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('countries', function ($table) {
-            $table->id();
+            $table->ulid('id', 50)->primary();
             $table->string('code');
             $table->string('name');
         });

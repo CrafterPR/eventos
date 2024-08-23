@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -36,11 +37,18 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @method static \Illuminate\Database\Eloquent\Builder|Coupon whereStatus($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Coupon whereType($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Coupon whereUpdatedAt($value)
+ * @property string|null $category_id
+ * @property-read \App\Models\CouponCategory|null $category
+ * @property-read \App\Models\Ticket|null $ticket
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\UserCoupon> $users
+ * @property-read int|null $users_count
+ * @method static \Illuminate\Database\Eloquent\Builder|Coupon whereCategoryId($value)
  * @mixin \Eloquent
  */
 class Coupon extends Model
 {
     use HasFactory;
+    use HasUlids;
 
     protected $guarded = [];
 

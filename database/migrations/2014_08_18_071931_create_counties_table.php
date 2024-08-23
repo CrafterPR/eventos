@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('counties', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('country_id')->constrained();
+            $table->ulid('id', 50)->primary();
+            $table->foreignUlid('country_id', 50)->constrained();
             $table->string('name');
             $table->timestamps();
         });

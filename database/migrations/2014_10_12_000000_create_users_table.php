@@ -17,7 +17,7 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->id();
+            $table->ulid('id')->primary();
             $table->string('salutation')->nullable();
             $table->string('first_name');
             $table->string('last_name');
@@ -34,9 +34,8 @@ return new class extends Migration {
             $table->string('avatar')->nullable();
             $table->string('profile_photo_path', 2048)->nullable();
             $table->json('area_of_interest')->nullable();
-            $table->foreignIdFor(Affiliation::class)->nullable()->constrained()->nullOnDelete();
-            $table->foreignIdFor(Country::class)->nullable()->constrained()->nullOnDelete();
-            $table->foreignIdFor(County::class)->nullable()->constrained()->nullOnDelete();
+            $table->foreignUlid('country_id', 50)->nullable()->constrained()->nullOnDelete();
+            $table->foreignUlid('county_id', 50)->nullable()->constrained()->nullOnDelete();
             $table->datetime('last_login_at')->nullable();
             $table->string('last_login_ip')->nullable();
             $table->rememberToken();

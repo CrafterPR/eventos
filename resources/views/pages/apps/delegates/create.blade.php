@@ -33,13 +33,13 @@
                     </div>
                     <div class="col-md-10">
                         <div class="form-floating mb-3">
-                            <input type="text" name="first_name" autocomplete="off" value="{{old("full_name")}}"
-                                   class="form-control  @error('full_name') border-danger @enderror"/>
-                            <label for="full_name">
+                            <input type="text" name="name" autocomplete="off" value="{{old("name")}}"
+                                   class="form-control  @error('name') border-danger @enderror"/>
+                            <label for="name">
                                 Full name
                                 <span class="required"></span>
                             </label>
-                            @error('full_name')
+                            @error('name')
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
@@ -70,7 +70,6 @@
                                    class="form-control  @error('mobile') border-danger @enderror "/>
                             <label for="mobile">
                                 Phone number
-                                <span class="required"></span>
                             </label>
                             @error('mobile')
                             <div class="text-danger">{{ $message }}</div>
@@ -131,7 +130,7 @@
                                 @endforeach
                             </select>
                             <label for="country_id">
-                                Home country
+                                Home Country
                                 <span class="required"></span>
                             </label>
                             @error('country_id')
@@ -204,13 +203,22 @@
 
                 $('#country_id').on('change', function () {
                     const selectedCountryId = $(this).val();
-                    switchView(selectedCountryId)
+
+                    var selectElement = this;
+
+                    // Get the selected option
+                    var selectedOption = selectElement.options[selectElement.selectedIndex];
+
+                    // Get the text content of the selected option
+                    var selectedText = selectedOption.text;
+
+                    switchView(selectedText, selectedCountryId)
                 });
 
-                function switchView(selectedCountryId) {
+                function switchView(selectedText, selectedCountryId) {
                     const countyDropdown = $('#county_id');
 
-                    if (selectedCountryId == 112) {
+                    if (selectedText === 'Kenya') {
                         $('#county').removeClass('d-none');
                     } else {
                         $('#county').addClass('d-none');

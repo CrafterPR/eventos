@@ -11,7 +11,7 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('pesaflow_responses', function (Blueprint $table) {
-            $table->id();
+            $table->ulid('id')->primary();
             $table->string("invoice_number")->index();
             $table->string("client_invoice_ref")->index();
             $table->string("status")->index();
