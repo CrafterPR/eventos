@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# @author Diamond Mubaarak <diamond@diamonddev.group>
+# @author James Makau <jacjimus@gmail.com>
 #
 # Installs node packages for the application.
 #

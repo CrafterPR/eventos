@@ -15,6 +15,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Validation\Rule;
+use Livewire\Attributes\On;
 use Livewire\Component;
 
 class AddDelegateModal extends Component
@@ -36,24 +37,14 @@ class AddDelegateModal extends Component
             'delegate.first_name' => ['required', 'string'],
             'delegate.last_name' => ['required', 'string'],
             'delegate.email' => ['required', 'email:rfc,dns', 'max:255', Rule::unique('users', 'email')->ignore($this->delegate->id)],
-            'delegate.mobile' => ['required', Rule::unique('users', 'mobile')->ignore($this->delegate->id)],
+            'delegate.mobile' => [Rule::unique('users', 'mobile')->ignore($this->delegate->id)],
             'delegate.salutation' => ["sometimes"],
-            'delegate.id_number' => ['nullable', 'string', 'unique:users'],
             'delegate.country_id' => ['required', 'exists:countries,id'],
-            'delegate.category_id' => ['required', 'exists:categories,id'],
-            'delegate.county_id' => [Rule::requiredIf(fn () => $this->delegate->country_id == 112)],
             'delegate.institution' => ['required', 'max:255'],
-            'delegate.position' => ['required', 'max:255'],
             'delegate.gender' => ['required'],
-            'delegate.affiliation_id' => ['required', 'exists:affiliations,id'],
-            'delegate.disability' => ['required', 'max:255'],
-            'delegate.area_of_interest' => ['required', 'array'],
         ];
     }
 
-    protected $listeners = [
-        'update_delegate' => 'updateDelegate',
-    ];
 
     public function mount()
     {
@@ -110,6 +101,7 @@ class AddDelegateModal extends Component
         $this->dispatch('closeModal');
     }
 
+    #[On('update_delegate')]
     public function deleteDelegate($id)
     {
         // Delete the user record with the specified ID
