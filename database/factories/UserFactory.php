@@ -3,6 +3,8 @@
 namespace Database\Factories;
 
 use App\Enum\UserType;
+use App\Models\Category;
+use App\Models\Country;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -30,6 +32,8 @@ class UserFactory extends Factory
             'mobile' => "2547" . rand(10000000, 99999999),
             'id_number' => rand(10000000, 99999999),
             'institution' => fake()->domainWord(),
+            'country_id' => Country::query()->inRandomOrder()->first()->id,
+            'category_id' => Category::query()->inRandomOrder()->first()->id,
             'position' => fake()->jobTitle(),
             'gender' => fake()->randomElement(["Male", "Female"]),
             'disability' => fake()->randomElement(["Yes", "No"]),
@@ -59,7 +63,7 @@ class UserFactory extends Factory
     {
         return $this->afterCreating(function (User $user) {
             if (in_array($user->user_type->value, [UserType::DELEGATE->value, UserType::EXHIBITOR->value])) {
-                $user->assignRole($user->user_type->value);
+               // $user->assignRole($user->user_type->value);
             } else {
                 $role = Role::inRandomOrder()->first();
                 $user->assignRole($role);

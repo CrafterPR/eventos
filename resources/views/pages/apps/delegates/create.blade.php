@@ -180,9 +180,9 @@
                 </div>
 
                 <div class="text-center pt-15">
-                    <button type="reset" class="btn btn-light me-3" data-bs-dismiss="modal" aria-label="Close">
-                        Discard
-                    </button>
+                    <a href="{{ route('users.delegates.index') }}" class="btn btn-light me-3">
+                        Cancel
+                    </a>
                     <button type="submit" class="btn btn-primary" data-kt-users-modal-action="submit">
                         <span class="indicator-label">Submit</span>
                     </button>

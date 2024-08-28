@@ -40,7 +40,7 @@ class DelegatesDataTable extends DataTable
                 return $user->country->name;
             })
             ->editColumn('category_id', function (User $user) {
-                return $user->category->title;
+                return $user->category?->title;
             })
            ->addColumn('action', function (User $user) {
                return view('pages.apps.delegates.columns._actions', compact('user'));

@@ -28,13 +28,13 @@
             <div class="card-toolbar">
                 <!--begin::Toolbar-->
                 <div class="d-flex justify-content-end" data-kt-user-table-toolbar="base">
-                    <!--begin::Add user-->
-                    {{--                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"--}}
-                    {{--                            data-bs-target="#kt_modal_add_delegate">--}}
-                    {{--                        {!! getIcon('plus', 'fs-2', '', 'i') !!}--}}
-                    {{--                        Add a delegate--}}
-                    {{--                    </button>--}}
-                    <a class="btn btn-primary" href="{{route("users.delegates.create")}}">Add a delegate</a>
+                    @can('import-delegates')
+                        <a class="btn btn-warning" href="{{route("users.delegates.import")}}">{!! getIcon('file', 'fa-2x') !!}Import delegates</a>
+                    @endcan
+                    &nbsp;
+                    @can('create-delegate')
+                        <a class="btn btn-primary" href="{{route("users.delegates.create")}}">{!! getIcon('plus', 'fa-2x') !!}Add a delegate
+                    @endcan
                     <!--end::Add user-->
                 </div>
                 <!--end::Toolbar-->

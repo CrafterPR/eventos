@@ -44,6 +44,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
             Route::resource('user-management/user', UserManagementController::class);
             Route::resource('exhibitor-management/exhibitors', ExhibitorController::class);
             Route::resource('delegate-management/delegates', DelegateController::class);
+            //Route::get('delegates/import', ImportDelegates::class)->name('delegates.import');
             Route::resource('user-management/role', RoleManagementController::class);
             Route::resource('user-management/permission', PermissionManagementController::class);
             Route::get('send-email', [UserManagementController::class, 'viewSendEmail'])->name('send-email');

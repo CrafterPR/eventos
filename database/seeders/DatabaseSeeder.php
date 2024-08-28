@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
             TicketSeeder::class,
             EmailsSeeder::class,
             CategorySeeder::class,
+            DelegatesSeeder::class
         ]);
     }
 }
