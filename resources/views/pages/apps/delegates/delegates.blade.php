@@ -33,9 +33,9 @@
                     @endcan
                     &nbsp;
                     @can('create-delegate')
-                        <a class="btn btn-primary" href="{{route("users.delegates.create")}}">{!! getIcon('plus', 'fa-2x') !!}Add a delegate
-                    @endcan
-                    <!--end::Add user-->
+                            <a class="btn btn-primary" href="{{route("users.delegates.create")}}">{!! getIcon('plus', 'fa-2x') !!}Add a delegate</a>
+                            @endcan
+                            <!--end::Add user-->
                 </div>
                 <!--end::Toolbar-->
 
