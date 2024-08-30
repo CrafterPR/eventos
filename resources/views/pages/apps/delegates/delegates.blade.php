@@ -29,18 +29,19 @@
                 <!--begin::Toolbar-->
                 <div class="d-flex justify-content-end" data-kt-user-table-toolbar="base">
                     @can('import-delegates')
-                        <a class="btn btn-warning" href="{{route("users.delegates.import")}}">{!! getIcon('file', 'fa-2x') !!}Import delegates</a>
+                        <a class="btn btn-warning" href="{{route("users.delegates.import")}}" data-bs-toggle="modal" data-bs-target="#kt_modal_import_delegates"
+                        >{!! getIcon('file', 'fa-2x') !!}Import delegates</a>
                     @endcan
                     &nbsp;
                     @can('create-delegate')
                             <a class="btn btn-primary" href="{{route("users.delegates.create")}}">{!! getIcon('plus', 'fa-2x') !!}Add a delegate</a>
-                            @endcan
+                    @endcan
                             <!--end::Add user-->
                 </div>
                 <!--end::Toolbar-->
 
                 <!--begin::Modal-->
-                <livewire:delegate.add-delegate-modal></livewire:delegate.add-delegate-modal>
+                <livewire:delegate.import-delegates-modal></livewire:delegate.import-delegates-modal>
                 <livewire:delegate.redeem-coupon-modal></livewire:delegate.redeem-coupon-modal>
                 <!--end::Modal-->
             </div>

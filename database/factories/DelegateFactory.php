@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Category;
+use App\Models\Event;
 use App\Models\User;
 use Database\Seeders\CategorySeeder;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -25,6 +26,7 @@ class DelegateFactory extends Factory
         $faker = FakerFactory::create();
         $faker->addProvider(new SalutationProvider($faker));
         return [
+            'event_id'=> Event::first()->id,
             'salutation' => $this->faker->salutation(),
             'first_name' => $this->faker->firstName(),
             'last_name' => $this->faker->lastName(),

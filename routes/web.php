@@ -18,6 +18,7 @@ use App\Http\Controllers\ProgrammeController;
 use App\Http\Controllers\SpeakerController;
 use App\Http\Controllers\SummitController;
 use App\Http\Controllers\TicketController;
+use App\Http\Livewire\Delegate\ImportDelegatesModal;
 use App\Http\Livewire\ErrorPage;
 use Illuminate\Support\Facades\Route;
 
@@ -44,7 +45,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
             Route::resource('user-management/user', UserManagementController::class);
             Route::resource('exhibitor-management/exhibitors', ExhibitorController::class);
             Route::resource('delegate-management/delegates', DelegateController::class);
-            Route::get('delegates/import', [DelegateController::class, 'import'])->name('delegates.import');
+            Route::get('delegates/import', ImportDelegatesModal::class)->name('delegates.import');
             Route::resource('user-management/role', RoleManagementController::class);
             Route::resource('user-management/permission', PermissionManagementController::class);
             Route::get('send-email', [UserManagementController::class, 'viewSendEmail'])->name('send-email');

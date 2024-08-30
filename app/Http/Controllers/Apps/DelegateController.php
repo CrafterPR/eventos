@@ -38,6 +38,11 @@ class DelegateController extends Controller
         return $dataTable->render('pages.apps.delegates.delegates');
     }
 
+    public function import()
+    {
+
+    }
+
     /**
      * @return \Illuminate\Contracts\Foundation\Application|Factory|View|Application
      */

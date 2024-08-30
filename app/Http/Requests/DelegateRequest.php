@@ -14,21 +14,24 @@ class DelegateRequest extends FormRequest
     {
         $category = $this->input('category_id');
         $category = Category::find($category);
-        if (Str::contains($category->title, 'delegate')) {
-            $user_type = UserType::DELEGATE->value;
-        } elseif (Str::contains($category->title, 'exhibitor')) {
-            $user_type = UserType::EXHIBITOR->value;
-        } else {
-            $user_type = $category->title;
+        if ($category) {
+            if (Str::contains($category->title, 'delegate')) {
+                $user_type = UserType::DELEGATE->value;
+            } elseif (Str::contains($category->title, 'exhibitor')) {
+                $user_type = UserType::EXHIBITOR->value;
+            } else {
+                $user_type = $category->title;
+            }
+            $split_name = explode(' ', $this->input('name'));
+            $this->merge([
+                'first_name' => $split_name[0],
+                'last_name' => $split_name[1] ?? '',
+                'password' => bcrypt(generate_random_password()),
+                'user_type' => $user_type,
+            ]);
         }
 
-        $split_name = explode(' ', $this->input('name'));
-        $this->merge([
-         'first_name' => $split_name[0],
-         'last_name' => $split_name[1] ?? '',
-         'password' => bcrypt(generate_random_password()),
-         'user_type' => $user_type,
-        ]);
+
     }
     /**
      * Determine if the user is authorized to make this request.
