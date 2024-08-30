@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\UserCoupon;
 use App\Rules\CouponValidator;
 use Exception;
+use Livewire\Attributes\On;
 use Livewire\Component;
 
 class RedeemCouponModal extends Component
@@ -14,10 +15,6 @@ class RedeemCouponModal extends Component
     public $code;
 
     public User $user;
-
-    protected $listeners = [
-        'redeem_coupon' => 'redeemCoupon'
-    ];
 
     protected function rules()
     {
@@ -30,6 +27,9 @@ class RedeemCouponModal extends Component
     }
 
 
+    /**
+     * @throws Exception
+     */
     public function submit()
     {
         $this->validate();
@@ -49,6 +49,7 @@ class RedeemCouponModal extends Component
         $this->reset('code');
     }
 
+    #[On('redeem_coupon')]
     public function redeemCoupon(User $user)
     {
         $this->code = '';
