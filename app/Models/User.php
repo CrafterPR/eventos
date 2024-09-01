@@ -153,8 +153,6 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
         'last_login_at' => 'datetime',
-        'area_of_interest' => 'array',
-        'user_type' => UserType::class,
     ];
 
     protected $appends = [
@@ -189,41 +187,7 @@ class User extends Authenticatable
         return "$this->salutation $this->first_name $this->last_name";
     }
 
-    public function orders(): HasMany
-    {
-        return $this->hasMany(Order::class);
-    }
 
-    public function bookings(): HasMany
-    {
-        return $this->hasMany(Booking::class);
-    }
-
-    public function country(): BelongsTo
-    {
-        return $this->belongsTo(Country::class);
-    }
-
-    public function county(): BelongsTo
-    {
-        return $this->belongsTo(County::class);
-    }
-
-
-    public function coupon(): HasOneThrough
-    {
-        return $this->hasOneThrough(Coupon::class, UserCoupon::class, 'user_id', 'id');
-    }
-
-    public function category(): BelongsTo
-    {
-        return $this->belongsTo(Category::class)->withDefault();
-    }
-
-    public function coupons(): HasMany
-    {
-        return $this->hasMany(UserCoupon::class);
-    }
 
     public function paymentVerifications(): HasMany
     {
@@ -240,10 +204,6 @@ class User extends Authenticatable
         return $this->can_be_impersonated == ($this->user_type == UserType::DELEGATE->value || $this->user_type == UserType::EXHIBITOR->value);
     }
 
-    public function orderItem(): HasOne
-    {
-        return $this->hasOne(OrderItem::class);
-    }
 
     public function isSuperAdmin():bool
     {

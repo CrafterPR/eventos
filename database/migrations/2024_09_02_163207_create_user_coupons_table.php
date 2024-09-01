@@ -11,8 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->boolean('invitation_sent')->after('user_type')->default(false);
+        Schema::create('delegate_coupons', function (Blueprint $table) {
+            $table->ulid('id')->primary();
+            $table->foreignUlid('delegate_id')->constrained();
+            $table->foreignUlid('coupon_id')->constrained();
+            $table->timestamps();
         });
     }
 
@@ -21,8 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('invitation_sent');
-        });
+        Schema::dropIfExists('user_coupons');
     }
 };

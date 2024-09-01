@@ -29,6 +29,11 @@ document.querySelectorAll('[data-kt-action="update_row"]').forEach(function (ele
         Livewire.dispatch('update_delegate', this.getAttribute('data-kt-delegate-id'));
     });
 });
+document.querySelectorAll('[data-kt-action="print_pass"]').forEach(function (element) {
+    element.addEventListener('click', function () {
+        Livewire.dispatch('get_delegate', {"delegate" : this.getAttribute('data-kt-delegate-id')});
+    });
+});
 
 document.querySelectorAll('[data-kt-action="redeem_coupon"]').forEach(function (element) {
     element.addEventListener('click', function () {

@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('coupons', function (Blueprint $table) {
-            $table->enum('type', ['1-day', '2-days', '3-days', '4-days', '5-days'])->after('payment_reference');
+            $table->string('type')->after('payment_reference');
         });
     }
 
