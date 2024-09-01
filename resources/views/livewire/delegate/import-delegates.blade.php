@@ -61,6 +61,19 @@
 
                                         <form wire:submit.prevent="uploadDelegates">
                                             @csrf
+                                            <div class="fv-row mb-7">
+                                                <!--begin::Label-->
+                                                <label class="required fw-semibold fs-6 mb-2">Select Event</label>
+                                                <!--end::Label-->
+                                                <select wire:model="event_id" class="form-select form-control-solid mb-3 mb-lg-0" >
+                                                    <option value="">Select event</option>
+                                                    @foreach($events as $event)
+                                                        <option value="{{$event->id}}">{{$event->title}}</option>
+                                                    @endforeach
+                                                </select>
+                                                @error('event_id')
+                                                <span class="text-danger">{{ $message }}</span> @enderror
+                                            </div>
                                             <div class="d-md-flex justify-content-start">
                                                 <div class="form-group">
                                                     <input type="file" id="file-upload-{{ $fileIteration }}"
