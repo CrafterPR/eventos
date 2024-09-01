@@ -24,8 +24,7 @@ class DelegateImport implements SkipsEmptyRows, ToCollection, WithBatchInserts, 
     {
         if (Schema::hasTable('users')) {
             foreach ($collection as $row) {
-                Delegate::where('email', $row['email'])->firstOr(function () use ($row) {
-                     Delegate::create([
+                Delegate::updateOrCreate(['email' => $row['email']], [
                         'first_name' => $row['first_name'],
                         'last_name' => $row['last_name'],
                         'organization' => $row['institution'],
@@ -35,8 +34,6 @@ class DelegateImport implements SkipsEmptyRows, ToCollection, WithBatchInserts, 
                         'country_id' => $this->getCountry($row['country']),
                         'category_id' => $this->getCategory($row['category'])
                     ]);
-
-                });
             }
         }
     }
