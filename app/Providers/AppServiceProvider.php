@@ -13,6 +13,8 @@ use App\Models\User;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Database\Schema\Builder;
 use Illuminate\Support\ServiceProvider;
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -40,12 +42,13 @@ class AppServiceProvider extends ServiceProvider
 
         Relation::enforceMorphMap([
             "user" => User::class,
-            "forum" => Summit::class,
             "booth" => Booth::class,
             "booking" => Booking::class,
             "ticket" => Ticket::class,
             "payment_service" => PaymentService::class,
-            "ticket_payment" => TicketPayment::class
+            "ticket_payment" => TicketPayment::class,
+            'role' => Role::class,
+            'permission' => Permission::class
         ]);
     }
 }

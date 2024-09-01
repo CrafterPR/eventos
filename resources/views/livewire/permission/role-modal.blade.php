@@ -127,13 +127,13 @@
         const modal = document.querySelector('#kt_modal_update_role');
 
         modal.addEventListener('show.bs.modal', (e) => {
-            Livewire.dispatch('modal.show.role_name', e.relatedTarget.getAttribute('data-role-id'));
+            Livewire.dispatch('modal.show.role_name', {'role_name': e.relatedTarget.getAttribute('data-role-id')});
         });
 
         document.addEventListener('livewire:init', function () {
             Livewire.on('success', function () {
                 $('#kt_modal_update_role').modal('hide');
-               // window.LaravelDataTables['manage-tickets'].ajax.reload();
+                //window.LaravelDataTables['manage-tickets'].ajax.reload();
             });
         });
     </script>

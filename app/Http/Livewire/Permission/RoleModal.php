@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Permission;
 
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Str;
+use Livewire\Attributes\On;
 use Livewire\Component;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
@@ -21,10 +22,7 @@ class RoleModal extends Component
         'name' => 'required|string',
     ];
 
-    // This is the list of listeners that this component listens to.
-    protected $listeners = ['modal.show.role_name' => 'mountRole'];
-
-    // This function is called when the component receives the `modal.show.role_name` event.
+    #[On('modal.show.role_name')]
     public function mountRole($role_name = '')
     {
         if (empty($role_name)) {
@@ -42,7 +40,6 @@ class RoleModal extends Component
         }
 
         $this->role = $role;
-
         // Set the name and checked permissions properties to the role's values.
         $this->name = $this->role->name;
         $this->checked_permissions = $this->role->permissions->pluck('name');
