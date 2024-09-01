@@ -42,7 +42,7 @@
                                                 class="text-danger">*</i></p>
                                         <a href="{{ url('files/delegates_template.xlsx') }}"
                                            class="btn btn-icon btn-3 btn-outline-secondary mb-0">
-                                            <img src="/files/excel.png" height="50" width="45"/>
+                                            <img src="{{ asset('files/excel.png') }}" height="50" width="45"/>
                                         </a>
                                     </div>
                                 </div>

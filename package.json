@@ -4,16 +4,13 @@
         "dev": "npm run development",
         "development": "mix",
         "watch": "mix watch",
-        "lint:js": "eslint --ext \".js,.vue\" --ignore-path .gitignore .",
         "watch-poll": "mix watch -- --watch-options-poll=1000",
         "hot": "mix watch --hot",
         "prod": "npm run production",
         "production": "mix --production",
         "sniff": "npm run lint:js",
         "lint:dry": "npm run lint:js -- --fix-dry-run",
-        "lint": "npm run lint:js -- --fix",
         "tcv": "tailwind-config-viewer -p 3001",
-        "husky": "husky install",
         "prepare": "husky"
     },
     "dependencies": {
