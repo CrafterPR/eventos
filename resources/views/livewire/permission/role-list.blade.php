@@ -1,4 +1,24 @@
 <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-5 g-xl-9">
+    <div class="ol-md-4">
+        <!--begin::Card-->
+        <div class="card h-md-100">
+            <!--begin::Card body-->
+            <div class="card-body d-flex flex-center">
+                <!--begin::Button-->
+                <button type="button" class="btn btn-clear d-flex flex-column flex-center" data-bs-toggle="modal" data-bs-target="#kt_modal_update_role">
+                    <!--begin::Illustration-->
+                    <img src="{{ image('illustrations/sketchy-1/4.png') }}" alt="" class="mw-100 mh-150px mb-7"/>
+                    <!--end::Illustration-->
+                    <!--begin::Label-->
+                    <div class="fw-bold fs-3 text-gray-600 text-hover-primary">Add New Role</div>
+                    <!--end::Label-->
+                </button>
+                <!--begin::Button-->
+            </div>
+            <!--begin::Card body-->
+        </div>
+        <!--begin::Card-->
+    </div>
     @foreach($roles as $role)
         <!--begin::Col-->
         <div class="col-md-4">
@@ -52,26 +72,4 @@
         <!--end::Col-->
     @endforeach
 
-    <!--begin::Add new card-->
-    <div class="ol-md-4">
-        <!--begin::Card-->
-        <div class="card h-md-100">
-            <!--begin::Card body-->
-            <div class="card-body d-flex flex-center">
-                <!--begin::Button-->
-                <button type="button" class="btn btn-clear d-flex flex-column flex-center" data-bs-toggle="modal" data-bs-target="#kt_modal_update_role">
-                    <!--begin::Illustration-->
-                    <img src="{{ image('illustrations/sketchy-1/4.png') }}" alt="" class="mw-100 mh-150px mb-7"/>
-                    <!--end::Illustration-->
-                    <!--begin::Label-->
-                    <div class="fw-bold fs-3 text-gray-600 text-hover-primary">Add New Role</div>
-                    <!--end::Label-->
-                </button>
-                <!--begin::Button-->
-            </div>
-            <!--begin::Card body-->
-        </div>
-        <!--begin::Card-->
-    </div>
-    <!--begin::Add new card-->
 </div>

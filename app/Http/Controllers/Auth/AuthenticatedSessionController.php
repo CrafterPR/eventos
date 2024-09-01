@@ -48,21 +48,11 @@ class AuthenticatedSessionController extends Controller
             'last_login_ip' => $request->getClientIp()
         ]);
 
-        $userType = $user->user_type;
-
-        if ($userType == UserType::DELEGATE) {
-            return redirect()->intended(RouteServiceProvider::DELEGATE_HOME);
-        }
-
-        if ($userType == UserType::EXHIBITOR) {
-            return redirect()->intended(RouteServiceProvider::EXHIBITOR_HOME);
-        }
-
         if ($user->hasRole('check-in support')) {
             return redirect()->to(RouteServiceProvider::CHECKIN_SUPPORT_HOME);
         }
 
-        return redirect()->to(RouteServiceProvider::HOME);
+        return redirect()->intended(RouteServiceProvider::HOME);
     }
 
     /**

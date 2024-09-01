@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Permission;
 
+use Livewire\Attributes\On;
 use Livewire\Component;
 use Spatie\Permission\Models\Permission;
 
@@ -15,17 +16,12 @@ class PermissionModal extends Component
         'name' => 'required|string',
     ];
 
-    // This is the list of listeners that this component listens to.
-    protected $listeners = [
-        'modal.show.permission_name' => 'mountPermission',
-        'delete_permission' => 'delete'
-    ];
-
     public function render()
     {
         return view('livewire.permission.permission-modal');
     }
 
+    #[On('modal.show.permission_name')]
     public function mountPermission($permission_name = '')
     {
         if (empty($permission_name)) {
@@ -61,6 +57,7 @@ class PermissionModal extends Component
         $this->dispatch('success', 'Permission updated');
     }
 
+    #[On('delete_permission')]
     public function delete($name)
     {
         $permission = Permission::where('name', $name)->first();
