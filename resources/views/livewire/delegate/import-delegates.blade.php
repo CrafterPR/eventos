@@ -40,9 +40,9 @@
                                     <div class="form-group">
                                         <p class="text-sm mb-2">{{ __('1. Download the excel template below:') }} <i
                                                 class="text-danger">*</i></p>
-                                        <a href="{{ url('assets/files/delegates_template.xlsx') }}"
+                                        <a href="{{ url('files/delegates_template.xlsx') }}"
                                            class="btn btn-icon btn-3 btn-outline-secondary mb-0">
-                                            <img src="/assets/files/excel.png" height="50" width="45"/>
+                                            <img src="/files/excel.png" height="50" width="45"/>
                                         </a>
                                     </div>
                                 </div>
@@ -51,7 +51,7 @@
                                         <p class="text-sm mb-2">{{ __("2. Fill in delegates data in the excel document as shown:") }}
                                             <i class="text-danger">*</i></p>
                                         <img class="img-fluid border-radius-lg"
-                                             src="{{ asset('assets/files/delegates_template.png') }}"
+                                             src="{{ asset('files/delegates_template.png') }}"
                                              alt="excel-example">
                                     </div>
                                 </div>
