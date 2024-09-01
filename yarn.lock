@@ -2763,12 +2763,12 @@ aws-sign2@~0.7.0:
 aws4@^1.8.0:
   version "1.11.0"
 
-axios@^1.4.0:
-  version "1.4.0"
-  resolved "https://registry.npmjs.org/axios/-/axios-1.4.0.tgz"
-  integrity sha512-S4XCWMEmzvo64T9GfvQDOXgYRDJ/wsSZc7Jvdgx5u1sd0JwsuPLqb3SYmusag+edF6ziyMensPVqLTSc1PiSEA==
+axios@^1.6.0:
+  version "1.7.7"
+  resolved "https://registry.npmjs.org/axios/-/axios-1.7.7.tgz"
+  integrity sha512-S4kL7XrjgBmvdGut0sN3yJxqYzrDOnivkBiN0OFs6hLiUam3UPvswUo0kqGyhqUZGEOytHyumEdXsAkgCOUf3Q==
   dependencies:
-    follow-redirects "^1.15.0"
+    follow-redirects "^1.15.6"
     form-data "^4.0.0"
     proxy-from-env "^1.1.0"
 
@@ -3395,11 +3395,6 @@ clone@^1.0.4:
   version "1.0.4"
   resolved "https://registry.npmjs.org/clone/-/clone-1.0.4.tgz"
   integrity sha512-JQHZ2QMW6l3aH/j6xCqQThY/9OH4D/9ls34cgkUBiEeocRTU04tHfKPBsUK1PqZCUQM7GiA0IIXJSuXHI64Kbg==
-
-clone@^2.1.1:
-  version "2.1.2"
-  resolved "https://registry.npmjs.org/clone/-/clone-2.1.2.tgz"
-  integrity sha512-3Pe/CF1Nn94hyhIYpjtiLhdCoEoz0DqQ+988E9gmeEdQZlojxnOb74wctFyuwWQHzqyf9X7C7MG8juUpqBJT8w==
 
 cmd-shim@^4.0.1:
   version "4.1.0"
@@ -4290,7 +4285,7 @@ debuglog@^1.0.1:
   resolved "https://registry.npmjs.org/debuglog/-/debuglog-1.0.1.tgz"
   integrity sha512-syBZ+rnAK3EgMsH2aYEOLUW7mZSY9Gb+0wUMCFsZvcmiz+HigA0LOcq/HoQqVuGG+EKykunc7QG2bzrponfaSw==
 
-deep-equal@^1.0.0, deep-equal@^1.0.1:
+deep-equal@^1.0.0:
   version "1.1.1"
   resolved "https://registry.npmjs.org/deep-equal/-/deep-equal-1.1.1.tgz"
   integrity sha512-yd9c5AdiqVcR+JjcwUQb9DkhJc8ngNr0MahEBGvDiJw8puWab2yZlh+nkasOnZP+EGTAP6rRp2JzJhJZzvNF8g==
@@ -5132,15 +5127,15 @@ event-emitter@^0.3.5, event-emitter@~0.3.5:
     d "1"
     es5-ext "~0.10.14"
 
-eventemitter3@^2.0.3:
-  version "2.0.3"
-  resolved "https://registry.npmjs.org/eventemitter3/-/eventemitter3-2.0.3.tgz"
-  integrity sha512-jLN68Dx5kyFHaePoXWPsCGW5qdyZQtLYHkxkg02/Mz6g0kYpDx4FyP6XfArhQdlOC4b8Mv+EMxPo/8La7Tzghg==
-
 eventemitter3@^4.0.0:
   version "4.0.7"
   resolved "https://registry.npmjs.org/eventemitter3/-/eventemitter3-4.0.7.tgz"
   integrity sha512-8guHBZCwKnFhYdHr2ysuRWErTwhoN2X8XELRlrRwpmfeY2jjuUN4taQMsULKUVo1K4DvZl+0pgfyoysHxvmvEw==
+
+eventemitter3@^5.0.1:
+  version "5.0.1"
+  resolved "https://registry.npmjs.org/eventemitter3/-/eventemitter3-5.0.1.tgz"
+  integrity sha512-GWkBvjiSZK87ELrYOSESUYeVIc9mvLLf/nXalMOS5dYrgZq9o5OVkbZAVM06CVxYsCwH9BDZFPlQTlPA1j4ahA==
 
 events@^3.0.0, events@^3.2.0:
   version "3.3.0"
@@ -5214,11 +5209,6 @@ ext@^1.1.2:
   dependencies:
     type "^2.7.2"
 
-extend@^3.0.2:
-  version "3.0.2"
-  resolved "https://registry.npmjs.org/extend/-/extend-3.0.2.tgz"
-  integrity sha512-fjquC59cD7CyW6urNXK0FBufkZcoiGG80wTuPujX590cB5Ttln20E2UB4S/WARVqhXffZl2LNgS+gQdPIIim/g==
-
 extend@~3.0.2:
   version "3.0.2"
 
@@ -5230,10 +5220,10 @@ fast-deep-equal@^3.1.1, fast-deep-equal@^3.1.3:
   resolved "https://registry.npmjs.org/fast-deep-equal/-/fast-deep-equal-3.1.3.tgz"
   integrity sha512-f3qQ9oQy9j2AhBe/H9VC91wLmKBCCU/gDOnKNAYG5hswO7BLKj09Hc5HYNz9cGI++xlpDCIgDaitVs03ATR84Q==
 
-fast-diff@1.1.2:
-  version "1.1.2"
-  resolved "https://registry.npmjs.org/fast-diff/-/fast-diff-1.1.2.tgz"
-  integrity sha512-KaJUt+M9t1qaIteSvjc6P3RbMdXsNhK61GRftR6SNxqmhthcd9MGIi4T+o0jD8LUSpSnSKXE20nLtJ3fOHxQig==
+fast-diff@^1.3.0:
+  version "1.3.0"
+  resolved "https://registry.npmjs.org/fast-diff/-/fast-diff-1.3.0.tgz"
+  integrity sha512-VxPP4NqbUjj6MaAOafWeUn2cXWLcCtljklUtZf0Ind4XQ+QPtmA0b18zZy0jIQx+ExRVCR/ZQpBmik5lXshNsw==
 
 fast-glob@^3.0.3, fast-glob@^3.2.9:
   version "3.3.1"
@@ -5375,10 +5365,10 @@ flot@^4.2.2:
   resolved "https://registry.npmjs.org/flot/-/flot-4.2.3.tgz"
   integrity sha512-r1t2gfhILE6dt7cnYDHX/D2VHERyD0YoV0UdFJg5dWbjkcu05MugfhNY7VspfBFTa+hjVNYVZw6/t9ZyYNen+w==
 
-follow-redirects@^1.0.0, follow-redirects@^1.15.0:
-  version "1.15.2"
-  resolved "https://registry.npmjs.org/follow-redirects/-/follow-redirects-1.15.2.tgz"
-  integrity sha512-VQLG33o04KaQ8uYi2tVNbdrWp1QWxNNea+nmIB4EVM28v0hmP17z7aG1+wAkNzVq4KeXTq3221ye5qTJP91JwA==
+follow-redirects@^1.0.0, follow-redirects@^1.15.6:
+  version "1.15.6"
+  resolved "https://registry.npmjs.org/follow-redirects/-/follow-redirects-1.15.6.tgz"
+  integrity sha512-wWN62YITEaOpSK584EZXJafH1AGpO8RVgElfkuXbTOrPX4fIfOyEpW/CsiNd8JdYrAoOvafRTOEnvsO++qCqFA==
 
 for-each@^0.3.3:
   version "0.3.3"
@@ -6924,15 +6914,25 @@ locate-path@^6.0.0:
   dependencies:
     p-locate "^5.0.0"
 
-lodash-es@^4.17.15:
+lodash-es@^4.17.15, lodash-es@^4.17.21:
   version "4.17.21"
   resolved "https://registry.npmjs.org/lodash-es/-/lodash-es-4.17.21.tgz"
   integrity sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==
+
+lodash.clonedeep@^4.5.0:
+  version "4.5.0"
+  resolved "https://registry.npmjs.org/lodash.clonedeep/-/lodash.clonedeep-4.5.0.tgz"
+  integrity sha512-H5ZhCF25riFd9uB5UCkVKo61m3S/xZk1x4wA6yp/L3RFP6Z/eHH1ymQcGLo7J3GMPfm0V/7m1tryHuGVxpqEBQ==
 
 lodash.debounce@^4.0.8:
   version "4.0.8"
   resolved "https://registry.npmjs.org/lodash.debounce/-/lodash.debounce-4.0.8.tgz"
   integrity sha512-FT1yDzDYEoYWhnSGnpE/4Kj1fLZkDFyqRb7fNt6FdYOSxlUWAtp42Eh6Wb0rGIv/m9Bgo7x4GhQbm5Ys4SG5ow==
+
+lodash.isequal@^4.5.0:
+  version "4.5.0"
+  resolved "https://registry.npmjs.org/lodash.isequal/-/lodash.isequal-4.5.0.tgz"
+  integrity sha512-pDo3lu8Jhfjqls6GkMgpahsF9kCyayhgykjyLMNFTKWrpVdAQtYyB4muAMWozBB4ig/dtWAmsMxLEI8wuz+DYQ==
 
 lodash.memoize@^4.1.2:
   version "4.1.2"
@@ -7897,10 +7897,10 @@ param-case@^3.0.3:
     dot-case "^3.0.4"
     tslib "^2.0.3"
 
-parchment@^1.1.4:
-  version "1.1.4"
-  resolved "https://registry.npmjs.org/parchment/-/parchment-1.1.4.tgz"
-  integrity sha512-J5FBQt/pM2inLzg4hEWmzQx/8h8D0CiDxaG3vyp9rKrQRSDgBlhjdP5jQGgosEajXPSQouXGHOmVdgo7QmJuOg==
+parchment@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.npmjs.org/parchment/-/parchment-3.0.0.tgz"
+  integrity sha512-HUrJFQ/StvgmXRcQ1ftY6VEZUq3jA2t9ncFN4F84J/vN0/FPpQF+8FKXb3l6fLces6q0uOHj6NJn+2xvZnxO6A==
 
 parent-module@^1.0.0:
   version "1.0.1"
@@ -8818,26 +8818,24 @@ queue-microtask@^1.2.2:
   resolved "https://registry.npmjs.org/queue-microtask/-/queue-microtask-1.2.3.tgz"
   integrity sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==
 
-quill-delta@^3.6.2:
-  version "3.6.3"
-  resolved "https://registry.npmjs.org/quill-delta/-/quill-delta-3.6.3.tgz"
-  integrity sha512-wdIGBlcX13tCHOXGMVnnTVFtGRLoP0imqxM696fIPwIf5ODIYUHIvHbZcyvGlZFiFhK5XzDC2lpjbxRhnM05Tg==
+quill-delta@^5.1.0:
+  version "5.1.0"
+  resolved "https://registry.npmjs.org/quill-delta/-/quill-delta-5.1.0.tgz"
+  integrity sha512-X74oCeRI4/p0ucjb5Ma8adTXd9Scumz367kkMK5V/IatcX6A0vlgLgKbzXWy5nZmCGeNJm2oQX0d2Eqj+ZIlCA==
   dependencies:
-    deep-equal "^1.0.1"
-    extend "^3.0.2"
-    fast-diff "1.1.2"
+    fast-diff "^1.3.0"
+    lodash.clonedeep "^4.5.0"
+    lodash.isequal "^4.5.0"
 
-quill@^1.3.7:
-  version "1.3.7"
-  resolved "https://registry.npmjs.org/quill/-/quill-1.3.7.tgz"
-  integrity sha512-hG/DVzh/TiknWtE6QmWAF/pxoZKYxfe3J/d/+ShUWkDvvkZQVTPeVmUJVu1uE6DDooC4fWTiCLh84ul89oNz5g==
+quill@^2.0.0:
+  version "2.0.2"
+  resolved "https://registry.npmjs.org/quill/-/quill-2.0.2.tgz"
+  integrity sha512-QfazNrhMakEdRG57IoYFwffUIr04LWJxbS/ZkidRFXYCQt63c1gK6Z7IHUXMx/Vh25WgPBU42oBaNzQ0K1R/xw==
   dependencies:
-    clone "^2.1.1"
-    deep-equal "^1.0.1"
-    eventemitter3 "^2.0.3"
-    extend "^3.0.2"
-    parchment "^1.1.4"
-    quill-delta "^3.6.2"
+    eventemitter3 "^5.0.1"
+    lodash-es "^4.17.21"
+    parchment "^3.0.0"
+    quill-delta "^5.1.0"
 
 qunit@^2.10.0:
   version "2.19.4"
@@ -10169,10 +10167,10 @@ tiny-slider@^2.9.3:
   resolved "https://registry.npmjs.org/tiny-slider/-/tiny-slider-2.9.4.tgz"
   integrity sha512-LAs2kldWcY+BqCKw4kxd4CMx2RhWrHyEePEsymlOIISTlOVkjfK40sSD7ay73eKXBLg/UkluAZpcfCstimHXew==
 
-tinymce@^5.8.2:
-  version "5.10.7"
-  resolved "https://registry.npmjs.org/tinymce/-/tinymce-5.10.7.tgz"
-  integrity sha512-9UUjaO0R7FxcFo0oxnd1lMs7H+D0Eh+dDVo5hKbVe1a+VB0nit97vOqlinj+YwgoBDt6/DSCUoWqAYlLI8BLYA==
+tinymce@^6.8.0:
+  version "6.8.4"
+  resolved "https://registry.npmjs.org/tinymce/-/tinymce-6.8.4.tgz"
+  integrity sha512-okoJyxuPv1gzASxQDNgQbnUXOdAIyoOSXcXcZZu7tiW0PSKEdf3SdASxPBupRj+64/E3elHwVRnzSdo82Emqbg==
 
 to-arraybuffer@^1.0.0:
   version "1.0.1"
