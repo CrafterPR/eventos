@@ -45,9 +45,7 @@ class UsersDataTable extends DataTable
      */
     public function query(User $model): QueryBuilder
     {
-        return $model->where('user_type', '!=', UserType::EXHIBITOR)
-            ->where('user_type', '!=', UserType::DELEGATE)
-        ->newQuery();
+        return $model->newQuery();
     }
 
     /**

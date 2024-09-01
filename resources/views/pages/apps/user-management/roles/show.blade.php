@@ -52,9 +52,11 @@
                     </div>
                     <!--end::Card body-->
                     <!--begin::Card footer-->
+                    @if($role->name  !== \App\Models\Role::SUPER_ADMIN)
                     <div class="card-footer pt-0">
                         <button type="button" class="btn btn-light btn-active-primary" data-role-id="{{ $role->name }}" data-bs-toggle="modal" data-bs-target="#kt_modal_update_role">Edit Role</button>
                     </div>
+                    @endif
                     <!--end::Card footer-->
                 </div>
                 <!--end::Card-->
