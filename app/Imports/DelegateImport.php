@@ -31,10 +31,9 @@ class DelegateImport implements SkipsEmptyRows, ToCollection, WithBatchInserts, 
                         'organization' => $row['institution'],
                         'email' => $row['email'],
                         'gender' => $row['gender'],
-                        'user_type' => $this->getUserType($row['category']),
-                        'event_id' => $this->eventId,
+                         'event_id' => $this->eventId,
                         'country_id' => $this->getCountry($row['country']),
-                       'category_id' => $this->getCategory($row['category'])
+                        'category_id' => $this->getCategory($row['category'])
                     ]);
 
                 });
@@ -89,8 +88,4 @@ class DelegateImport implements SkipsEmptyRows, ToCollection, WithBatchInserts, 
            ?->id;
     }
 
-    private function getUserType($category): string|null
-    {
-        return Str::contains($category, 'Exhibitor') ? 'exhibitor' : 'delegate';
-    }
 }
