@@ -71,7 +71,7 @@ class ImportDelegatesModal extends Component
 
         $this->batchId = $batch->id;
 
-        $this->dispatch('info', ['message' => 'Importing...please wait']);
+        $this->dispatch('info', 'Importing...please wait');
     }
 
     public function getImportBatchProperty(): ?Batch
@@ -94,9 +94,10 @@ class ImportDelegatesModal extends Component
         }
 
         if ($this->importFinished && ! $this->importCancelled) {
-            $this->dispatch('success', ['message' => 'Upload successful!']);
+            $this->dispatch('success', 'imported delegates successfully!');
+            $this->dispatch('closeModal');
         } elseif ($this->importCancelled) {
-            $this->dispatch('error', ['message' => 'Import failed!']);
+            $this->dispatch('error', 'Import failed!');
         }
 
         $this->dispatch('scrollToStatusMsg', ['element' => 'email_only']);

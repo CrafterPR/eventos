@@ -25,11 +25,13 @@ class DelegateImport implements SkipsEmptyRows, ToCollection, WithBatchInserts, 
             foreach ($collection as $row) {
                 User::where('email', $row['email'])->firstOr(function () use ($row) {
                     $password = Str::random(10);
-                    $newUser = User::create([
+                    User::create([
                         'first_name' => $row['first_name'],
                         'last_name' => $row['last_name'],
                         'institution' => $row['institution'],
                         'email' => $row['email'],
+                        'gender' => $row['gender'],
+                        'user_type' => $this->getUserType($row['category']),
                         'event_id' => $this->eventId,
                         'country_id' => $this->getCountry($row['country']),
                         'password' => bcrypt($password),
@@ -72,7 +74,7 @@ class DelegateImport implements SkipsEmptyRows, ToCollection, WithBatchInserts, 
         return 200;
     }
 
-    private function getCountry(string $country)
+    private function getCountry(string $country):string|null
     {
         return Country::query()
             ->where('name', 'LIKE', $country)
@@ -80,11 +82,16 @@ class DelegateImport implements SkipsEmptyRows, ToCollection, WithBatchInserts, 
             ?->id;
     }
 
-    private function getCategory(mixed $category)
+    private function getCategory(string $category): string|null
     {
         return Category::query()
             ->where('title', 'LIKE', $category)
             ->first()
-            ?->id;
+           ?->id;
+    }
+
+    private function getUserType($category): string|null
+    {
+        return Str::contains($category, 'Exhibitor') ? 'exhibitor' : 'delegate';
     }
 }

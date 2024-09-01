@@ -15,10 +15,13 @@ class CategorySeeder extends Seeder
     {
         $created_by = User::first()->id;
         $data = [
-            ['title' => 'National delegate', 'code' => 'ND', 'created_by' => $created_by],
-            ['title' => 'National exhibitor','code' => 'NE', 'created_by' => $created_by],
-            ['title' => 'International delegate','code' => 'ID', 'created_by' => $created_by],
-            ['title' => 'International exhibitor','code' => 'IE', 'created_by' => $created_by],
+            ['title' => 'Delegate', 'code' => 'ND', 'created_by' => $created_by],
+            ['title' => 'Exhibitor','code' => 'NE', 'created_by' => $created_by],
+            ['title' => 'Crew','code' => 'CR', 'created_by' => $created_by],
+            ['title' => 'Speaker','code' => 'SP', 'created_by' => $created_by],
+            ['title' => 'Moderator','code' => 'MD', 'created_by' => $created_by],
+            ['title' => 'Master of ceremony','code' => 'MC', 'created_by' => $created_by],
+            ['title' => 'VIP','code' => 'VI', 'created_by' => $created_by],
         ];
 
         foreach ($data as $cat) {
