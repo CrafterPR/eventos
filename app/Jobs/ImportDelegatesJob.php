@@ -28,8 +28,8 @@ class ImportDelegatesJob implements ShouldQueue
      *
      * @return void
      */
-    public function handle()
+    public function handle(): void
     {
-            Excel::import(new DelegateImport($this->eventId), $this->uploadFile);
+       Excel::import(new DelegateImport($this->eventId), $this->uploadFile);
     }
 }

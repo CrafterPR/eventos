@@ -69,15 +69,12 @@
             document.addEventListener('livewire:init', function () {
                 Livewire.on('success', function () {
                     $('#kt_modal_add_delegate').modal('hide');
-                    window.LaravelDataTables['delegates-table'].ajax.reload();
-                });
-            });
-            document.addEventListener('livewire:init', function () {
-                Livewire.on('success', function () {
                     $('#kt_modal_redeem_coupon').modal('hide');
+                    $('#kt_modal_import_delegates').modal('hide');
                     window.LaravelDataTables['delegates-table'].ajax.reload();
                 });
             });
+
         </script>
     @endpush
 

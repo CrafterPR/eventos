@@ -72,9 +72,9 @@
                                                         class="text-danger">{{ $message }}</span> @enderror
                                                 </div>
 
-                                        <button type="submit" @disabled($isImporting &&!$importFinished) class="btn btn-primary" data-kt-users-modal-action="importFile">
+                                        <button type="submit" @disabled($isImporting &&!$importFinished) class="btn btn-primary" data-kt-delegates-modal-action="importFile">
                                             <span class="indicator-label" wire:loading.remove>Submit</span>
-                                            <span class="indicator-progress" wire:loading wire:target="importFile">
+                                            <span class="indicator-progress" wire:loading wire:target="submit">
                                 Please wait...
                                 <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
                             </span>
@@ -112,4 +112,5 @@
             </div>
         </div>
     </div>
+
 
