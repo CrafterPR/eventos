@@ -34,9 +34,11 @@ class UserCoupon extends Model
 
     protected $guarded = [];
 
-    public function user(): BelongsTo
+    protected $table = 'delegate_coupons';
+
+    public function delegate(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Delegate::class);
     }
 
     public function coupon(): BelongsTo

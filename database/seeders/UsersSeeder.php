@@ -18,31 +18,22 @@ class UsersSeeder extends Seeder
     public function run(): void
     {
         User::create([
-            'salutation' => 'Ms',
             'first_name' => 'Super',
             'last_name' => 'admin',
             'mobile' => '254722410268',
-            'id_number' => '790776752',
-            'email' => 'jacjimus@gmail.com',
+             'email' => 'jacjimus@gmail.com',
             'password' => 'Password@234!!',
-            'institution' => 'CraftedPR',
-            'disability' => 'no',
-            'position' => 'Technical',
             'email_verified_at' => now(),
         ])->assignRole(Role::SUPER_ADMIN);
 
         User::create([
-            'salutation' => 'Mr',
             'first_name' => 'CraftedPR',
             'last_name' => 'Admin',
             'mobile' => '+254725830529',
             'email' => 'admin@craftedpr.co.ke',
             'password' => 'Crafted@234!!',
-            'institution' => 'CraftedPR',
-            'disability' => 'no',
-            'position' => 'Technical',
             'email_verified_at' => now(),
-        ])->assignRole('administrator');
+        ])->assignRole(Role::ADMINISTRATOR);
 
 
     }

@@ -38,7 +38,7 @@
             <div class="card card-flush h-md-50 mb-5 mb-xl-10">
                 <div class="card-header pt-5">
                     <div class="card-title d-flex flex-column">
-                        <span class="fs-2hx fw-bold text-dark me-2 lh-1 ls-n2">{{$staff["total"]}}</span>
+                        <span class="fs-2hx fw-bold text-dark me-2 lh-1 ls-n2">{{ $staff->count() }}</span>
                         <a href="{{route("users.user.index")}}">
                             <span class="text-gray-400 pt-1 fw-semibold fs-6">Staff</span>
                         </a>
@@ -47,7 +47,7 @@
                 <div class="card-body d-flex flex-column justify-content-end pe-0">
                     <span class="fs-6 fw-bolder text-gray-800 d-block mb-2">Recent Signups</span>
                     <div class="symbol-group symbol-hover flex-nowrap">
-                        @foreach($staff["list"] as $user)
+                        @foreach($staff as $user)
                             <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
                                  title="{{$user->name}}">
                                 @if ($user->profile_photo_path)
@@ -59,10 +59,10 @@
                                 @endif
                             </div>
                         @endforeach
-                        @if($staff["total"] > 6)
+                        @if($staff->count() > 6)
                             <a href="{{route("users.index")}}" class="symbol symbol-35px symbol-circle">
                                 <span class="symbol-label bg-dark text-gray-300 fs-8 fw-bold">
-                                    +{{$staff["total"]-6}}
+                                    +{{$staff->count()-6}}
                                 </span>
                             </a>
                         @endif
@@ -83,49 +83,50 @@
                     <div class="d-flex align-items-center flex-column mt-3 w-100">
                         <div
                             class="d-block justify-content-between fw-bold fs-6 text-white opacity-75 w-100 mt-auto mb-2">
-                                <span class="d-grid">( {{ 40 }} ) Delegates</span>
-                                <span class="d-grid">( {{ 45 }} ) Speakers</span>
-                                <span class="d-grid">( {{ 15 }} ) Exhibitors</span>
-                                <span class="d-grid">( {{ 4 }} ) Moderators</span>
+                            @forelse($delegates as $name => $delegate)
+                                <span class="d-grid">( {{ $delegate['count'] }} ) {{ $name }}</span>
+                            @empty
+                            @endforelse
+
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="card card-flush h-md-50 mb-5 mb-xl-10">
-                <div class="card-header pt-5">
-                    <div class="card-title d-flex flex-column">
-                        <span class="fs-2hx fw-bold text-dark me-2 lh-1 ls-n2">{{ $exhibitor["total"] }}</span>
-                        <a href="{{route("users.delegates.index")}}">
-                            <span class="text-gray-400 pt-1 fw-semibold fs-6">Exhibitors</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="card-body d-flex flex-column justify-content-end pe-0">
-                    <span class="fs-6 fw-bolder text-gray-800 d-block mb-2">Recent Signups</span>
-                    <div class="symbol-group symbol-hover flex-nowrap">
-                        @foreach($exhibitor["list"] as $user)
-                            <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
-                                 title="{{$user->name}}">
-                                @if ($user->profile_photo_path)
-                                    <img alt="{{$user->name}}" src="{{ $user->profile_photo_url }}"/>
-                                @else
-                                    <span class="symbol-label {{random_bg()}} fw-bold">
-                                        {{substr($user->first_name, 0, 1)}}
-                                    </span>
-                                @endif
-                            </div>
-                        @endforeach
-                        @if($exhibitor["total"]>6)
-                            <a href="#" class="symbol symbol-35px symbol-circle" data-bs-toggle="modal"
-                               data-bs-target="#kt_modal_view_users">
-                                <span class="symbol-label bg-dark text-gray-300 fs-8 fw-bold">
-                                    +{{$exhibitor["total"]-6}}
-                                </span>
-                            </a>
-                        @endif
-                    </div>
-                </div>
-            </div>
+{{--            <div class="card card-flush h-md-50 mb-5 mb-xl-10">--}}
+{{--                <div class="card-header pt-5">--}}
+{{--                    <div class="card-title d-flex flex-column">--}}
+{{--                        <span class="fs-2hx fw-bold text-dark me-2 lh-1 ls-n2">{{ $delegates['Exhibitor']['count'] }}</span>--}}
+{{--                        <a href="{{route("users.delegates.index")}}">--}}
+{{--                            <span class="text-gray-400 pt-1 fw-semibold fs-6">Exhibitors</span>--}}
+{{--                        </a>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                <div class="card-body d-flex flex-column justify-content-end pe-0">--}}
+{{--                    <span class="fs-6 fw-bolder text-gray-800 d-block mb-2">Recent Signups</span>--}}
+{{--                    <div class="symbol-group symbol-hover flex-nowrap">--}}
+{{--                        @foreach($exhibitor["list"] as $user)--}}
+{{--                            <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"--}}
+{{--                                 title="{{$user->name}}">--}}
+{{--                                @if ($user->profile_photo_path)--}}
+{{--                                    <img alt="{{$user->name}}" src="{{ $user->profile_photo_url }}"/>--}}
+{{--                                @else--}}
+{{--                                    <span class="symbol-label {{random_bg()}} fw-bold">--}}
+{{--                                        {{substr($user->first_name, 0, 1)}}--}}
+{{--                                    </span>--}}
+{{--                                @endif--}}
+{{--                            </div>--}}
+{{--                        @endforeach--}}
+{{--                        @if($exhibitor["total"]>6)--}}
+{{--                            <a href="#" class="symbol symbol-35px symbol-circle" data-bs-toggle="modal"--}}
+{{--                               data-bs-target="#kt_modal_view_users">--}}
+{{--                                <span class="symbol-label bg-dark text-gray-300 fs-8 fw-bold">--}}
+{{--                                    +{{$exhibitor["total"]-6}}--}}
+{{--                                </span>--}}
+{{--                            </a>--}}
+{{--                        @endif--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
         </div>
         <div class="col-md-6 col-lg-6 col-xl-6 col-xxl-3 mb-md-5 mb-xl-10">
             <div class="card card-flush h-md-50 mb-5 mb-xl-10">
@@ -164,7 +165,7 @@
             <div class="card card-flush h-md-50 mb-5 mb-xl-10">
                 <div class="card-header pt-5">
                     <div class="card-title d-flex flex-column">
-                        <span class="fs-2hx fw-bold text-dark me-2 lh-1 ls-n2">{{$delegate["total"]}}</span>
+                        <span class="fs-2hx fw-bold text-dark me-2 lh-1 ls-n2">{{ $delegates['Delegate']['count'] }}</span>
                         <a href="{{route("users.delegates.index")}}">
                             <span class="text-gray-400 pt-1 fw-semibold fs-6">Total Delegates</span>
                         </a>
@@ -173,7 +174,7 @@
                 <div class="card-body d-flex flex-column justify-content-end pe-0">
                     <span class="fs-6 fw-bolder text-gray-800 d-block mb-2">Recent Signups</span>
                     <div class="symbol-group symbol-hover flex-nowrap">
-                        @foreach($delegate["list"] as $user)
+                        @foreach($delegates['Delegate']["list"] as $user)
                             <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
                                  title="{{$user->name}}">
                                 @if ($user->profile_photo_path)
@@ -185,11 +186,11 @@
                                 @endif
                             </div>
                         @endforeach
-                        @if($delegate["total"]>6)
+                        @if($delegates['Delegate']["count"]>6)
                             <a href="#" class="symbol symbol-35px symbol-circle" data-bs-toggle="modal"
                                data-bs-target="#kt_modal_view_users">
                                 <span class="symbol-label bg-dark text-gray-300 fs-8 fw-bold">
-                                    +{{$delegate["total"]-6}}
+                                    +{{$delegates['Delegate']["count"]-6}}
                                 </span>
                             </a>
                         @endif
@@ -234,7 +235,7 @@
             <div class="card card-flush h-md-50 mb-5 mb-xl-10">
                 <div class="card-header pt-5">
                     <div class="card-title d-flex flex-column">
-                        <span class="fs-2hx fw-bold text-dark me-2 lh-1 ls-n2">{{$coupons["total"]}}</span>
+                        <span class="fs-2hx fw-bold text-dark me-2 lh-1 ls-n2">{{ $coupons->count() }}</span>
                         <a href="{{route("users.delegates.index")}}">
                             <span class="text-gray-400 pt-1 fw-semibold fs-6">Delegates registered with coupons</span>
                         </a>
@@ -243,23 +244,23 @@
                 <div class="card-body d-flex flex-column justify-content-end pe-0">
                     <span class="fs-6 fw-bolder text-gray-800 d-block mb-2">Recent Signups</span>
                     <div class="symbol-group symbol-hover flex-nowrap">
-                        @foreach($coupons["list"] as $user)
+                        @foreach($coupons as $user_coupon)
                             <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
-                                 title="{{$user->first_name}} {{$user->last_name}}">
+                                 title="{{$user_coupon->delegate->first_name}} {{$user_coupon->delegate->last_name}}">
                                 @if ($user->profile_photo_path)
-                                    <img alt="{{$user->name}}" src="{{ $user->profile_photo_url }}"/>
+                                    <img alt="{{$user_coupon->delegate->name}}" src="{{ $user_coupon->delegate->profile_photo_url }}"/>
                                 @else
                                     <span class="symbol-label {{random_bg()}} fw-bold">
-                                        {{substr($user->first_name, 0, 1)}}
+                                        {{substr($user_coupon->delegate->first_name, 0, 1)}}
                                     </span>
                                 @endif
                             </div>
                         @endforeach
-                        @if($coupons["total"]>6)
+                        @if($coupons->count() > 6)
                             <a href="#" class="symbol symbol-35px symbol-circle" data-bs-toggle="modal"
                                data-bs-target="#kt_modal_view_users">
                                 <span class="symbol-label bg-dark text-gray-300 fs-8 fw-bold">
-                                    +{{$coupons["total"]-6}}
+                                    +{{$coupons->count()-6}}
                                 </span>
                             </a>
                         @endif

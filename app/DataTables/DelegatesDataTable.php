@@ -2,14 +2,12 @@
 
 namespace App\DataTables;
 
-use App\Enum\UserType;
-use App\Models\User;
+use App\Models\Delegate;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\Html\Builder as HtmlBuilder;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
-use function Clue\StreamFilter\fun;
 
 class DelegatesDataTable extends DataTable
 {
@@ -21,29 +19,30 @@ class DelegatesDataTable extends DataTable
     public function dataTable(QueryBuilder $query): EloquentDataTable
     {
         return (new EloquentDataTable($query))
-            ->rawColumns(['user', 'last_login_at', 'created_at'])
-            ->editColumn('name', function (User $user) {
-                return $user->name;
+            ->rawColumns(['first_name', 'last_name', 'email'])
+            ->editColumn('name', function (Delegate $delegate) {
+                return $delegate->name;
             })
-            ->editColumn('created_at', function (User $user) {
-                return format_date($user->created_at);
+            ->editColumn('created_at', function (Delegate $delegate) {
+                return format_date($delegate->created_at);
             })
-           ->editColumn('institution', function (User $user) {
-               return $user->institution;
+           ->editColumn('organization', function (Delegate $delegate) {
+               return $delegate->organization;
            })
-
-            ->editColumn('gender', function (User $user) {
-                return $user->gender;
+            ->editColumn('country', function (Delegate $delegate) {
+                return $delegate->country->name;
             })
-
-            ->editColumn('country', function (User $user) {
-                return $user->country->name;
+            ->editColumn('category_id', function (Delegate $delegate) {
+                return $delegate->category?->title;
             })
-            ->editColumn('category_id', function (User $user) {
-                return $user->category?->title;
+            ->addColumn('pass_printed', function (Delegate $delegate) {
+                return view('pages.apps.delegates.columns._pass_printed', compact('delegate'));
             })
-           ->addColumn('action', function (User $user) {
-               return view('pages.apps.delegates.columns._actions', compact('user'));
+            ->addColumn('print_count', function (Delegate $delegate) {
+                return $delegate->print_count;
+            })
+           ->addColumn('action', function (Delegate $delegate) {
+               return view('pages.apps.delegates.columns._actions', compact('delegate'));
            })
                 ->setRowId('id');
     }
@@ -52,11 +51,10 @@ class DelegatesDataTable extends DataTable
     /**
      * Get the query source of dataTable.
      */
-    public function query(User $model): QueryBuilder
+    public function query(Delegate $model): QueryBuilder
     {
         return $model->with('country', 'category')
-            ->where('user_type', '!=', 'staff')
-            ->orderBy('created_at', 'DESC')
+             ->orderBy('created_at', 'DESC')
         ->newQuery();
     }
 
@@ -88,10 +86,14 @@ class DelegatesDataTable extends DataTable
             Column::make('last_name')->addClass('align-items-center')->title('last_name')->name('last_name')->hidden(),
             Column::make('created_at')->addClass('align-items-center')->title('Date registered')->name('created_at'),
             Column::make('email')->addClass('align-items-center')->title('Email')->name('email'),
-            Column::make('institution')->addClass('align-items-center')->title('Organization')->name('institution'),
+            Column::make('organization')->addClass('align-items-center')->title('Organization')->name('organization'),
             Column::make('category_id')->addClass('align-items-center')->title('Category')->name('category.title'),
             Column::make('gender')->addClass('align-items-center')->title('Gender'),
             Column::make('country')->addClass('align-items-center')->title('Country')->name('country.name'),
+            Column::make('pass_printed')->addClass('align-items-center')->title('Pass status')
+                ->name('pass_printed')->width(40),
+            Column::make('print_count')->addClass('align-items-center')->title('Print count')
+                ->name('print_count')->width(30),
             Column::computed('action')
                 ->addClass('text-end text-nowrap')
                 ->exportable(false)
@@ -105,6 +107,6 @@ class DelegatesDataTable extends DataTable
      */
     protected function filename(): string
     {
-        return 'Users_' . date('YmdHis');
+        return 'delegates_' . date('YmdHis');
     }
 }

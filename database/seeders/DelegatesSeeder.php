@@ -2,8 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Delegate;
 use Illuminate\Database\Seeder;
 
 class DelegatesSeeder extends Seeder
@@ -13,6 +12,6 @@ class DelegatesSeeder extends Seeder
      */
     public function run(): void
     {
-       User::factory()->count(50)->create();
+       Delegate::factory()->count(50)->create();
     }
 }

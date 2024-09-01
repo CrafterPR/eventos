@@ -8,6 +8,8 @@ use App\Enum\OrderItemStatus;
 use App\Enum\PaymentStatus;
 use App\Enum\UserType;
 use App\Models\Booth;
+use App\Models\Category;
+use App\Models\Delegate;
 use App\Models\Order;
 use App\Models\OrderItem;
 use App\Models\Pesaflow\PesaflowRequest;
@@ -17,6 +19,7 @@ use App\Models\UserCoupon;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
@@ -28,10 +31,13 @@ class DashboardController extends Controller
         $data = [
             ...$this->getBoothStats(),
             ...$this->getUsersStats(),
+            ...$this->getStaff(),
+            ...$this->getCouponData(),
             "kes_earning" => $this->getEarnings(Currency::KES),
             "usd_earning" => $this->getEarnings(Currency::USD),
             ...$this->getRecentTransactions()
         ];
+
         return view('pages.dashboards.index', ["data" => $data]);
     }
 
@@ -66,58 +72,23 @@ class DashboardController extends Controller
      */
     public function getUsersStats(): array
     {
-        $userTypeCount = User::query()
-            ->selectRaw("count(case when user_type = '" . UserType::STAFF->value . "' then 1 end) as staff")
-            ->selectRaw("count(case when user_type = '" . UserType::EXHIBITOR->value . "' then 1 end) as exhibitor")
-            ->selectRaw("count(case when user_type = '" . UserType::DELEGATE->value . "' then 1 end) as delegate")
-            ->first();
+        $categories = Category::all();
+        $delegatesData= [];
 
-        $staff = User::query()
-            ->select(["id", "first_name", "last_name", "profile_photo_path"])
-            ->where("user_type", UserType::STAFF->value)
-            ->orderByDesc("id")
-            ->limit(6)
-            ->get();
+        $categories->map(function ($category) use (&$delegatesData) {
+             $delegates = Delegate::query()
+                ->where("category_id", $category->id)
+                ->get();
+            $delegatesData[$category->title] = ['count' => $delegates->count(), 'list' => $delegates];
 
-        $exhibitors = User::query()
-            ->select(["id", "first_name", "last_name", "profile_photo_path"])
-            ->where("user_type", UserType::EXHIBITOR->value)
-            ->orderByDesc("id")
-            ->limit(6)
-            ->get();
+        });
 
-        $delegates = User::query()
-            ->select(["id", "first_name", "last_name", "profile_photo_path"])
-            ->where("user_type", UserType::DELEGATE->value)
-            ->orderByDesc("id")
-            ->limit(6)
-            ->get();
+        return ['delegates' => $delegatesData];
+    }
 
-        $couponDelegates = User::query()
-            ->select(["id", "first_name", "last_name", "profile_photo_path"])
-            ->where("user_type", UserType::DELEGATE->value)
-            ->whereIn('id', UserCoupon::pluck('user_id')->toArray())
-            ->orderByDesc("id");
-        ;
-
-        return [
-            "staff" => [
-                "total" => $userTypeCount->staff,
-                "list" => $staff
-            ],
-            "exhibitor" => [
-                "total" => $userTypeCount->exhibitor,
-                "list" => $exhibitors
-            ],
-            "delegate" => [
-                "total" => $userTypeCount->delegate,
-                "list" => $delegates
-            ],
-            "coupons" => [
-                "total" => $couponDelegates->count(),
-                "list" => $couponDelegates->limit(6)->get()
-    ]
-        ];
+    public function getStaff(): array
+    {
+        return ['staff' => User::query()->get()];
     }
 
     /**
@@ -152,7 +123,7 @@ class DashboardController extends Controller
      * Retrieve recent transactions
      * @return array
      */
-    public function getRecentTransactions(): array
+    private function getRecentTransactions(): array
     {
         $payments = PesaflowRequest::query()
             ->latest()
@@ -162,5 +133,14 @@ class DashboardController extends Controller
         return [
             "transactions" => $payments
         ];
+    }
+
+    private function getCouponData(): array
+    {
+        $coupons = UserCoupon::query()
+            ->with('delegate', 'coupon')
+            ->get();
+
+        return ['coupons' => $coupons];
     }
 }

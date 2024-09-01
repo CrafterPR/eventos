@@ -43,6 +43,7 @@
                 <!--begin::Modal-->
                 <livewire:delegate.import-delegates-modal></livewire:delegate.import-delegates-modal>
                 <livewire:delegate.redeem-coupon-modal></livewire:delegate.redeem-coupon-modal>
+                <livewire:delegate.print-pass-modal></livewire:delegate.print-pass-modal>
                 <!--end::Modal-->
             </div>
             <!--end::Card toolbar-->

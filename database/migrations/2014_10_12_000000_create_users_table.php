@@ -18,24 +18,15 @@ return new class extends Migration {
     {
         Schema::create('users', function (Blueprint $table) {
             $table->ulid('id')->primary();
-            $table->string('salutation')->nullable();
             $table->string('first_name');
             $table->string('last_name');
             $table->string('email')->unique();
             $table->string('mobile', 20)->nullable()->unique();
             $table->string('id_number', 20)->unique()->nullable();
-            $table->string('gender')->nullable();
-            $table->string('institution', 255)->nullable();
-            $table->string('disability')->nullable();
-            $table->string('position', 255)->nullable();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('user_type')->default("staff");
             $table->string('password');
             $table->string('avatar')->nullable();
             $table->string('profile_photo_path', 2048)->nullable();
-            $table->json('area_of_interest')->nullable();
-            $table->foreignUlid('country_id', 50)->nullable()->constrained()->nullOnDelete();
-            $table->foreignUlid('county_id', 50)->nullable()->constrained()->nullOnDelete();
             $table->datetime('last_login_at')->nullable();
             $table->string('last_login_ip')->nullable();
             $table->rememberToken();
