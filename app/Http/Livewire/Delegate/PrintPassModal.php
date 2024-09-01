@@ -28,4 +28,9 @@ class PrintPassModal extends Component
     {
         $this->delegate = $delegate;
     }
+
+    public function closeModal()
+    {
+        $this->dispatch('closeModal');
+    }
 }

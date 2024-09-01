@@ -72,6 +72,12 @@
                     $('#kt_modal_add_delegate').modal('hide');
                     $('#kt_modal_redeem_coupon').modal('hide');
                     $('#kt_modal_import_delegates').modal('hide');
+                    $('#kt_modal_print_preview').modal('hide');
+                    window.LaravelDataTables['delegates-table'].ajax.reload();
+                });
+
+                Livewire.on('closeModal', function () {
+                    $('#kt_modal_print_preview').modal('hide');
                     window.LaravelDataTables['delegates-table'].ajax.reload();
                 });
             });
