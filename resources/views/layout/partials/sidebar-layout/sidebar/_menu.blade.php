@@ -53,20 +53,6 @@
                             <!--end:Menu link-->
                         </div>
                     @endcan
-                    @can('view-exhibitors')
-                        <div class="menu-item">
-                            <!--begin:Menu link-->
-                            <a class="menu-link {{ request()->routeIs('users.exhibitors.*') ? 'active' : '' }}"
-                               href="{{ route('users.exhibitors.index') }}">
-							<span class="menu-bullet">
-								<span class="bullet bullet-line"></span>
-							</span>
-                                <span class="menu-title">Exhibitors</span>
-                            </a>
-                            <!--end:Menu link-->
-                        </div>
-                    @endcan
-
                     <!--end:Menu item-->
                     <!--begin:Menu item-->
                     @can('role-management')
