@@ -6,10 +6,11 @@ use App\Core\KTBootstrap;
 use App\Models\Booking;
 use App\Models\Booth;
 use App\Models\PaymentService;
-use App\Models\Summit;
+use App\Models\Event;
 use App\Models\Ticket;
 use App\Models\TicketPayment;
 use App\Models\User;
+
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Database\Schema\Builder;
 use Illuminate\Support\ServiceProvider;
@@ -48,7 +49,8 @@ class AppServiceProvider extends ServiceProvider
             "payment_service" => PaymentService::class,
             "ticket_payment" => TicketPayment::class,
             'role' => Role::class,
-            'permission' => Permission::class
+            'permission' => Permission::class,
+            'event' => Event::class,
         ]);
     }
 }

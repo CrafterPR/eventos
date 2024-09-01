@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Country;
 use App\Models\Delegate;
 use App\Models\User;
+use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Str;
@@ -16,13 +17,14 @@ use Maatwebsite\Excel\Concerns\WithChunkReading;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 use Maatwebsite\Excel\Concerns\WithValidation;
 
-class DelegateImport implements SkipsEmptyRows, ToCollection, WithBatchInserts, WithChunkReading, WithHeadingRow, WithValidation
+class DelegateImport implements SkipsEmptyRows, ToCollection, WithBatchInserts, WithChunkReading, WithHeadingRow, WithValidation, ShouldQueue
 {
+
     public function __construct(private readonly string $eventId) {}
 
     public function collection(Collection $collection): void
     {
-        if (Schema::hasTable('users')) {
+        if (Schema::hasTable('delegates')) {
             foreach ($collection as $row) {
                 Delegate::updateOrCreate(['email' => $row['email']], [
                         'first_name' => $row['first_name'],
@@ -61,12 +63,12 @@ class DelegateImport implements SkipsEmptyRows, ToCollection, WithBatchInserts, 
 
     public function chunkSize(): int
     {
-        return 200;
+        return 50;
     }
 
     public function batchSize(): int
     {
-        return 200;
+        return 50;
     }
 
     private function getCountry(string $country):string|null

@@ -30,6 +30,6 @@ class ImportDelegatesJob implements ShouldQueue
      */
     public function handle(): void
     {
-       Excel::import(new DelegateImport($this->eventId), $this->uploadFile);
+       Excel::queueImport(new DelegateImport($this->eventId), $this->uploadFile);
     }
 }

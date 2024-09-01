@@ -3,7 +3,9 @@
 namespace App\Http\Livewire\Delegate;
 
 use App\Jobs\ImportDelegatesJob;
+use App\Models\Event;
 use Illuminate\Bus\Batch;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\Bus;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Storage;
@@ -21,9 +23,14 @@ class ImportDelegatesModal extends Component
     #[Validate('required|file|mimes:xlsx,xls,csv|max:102400')]
     public mixed $importFile = null;
 
+    #[Validate('required|exists:events,id')]
+    public string $event_id = '';
+
     public $uploadErrors;
 
     public string $importFilePath;
+
+    public Collection $events;
 
     public int $fileIteration = 1;
 
@@ -32,6 +39,11 @@ class ImportDelegatesModal extends Component
     public bool $importFinished = false;
 
     public bool $importCancelled = false;
+
+    public function mount()
+    {
+        $this->events = Event::all();
+    }
     public function render()
     {
         $this->uploadErrors = Cache::remember('uploadError.'.$this->batchId, 300, fn () => 'No error.');
@@ -59,7 +71,8 @@ class ImportDelegatesModal extends Component
         $this->importFilePath = $this->importFile->store('delegates-import');
 
         $this->isImporting = true;
-        $eventId = '01j6f782xc273vdd6bk0k0y20y';
+        $eventId = $this->event_id;
+
         $batch = Bus::batch([
             new ImportDelegatesJob($this->importFilePath, $eventId),
         ])
