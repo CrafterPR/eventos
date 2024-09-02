@@ -20,7 +20,7 @@ class RolesPermissionsSeeder extends Seeder
             \App\Models\Role::ADMINISTRATOR => [
                 'user management',
                 'role management',
-                'event management',
+                'events management',
                 'register event',
                 'edit event',
                 'activate event',
