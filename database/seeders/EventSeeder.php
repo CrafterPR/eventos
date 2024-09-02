@@ -18,7 +18,8 @@ class EventSeeder extends Seeder
                 'title' => 'KASNEB International Conference for Professionals',
                 'theme' => 'Unleashing Potential: Shaping the Future of International Professionals in the Blue Space',
                 'venue' => 'Pride Inn Paradise Beach Resort, Convention Center & Spa',
-                'organization' => 'KASNEB'];
+                'organization' => 'KASNEB', 'start_date' => '2024-09-01', 'end_date' => '2024-09-10',];
+
 
 
         Event::create($data);

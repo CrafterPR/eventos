@@ -9,9 +9,11 @@ use App\Listeners\PesaflowPaymentFailedListener;
 use App\Listeners\PesaflowPaymentSuccessfulListener;
 use App\Listeners\SendTicketNotificationListener;
 use App\Models\Coupon;
+use App\Models\Event;
 use App\Models\Order;
 use App\Models\User;
 use App\Observers\CouponObserver;
+use App\Observers\EventObserver;
 use App\Observers\OrderObserver;
 use App\Observers\UserObserver;
 use Illuminate\Auth\Events\Registered;
@@ -54,6 +56,7 @@ class EventServiceProvider extends ServiceProvider
         Order::observe(OrderObserver::class);
         User::observe(UserObserver::class);
         Coupon::observe(CouponObserver::class);
+        Event::observe(EventObserver::class);
     }
 
     /**

@@ -6,11 +6,13 @@
 <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
     <!--begin::Menu item-->
     @can('checkin-event')
+        @if( $event->status === \App\Enum\EventStatus::ACTIVE)
         <div class="menu-item px-3">
             <a href="{{ route('events.delegates.checkin', ['event' => $event->id]) }}" class="menu-link px-3">
                 Check In
             </a>
         </div>
+            @endif
     @endcan
     @can('edit-event')
     <div class="menu-item px-3">
@@ -20,7 +22,7 @@
     </div>
     @endcan
     @can('activate-event')
-        @if($event->status === 'inactive')
+        @if($event->status === \App\Enum\EventStatus::INACTIVE || $event->status === \App\Enum\EventStatus::DRAFT)
         <div class="menu-item px-3">
             <a href="#" data-kt-event-id="{{ $event->id }}" data-kt-action="activate_row" class="menu-link px-3">
                 Activate
@@ -29,7 +31,7 @@
         @endif
     @endcan
     @can('deactivate-event')
-        @if($event->status === 'active')
+        @if($event->status === \App\Enum\EventStatus::ACTIVE)
             <div class="menu-item px-3">
             <a href="#" data-kt-event-id="{{ $event->id }}" data-kt-action="inactivate_row" class="menu-link px-3">
                 Deactivate
@@ -38,7 +40,7 @@
         @endif
     @endcan()
     @can('delete-event')
-    @if($event->status === 'inactive')
+    @if($event->status === \App\Enum\EventStatus::INACTIVE)
     <div class="menu-item px-3">
         <a href="#" class="menu-link px-3" data-kt-event-id="{{ $event->id }}" data-kt-action="delete_row">
             Delete

@@ -80,11 +80,10 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
  * @method static Builder|Event whereOrganization($value)
  * @mixin Eloquent
  */
-class Event extends Model implements Auditable, HasMedia
+class Event extends Model implements HasMedia
 {
     use HasFactory;
     use SoftDeletes;
-    use \OwenIt\Auditing\Auditable;
     use InteractsWithMedia;
     use HasUlids;
 
@@ -97,9 +96,9 @@ class Event extends Model implements Auditable, HasMedia
         "end_date" => "date",
     ];
 
-    public function bookings(): HasMany
+    public function checkpoints(): HasMany
     {
-        return $this->hasMany(Booking::class);
+        return $this->hasMany(Checkpoint::class);
     }
 
     public function tickets(): HasMany
@@ -110,5 +109,10 @@ class Event extends Model implements Auditable, HasMedia
     public function createdBy(): BelongsTo
     {
         return $this->belongsTo(User::class, "created_by");
+    }
+
+    public function hasActiveCheckins(): bool
+    {
+        return $this->checkpoints()->whereHas('checkins')->exists();
     }
 }

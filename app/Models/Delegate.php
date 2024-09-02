@@ -29,9 +29,9 @@ class Delegate extends Model
         return $this->hasMany(Order::class);
     }
 
-    public function bookings(): HasMany
+    public function event(): BelongsTo
     {
-        return $this->hasMany(Booking::class);
+        return $this->belongsTo(Event::class);
     }
 
     public function country(): BelongsTo

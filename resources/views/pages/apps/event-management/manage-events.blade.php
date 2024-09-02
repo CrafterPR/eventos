@@ -38,8 +38,9 @@
                 <!--end::Toolbar-->
 
                 <!--begin::Modal-->
-                <livewire:events.create-event />
-                <livewire:events.edit-event />
+                <livewire:events.create-event-modal />
+                  <livewire:events.edit-event-modal />
+
                 <!--end::Modal-->
             </div>
             <!--end::Card toolbar-->
