@@ -53,10 +53,10 @@ class CreateEventModal extends Component
        $this->dispatch('success', 'Event has been activated successfully');
     }
     #[On('inactivate_row')]
-        public function Deactivate(Event $event)
+        public function deactivate(Event $event)
         {
             if($event->hasActiveCheckins()) {
-                 $this->dispatch('warning', 'Event cannot be deactivated because delegates have started checkin!');
+                 $this->dispatch('error', 'Event cannot be deactivated because delegates have started checkin!');
                 return;
             }
            $event->status = EventStatus::INACTIVE;

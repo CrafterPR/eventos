@@ -101,9 +101,9 @@ class Event extends Model implements HasMedia
         return $this->hasMany(Checkpoint::class);
     }
 
-    public function tickets(): HasMany
+    public function delegates(): HasMany
     {
-        return $this->hasMany(Ticket::class);
+        return $this->hasMany(Delegate::class);
     }
 
     public function createdBy(): BelongsTo
