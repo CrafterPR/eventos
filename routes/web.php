@@ -42,8 +42,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
         Route::middleware(['can:user-management'])->name('users.')->group(function () {
-            Route::resource('user-management/user', UserManagementController::class);
-            Route::resource('exhibitor-management/exhibitors', ExhibitorController::class);
+            Route::resource('user-management/user', UserManagementController::class)
+                ->middleware('can:manage-staff');
             Route::resource('delegate-management/delegates', DelegateController::class);
             Route::get('delegates/import', ImportDelegatesModal::class)->name('delegates.import');
             Route::post('print-count', [DelegateController::class, 'increment'])->name('delegate.print-count');
@@ -55,19 +55,14 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
         // manage events
         Route::middleware(['can:events-management'])->name('events.')->group(function () {
-            Route::resource('manage-events', EventController::class);
-            Route::get('{event}/checkin', [EventController::class, 'checkin'])->name('delegates.checkin');
-            Route::post('{event}/checkin', [EventController::class, 'store'])->name('delegates.checkin.store');
+            Route::resource('manage-events', EventController::class)
+                ->middleware('can:manage-events');
+            Route::get('{event}/checkin', [EventController::class, 'checkin'])->name('delegates.checkin')
+                ->middleware('can:checkin-event');
+            Route::post('{event}/checkin', [EventController::class, 'store'])->name('delegates.checkin.store')
+                ->middleware('can:checkin-event');;
 
         });
-
-        // manage booths
-        Route::middleware(['can:booth-management'])->prefix('booths')->name('booths.')->group(function () {
-            Route::resource('booth', BoothController::class);
-            Route::get('bookings', [BoothController::class, 'view_bookings'])->name('view-booth-bookings');
-            Route::get('booking/{boothId}', [BoothController::class, 'view_ticket'])->name('view-booth');
-        });
-
         Route::middleware(['can:view-reports'])->prefix('reports')->name('reports.')->group(function () {
             Route::get('exhibitors-paid', [ProgrammeController::class, 'exhibitors'])->name('exhibitors.paid')
                 ->middleware('can:manage-events');
