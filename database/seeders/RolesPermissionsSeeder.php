@@ -25,6 +25,7 @@ class RolesPermissionsSeeder extends Seeder
                 'edit event',
                 'activate event',
                 'deactivate event',
+                'checkin event',
                 'delete event',
                 'ticket management',
                 'booth management',

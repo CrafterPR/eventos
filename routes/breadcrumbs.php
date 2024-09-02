@@ -52,9 +52,16 @@ Breadcrumbs::for('tickets.manage-tickets.index', function (BreadcrumbTrail $trai
     $trail->parent('home');
     $trail->push('Manage Tickets', route('tickets.manage-tickets.index'));
 });
+
 Breadcrumbs::for('events.manage-events.index', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
     $trail->push('Manage Events', route('events.manage-events.index'));
+});
+
+Breadcrumbs::for('events.manage-events.checkin', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push('Manage Events', route('events.manage-events.index'));
+    $trail->push('Checkin Delegates', '');
 });
 
 Breadcrumbs::for('booths.view-booth-bookings', function (BreadcrumbTrail $trail) {

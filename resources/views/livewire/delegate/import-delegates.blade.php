@@ -85,13 +85,16 @@
                                                         class="text-danger">{{ $message }}</span> @enderror
                                                 </div>
 
-                                        <button type="submit" @disabled($isImporting &&!$importFinished) class="btn btn-primary" data-kt-delegates-modal-action="importFile">
-                                            <span class="indicator-label" wire:loading.remove>Submit</span>
-                                            <span class="indicator-progress" wire:loading wire:target="submit">
-                                Please wait...
-                                <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
-                            </span>
-                                        </button>
+                                                <button type="submit" @disabled($isImporting && !$importFinished) class="btn btn-primary" data-kt-delegates-modal-action="uploadDelegates">
+                                                    <!-- Hide the "Submit" label when loading -->
+                                                    <span class="indicator-label" wire:loading.remove wire:target="uploadDelegates">Submit</span>
+
+                                                    <!-- Show the "Please wait..." indicator when loading -->
+                                                    <span class="indicator-progress" wire:loading wire:target="uploadDelegates">
+                                                        Please wait...
+                                                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                                                    </span>
+                                                </button>
                                             </div>
                                         </form>
 
