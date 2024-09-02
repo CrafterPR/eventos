@@ -27,4 +27,11 @@ class EventController extends Controller
         return redirect()->back()->with('success', 'Delegate has been checked in successfully!');
     }
 
+
+    public function show(Event $manage_event)
+    {
+        $event = $manage_event;
+        return view('pages.apps.event-management.show', compact('event'));
+    }
+
 }

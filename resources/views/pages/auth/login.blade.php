@@ -1,7 +1,7 @@
 <x-auth-layout>
     <div class="bg-body d-flex flex-column flex-center rounded-4 w-md-500px p-20">
         <div class="row">
-        <h3 class="title_h4 col-md-7">{{ env('APP_NAME') }}  Portal</h3>
+        <h3 class="title_h4 col-md-7">Eventos Portal</h3>
             <img src="{{ asset('assets/media/images/logo.svg') }}" alt="Logo" class="img img-fluid col-md-5"/>
 {{--        <img src="{{ asset('assets/media/images/green_logo.svg') }}" alt=" image here" class="position_logo col-md-4"/>--}}
         </div>

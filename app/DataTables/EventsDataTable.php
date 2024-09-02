@@ -23,7 +23,8 @@ class EventsDataTable extends DataTable
         return (new EloquentDataTable($query))
             ->rawColumns(['title', 'slug', 'theme', 'start_date', 'end_date', 'status'])
             ->editColumn('title', function (Event $event) {
-                return Str::title($event->title);
+                return sprintf("<a href='%s'>%s</a>", route('events.manage-events.show', ['manage_event' => $event->id]),Str::title($event->title));
+
             })
             ->editColumn('organization', function (Event $event) {
                 return Str::upper($event->organization);
