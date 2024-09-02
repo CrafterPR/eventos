@@ -61,6 +61,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
         // manage events
         Route::middleware(['can:event-management'])->name('events.')->group(function () {
             Route::resource('manage-events', EventController::class);
+            Route::get('{event}/checkin', [EventController::class, 'checkin'])->name('delegates.checkin');
+            Route::post('{event}/checkin', [EventController::class, 'store'])->name('delegates.checkin.store');
+
         });
 
         // manage booths
