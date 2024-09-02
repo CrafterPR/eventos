@@ -16,6 +16,9 @@ return new class extends Migration
             $table->string('name');
             $table->foreignUlid('event_id')->constrained();
             $table->boolean('is_active')->default(true);
+            $table->time('opens')->default('07:00:00');
+            $table->time('closes')->default('05:00:00');
+            $table->foreignUlid('leader_id')->nullable()->constrained('users');
             $table->timestamps();
         });
     }

@@ -55,18 +55,31 @@ if (!function_exists('getDaySchedules')) {
 }
 
 
-if (!function_exists('checkEventDateTime')) {
-    function checkEventDateTime($event): bool
+if (!function_exists('getDatesBetween')) {
+    /**
+     * @throws DateMalformedStringException
+     * @throws DateMalformedPeriodStringException
+     */
+    function getDatesBetween($startDate, $endDate): array
     {
-        $datetimeToCheck = Carbon::now();
+        // Create DateTime objects for start and end dates
+        $start = new DateTime($startDate);
+        $end = new DateTime($endDate);
+        $end->modify('+1 day'); // Modify end date to include the end date itself
 
-        $startDatetime = $event->start == '00:00:00' ? Carbon::parse('01-09-2023') : Carbon::parse($event->programme->date . $event->start);
-        $endDatetime = Carbon::parse($event->programme->date . $event->end);
+        // Create an interval of 1 day
+        $interval = new DateInterval('P1D');
+        $dateRange = new DatePeriod($start, $interval, $end);
 
-        if ($datetimeToCheck->between($startDatetime, $endDatetime)) {
-            return true;
+        // Initialize an empty array to store the dates
+        $dates = [];
+
+        // Loop through each date in the date range and add it to the array
+        foreach ($dateRange as $date) {
+            $dates[] = $date->format('Y-m-d');
         }
-        return false;
+
+        return $dates;
     }
 }
 

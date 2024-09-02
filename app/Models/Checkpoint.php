@@ -24,6 +24,11 @@ class Checkpoint extends Model
         return $this->hasMany(Checkin::class);
     }
 
+    public function leader(): BelongsTo
+    {
+       return $this->belongsTo(User::class, 'leader_id');
+    }
+
     public function users(): HasManyThrough
     {
         return $this->hasManyThrough(User::class, CheckpointUser::class , 'id', 'id', 'checkpoint_id');
