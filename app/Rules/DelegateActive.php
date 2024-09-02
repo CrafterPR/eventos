@@ -16,8 +16,11 @@ class DelegateActive implements ValidationRule
      */
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {
-        if(! Delegate::find($value)->status === DelegateStatus::ACTIVE) {
-            $fail('Delegate is not active.');
+        $delegate = Delegate::find($value);
+        if($delegate) {
+            if (! $delegate->status === DelegateStatus::ACTIVE) {
+                $fail('This Delegate is not active.');
+            }
         }
     }
 }

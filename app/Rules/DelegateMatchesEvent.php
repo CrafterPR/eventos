@@ -22,7 +22,7 @@ class DelegateMatchesEvent implements ValidationRule, DataAwareRule
         $delegateEvent = Delegate::with('event')->find($value);
 
         if ($delegateEvent) {
-            if($delegateEvent->status !== EventStatus::ACTIVE) {
+            if($delegateEvent->event->status !== EventStatus::ACTIVE) {
                 $fail("Delegate is registered, but event has been deactivated");
 
             } else {
