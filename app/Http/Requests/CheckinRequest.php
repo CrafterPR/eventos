@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use App\Models\Event;
+use App\Rules\DelegateActive;
 use App\Rules\DelegateMatchesEvent;
 use App\Rules\DelegateWasScanned;
 use Carbon\Carbon;
@@ -48,7 +49,7 @@ class CheckinRequest extends FormRequest
     public function rules(): array
     {
         return [
-           'delegate_id' => ['required', 'string', 'exists:delegates,id', new DelegateMatchesEvent, new DelegateWasScanned],
+           'delegate_id' => ['required', 'string', 'exists:delegates,id',new DelegateActive(), new DelegateMatchesEvent, new DelegateWasScanned],
            'event_id' => ['required', 'string', 'exists:events,id'],
             'checkpoint_id' => ['required', 'string', 'exists:checkpoints,id'],
             'scanned_by' => ['required', 'string', 'exists:users,id'],

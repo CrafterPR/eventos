@@ -12,6 +12,7 @@ use App\Models\Affiliation;
 use App\Models\Category;
 use App\Models\Country;
 use App\Models\Coupon;
+use App\Models\Delegate;
 use App\Models\User;
 use App\Models\UserCoupon;
 use App\Notifications\SendInvitationNotification;
@@ -87,13 +88,6 @@ class DelegateController extends Controller
         return view('pages.apps.user-management.users.show', compact('user'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(User $user)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
