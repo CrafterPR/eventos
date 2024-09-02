@@ -78,7 +78,6 @@
                                                         <!--begin::Checkbox-->
                                                         <label class="form-check form-check-sm form-check-custom form-check-solid me-5 me-lg-20">
                                                             <input class="form-check-input" type="checkbox" wire:model="checked_permissions" value="{{ $permission->name }}"/>
-                                                            <span class="form-check-label">{{ ucwords(Str::before($permission->name, ' ')) }}</span>
                                                         </label>
                                                         <!--end::Checkbox-->
                                                     </div>

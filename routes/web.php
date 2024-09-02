@@ -42,8 +42,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
         Route::middleware(['can:user-management'])->name('users.')->group(function () {
-            Route::resource('user-management/user', UserManagementController::class);
-            Route::resource('exhibitor-management/exhibitors', ExhibitorController::class);
+            Route::resource('user-management/user', UserManagementController::class)
+                ->middleware('can:manage-staff');
             Route::resource('delegate-management/delegates', DelegateController::class);
             Route::get('delegates/import', ImportDelegatesModal::class)->name('delegates.import');
             Route::post('print-count', [DelegateController::class, 'increment'])->name('delegate.print-count');
@@ -52,34 +52,17 @@ Route::middleware(['auth', 'verified'])->group(function () {
             Route::get('send-email', [UserManagementController::class, 'viewSendEmail'])->name('send-email');
             Route::post('send-email', [UserManagementController::class, 'sendEmail'])->name('emails.send');
         });
-        // manage tickets
-        Route::middleware(['can:ticket-management'])->name('tickets.')->group(function () {
-            Route::resource('manage-tickets', TicketController::class);
-            Route::resource('manage-coupons', CouponController::class);
-            Route::get('view-purchased', [TicketController::class, 'view_purchased'])->name('view-purchased');
-            Route::get('view-purchased/{ticketId}', [TicketController::class, 'view_ticket'])->name('view-ticket');
-        });
+
         // manage events
-        Route::middleware(['can:event-management'])->name('events.')->group(function () {
-            Route::resource('manage-events', EventController::class);
-            Route::get('{event}/checkin', [EventController::class, 'checkin'])->name('delegates.checkin');
-            Route::post('{event}/checkin', [EventController::class, 'store'])->name('delegates.checkin.store');
-
-        });
-
-        // manage booths
-        Route::middleware(['can:booth-management'])->prefix('booths')->name('booths.')->group(function () {
-            Route::resource('booth', BoothController::class);
-            Route::get('bookings', [BoothController::class, 'view_bookings'])->name('view-booth-bookings');
-            Route::get('booking/{boothId}', [BoothController::class, 'view_ticket'])->name('view-booth');
-        });
-
-        Route::middleware(['can:manage-speakers'])->prefix('programme')->name('programme.')->group(function () {
-            Route::get('events', [ProgrammeController::class, 'manage_events'])->name('manage-event')
+        Route::middleware(['can:events-management'])->name('events.')->group(function () {
+            Route::resource('manage-events', EventController::class)
                 ->middleware('can:manage-events');
-            Route::resource('speakers', SpeakerController::class)->middleware('can:manage-speakers');
-        });
+            Route::get('{event}/checkin', [EventController::class, 'checkin'])->name('delegates.checkin')
+                ->middleware('can:checkin-event');
+            Route::post('{event}/checkin', [EventController::class, 'store'])->name('delegates.checkin.store')
+                ->middleware('can:checkin-event');;
 
+        });
         Route::middleware(['can:view-reports'])->prefix('reports')->name('reports.')->group(function () {
             Route::get('exhibitors-paid', [ProgrammeController::class, 'exhibitors'])->name('exhibitors.paid')
                 ->middleware('can:manage-events');
@@ -89,38 +72,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
         });
 
-        Route::prefix('summits')->name('summits.')->group(function () {
-            Route::resource('events', SummitController::class)->middleware('can:manage-summits');
-        });
-
-        #payments
-        Route::group(["prefix" => "payments", "as" => "payments."], function () {
-            Route::get("/", [PaymentController::class, "index"])->name("index");
-            Route::get("{invoiceNo}/show", [PaymentController::class, "show"])->name("show");
-        });
 
     });
 
-    #exhibitor, delegate
-    Route::group([
-        "prefix" => "portal/{userType}",
-        "as" => "user_type.",
-        "middleware" => ["role:exhibitor|delegate"]
-    ], function () {
-        Route::get('/', [PortalController::class, "index"])->name('index');
-        Route::get('{any}', [PortalController::class, "index"])
-            ->where("any", ".*")
-            ->name('any');
-    });
-
-    Route::group(["prefix" => "portal", "as" => "portal."], function () {
-        Route::get("exhibitor/", function () {
-            redirect('/portal/exhibitor');
-        })->name("exhibitor");
-        Route::get("delegate/", function () {
-            redirect('/portal/delegate');
-        })->name("delegate");
-    });
 
     Route::impersonate();
 });
@@ -129,16 +83,5 @@ Route::get('/error', function () {
     abort(500);
 });
 
-#pesaflow
-Route::group(["prefix" => "pesaflow", "as" => "pesaflow."], function () {
-    Route::get("redirect-callback", [PesaflowController::class, "callback"])->name("redirect");
-    Route::get("invoice-link/{order}", [PesaflowController::class, "invoice_link"])->name("invoice_link");
-
-});
-
-#Validate Ticket & checkin
-Route::prefix("ticket")->group(function () {
-    Route::get("check-in/{ticket_no}", [TicketController::class, "checkin"])->name("checkin-validate");
-});
 
 require __DIR__ . '/auth.php';

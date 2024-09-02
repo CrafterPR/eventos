@@ -42,7 +42,7 @@
                     <div class="d-flex flex-column text-gray-600">
                         @foreach($role->permissions->shuffle()->take(5) ?? [] as $permission)
                             <div class="d-flex align-items-center py-2">
-                                <span class="bullet bg-primary me-3"></span>{{ ucfirst($permission->name) }}</div>
+                                <span class="bullet bg-primary me-3"></span>{{ ucfirst($permission->display_name) }}</div>
                         @endforeach
                         @if($role->permissions->count() > 5)
                             <div class='d-flex align-items-center py-2'>
