@@ -2,6 +2,8 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Event;
+use App\Rules\DelegateMatchesEvent;
 use App\Rules\DelegateWasScanned;
 use Carbon\Carbon;
 use Illuminate\Contracts\Validation\ValidationRule;
@@ -20,8 +22,9 @@ class CheckinRequest extends FormRequest
 
     protected function prepareForValidation()
     {
-        $this->merge(['event_id' => $this->route('event'),
-                'checkpoint_id' => auth()->user()->checkpoint->id ?? '01j6pmzwfvcdfapmr145bv983s',
+        $event = Event::with('checkpoints')->find($this->route('event'));
+        $this->merge(['event_id' => $event->id,
+                'checkpoint_id' => auth()->user()->checkpoint->id ?? $event->checkpoints->first()?->id,
                 'scanned_by' => auth()->id(),
                 'checkin_date' => Carbon::now()->format('Y-m-d')
             ]);
@@ -33,6 +36,7 @@ class CheckinRequest extends FormRequest
          'delegate_id.required' => 'Please scan the delegate QR Code on the pass!',
          'delegate_id.exists' => 'The Delegate QR Code does not exist in our registrations!',
          'event_id.required' => 'Please select the event before scanning the QR code!',
+           'checkpoint_id.required' => 'Please set event the checkpoint before scanning the QR code!',
        ];
     }
 
@@ -43,9 +47,8 @@ class CheckinRequest extends FormRequest
      */
     public function rules(): array
     {
-
         return [
-           'delegate_id' => ['required', 'string', 'exists:delegates,id', new DelegateWasScanned],
+           'delegate_id' => ['required', 'string', 'exists:delegates,id', new DelegateMatchesEvent, new DelegateWasScanned],
            'event_id' => ['required', 'string', 'exists:events,id'],
             'checkpoint_id' => ['required', 'string', 'exists:checkpoints,id'],
             'scanned_by' => ['required', 'string', 'exists:users,id'],

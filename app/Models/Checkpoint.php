@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 class Checkpoint extends Model
 {
     use HasFactory, HasUlids;
-
+    protected $guarded = ['id'];
 
     public function event(): BelongsTo
     {

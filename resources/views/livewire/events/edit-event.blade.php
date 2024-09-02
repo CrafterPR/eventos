@@ -6,7 +6,7 @@
             <!--begin::Modal header-->
             <div class="modal-header" id="kt_create_event">
                 <!--begin::Modal title-->
-                <h2 class="fw-bold">Register an upcoming event</h2>
+                <h2 class="fw-bold">Update an event</h2>
                 <!--end::Modal title-->
                 <!--begin::Close-->
                 <div class="btn btn-icon btn-sm btn-active-icon-primary" data-bs-dismiss="modal" aria-label="Close">

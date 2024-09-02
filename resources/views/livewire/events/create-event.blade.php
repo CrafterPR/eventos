@@ -18,7 +18,7 @@
             <!--begin::Modal body-->
             <div class="modal-body px-5 my-7">
                 <!--begin::Form-->
-                <form id="kt_modal_create_event_form" class="form" action="#" wire:submit="submit" enctype="multipart/form-data">
+                <form id="kt_modal_create_event_form" class="form" action="#" wire:submit.prevent="submit" enctype="multipart/form-data">
                     <!--begin::Scroll-->
                     <div class="d-flex flex-column scroll-y px-5 px-lg-10" id="kt_modal_event_scroll" data-kt-scroll="true" data-kt-scroll-activate="true" data-kt-scroll-max-height="auto" data-kt-scroll-dependencies="#kt_modal_add_user_header" data-kt-scroll-wrappers="#kt_modal_add_user_scroll" data-kt-scroll-offset="300px">
                         <!--begin::Input group-->
@@ -30,7 +30,8 @@
                             <input type="text" wire:model="event.title" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="title"/>
                             <!--end::Input-->
                             @error('event.title')
-                            <span class="text-danger">{{ $message }}</span> @enderror
+                             <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
                         <div class="row fv-row mb-7">
                             <div class="col-md-6">

@@ -2,6 +2,7 @@
 
 namespace App\DataTables;
 
+use App\Enum\EventStatus;
 use App\Models\Event;
 use Illuminate\Support\Str;
 use Yajra\DataTables\Html\Column;
@@ -100,9 +101,10 @@ class EventsDataTable extends DataTable
     protected function getStatusColour($status): string
     {
         return match ($status) {
-            'inactive' => 'warning',
-            'active' => 'success',
-            default => 'danger',
+            EventStatus::INACTIVE->value => 'danger',
+            EventStatus::ACTIVE->value => 'success',
+            EventStatus::DRAFT->value => 'warning',
+            default => 'info',
         };
     }
 }
