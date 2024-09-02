@@ -25,7 +25,7 @@ class DelegateWasScanned implements ValidationRule, DataAwareRule
             ->where('checkpoint_id',  $this->data['checkpoint_id'])
             ->where('checkin_date', $this->data['checkin_date'])
             ->where('delegate_id', $value)->exists()) {
-           $fail("Delegate pass has already been scanned on this checkpoint.");
+           $fail("Delegate has already been checked in at this checkpoint.");
        }
     }
 
