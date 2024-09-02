@@ -46,6 +46,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
             Route::resource('exhibitor-management/exhibitors', ExhibitorController::class);
             Route::resource('delegate-management/delegates', DelegateController::class);
             Route::get('delegates/import', ImportDelegatesModal::class)->name('delegates.import');
+            Route::post('print-count', [DelegateController::class, 'increment'])->name('delegate.print-count');
             Route::resource('user-management/role', RoleManagementController::class);
             Route::resource('user-management/permission', PermissionManagementController::class);
             Route::get('send-email', [UserManagementController::class, 'viewSendEmail'])->name('send-email');

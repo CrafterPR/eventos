@@ -26,6 +26,7 @@
                             {!! QrCode::size(100)->color(75, 0, 130)->generate($delegate->id) !!}
                         </div>
                         <h4 class="mb-4 text-active-gray-100">{{ $delegate->position }}</h4>
+                        <input type="hidden" id="delegate-id" value="{{ $delegate->id }}">
                     @endif
                     <h5 class="text-muted">Powered by www.craftedpr.co.ke</h5>
                 </div>
@@ -39,26 +40,6 @@
         </div>
     </div>
 </div>
-@push('scripts')
-    <script>
-        function printDiv(divId) {
-            var printContents = document.getElementById(divId).innerHTML;
-            var originalContents = document.body.innerHTML;
-
-            // Hide everything except the content you want to print
-            document.body.innerHTML = printContents;
-
-            // Trigger the print dialog
-            window.print();
-
-            // Restore the original document contents after printing
-            document.body.innerHTML = originalContents;
-
-            // Reload Livewire components to restore JavaScript functionalities
-            window.livewire.rescan();
-        }
-    </script>
-@endpush
 
 
 

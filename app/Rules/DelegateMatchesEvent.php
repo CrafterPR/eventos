@@ -2,6 +2,7 @@
 
 namespace App\Rules;
 
+use App\Enum\EventStatus;
 use App\Models\Delegate;
 use Closure;
 use Illuminate\Contracts\Validation\DataAwareRule;
@@ -19,13 +20,18 @@ class DelegateMatchesEvent implements ValidationRule, DataAwareRule
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {
         $delegateEvent = Delegate::with('event')->find($value);
-        if($delegateEvent) {
-            $currentEventId = $this->data['event_id'];
-            if ($delegateEvent->event_id !== $currentEventId) {
-                $fail("Delegate is registered to a different event: ({$delegateEvent->event->title})");
+
+        if ($delegateEvent) {
+            if($delegateEvent->status !== EventStatus::ACTIVE) {
+                $fail("Delegate is registered, but event has been deactivated");
+
+            } else {
+                $currentEventId = $this->data['event_id'];
+                if ($delegateEvent->event_id !== $currentEventId) {
+                    $fail("Delegate is registered to a different event: ({$delegateEvent->event->title})");
+                }
             }
         }
-
 
     }
 

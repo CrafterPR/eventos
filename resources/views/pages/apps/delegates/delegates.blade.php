@@ -75,13 +75,41 @@
                     $('#kt_modal_print_preview').modal('hide');
                     window.LaravelDataTables['delegates-table'].ajax.reload();
                 });
-
                 Livewire.on('closeModal', function () {
                     $('#kt_modal_print_preview').modal('hide');
                     window.LaravelDataTables['delegates-table'].ajax.reload();
                 });
             });
 
+            function printDiv(divId) {
+                var printContents = document.getElementById(divId).innerHTML;
+
+                let delegate = $('#delegate-id').val();
+                Livewire.dispatch('print_pass', {'delegate': delegate});
+
+
+                window.LaravelDataTables['delegates-table'].ajax.reload();
+                $('#kt_modal_print_preview').modal('hide');
+
+                let originalContents = document.body.innerHTML;
+                document.body.innerHTML = printContents;
+                window.print();
+
+                document.body.innerHTML = originalContents;
+                Livewire.dispatch('success', 'Print pass successfully printed and record updated.')
+                setTimeout(() => {
+                    window.location.reload();
+                },1000)
+            }
+
+
+            function reinitializeJavaScript() {
+                // Any other reinitialization logic can go here
+            }
+
+            // Ensure reinitialization happens on Livewire updates
+            document.addEventListener('livewire:load', reinitializeJavaScript);
+            document.addEventListener('livewire:element.updated', reinitializeJavaScript);
         </script>
     @endpush
 

@@ -65,4 +65,12 @@ class Delegate extends Model
         return $this->hasOne(OrderItem::class);
     }
 
+    public function printPass(): void
+    {
+       $this->forceFill([
+           'print_count' =>  $this->print_count + 1,
+            'pass_printed' => true,
+       ])->save();
+    }
+
 }
