@@ -27,7 +27,7 @@
 				</span>
                 <div class="menu-sub menu-sub-accordion">
                     <!--begin:Menu item-->
-                    @can('secretariat')
+                    @can('manage-staff')
                         <div class="menu-item">
                             <!--begin:Menu link-->
                             <a class="menu-link {{ request()->routeIs('users.user.*') ? 'active' : '' }}"
@@ -48,7 +48,7 @@
 							<span class="menu-bullet">
 								<span class="bullet bullet-line"></span>
 							</span>
-                                <span class="menu-title">Delegates</span>
+                                <span class="menu-title">All Delegates</span>
                             </a>
                             <!--end:Menu link-->
                         </div>
@@ -68,20 +68,7 @@
                             <!--end:Menu link-->
                         </div>
                     @endcan
-                    @can('send-emails')
-                        <div class="menu-item">
-                            <!--begin:Menu link-->
-                            <a class="menu-link {{ request()->routeIs('users.role.*') ? 'active' : '' }}"
-                               href="{{ route('users.send-email') }}">
-							<span class="menu-bullet">
-								<span class="bullet bullet-line"></span>
-							</span>
-                                <span class="menu-title">Send emails</span>
-                            </a>
-                            <!--end:Menu link-->
-                        </div>
-                    @endcan
-                    <!--end:Menu item-->
+
                 </div>
             </div>
             @endcan
@@ -113,153 +100,6 @@
                     <!--end:Menu sub-->
             </div>
             @endcan
-            @can('ticket-management')
-            <div data-kt-menu-trigger="click"
-                 class="menu-item menu-accordion {{ request()->routeIs('tickets.*') ? 'here show' : '' }}">
-                <!--begin:Menu link-->
-                <span class="menu-link">
-					<span class="menu-icon">{!! getIcon('abstract-28', 'fs-2') !!}</span>
-					<span class="menu-title">Ticketing Module</span>
-					<span class="menu-arrow"></span>
-				</span>
-                <div class="menu-sub menu-sub-accordion">
-                    <!--begin:Menu item-->
-
-                        <div class="menu-item">
-                            <!--begin:Menu link-->
-                            <a class="menu-link {{ request()->routeIs('tickets.manage-tickets.*') ? 'active' : '' }}"
-                               href="{{ route('tickets.manage-tickets.index') }}">
-							<span class="menu-bullet">
-								<span class="bullet bullet-line"></span>
-							</span>
-                                <span class="menu-title">Manage tickets</span>
-                            </a>
-                            <!--end:Menu link-->
-                        </div>
-
-                    @can('coupon-management')
-                        <div class="menu-item">
-                            <!--begin:Menu link-->
-                            <a class="menu-link {{ request()->routeIs('tickets.manage-coupons.*') ? 'active' : '' }}"
-                               href="{{ route('tickets.manage-coupons.index') }}">
-							<span class="menu-bullet">
-								<span class="bullet bullet-line"></span>
-							</span>
-                                <span class="menu-title">Manage Event Coupons</span>
-                            </a>
-                            <!--end:Menu link-->
-                        </div>
-                    @endcan
-                    <!--end:Menu item-->
-                    <!--begin:Menu item-->
-                    @can('view-purchased-tickets')
-                        <div class="menu-item">
-                            <!--begin:Menu link-->
-                            <a class="menu-link {{ request()->routeIs('tickets.view-purchased') ? 'active' : '' }}"
-                               href="{{ route('tickets.view-purchased') }}">
-							<span class="menu-bullet">
-								<span class="bullet bullet-line"></span>
-							</span>
-                                <span class="menu-title">View Bookings</span>
-                            </a>
-                            <!--end:Menu link-->
-                        </div>
-                    @endcan
-
-                    <!--end:Menu item-->
-                </div>
-                <!--end:Menu sub-->
-            </div>
-            @endcan
-            @can('booths-management')
-            <div data-kt-menu-trigger="click"
-                 class="menu-item menu-accordion {{ request()->routeIs('booths.*') ? 'here show' : '' }}">
-                <!--begin:Menu link-->
-                <span class="menu-link">
-					<span class="menu-icon">{!! getIcon('abstract-28', 'fs-2') !!}</span>
-					<span class="menu-title">Booths Module</span>
-					<span class="menu-arrow"></span>
-				</span>
-                <div class="menu-sub menu-sub-accordion">
-                    <!--begin:Menu item-->
-
-                        <div class="menu-item">
-                            <!--begin:Menu link-->
-                            <a class="menu-link {{ request()->routeIs('booths.booth.index') ? 'active' : '' }}"
-                               href="{{ route('booths.booth.index') }}">
-							<span class="menu-bullet">
-								<span class="bullet bullet-line"></span>
-							</span>
-                                <span class="menu-title">Manage Booths</span>
-                            </a>
-                            <!--end:Menu link-->
-                        </div>
-
-                    <!--end:Menu item-->
-                    <!--begin:Menu item-->
-                    @can('view-booth-bookings')
-                        <div class="menu-item">
-                            <!--begin:Menu link-->
-                            <a class="menu-link {{ request()->routeIs('booths.view-booth-bookings') ? 'active' : '' }}"
-                               href="{{ route('booths.view-booth-bookings') }}">
-							<span class="menu-bullet">
-								<span class="bullet bullet-line"></span>
-							</span>
-                                <span class="menu-title">View bookings</span>
-                            </a>
-                            <!--end:Menu link-->
-                        </div>
-                    @endcan
-
-                    <!--end:Menu item-->
-                </div>
-                <!--end:Menu sub-->
-            </div>
-            @endcan
-            @can('manage-speakers')
-            <div data-kt-menu-trigger="click"
-                 class="menu-item menu-accordion {{ request()->routeIs('programme.*') ? 'here show' : '' }}">
-                <!--begin:Menu link-->
-                <span class="menu-link">
-					<span class="menu-icon">{!! getIcon('abstract-28', 'fs-2') !!}</span>
-					<span class="menu-title">Event Programme</span>
-					<span class="menu-arrow"></span>
-				</span>
-                <div class="menu-sub menu-sub-accordion">
-                    <!--begin:Menu item-->
-
-                        <div class="menu-item">
-                            <!--begin:Menu link-->
-                            <a class="menu-link {{ request()->routeIs('programme.speakers.index') ? 'active' : '' }}"
-                               href="{{ route('programme.speakers.index') }}">
-							<span class="menu-bullet">
-								<span class="bullet bullet-line"></span>
-							</span>
-                                <span class="menu-title">Manage Speakers</span>
-                            </a>
-                            <!--end:Menu link-->
-                        </div>
-
-                    @can('manage-events')
-                        <div class="menu-item">
-                            <!--begin:Menu link-->
-                            <a class="menu-link {{ request()->routeIs('programme.manage-event') ? 'active' : '' }}"
-                               href="{{ route('programme.manage-event') }}">
-							<span class="menu-bullet">
-								<span class="bullet bullet-line"></span>
-							</span>
-                                <span class="menu-title">Manage Events</span>
-                            </a>
-                            <!--end:Menu link-->
-                        </div>
-                    @endcan
-
-                </div>
-
-                <!--end:Menu sub-->
-            </div>
-            @endcan
-
             @can('view-reports')
               <div data-kt-menu-trigger="click"
                    class="menu-item menu-accordion {{ request()->routeIs('reports.*') ? 'here show' : '' }}">
