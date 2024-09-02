@@ -54,7 +54,7 @@ class DelegatesDataTable extends DataTable
     public function query(Delegate $model): QueryBuilder
     {
         return $model->with('country', 'category')
-             ->orderBy('created_at', 'DESC')
+             ->orderBy('updated_at', 'DESC')
         ->newQuery();
     }
 
