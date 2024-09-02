@@ -28,8 +28,8 @@ class EventsDataTable extends DataTable
             ->editColumn('organization', function (Event $event) {
                 return Str::upper($event->organization);
             })
-            ->editColumn('theme', function (Event $event) {
-                return Str::title($event->theme);
+            ->editColumn('delegates', function (Event $event) {
+                return $event->delegates->count();
             })
             ->editColumn('start_date', function (Event $event) {
                 return format_date($event->start_date);
@@ -78,7 +78,7 @@ class EventsDataTable extends DataTable
         return [
             Column::make('title')->title('Title')->addClass('align-items-center'),
             Column::make('organization')->title('Organization')->addClass('align-items-left'),
-            Column::make('theme')->title('Theme')->addClass('align-items-center'),
+            Column::make('delegates')->title('Delegate count')->addClass('align-items-center')->name('delegates'),
             Column::make('start_date')->title('Start date')->addClass('align-items-right'),
             Column::make('end_date')->title('End date')->addClass('align-items-center'),
             Column::make('status')->title('Status')->addClass('align-items-center'),
