@@ -2,30 +2,23 @@
 
 namespace App\Http\Controllers\Apps;
 
-use App\Actions\GenerateInvitationLetter;
 use App\DataTables\DelegatesDataTable;
 use App\Enum\CategoryStatus;
-use App\Enum\UserType;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\DelegateRequest;
-use App\Models\Affiliation;
 use App\Models\Category;
 use App\Models\Country;
 use App\Models\Coupon;
 use App\Models\Delegate;
+use App\Models\Event;
 use App\Models\User;
 use App\Models\UserCoupon;
-use App\Notifications\SendInvitationNotification;
-use App\Rules\CouponValidator;
-use Exception;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Password;
 use Throwable;
 
 class DelegateController extends Controller
@@ -49,8 +42,8 @@ class DelegateController extends Controller
             ->get();
 
         $countries = Country::orderBy('name')->get();
-
-        return view("pages.apps.delegates.create", compact("categories", "countries"));
+        $events = Event::orderBy('start_date', 'DESC')->get();
+        return view("pages.apps.delegates.create", compact("categories", "countries", "events"));
     }
 
     /**
@@ -61,23 +54,11 @@ class DelegateController extends Controller
     public function store(DelegateRequest $request): RedirectResponse
     {
         DB::transaction(function () use ($request) {
-            $user = User::create($request->validated());
-
-            //save delegate coupon
-            $coupon = $data["coupon"] ?? '';
-            if (!empty($coupon)) {
-                $coupon = Coupon::where('code', $coupon)->first();
-                if ($coupon) {
-                    UserCoupon::create(['user_id' => $user->id, 'coupon_id' => $coupon->id]);
-                }
-            }
-
-            // Send a password reset link to the delegate's email
-            // Password::sendResetLink(collect($data)->only('email', 'password')->toArray());
+           Delegate::create($request->validated());
 
         });
 
-        return to_route("users.delegates.index");
+        return to_route("users.delegates.index")->with('success', 'Delegate created successfully');
     }
 
     /**

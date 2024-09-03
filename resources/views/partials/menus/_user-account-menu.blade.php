@@ -8,15 +8,15 @@
                 @if(Auth::user()->profile_photo_url)
                     <img alt="Logo" src="{{ Auth::user()->profile_photo_url }}"/>
                 @else
-                    <div class="symbol-label fs-3 {{ app(\App\Actions\GetThemeType::class)->handle('bg-light-? text-?', Auth::user()->name) }}">
-                        {{ substr(Auth::user()->first_name, 0, 1) }}{{ substr(Auth::user()->last_name, 0, 1) }}
+                    <div class="symbol-label fs-3 {{ app(\App\Actions\GetThemeType::class)->handle('bg-dark-? text-?', Auth::user()->name) }}">
+                        {{ Str::upper(substr(Auth::user()->first_name, 0, 1)) }}{{ Str::upper(substr(Auth::user()->last_name, 0, 1)) }}
                     </div>
                 @endif
             </div>
             <!--end::Avatar-->
             <!--begin::Username-->
             <div class="d-flex flex-column">
-                <div class="fw-bold d-flex align-items-center fs-5">{{ Auth::user()->first_name }} {{ Auth::user()->last_name }}
+                <div class="fw-bold d-flex align-items-center fs-5">{{ Auth::user()->name }}
                 </div>
                 <a href="#" class="fw-semibold text-muted text-hover-primary fs-7">{{ Auth::user()->email }}</a>
             </div>

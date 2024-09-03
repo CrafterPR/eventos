@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Enum\UserType;
 use Eloquent;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
@@ -36,7 +35,7 @@ use Spatie\Permission\Traits\HasRoles;
  * @property string|null $disability
  * @property string|null $position
  * @property Carbon|null $email_verified_at
- * @property UserType $user_type
+
  * @property int|null $category_id
  * @property string|null $other_affiliation
  * @property int $invitation_sent
@@ -52,18 +51,14 @@ use Spatie\Permission\Traits\HasRoles;
  * @property string|null $remember_token
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- * @property-read Collection<int, \App\Models\Booking> $bookings
  * @property-read int|null $bookings_count
  * @property-read \App\Models\Country|null $country
  * @property-read \App\Models\County|null $county
- * @property-read \App\Models\Coupon|null $coupon
  * @property-read string $name
  * @property-read string|null $profile_photo_url
  * @property-read DatabaseNotificationCollection<int, DatabaseNotification> $notifications
  * @property-read int|null $notifications_count
- * @property-read Collection<int, \App\Models\Order> $orders
- * @property-read int|null $orders_count
- * @property-read Collection<int, \App\Models\Order> $paymentVerifications
+
  * @property-read int|null $payment_verifications_count
  * @property-read Collection<int, Permission> $permissions
  * @property-read int|null $permissions_count
@@ -192,12 +187,12 @@ class User extends Authenticatable
 
     public function canImpersonate(): bool
     {
-        return $this->user_type == UserType::STAFF;
+        return $this->hasAnyRole([Role::SUPER_ADMIN, Role::ADMINISTRATOR]);
     }
 
     public function canBeImpersonated(): bool
     {
-        return $this->can_be_impersonated == ($this->user_type == UserType::DELEGATE->value || $this->user_type == UserType::EXHIBITOR->value);
+        return !$this->hasAnyRole([Role::SUPER_ADMIN, Role::ADMINISTRATOR]);
     }
     public function checkoint()
     {

@@ -17,6 +17,7 @@ class EventController extends Controller
 
     public function checkin(Event $event)
     {
+        $event->load('checkpoints.checkins');
         return view('pages.apps.event-management.checkin' , compact('event'));
     }
 

@@ -80,15 +80,15 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-floating mb-3">
-                            <input type="text" name="institution" id="institution"
-                                   value="{{ old("institution") }}"
+                            <input type="text" name="organization" id="organization"
+                                   value="{{ old("organization") }}"
                                    autocomplete="off"
-                                   class="form-control  @error('institution') border-danger @enderror "/>
-                            <label for="institution">
+                                   class="form-control  @error('organization') border-danger @enderror "/>
+                            <label for="organization">
                                 Organization
                                 <span class="required"></span>
                             </label>
-                            @error('institution')
+                            @error('organization')
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
@@ -154,6 +154,28 @@
                     </div>
                 </div>
                 <div class="row mb-6 mt-4">
+                    <div class="col-md-6">
+                        <div class="form-floating mb-3">
+                            <select name="event_id" id="event_id"
+                                    class="form-select  @error('event_id') border-danger @enderror "
+                                    data-control="select2"
+                                    data-placeholder="">
+                                <option value=""></option>
+                                @foreach($events as $event)
+                                    <option value="{{ $event->id}}" @selected(old('event_id') == $event->id)>
+                                        {{ $event->title }}
+                                    </option>
+                                @endforeach
+                            </select>
+                            <label for="event_id">
+                                Select Event
+                                <span class="required"></span>
+                            </label>
+                            @error('event_id')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                    </div>
                     <div class="col-md-6">
                         <div class="form-floating mb-3">
                             <select name="category_id" id="select_category_id"

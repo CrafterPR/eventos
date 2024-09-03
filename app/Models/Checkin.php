@@ -23,7 +23,7 @@ class Checkin extends Model
         return $this->belongsTo(Delegate::class);
     }
 
-    public function scanned_by(): BelongsTo
+    public function scannedby(): BelongsTo
     {
         return $this->belongsTo(User::class, 'scanned_by');
     }

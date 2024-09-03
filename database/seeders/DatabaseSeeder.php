@@ -19,10 +19,7 @@ class DatabaseSeeder extends Seeder
             UsersSeeder::class,
             CountrySeeder::class,
             CountySeeder::class,
-            BoothSeeder::class,
             EventSeeder::class,
-            TicketSeeder::class,
-            EmailsSeeder::class,
             CategorySeeder::class,
             DelegatesSeeder::class
         ]);

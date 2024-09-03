@@ -12,24 +12,12 @@ class DelegateRequest extends FormRequest
 {
     public function prepareForValidation()
     {
-        $category = $this->input('category_id');
-        $category = Category::find($category);
-        if ($category) {
-            if (Str::contains($category->title, 'delegate')) {
-                $user_type = UserType::DELEGATE->value;
-            } elseif (Str::contains($category->title, 'exhibitor')) {
-                $user_type = UserType::EXHIBITOR->value;
-            } else {
-                $user_type = $category->title;
-            }
-            $split_name = explode(' ', $this->input('name'));
-            $this->merge([
-                'first_name' => $split_name[0],
-                'last_name' => $split_name[1] ?? '',
-                'password' => bcrypt(generate_random_password()),
-                'user_type' => $user_type,
-            ]);
-        }
+        $split_name = explode(' ', $this->input('name'));
+        $this->merge([
+            'first_name' => $split_name[0],
+            'last_name' => $split_name[1] ?? '',
+        ]);
+
 
 
     }
@@ -51,17 +39,15 @@ class DelegateRequest extends FormRequest
         return [
             'first_name' => ['required', 'string'],
             'last_name' => ['required', 'string'],
-            'user_type' => ['required', 'string'],
-            'password' => ['required', 'string'],
-            'email' => ['required', 'email:rfc,dns', 'max:255', 'unique:users'],
+            'email' => ['required', 'email:rfc', 'max:255', 'unique:users'],
             'mobile' => ['nullable', 'unique:users'],
             'salutation' => ["required"],
-            'id_number' => ['nullable', 'string', 'unique:users'],
             'country_id' => ['required', 'exists:countries,id'],
             'category_id' => ['required', 'exists:categories,id'],
-            'county_id' => "required_if:country_id,==,112",
-            'institution' => ['required', 'max:255'],
-            'gender' => ['required'],
+            'county_id' => "nullable",
+            'organization' => ['required', 'max:255'],
+            'gender' => ['nullable'],
+            'event_id' => ['required', 'exists:events,id'],
             'coupon' => ['sometimes', new CouponValidator]
         ];
     }

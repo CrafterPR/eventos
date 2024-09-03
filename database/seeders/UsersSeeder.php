@@ -18,8 +18,8 @@ class UsersSeeder extends Seeder
     public function run(): void
     {
         User::create([
-            'first_name' => 'Super',
-            'last_name' => 'admin',
+            'first_name' => 'Vendor',
+            'last_name' => 'Account',
             'mobile' => '254722410268',
              'email' => 'jacjimus@gmail.com',
             'password' => 'Password@234!!',
