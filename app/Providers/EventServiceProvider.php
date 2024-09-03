@@ -34,15 +34,6 @@ class EventServiceProvider extends ServiceProvider
         'Illuminate\Http\Client\Events\RequestSending' => [
             'App\Listeners\LogRequestSending',
         ],
-        PesaflowPaymentSuccessfulEvent::class => [
-            PesaflowPaymentSuccessfulListener::class
-        ],
-        PesaflowPaymentFailedEvent::class => [
-            PesaflowPaymentFailedListener::class
-        ],
-        TicketApprovedEvent::class => [
-            SendTicketNotificationListener::class,
-        ]
 
     ];
 
@@ -53,10 +44,7 @@ class EventServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Order::observe(OrderObserver::class);
-        User::observe(UserObserver::class);
-        Coupon::observe(CouponObserver::class);
-        Event::observe(EventObserver::class);
+         Event::observe(EventObserver::class);
     }
 
     /**

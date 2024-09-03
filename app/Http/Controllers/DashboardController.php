@@ -9,6 +9,7 @@ use App\Enum\PaymentStatus;
 use App\Enum\UserType;
 use App\Models\Booth;
 use App\Models\Category;
+use App\Models\Checkin;
 use App\Models\Delegate;
 use App\Models\Order;
 use App\Models\OrderItem;
@@ -29,42 +30,15 @@ class DashboardController extends Controller
         addVendors(['amcharts', 'amcharts-maps', 'amcharts-stock']);
 
         $data = [
-            ...$this->getBoothStats(),
             ...$this->getUsersStats(),
             ...$this->getStaff(),
-            ...$this->getCouponData(),
-            "kes_earning" => $this->getEarnings(Currency::KES),
-            "usd_earning" => $this->getEarnings(Currency::USD),
-            ...$this->getRecentTransactions()
+            ...$this->getDelegatesStats(),
+            ...$this->getRecentCheckins()
         ];
 
         return view('pages.dashboards.index', ["data" => $data]);
     }
 
-    /**
-     * Retrieve booth analytics
-     * @return array
-     */
-    public function getBoothStats(): array
-    {
-        $totalBooths = Booth::count();
-
-        $paidBooths = Booth::whereRelation("bookings", "booking_status", "=", BookingStatus::RESERVED)
-            ->count();
-
-        $pendingBooths = $totalBooths - $paidBooths;
-
-        $percent = $paidBooths / $totalBooths * 100;
-
-        return [
-            "booths" => [
-                "total" => $totalBooths,
-                "paid" => $paidBooths,
-                "pending" => $pendingBooths,
-                "percent" => number_format($percent, 2)
-            ]
-        ];
-    }
 
     /**
      * Retrieve users analytics
@@ -91,56 +65,40 @@ class DashboardController extends Controller
         return ['staff' => User::query()->get()];
     }
 
-    /**
-     * Retrieve earnings
-     * @param Currency $currency
-     * @return array
-     */
-    public function getEarnings(Currency $currency): array
-    {
-        $orderSum = Order::query()
-            ->where("currency", $currency)
-            ->where("status", PaymentStatus::SETTLED)
-            ->sum("total_amount");
-
-        $orderItemSum = OrderItem::query()
-            ->selectRaw("sum(case when itemable_type = 'booth' then total else 0 end) as booth_sum")
-            ->selectRaw("sum(case when itemable_type = 'ticket' then total else 0 end) as ticket_sum")
-            ->where("currency", $currency)
-            ->where("status", OrderItemStatus::PAID)
-            ->first();
-
-        return [
-            "total_sum" => number_format($orderSum, 2),
-            "booth_sum" => format_amount($orderItemSum->booth_sum, $currency),
-            "ticket_sum" => format_amount($orderItemSum->ticket_sum, $currency),
-        ];
-    }
-
 
 
     /**
      * Retrieve recent transactions
      * @return array
      */
-    private function getRecentTransactions(): array
+    private function getRecentCheckins(): array
     {
-        $payments = PesaflowRequest::query()
+        $checkins = Checkin::query()
+            ->with(['delegate.event', 'delegate.country'])
             ->latest()
             ->limit(10)
             ->get();
 
         return [
-            "transactions" => $payments
+            "checkins" => $checkins
         ];
     }
 
-    private function getCouponData(): array
+    private function getDelegatesStats(): array
     {
-        $coupons = UserCoupon::query()
-            ->with('delegate', 'coupon')
+        $totalsByCategory = Delegate::query()
+            ->with('category')
+            ->select(
+                'category_id', // Grouping by category_id
+                DB::raw('COUNT(*) as total_delegates'), // Total number of delegates per category
+                DB::raw('SUM(CASE WHEN print_count > 0 THEN 1 ELSE 0 END) as printed_passes'), // Count of printed passes per category
+                DB::raw('SUM(print_count) as total_prints'), // Total number of prints per category
+                DB::raw('SUM(CASE WHEN print_count = 0 THEN 1 ELSE 0 END) as unprinted_passes') // Count of unprinted passes per category
+            )
+            ->groupBy('category_id') // Group by category_id
             ->get();
 
-        return ['coupons' => $coupons];
+        return ['delegateCategoryStats' => $totalsByCategory];
     }
+
 }

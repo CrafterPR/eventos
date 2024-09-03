@@ -23,10 +23,7 @@ return new class extends Migration
             $table->foreignUlid('event_id')->constrained();
             $table->string('organization', 100)->nullable();
             $table->string('position', 100)->nullable();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('avatar')->nullable();
-            $table->string('profile_photo_path', 2048)->nullable();
-            $table->foreignUlid('category_id', 50)->constrained();
+             $table->foreignUlid('category_id', 50)->constrained();
             $table->foreignUlid('country_id', 50)->nullable()->constrained()->nullOnDelete();
             $table->foreignUlid('county_id', 50)->nullable()->constrained()->nullOnDelete();
             $table->boolean('pass_printed')->default(false);

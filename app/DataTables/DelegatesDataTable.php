@@ -21,13 +21,16 @@ class DelegatesDataTable extends DataTable
         return (new EloquentDataTable($query))
             ->rawColumns(['first_name', 'last_name', 'email'])
             ->editColumn('name', function (Delegate $delegate) {
-                return $delegate->name;
+                return view('pages.apps.delegates.columns._user', compact('delegate'));
             })
             ->editColumn('created_at', function (Delegate $delegate) {
-                return format_date($delegate->created_at);
+                return format_date($delegate->created_at, 'd M,y');
             })
            ->editColumn('organization', function (Delegate $delegate) {
                return $delegate->organization;
+           })
+            ->editColumn('event', function (Delegate $delegate) {
+               return $delegate->event->title;
            })
             ->editColumn('country', function (Delegate $delegate) {
                 return $delegate->country->name;
@@ -53,7 +56,7 @@ class DelegatesDataTable extends DataTable
      */
     public function query(Delegate $model): QueryBuilder
     {
-        return $model->with('country', 'category')
+        return $model->with('country', 'category', 'event')
              ->orderBy('updated_at', 'DESC')
         ->newQuery();
     }
@@ -84,11 +87,11 @@ class DelegatesDataTable extends DataTable
             Column::make('salutation')->addClass('align-items-center')->title('salutation')->name('salutation')->hidden(),
             Column::make('first_name')->addClass('align-items-center')->title('first_name')->name('first_name')->hidden(),
             Column::make('last_name')->addClass('align-items-center')->title('last_name')->name('last_name')->hidden(),
-            Column::make('created_at')->addClass('align-items-center')->title('Date registered')->name('created_at'),
-            Column::make('email')->addClass('align-items-center')->title('Email')->name('email'),
+            Column::make('created_at')->addClass('align-items-center')->title('Date')->name('created_at'),
+            Column::make('email')->addClass('align-items-center')->title('Email')->name('email')->hidden(),
             Column::make('organization')->addClass('align-items-center')->title('Organization')->name('organization'),
+            Column::make('event')->addClass('align-items-center')->title('Event')->name('event.title'),
             Column::make('category_id')->addClass('align-items-center')->title('Category')->name('category.title'),
-            Column::make('gender')->addClass('align-items-center')->title('Gender'),
             Column::make('country')->addClass('align-items-center')->title('Country')->name('country.name'),
             Column::make('pass_printed')->addClass('align-items-center')->title('Pass status')
                 ->name('pass_printed')->width(40),

@@ -29,7 +29,7 @@
                 <!--begin::Toolbar-->
                 <div class="d-flex justify-content-end" data-kt-user-table-toolbar="base">
                     @can('import-delegates')
-                        <a class="btn btn-warning" href="{{route("users.delegates.import")}}" data-bs-toggle="modal" data-bs-target="#kt_modal_import_delegates"
+                        <a class="btn btn-warning" href="#" data-bs-toggle="modal" data-bs-target="#kt_modal_import_delegates"
                         >{!! getIcon('file', 'fa-2x') !!}Import delegates</a>
                     @endcan
                     &nbsp;
@@ -42,7 +42,6 @@
 
                 <!--begin::Modal-->
                 <livewire:delegate.import-delegates-modal></livewire:delegate.import-delegates-modal>
-                <livewire:delegate.redeem-coupon-modal></livewire:delegate.redeem-coupon-modal>
                 <livewire:delegate.print-pass-modal></livewire:delegate.print-pass-modal>
                 <!--end::Modal-->
             </div>

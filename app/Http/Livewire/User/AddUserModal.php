@@ -4,6 +4,7 @@ namespace App\Http\Livewire\User;
 
 use App\Models\User;
 use App\Enum\UserType;
+use Livewire\Attributes\On;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Illuminate\Validation\Rule;
@@ -35,11 +36,6 @@ class AddUserModal extends Component
     ];
     }
 
-    protected $listeners = [
-        'delete_user' => 'deleteUser',
-        'update_user' => 'updateUser',
-    ];
-
     public function mount()
     {
         $this->user = new User();
@@ -47,7 +43,7 @@ class AddUserModal extends Component
 
     public function render()
     {
-        $roles = Role::all();
+        $roles = Role::query()->whereNotIn('name', ['superadmin'])->get();
 
         $roles_description = [
             'administrator' => 'Best for business owners and company administrators',
@@ -87,22 +83,12 @@ class AddUserModal extends Component
             if ($this->edit_mode) {
                 // Assign selected role for user
                 $this->user->syncRoles($this->role);
-                if ($this->role == UserType::DELEGATE->value || $this->role == UserType::EXHIBITOR->value) {
-                    $this->user->user_type = $this->role;
-                } else {
-                    $this->user->user_type = UserType::STAFF->value;
-                }
 
                 // Emit a success event with a message
                 $this->dispatch('success', __('User has been updated'));
             } else {
                 // Assign selected role for user
                 $this->user->assignRole($this->role);
-                if ($this->role == UserType::DELEGATE->value || $this->role == UserType::EXHIBITOR->value) {
-                    $this->user->user_type = $this->role;
-                } else {
-                    $this->user->user_type = UserType::STAFF->value;
-                }
 
                 // Emit a success event with a message
                 $this->dispatch('success', __('New user has been created'));
@@ -119,30 +105,32 @@ class AddUserModal extends Component
         $this->reset();
     }
 
-    public function deleteUser($id)
+    #[On('delete_user')]
+    public function deleteUser(User $user)
     {
         // Prevent deletion of current user
-        if ($id == Auth::id()) {
+        if ($user->id === Auth::id()) {
             $this->dispatch('error', 'User cannot be deleted');
             return;
         }
-        if (in_array($id, [1 ,2])) {
+        if (in_array($user->id, [1 ,2])) {
             $this->dispatch('error', 'You cannot delete SUPERUSER accounts');
             return;
         }
 
         // Delete the user record with the specified ID
-        User::destroy($id);
+        $user->delete();
 
         // Emit a success event with a message
         $this->dispatch('success', 'User successfully deleted');
     }
 
-    public function updateUser($id)
+    #[On('update_user')]
+    public function updateUser(User $user)
     {
         $this->edit_mode = true;
 
-        $this->user = User::find($id);
+        $this->user = $user;
 
         $this->saved_avatar = $this->user->profile_photo_url;
 

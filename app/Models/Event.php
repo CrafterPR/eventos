@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
 use OwenIt\Auditing\Contracts\Auditable;
@@ -99,6 +100,11 @@ class Event extends Model implements HasMedia
     public function checkpoints(): HasMany
     {
         return $this->hasMany(Checkpoint::class);
+    }
+
+    public function checkins(): HasManyThrough
+    {
+        return $this->hasManyThrough(Checkin::class, Checkpoint::class);
     }
 
     public function delegates(): HasMany
