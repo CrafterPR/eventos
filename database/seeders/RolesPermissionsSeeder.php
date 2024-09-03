@@ -35,6 +35,7 @@ class RolesPermissionsSeeder extends Seeder
                 'view delegates',
                 'view reports',
                 'manage staff',
+                'view quick links',
                 'print pass',
             ],
             \App\Models\Role::SUPER_ADMIN => [
