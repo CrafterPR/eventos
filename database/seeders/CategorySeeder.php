@@ -21,7 +21,7 @@ class CategorySeeder extends Seeder
             ['title' => 'Speaker','code' => 'SP', 'created_by' => $created_by],
             ['title' => 'Moderator','code' => 'MD', 'created_by' => $created_by],
             ['title' => 'Master of ceremony','code' => 'MC', 'created_by' => $created_by],
-            ['title' => 'Guest','GT' => 'VI', 'created_by' => $created_by],
+            ['title' => 'Guest','code' => 'GC', 'created_by' => $created_by],
             ['title' => 'VIP','code' => 'VI', 'created_by' => $created_by],
         ];
 
