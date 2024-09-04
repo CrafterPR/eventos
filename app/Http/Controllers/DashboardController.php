@@ -33,7 +33,9 @@ class DashboardController extends Controller
             ...$this->getUsersStats(),
             ...$this->getStaff(),
             ...$this->getDelegatesStats(),
-            ...$this->getRecentCheckins()
+            ...$this->getRecentCheckins(),
+            ...$this->delegatesSummary(),
+            ...$this->getPassPrintedStats()
         ];
 
         return view('pages.dashboards.index', ["data" => $data]);
@@ -99,6 +101,53 @@ class DashboardController extends Controller
             ->get();
 
         return ['delegateCategoryStats' => $totalsByCategory];
+    }
+
+    private function delegatesSummary(): array
+    {
+        $checkinData = Checkin::query()
+            ->select([
+                DB::raw('DATE(checkin_date) as date'),
+                DB::raw('categories.title as category'),
+                DB::raw('COUNT(checkins.id) as count')
+            ])
+            ->join('delegates', 'checkins.delegate_id', '=', 'delegates.id')
+            ->join('categories', 'delegates.category_id', '=', 'categories.id')
+            ->groupBy('date', 'categories.title')
+            ->get()
+            ->groupBy('date')
+            ->map(function($dateGroup) {
+                $data = ['date' => $dateGroup->first()->date];
+                foreach ($dateGroup as $row) {
+                    $data[$row->category] = $row->count;
+                }
+                return $data;
+            })
+            ->values()
+            ->toArray();
+
+        return ['delegatesSummary' => json_encode($checkinData), 'categories' => Category::pluck('title')->toJson()];
+    }
+
+    private function getPassPrintedStats()
+    {
+        $passPrintedStats = Category::withCount([
+            'delegates as total' => function ($query) {
+                $query->select(\DB::raw('count(*)'));
+            },
+            'delegates as printed' => function ($query) {
+                $query->where('pass_printed', true)
+                    ->select(\DB::raw('count(*)'));
+            }
+        ])->get()->map(function($category) {
+            return [
+                'category' => $category->title, // Assuming 'name' is the column holding the category name
+                'total' => $category->total,
+                'printed' => $category->printed,
+            ];
+        })->toArray();
+
+        return ['passPrintedStats' => json_encode($passPrintedStats) , 'totalDelegates' => Delegate::where('pass_printed', true)->count()];
     }
 
 }
