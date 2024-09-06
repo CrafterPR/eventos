@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enum\UserStatus;
 use Eloquent;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
@@ -144,6 +145,7 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
         'last_login_at' => 'datetime',
+        'status' => UserStatus::class,
     ];
 
     protected $appends = [
@@ -193,10 +195,6 @@ class User extends Authenticatable
     public function canBeImpersonated(): bool
     {
         return !$this->hasAnyRole([Role::SUPER_ADMIN, Role::ADMINISTRATOR]);
-    }
-    public function checkoint()
-    {
-      return $this->belongsTo(CheckpointUser::class);
     }
 
     public function isSuperAdmin():bool

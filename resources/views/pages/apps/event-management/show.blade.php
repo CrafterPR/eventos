@@ -127,10 +127,19 @@
                             <!--begin::Card title-->
                             <div class="card-title flex-column">
                                 <h2 class="mb-1">Event's Checkpoints</h2>
-
                             </div>
-
-
+                            <!--end::Card title-->
+                            <!--begin::Card toolbar-->
+                            <div class="card-toolbar">
+                                <button type="button" class="btn btn-light-primary btn-sm" data-bs-toggle="modal" data-bs-target="#kt_modal_add_checkpoint">
+                                    <i class="ki-duotone ki-brush fs-3">
+                                        <span class="path1"></span>
+                                        <span class="path2"></span>
+                                    </i>
+                                    Add a checkpoint
+                                </button>
+                            </div>
+                            <!--end::Card toolbar-->
                         </div>
                         <!--end::Card header-->
                         <!--begin::Card body-->
@@ -411,8 +420,15 @@
             <!--end:::Tab content-->
         </div>
         <!--end::Content-->
+        <livewire:events.checkpoint :event_id="$event->id" />
     </div>
         @push('scripts')
-
+            <script>
+                document.addEventListener('livewire:init', function () {
+                    Livewire.on('success', function () {
+                        $('#kt_modal_add_checkpoint').modal('hide');
+                    });
+                });
+            </script>
         @endpush
 </x-default-layout>
