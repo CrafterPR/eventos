@@ -8,7 +8,7 @@
     @can('print-pass')
     <div class="menu-item px-3">
         <a href="#" class="menu-link px-3" data-kt-delegate-id="{{ $row->id }}" data-bs-toggle="modal" data-bs-target="#kt_modal_print_preview" data-kt-action="print_pass">
-            Print Pass
+            {{$row->pass_printed ? 'Re-print Pass' : 'Print Pass'}}
         </a>
     </div>
     @endcan

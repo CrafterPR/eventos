@@ -41,11 +41,15 @@ class DelegatesTable extends DataTableComponent
     {
             return [
             Column::make('Name', 'first_name')
+                ->searchable(fn(Builder $query, $searchTerm) => $query
+                    ->orWhere('last_name', 'LIKE', "%{$searchTerm}%")
+                    ->orWhere('email', 'LIKE', "%{$searchTerm}%")
+                    )
                 ->view('pages.apps.delegates.columns._user'),
-            Column::make('Organization','organization')->sortable(),
+            Column::make('Organization','organization')->searchable()->sortable(),
             Column::make('Event name','event.title')->sortable(),
-            Column::make('Delegate Category','category.title')->sortable(),
-            Column::make('Country','country.name')->sortable(),
+            Column::make('Delegate Category','category.title')->sortable()->searchable(),
+            Column::make('Country','country.name')->sortable()->searchable(),
             BooleanColumn::make('Is pass printed?', 'pass_printed')
                 ->setView('pages.apps.delegates.columns.printed_status')
                 ->footer(function($rows) {
