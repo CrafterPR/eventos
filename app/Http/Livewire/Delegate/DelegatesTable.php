@@ -4,11 +4,13 @@ namespace App\Http\Livewire\Delegate;
 
 use App\Enum\CategoryStatus;
 use App\Enum\EventStatus;
+use App\Exports\DelegateExport;
 use App\Models\Category;
 use App\Models\Delegate;
 use App\Models\Event;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
+use Maatwebsite\Excel\Facades\Excel;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
 use Rappasoft\LaravelLivewireTables\Views\Columns\BooleanColumn;
@@ -17,6 +19,21 @@ use Rappasoft\LaravelLivewireTables\Views\Filters\SelectFilter;
 
 class DelegatesTable extends DataTableComponent
 {
+    public function bulkActions(): array
+    {
+        return [
+            'export' => 'Export',
+        ];
+    }
+
+    public function export()
+    {
+        $delegate = $this->getSelected();
+
+        $this->clearSelected();
+
+        return Excel::download(new DelegateExport($delegate), 'delegates.xlsx');
+    }
 
     public function configure(): void
     {
