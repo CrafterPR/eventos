@@ -44,5 +44,5 @@ document.querySelectorAll('[data-kt-action="redeem_coupon"]').forEach(function (
 // Listen for 'success' event emitted by Livewire
 Livewire.on('success', (message) => {
     // Reload the delegates-table datatable
-    LaravelDataTables['delegates-table'].ajax.reload();
+    Livewire.dispatch('refreshDatatable');
 });

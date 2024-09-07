@@ -7,7 +7,7 @@
     <!--begin::Menu item-->
     @can('print-pass')
     <div class="menu-item px-3">
-        <a href="#" class="menu-link px-3" data-kt-delegate-id="{{ $delegate->id }}" data-bs-toggle="modal" data-bs-target="#kt_modal_print_preview" data-kt-action="print_pass">
+        <a href="#" class="menu-link px-3" data-kt-delegate-id="{{ $row->id }}" data-bs-toggle="modal" data-bs-target="#kt_modal_print_preview" data-kt-action="print_pass">
             Print Pass
         </a>
     </div>
@@ -15,7 +15,7 @@
     @can('redeem-coupon-for-delegates')
         <div class="menu-item px-3">
 
-            <a href="#" class="menu-link px-3" data-kt-delegate-id="{{ $delegate->id }}" data-bs-toggle="modal" data-bs-target="#kt_modal_redeem_coupon" data-kt-action="redeem_coupon">
+            <a href="#" class="menu-link px-3" data-kt-delegate-id="{{ $row->id }}" data-bs-toggle="modal" data-bs-target="#kt_modal_redeem_coupon" data-kt-action="redeem_coupon">
                 Redeem coupon
             </a>
 
@@ -26,7 +26,7 @@
     <!--begin::Menu item-->
     @can('edit-delegate')
     <div class="menu-item px-3">
-        <a href="#" class="menu-link px-3" data-kt-delegate-id="{{ $delegate->id }}" data-bs-toggle="modal" data-bs-target="#kt_modal_add_delegate" data-kt-action="update_row">
+        <a href="#" class="menu-link px-3" data-kt-delegate-id="{{ $row->id }}" data-bs-toggle="modal" data-bs-target="#kt_modal_add_delegate" data-kt-action="update_row">
             Edit
         </a>
     </div>
@@ -35,7 +35,7 @@
    @can('edit-delegate')
     <!--begin::Menu item-->
     <div class="menu-item px-3">
-        <a href="#" class="menu-link px-3" data-kt-delegate-id="{{ $delegate->id }}" data-kt-action="delete_row">
+        <a href="#" class="menu-link px-3" data-kt-delegate-id="{{ $row->id }}" data-kt-action="delete_row">
             De-activate
         </a>
     </div>

@@ -7,10 +7,10 @@ class BootstrapDefault
     public function init()
     {
         // 1) Light sidebar layout (default.html)
-        // $this->initLightSidebarLayout();
+         $this->initLightSidebarLayout();
 
         // 2) Dark sidebar layout (default.html)
-        $this->initDarkSidebarLayout();
+        //$this->initDarkSidebarLayout();
 
         // 3) Dark header layout (default_header_layout.html)
         // $this->initDarkHeaderLayout();
@@ -38,7 +38,7 @@ class BootstrapDefault
 
     public function initDarkSidebarLayout()
     {
-        addHtmlAttribute('body', 'data-kt-app-layout', 'light-sidebar');
+        addHtmlAttribute('body', 'data-kt-app-layout', 'dark-sidebar');
         addHtmlAttribute('body', 'data-kt-app-header-fixed', 'true');
         addHtmlAttribute('body', 'data-kt-app-sidebar-enabled', 'true');
         addHtmlAttribute('body', 'data-kt-app-sidebar-fixed', 'true');

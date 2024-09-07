@@ -23,7 +23,6 @@ class Checkpoint extends Component
         'checkpoint.leader_id' => 'You must assign an account to a gift checkpoint',
     ];
 
-
     public function mount($event_id)
     {
         $this->checkpoint = new CheckpointModel();

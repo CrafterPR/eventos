@@ -35,20 +35,7 @@
 							<span class="menu-bullet">
 								<span class="bullet bullet-line"></span>
 							</span>
-                                <span class="menu-title">CraftedPR Users</span>
-                            </a>
-                            <!--end:Menu link-->
-                        </div>
-                    @endcan
-                    @can('view-delegates')
-                        <div class="menu-item">
-                            <!--begin:Menu link-->
-                            <a class="menu-link {{ request()->routeIs('users.delegates.*') ? 'active' : '' }}"
-                               href="{{ route('users.delegates.index') }}">
-							<span class="menu-bullet">
-								<span class="bullet bullet-line"></span>
-							</span>
-                                <span class="menu-title">All Delegates</span>
+                                <span class="menu-title">Staff Users</span>
                             </a>
                             <!--end:Menu link-->
                         </div>
@@ -83,7 +70,7 @@
 				</span>
                 <div class="menu-sub menu-sub-accordion">
                     <!--begin:Menu item-->
-
+                        @can('view-events')
                         <div class="menu-item">
                             <!--begin:Menu link-->
                             <a class="menu-link {{ request()->routeIs('events.manage-events.*') ? 'active' : '' }}"
@@ -95,7 +82,20 @@
                             </a>
                             <!--end:Menu link-->
                         </div>
-
+                    @endcan
+                    @can('view-delegates')
+                        <div class="menu-item">
+                            <!--begin:Menu link-->
+                            <a class="menu-link {{ request()->routeIs('users.delegates.*') ? 'active' : '' }}"
+                               href="{{ route('users.delegates.index') }}">
+							<span class="menu-bullet">
+								<span class="bullet bullet-line"></span>
+							</span>
+                                <span class="menu-title">Manage Delegates</span>
+                            </a>
+                            <!--end:Menu link-->
+                        </div>
+                    @endcan
                 </div>
                     <!--end:Menu sub-->
             </div>

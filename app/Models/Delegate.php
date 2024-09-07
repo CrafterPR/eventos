@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -16,17 +17,15 @@ class Delegate extends Model
 
     protected $guarded = ['id'];
 
+
+    protected $appends = ['name'];
+
     /**
      * @return string
      */
     public function getNameAttribute(): string
     {
-        return "$this->salutation $this->first_name $this->last_name";
-    }
-
-    public function orders(): HasMany
-    {
-        return $this->hasMany(Order::class);
+        return "{$this->salutation} {$this->first_name} {$this->last_name}";
     }
 
     public function event(): BelongsTo
