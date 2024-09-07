@@ -19,6 +19,8 @@ class CreateEventModal extends Component
         'event.start_date' => ['date', 'after:yesterday'],
         'event.end_date' => ['date', 'after_or_equal:event.start_date'],
         'event.venue' => ['required'],
+        'event.show_category' => ['sometimes','boolean'],
+        'event.footer_text' => ['sometimes', 'max:190'],
 
     ];
 

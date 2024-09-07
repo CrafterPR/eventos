@@ -25,10 +25,13 @@
                         <div class="m-8">
                             {!! QrCode::size(100)->color(75, 0, 130)->generate($delegate->id) !!}
                         </div>
-                        <h4 class="mb-4 text-active-gray-100">{{ $delegate->position }}</h4>
+                    @if($delegate->event->show_category)
+                        <h4 class="mb-4 text-active-gray-100">{{ $delegate->category->title }}</h4>
+                    @endif
                         <input type="hidden" id="delegate-id" value="{{ $delegate->id }}">
                     @endif
-                    <h5 class="text-muted">Powered by www.craftedpr.co.ke</h5>
+
+                    <h5 class="text-muted">{{$delegate->event->footer_text ?? 'Powered by www.craftedpr.co.ke' }}</h5>
                 </div>
 
                 <div class="modal-footer">
