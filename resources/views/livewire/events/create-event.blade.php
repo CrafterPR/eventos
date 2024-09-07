@@ -70,7 +70,7 @@
                             <label class="required fw-semibold fs-6 mb-2">Theme of the Event</label>
                               <!--end::Label-->
                               <!--begin::Input-->
-                              <textarea wire:model="event.covers" id="create_theme_ckeditor_classic" class="form-control form-control-solid mb-3 mb-lg-0"></textarea>
+                              <input wire:model="event.covers" class="form-control form-control-solid mb-3 mb-lg-0" />
 
                               <!--end::Input-->
                               @error('event.theme')
@@ -85,6 +85,30 @@
                             <!--end::Input-->
                             @error('event.venue')
                             <span class="text-danger">{{ $message }}</span> @enderror
+                        </div>
+                        <div class="row">
+                            <div  wire:ignore class="fv-row mb-7 col-md-8" >
+                                <!--begin::Label-->
+                                <label class="fw-semibold fs-6 mb-2">Pass footer text</label>
+                                <!--end::Label-->
+                                <!--begin::Input-->
+                                <input wire:model="event.footer_text" class="form-control form-control-solid mb-3 mb-lg-0" value="powered by craftedpr.co.ke" />
+
+                                <!--end::Input-->
+                                @error('event.footer_text')
+                                <span class="text-danger">{{ $message }}</span> @enderror
+                            </div>
+                            <div  wire:ignore class="fv-row mb-7 col-md-4" >
+                                <div class="form-check">
+                                    <input wire:model="event.show_category"  class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked />
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                        Show delegate type
+                                    </label>
+                                </div>
+                                <!--end::Input-->
+                                @error('event.show_category')
+                                <span class="text-danger">{{ $message }}</span> @enderror
+                            </div>
                         </div>
                     </div>
                     <!--end::Scroll-->
