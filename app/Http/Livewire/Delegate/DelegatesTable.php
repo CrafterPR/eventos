@@ -12,6 +12,7 @@ use Illuminate\Support\Collection;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
 use Rappasoft\LaravelLivewireTables\Views\Columns\BooleanColumn;
+use Rappasoft\LaravelLivewireTables\Views\Columns\LinkColumn;
 use Rappasoft\LaravelLivewireTables\Views\Filters\SelectFilter;
 
 class DelegatesTable extends DataTableComponent
@@ -59,8 +60,17 @@ class DelegatesTable extends DataTableComponent
                         })->count();
                 }),
             Column::make('Times printed','print_count'),
-                Column::make('Actions', 'id')
-                    ->view('pages.apps.delegates.columns._actions'),
+            LinkColumn::make('Print pass', 'first_name')
+                ->title(fn ($row) => getIcon('printer' ,'fs-2qx'))
+                ->location(fn() => "#")
+                ->attributes(fn($row) => [
+                    'data-kt-delegate-id' => $row->id,
+                    'data-bs-toggle' => 'modal',
+                    'data-bs-target' => "#kt_modal_print_preview",
+                    'data-kt-action'=> "print_pass"
+                ])
+                ->html(),
+
         ];
     }
 
