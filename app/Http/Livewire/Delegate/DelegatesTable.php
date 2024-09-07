@@ -64,6 +64,7 @@ class DelegatesTable extends DataTableComponent
                 ->title(fn ($row) => getIcon('printer' ,'fs-2qx'))
                 ->location(fn() => "#")
                 ->attributes(fn($row) => [
+                    'title' => $row->pass_printed  ? 'Re-print pass' : 'Print pass',
                     'data-kt-delegate-id' => $row->id,
                     'data-bs-toggle' => 'modal',
                     'data-bs-target' => "#kt_modal_print_preview",
