@@ -35,6 +35,7 @@ class RolesPermissionsSeeder extends Seeder
                 'view delegates',
                 'view events',
                 'view reports',
+                'view dashboard',
                 'manage staff',
                 'view quick links',
                 'print pass',
