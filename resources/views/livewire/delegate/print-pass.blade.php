@@ -41,5 +41,30 @@
     </div>
 </div>
 
+@push('scripts')
+    <script>
+        function printDiv(divId) {
+            var printContents = document.getElementById(divId).innerHTML;
+
+            let delegate = $('#delegate-id').val();
+            Livewire.dispatch('print_pass', {'delegate': delegate});
+
+
+            Livewire.dispatch('refreshDatatable');
+            $('#kt_modal_print_preview').modal('hide');
+
+            let originalContents = document.body.innerHTML;
+            document.body.innerHTML = printContents;
+            window.print();
+
+            document.body.innerHTML = originalContents;
+            Livewire.dispatch('success', 'Print pass successfully printed and record updated.')
+            setTimeout(() => {
+                window.location.reload();
+            },1000)
+        }
+    </script>
+@endpush
+
 
 

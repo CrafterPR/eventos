@@ -14,12 +14,6 @@
             <!--begin::Card title-->
             <div class="card-title">
                 <!--begin::Search-->
-                <div class="d-flex align-items-center position-relative my-1">
-                    {!! getIcon('magnifier', 'fs-3 position-absolute ms-5') !!}
-                    <input type="text" data-kt-user-table-filter="search"
-                           class="form-control form-control-solid w-250px ps-13" placeholder="Search delegates"
-                           id="mySearchInput"/>
-                </div>
                 <!--end::Search-->
             </div>
             <!--begin::Card title-->
@@ -41,8 +35,8 @@
                 <!--end::Toolbar-->
 
                 <!--begin::Modal-->
-                <livewire:delegate.import-delegates-modal></livewire:delegate.import-delegates-modal>
-                <livewire:delegate.print-pass-modal></livewire:delegate.print-pass-modal>
+                <livewire:delegate.import-delegates-modal />
+                <livewire:delegate.print-pass-modal />
                 <!--end::Modal-->
             </div>
             <!--end::Card toolbar-->
@@ -53,7 +47,7 @@
         <div class="card-body py-4">
             <!--begin::Table-->
             <div class="table-responsive">
-                {{ $dataTable->table() }}
+               <livewire:delegate.delegates-table />
             </div>
             <!--end::Table-->
         </div>
@@ -61,45 +55,67 @@
     </div>
 
     @push('scripts')
-        {{ $dataTable->scripts() }}
         <script>
-            document.getElementById('mySearchInput').addEventListener('keyup', function () {
-                window.LaravelDataTables['delegates-table'].search(this.value).draw();
+
+            // Add click event listener to delete buttons
+            document.querySelectorAll('[data-kt-action="delete_row"]').forEach(function (element) {
+                element.addEventListener('click', function () {
+                    Swal.fire({
+                        text: 'Are you sure you want to remove?',
+                        icon: 'warning',
+                        buttonsStyling: false,
+                        showCancelButton: true,
+                        confirmButtonText: 'Yes',
+                        cancelButtonText: 'No',
+                        customClass: {
+                            confirmButton: 'btn btn-danger',
+                            cancelButton: 'btn btn-secondary',
+                        }
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            Livewire.dispatch('delete_delegate', this.getAttribute('data-kt-delegate-id'));
+                        }
+                    });
+                });
             });
+
+            // Add click event listener to update buttons
+            document.querySelectorAll('[data-kt-action="update_row"]').forEach(function (element) {
+                element.addEventListener('click', function () {
+                    Livewire.dispatch('update_delegate', this.getAttribute('data-kt-delegate-id'));
+                });
+            });
+            document.querySelectorAll('[data-kt-action="print_pass"]').forEach(function (element) {
+                element.addEventListener('click', function () {
+                    Livewire.dispatch('get_delegate', {"delegate" : this.getAttribute('data-kt-delegate-id')});
+                });
+            });
+
+            document.querySelectorAll('[data-kt-action="redeem_coupon"]').forEach(function (element) {
+                element.addEventListener('click', function () {
+                    Livewire.dispatch('redeem_coupon', this.getAttribute('data-kt-delegate-id'));
+                });
+            });
+
+            // Listen for 'success' event emitted by Livewire
+            Livewire.on('success', (message) => {
+                // Reload the delegates-table datatable
+                Livewire.dispatch('refreshDatatable');
+            });
+
             document.addEventListener('livewire:init', function () {
                 Livewire.on('success', function () {
                     $('#kt_modal_add_delegate').modal('hide');
                     $('#kt_modal_redeem_coupon').modal('hide');
                     $('#kt_modal_import_delegates').modal('hide');
                     $('#kt_modal_print_preview').modal('hide');
-                    window.LaravelDataTables['delegates-table'].ajax.reload();
+                    Livewire.dispatch('refreshDatatable');
                 });
                 Livewire.on('closeModal', function () {
                     $('#kt_modal_print_preview').modal('hide');
-                    window.LaravelDataTables['delegates-table'].ajax.reload();
+                    Livewire.dispatch('refreshDatatable');
                 });
             });
-
-            function printDiv(divId) {
-                var printContents = document.getElementById(divId).innerHTML;
-
-                let delegate = $('#delegate-id').val();
-                Livewire.dispatch('print_pass', {'delegate': delegate});
-
-
-                window.LaravelDataTables['delegates-table'].ajax.reload();
-                $('#kt_modal_print_preview').modal('hide');
-
-                let originalContents = document.body.innerHTML;
-                document.body.innerHTML = printContents;
-                window.print();
-
-                document.body.innerHTML = originalContents;
-                Livewire.dispatch('success', 'Print pass successfully printed and record updated.')
-                setTimeout(() => {
-                    window.location.reload();
-                },1000)
-            }
 
 
             function reinitializeJavaScript() {
