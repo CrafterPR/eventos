@@ -32,7 +32,7 @@
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" wire:click="closeModal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" >Close</button>
                     <button type="button" class="btn btn-success" onclick="printDiv('printableArea')">Print</button>
                 </div>
                 <!--end::Card body-->
