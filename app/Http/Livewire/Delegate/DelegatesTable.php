@@ -45,6 +45,16 @@ class DelegatesTable extends DataTableComponent
         ]);
         $this->setActionsInToolbarEnabled();
         $this->setColumnSelectStatus(false);
+        $this->setBulkActionsMenuAttributes([
+            'class' => 'px-n20',
+            'default-colors' => true,
+            'default-styling' => true,
+        ]);
+        $this->setBulkActionsMenuItemAttributes([
+            'class' => 'bg-green-500',
+            'default-colors' => true,
+            'default-styling' => true,
+        ]);
     }
 
     public function builder(): Builder
