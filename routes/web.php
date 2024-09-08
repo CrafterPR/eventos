@@ -6,20 +6,10 @@ use App\Http\Controllers\Apps\ExhibitorController;
 use App\Http\Controllers\Apps\PermissionManagementController;
 use App\Http\Controllers\Apps\RoleManagementController;
 use App\Http\Controllers\Apps\UserManagementController;
-use App\Http\Controllers\BoothController;
-use App\Http\Controllers\CouponController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\ExportController;
-use App\Http\Controllers\Payment\PesaflowController;
-use App\Http\Controllers\PaymentController;
-use App\Http\Controllers\PortalController;
-use App\Http\Controllers\ProgrammeController;
-use App\Http\Controllers\SpeakerController;
-use App\Http\Controllers\SummitController;
-use App\Http\Controllers\TicketController;
 use App\Http\Livewire\Delegate\ImportDelegatesModal;
-use App\Http\Livewire\ErrorPage;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -64,9 +54,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
         });
         Route::middleware(['can:view-reports'])->prefix('reports')->name('reports.')->group(function () {
-            Route::get('exhibitors-paid', [ProgrammeController::class, 'exhibitors'])->name('exhibitors.paid')
-                ->middleware('can:manage-events');
-            Route::get('delegates-paid', [SpeakerController::class, 'delegates'])->name('delegates.paid');
             Route::get('exports', [ExportController::class, 'index'])->name('index');
             Route::post('export', [ExportController::class, 'export'])->name('export');
 

@@ -1,4 +1,4 @@
-<div class="modal fade" id="kt_modal_add_delegate" tabindex="-1" aria-hidden="true" wire:ignore.self>
+<div class="modal fade" id="kt_modal_edit_delegate" tabindex="-1" aria-hidden="true" wire:ignore.self>
     <!--begin::Modal dialog-->
     <div class="modal-dialog modal-dialog-centered mw-950px">
         <!--begin::Modal content-->
@@ -6,7 +6,7 @@
             <!--begin::Modal header-->
             <div class="modal-header" id="kt_modal_add_user_header">
                 <!--begin::Modal title-->
-                <h2 class="fw-bold">{{$this->edit_mode ? 'Edit' : "Add"}} Delegate</h2>
+                <h2 class="fw-bold">Edit Delegate</h2>
                 <!--end::Modal title-->
                 <!--begin::Close-->
                 <div class="btn btn-icon btn-sm btn-active-icon-primary" data-bs-dismiss="modal" aria-label="Close">
@@ -18,7 +18,7 @@
             <!--begin::Modal body-->
             <div class="modal-body px-5 my-7">
                 <!--begin::Form-->
-                <form id="kt_modal_add_user_form" class="form" action="#" wire:submit="submit"
+                <form id="kt_modal_add_user_form" class="form" action="#" wire:submit.prevent="submit"
                       enctype="multipart/form-data">
                     <!--begin::Scroll-->
                     <div class="d-flex flex-column scroll-y px-5 px-lg-10" id="kt_modal_add_user_scroll"
@@ -36,7 +36,7 @@
                                         data-placeholder="">
                                     <option value=""></option>
                                     @foreach (config("setting.salutation") as $salutation)
-                                        <option value="{{ $salutation }}">
+                                        <option value="{{ $salutation }}" {{ $salutation == $delegate->salutation ? 'selected' : '' }}>
                                         {{$salutation}}
                                         </option>
                                     @endforeach
@@ -110,22 +110,19 @@
                     <div class="row mb-6">
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
-                                <input type="text" wire:model="delegate.institution" id="institution"
-                                       value="{{ old("institution") }}"
+                                <input type="text" wire:model="delegate.organization" id="organization"
+                                       value="{{ old("organization") }}"
                                        autocomplete="off"
-                                       class="form-control  @error('delegate.institution') border-danger @enderror "/>
+                                       class="form-control  @error('delegate.organization') border-danger @enderror "/>
                                 <label for="institution">
                                     Organization
                                     <span class="required"></span>
                                 </label>
-                                @error('delegate.institution')
+                                @error('delegate.organization')
                                 <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
                         </div>
-
-                    </div>
-                    <div class="row mb-6">
 
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
@@ -135,7 +132,7 @@
                                         data-placeholder="">
                                     <option value=""></option>
                                     @foreach(config("setting.gender") as $key=>$value)
-                                        <option value="{{$key}}">{{$value}}</option>
+                                        <option value="{{$key}}" {{$delegate->gender == $key ? 'selected' : ''}}>{{$value}}</option>
                                     @endforeach
                                 </select>
                                 <label for="gender">Gender
@@ -157,13 +154,13 @@
                                             data-placeholder="">
                                         <option value=""></option>
                                         @foreach($countries as $country)
-                                            <option value="{{ $country->id  }}">
+                                            <option value="{{ $country->id  }}" {{ $country->id == $delegate->country_id ? 'selected' : '' }}>
                                                 {{ $country->name }}
                                             </option>
                                         @endforeach
                                     </select>
                                     <label for="country_id">
-                                        Home country
+                                         Country
                                         <span class="required"></span>
                                     </label>
                                     @error('delegate.country_id')
@@ -195,7 +192,7 @@
                                             data-placeholder="">
                                         <option value=""></option>
                                         @foreach($categories as $category)
-                                            <option value="{{ $category->id  }}">
+                                            <option value="{{ $category->id }}" {{ $category->id == $delegate->category_id ? 'selected' : '' }}>
                                                 {{ $category->title }}
                                             </option>
                                         @endforeach
@@ -209,6 +206,28 @@
                                     @enderror
                                 </div>
                             </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating mb-3">
+                                        <select wire:model="delegate.event_id" id="select_event_id"
+                                                class="form-select  @error('delegate.event_id') border-danger @enderror "
+                                                data-control="select2"
+                                                data-placeholder="">
+                                            <option value=""></option>
+                                            @foreach($events as $event)
+                                                <option value="{{ $event->id  }}" {{ $event->id == $delegate->event_id ? 'selected' : '' }}>
+                                                    {{ $event->title }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                        <label for="event_id">
+                                            Event
+                                            <span class="required"></span>
+                                        </label>
+                                        @error('delegate.event_id')
+                                        <div class="text-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
 
                         </div>
 
@@ -240,8 +259,7 @@
 @push('scripts')
     <script>
         $(function () {
-
-            let selectOptions = ['gender', 'salutation', 'country_id', 'county_id'];
+            let selectOptions = ['gender', 'salutation', 'country_id', 'county_id', 'event_id', 'category_id'];
 
             selectOptions.map(function (option) {
                 $(`#select_${option}`).on('change', function (e) {
