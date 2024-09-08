@@ -64,9 +64,9 @@ class DelegateController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(User $user)
+    public function show(Delegate $delegate)
     {
-        return view('pages.apps.user-management.users.show', compact('user'));
+        return view('pages.apps.delegates.show', compact('delegate'));
     }
 
 

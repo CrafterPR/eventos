@@ -27,6 +27,11 @@ Breadcrumbs::for('users.index', function (BreadcrumbTrail $trail) {
     $trail->push('User Management', route('users.user.index'));
 });
 
+Breadcrumbs::for('users.delegates.index', function (BreadcrumbTrail $trail) {
+    $trail->parent('dashboard');
+    $trail->push('Delegates Management', route('users.delegates.index'));
+});
+
 // Home > Dashboard > User Management > Users
 Breadcrumbs::for('users.user.index', function (BreadcrumbTrail $trail) {
     $trail->parent('users.index');
@@ -34,13 +39,13 @@ Breadcrumbs::for('users.user.index', function (BreadcrumbTrail $trail) {
 });
 
 Breadcrumbs::for('delegates.index', function (BreadcrumbTrail $trail) {
-    $trail->parent('users.index');
-    $trail->push('Delegates', route('users.user.index'));
+    $trail->parent('users.delegates.index');
+    $trail->push('Delegates', route('users.delegates.index'));
 });
-// Home > Dashboard > Programme > Speakers
-Breadcrumbs::for('programme.speaker.index', function (BreadcrumbTrail $trail) {
-    $trail->parent('programme');
-    $trail->push('Speakers', route('programme.speakers.index'));
+
+Breadcrumbs::for('users.delegates.show', function (BreadcrumbTrail $trail) {
+    $trail->parent('users.delegates.index');
+    $trail->push('Delegate', route('users.delegates.index'));
 });
 
 //Home > Dashboard > Ticket Management > Tickets > purchased tickets
