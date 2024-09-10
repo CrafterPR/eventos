@@ -56,7 +56,7 @@
 
     @push('scripts')
         <script>
-
+            document.addEventListener('DOMContentLoaded', function () {
             // Add click event listener to delete buttons
             document.querySelectorAll('[data-kt-action="delete_row"]').forEach(function (element) {
                 element.addEventListener('click', function () {
@@ -78,6 +78,7 @@
                     });
                 });
             });
+            });
 
             // Add click event listener to update buttons
             document.querySelectorAll('[data-kt-action="update_row"]').forEach(function (element) {
@@ -88,12 +89,6 @@
             document.querySelectorAll('[data-kt-action="print_pass"]').forEach(function (element) {
                 element.addEventListener('click', function () {
                     Livewire.dispatch('get_delegate', {"delegate" : this.getAttribute('data-kt-delegate-id')});
-                });
-            });
-
-            document.querySelectorAll('[data-kt-action="redeem_coupon"]').forEach(function (element) {
-                element.addEventListener('click', function () {
-                    Livewire.dispatch('redeem_coupon', this.getAttribute('data-kt-delegate-id'));
                 });
             });
 
