@@ -44,24 +44,15 @@ class Delegate extends Model
     }
 
 
-    public function coupon(): HasOneThrough
-    {
-        return $this->hasOneThrough(Coupon::class, UserCoupon::class, 'user_id', 'id');
-    }
-
     public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class)->withDefault();
     }
 
-    public function coupons(): HasMany
-    {
-        return $this->hasMany(UserCoupon::class);
-    }
 
-    public function orderItem(): HasOne
+    public function checkins(): HasMany
     {
-        return $this->hasOne(OrderItem::class);
+        return $this->hasMany(Checkin::class);
     }
 
     public function printPass(): void

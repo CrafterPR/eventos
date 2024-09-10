@@ -3,7 +3,6 @@
 namespace App\Http\Livewire\Events;
 
 use App\Enum\EventStatus;
-use App\Models\Checkpoint;
 use App\Models\Event;
 use Livewire\Attributes\On;
 use Livewire\Component;

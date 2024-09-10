@@ -12,17 +12,6 @@
         </a>
     </div>
     @endcan
-    @can('redeem-coupon-for-delegates')
-        <div class="menu-item px-3">
-
-            <a href="#" class="menu-link px-3" data-kt-delegate-id="{{ $row->id }}" data-bs-toggle="modal" data-bs-target="#kt_modal_redeem_coupon" data-kt-action="redeem_coupon">
-                Redeem coupon
-            </a>
-
-        </div>
-    @endcan
-    <!--end::Menu item-->
-
     <!--begin::Menu item-->
     @can('edit-delegate')
     <div class="menu-item px-3">
@@ -32,7 +21,7 @@
     </div>
     @endcan
     <!--end::Menu item-->
-   @can('edit-delegate')
+   @can('delete-delegate')
     <!--begin::Menu item-->
     <div class="menu-item px-3">
         <a href="#" class="menu-link px-3" data-kt-delegate-id="{{ $row->id }}" data-kt-action="delete_row">

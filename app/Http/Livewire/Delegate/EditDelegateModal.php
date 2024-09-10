@@ -92,10 +92,12 @@ class EditDelegateModal extends Component
      * @param $id
      * @return void
      */
-    public function deleteDelegate($id)
+    #[On('delete_delegate')]
+    public function deleteDelegate(Delegate $delegate)
     {
         // Delete the user record with the specified ID
-        User::destroy($id);
+        $delegate->checkins()->delete();
+        $delegate->delete();
 
         // Emit a success event with a message
         $this->dispatch('success', 'Delegate successfully deleted');

@@ -20,10 +20,8 @@ class ImportDelegatesModal extends Component
 
     public string $batchId = '';
 
-    #[Validate('required|file|mimes:xlsx,xls,csv|max:102400')]
     public mixed $importFile = null;
 
-    #[Validate('required|exists:events,id')]
     public string $event_id = '';
 
     public $uploadErrors;
@@ -39,6 +37,11 @@ class ImportDelegatesModal extends Component
     public bool $importFinished = false;
 
     public bool $importCancelled = false;
+
+    protected array $rules = [
+        'importFile' => 'required|file|mimes:xlsx,xls,csv|max:10240',
+        'event_id' => 'required|exists:events,id',
+    ];
 
     public function mount()
     {

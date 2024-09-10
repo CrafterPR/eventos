@@ -124,14 +124,8 @@
                                 </span></a>
                         </div>
                         <div class="menu-item px-5">
-                            <a href="#" class="menu-link text-danger px-5" data-kt-delegate-id="{{ $delegate->id }}" data-kt-action="delete_row">Delete delegate
-                            <span class="ms-2" data-bs-toggle="tooltip" title="This will remove the delegate and all related data from the system">
-                                    <i class="ki-duotone ki-rocket fs-2qx">
-                                        <span class="path1"></span>
-                                        <span class="path2"></span>
-                                        <span class="path3"></span>
-                                    </i>
-                                </span>
+                            <a href="#" class="menu-link text-danger px-5" data-kt-delegate-id="{{ $delegate->id }}" data-kt-action="delete_delegate">
+                                Delete delegate
                             </a>
                         </div>
                         <!--end::Menu item-->
@@ -242,31 +236,39 @@
 
 @push('scripts')
   <script>
+      KTMenu.init();
       document.addEventListener('livewire:init', function () {
           Livewire.on('success', function () {
               $('#kt_modal_edit_delegate').modal('hide');
           });
       });
 
-      document.querySelectorAll('[data-kt-action="delete_row"]').forEach(function (element) {
-          element.addEventListener('click', function () {
-              Swal.fire({
-                  text: 'Are you sure you want to delete this delegate?',
-                  icon: 'warning',
-                  buttonsStyling: false,
-                  showCancelButton: true,
-                  confirmButtonText: 'Yes',
-                  cancelButtonText: 'No',
-                  customClass: {
-                      confirmButton: 'btn btn-danger',
-                      cancelButton: 'btn btn-secondary',
-                  }
-              }).then((result) => {
-                  if (result.isConfirmed) {
-                      Livewire.dispatch('delete_delegate', this.getAttribute('data-kt-delegate-id'));
-                  }
+      document.addEventListener('livewire:load', function () {
+          const deleteButton = document.querySelector('[data-kt-action="delete_delegate"]');
+          if (deleteButton) {
+              deleteButton.addEventListener('click', function (e) {
+                  e.preventDefault();
+                  console.log("delegate:", this.getAttribute('data-kt-delegate-id'));
+                  Swal.fire({
+                      text: 'Are you sure you want to delete this delegate?',
+                      icon: 'warning',
+                      buttonsStyling: false,
+                      showCancelButton: true,
+                      confirmButtonText: 'Yes',
+                      cancelButtonText: 'No',
+                      customClass: {
+                          confirmButton: 'btn btn-danger',
+                          cancelButton: 'btn btn-secondary',
+                      }
+                  }).then((result) => {
+                      if (result.isConfirmed) {
+                          Livewire.dispatch('delete_delegate', {'delegate' : this.getAttribute('data-kt-delegate-id')});
+                      }
+                  });
               });
-          });
+          }
       });
+
+
   </script>
 @endpush

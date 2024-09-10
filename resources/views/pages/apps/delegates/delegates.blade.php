@@ -113,6 +113,7 @@
                 });
                 Livewire.on('closeModal', function () {
                     $('#kt_modal_print_preview').modal('hide');
+                    $('#kt_modal_import_delegates').modal('hide');
                     Livewire.dispatch('refreshDatatable');
                 });
             });
