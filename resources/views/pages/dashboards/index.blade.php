@@ -225,27 +225,27 @@
                                         <div class="d-flex align-items-center">
                                             <div class="d-flex justify-content-start flex-column">
                                                 <a href="#" class="text-gray-800 fw-bold text-hover-primary mb-1 fs-6">
-                                                    {{$checkin->delegate->name}}
+                                                    {{$checkin->delegate?->name}}
                                                 </a>
                                                 <span class="text-gray-400 fw-semibold d-block fs-7">
-                                                   {{$checkin->delegate->email}}
+                                                   {{$checkin->delegate?->email}}
                                                 </span>
                                             </div>
                                         </div>
                                     </td>
                                     <td class="text-start pe-0">
                                         <span class="text-gray-600 fw-bold fs-6">
-                                            {{ $checkin->delegate->organization }}
+                                            {{ $checkin->delegate?->organization }}
                                         </span>
                                     </td>
                                     <td class="text-start pe-0">
                                         <span class="text-gray-600 fw-bold fs-6">
-                                            {{ $checkin->delegate->country->name }}
+                                            {{ $checkin->delegate?->country?->name }}
                                         </span>
                                     </td>
                                     <td class="text-start pe-0">
                                         <span class="text-gray-600 fw-bold fs-6">
-                                            {{$checkin->delegate->event->title}}
+                                            {{$checkin->delegate?->event?->title}}
                                         </span>
                                     </td>
                                     <td class="text-start pe-0">

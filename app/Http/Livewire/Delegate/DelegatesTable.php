@@ -55,6 +55,8 @@ class DelegatesTable extends DataTableComponent
             'default-colors' => true,
             'default-styling' => true,
         ]);
+
+        $this->setLoadingPlaceholderStatus(true);
     }
 
     public function builder(): Builder

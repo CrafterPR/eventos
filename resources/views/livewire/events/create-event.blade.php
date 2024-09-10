@@ -70,7 +70,7 @@
                             <label class="required fw-semibold fs-6 mb-2">Theme of the Event</label>
                               <!--end::Label-->
                               <!--begin::Input-->
-                              <input wire:model="event.covers" class="form-control form-control-solid mb-3 mb-lg-0" />
+                              <input wire:model="event.theme" class="form-control form-control-solid mb-3 mb-lg-0" />
 
                               <!--end::Input-->
                               @error('event.theme')

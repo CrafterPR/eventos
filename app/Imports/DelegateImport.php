@@ -63,12 +63,12 @@ class DelegateImport implements SkipsEmptyRows, ToCollection, WithBatchInserts, 
 
     public function chunkSize(): int
     {
-        return 50;
+        return 500;
     }
 
     public function batchSize(): int
     {
-        return 50;
+        return 500;
     }
 
     private function getCountry(string $country):string|null
