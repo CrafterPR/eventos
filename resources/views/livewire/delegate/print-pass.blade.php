@@ -36,36 +36,42 @@
 
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" >Close</button>
-                    <button type="button" class="btn btn-success" onclick="printDiv('printableArea')">Print</button>
+                    <button type="button" class="btn btn-success" id="printMe">Print</button>
                 </div>
                 <!--end::Card body-->
             </div>
         </div>
     </div>
 </div>
-
 @push('scripts')
     <script>
-        function printDiv(divId) {
-            var printContents = document.getElementById(divId).innerHTML;
+        $(function() {
+            $('#printMe').on('click', function() {
+                $("#printableArea").printThis({
+                    debug: false,
+                    importCSS: true,
+                    importStyle: true,
+                    printContainer: true,
+                    pageTitle: "Delegate Pass Preview",
+                    removeInline: true,
+                    printDelay: 0,
+                    header: null,
+                    formValues: true
+                });
 
-            let delegate = $('#delegate-id').val();
-            Livewire.dispatch('print_pass', {'delegate': delegate});
+                setTimeout(() => {
+                    let delegate = $('#delegate-id').val();
+                    Livewire.dispatch('print_pass', {'delegate': delegate});
+                    Livewire.dispatch('refreshDatatable');
+                    $('#kt_modal_print_preview').modal('hide');
+                    Livewire.dispatch('success', 'Print pass successfully printed and record updated.')
+                    window.location.reload();
+                },2000)
+            });
+
+        })
 
 
-            Livewire.dispatch('refreshDatatable');
-            $('#kt_modal_print_preview').modal('hide');
-
-            let originalContents = document.body.innerHTML;
-            document.body.innerHTML = printContents;
-            window.print();
-
-            document.body.innerHTML = originalContents;
-            Livewire.dispatch('success', 'Print pass successfully printed and record updated.')
-            setTimeout(() => {
-                window.location.reload();
-            },1000)
-        }
     </script>
 @endpush
 
