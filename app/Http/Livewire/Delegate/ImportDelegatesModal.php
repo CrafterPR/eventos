@@ -65,13 +65,14 @@ class ImportDelegatesModal extends Component
     /**
      * @throws Throwable
      */
-    public function uploadDelegates(): void
+    public function submit(): void
     {
 
          $this->importFinished = false;
         $this->importCancelled = false;
-
-        $this->importFilePath = $this->importFile->store('delegates-import');
+        if ($this->importFile) {
+            $this->importFilePath = $this->importFile->store('delegates-import');
+        }
 
         $this->isImporting = true;
         $eventId = $this->event_id;

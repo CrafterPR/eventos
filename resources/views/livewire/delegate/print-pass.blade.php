@@ -7,17 +7,17 @@
             <!--begin::Modal header-->
             <div class="modal-header" id="kt_modal_redeem_coupon">
                 <!--begin::Modal title-->
-                <h2 class="fw-bold">Delegate pass preview</h2>
+                <h2 class="fw-bold">Pass print preview</h2>
                 <!--end::Modal title-->
                 <!--begin::Close-->
                 <div class="btn btn-icon btn-sm btn-active-icon-primary" data-bs-dismiss="modal" aria-label="Close">
-                    {!! getIcon('cross','fs-1') !!}
+                    {!! getIcon('cross','fs-2qx') !!}
                 </div>
                 <!--end::Close-->
             </div>
             <!--end::Modal header-->
             <!--begin::Modal body-->
-            <div class="modal-body px-5 my-7">
+            <div class="modal-body">
                 <div class="card text-center" id="printableArea" style="width: 500px; margin: 0 auto; padding: 20px;">
                     @if($delegate)
                         <h1 class="mb-3">{{ $delegate->name }}</h1>
@@ -30,7 +30,9 @@
                     @endif
                         <input type="hidden" id="delegate-id" value="{{ $delegate->id }}">
                     @endif
-
+                    @if($delegate?->has_ticket_type)
+                      <h3 class="mb-4 text-active-gray-100">{{ $delegate->ticket_type }}</h3>
+                    @endif
                     <h5 class="text-muted">{{$delegate->event->footer_text ?? 'Powered by www.craftedpr.co.ke' }}</h5>
                 </div>
 
@@ -54,9 +56,9 @@
                     printContainer: true,
                     pageTitle: "Delegate Pass Preview",
                     removeInline: true,
-                    printDelay: 0,
+                    printDelay: 500,
                     header: null,
-                    formValues: true
+                    formValues: false
                 });
 
                 setTimeout(() => {
