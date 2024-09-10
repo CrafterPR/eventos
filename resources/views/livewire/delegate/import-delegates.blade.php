@@ -59,7 +59,7 @@
                                     <p class="text-sm mb-2">{{ __("3. Save the excel document, upload and submit.")}}<i
                                             class="text-danger">*</i></p>
 
-                                        <form wire:submit.prevent="uploadDelegates">
+                                        <form wire:submit.prevent="submit">
                                             @csrf
                                             <div class="fv-row mb-7">
                                                 <!--begin::Label-->
@@ -76,21 +76,21 @@
                                             </div>
                                             <div class="d-md-flex justify-content-start">
                                                 <div class="form-group">
-                                                    <input type="file" id="file-upload-{{ $fileIteration }}"
+                                                    <input wire:model="importFile" type="file" id="file-upload-{{ $fileIteration }}"
                                                            accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
                                                            class="w-100 form-control @error('importFile') is-invalid @enderror"
                                                            @disabled($isImporting && !$importFinished)
-                                                           wire:model="importFile">
+                                                           >
                                                     @error('importFile') <span
                                                         class="text-danger">{{ $message }}</span> @enderror
                                                 </div>
 
-                                                <button type="submit" @disabled($isImporting && !$importFinished) class="btn btn-primary" data-kt-delegates-modal-action="uploadDelegates">
+                                                <button type="submit" @disabled($isImporting && !$importFinished) class="btn btn-primary" data-kt-delegates-modal-action="submit">
                                                     <!-- Hide the "Submit" label when loading -->
-                                                    <span class="indicator-label" wire:loading.remove wire:target="uploadDelegates">Submit</span>
+                                                    <span class="indicator-label" wire:loading.remove wire:target="submit">Submit</span>
 
                                                     <!-- Show the "Please wait..." indicator when loading -->
-                                                    <span class="indicator-progress" wire:loading wire:target="uploadDelegates">
+                                                    <span class="indicator-progress" wire:loading wire:target="submit">
                                                         Please wait...
                                                         <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
                                                     </span>
