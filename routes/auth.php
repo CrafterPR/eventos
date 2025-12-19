@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')->group(function () {
     Route::get('/', static function () {
-        return redirect('login');
+        return view('home');
     })->name('index');
 
 
