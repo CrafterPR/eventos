@@ -25,6 +25,7 @@ jobs:
         run: |
           ssh -tt ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << 'EOF'
             cd /var/www/eventos
+            git commit -am "preparing to merge"
             git pull origin main
             composer install --no-interaction --prefer-dist --optimize-autoloader
             php artisan migrate --force
