@@ -14,9 +14,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('guest')->group(function () {
     Route::get('/', static function () {
         return view('home');
-    })->name('index');
+    })->name('/');
 
-    Route::get('registration/{coupon?}', [RegisteredUserController::class, 'create'])
+    Route::get('summit-registration', RegisteredUserController::class)
         ->name('register');
 
     Route::post('register', [RegisteredUserController::class, 'store'])->name('register_save');

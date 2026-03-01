@@ -26,12 +26,11 @@ class RegisteredUserController extends Controller
      *
      * @return View
      */
-    public function create(Request $request, ?string $coupon = ''): View
+    public function __invoke(Request $request, ?string $coupon = ''): View
     {
-        $affiliations = Affiliation::get();
         $countries = Country::orderBy('name')->get();
 
-        return view('pages.auth.register', compact('affiliations', 'countries', 'coupon'));
+        return view('pages.auth.register', compact('countries'));
     }
 
     /**

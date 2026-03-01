@@ -50,6 +50,17 @@ mix.sass(`${dir}/sass/style.scss`, `public/assets/css/style.bundle.css`, {sassOp
     // .options({processCssUrls: false})
     .scripts(require(`./resources/mix/scripts.js`), `public/assets/js/scripts.bundle.js`);
 
+// Build Tailwind CSS
+mix.postCss('resources/css/app.css', 'public/css', [
+    require('tailwindcss'),
+]);
+
+// Build summit.css with Tailwind
+mix.postCss('resources/_keenthemes/src/sass/summit.css', 'public/css', [
+    require('tailwindcss'),
+    require('autoprefixer'),
+]);
+
 // Build custom 3rd party plugins
 (glob.sync(`resources/mix/vendors/**/*.js`) || []).forEach(file => {
     mix.scripts(require('./' + file), `public/assets/${file.replace('resources/mix/vendors/', 'plugins/custom/')}`);

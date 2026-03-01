@@ -1,150 +1,6 @@
 <x-home-layout>
     <main class="relative">
-        <nav
-            class="w-full z-20 transition-all duration-300 fixed top-0 left-0 right-0 sm:absolute sm:left-1/2 sm:transform sm:-translate-x-1/2 bg-white rounded-none sm:rounded-lg mx-0 sm:mx-4 mt-0 sm:mt-4 shadow-md max-w-none sm:max-w-7xl">
-            <div class="w-full px-3 sm:px-4 md:px-6 lg:px-8">
-                <div class="flex items-center justify-between py-2 sm:py-3">
-                    <div class="flex-shrink-0"><a href="https://paan.africa/"><img alt="Logo" loading="lazy" width="200"
-                                                                                   height="70" decoding="async"
-                                                                                   data-nimg="1"
-                                                                                   class="w-20 sm:w-24 md:w-28 lg:w-32 xl:w-36 h-auto"
-                                                                                   src="/home/paan-summit-logo.svg"
-                                                                                   style="color: transparent;"></a>
-                    </div>
-                    <div class="lg-custom:hidden flex items-center">
-                        <button class="p-2 sm:p-3 rounded-md text-[#172840] focus:outline-none">
-                            <svg class="h-5 w-5 sm:h-6 sm:w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                      d="M4 6h16M4 12h16M4 18h16"></path>
-                            </svg>
-                        </button>
-                    </div>
-                    <div
-                        class="hidden lg-custom:flex lg-custom:items-center lg-custom:space-x-1 xl:space-x-2 w-full justify-end">
-                        <div class="flex space-x-1 xl:space-x-2 flex-grow justify-center md:justify-center"><a
-                                href="https://paan.africa/summit#home"
-                                class="text-paan-dark-blue bg-paan-yellow px-2 sm:px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer text-xs sm:text-sm font-medium">Home</a><a
-                                href="https://paan.africa/summit#program"
-                                class="text-[#172840] hover:text-gray-900 hover:bg-[#F2B706] px-2 sm:px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer text-xs sm:text-sm">Sessions</a><a
-                                href="https://paan.africa/summit#agenda"
-                                class="text-[#172840] hover:text-gray-900 hover:bg-[#F2B706] px-2 sm:px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer text-xs sm:text-sm">Programme</a><a
-                                href="https://paan.africa/summit#participants"
-                                class="text-[#172840] hover:text-gray-900 hover:bg-[#F2B706] px-2 sm:px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer text-xs sm:text-sm">Who
-                                can attend</a><a href="https://paan.africa/summit#speakers-section"
-                                                 class="text-[#172840] hover:text-gray-900 hover:bg-[#F2B706] px-2 sm:px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer text-xs sm:text-sm">Speakers</a><a
-                                href="https://paan.africa/summit#paan-awards-section"
-                                class="text-[#172840] hover:text-gray-900 hover:bg-[#F2B706] px-2 sm:px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer text-xs sm:text-sm">Awards</a><a
-                                href="https://paan.africa/summit#exhibition"
-                                class="text-[#172840] hover:text-gray-900 hover:bg-[#F2B706] px-2 sm:px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer text-xs sm:text-sm">Exhibit</a><a
-                                href="https://paan.africa/summit#tickets-section"
-                                class="text-[#172840] hover:text-gray-900 hover:bg-[#F2B706] px-2 sm:px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer text-xs sm:text-sm">Tickets</a><a
-                                href="https://paan.africa/summit#plan-your-trip"
-                                class="text-[#172840] hover:text-gray-900 hover:bg-[#F2B706] px-2 sm:px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer text-xs sm:text-sm">Plan</a>
-                        </div>
-                        <div class="relative">
-                            <div id="google_translate_element"
-                                 style="position: absolute; height: 0px; overflow: hidden; top: -9999px; left: -9999px;"></div>
-                            <div class="relative group">
-                                <button class="p-2 rounded-full focus:outline-none hover:bg-sky-50 bg-white/50"
-                                        aria-label="Change Language">
-                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                         aria-hidden="true" role="img" class="h-5 w-5 rounded-lg  iconify iconify--flag"
-                                         width="1em" height="1em" viewBox="0 0 512 512">
-                                        <path fill="#bd3d44" d="M0 0h512v512H0"></path>
-                                        <path stroke="#fff" stroke-width="40"
-                                              d="M0 58h512M0 137h512M0 216h512M0 295h512M0 374h512M0 453h512"></path>
-                                        <path fill="#192f5d" d="M0 0h390v275H0z"></path>
-                                        <marker id="iconifyReact363" markerHeight="30" markerWidth="30">
-                                            <path fill="#fff" d="m15 0l9.3 28.6L0 11h30L5.7 28.6"></path>
-                                        </marker>
-                                        <path fill="none" marker-mid="url(#iconifyReact363)"
-                                              d="m0 0l18 11h65h65h65h65h66L51 39h65h65h65h65L18 66h65h65h65h65h66L51 94h65h65h65h65L18 121h65h65h65h65h66L51 149h65h65h65h65L18 177h65h65h65h65h66L51 205h65h65h65h65L18 232h65h65h65h65h66z"></path>
-                                    </svg>
-                                </button>
-                                <div class="
-          absolute top-full left-1/2 -translate-x-1/2 mt-2 w-max
-          bg-white text-xs py-2 px-3 rounded-full shadow-lg
-          opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0
-          transition-all duration-200 ease-in-out
-          text-gray-900
-          before:content-[&#39;&#39;] before:absolute before:-top-1.5 before:left-1/2
-          before:-translate-x-1/2 before:border-4 before:border-transparent before:border-b-white
-        ">Change Language
-                                </div>
-                            </div>
-                        </div>
-                        <button
-                            class="bg-paan-red text-white px-4 py-2 text-sm rounded-full hover:bg-paan-red/90 transition-all duration-300 font-medium shadow-lg flex items-center justify-center gap-2">
-                            Register Now
-                        </button>
-                    </div>
-                </div>
-                <div class="hidden lg-custom:hidden">
-                    <div
-                        class="px-3 sm:px-4 pt-2 pb-3 space-y-1 bg-white rounded-none sm:rounded-lg shadow-lg border-t border-gray-200 sm:border border-gray-200">
-                        <div class="px-3 sm:px-4 py-3 border-b border-gray-200">
-                            <div class="relative">
-                                <div id="google_translate_element"
-                                     style="position: absolute; height: 0px; overflow: hidden; top: -9999px; left: -9999px;"></div>
-                                <div class="relative group">
-                                    <button class="p-2 rounded-full focus:outline-none hover:bg-sky-50 bg-white/50"
-                                            aria-label="Change Language">
-                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                             xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
-                                             class="h-5 w-5 rounded-lg  iconify iconify--flag" width="1em" height="1em"
-                                             viewBox="0 0 512 512">
-                                            <path fill="#bd3d44" d="M0 0h512v512H0"></path>
-                                            <path stroke="#fff" stroke-width="40"
-                                                  d="M0 58h512M0 137h512M0 216h512M0 295h512M0 374h512M0 453h512"></path>
-                                            <path fill="#192f5d" d="M0 0h390v275H0z"></path>
-                                            <marker id="iconifyReact364" markerHeight="30" markerWidth="30">
-                                                <path fill="#fff" d="m15 0l9.3 28.6L0 11h30L5.7 28.6"></path>
-                                            </marker>
-                                            <path fill="none" marker-mid="url(#iconifyReact364)"
-                                                  d="m0 0l18 11h65h65h65h65h66L51 39h65h65h65h65L18 66h65h65h65h65h66L51 94h65h65h65h65L18 121h65h65h65h65h66L51 149h65h65h65h65L18 177h65h65h65h65h66L51 205h65h65h65h65L18 232h65h65h65h65h66z"></path>
-                                        </svg>
-                                    </button>
-                                    <div class="
-          absolute top-full left-1/2 -translate-x-1/2 mt-2 w-max
-          bg-white text-xs py-2 px-3 rounded-full shadow-lg
-          opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0
-          transition-all duration-200 ease-in-out
-          text-gray-900
-          before:content-[&#39;&#39;] before:absolute before:-top-1.5 before:left-1/2
-          before:-translate-x-1/2 before:border-4 before:border-transparent before:border-b-white
-        ">Change Language
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="https://paan.africa/summit#home"
-                           class="text-paan-dark-blue bg-paan-yellow block px-3 sm:px-4 py-2 sm:py-3 rounded-full transition-all duration-300 cursor-pointer text-sm sm:text-base font-medium">Home</a><a
-                            href="https://paan.africa/summit#program"
-                            class="text-[#172840] hover:text-gray-900 hover:bg-[#F2B706] block px-3 sm:px-4 py-2 sm:py-3 rounded-full transition-all duration-300 cursor-pointer text-sm sm:text-base">Sessions</a><a
-                            href="https://paan.africa/summit#agenda"
-                            class="text-[#172840] hover:text-gray-900 hover:bg-[#F2B706] block px-3 sm:px-4 py-2 sm:py-3 rounded-full transition-all duration-300 cursor-pointer text-sm sm:text-base">Programme</a><a
-                            href="https://paan.africa/summit#participants"
-                            class="text-[#172840] hover:text-gray-900 hover:bg-[#F2B706] block px-3 sm:px-4 py-2 sm:py-3 rounded-full transition-all duration-300 cursor-pointer text-sm sm:text-base">Who
-                            can attend</a><a href="https://paan.africa/summit#speakers-section"
-                                             class="text-[#172840] hover:text-gray-900 hover:bg-[#F2B706] block px-3 sm:px-4 py-2 sm:py-3 rounded-full transition-all duration-300 cursor-pointer text-sm sm:text-base">Speakers</a><a
-                            href="https://paan.africa/summit#paan-awards-section"
-                            class="text-[#172840] hover:text-gray-900 hover:bg-[#F2B706] block px-3 sm:px-4 py-2 sm:py-3 rounded-full transition-all duration-300 cursor-pointer text-sm sm:text-base">Awards</a><a
-                            href="https://paan.africa/summit#exhibition"
-                            class="text-[#172840] hover:text-gray-900 hover:bg-[#F2B706] block px-3 sm:px-4 py-2 sm:py-3 rounded-full transition-all duration-300 cursor-pointer text-sm sm:text-base">Exhibit</a><a
-                            href="https://paan.africa/summit#tickets-section"
-                            class="text-[#172840] hover:text-gray-900 hover:bg-[#F2B706] block px-3 sm:px-4 py-2 sm:py-3 rounded-full transition-all duration-300 cursor-pointer text-sm sm:text-base">Tickets</a><a
-                            href="https://paan.africa/summit#plan-your-trip"
-                            class="text-[#172840] hover:text-gray-900 hover:bg-[#F2B706] block px-3 sm:px-4 py-2 sm:py-3 rounded-full transition-all duration-300 cursor-pointer text-sm sm:text-base">Plan</a>
-                        <div class="px-3 sm:px-4 py-3 mt-4">
-                            <button
-                                class="bg-paan-red text-white px-4 py-2 text-sm rounded-full hover:bg-paan-red/90 transition-all duration-300 font-medium shadow-lg flex items-center justify-center gap-2 w-full">
-                                Register Now
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </nav>
+        @include('layout.partials._summit-nav')
         <div class="relative h-screen w-full section-visible" id="home">
             <div class="absolute inset-0 bg-cover bg-center"
                  style="background-image: url(&quot;https://ik.imagekit.io/nkmvdjnna/PAAN/summit/summit-hero-2.webp&quot;); filter: brightness(0.5);"></div>
@@ -189,10 +45,10 @@
                         </div>
                         <div class="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 md:gap-8"
                              style="opacity: 1; transform: none;">
-                            <button
+                             <a href="{{ route('register') }}"
                                 class="bg-gradient-to-r from-paan-yellow to-paan-blue text-white px-6 sm:px-8 py-3 rounded-full hover:opacity-90 transition-all duration-300 font-medium text-sm sm:text-base shadow-lg flex items-center justify-center gap-2 w-full sm:w-auto">
                                 Register Now
-                            </button>
+                            </a>
                             <button
                                 class="bg-transparent border border-white text-white px-6 sm:px-8 py-3 rounded-full hover:bg-white hover:text-paan-red transition-all duration-300 font-medium text-sm sm:text-base shadow-lg flex items-center justify-center gap-2 w-full sm:w-auto">
                                 Partner With Us
@@ -204,7 +60,7 @@
                         </div>
                     </div>
                     <p class="text-white/80 text-xs sm:text-sm text-center mt-4 sm:mt-6">Organized &amp; managed by the
-                        <span class="font-bold text-paan-red"><a href="https://paan.africa/"
+                        <span class="font-bold text-paan-red"><a href="{{route('/') }}"
                                                                  class="hover:text-paan-red transition-colors">Pan African Agency Network(PAAN)</a></span>
                     </p></div>
             </div>
@@ -265,10 +121,10 @@
                                 multi-billion-dollar borderless economy.</p></div>
                         <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-3 sm:pt-4 relative z-20"
                              style="opacity: 0; transform: scale(0.8);">
-                            <button
+                             <a href="{{ route('register') }}"
                                 class="px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold bg-gradient-to-r from-paan-yellow to-paan-blue text-white hover:opacity-90 rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 cursor-pointer relative z-20 w-full sm:w-auto">
                                 Register Now
-                            </button>
+                            <a>
                         </div>
                     </div>
                     <div class="flex justify-center lg:justify-end" style="opacity: 0; transform: translateX(60px);">
@@ -495,10 +351,10 @@
                             class="text-sm sm:text-base font-normal text-left">Sessions &amp; clinics</h5></div>
                 </div>
                 <div class="flex flex-col sm:flex-row gap-3 sm:gap-2 pt-4">
-                    <button
+                    <a href="{{ route('register') }}"
                         class="bg-gradient-to-r from-[#172840] to-[#F25849] text-white px-6 sm:px-8 py-3 text-sm sm:text-base font-medium w-full sm:w-auto rounded-full hover:opacity-90 transition-all duration-300 shadow-lg flex items-center justify-center gap-2">
                         Register Now
-                    </button>
+                    </a>
                     <button
                         class="bg-transparent border border-paan-dark-blue text-paan-dark-blue px-6 sm:px-8 py-3 rounded-full hover:bg-paan-dark-blue hover:text-white transition-all duration-300 font-medium text-sm sm:text-base shadow-lg flex items-center justify-center gap-2 w-full sm:w-auto">
                         Partner With Us
@@ -2264,15 +2120,15 @@
                                                  style="color: transparent;"></div>
                         <div class="space-y-4"><h4 class="text-lg font-semibold mb-4">Quick Links</h4>
                             <ul class="space-y-2">
-                                <li><a href="https://paan.africa/about"
+                                <li><a href="{{route('/') }}about"
                                        class="text-white/80 hover:text-paan-red transition-colors">About PAAN</a></li>
-                                <li><a href="https://paan.africa/pricing"
+                                <li><a href="{{route('/') }}pricing"
                                        class="text-white/80 hover:text-paan-red transition-colors">Membership</a></li>
-                                <li><a href="https://paan.africa/paan-awards"
+                                <li><a href="{{route('/') }}paan-awards"
                                        class="text-white/80 hover:text-paan-red transition-colors">PAAN Awards</a></li>
                                 <li><a href="https://membership.paan.africa/"
                                        class="text-white/80 hover:text-paan-red transition-colors">Join PAAN</a></li>
-                                <li><a href="https://paan.africa/summit/travel-guide"
+                                <li><a href="{{route('/') }}summit/travel-guide"
                                        class="text-white/80 hover:text-paan-red transition-colors">Plan Your Trip</a>
                                 </li>
                             </ul>
@@ -2368,9 +2224,9 @@
                         <div class="flex flex-col md:flex-row justify-between items-center gap-4">
                             <div class="flex items-center gap-2"><span class="text-white/80 text-sm">© 2026 Pan African Agency Network. All rights reserved.</span>
                             </div>
-                            <div class="flex gap-6 text-sm"><a href="https://paan.africa/privacy-policy"
+                            <div class="flex gap-6 text-sm"><a href="{{route('/') }}privacy-policy"
                                                                class="text-white/80 hover:text-paan-red transition-colors">Privacy
-                                    Policy</a><a href="https://paan.africa/terms-and-conditions"
+                                    Policy</a><a href="{{ route('/') }}terms-and-conditions"
                                                  class="text-white/80 hover:text-paan-red transition-colors">Terms of
                                     Service</a></div>
                         </div>
