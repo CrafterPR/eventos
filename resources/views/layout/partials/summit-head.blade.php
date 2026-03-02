@@ -19,5 +19,6 @@
             scroll-behavior: smooth;
         }
     </style>
+    @laravelTelInputStyles
 </head>
 

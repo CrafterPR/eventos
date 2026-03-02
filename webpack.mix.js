@@ -7,6 +7,7 @@ const WebpackRTLPlugin = require('webpack-rtl-plugin');
 const del = require('del');
 const fs = require('fs');
 
+
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -54,6 +55,8 @@ mix.sass(`${dir}/sass/style.scss`, `public/assets/css/style.bundle.css`, {sassOp
 mix.postCss('resources/css/app.css', 'public/css', [
     require('tailwindcss'),
 ]);
+
+mix.js('resources/_keenthemes/src/js/app.js', 'public/js');
 
 // Build summit.css with Tailwind
 mix.postCss('resources/_keenthemes/src/sass/summit.css', 'public/css', [
