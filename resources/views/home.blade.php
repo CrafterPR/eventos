@@ -139,7 +139,7 @@
                             <div class="w-full h-full overflow-hidden rounded-xl">
                                 <video class="w-full h-full object-cover" autoplay muted loop playsinline>
                                     <source src="{{ asset('assets/media/videos/crafted.mp4') }}" type="video/mp4">
-                                    Your browser does not support the video tag.
+                                    Your browser does not support the videos.
                                 </video>
                             </div>
                             <button
