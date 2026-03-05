@@ -1,5 +1,5 @@
 <nav
-    class="w-full z-20 transition-all duration-300 fixed top-0 left-0 right-0 sm:absolute sm:left-1/2 sm:transform sm:-translate-x-1/2 bg-white rounded-none sm:rounded-lg mx-0 sm:mx-4 mt-0 sm:mt-4 shadow-md max-w-none sm:max-w-7xl">
+    class="w-full z-20 transition-all duration-300 sticky top-0 left-0 right-0 bg-white rounded-none sm:rounded-lg mx-0 mt-0 shadow-md max-w-none">
     <div class="w-full px-3 sm:px-4 md:px-6 lg:px-8">
         <div class="flex items-center justify-between py-2 sm:py-3">
             <div class="flex-shrink-0">
