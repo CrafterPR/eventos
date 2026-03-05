@@ -1,5 +1,6 @@
 <x-register-layout>
     <main class="relative">
+        @include('layout/partials/_summit-nav')
         <body class="font-Poppins overflow-x-hidden min-h-screen px-3 sm:px-0 relative" x-data>
         <div class="relative h-[60vh] sm:h-[70vh] md:h-[75vh] min-h-[450px] w-full section-visible" id="home" style="opacity: 1;">
             <!-- background color -->
@@ -173,7 +174,7 @@
                 <main id="wizardForm" @submit.prevent="submitForm">
                     <!-- Step Content -->
                     <div>
-                        <section x-cloak x-show="currentStep === 0">
+                        <section x-cloak x-show="currentStep === 0" id="contact-info-step">
                             <div class="mx-auto max-w-7xl ">
                                 <div class="text-slate-800 text-center py-4">
                                     <h2 class="font-bold text-2xl">Your Contact Information</h2>
