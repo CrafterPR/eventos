@@ -1,12 +1,11 @@
 <x-home-layout>
     <main class="relative">
-        <!--
 
                    <nav class="w-full z-20 transition-all duration-300 fixed top-0 left-0 right-0 sm:absolute sm:left-1/2 sm:transform sm:-translate-x-1/2 bg-white rounded-none sm:rounded-lg mx-0 sm:mx-4 mt-0 sm:mt-4 shadow-md max-w-none sm:max-w-7xl">
             <div class="w-full px-3 sm:px-4 md:px-6 lg:px-8">
                 <div class="flex items-center justify-between py-2 sm:py-3">
                     <div class="flex-shrink-0">
-                        <a href="/"><img alt="Logo" loading="lazy" width="200" height="70" decoding="async" data-nimg="1" class="w-20 sm:w-24 md:w-28 lg:w-32 xl:w-36 h-auto" style="color:transparent" src ="{{ asset('assets/media/images/images/paan-summit-logo.svg') }}"></a>
+                        <a href="/"><img alt="Logo" loading="lazy" width="200" height="70" decoding="async" data-nimg="1" class="w-20 sm:w-24 md:w-28 lg:w-32 xl:w-36 h-auto" style="color:transparent" src ="{{ asset('assets/media/images/paan-summit-logo.svg') }}"></a>
                     </div>
                     <div class="lg-custom:hidden flex items-center"><button class="p-2 sm:p-3 rounded-md text-[#172840] focus:outline-none"><svg class="h-5 w-5 sm:h-6 sm:w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg></button></div>
                     <div class="hidden lg-custom:flex lg-custom:items-center lg-custom:space-x-1 xl:space-x-2 w-full justify-end">
@@ -65,7 +64,6 @@
             </div>
         </nav>
 
-        -->
 
         <div class="relative h-screen w-full section-visible" id="home">
             <div class="absolute inset-0 bg-cover bg-center" style="background-image:url('https://ik.imagekit.io/nkmvdjnna/PAAN/summit/summit-hero-2.webp');filter:brightness(0.5)"></div>
