@@ -1,7 +1,7 @@
 <nav
-    class="w-full z-20 transition-all duration-300 left-1/2 transform -translate-x-1/2 bg-white rounded-none sm:rounded-lg mx-0 sm:mx-4 mt-4 sm:mt-4 shadow-md max-w-none sm:max-w-7xl"
+    class="w-full z-20 transition-all duration-300 left-1/2 transform -translate-x-1/2 bg-white rounded-none sm:rounded-lg mx-0 sm:mx-4 mt-0 sm:mt-4 shadow-md max-w-none sm:max-w-7xl"
     id="floating-nav"
-    style="position: fixed; top: 5px;">
+    style="position: fixed; top: 1px;">
     <div class="w-full px-3 sm:px-4 md:px-6 lg:px-8">
         <div class="flex items-center justify-between py-2 sm:py-3">
             <div class="flex-shrink-0">
@@ -11,7 +11,7 @@
                                  src="{{ asset('assets/media/images/paan-summit-logo.svg') }}"></a>
             </div>
             <div class="lg-custom:hidden flex items-center">
-                <button class="p-2 sm:p-3 rounded-md text-[#172840] focus:outline-none">
+                <button id="mobile-menu-toggle" class="p-2 sm:p-3 rounded-md text-[#172840] focus:outline-none">
                     <svg class="h-5 w-5 sm:h-6 sm:w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                               d="M4 6h16M4 12h16M4 18h16"></path>
@@ -105,7 +105,7 @@
                 @endif
             </div>
         </div>
-        <div class="hidden lg-custom:hidden">
+        <div id="mobile-menu" class="hidden lg-custom:hidden">
             <div
                 class="px-3 sm:px-4 pt-2 pb-3 space-y-1 bg-white rounded-none sm:rounded-lg shadow-lg border-t border-gray-200 sm:border border-gray-200">
                 <div class="px-3 sm:px-4 py-3 border-b border-gray-200">
@@ -184,8 +184,8 @@
 
         // Keep navbar fixed at top with smooth transitions
         window.addEventListener('scroll', () => {
-            // The navbar stays at top: 10px regardless of scroll position
-            // CSS already has position: fixed; top: 10px;
+            // The navbar stays at top: 5px regardless of scroll position
+            // CSS already has position: fixed; top: 5px;
             // This is just for any additional smooth effects if needed
         });
 
@@ -194,5 +194,45 @@
             // Navbar maintains its position relative to viewport
             // No adjustment needed as it's fixed positioned
         });
+    })();
+
+    /**
+     * Mobile Hamburger Menu Toggle
+     * Opens and closes the mobile navigation menu
+     */
+    (function() {
+        const toggleBtn = document.getElementById('mobile-menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (!toggleBtn || !mobileMenu) {
+            console.warn('Mobile menu elements not found');
+            return;
+        }
+
+        // Toggle menu visibility on button click
+        toggleBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            mobileMenu.classList.toggle('hidden');
+            console.log('Mobile menu toggled. Menu is now:', mobileMenu.classList.contains('hidden') ? 'hidden' : 'visible');
+        });
+
+        // Close menu when clicking on any mobile menu link
+        const menuLinks = mobileMenu.querySelectorAll('a');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenu.classList.add('hidden');
+                console.log('Mobile menu closed via link click');
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!nav.contains(e.target)) {
+                mobileMenu.classList.add('hidden');
+            }
+        });
+
+        console.log('✅ Mobile hamburger menu initialized');
     })();
 </script>
