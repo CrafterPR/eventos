@@ -5,10 +5,6 @@
 <div>
     {{ $slot }}
 </div>
-</body>
-
-</html>
-
 
 <script>
     function carousel() {
@@ -63,3 +59,9 @@
         }
     }
 </script>
+
+@stack('scripts')
+
+</body>
+
+</html>

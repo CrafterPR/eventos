@@ -79,19 +79,19 @@
                             <div class="text-center relative z-10">
                                 <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
                                     <div class="text-center bg-white/20 backdrop-blur-sm rounded-lg p-3 sm:p-4">
-                                        <div class="text-xl sm:text-2xl md:text-3xl font-bold text-white">49</div>
+                                        <div id="countdown-days" class="text-xl sm:text-2xl md:text-3xl font-bold text-white">49</div>
                                         <div class="text-xs sm:text-sm text-white/80">Days</div>
                                     </div>
                                     <div class="text-center bg-white/20 backdrop-blur-sm rounded-lg p-3 sm:p-4">
-                                        <div class="text-xl sm:text-2xl md:text-3xl font-bold text-white">7</div>
+                                        <div id="countdown-hours" class="text-xl sm:text-2xl md:text-3xl font-bold text-white">7</div>
                                         <div class="text-xs sm:text-sm text-white/80">Hours</div>
                                     </div>
                                     <div class="text-center bg-white/20 backdrop-blur-sm rounded-lg p-3 sm:p-4">
-                                        <div class="text-xl sm:text-2xl md:text-3xl font-bold text-white">20</div>
+                                        <div id="countdown-minutes" class="text-xl sm:text-2xl md:text-3xl font-bold text-white">20</div>
                                         <div class="text-xs sm:text-sm text-white/80">Minutes</div>
                                     </div>
                                     <div class="text-center bg-white/20 backdrop-blur-sm rounded-lg p-3 sm:p-4">
-                                        <div class="text-xl sm:text-2xl md:text-3xl font-bold text-white">27</div>
+                                        <div id="countdown-seconds" class="text-xl sm:text-2xl md:text-3xl font-bold text-white">27</div>
                                         <div class="text-xs sm:text-sm text-white/80">Seconds</div>
                                     </div>
                                 </div>
@@ -1564,16 +1564,15 @@
                             creators, innovators, and enablers.</p>
                     </div>
                     <div class="flex gap-2 self-end">
-                        <button
-                            class="w-10 h-10 sm:w-12 sm:h-12 border border-slate-800 text-slate-800 rounded-full flex items-center justify-center hover:bg-slate-800 hover:text-white transition-colors duration-300 shadow-lg"
-                            disabled="">
+                        <button id="speakers-prev"
+                            class="w-10 h-10 sm:w-12 sm:h-12 border border-slate-800 text-slate-800 rounded-full flex items-center justify-center hover:bg-slate-800 hover:text-white transition-colors duration-300 shadow-lg">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                                  aria-hidden="true" role="img" class="iconify iconify--mdi" width="20" height="20"
                                  viewBox="0 0 24 24">
                                 <path fill="currentColor" d="M15.41 16.58L10.83 12l4.58-4.59L14 6l-6 6l6 6z"></path>
                             </svg>
                         </button>
-                        <button
+                        <button id="speakers-next"
                             class="w-10 h-10 sm:w-12 sm:h-12 border border-slate-800 text-slate-800 rounded-full flex items-center justify-center hover:bg-slate-800 hover:text-white transition-colors duration-300 shadow-lg">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                                  aria-hidden="true" role="img" class="iconify iconify--mdi" width="20" height="20"
@@ -1583,136 +1582,99 @@
                         </button>
                     </div>
                 </div>
-                <div>
-
-                    <div x-data="carousel()" x-init="start()" @mouseenter="pause()" @mouseleave="start()"
-                         class="relative w-full mx-auto overflow-hidden rounded-3xl">
-                        <!-- Slides -->
-                        <div class="flex transition-transform duration-700 ease-in-out"
-                             :style="`transform: translateX(-${current * 100}%);`">
-                            <template x-for="(slide, index) in slides" :key="index">
-                                <div class="relative min-w-full">
-                                    <img
-                                        class="w-full"
-                                        :src="slide.bg"
-                                    >
+                <!-- Speakers Carousel -->
+                <div id="speakers-carousel-container" class="overflow-hidden rounded-xl">
+                    <div id="speakers-carousel-track" class="flex gap-4 sm:gap-6 transition-transform duration-500 ease-out">
+                        <!-- Speaker 1: Anna -->
+                        <div class="flex-shrink-0 w-full sm:w-1/2 lg:w-1/3">
+                            <div class="relative rounded-xl shadow-xl overflow-hidden group cursor-pointer h-80 sm:h-96">
+                                <img alt="Anna Ceesay" loading="lazy" width="400" height="500"
+                                    class="w-full h-full object-cover" style="color:transparent"
+                                    src="{{ asset('assets/media/images/speakers/Anna.webp') }}">
+                                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent group-hover:bg-gradient-to-t group-hover:from-black/0 group-hover:to-transparent transition-all duration-300 p-4 sm:p-6">
+                                    <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                                        style="background:linear-gradient(to top, #F2B706 0%, #F2B706 40%, rgba(0,0,0,0) 100%)"></div>
+                                    <div class="relative z-10 flex justify-between items-center">
+                                        <div>
+                                            <h4 class="text-lg sm:text-xl font-bold text-white mb-1">Anna Ceesay</h4>
+                                            <p class="text-white/90 text-xs sm:text-sm">Founder & CEO, Fabella, The Gambia</p>
+                                        </div>
+                                        <div class="flex-shrink-0"><a
+                                            href="https://www.linkedin.com/in/annaceesay/?originalSubdomain=gm"
+                                            target="_blank" rel="noopener noreferrer"
+                                            class="hover:scale-110 transition-transform duration-200">
+                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
+                                                class="text-white iconify iconify--mdi" width="20" height="20"
+                                                viewBox="0 0 24 24">
+                                                <path fill="currentColor"
+                                                    d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93zM6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37z"></path>
+                                            </svg>
+                                        </a></div>
+                                    </div>
                                 </div>
-                            </template>
-                        </div>
-
-                        <!-- Dots -->
-                        <div class="absolute bottom-4 lg:bottom-8 left-0 right-0 flex justify-center gap-2 z-20">
-                            <template x-for="(slide, index) in slides" :key="'dot' + index">
-                                <button
-                                    @click="goTo(index)"
-                                    class="w-2 md:w-2.5 h-2 md:h-2.5 rounded-full transition"
-                                    :class="current === index ? 'bg-gray-900 scale-110' : 'bg-white/50'"
-                                ></button>
-                            </template>
-                        </div>
-
-                        <!-- Prev / Next -->
-                        <div class="absolute bottom-4 lg:bottom-8 right-4 lg:right-8 flex gap-3 z-20">
-                            <button @click="prev()"
-                                    class="w-6 md:w-8 h-6 md:h-8 rounded-full bg-white text-gray-800 backdrop-blur flex items-center justify-center hover:bg-white/40">
-                                ‹
-                            </button>
-                            <button @click="next()"
-                                    class="w-6 md:w-8 h-6 md:h-8 rounded-full bg-white text-gray-800 backdrop-blur flex items-center justify-center hover:bg-white/40">
-                                ›
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="relative rounded-xl shadow-xl overflow-hidden group cursor-pointer h-80 sm:h-96"><img
-                            alt="Anna Ceesay" loading="lazy" width="400" height="500" decoding="async" data-nimg="1"
-                            class="w-full h-full object-cover" style="color:transparent"
-                            srcset="/_next/image?url=https%3A%2F%2Fik.imagekit.io%2Fnkmvdjnna%2FPAAN%2Fsummit%2Fspeakers%2FAnna.png&amp;w=640&amp;q=75 1x, /_next/image?url=https%3A%2F%2Fik.imagekit.io%2Fnkmvdjnna%2FPAAN%2Fsummit%2Fspeakers%2FAnna.png&amp;w=828&amp;q=75 2x"
-                            src="/_next/image?url=https%3A%2F%2Fik.imagekit.io%2Fnkmvdjnna%2FPAAN%2Fsummit%2Fspeakers%2FAnna.png&amp;w=828&amp;q=75">
-                        <div
-                            class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent group-hover:bg-gradient-to-t group-hover:from-black/0 group-hover:to-transparent transition-all duration-300 p-4 sm:p-6">
-                            <div
-                                class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                                style="background:linear-gradient(to top, #F2B706 0%, #F2B706 40%, rgba(0,0,0,0) 100%)"></div>
-                            <div class="relative z-10 flex justify-between items-center">
-                                <div>
-                                    <h4 class="text-lg sm:text-xl font-bold text-white mb-1">Anna Ceesay</h4>
-                                    <p class="text-white/90 text-xs sm:text-sm">Founder &amp; CEO, Fabella, The
-                                        Gambia</p>
-                                </div>
-                                <div class="flex-shrink-0"><a
-                                        href="https://www.linkedin.com/in/annaceesay/?originalSubdomain=gm"
-                                        target="_blank" rel="noopener noreferrer"
-                                        class="hover:scale-110 transition-transform duration-200">
-                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                             xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
-                                             class="text-white iconify iconify--mdi" width="20" height="20"
-                                             viewBox="0 0 24 24">
-                                            <path fill="currentColor"
-                                                  d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93zM6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37z"></path>
-                                        </svg>
-                                    </a></div>
                             </div>
                         </div>
-                    </div>
-                    <div class="relative rounded-xl shadow-xl overflow-hidden group cursor-pointer h-80 sm:h-96"><img
-                            alt="Yannick Lefang" loading="lazy" width="400" height="500" decoding="async" data-nimg="1"
-                            class="w-full h-full object-cover" style="color:transparent"
-                            srcset="/_next/image?url=https%3A%2F%2Fik.imagekit.io%2Fnkmvdjnna%2FPAAN%2Fsummit%2Fspeakers%2FYannick.jpeg&amp;w=640&amp;q=75 1x, /_next/image?url=https%3A%2F%2Fik.imagekit.io%2Fnkmvdjnna%2FPAAN%2Fsummit%2Fspeakers%2FYannick.jpeg&amp;w=828&amp;q=75 2x"
-                            src="/_next/image?url=https%3A%2F%2Fik.imagekit.io%2Fnkmvdjnna%2FPAAN%2Fsummit%2Fspeakers%2FYannick.jpeg&amp;w=828&amp;q=75">
-                        <div
-                            class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent group-hover:bg-gradient-to-t group-hover:from-black/0 group-hover:to-transparent transition-all duration-300 p-4 sm:p-6">
-                            <div
-                                class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                                style="background:linear-gradient(to top, #F25849 0%, #F25849 40%, rgba(0,0,0,0) 100%)"></div>
-                            <div class="relative z-10 flex justify-between items-center">
-                                <div>
-                                    <h4 class="text-lg sm:text-xl font-bold text-white mb-1">Yannick Lefang</h4>
-                                    <p class="text-white/90 text-xs sm:text-sm">CEO &amp; Founder - Kasi Insight,
-                                        Africa</p>
+
+                        <!-- Speaker 2: Yannick -->
+                        <div class="flex-shrink-0 w-full sm:w-1/2 lg:w-1/3">
+                            <div class="relative rounded-xl shadow-xl overflow-hidden group cursor-pointer h-80 sm:h-96">
+                                <img alt="Yannick Lefang" loading="lazy" width="400" height="500"
+                                    class="w-full h-full object-cover" style="color:transparent"
+                                    src="{{ asset('assets/media/images/speakers/Yannick.webp') }}">
+                                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent group-hover:bg-gradient-to-t group-hover:from-black/0 group-hover:to-transparent transition-all duration-300 p-4 sm:p-6">
+                                    <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                                        style="background:linear-gradient(to top, #F25849 0%, #F25849 40%, rgba(0,0,0,0) 100%)"></div>
+                                    <div class="relative z-10 flex justify-between items-center">
+                                        <div>
+                                            <h4 class="text-lg sm:text-xl font-bold text-white mb-1">Yannick Lefang</h4>
+                                            <p class="text-white/90 text-xs sm:text-sm">CEO & Founder - Kasi Insight, Africa</p>
+                                        </div>
+                                        <div class="flex-shrink-0"><a
+                                            href="https://www.linkedin.com/in/yannicklefang?originalSubdomain=ca"
+                                            target="_blank" rel="noopener noreferrer"
+                                            class="hover:scale-110 transition-transform duration-200">
+                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
+                                                class="text-white iconify iconify--mdi" width="20" height="20"
+                                                viewBox="0 0 24 24">
+                                                <path fill="currentColor"
+                                                    d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93zM6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37z"></path>
+                                            </svg>
+                                        </a></div>
+                                    </div>
                                 </div>
-                                <div class="flex-shrink-0"><a
-                                        href="https://www.linkedin.com/in/yannicklefang?originalSubdomain=ca"
-                                        target="_blank" rel="noopener noreferrer"
-                                        class="hover:scale-110 transition-transform duration-200">
-                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                             xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
-                                             class="text-white iconify iconify--mdi" width="20" height="20"
-                                             viewBox="0 0 24 24">
-                                            <path fill="currentColor"
-                                                  d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93zM6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37z"></path>
-                                        </svg>
-                                    </a></div>
                             </div>
                         </div>
-                    </div>
-                    <div class="relative rounded-xl shadow-xl overflow-hidden group cursor-pointer h-80 sm:h-96"><img
-                            alt="Dr. Gillian Hammah" loading="lazy" width="400" height="500" decoding="async"
-                            data-nimg="1" class="w-full h-full object-cover" style="color:transparent"
-                            srcset="/_next/image?url=https%3A%2F%2Fik.imagekit.io%2Fnkmvdjnna%2FPAAN%2Fsummit%2Fspeakers%2FHammar.jpeg&amp;w=640&amp;q=75 1x, /_next/image?url=https%3A%2F%2Fik.imagekit.io%2Fnkmvdjnna%2FPAAN%2Fsummit%2Fspeakers%2FHammar.jpeg&amp;w=828&amp;q=75 2x"
-                            src="/_next/image?url=https%3A%2F%2Fik.imagekit.io%2Fnkmvdjnna%2FPAAN%2Fsummit%2Fspeakers%2FHammar.jpeg&amp;w=828&amp;q=75">
-                        <div
-                            class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent group-hover:bg-gradient-to-t group-hover:from-black/0 group-hover:to-transparent transition-all duration-300 p-4 sm:p-6">
-                            <div
-                                class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                                style="background:linear-gradient(to top, #84C1D9 0%, #84C1D9 40%, rgba(0,0,0,0) 100%)"></div>
-                            <div class="relative z-10 flex justify-between items-center">
-                                <div>
-                                    <h4 class="text-lg sm:text-xl font-bold text-white mb-1">Dr. Gillian Hammah</h4>
-                                    <p class="text-white/90 text-xs sm:text-sm">CMO Aya Data. Ghana</p>
+
+                        <!-- Speaker 3: Dr. Gillian -->
+                        <div class="flex-shrink-0 w-full sm:w-1/2 lg:w-1/3">
+                            <div class="relative rounded-xl shadow-xl overflow-hidden group cursor-pointer h-80 sm:h-96">
+                                <img alt="Dr. Gillian Hammah" loading="lazy" width="400" height="500"
+                                    class="w-full h-full object-cover" style="color:transparent"
+                                    src="{{ asset('assets/media/images/speakers/Hammar.webp') }}">
+                                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent group-hover:bg-gradient-to-t group-hover:from-black/0 group-hover:to-transparent transition-all duration-300 p-4 sm:p-6">
+                                    <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                                        style="background:linear-gradient(to top, #84C1D9 0%, #84C1D9 40%, rgba(0,0,0,0) 100%)"></div>
+                                    <div class="relative z-10 flex justify-between items-center">
+                                        <div>
+                                            <h4 class="text-lg sm:text-xl font-bold text-white mb-1">Dr. Gillian Hammah</h4>
+                                            <p class="text-white/90 text-xs sm:text-sm">CMO Aya Data. Ghana</p>
+                                        </div>
+                                        <div class="flex-shrink-0"><a
+                                            href="https://www.linkedin.com/in/gillian-hammah?originalSubdomain=gh"
+                                            target="_blank" rel="noopener noreferrer"
+                                            class="hover:scale-110 transition-transform duration-200">
+                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
+                                                class="text-white iconify iconify--mdi" width="20" height="20"
+                                                viewBox="0 0 24 24">
+                                                <path fill="currentColor"
+                                                    d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93zM6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37z"></path>
+                                            </svg>
+                                        </a></div>
+                                    </div>
                                 </div>
-                                <div class="flex-shrink-0"><a
-                                        href="https://www.linkedin.com/in/gillian-hammah?originalSubdomain=gh"
-                                        target="_blank" rel="noopener noreferrer"
-                                        class="hover:scale-110 transition-transform duration-200">
-                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                             xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
-                                             class="text-white iconify iconify--mdi" width="20" height="20"
-                                             viewBox="0 0 24 24">
-                                            <path fill="currentColor"
-                                                  d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93zM6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37z"></path>
-                                        </svg>
-                                    </a></div>
                             </div>
                         </div>
                     </div>
@@ -2559,3 +2521,187 @@
         </footer>
     </main>
 </x-home-layout>
+
+<script>
+    /**
+     * Speakers Carousel Functionality
+     * Shows 3 speakers per view on desktop, responsive on mobile
+     */
+    (function() {
+        const track = document.getElementById('speakers-carousel-track');
+        const prevBtn = document.getElementById('speakers-prev');
+        const nextBtn = document.getElementById('speakers-next');
+
+        if (!track || !prevBtn || !nextBtn) {
+            console.warn('Speakers carousel elements not found');
+            return;
+        }
+
+        let currentScroll = 0;
+        const speakerCardWidth = 100; // 100% width for each speaker on mobile
+        let itemsPerView = 1; // Default mobile view
+        let gapSize = 16; // Default gap in pixels (gap-4 = 1rem = 16px)
+
+        // Function to determine items per view based on screen size
+        function updateItemsPerView() {
+            const width = window.innerWidth;
+            if (width >= 1024) { // lg breakpoint
+                itemsPerView = 3;
+                gapSize = 24; // gap-6 = 1.5rem = 24px on larger screens
+            } else if (width >= 640) { // sm breakpoint
+                itemsPerView = 2;
+                gapSize = 20; // gap-6 adjusted for sm
+            } else {
+                itemsPerView = 1;
+                gapSize = 16; // gap-4
+            }
+        }
+
+        // Calculate scroll amount
+        function getScrollAmount() {
+            const trackWidth = track.parentElement.offsetWidth;
+            // Calculate the width of one item plus gap
+            const itemWidth = (trackWidth - (gapSize * (itemsPerView - 1))) / itemsPerView;
+            return itemWidth + gapSize;
+        }
+
+        // Update carousel on window resize
+        window.addEventListener('resize', () => {
+            updateItemsPerView();
+        });
+
+        // Previous button click
+        prevBtn.addEventListener('click', () => {
+            updateItemsPerView();
+            const scrollAmount = getScrollAmount();
+            currentScroll = Math.max(0, currentScroll - scrollAmount);
+            track.style.transform = `translateX(-${currentScroll}px)`;
+        });
+
+        // Next button click
+        nextBtn.addEventListener('click', () => {
+            updateItemsPerView();
+            const scrollAmount = getScrollAmount();
+            const maxScroll = track.scrollWidth - track.parentElement.offsetWidth;
+            currentScroll = Math.min(maxScroll, currentScroll + scrollAmount);
+            track.style.transform = `translateX(-${currentScroll}px)`;
+        });
+
+        // Initialize
+        updateItemsPerView();
+    })();
+</script>
+
+<script>
+    /**
+     * Initialize and manage the event countdown timer
+     * Event Date: April 21, 2026 (Summit-Registration)
+     */
+    console.log('✅ Countdown timer script loaded!');
+
+    let countdownTimerInterval;
+
+    function initializeCountdownTimer() {
+        console.log('🚀 Initializing countdown timer...');
+
+        // Event target date - April 21, 2026, 00:00:00 (UTC+3 Nairobi Time)
+        const eventDate = new Date('2026-04-21T00:00:00+03:00').getTime();
+        console.log('📅 Event Date (timestamp):', eventDate);
+        console.log('📅 Event Date (readable):', new Date(eventDate).toString());
+
+        // Get countdown display elements
+        const daysElement = document.getElementById('countdown-days');
+        const hoursElement = document.getElementById('countdown-hours');
+        const minutesElement = document.getElementById('countdown-minutes');
+        const secondsElement = document.getElementById('countdown-seconds');
+
+        // Debug: Log what we found
+        console.log('🔍 DOM Elements Found:');
+        console.log('  - countdown-days:', daysElement ? '✅ Found' : '❌ Not found');
+        console.log('  - countdown-hours:', hoursElement ? '✅ Found' : '❌ Not found');
+        console.log('  - countdown-minutes:', minutesElement ? '✅ Found' : '❌ Not found');
+        console.log('  - countdown-seconds:', secondsElement ? '✅ Found' : '❌ Not found');
+
+        // Verify elements exist before proceeding
+        if (!daysElement || !hoursElement || !minutesElement || !secondsElement) {
+            console.error('❌ Countdown timer elements not found on page');
+            return;
+        }
+
+        /**
+         * Update countdown display with calculated remaining time
+         */
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = eventDate - now;
+
+            // Calculate time units
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Update DOM elements with zero-padded values
+            daysElement.textContent = String(days).padStart(2, '0');
+            hoursElement.textContent = String(hours).padStart(2, '0');
+            minutesElement.textContent = String(minutes).padStart(2, '0');
+            secondsElement.textContent = String(seconds).padStart(2, '0');
+
+            // Log first update only to avoid console spam
+            if (days > -1 && !window.countdownInitialLogged) {
+                console.log(`⏱️ Countdown Updated: ${days}d ${hours}h ${minutes}m ${seconds}s remaining`);
+                window.countdownInitialLogged = true;
+            }
+
+            // Handle countdown completion
+            if (distance < 0) {
+                clearInterval(countdownTimerInterval);
+                daysElement.textContent = '00';
+                hoursElement.textContent = '00';
+                minutesElement.textContent = '00';
+                secondsElement.textContent = '00';
+                console.log('✅ Countdown timer completed - Event has started!');
+            }
+        }
+
+        // Initial update (prevents 1-second delay)
+        console.log('🎯 Running initial countdown update...');
+        updateCountdown();
+
+        // Update countdown every second
+        countdownTimerInterval = setInterval(updateCountdown, 1000);
+        console.log('✅ Countdown timer started - Updates every 1 second');
+
+        // Store interval ID for cleanup if needed
+        window.countdownTimerInterval = countdownTimerInterval;
+    }
+
+    // Initialize countdown timer immediately when DOM is ready
+    function startCountdown() {
+        const daysElement = document.getElementById('countdown-days');
+        if (daysElement) {
+            console.log('✨ DOM elements are ready, initializing countdown...');
+            initializeCountdownTimer();
+        } else {
+            console.log('⏳ Waiting for DOM elements...');
+            setTimeout(startCountdown, 100);
+        }
+    }
+
+    // Check DOM state and start countdown
+    if (document.readyState === 'loading') {
+        console.log('📄 DOM still loading, waiting for DOMContentLoaded event...');
+        document.addEventListener('DOMContentLoaded', startCountdown);
+    } else {
+        console.log('📄 DOM already loaded, initializing countdown immediately...');
+        startCountdown();
+    }
+
+    // Fallback: also try on window load
+    window.addEventListener('load', function() {
+        if (!window.countdownInitialLogged) {
+            console.log('🔄 Window load event fired - attempting initialization as fallback...');
+            startCountdown();
+        }
+    });
+</script>
