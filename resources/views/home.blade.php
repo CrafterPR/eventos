@@ -138,9 +138,12 @@
                     </div>
                     <div class="flex justify-center lg:justify-end" style="opacity: 1; transform: none;">
                         <div class="relative overflow-hidden w-full max-w-md lg:max-w-none rounded-lg">
-                            <video class="h-48 sm:h-64 md:h-80 lg:h-96 w-full object-cover rounded-lg" loop="" muted="">
-                                <source type="video/mp4">
-                                Your browser does not support the video tag.
+                            <video class=" lcp" autoplay loop muted playsinline fetchpriority="high" preload="none"
+                                   webkit-playsinline width="800" height="600"
+                                   poster="{{ asset('images/nairobi.jpg') }}"
+                                   x-webkit-airplay="allow" playsInline>
+
+                                <source src="https://www.youtube.com/shorts/hKgbEHzMTcc" type="video/webm">
                             </video>
                             <button
                                 class="absolute bottom-4 right-4 bg-black/50 hover:bg-black/70 rounded-full p-3 shadow-lg transition-all duration-300 group"
