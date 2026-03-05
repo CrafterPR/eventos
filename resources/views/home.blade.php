@@ -106,7 +106,7 @@
                  style="background-image:url('https://ik.imagekit.io/nkmvdjnna/PAAN/summit/about-summit-pattern.webp');background-size:60%;background-blend-mode:overlay;opacity:0.7"></div>
             <div class="absolute inset-0 bg-gradient-to-r from-[#172840] to-[#84c1d9cc] z-0"></div>
             <section class="relative mx-auto max-w-6xl z-10 px-4 sm:px-6">
-                <div class="grid md:grid-cols-2 gap-8 py-12 sm:py-16 md:py-28 items-center">
+                <div class="grid md:grid-cols-2 gap-8 py-12 sm:py-16 md:py-28 items-stretch min-h-screen">
                     <div class="flex flex-col gap-4 sm:gap-6 relative z-10 md:pr-6">
                         <div class="flex flex-col gap-3 sm:gap-4" style="opacity: 1; transform: none;">
                             <h2 class="text-2xl sm:text-3xl md:text-4xl text-white font-normal">About the Summit</h2>
@@ -116,16 +116,15 @@
                         <div class="space-y-3 sm:space-y-4 text-white text-sm sm:text-base md:text-lg leading-relaxed"
                              style="opacity: 1; transform: none;">
                             <p>
-                                The Africa Borderless Creative Economy Summit 2026 brings together the continent’s most
+                                The Africa Borderless Creative Economy Summit 2026 brings together the continent's most
                                 forward-thinking agencies, brands, freelancers, marketing teams, and technology partners
-                                to reimagine how Africa’s creative industry can scale - together.
+                                to reimagine how Africa's creative industry can scale - together.
                             </p>
                             <p>
                                 Over two days of keynotes, data-led panels, strategy labs, awards, showcases, and
                                 partnership deal rooms, the summit will unpack how innovation, technology,
-                                collaboration, and talent mobility can turn Africa’s creativity into a
-                                multi-billion-dollar borderless
-                                economy.
+                                collaboration, and talent mobility can turn Africa's creativity into a
+                                multi-billion-dollar borderless economy.
                             </p>
                         </div>
                         <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-3 sm:pt-4 relative z-20"
@@ -135,16 +134,14 @@
                                 Register Now
                             </a>
                         </div>
-                    </div>
-                    <div class="flex justify-center lg:justify-end" style="opacity: 1; transform: none;">
-                        <div class="relative overflow-hidden w-full max-w-md lg:max-w-none rounded-lg">
-                            <video class=" lcp" autoplay loop muted playsinline fetchpriority="high" preload="none"
-                                   webkit-playsinline width="800" height="600"
-                                   poster="{{ asset('images/nairobi.jpg') }}"
-                                   x-webkit-airplay="allow" playsInline>
-
-                                <source src="https://www.youtube.com/shorts/hKgbEHzMTcc" type="video/webm">
-                            </video>
+                    </div><div class="flex justify-center lg:justify-end h-full" style="opacity: 1; transform: none;">
+                        <div class="relative overflow-hidden w-full max-w-md lg:max-w-none rounded-lg h-full">
+                            <div class="w-full h-full overflow-hidden rounded-xl">
+                                <video class="w-full h-full object-cover" autoplay muted loop playsinline>
+                                    <source src="{{ asset('assets/media/videos/crafted.mp4') }}" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
                             <button
                                 class="absolute bottom-4 right-4 bg-black/50 hover:bg-black/70 rounded-full p-3 shadow-lg transition-all duration-300 group"
                                 aria-label="Pause video">
