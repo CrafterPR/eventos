@@ -1,5 +1,7 @@
 <nav
-    class="w-full z-20 transition-all duration-300 fixed top-0 left-0 right-0 sm:absolute sm:left-1/2 sm:transform sm:-translate-x-1/2 bg-white rounded-none sm:rounded-lg mx-0 sm:mx-4 mt-0 sm:mt-4 shadow-md max-w-none sm:max-w-7xl">
+    class="w-full z-20 transition-all duration-300 left-1/2 transform -translate-x-1/2 bg-white rounded-none sm:rounded-lg mx-0 sm:mx-4 mt-4 sm:mt-4 shadow-md max-w-none sm:max-w-7xl"
+    id="floating-nav"
+    style="position: fixed; top: 5px;">
     <div class="w-full px-3 sm:px-4 md:px-6 lg:px-8">
         <div class="flex items-center justify-between py-2 sm:py-3">
             <div class="flex-shrink-0">
@@ -170,3 +172,27 @@
         </div>
     </div>
 </nav>
+
+<script>
+    /**
+     * Floating Navigation Bar
+     * Makes the navbar float at the top of the viewport as user scrolls
+     */
+    (function() {
+        const nav = document.getElementById('floating-nav');
+        if (!nav) return;
+
+        // Keep navbar fixed at top with smooth transitions
+        window.addEventListener('scroll', () => {
+            // The navbar stays at top: 10px regardless of scroll position
+            // CSS already has position: fixed; top: 10px;
+            // This is just for any additional smooth effects if needed
+        });
+
+        // Handle window resize to ensure navbar stays properly positioned
+        window.addEventListener('resize', () => {
+            // Navbar maintains its position relative to viewport
+            // No adjustment needed as it's fixed positioned
+        });
+    })();
+</script>
