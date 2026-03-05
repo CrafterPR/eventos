@@ -22,26 +22,31 @@
                 class="hidden lg-custom:flex lg-custom:items-center lg-custom:space-x-1 xl:space-x-2 w-full justify-end">
                 <div class="flex space-x-1 xl:space-x-2 flex-grow justify-center md:justify-center">
                     <a href="{{ route('/') }}"
-                        class="text-slate-800 bg-yellow-500 px-2 sm:px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer text-xs sm:text-sm font-medium">Home</a><a
-                        href="#program"
+                        class="text-slate-800 bg-yellow-500 px-2 sm:px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer text-xs sm:text-sm font-medium">Home</a>
+                    <a
+                        href="@if(request()->routeIs('register')) {{ route('/') }}#program @else #program @endif"
                         class="text-[#172840] hover:text-gray-900 hover:bg-[#F2B706] px-2 sm:px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer text-xs sm:text-sm">
                         Sessions
                     </a>
-                    <a href="#agenda"
-                       class="text-[#172840] hover:text-gray-900 hover:bg-[#F2B706] px-2 sm:px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer text-xs sm:text-sm">Programme</a><a
-                        href="#participants"
+                    <a href="@if(request()->routeIs('register')) {{ route('/') }}#agenda @else #agenda @endif"
+                       class="text-[#172840] hover:text-gray-900 hover:bg-[#F2B706] px-2 sm:px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer text-xs sm:text-sm">Programme</a>
+                    <a
+                        href="@if(request()->routeIs('register')) {{ route('/') }}#participants @else #participants @endif"
                         class="text-[#172840] hover:text-gray-900 hover:bg-[#F2B706] px-2 sm:px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer text-xs sm:text-sm">Who
                         can attend</a>
                     <a
-                        href="#speakers-section"
-                        class="text-[#172840] hover:text-gray-900 hover:bg-[#F2B706] px-2 sm:px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer text-xs sm:text-sm">Speakers</a><a
-                        href="#paan-awards-section"
+                        href="@if(request()->routeIs('register')) {{ route('/') }}#speakers-section @else #speakers-section @endif"
+                        class="text-[#172840] hover:text-gray-900 hover:bg-[#F2B706] px-2 sm:px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer text-xs sm:text-sm">Speakers</a>
+                    <a
+                        href="@if(request()->routeIs('register')) {{ route('/') }}#paan-awards-section @else #paan-awards-section @endif"
                         class="text-[#172840] hover:text-gray-900 hover:bg-[#F2B706] px-2 sm:px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer text-xs sm:text-sm">Awards</a>
-                    <a href="#exhibition"
-                       class="text-[#172840] hover:text-gray-900 hover:bg-[#F2B706] px-2 sm:px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer text-xs sm:text-sm">Exhibit</a><a
-                        href="#tickets-section"
-                        class="text-[#172840] hover:text-gray-900 hover:bg-[#F2B706] px-2 sm:px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer text-xs sm:text-sm">Tickets</a><a
-                        href="#plan-your-trip"
+                    <a href="@if(request()->routeIs('register')) {{ route('/') }}#exhibition @else #exhibition @endif"
+                       class="text-[#172840] hover:text-gray-900 hover:bg-[#F2B706] px-2 sm:px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer text-xs sm:text-sm">Exhibit</a>
+                    <a
+                        href="@if(request()->routeIs('register')) {{ route('/') }}#tickets-section @else #tickets-section @endif"
+                        class="text-[#172840] hover:text-gray-900 hover:bg-[#F2B706] px-2 sm:px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer text-xs sm:text-sm">Tickets</a>
+                    <a
+                        href="@if(request()->routeIs('register')) {{ route('/') }}#plan-your-trip @else #plan-your-trip @endif"
                         class="text-[#172840] hover:text-gray-900 hover:bg-[#F2B706] px-2 sm:px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer text-xs sm:text-sm">Plan</a>
                 </div>
                 <div class="relative">
