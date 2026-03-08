@@ -10,7 +10,7 @@
                 <div class="space-y-4">
                     <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
                     <ul class="space-y-2">
-                        <li><a href="/about" class="text-white/80 hover:text-red-500 transition-colors">About
+                        <li><a href="{{ route('about') }}" class="text-white/80 hover:text-red-500 transition-colors">About
                                 PAAN</a></li>
                         <li><a href="/summit/travel-guide"
                                class="text-white/80 hover:text-red-500 transition-colors">Plan Your Trip</a>

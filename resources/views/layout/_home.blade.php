@@ -14,21 +14,21 @@
             interval: 3000,
 
             slides: [{
-                bg: './assets/slider-1.jpg'
+                bg: '{{ asset('assets/media/images//assets/slider-1.jpg') }}'
             }, {
-                bg: './assets/slider-2.jpg'
+                bg: '{{ asset('assets/media/images//assets/slider-2.jpg') }}'
             }, {
-                bg: './assets/slider-3.jpg'
+                bg: '{{ asset('assets/media/images//assets/slider-3.jpg') }}'
             }, {
-                bg: './assets/slider-4.jpg'
+                bg: '{{ asset('assets/media/images//assets/slider-4.jpg') }}'
             }, {
-                bg: './assets/slider-5.jpg'
+                bg: '{{ asset('assets/media/images//assets/slider-5.jpg') }}'
             }, {
-                bg: './assets/slider-6.jpg'
+                bg: '{{ asset('assets/media/images//assets/slider-6.jpg') }}'
             }, {
-                bg: './assets/slider-7.jpg'
+                bg: '{{ asset('assets/media/images//assets/slider-7.jpg') }}'
             }, {
-                bg: './assets/slider-8.jpg'
+                bg: '{{ asset('assets/media/images//assets/slider-8.jpg') }}'
             }],
 
             start() {

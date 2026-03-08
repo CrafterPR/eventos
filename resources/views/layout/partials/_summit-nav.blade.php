@@ -149,7 +149,12 @@
                     </div>
                 </div>
                 <a href="#home"
-                   class="text-slate-800 bg-yellow-500 block px-3 sm:px-4 py-2 sm:py-3 rounded-full transition-all duration-300 cursor-pointer text-sm sm:text-base font-medium">Home</a><a
+                   class="text-slate-800 bg-yellow-500 block px-3 sm:px-4 py-2 sm:py-3 rounded-full transition-all duration-300 cursor-pointer text-sm sm:text-base font-medium">Home
+                </a>
+                <a href="{{ route('about') }}"
+                   class="text-slate-800 bg-yellow-500 block px-3 sm:px-4 py-2 sm:py-3 rounded-full transition-all duration-300 cursor-pointer text-sm sm:text-base font-medium">About
+                </a>
+                <a
                     href="#program"
                     class="text-[#172840] hover:text-gray-900 hover:bg-[#F2B706] block px-3 sm:px-4 py-2 sm:py-3 rounded-full transition-all duration-300 cursor-pointer text-sm sm:text-base">Sessions</a>
                 <a href="#agenda"

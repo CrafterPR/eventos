@@ -21,6 +21,10 @@ Route::middleware('guest')->group(function () {
 
     Route::post('register', [RegisteredUserController::class, 'store'])->name('register_save');
 
+    Route::get('about', function() {
+        return view('about');
+    })->name('about');
+
     Route::get('login', [AuthenticatedSessionController::class, 'create'])
         ->name('login');
 
