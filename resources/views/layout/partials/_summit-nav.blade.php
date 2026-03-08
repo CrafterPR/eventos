@@ -24,29 +24,29 @@
                     <a href="{{ route('/') }}"
                         class="text-slate-800 bg-yellow-500 px-2 sm:px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer text-xs sm:text-sm font-medium">Home</a>
                     <a
-                        href="@if(request()->routeIs('register')) {{ route('/') }}#program @else #program @endif"
+                        href="@if(!request()->routeIs('/')) {{ route('/') }}#program @else #program @endif"
                         class="text-[#172840] hover:text-gray-900 hover:bg-[#F2B706] px-2 sm:px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer text-xs sm:text-sm">
                         Sessions
                     </a>
-                    <a href="@if(request()->routeIs('register')) {{ route('/') }}#agenda @else #agenda @endif"
+                    <a href="@if(!request()->routeIs('/')) {{ route('/') }}#agenda @else #agenda @endif"
                        class="text-[#172840] hover:text-gray-900 hover:bg-[#F2B706] px-2 sm:px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer text-xs sm:text-sm">Programme</a>
                     <a
-                        href="@if(request()->routeIs('register')) {{ route('/') }}#participants @else #participants @endif"
+                        href="@if(!request()->routeIs('/')) {{ route('/') }}#participants @else #participants @endif"
                         class="text-[#172840] hover:text-gray-900 hover:bg-[#F2B706] px-2 sm:px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer text-xs sm:text-sm">Who
                         can attend</a>
                     <a
-                        href="@if(request()->routeIs('register')) {{ route('/') }}#speakers-section @else #speakers-section @endif"
+                        href="@if(!request()->routeIs('/')) {{ route('/') }}#speakers-section @else #speakers-section @endif"
                         class="text-[#172840] hover:text-gray-900 hover:bg-[#F2B706] px-2 sm:px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer text-xs sm:text-sm">Speakers</a>
                     <a
-                        href="@if(request()->routeIs('register')) {{ route('/') }}#paan-awards-section @else #paan-awards-section @endif"
+                        href="@if(!request()->routeIs('/')) {{ route('/') }}#paan-awards-section @else #paan-awards-section @endif"
                         class="text-[#172840] hover:text-gray-900 hover:bg-[#F2B706] px-2 sm:px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer text-xs sm:text-sm">Awards</a>
-                    <a href="@if(request()->routeIs('register')) {{ route('/') }}#exhibition @else #exhibition @endif"
+                    <a href="@if(!request()->routeIs('/')) {{ route('/') }}#exhibition @else #exhibition @endif"
                        class="text-[#172840] hover:text-gray-900 hover:bg-[#F2B706] px-2 sm:px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer text-xs sm:text-sm">Exhibit</a>
                     <a
-                        href="@if(request()->routeIs('register')) {{ route('/') }}#tickets-section @else #tickets-section @endif"
+                        href="@if(!request()->routeIs('/')) {{ route('/') }}#tickets-section @else #tickets-section @endif"
                         class="text-[#172840] hover:text-gray-900 hover:bg-[#F2B706] px-2 sm:px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer text-xs sm:text-sm">Tickets</a>
                     <a
-                        href="@if(request()->routeIs('register')) {{ route('/') }}#plan-your-trip @else #plan-your-trip @endif"
+                        href="@if(!request()->routeIs('/')) {{ route('/') }}#plan-your-trip @else #plan-your-trip @endif"
                         class="text-[#172840] hover:text-gray-900 hover:bg-[#F2B706] px-2 sm:px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer text-xs sm:text-sm">Plan</a>
                 </div>
 {{--                <div class="relative">--}}
