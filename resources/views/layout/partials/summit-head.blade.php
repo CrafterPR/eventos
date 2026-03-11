@@ -11,8 +11,8 @@
 
     <!-- Country Select JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/country-select-js/2.1.1/js/countrySelect.min.js"></script>
-    <title>Paan Ticket</title>
-    <link rel="icon" type="image/x-icon" href="{{ asset('assets/favicon.ico') }}">
+    <title>2 KICP 2026</title>
+    <link rel="icon" type="image/x-icon" href="{{ asset('assets/media/favicon/favicon.ico') }}">
     <link rel="stylesheet" href="{{ asset('css/summit.css') }}" />
     <style>
         html {

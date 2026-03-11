@@ -8,7 +8,7 @@
                 <a href="/"><img alt="Logo" loading="lazy" width="200" height="70" decoding="async"
                                  data-nimg="1" class="w-20 sm:w-24 md:w-28 lg:w-32 xl:w-36 h-auto"
                                  style="color:transparent"
-                                 src="{{ asset('assets/media/images/paan-summit-logo.svg') }}"></a>
+                                 src="{{ asset('assets/media/images/2nd KICP-logo-01.png') }}"></a>
             </div>
             <div class="lg-custom:hidden flex items-center">
                 <button id="mobile-menu-toggle" class="p-2 sm:p-3 rounded-md text-[#172840] focus:outline-none">

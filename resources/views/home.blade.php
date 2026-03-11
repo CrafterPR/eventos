@@ -21,7 +21,7 @@
                                               d="M12 11.5A2.5 2.5 0 0 1 9.5 9A2.5 2.5 0 0 1 12 6.5A2.5 2.5 0 0 1 14.5 9a2.5 2.5 0 0 1-2.5 2.5M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7"></path>
                                     </svg>
                                     <span
-                                        class="break-words sm:whitespace-nowrap">Sarit Centre, Nairobi, Kenya - <strong>21 - 22 April 2026</strong></span>
+                                        class="break-words sm:whitespace-nowrap">TBD - <strong>- April 2026</strong></span>
                                 </div>
                                 <div class="flex items-center gap-2 text-white text-xs sm:text-sm">
                                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -62,7 +62,7 @@
                         </div>
                     </div>
                     <p class="text-white/80 text-xs sm:text-sm text-center mt-4 sm:mt-6">Organized &amp; managed by the
-                        <span class="font-bold text-red-500"><a href="/" class="hover:text-red-500 transition-colors">Pan African Agency Network(PAAN)</a></span>
+                        <span class="font-bold text-red-500"><a href="/" class="hover:text-red-500 transition-colors">Crafted PR</a></span>
                     </p>
                 </div>
             </div>
@@ -116,15 +116,17 @@
                         <div class="space-y-3 sm:space-y-4 text-white text-sm sm:text-base md:text-lg leading-relaxed"
                              style="opacity: 1; transform: none;">
                             <p>
-                                The Africa Borderless Creative Economy Summit 2026 brings together the continent's most
-                                forward-thinking agencies, brands, freelancers, marketing teams, and technology partners
-                                to reimagine how Africa's creative industry can scale - together.
+                                The professional landscape is evolving rapidly as environmental, political, economic, and
+                                technological changes reshape how professionals work and deliver value. The rise of the
+                                Fourth Industrial Revolution continues to transform industries, presenting both new
+                                opportunities and complex challenges for professionals worldwide.
                             </p>
                             <p>
-                                Over two days of keynotes, data-led panels, strategy labs, awards, showcases, and
-                                partnership deal rooms, the summit will unpack how innovation, technology,
-                                collaboration, and talent mobility can turn Africa's creativity into a
-                                multi-billion-dollar borderless economy.
+                                Through keynote presentations, panel discussions, and interactive sessions,
+                                the conference explores emerging trends, innovations, and strategies that
+                                professionals need to remain relevant in an increasingly disruptive environment.
+                                Participants gain valuable insights, build networks across diverse professions and regions,
+                                and exchange ideas that foster innovation, resilience, and sustainable growth in the professional landscape.
                             </p>
                         </div>
                         <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-3 sm:pt-4 relative z-20"
@@ -137,20 +139,9 @@
                     </div><div class="flex justify-center lg:justify-end h-full" style="opacity: 1; transform: none;">
                         <div class="relative overflow-hidden w-full max-w-md lg:max-w-none rounded-lg h-full">
                             <div class="w-full h-full overflow-hidden rounded-xl">
-                                <video class="w-full h-full object-cover" autoplay muted loop playsinline>
-                                    <source src="{{ asset('assets/media/videos/crafted.mp4') }}" type="video/mp4">
-                                    Your browser does not support the videos.
-                                </video>
+                                <img src="{{ asset('assets/media/images/about-kicp.webp') }}" class="w-full h-full object-cover" alt="about the event">
                             </div>
-                            <button
-                                class="absolute bottom-4 right-4 bg-black/50 hover:bg-black/70 rounded-full p-3 shadow-lg transition-all duration-300 group"
-                                aria-label="Pause video">
-                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                     aria-hidden="true" role="img" class="text-white iconify iconify--mdi" width="24"
-                                     height="24" viewBox="0 0 24 24">
-                                    <path fill="currentColor" d="M14 19h4V5h-4M6 19h4V5H6z"></path>
-                                </svg>
-                            </button>
+
                         </div>
                     </div>
                 </div>
@@ -165,7 +156,7 @@
                     <h2 class="text-2xl sm:text-3xl md:text-4xl text-[#172840] font-normal mb-3 sm:mb-4">Summit
                         Objectives</h2>
                     <h3 class="text-base sm:text-lg md:text-xl text-[#172840] font-normal max-w-3xl mx-auto">What we aim
-                        to achieve across two days of sessions, clinics, deal rooms, and networking.</h3>
+                        to achieve across five days of sessions.</h3>
                 </div>
                 <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
                     <div
@@ -177,28 +168,11 @@
                             style="background-image:url('https://ik.imagekit.io/nkmvdjnna/PAAN/summit/summit-objective-pattern.webp');background-size:cover;background-position:center;background-repeat:repeat"></div>
                         <div class="relative z-10 flex flex-col h-full">
                             <div class="flex items-start justify-start mb-5 sm:mb-6">
-                                <img src="https://ik.imagekit.io/nkmvdjnna/PAAN/summit/icons/padlock.svg"
-                                     alt="Unlock Icon" class="w-10 h-10 sm:w-12 sm:h-12">
+                                <img src="{{ asset('assets/media/icons/knowledge-sharing.svg') }}"
+                                     alt="Community Icon" class="w-10 h-10 sm:w-12 sm:h-12">
                             </div>
-                            <p class="text-white text-sm sm:text-base font-normal text-left mt-auto">Unlock cross‑border
-                                collaboration &amp; deal flow</p>
-                        </div>
-                    </div>
-                    <div
-                        class="bg-slate-800 rounded-lg shadow-lg p-5 sm:p-7 md:p-8 flex flex-col h-full relative overflow-hidden group transition-all duration-300 hover:shadow-xl">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-[#F25849] to-[#172840] rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                        <div
-                            class="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-40 transition-opacity duration-300 z-[1]"
-                            style="background-image:url('https://ik.imagekit.io/nkmvdjnna/PAAN/summit/summit-objective-pattern.webp');background-size:cover;background-position:center;background-repeat:repeat"></div>
-                        <div class="relative z-10 flex flex-col h-full">
-                            <div class="flex items-start justify-start mb-5 sm:mb-6">
-                                <img
-                                    src="https://ik.imagekit.io/nkmvdjnna/PAAN/summit/icons/chain-link.svg?updatedAt=1763114499609"
-                                    alt="Connect Icon" class="w-10 h-10 sm:w-12 sm:h-12">
-                            </div>
-                            <p class="text-white text-sm sm:text-base font-normal text-left mt-auto">Showcase &amp;
-                                commercialise African creative talent</p>
+                            <p class="text-white text-sm sm:text-base font-normal text-left mt-auto">Knowledge
+                                sharing</p>
                         </div>
                     </div>
                     <div
@@ -213,8 +187,7 @@
                                 <img src="https://ik.imagekit.io/nkmvdjnna/PAAN/summit/icons/user-group.svg"
                                      alt="Community Icon" class="w-10 h-10 sm:w-12 sm:h-12">
                             </div>
-                            <p class="text-white text-sm sm:text-base font-normal text-left mt-auto">Advance skills,
-                                standards &amp; innovation</p>
+                            <p class="text-white text-sm sm:text-base font-normal text-left mt-auto">Networking</p>
                         </div>
                     </div>
                     <div
@@ -226,11 +199,73 @@
                             style="background-image:url('https://ik.imagekit.io/nkmvdjnna/PAAN/summit/summit-objective-pattern.webp');background-size:cover;background-position:center;background-repeat:repeat"></div>
                         <div class="relative z-10 flex flex-col h-full">
                             <div class="flex items-start justify-start mb-5 sm:mb-6">
-                                <img src="https://ik.imagekit.io/nkmvdjnna/PAAN/summit/icons/heart-icon.svg"
+                                <img src="{{ asset('assets/media/icons/prof-dev.svg') }}"
+                                     alt="Unlock Icon" class="w-10 h-10 sm:w-12 sm:h-12">
+                            </div>
+                            <p class="text-white text-sm sm:text-base font-normal text-left mt-auto">Professional Development
+                            </p>
+                        </div>
+                    </div>
+                    <div
+                        class="bg-slate-800 rounded-lg shadow-lg p-5 sm:p-7 md:p-8 flex flex-col h-full relative overflow-hidden group transition-all duration-300 hover:shadow-xl">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-[#F25849] to-[#172840] rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <div
+                            class="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-40 transition-opacity duration-300 z-[1]"
+                            style="background-image:url('https://ik.imagekit.io/nkmvdjnna/PAAN/summit/summit-objective-pattern.webp');background-size:cover;background-position:center;background-repeat:repeat"></div>
+                        <div class="relative z-10 flex flex-col h-full">
+                            <div class="flex items-start justify-start mb-5 sm:mb-6">
+                                <img
+                                    src="{{ asset('assets/media/icons/mentorship.svg') }}"
+                                    alt="Connect Icon" class="w-10 h-10 sm:w-12 sm:h-12">
+                            </div>
+                            <p class="text-white text-sm sm:text-base font-normal text-left mt-auto">Mentorship</p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="bg-slate-800 rounded-lg shadow-lg p-5 sm:p-7 md:p-8 flex flex-col h-full relative overflow-hidden group transition-all duration-300 hover:shadow-xl">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-[#F25849] to-[#172840] rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <div
+                            class="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-40 transition-opacity duration-300 z-[1]"
+                            style="background-image:url('https://ik.imagekit.io/nkmvdjnna/PAAN/summit/summit-objective-pattern.webp');background-size:cover;background-position:center;background-repeat:repeat"></div>
+                        <div class="relative z-10 flex flex-col h-full">
+                            <div class="flex items-start justify-start mb-5 sm:mb-6">
+                                <img src="{{ asset('assets/media/icons/industry-trends.svg') }}"
                                      alt="Impact Icon" class="w-10 h-10 sm:w-12 sm:h-12">
                             </div>
-                            <p class="text-white text-sm sm:text-base font-normal text-left mt-auto">Create
-                                opportunities for youth &amp; underrepresented talent</p>
+                            <p class="text-white text-sm sm:text-base font-normal text-left mt-auto">Industry Trends</p>
+                        </div>
+                    </div>
+                    <div
+                        class="bg-slate-800 rounded-lg shadow-lg p-5 sm:p-7 md:p-8 flex flex-col h-full relative overflow-hidden group transition-all duration-300 hover:shadow-xl">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-[#F25849] to-[#172840] rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <div
+                            class="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-40 transition-opacity duration-300 z-[1]"
+                            style="background-image:url('https://ik.imagekit.io/nkmvdjnna/PAAN/summit/summit-objective-pattern.webp');background-size:cover;background-position:center;background-repeat:repeat"></div>
+                        <div class="relative z-10 flex flex-col h-full">
+                            <div class="flex items-start justify-start mb-5 sm:mb-6">
+                                <img src="{{ asset('assets/media/icons/policy-dialog.svg') }}"
+                                     alt="Impact Icon" class="w-10 h-10 sm:w-12 sm:h-12">
+                            </div>
+                            <p class="text-white text-sm sm:text-base font-normal text-left mt-auto">Policy Dialogue</p>
+                        </div>
+                    </div>
+                    <div
+                        class="bg-slate-800 rounded-lg shadow-lg p-5 sm:p-7 md:p-8 flex flex-col h-full relative overflow-hidden group transition-all duration-300 hover:shadow-xl">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-[#F25849] to-[#172840] rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <div
+                            class="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-40 transition-opacity duration-300 z-[1]"
+                            style="background-image:url('https://ik.imagekit.io/nkmvdjnna/PAAN/summit/summit-objective-pattern.webp');background-size:cover;background-position:center;background-repeat:repeat"></div>
+                        <div class="relative z-10 flex flex-col h-full">
+                            <div class="flex items-start justify-start mb-5 sm:mb-6">
+                                <img src="{{ asset('assets/media/icons/strategic-partnership.svg') }}"
+                                     alt="Impact Icon" class="w-10 h-10 sm:w-12 sm:h-12">
+                            </div>
+                            <p class="text-white text-sm sm:text-base font-normal text-left mt-auto">Strategic Partnerships</p>
                         </div>
                     </div>
                 </div>
@@ -317,7 +352,7 @@
                                          class="w-full h-full object-cover"></div>
                             </div>
                         </div>
-                        <h4 class="text-2xl sm:text-3xl md:text-4xl text-slate-800 text-left">20+</h4>
+                        <h4 class="text-2xl sm:text-3xl md:text-4xl text-slate-800 text-left">5+</h4>
                         <h5 class="text-sm sm:text-base font-normal text-left">Countries Represented</h5>
                     </div>
                     <div class="bg-white rounded-lg shadow-lg p-3 sm:p-4">
@@ -382,16 +417,16 @@
                 <h2 class="text-2xl sm:text-3xl text-center md:text-4xl font-normal text-slate-800 mb-2 sm:mb-3">Summit
                     Tracks</h2>
                 <h3 class="text-sm sm:text-base md:text-lg font-normal py-2 sm:py-3 md:py-4 text-center text-slate-800 mb-6 sm:mb-8">
-                    Tracks and the two-day agenda snapshot.</h3>
+                    Tracks and the five-day agenda snapshot.</h3>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
                     <div
                         class="relative rounded-lg shadow-lg overflow-hidden min-h-[320px] sm:min-h-[360px] md:h-80 lg:h-96 flex flex-col md:block ">
                         <div
                             class="relative flex-1 min-h-[180px] sm:min-h-[200px] md:absolute md:inset-0 overflow-hidden">
-                            <img alt="AI, Technology &amp; The Future of Creative Work"
+                            <img alt="Film production"
                                  class="object-cover md:object-contain md:object-center md:-mt-20"
                                  style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent"
-                                 src="{{ asset('assets/media/images/content-img-1.webp') }}">
+                                 src="{{ asset('assets/media/images/film-production.webp') }}">
                         </div>
                         <div
                             class="bg-[#DAECF3] rounded-b-lg md:rounded-t-lg p-4 sm:p-5 md:p-6 transition-all duration-300 md:absolute md:bottom-0 md:left-0 md:right-0 z-10 relative group"
@@ -403,10 +438,9 @@
                                 style="background-image:url('https://ik.imagekit.io/nkmvdjnna/PAAN/summit/summit-objective-pattern.webp');background-size:cover;background-position:center;background-repeat:repeat"></div>
                             <div class="relative z-10 text-slate-800 group-hover:text-white">
                                 <h4 class="text-base sm:text-lg md:text-xl font-bold mb-2 sm:mb-3 transition-colors duration-300 line-clamp-2">
-                                    AI, Technology
-                                    <!-- -->&amp;<br class="hidden sm:block">The Future of Creative Work</h4>
+                                    Film Production</h4>
                                 <p class="text-xs sm:text-sm md:text-base mb-3 sm:mb-4 transition-colors duration-300 line-clamp-2">
-                                    Operationalize AI across creative, media, and ops for real ROI.</p>
+                                    Lights, camera, action! From capturing every smile to streaming events live, our production team ensures no moment goes unnoticed. Professional, precise, and just a little obsessed with getting the perfect shot.</p>
                                 <div class="flex flex-wrap gap-2 sm:gap-2.5">
                                     <div class="flex items-center gap-1.5">
                                         <div
