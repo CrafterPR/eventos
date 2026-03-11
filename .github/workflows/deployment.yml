@@ -26,7 +26,7 @@ jobs:
           ssh -tt ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << 'EOF'
             cd /var/www/eventos
             git fetch --all
-            git reset --hard origin/main
+            git reset --hard origin/kasneb
             composer install --no-interaction --prefer-dist --optimize-autoloader
             php artisan migrate --force
             npm install
