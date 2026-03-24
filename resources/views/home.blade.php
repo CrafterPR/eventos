@@ -438,7 +438,7 @@
                                 style="background-image:url('https://ik.imagekit.io/nkmvdjnna/PAAN/summit/summit-objective-pattern.webp');background-size:cover;background-position:center;background-repeat:repeat"></div>
                             <div class="relative z-10 text-slate-800 group-hover:text-white">
                                 <h4 class="text-base sm:text-lg md:text-xl font-bold mb-2 sm:mb-3 transition-colors duration-300 line-clamp-2">
-                                    Film Production</h4>
+                                    Change & Continuity</h4>
                                 <p class="text-xs sm:text-sm md:text-base mb-3 sm:mb-4 transition-colors duration-300 line-clamp-2">
                                     Lights, camera, action! From capturing every smile to streaming events live, our production team ensures no moment goes unnoticed. Professional, precise, and just a little obsessed with getting the perfect shot.</p>
                                 <div class="flex flex-wrap gap-2 sm:gap-2.5">
@@ -446,8 +446,7 @@
                                         <div
                                             class="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-yellow-500 rounded-full flex-shrink-0"></div>
                                         <small
-                                            class="text-[10px] sm:text-xs transition-colors duration-300 leading-tight">AI
-                                            Workflows</small></div>
+                                            class="text-[10px] sm:text-xs transition-colors duration-300 leading-tight">Digital Transformation and the Professional Space</small></div>
                                     <div class="flex items-center gap-1.5">
                                         <div
                                             class="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-yellow-500 rounded-full flex-shrink-0"></div>
@@ -489,8 +488,8 @@
                                 style="background-image:url('https://ik.imagekit.io/nkmvdjnna/PAAN/summit/summit-objective-pattern.webp');background-size:cover;background-position:center;background-repeat:repeat"></div>
                             <div class="relative z-10 text-slate-800 group-hover:text-white">
                                 <h4 class="text-base sm:text-lg md:text-xl font-bold mb-2 sm:mb-3 transition-colors duration-300 line-clamp-2">
-                                    Creative Effectiveness
-                                    <!-- -->&amp;<br class="hidden sm:block">Media Performance</h4>
+                                    Digital Transformation and
+                                    <!-- -->&amp;<br class="hidden sm:block">the Professional Space</h4>
                                 <p class="text-xs sm:text-sm md:text-base mb-3 sm:mb-4 transition-colors duration-300 line-clamp-2">
                                     Turn bold ideas into measurable Business outcomes across channels.
                                 </p>
@@ -511,8 +510,7 @@
                                         <div
                                             class="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-yellow-500 rounded-full flex-shrink-0"></div>
                                         <small
-                                            class="text-[10px] sm:text-xs transition-colors duration-300 leading-tight">Story
-                                            telling</small></div>
+                                            class="text-[10px] sm:text-xs transition-colors duration-300 leading-tight"></small></div>
                                     <div class="flex items-center gap-1.5">
                                         <div
                                             class="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-yellow-500 rounded-full flex-shrink-0"></div>
@@ -542,8 +540,8 @@
                                 style="background-image:url('https://ik.imagekit.io/nkmvdjnna/PAAN/summit/summit-objective-pattern.webp');background-size:cover;background-position:center;background-repeat:repeat"></div>
                             <div class="relative z-10 text-slate-800 group-hover:text-white">
                                 <h4 class="text-base sm:text-lg md:text-xl font-bold mb-2 sm:mb-3 transition-colors duration-300 line-clamp-2">
-                                    Data, Analytics
-                                    <!-- -->&amp;<br class="hidden sm:block">Measurement for Growth</h4>
+                                    New Government in the
+                                    <!-- --><br class="hidden sm:block">New World Order</h4>
                                 <p class="text-xs sm:text-sm md:text-base mb-3 sm:mb-4 transition-colors duration-300 line-clamp-2">
                                     Build accountable growth with clean data and clear attribution.
                                 </p>
@@ -589,8 +587,8 @@
                                 style="background-image:url('https://ik.imagekit.io/nkmvdjnna/PAAN/summit/summit-objective-pattern.webp');background-size:cover;background-position:center;background-repeat:repeat"></div>
                             <div class="relative z-10 text-slate-800 group-hover:text-white">
                                 <h4 class="text-base sm:text-lg md:text-xl font-bold mb-2 sm:mb-3 transition-colors duration-300 line-clamp-2">
-                                    The Creator
-                                    <!-- -->&amp;<br class="hidden sm:block">Freelance Economy</h4>
+                                    Flight of Mind:
+                                    <!-- --><br class="hidden sm:block">Unlimited Technological Possibilities</h4>
                                 <p class="text-xs sm:text-sm md:text-base mb-3 sm:mb-4 transition-colors duration-300 line-clamp-2">
                                     Power sustainable independent careers and creator-led studios.
                                 </p>
@@ -636,8 +634,8 @@
                                 style="background-image:url('https://ik.imagekit.io/nkmvdjnna/PAAN/summit/summit-objective-pattern.webp');background-size:cover;background-position:center;background-repeat:repeat"></div>
                             <div class="relative z-10 text-slate-800 group-hover:text-white">
                                 <h4 class="text-base sm:text-lg md:text-xl font-bold mb-2 sm:mb-3 transition-colors duration-300 line-clamp-2">
-                                    Communication, PR
-                                    <!-- -->&amp;<br class="hidden sm:block">Brand Trust</h4>
+                                    Professional Training &<br class="hidden sm:block"> Certification in the New
+                                    World Order</h4>
                                 <p class="text-xs sm:text-sm md:text-base mb-3 sm:mb-4 transition-colors duration-300 line-clamp-2">
                                     Build credible brands in an era of activism and misinformation.
                                 </p>
@@ -770,14 +768,16 @@
             <section class="mx-auto max-w-6xl px-4 sm:px-6">
                 <div class="text-center mb-8 sm:mb-12">
                     <h2 class="text-2xl sm:text-3xl font-normal text-[#1a365d] mb-3 sm:mb-4">Summit Agenda</h2>
-                    <p class="text-base sm:text-lg text-gray-600">Two days of intensive learning, networking, and
-                        deal-making</p>
+                    <p class="text-base sm:text-lg text-gray-600">Five days of intensive learning, networking, and deal-making</p>
                 </div>
 
                 <!--Inner Tabs section -->
                 <div x-data="{ tabs: [
                         { id: 1, title: 'Day 1', active: true},
                         { id: 2, title: 'Day 2', active: false},
+                        { id: 3, title: 'Day 3', active: false},
+                        { id: 4, title: 'Day 4', active: false},
+                        { id: 5, title: 'Day 5', active: false},
                         ], activeTab: 1, mobileActiveTab: 1 }">
 
                     <!-- desktop Tabs -->
@@ -1291,8 +1291,7 @@
             <section class="mx-auto max-w-6xl px-4 sm:px-6">
                 <div class="text-center mb-8 sm:mb-12">
                     <h2 class="text-2xl sm:text-3xl font-normal text-slate-800 mb-3 sm:mb-4">Who Should Join</h2>
-                    <p class="text-sm sm:text-base md:text-lg text-gray-600 px-2">Connect with diverse professionals
-                        shaping Africa's creative economy</p>
+                    <p class="text-sm sm:text-base md:text-lg text-gray-600 px-2">Connect with diverse professionals shaping opportunity to connect, learn and grow at the forefront of industry</p>
                 </div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
                     <div
@@ -1308,11 +1307,8 @@
                                 <img alt="Creative Industry Leaders" class="w-full h-full"
                                      src="{{ asset('assets/media/images/icon-1.webp') }}">
                             </div>
-                            <h3 class="text-base sm:text-lg font-bold text-slate-800 mb-1.5 sm:mb-2">Creative Industry
-                                Leaders</h3>
-                            <p class="text-gray-600 text-xs sm:text-sm leading-relaxed">Artists, directors, producers,
-                                and creative visionaries driving innovation across Africa's entertainment and media
-                                landscape.</p>
+                            <h3 class="text-base sm:text-lg font-bold text-slate-800 mb-1.5 sm:mb-2">Industry Professionals</h3>
+                            <p class="text-gray-600 text-xs sm:text-sm leading-relaxed">Accountants, auditors, financial analysts,HR professionals, procurement specialists, marketers,ICT and data professionals</p>
                         </div>
                     </div>
                     <div
@@ -1328,11 +1324,10 @@
                                 <img alt="Creative Industry Leaders" class="w-full h-full"
                                      src="{{ asset('assets/media/images/icon-2.webp') }}">
                             </div>
-                            <h3 class="text-base sm:text-lg font-bold text-slate-800 mb-1.5 sm:mb-2">Tech &amp; Platform
-                                Innovators</h3>
-                            <p class="text-gray-600 text-xs sm:text-sm leading-relaxed">Technology entrepreneurs,
-                                platform builders, and digital innovators creating the infrastructure for creative
-                                commerce.</p>
+                            <h3 class="text-base sm:text-lg font-bold text-slate-800 mb-1.5 sm:mb-2">Business & Corporate Leaders</h3>
+                            <p class="text-gray-600 text-xs sm:text-sm leading-relaxed">CEOs, Managing Directors, Founders,Senior managers and decision-makers
+                                They bring strategic perspectives and real-world business experience.
+                            </p>
                         </div>
                     </div>
                     <div
@@ -1348,11 +1343,9 @@
                                 <img alt="Creative Industry Leaders" class="w-full h-full"
                                      src="{{ asset('assets/media/images/icon-3.webp') }}">
                             </div>
-                            <h3 class="text-base sm:text-lg font-bold text-slate-800 mb-1.5 sm:mb-2">Policy Makers &amp;
-                                Trade Stakeholders</h3>
-                            <p class="text-gray-600 text-xs sm:text-sm leading-relaxed">Government officials, trade
-                                representatives, and policy experts shaping regulatory frameworks for creative
-                                industries.</p>
+                            <h3 class="text-base sm:text-lg font-bold text-slate-800 mb-1.5 sm:mb-2">Government & Policy Makers</h3>
+                            <p class="text-gray-600 text-xs sm:text-sm leading-relaxed">Regulators, policymakers, and public sector leaders
+                                Important for shaping conversations around policy, compliance, and economic direction.</p>
                         </div>
                     </div>
                     <div
@@ -1368,11 +1361,9 @@
                                 <img alt="Creative Industry Leaders" class="w-full h-full"
                                      src="{{ asset('assets/media/images/icon-4.webp') }}">
                             </div>
-                            <h3 class="text-base sm:text-lg font-bold text-slate-800 mb-1.5 sm:mb-2">Agencies &amp;
-                                Service Providers</h3>
-                            <p class="text-gray-600 text-xs sm:text-sm leading-relaxed">Marketing, creative,
-                                advertising, IT, and tech agencies providing specialized services to creative
-                                businesses.</p>
+                            <h3 class="text-base sm:text-lg font-bold text-slate-800 mb-1.5 sm:mb-2">Academia & Researchers</h3>
+                            <p class="text-gray-600 text-xs sm:text-sm leading-relaxed">Lecturers, scholars, and industry researchers
+                                They contribute thought leadership, data-driven insights, and innovation.</p>
                         </div>
                     </div>
                     <div
@@ -1388,10 +1379,9 @@
                                 <img alt="Creative Industry Leaders" class="w-full h-full"
                                      src="{{ asset('assets/media/images/icon-5.webp') }}">
                             </div>
-                            <h3 class="text-base sm:text-lg font-bold text-slate-800 mb-1.5 sm:mb-2">Freelancers</h3>
-                            <p class="text-gray-600 text-xs sm:text-sm leading-relaxed">Independent creative
-                                professionals, digital nomads, and gig economy participants building scalable creative
-                                careers.</p>
+                            <h3 class="text-base sm:text-lg font-bold text-slate-800 mb-1.5 sm:mb-2">Students & Emerging Professionals</h3>
+                            <p class="text-gray-600 text-xs sm:text-sm leading-relaxed">Kasneb students and recent graduates
+                                Key for future talent development, mentorship, and career exposure.</p>
                         </div>
                     </div>
                     <div
@@ -1407,10 +1397,9 @@
                                 <img alt="Creative Industry Leaders" class="w-full h-full"
                                      src="{{ asset('assets/media/images/icon-6.webp') }}">
                             </div>
-                            <h3 class="text-base sm:text-lg font-bold text-slate-800 mb-1.5 sm:mb-2">Investors &amp;
-                                Financial Institutions</h3>
-                            <p class="text-gray-600 text-xs sm:text-sm leading-relaxed">VCs, angel investors, banks, and
-                                fintech companies providing capital and financial services to creative ventures.</p>
+                            <h3 class="text-base sm:text-lg font-bold text-slate-800 mb-1.5 sm:mb-2">Industry Bodies & Professional Associations</h3>
+                            <p class="text-gray-600 text-xs sm:text-sm leading-relaxed">Accounting, HR, marketing, legal, and procurement bodies
+                                They strengthen credibility and professional alignment.</p>
                         </div>
                     </div>
                     <div
@@ -1426,10 +1415,9 @@
                                 <img alt="Creative Industry Leaders" class="w-full h-full"
                                      src="{{ asset('assets/media/images/icon-7.webp') }}">
                             </div>
-                            <h3 class="text-base sm:text-lg font-bold text-slate-800 mb-1.5 sm:mb-2">Marketing &amp;
-                                Creative Teams</h3>
-                            <p class="text-gray-600 text-xs sm:text-sm leading-relaxed">In-house marketing departments
-                                and creative teams from brands and corporations seeking innovative partnerships.</p>
+                            <h3 class="text-base sm:text-lg font-bold text-slate-800 mb-1.5 sm:mb-2">Entrepreneurs & Startups</h3>
+                            <p class="text-gray-600 text-xs sm:text-sm leading-relaxed">SME owners, innovators, and founders
+                                They bring fresh perspectives, agility, and innovation into discussions.</p>
                         </div>
                     </div>
                     <div
@@ -1445,11 +1433,9 @@
                                 <img alt="Creative Industry Leaders" class="w-full h-full"
                                      src="{{ asset('assets/media/images/icon-8.webp') }}">
                             </div>
-                            <h3 class="text-base sm:text-lg font-bold text-slate-800 mb-1.5 sm:mb-2">Hubs &amp;
-                                Ecosystem Builders</h3>
-                            <p class="text-gray-600 text-xs sm:text-sm leading-relaxed">Innovation hubs, incubators,
-                                accelerators, and community builders fostering creative entrepreneurship across
-                                Africa.</p>
+                            <h3 class="text-base sm:text-lg font-bold text-slate-800 mb-1.5 sm:mb-2">Development Partners & NGOs</h3>
+                            <p class="text-gray-600 text-xs sm:text-sm leading-relaxed">Organizations working in economic development, governance, and education
+                                They add a global and impact-driven perspective.</p>
                         </div>
                     </div>
                     <div
@@ -1465,11 +1451,9 @@
                                 <img alt="Creative Industry Leaders" class="w-full h-full"
                                      src="{{ asset('assets/media/images/icon-9.webp') }}">
                             </div>
-                            <h3 class="text-base sm:text-lg font-bold text-slate-800 mb-1.5 sm:mb-2">Academia &amp;
-                                Research</h3>
-                            <p class="text-gray-600 text-xs sm:text-sm leading-relaxed">Researchers, academics, and
-                                educational institutions studying and teaching creative economy, digital transformation,
-                                and innovation.</p>
+                            <h3 class="text-base sm:text-lg font-bold text-slate-800 mb-1.5 sm:mb-2">Sponsors & Corporate Partners</h3>
+                            <p class="text-gray-600 text-xs sm:text-sm leading-relaxed">Banks, consulting firms, tech companies, insurance firms
+                                They support the event and showcase solutions/products to professionals.</p>
                         </div>
                     </div>
                     <div
@@ -1485,11 +1469,27 @@
                                 <img alt="Creative Industry Leaders" class="w-full h-full"
                                      src="{{ asset('assets/media/images/icon-10.webp') }}">
                             </div>
-                            <h3 class="text-base sm:text-lg font-bold text-slate-800 mb-1.5 sm:mb-2">Corporate &amp;
-                                Brand Partners</h3>
-                            <p class="text-gray-600 text-xs sm:text-sm leading-relaxed">Large corporations,
-                                multinational brands, and enterprise clients seeking to engage with Africa's creative
-                                talent and markets.</p>
+                            <h3 class="text-base sm:text-lg font-bold text-slate-800 mb-1.5 sm:mb-2">Media & Content Creators</h3>
+                            <p class="text-gray-600 text-xs sm:text-sm leading-relaxed">Business journalists, PR agencies, digital creators
+                                They amplify the conference reach and visibility.</p>
+                        </div>
+                    </div>
+                    <div
+                        class="group relative bg-[#E6F2F7] rounded-xl p-4 sm:p-5 md:p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-[#84c1d91a] overflow-hidden">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-b from-[#84C1DA]/0 to-yellow-500/0 group-hover:from-[#84c1d94d] group-hover:to-yellow-500/30 transition-all duration-300 rounded-xl z-[1]"></div>
+                        <div
+                            class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-[2]"
+                            style="background-image:url('https://ik.imagekit.io/nkmvdjnna/PAAN/summit/who-should-join/card-pattern.webp');background-repeat:repeat;background-position:center;background-size:200px 200px"></div>
+                        <div class="relative z-10">
+                            <div
+                                class="w-10 h-10 sm:w-12 sm:h-12 mb-3 sm:mb-4 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                                <img alt="Creative Industry Leaders" class="w-full h-full"
+                                     src="{{ asset('assets/media/images/icon-4.webp') }}">
+                            </div>
+                            <h3 class="text-base sm:text-lg font-bold text-slate-800 mb-1.5 sm:mb-2">International Delegates</h3>
+                            <p class="text-gray-600 text-xs sm:text-sm leading-relaxed">Global professionals, speakers, and institutions
+                                They bring global best practices and cross-border insights.</p>
                         </div>
                     </div>
                 </div>
@@ -1500,8 +1500,7 @@
                 <div class="text-left mb-8 sm:mb-10 md:mb-12 space-y-3 sm:space-y-4">
                     <h2 class="text-2xl sm:text-3xl md:text-4xl text-slate-800 font-normal">Do business, not just
                         talk.</h2>
-                    <p class="text-base sm:text-lg md:text-xl font-normal text-slate-800 mb-4">Walk away with meaningful
-                        connections, matched partners, and real deals.</p>
+                    <p class="text-base sm:text-lg md:text-xl font-normal text-slate-800 mb-4">Build real connections. Meet the right partners. Close what matters.</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7 md:gap-8">
                     <div class="bg-slate-800 rounded-xl shadow-xl overflow-hidden relative">
@@ -1516,8 +1515,7 @@
                                                                               src="https://ik.imagekit.io/nkmvdjnna/PAAN/summit/icons/030-idea%201.svg">
                             </div>
                             <h4 class="text-lg sm:text-xl font-normal text-white mb-2">Do Business, Not Just Talk</h4>
-                            <p class="text-white text-sm sm:text-base mb-6 sm:mb-8">Investor connections, signed NDAs,
-                                and draft term sheets.</p>
+                            <p class="text-white text-sm sm:text-base mb-6 sm:mb-8">Build real connections. Meet the right partners. Close what matters</p>
                         </div>
                     </div>
                     <div class="bg-slate-800 rounded-xl shadow-xl overflow-hidden relative">
@@ -1532,8 +1530,7 @@
                                                                               src="https://ik.imagekit.io/nkmvdjnna/PAAN/summit/icons/007-puzzle%201.svg">
                             </div>
                             <h4 class="text-lg sm:text-xl font-normal text-white mb-2">Cross-Border Enablement</h4>
-                            <p class="text-white text-sm sm:text-base mb-6 sm:mb-8">How AfCFTA, PAPSS, and digital rails
-                                help you scale across Africa.</p>
+                            <p class="text-white text-sm sm:text-base mb-6 sm:mb-8">Breaking boundaries. Building global opportunities.</p>
                         </div>
                     </div>
                     <div class="bg-slate-800 rounded-xl shadow-xl overflow-hidden relative">
@@ -1547,46 +1544,46 @@
                                                                               src="https://ik.imagekit.io/nkmvdjnna/PAAN/summit/icons/040-user%201.svg">
                             </div>
                             <h4 class="text-lg sm:text-xl font-normal text-white mb-2">Hands-On Clinics</h4>
-                            <p class="text-white text-sm sm:text-base mb-6 sm:mb-8">Solve payments, IP rights,
-                                residency, and AI tooling with experts at your side.</p>
+                            <p class="text-white text-sm sm:text-base mb-6 sm:mb-8">Move from theory to practice
+                                through interactive sessions that deliver real skills, real solutions, and immediate value.</p>
                         </div>
                     </div>
                 </div>
-                <div class="mt-8 sm:mt-10 relative rounded-xl overflow-hidden p-6 sm:p-8 md:p-12">
-                    <div class="absolute inset-0 rounded-xl z-0"
-                         style="background:linear-gradient(to bottom right, #172840, #F25849)"></div>
-                    <div class="absolute inset-0 opacity-50 z-[1]"
-                         style="background-image:url('https://ik.imagekit.io/nkmvdjnna/PAAN/summit/stats-pattern.webp');background-repeat:repeat;background-position:center;background-size:100% 100%"></div>
-                    <div class="relative z-10 grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
-                        <div class="flex flex-col gap-2 sm:gap-3 md:gap-4 text-center items-center">
-                            <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white">150+</h2>
-                            <p class="text-white text-xs sm:text-sm md:text-base leading-tight">Curated 1:1 investor
-                                meetings</p>
-                        </div>
-                        <div class="flex flex-col gap-2 sm:gap-3 md:gap-4 text-center items-center">
-                            <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white">50+</h2>
-                            <p class="text-white text-xs sm:text-sm md:text-base leading-tight">NDAs signed during Deal
-                                Rooms</p>
-                        </div>
-                        <div class="flex flex-col gap-2 sm:gap-3 md:gap-4 text-center items-center">
-                            <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white">$10M+</h2>
-                            <p class="text-white text-xs sm:text-sm md:text-base leading-tight">In term sheets &amp;
-                                MoUs within 90 days</p>
-                        </div>
-                        <div class="flex flex-col gap-2 sm:gap-3 md:gap-4 text-center items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                 aria-hidden="true" role="img"
-                                 class="text-white w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-[72px] lg:h-[72px] iconify iconify--mdi"
-                                 width="1em"
-                                 height="1em" viewBox="0 0 24 24">
-                                <path fill="currentColor"
-                                      d="M12 5.5A3.5 3.5 0 0 1 15.5 9a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8.5 9A3.5 3.5 0 0 1 12 5.5M5 8c.56 0 1.08.15 1.53.42c-.15 1.43.27 2.85 1.13 3.96C7.16 13.34 6.16 14 5 14a3 3 0 0 1-3-3a3 3 0 0 1 3-3m14 0a3 3 0 0 1 3 3a3 3 0 0 1-3 3c-1.16 0-2.16-.66-2.66-1.62a5.54 5.54 0 0 0 1.13-3.96c.45-.27.97-.42 1.53-.42M5.5 18.25c0-2.07 2.91-3.75 6.5-3.75s6.5 1.68 6.5 3.75V20h-13zM0 20v-1.5c0-1.39 1.89-2.56 4.45-2.9c-.59.68-.95 1.62-.95 2.65V20zm24 0h-3.5v-1.75c0-1.03-.36-1.97-.95-2.65c2.56.34 4.45 1.51 4.45 2.9z"></path>
-                            </svg>
-                            <p class="text-white text-xs sm:text-sm md:text-base leading-tight">Dozens of freelancers
-                                &amp; creators onboarded to cross-border systems</p>
-                        </div>
-                    </div>
-                </div>
+{{--                <div class="mt-8 sm:mt-10 relative rounded-xl overflow-hidden p-6 sm:p-8 md:p-12">--}}
+{{--                    <div class="absolute inset-0 rounded-xl z-0"--}}
+{{--                         style="background:linear-gradient(to bottom right, #172840, #F25849)"></div>--}}
+{{--                    <div class="absolute inset-0 opacity-50 z-[1]"--}}
+{{--                         style="background-image:url('https://ik.imagekit.io/nkmvdjnna/PAAN/summit/stats-pattern.webp');background-repeat:repeat;background-position:center;background-size:100% 100%"></div>--}}
+{{--                    <div class="relative z-10 grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">--}}
+{{--                        <div class="flex flex-col gap-2 sm:gap-3 md:gap-4 text-center items-center">--}}
+{{--                            <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white">150+</h2>--}}
+{{--                            <p class="text-white text-xs sm:text-sm md:text-base leading-tight">Curated 1:1 investor--}}
+{{--                                meetings</p>--}}
+{{--                        </div>--}}
+{{--                        <div class="flex flex-col gap-2 sm:gap-3 md:gap-4 text-center items-center">--}}
+{{--                            <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white">50+</h2>--}}
+{{--                            <p class="text-white text-xs sm:text-sm md:text-base leading-tight">NDAs signed during Deal--}}
+{{--                                Rooms</p>--}}
+{{--                        </div>--}}
+{{--                        <div class="flex flex-col gap-2 sm:gap-3 md:gap-4 text-center items-center">--}}
+{{--                            <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white">$10M+</h2>--}}
+{{--                            <p class="text-white text-xs sm:text-sm md:text-base leading-tight">In term sheets &amp;--}}
+{{--                                MoUs within 90 days</p>--}}
+{{--                        </div>--}}
+{{--                        <div class="flex flex-col gap-2 sm:gap-3 md:gap-4 text-center items-center">--}}
+{{--                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"--}}
+{{--                                 aria-hidden="true" role="img"--}}
+{{--                                 class="text-white w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-[72px] lg:h-[72px] iconify iconify--mdi"--}}
+{{--                                 width="1em"--}}
+{{--                                 height="1em" viewBox="0 0 24 24">--}}
+{{--                                <path fill="currentColor"--}}
+{{--                                      d="M12 5.5A3.5 3.5 0 0 1 15.5 9a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8.5 9A3.5 3.5 0 0 1 12 5.5M5 8c.56 0 1.08.15 1.53.42c-.15 1.43.27 2.85 1.13 3.96C7.16 13.34 6.16 14 5 14a3 3 0 0 1-3-3a3 3 0 0 1 3-3m14 0a3 3 0 0 1 3 3a3 3 0 0 1-3 3c-1.16 0-2.16-.66-2.66-1.62a5.54 5.54 0 0 0 1.13-3.96c.45-.27.97-.42 1.53-.42M5.5 18.25c0-2.07 2.91-3.75 6.5-3.75s6.5 1.68 6.5 3.75V20h-13zM0 20v-1.5c0-1.39 1.89-2.56 4.45-2.9c-.59.68-.95 1.62-.95 2.65V20zm24 0h-3.5v-1.75c0-1.03-.36-1.97-.95-2.65c2.56.34 4.45 1.51 4.45 2.9z"></path>--}}
+{{--                            </svg>--}}
+{{--                            <p class="text-white text-xs sm:text-sm md:text-base leading-tight">Dozens of freelancers--}}
+{{--                                &amp; creators onboarded to cross-border systems</p>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
             </section>
         </div>
         <div class="bg-white relative py-12 sm:py-16 md:py-20" id="speakers-section">
@@ -1594,8 +1591,7 @@
                 <div class="flex flex-col sm:flex-row justify-between items-start mb-6 sm:mb-8 gap-4">
                     <div>
                         <h3 class="text-3xl sm:text-4xl text-slate-800 font-normal">Meet the speakers</h3>
-                        <p class="text-base sm:text-lg md:text-xl font-normal text-slate-800 mb-4">Africa's top
-                            creators, innovators, and enablers.</p>
+                        <p class="text-base sm:text-lg md:text-xl font-normal text-slate-800 mb-4">Africa’s Professionals . Innovators. Enablers. All in one place.</p>
                     </div>
                     <div class="flex gap-2 self-end">
                         <button id="speakers-prev"
@@ -1624,17 +1620,17 @@
                             <div class="relative rounded-xl shadow-xl overflow-hidden group cursor-pointer h-80 sm:h-96">
                                 <img alt="Anna Ceesay" loading="lazy" width="400" height="500"
                                     class="w-full h-full object-cover" style="color:transparent"
-                                    src="{{ asset('assets/media/images/speakers/Anna.webp') }}">
+                                    src="{{ asset('assets/media/images/speakers/percy-opiyo.jpg') }}">
                                 <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent group-hover:bg-gradient-to-t group-hover:from-black/0 group-hover:to-transparent transition-all duration-300 p-4 sm:p-6">
                                     <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                                         style="background:linear-gradient(to top, #F2B706 0%, #F2B706 40%, rgba(0,0,0,0) 100%)"></div>
                                     <div class="relative z-10 flex justify-between items-center">
                                         <div>
-                                            <h4 class="text-lg sm:text-xl font-bold text-white mb-1">Anna Ceesay</h4>
-                                            <p class="text-white/90 text-xs sm:text-sm">Founder & CEO, Fabella, The Gambia</p>
+                                            <h4 class="text-lg sm:text-xl font-bold text-white mb-1">Dr Percy Opio PhD</h4>
+                                            <p class="text-white/90 text-xs sm:text-sm">Chairman of The Board of Directors</p>
                                         </div>
                                         <div class="flex-shrink-0"><a
-                                            href="https://www.linkedin.com/in/annaceesay/?originalSubdomain=gm"
+                                            href="#"
                                             target="_blank" rel="noopener noreferrer"
                                             class="hover:scale-110 transition-transform duration-200">
                                             <svg xmlns="http://www.w3.org/2000/svg"
@@ -1655,17 +1651,17 @@
                             <div class="relative rounded-xl shadow-xl overflow-hidden group cursor-pointer h-80 sm:h-96">
                                 <img alt="Yannick Lefang" loading="lazy" width="400" height="500"
                                     class="w-full h-full object-cover" style="color:transparent"
-                                    src="{{ asset('assets/media/images/speakers/Yannick.webp') }}">
+                                    src="{{ asset('assets/media/images/speakers/joseph-kanyi.jpg') }}">
                                 <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent group-hover:bg-gradient-to-t group-hover:from-black/0 group-hover:to-transparent transition-all duration-300 p-4 sm:p-6">
                                     <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                                         style="background:linear-gradient(to top, #F25849 0%, #F25849 40%, rgba(0,0,0,0) 100%)"></div>
                                     <div class="relative z-10 flex justify-between items-center">
                                         <div>
-                                            <h4 class="text-lg sm:text-xl font-bold text-white mb-1">Yannick Lefang</h4>
-                                            <p class="text-white/90 text-xs sm:text-sm">CEO & Founder - Kasi Insight, Africa</p>
+                                            <h4 class="text-lg sm:text-xl font-bold text-white mb-1">Dr. Joseph M. Kanyi PhD</h4>
+                                            <p class="text-white/90 text-xs sm:text-sm">Vice Chairman of The Board of Directors, Representing Ministry of Education</p>
                                         </div>
                                         <div class="flex-shrink-0"><a
-                                            href="https://www.linkedin.com/in/yannicklefang?originalSubdomain=ca"
+                                            href="#"
                                             target="_blank" rel="noopener noreferrer"
                                             class="hover:scale-110 transition-transform duration-200">
                                             <svg xmlns="http://www.w3.org/2000/svg"
@@ -1686,14 +1682,14 @@
                             <div class="relative rounded-xl shadow-xl overflow-hidden group cursor-pointer h-80 sm:h-96">
                                 <img alt="Dr. Gillian Hammah" loading="lazy" width="400" height="500"
                                     class="w-full h-full object-cover" style="color:transparent"
-                                    src="{{ asset('assets/media/images/speakers/Hammar.webp') }}">
+                                    src="{{ asset('assets/media/images/speakers/letting.jpg') }}">
                                 <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent group-hover:bg-gradient-to-t group-hover:from-black/0 group-hover:to-transparent transition-all duration-300 p-4 sm:p-6">
                                     <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                                         style="background:linear-gradient(to top, #84C1D9 0%, #84C1D9 40%, rgba(0,0,0,0) 100%)"></div>
                                     <div class="relative z-10 flex justify-between items-center">
                                         <div>
-                                            <h4 class="text-lg sm:text-xl font-bold text-white mb-1">Dr. Gillian Hammah</h4>
-                                            <p class="text-white/90 text-xs sm:text-sm">CMO Aya Data. Ghana</p>
+                                            <h4 class="text-lg sm:text-xl font-bold text-white mb-1">FCPA Prof. Nicholas K. Letting’ PhD, EBS, HSC</h4>
+                                            <p class="text-white/90 text-xs sm:text-sm">Secretary/Chief Executive Officer</p>
                                         </div>
                                         <div class="flex-shrink-0"><a
                                             href="https://www.linkedin.com/in/gillian-hammah?originalSubdomain=gh"
@@ -1731,53 +1727,24 @@
                     <div class="inline-flex animate-marquee-right">
                         <div class="flex space-x-4 sm:space-x-6 md:space-x-8 whitespace-nowrap">
                             <div class="flex items-center space-x-4 sm:space-x-6 md:space-x-8"><span
-                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">Film Director</span><span
+                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">Finance & Accounting Professionals</span><span
                                     class="text-2xl sm:text-3xl text-red-500">•</span><span
-                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">Music Producers</span>
+                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">Business & Corporate Leaders</span>
                                 <span class="text-2xl sm:text-3xl text-[#84C1DA]">•</span><span
-                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">Fashion Designers</span><span
+                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">ICT & Digital Transformation Experts</span><span
                                     class="text-2xl sm:text-3xl text-slate-800">•</span>
                                 <span
-                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">Gaming Studios</span>
+                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">Human Resource & Organizational Development Professionals</span>
                                 <span class="text-2xl sm:text-3xl text-yellow-500">•</span><span
-                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">SaaS Founders</span><span
+                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">Marketing, Media & Communication Professionals</span><span
                                     class="text-2xl sm:text-3xl text-yellow-500">•</span></div>
                             <div class="flex items-center space-x-4 sm:space-x-6 md:space-x-8"><span
-                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">Film Director</span><span
-                                    class="text-2xl sm:text-3xl text-red-500">•</span><span
-                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">Music Producers</span>
-                                <span class="text-2xl sm:text-3xl text-[#84C1DA]">•</span><span
-                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">Fashion Designers</span><span
-                                    class="text-2xl sm:text-3xl text-slate-800">•</span>
-                                <span
-                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">Gaming Studios</span>
-                                <span class="text-2xl sm:text-3xl text-yellow-500">•</span><span
-                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">SaaS Founders</span><span
-                                    class="text-2xl sm:text-3xl text-yellow-500">•</span></div>
-                            <div class="flex items-center space-x-4 sm:space-x-6 md:space-x-8"><span
-                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">Film Director</span><span
-                                    class="text-2xl sm:text-3xl text-red-500">•</span><span
-                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">Music Producers</span>
-                                <span class="text-2xl sm:text-3xl text-[#84C1DA]">•</span><span
-                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">Fashion Designers</span><span
-                                    class="text-2xl sm:text-3xl text-slate-800">•</span>
-                                <span
-                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">Gaming Studios</span>
-                                <span class="text-2xl sm:text-3xl text-yellow-500">•</span><span
-                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">SaaS Founders</span><span
-                                    class="text-2xl sm:text-3xl text-yellow-500">•</span></div>
-                            <div class="flex items-center space-x-4 sm:space-x-6 md:space-x-8"><span
-                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">Film Director</span><span
-                                    class="text-2xl sm:text-3xl text-red-500">•</span><span
-                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">Music Producers</span>
-                                <span class="text-2xl sm:text-3xl text-[#84C1DA]">•</span><span
-                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">Fashion Designers</span><span
-                                    class="text-2xl sm:text-3xl text-slate-800">•</span>
-                                <span
-                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">Gaming Studios</span>
-                                <span class="text-2xl sm:text-3xl text-yellow-500">•</span><span
-                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">SaaS Founders</span><span
-                                    class="text-2xl sm:text-3xl text-yellow-500">•</span></div>
+                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">Procurement & Supply Chain Professionals</span><span
+                                    class="text-2xl sm:text-3xl text-red-500">•</span>
+                              <span
+                                    class="text-2xl sm:text-3xl text-slate-800">
+                                    •</span>
+                                </div>
                         </div>
                     </div>
                 </div>
@@ -1785,48 +1752,20 @@
                     <div class="inline-flex animate-marquee-left">
                         <div class="flex space-x-4 sm:space-x-6 md:space-x-8 whitespace-nowrap">
                             <div class="flex items-center space-x-4 sm:space-x-6 md:space-x-8"><span
-                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">Producers</span><span
-                                    class="text-2xl sm:text-3xl text-red-500">•</span><span
-                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">Fashion Designers</span>
+                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">Legal & Governance Experts</span>
                                 <span class="text-2xl sm:text-3xl text-[#84C1DA]">•</span><span
-                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">UX/UI Designers</span><span
-                                    class="text-2xl sm:text-3xl text-paan-maroon">•</span>
+                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">Entrepreneurs & Business Owners</span><span
+                                    class="text-2xl sm:text-3xl text-slate-800">•</span>
                                 <span
-                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">Marketing Leaders</span>
-                                <span class="text-2xl sm:text-3xl text-yellow-500">•</span>
-                            </div>
+                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">Academia, Researchers & Thought Leaders</span>
+                                <span class="text-2xl sm:text-3xl text-yellow-500">•</span><span
+                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">Public Sector & Policy Makers </span><span
+                                    class="text-2xl sm:text-3xl text-yellow-500">•</span></div>
                             <div class="flex items-center space-x-4 sm:space-x-6 md:space-x-8"><span
-                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">Producers</span><span
+                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">Development Partners & NGOs</span><span
                                     class="text-2xl sm:text-3xl text-red-500">•</span><span
-                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">Fashion Designers</span>
-                                <span class="text-2xl sm:text-3xl text-[#84C1DA]">•</span><span
-                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">UX/UI Designers</span><span
-                                    class="text-2xl sm:text-3xl text-paan-maroon">•</span>
-                                <span
-                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">Marketing Leaders</span>
-                                <span class="text-2xl sm:text-3xl text-yellow-500">•</span>
-                            </div>
-                            <div class="flex items-center space-x-4 sm:space-x-6 md:space-x-8"><span
-                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">Producers</span><span
-                                    class="text-2xl sm:text-3xl text-red-500">•</span><span
-                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">Fashion Designers</span>
-                                <span class="text-2xl sm:text-3xl text-[#84C1DA]">•</span><span
-                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">UX/UI Designers</span><span
-                                    class="text-2xl sm:text-3xl text-paan-maroon">•</span>
-                                <span
-                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">Marketing Leaders</span>
-                                <span class="text-2xl sm:text-3xl text-yellow-500">•</span>
-                            </div>
-                            <div class="flex items-center space-x-4 sm:space-x-6 md:space-x-8"><span
-                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">Producers</span><span
-                                    class="text-2xl sm:text-3xl text-red-500">•</span><span
-                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">Fashion Designers</span>
-                                <span class="text-2xl sm:text-3xl text-[#84C1DA]">•</span><span
-                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">UX/UI Designers</span><span
-                                    class="text-2xl sm:text-3xl text-paan-maroon">•</span>
-                                <span
-                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">Marketing Leaders</span>
-                                <span class="text-2xl sm:text-3xl text-yellow-500">•</span>
+                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">Students & Emerging Professionals</span>
+                                <span class="text-2xl sm:text-3xl text-[#84C1DA]">•</span>
                             </div>
                         </div>
                     </div>
