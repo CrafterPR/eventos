@@ -3,7 +3,7 @@
     @include('layout/partials/_summit-nav')
         <div class="relative h-screen w-full section-visible" id="home">
             <div class="absolute inset-0 bg-cover bg-center"
-                 style="background-image:url('https://ik.imagekit.io/nkmvdjnna/PAAN/summit/summit-hero-2.webp');filter:brightness(0.5)"></div>
+                 style="background-image:url('{{ asset('assets/media/images/summit-hero-2.webp') }}');filter:brightness(0.5)"></div>
             <div class="relative h-full flex items-center justify-center pt-16 sm:pt-24 md:pt-32">
                 <div class="mx-auto max-w-6xl w-full px-4 sm:px-6">
                     <div class="max-w-2xl mx-auto text-center">
