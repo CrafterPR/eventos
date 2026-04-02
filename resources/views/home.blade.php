@@ -1837,71 +1837,6 @@
                 </div>
             </section>
         </div>
-        <div class="bg-[#DAECF3] relative py-10 sm:py-16 md:py-20 px-4 sm:px-6" id="paan-awards-section">
-            <section class="relative mx-auto max-w-6xl">
-                <div class="text-center mb-8 sm:mb-12">
-                    <h3 class="text-2xl sm:text-3xl md:text-4xl text-slate-800">Pan-African Creative Awards</h3>
-                    <p class="text-base sm:text-lg md:text-xl font-normal text-slate-800 mb-6 sm:mb-8 mt-2">Celebrating
-                        Africa's boldest agencies and creators.</p>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 justify-items-center md:justify-items-left">
-                    <div
-                        class="w-full max-w-80 h-64 sm:h-72 md:h-80 rounded-md shadow-xl overflow-hidden relative flex flex-col items-left justify-center p-4 sm:p-6"
-                        style="background:linear-gradient(to bottom right, #172840, #84C1D9)">
-                        <div class="absolute inset-0 opacity-80"
-                             style="background-image:url('https://ik.imagekit.io/nkmvdjnna/PAAN/awards/paan-award-pattern.svg');background-size:40%;background-position:right bottom;background-repeat:no-repeat;margin-right:30px"></div>
-                        <div class="relative z-10 flex flex-col items-left"><img
-                                src="https://ik.imagekit.io/nkmvdjnna/PAAN/awards/new-paan-award.svg" alt="PAAN Award"
-                                class="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 mb-3 sm:mb-4 flex-shrink-0">
-                            <div class="flex flex-col text-left">
-                                <h4 class="text-base sm:text-lg font-bold text-white mb-1 sm:mb-2">Creative Innovation
-                                    Award</h4>
-                                <p class="text-white font-light text-xs leading-relaxed">Recognizing breakthrough
-                                    creative solutions and innovative approaches.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div
-                        class="w-full max-w-80 h-64 sm:h-72 md:h-80 rounded-md shadow-xl overflow-hidden relative flex flex-col items-left justify-center p-4 sm:p-6"
-                        style="background:linear-gradient(to bottom right, #172840, #84C1D9)">
-                        <div class="absolute inset-0 opacity-80"
-                             style="background-image:url('https://ik.imagekit.io/nkmvdjnna/PAAN/awards/paan-award-pattern.svg');background-size:40%;background-position:right bottom;background-repeat:no-repeat;margin-right:30px"></div>
-                        <div class="relative z-10 flex flex-col items-left"><img
-                                src="https://ik.imagekit.io/nkmvdjnna/PAAN/awards/new-paan-award.svg" alt="PAAN Award"
-                                class="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 mb-3 sm:mb-4 flex-shrink-0">
-                            <div class="flex flex-col text-left">
-                                <h4 class="text-base sm:text-lg font-bold text-white mb-1 sm:mb-2">Pan African Agency of
-                                    the Year</h4>
-                                <p class="text-white font-light text-xs leading-relaxed">Honoring the agency pushing
-                                    creative boundaries across markets.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div
-                        class="w-full max-w-80 h-64 sm:h-72 md:h-80 rounded-md shadow-xl overflow-hidden relative flex flex-col items-left justify-center p-4 sm:p-6"
-                        style="background:linear-gradient(to bottom right, #172840, #84C1D9)">
-                        <div class="absolute inset-0 opacity-80"
-                             style="background-image:url('https://ik.imagekit.io/nkmvdjnna/PAAN/awards/paan-award-pattern.svg');background-size:40%;background-position:right bottom;background-repeat:no-repeat;margin-right:30px"></div>
-                        <div class="relative z-10 flex flex-col items-left"><img
-                                src="https://ik.imagekit.io/nkmvdjnna/PAAN/awards/new-paan-award.svg" alt="PAAN Award"
-                                class="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 mb-3 sm:mb-4 flex-shrink-0">
-                            <div class="flex flex-col text-left">
-                                <h4 class="text-base sm:text-lg font-bold text-white mb-1 sm:mb-2">Digital Excellence
-                                    Award</h4>
-                                <p class="text-white font-light text-xs leading-relaxed">Celebrating outstanding digital
-                                    campaigns and tech integration.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex justify-center gap-2 mt-8 sm:mt-12">
-                    <button
-                        class="bg-red-500 text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-full hover:bg-red-500/90 transition-all duration-300 font-medium text-sm sm:text-base shadow-lg flex items-center gap-2">
-                        Explore All Categories
-                    </button>
-                </div>
-            </section>
-        </div>
         <div
             class="relative py-6 sm:py-8 md:py-12 lg:py-16 xl:py-20 overflow-hidden h-[320px] sm:h-[400px] md:h-[450px] lg:h-[500px] xl:h-[550px]"
             id="exhibition">
@@ -1961,7 +1896,8 @@
                                               d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"></path>
                                     </svg>
                                     <span
-                                        class="text-sm sm:text-base font-normal text-slate-800">April 21-22, 2026</span>
+                                        class="text-sm sm:text-base font-normal text-slate-800">14th-18th Sept,
+                                        2026</span>
                                 </div>
                                 <div class="flex items-center gap-2 sm:gap-3">
                                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -1972,7 +1908,7 @@
                                         <path fill="currentColor"
                                               d="M12 11.5A2.5 2.5 0 0 1 9.5 9A2.5 2.5 0 0 1 12 6.5A2.5 2.5 0 0 1 14.5 9a2.5 2.5 0 0 1-2.5 2.5M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7"></path>
                                     </svg>
-                                    <span class="text-sm sm:text-base font-normal text-slate-800">Sarit Centre, Nairobi, Kenya</span>
+                                    <span class="text-sm sm:text-base font-normal text-slate-800">TBD</span>
                                 </div>
                             </div>
                             <div class="mb-6 sm:mb-8 text-slate-800/90 ml-4">
@@ -1997,7 +1933,7 @@
                                             <path fill="currentColor"
                                                   d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10s10-4.5 10-10S17.5 2 12 2m-2 15l-5-5l1.41-1.41L10 14.17l7.59-7.59L19 8z"></path>
                                         </svg>
-                                        <span class="text-sm sm:text-base md:text-lg">Investor &amp; partnership deal rooms</span>
+                                        <span class="text-sm sm:text-base md:text-lg">Investor & partnership deal rooms</span>
                                     </li>
                                     <li class="flex items-start gap-3">
                                         <svg xmlns="http://www.w3.org/2000/svg"
@@ -2011,17 +1947,7 @@
                                         <span
                                             class="text-sm sm:text-base md:text-lg">High-level networking experiences</span>
                                     </li>
-                                    <li class="flex items-start gap-3">
-                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                             xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
-                                             class="text-slate-800 w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0 mt-0.5 iconify iconify--mdi"
-                                             width="1em"
-                                             height="1em" viewBox="0 0 24 24">
-                                            <path fill="currentColor"
-                                                  d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10s10-4.5 10-10S17.5 2 12 2m-2 15l-5-5l1.41-1.41L10 14.17l7.59-7.59L19 8z"></path>
-                                        </svg>
-                                        <span class="text-sm sm:text-base md:text-lg">Creator Crawl &amp; cultural immersions</span>
-                                    </li>
+
                                 </ul>
                             </div>
                             <div class="bg-gradient-to-br from-[#F25849] to-[#172840] p-4 sm:p-6">
@@ -2215,9 +2141,7 @@
                             </div>
                             <h3 class="text-lg sm:text-xl font-bold text-slate-800">Venue Information</h3>
                         </div>
-                        <p class="text-slate-800 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">Final venue details
-                            will be announced soon. Expect world‑class facilities, breakout rooms for deal‑making, and
-                            easy access to Nairobi's creative hubs.</p>
+                        <p class="text-slate-800 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">Final venue details will be announced soon. Expect world‑class facilities, breakout rooms for deal‑making, and easy access to World class professionals.</p>
                         <div class="space-y-3 sm:space-y-4">
                             <div class="bg-white rounded-lg p-3 sm:p-4 shadow-md">
                                 <div class="flex items-center gap-2 sm:gap-3 mb-2">
@@ -2227,8 +2151,7 @@
                                         <path fill="currentColor"
                                               d="M12 11.5A2.5 2.5 0 0 1 9.5 9A2.5 2.5 0 0 1 12 6.5A2.5 2.5 0 0 1 14.5 9a2.5 2.5 0 0 1-2.5 2.5M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7"></path>
                                     </svg>
-                                    <h4 class="font-semibold text-slate-800 text-sm sm:text-base">Sarit Centre,
-                                        Nairobi</h4>
+                                    <h4 class="font-semibold text-slate-800 text-sm sm:text-base">TBD</h4>
                                 </div>
                                 <a href="#" target="_blank"
                                    class="text-[#84C1DA] hover:text-red-500 transition-colors text-xs sm:text-sm">View
@@ -2244,7 +2167,7 @@
                                     </svg>
                                     <h4 class="font-semibold text-slate-800 text-sm sm:text-base">Event Dates</h4>
                                 </div>
-                                <p class="text-slate-800 text-sm sm:text-base">April 21-22, 2026</p>
+                                <p class="text-slate-800 text-sm sm:text-base">14th-18th September 2026</p>
                             </div>
                         </div>
                     </div>
@@ -2265,8 +2188,8 @@
                                 <h4 class="font-semibold text-slate-800 mb-2 text-sm sm:text-base">Need Assistance?</h4>
                                 <p class="text-slate-800 text-xs sm:text-sm mb-3">Our travel team is here to help with
                                     logistics, accommodation, and any questions you might have.</p><a
-                                    href="mailto:secretariat@paan.africa"
-                                    class="text-[#84C1DA] hover:text-red-500 transition-colors font-medium text-xs sm:text-sm break-all">secretariat@paan.africa</a>
+                                    href="#"
+                                    class="text-[#84C1DA] hover:text-red-500 transition-colors font-medium text-xs sm:text-sm break-all">www.kicp.co.ke </a>
                             </div>
                             <button
                                 class="w-full bg-slate-800 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg hover:bg-red-500 transition-all duration-300 font-medium shadow-lg flex items-center justify-center gap-2 text-sm sm:text-base">
@@ -2291,18 +2214,16 @@
                             open: 1,
                             items: [
                                 { id: 1, title: 'Who Should Attend?', content: `
-                                    <p>Creators, freelancers, agencies, tech founders, investors, and policy makers.</p>
+                                    <p> Professionals,Accountants,Agencies, tech innovators, investors, and policy leaders driving the future of professional economy.</p>
                                 `},
                                 { id: 2, title: 'Accommodation', content: `
                                     <p>
-                                        We've secured special rates at partner hotels near the venue. Options range from luxury hotels to budget-friendly accommodations. All partner hotels offer complimentary airport transfers and are within walking distance
-                                        of the summit venue.
+                                        We've secured special rates at partner hotels near the venue. Options range from luxury hotels to budget-friendly accommodations. All partner hotels offer complimentary airport transfers and are within walking distance of the summit venue.
                                     </p>
                                 ` },
                                 { id: 3, title: 'Visa Requirements', content: `
                                     <p>
-                                        Most African citizens can enter Kenya visa-free or with visa-on-arrival. International visitors should check visa requirements based on their nationality. We can provide invitation letters to support visa applications
-                                        if needed.
+                                        Most African citizens can enter Kenya visa-free or with visa-on-arrival. International visitors should check visa requirements based on their nationality. We can provide invitation letters to support visa applications if needed.
                                     </p>
                                 ` },
                                 { id: 4, title: 'Transportation', content: `
@@ -2312,8 +2233,7 @@
                                 ` },
                                 { id: 5, title: 'Safety &amp; Security', content: `
                                     <p>
-                                        Nairobi is generally safe for visitors, especially in Westands where our venue is located. We work with local security partners to ensure a safe environment. Basic safety precautions are recommended as in any major
-                                        city.
+                                        Nairobi is generally safe for visitors, especially in Westands where our venue is located. We work with local security partners to ensure a safe environment. Basic safety precautions are recommended as in any major city.
                                     </p>
                                 ` },
                             ],
