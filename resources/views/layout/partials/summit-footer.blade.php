@@ -5,7 +5,8 @@
         <div class="border-t border-white/20">
             <div class="max-w-6xl mx-auto px-6 py-6">
                 <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-                    <div class="flex items-center gap-2"><span class="text-white/80 text-sm">© 2026 Pan African Agency Network. All rights reserved.</span>
+                    <div class="flex items-center gap-2"><span class="text-white/80 text-sm">© 2026 KICP Conference.
+                            All rights reserved.</span>
                     </div>
                     <div class="flex gap-6 text-sm"><a href="/privacy-policy"
                                                        class="text-white/80 hover:text-red-500 transition-colors">Privacy
