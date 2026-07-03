@@ -22,17 +22,18 @@
                 class="hidden lg-custom:flex lg-custom:items-center lg-custom:space-x-1 xl:space-x-2 w-full justify-end">
                 <div class="flex space-x-1 xl:space-x-2 flex-grow justify-center md:justify-center">
                     <a href="{{ route('/') }}"
-                        class="text-slate-800 bg-yellow-500 px-2 sm:px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer text-xs sm:text-sm font-medium">Home</a>
+                        class="text-slate-800 bg-blue-500 px-2 sm:px-3 py-1.5 rounded-full transition-all duration-300
+                        cursor-pointer text-xs sm:text-sm font-medium">Home</a>
                     <a
                         href="@if(!request()->routeIs('/')) {{ route('/') }}#program @else #program @endif"
-                        class="text-[#172840] hover:text-gray-900 hover:bg-[#F2B706] px-2 sm:px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer text-xs sm:text-sm">
+                        class="text-[#172840] hover:text-gray-900 hover:bg-[#175C93] px-2 sm:px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer text-xs sm:text-sm">
                         Sessions
                     </a>
                     <a href="@if(!request()->routeIs('/')) {{ route('/') }}#agenda @else #agenda @endif"
-                       class="text-[#172840] hover:text-gray-900 hover:bg-[#F2B706] px-2 sm:px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer text-xs sm:text-sm">Programme</a>
+                       class="text-[#172840] hover:text-gray-900 hover:bg-[#175C93] px-2 sm:px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer text-xs sm:text-sm">Programme</a>
                     <a
                         href="@if(!request()->routeIs('/')) {{ route('/') }}#participants @else #participants @endif"
-                        class="text-[#172840] hover:text-gray-900 hover:bg-[#F2B706] px-2 sm:px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer text-xs sm:text-sm">Who
+                        class="text-[#172840] hover:text-gray-900 hover:bg-[#175C93] px-2 sm:px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer text-xs sm:text-sm">Who
                         can attend</a>
                     <a
                         href="@if(!request()->routeIs('/')) {{ route('/') }}#speakers-section @else #speakers-section @endif"
@@ -146,29 +147,29 @@
                     </div>
                 </div>
                 <a href="#home"
-                   class="text-slate-800 bg-yellow-500 block px-3 sm:px-4 py-2 sm:py-3 rounded-full transition-all duration-300 cursor-pointer text-sm sm:text-base font-medium">Home
+                   class="text-slate-800 bg-blue-600 block px-3 sm:px-4 py-2 sm:py-3 rounded-full transition-all duration-300 cursor-pointer text-sm sm:text-base font-medium">Home
                 </a>
                 <a href="{{ route('about') }}"
-                   class="text-slate-800 bg-yellow-500 block px-3 sm:px-4 py-2 sm:py-3 rounded-full transition-all duration-300 cursor-pointer text-sm sm:text-base font-medium">About
+                   class="text-slate-800 bg-blue-600 block px-3 sm:px-4 py-2 sm:py-3 rounded-full transition-all duration-300 cursor-pointer text-sm sm:text-base font-medium">About
                 </a>
                 <a
                     href="#program"
-                    class="text-[#172840] hover:text-gray-900 hover:bg-[#F2B706] block px-3 sm:px-4 py-2 sm:py-3 rounded-full transition-all duration-300 cursor-pointer text-sm sm:text-base">Sessions</a>
+                    class="text-[#172840] hover:text-gray-900 hover:bg-[#175C93] block px-3 sm:px-4 py-2 sm:py-3 rounded-full transition-all duration-300 cursor-pointer text-sm sm:text-base">Sessions</a>
                 <a href="#agenda"
-                   class="text-[#172840] hover:text-gray-900 hover:bg-[#F2B706] block px-3 sm:px-4 py-2 sm:py-3 rounded-full transition-all duration-300 cursor-pointer text-sm sm:text-base">Programme</a><a
+                   class="text-[#172840] hover:text-gray-900 hover:bg-[#175C93] block px-3 sm:px-4 py-2 sm:py-3 rounded-full transition-all duration-300 cursor-pointer text-sm sm:text-base">Programme</a><a
                     href="#participants"
-                    class="text-[#172840] hover:text-gray-900 hover:bg-[#F2B706] block px-3 sm:px-4 py-2 sm:py-3 rounded-full transition-all duration-300 cursor-pointer text-sm sm:text-base">Who
+                    class="text-[#172840] hover:text-gray-900 hover:bg-[#175C93] block px-3 sm:px-4 py-2 sm:py-3 rounded-full transition-all duration-300 cursor-pointer text-sm sm:text-base">Who
                     can attend</a><a href="#speakers-section"
-                                     class="text-[#172840] hover:text-gray-900 hover:bg-[#F2B706] block px-3 sm:px-4 py-2 sm:py-3 rounded-full transition-all duration-300 cursor-pointer text-sm sm:text-base">Speakers</a>
+                                     class="text-[#172840] hover:text-gray-900 hover:bg-[#175C93] block px-3 sm:px-4 py-2 sm:py-3 rounded-full transition-all duration-300 cursor-pointer text-sm sm:text-base">Speakers</a>
                 <a
                     href="#paan-awards-section"
-                    class="text-[#172840] hover:text-gray-900 hover:bg-[#F2B706] block px-3 sm:px-4 py-2 sm:py-3 rounded-full transition-all duration-300 cursor-pointer text-sm sm:text-base">Awards</a>
+                    class="text-[#172840] hover:text-gray-900 hover:bg-[#175C93] block px-3 sm:px-4 py-2 sm:py-3 rounded-full transition-all duration-300 cursor-pointer text-sm sm:text-base">Awards</a>
                 <a href="#exhibition"
-                   class="text-[#172840] hover:text-gray-900 hover:bg-[#F2B706] block px-3 sm:px-4 py-2 sm:py-3 rounded-full transition-all duration-300 cursor-pointer text-sm sm:text-base">Exhibit</a><a
+                   class="text-[#172840] hover:text-gray-900 hover:bg-[#175C93] block px-3 sm:px-4 py-2 sm:py-3 rounded-full transition-all duration-300 cursor-pointer text-sm sm:text-base">Exhibit</a><a
                     href="#tickets-section"
-                    class="text-[#172840] hover:text-gray-900 hover:bg-[#F2B706] block px-3 sm:px-4 py-2 sm:py-3 rounded-full transition-all duration-300 cursor-pointer text-sm sm:text-base">Tickets</a><a
+                    class="text-[#172840] hover:text-gray-900 hover:bg-[#175C93] block px-3 sm:px-4 py-2 sm:py-3 rounded-full transition-all duration-300 cursor-pointer text-sm sm:text-base">Tickets</a><a
                     href="#plan-your-trip"
-                    class="text-[#172840] hover:text-gray-900 hover:bg-[#F2B706] block px-3 sm:px-4 py-2 sm:py-3 rounded-full transition-all duration-300 cursor-pointer text-sm sm:text-base">Plan</a>
+                    class="text-[#172840] hover:text-gray-900 hover:bg-[#175C93] block px-3 sm:px-4 py-2 sm:py-3 rounded-full transition-all duration-300 cursor-pointer text-sm sm:text-base">Plan</a>
                 <div class="px-3 sm:px-4 py-3 mt-4">
                     <a href="{{ route('register') }}"
                         class="bg-red-500 text-white px-4 py-2 text-sm rounded-full hover:bg-red-500/90 transition-all duration-300 font-medium shadow-lg flex items-center justify-center gap-2 w-full">
