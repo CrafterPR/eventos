@@ -7,7 +7,8 @@
             <div class="relative h-full flex items-center justify-center pt-16 sm:pt-24 md:pt-32">
                 <div class="mx-auto max-w-6xl w-full px-4 sm:px-6">
                     <div class="max-w-2xl mx-auto text-center">
-                        <h1 class="text-2xl sm:text-3xl md:text-4xl font-normal text-yellow-400 mb-6 sm:mb-8 leading-tight"
+                        <h1 class="text-2xl sm:text-3xl md:text-4xl font-normal text-blue-400 mb-6 sm:mb-8
+                        leading-tight"
                             style="opacity: 1; transform: none;">Create. Connect. Commercialize.</h1>
                         <div class="flex flex-col sm:flex-row gap-2 sm:gap-4 mb-6 sm:mb-10 justify-center"
                              style="opacity: 1; transform: none;">
@@ -164,7 +165,7 @@
                     <div
                         class="bg-slate-800 rounded-lg shadow-lg p-5 sm:p-7 md:p-8 flex flex-col h-full relative overflow-hidden group transition-all duration-300 hover:shadow-xl">
                         <div
-                            class="absolute inset-0 bg-gradient-to-t from-[#F25849] to-[#172840] rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            class="absolute inset-0 bg-gradient-to-t from-[#175C93] to-[#7BC7F0] rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                         <div
                             class="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-40 transition-opacity duration-300 z-[1]"
                             style="background-image:url('https://ik.imagekit.io/nkmvdjnna/PAAN/summit/summit-objective-pattern.webp');background-size:cover;background-position:center;background-repeat:repeat"></div>
