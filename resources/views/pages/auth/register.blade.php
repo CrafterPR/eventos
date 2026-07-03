@@ -15,13 +15,14 @@
                 <div class="mx-auto max-w-6xl w-full px-3 sm:px-4">
                     <div class="max-w-2xl" style="opacity: 1; transform: none;">
                         <h1 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold uppercase text-yellow-500 mb-3 sm:mb-4 md:mb-6 leading-tight" style="opacity: 1; transform: none;">
-                            Register for PAAN Summit 2026
+                            Register for KICP Conference 2026
                         </h1>
                         <div class="flex flex-col sm:flex-row gap-2 sm:gap-4 mb-3 sm:mb-4 md:mb-6" style="opacity: 1; transform: none;">
                             <div class="flex flex-col sm:flex-row gap-2 sm:gap-4">
                                 <div class="flex items-center gap-2 text-white text-xs sm:text-sm">
                                     <span class="break-words sm:whitespace-nowrap">
-                                        <span class="font-bold">Create. Connect. Commercialize.</span> &nbsp; Sarit Center, Nairobi • 22-23 Apr 2026
+                                        <span class="font-bold">Create. Connect. Commercialize.</span>PrideInn
+                                        Paradise Beach Resort Spa, Mombasa, 18th September 2026
                                     </span>
                                 </div>
                             </div>
@@ -30,7 +31,7 @@
                             Limited early-bird discounts available.
                         </p>
                         <div class="text-xs sm:text-sm md:text-base font-normal text-white mb-4 sm:mb-6 leading-tight" style="opacity: 1; transform: none;">
-                            <p class="mb-2">Early-bird price increases in:</p>
+
                             <div class="flex flex-wrap gap-2 sm:gap-4">
                                 <div class="bg-slate-800 px-3 py-2 rounded-lg text-center min-w-[60px] backdrop-blur-sm" style="opacity: 1; transform: none;">
                                     <div id="countdown-days" class="text-lg sm:text-xl font-bold">11</div>
@@ -234,7 +235,10 @@
                                                 <div class="bg-blue-50 border border-[#84C1D9]/30 rounded-xl p-5 mb-6">
                                                     <div class="flex items-start gap-3">
                                                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-5 h-5 text-[#84C1D9] mt-0.5 flex-shrink-0 iconify iconify--mdi" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M11 9h2V7h-2m1 13c-4.41 0-8-3.59-8-8s3.59-8 8-8s8 3.59 8 8s-3.59 8-8 8m0-18A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2m-1 15h2v-6h-2z"></path></svg>
-                                                        <p class="text-sm text-gray-700 leading-relaxed">By continuing, you agree to receive updates about PAAN Summit 2026. We respect your privacy and won't spam you.</p>
+                                                        <p class="text-sm text-gray-700 leading-relaxed">By
+                                                            continuing, you agree to receive updates about KICP
+                                                            Conference
+                                                            2026. We respect your privacy and won't spam you.</p>
                                                     </div>
                                                 </div>
                                                 <div class="text-center">
