@@ -1264,7 +1264,7 @@
                                                     <div class="text-xs sm:text-sm font-bold text-[#84C1D9] mb-1">19:00
                                                         – 21:30
                                                     </div>
-                                                    <h5 class="text-[#1a365d] text-sm sm:text-base">PAAN Africa Creative
+                                                    <h5 class="text-[#1a365d] text-sm sm:text-base">KICP Africa Creative
                                                         Excellence Awards Gala Celebrating excellence in campaigns,
                                                         creativity, and collaboration across the continent.</h5>
                                                 </div>
@@ -1284,7 +1284,7 @@
                     <h2 class="text-2xl sm:text-3xl font-normal text-slate-800 mb-3 sm:mb-4">Who Should Join</h2>
                     <p class="text-sm sm:text-base md:text-lg text-gray-600 px-2">Connect with diverse professionals shaping opportunity to connect, learn and grow at the forefront of industry</p>
                 </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
                     <div
                         class="group relative bg-[#E6F2F7] rounded-xl p-4 sm:p-5 md:p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-[#84c1d91a] overflow-hidden">
                         <div
@@ -1294,155 +1294,13 @@
                             style="background-image:url('https://ik.imagekit.io/nkmvdjnna/PAAN/summit/who-should-join/card-pattern.webp');background-repeat:repeat;background-position:center;background-size:200px 200px"></div>
                         <div class="relative z-10">
                             <div
-                                class="w-10 h-10 sm:w-12 sm:h-12 mb-3 sm:mb-4 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                                <img alt="Creative Industry Leaders" class="w-full h-full"
-                                     src="{{ asset('assets/media/images/icon-1.webp') }}">
-                            </div>
-                            <h3 class="text-base sm:text-lg font-bold text-slate-800 mb-1.5 sm:mb-2">Industry Professionals</h3>
-                            <p class="text-gray-600 text-xs sm:text-sm leading-relaxed">Accountants, auditors, financial analysts,HR professionals, procurement specialists, marketers,ICT and data professionals</p>
-                        </div>
-                    </div>
-                    <div
-                        class="group relative bg-[#E6F2F7] rounded-xl p-4 sm:p-5 md:p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-[#84c1d91a] overflow-hidden">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-b from-[#84C1DA]/0 to-yellow-500/0 group-hover:from-[#84c1d94d] group-hover:to-yellow-500/30 transition-all duration-300 rounded-xl z-[1]"></div>
-                        <div
-                            class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-[2]"
-                            style="background-image:url('https://ik.imagekit.io/nkmvdjnna/PAAN/summit/who-should-join/card-pattern.webp');background-repeat:repeat;background-position:center;background-size:200px 200px"></div>
-                        <div class="relative z-10">
-                            <div
-                                class="w-10 h-10 sm:w-12 sm:h-12 mb-3 sm:mb-4 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                                <img alt="Creative Industry Leaders" class="w-full h-full"
-                                     src="{{ asset('assets/media/images/icon-2.webp') }}">
-                            </div>
-                            <h3 class="text-base sm:text-lg font-bold text-slate-800 mb-1.5 sm:mb-2">Business & Corporate Leaders</h3>
-                            <p class="text-gray-600 text-xs sm:text-sm leading-relaxed">CEOs, Managing Directors, Founders,Senior managers and decision-makers
-                                They bring strategic perspectives and real-world business experience.
-                            </p>
-                        </div>
-                    </div>
-                    <div
-                        class="group relative bg-[#E6F2F7] rounded-xl p-4 sm:p-5 md:p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-[#84c1d91a] overflow-hidden">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-b from-[#84C1DA]/0 to-yellow-500/0 group-hover:from-[#84c1d94d] group-hover:to-yellow-500/30 transition-all duration-300 rounded-xl z-[1]"></div>
-                        <div
-                            class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-[2]"
-                            style="background-image:url('https://ik.imagekit.io/nkmvdjnna/PAAN/summit/who-should-join/card-pattern.webp');background-repeat:repeat;background-position:center;background-size:200px 200px"></div>
-                        <div class="relative z-10">
-                            <div
-                                class="w-10 h-10 sm:w-12 sm:h-12 mb-3 sm:mb-4 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                                <img alt="Creative Industry Leaders" class="w-full h-full"
-                                     src="{{ asset('assets/media/images/icon-3.webp') }}">
-                            </div>
-                            <h3 class="text-base sm:text-lg font-bold text-slate-800 mb-1.5 sm:mb-2">Government & Policy Makers</h3>
-                            <p class="text-gray-600 text-xs sm:text-sm leading-relaxed">Regulators, policymakers, and public sector leaders
-                                Important for shaping conversations around policy, compliance, and economic direction.</p>
-                        </div>
-                    </div>
-                    <div
-                        class="group relative bg-[#E6F2F7] rounded-xl p-4 sm:p-5 md:p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-[#84c1d91a] overflow-hidden">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-b from-[#84C1DA]/0 to-yellow-500/0 group-hover:from-[#84c1d94d] group-hover:to-yellow-500/30 transition-all duration-300 rounded-xl z-[1]"></div>
-                        <div
-                            class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-[2]"
-                            style="background-image:url('https://ik.imagekit.io/nkmvdjnna/PAAN/summit/who-should-join/card-pattern.webp');background-repeat:repeat;background-position:center;background-size:200px 200px"></div>
-                        <div class="relative z-10">
-                            <div
-                                class="w-10 h-10 sm:w-12 sm:h-12 mb-3 sm:mb-4 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                                <img alt="Creative Industry Leaders" class="w-full h-full"
-                                     src="{{ asset('assets/media/images/icon-4.webp') }}">
-                            </div>
-                            <h3 class="text-base sm:text-lg font-bold text-slate-800 mb-1.5 sm:mb-2">Academia & Researchers</h3>
-                            <p class="text-gray-600 text-xs sm:text-sm leading-relaxed">Lecturers, scholars, and industry researchers
-                                They contribute thought leadership, data-driven insights, and innovation.</p>
-                        </div>
-                    </div>
-                    <div
-                        class="group relative bg-[#E6F2F7] rounded-xl p-4 sm:p-5 md:p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-[#84c1d91a] overflow-hidden">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-b from-[#84C1DA]/0 to-yellow-500/0 group-hover:from-[#84c1d94d] group-hover:to-yellow-500/30 transition-all duration-300 rounded-xl z-[1]"></div>
-                        <div
-                            class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-[2]"
-                            style="background-image:url('https://ik.imagekit.io/nkmvdjnna/PAAN/summit/who-should-join/card-pattern.webp');background-repeat:repeat;background-position:center;background-size:200px 200px"></div>
-                        <div class="relative z-10">
-                            <div
-                                class="w-10 h-10 sm:w-12 sm:h-12 mb-3 sm:mb-4 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                                <img alt="Creative Industry Leaders" class="w-full h-full"
-                                     src="{{ asset('assets/media/images/icon-5.webp') }}">
-                            </div>
-                            <h3 class="text-base sm:text-lg font-bold text-slate-800 mb-1.5 sm:mb-2">Students & Emerging Professionals</h3>
-                            <p class="text-gray-600 text-xs sm:text-sm leading-relaxed">Kasneb students and recent graduates
-                                Key for future talent development, mentorship, and career exposure.</p>
-                        </div>
-                    </div>
-                    <div
-                        class="group relative bg-[#E6F2F7] rounded-xl p-4 sm:p-5 md:p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-[#84c1d91a] overflow-hidden">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-b from-[#84C1DA]/0 to-yellow-500/0 group-hover:from-[#84c1d94d] group-hover:to-yellow-500/30 transition-all duration-300 rounded-xl z-[1]"></div>
-                        <div
-                            class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-[2]"
-                            style="background-image:url('https://ik.imagekit.io/nkmvdjnna/PAAN/summit/who-should-join/card-pattern.webp');background-repeat:repeat;background-position:center;background-size:200px 200px"></div>
-                        <div class="relative z-10">
-                            <div
-                                class="w-10 h-10 sm:w-12 sm:h-12 mb-3 sm:mb-4 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                                class="w-10 h-10 sm:w-12 sm:h-12 mb-4 sm:mb-4 flex items-center justify-center
+                                group-hover:scale-110 transition-transform duration-300">
                                 <img alt="Creative Industry Leaders" class="w-full h-full"
                                      src="{{ asset('assets/media/images/icon-6.webp') }}">
                             </div>
-                            <h3 class="text-base sm:text-lg font-bold text-slate-800 mb-1.5 sm:mb-2">Industry Bodies & Professional Associations</h3>
-                            <p class="text-gray-600 text-xs sm:text-sm leading-relaxed">Accounting, HR, marketing, legal, and procurement bodies
-                                They strengthen credibility and professional alignment.</p>
-                        </div>
-                    </div>
-                    <div
-                        class="group relative bg-[#E6F2F7] rounded-xl p-4 sm:p-5 md:p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-[#84c1d91a] overflow-hidden">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-b from-[#84C1DA]/0 to-yellow-500/0 group-hover:from-[#84c1d94d] group-hover:to-yellow-500/30 transition-all duration-300 rounded-xl z-[1]"></div>
-                        <div
-                            class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-[2]"
-                            style="background-image:url('https://ik.imagekit.io/nkmvdjnna/PAAN/summit/who-should-join/card-pattern.webp');background-repeat:repeat;background-position:center;background-size:200px 200px"></div>
-                        <div class="relative z-10">
-                            <div
-                                class="w-10 h-10 sm:w-12 sm:h-12 mb-3 sm:mb-4 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                                <img alt="Creative Industry Leaders" class="w-full h-full"
-                                     src="{{ asset('assets/media/images/icon-7.webp') }}">
-                            </div>
-                            <h3 class="text-base sm:text-lg font-bold text-slate-800 mb-1.5 sm:mb-2">Entrepreneurs & Startups</h3>
-                            <p class="text-gray-600 text-xs sm:text-sm leading-relaxed">SME owners, innovators, and founders
-                                They bring fresh perspectives, agility, and innovation into discussions.</p>
-                        </div>
-                    </div>
-                    <div
-                        class="group relative bg-[#E6F2F7] rounded-xl p-4 sm:p-5 md:p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-[#84c1d91a] overflow-hidden">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-b from-[#84C1DA]/0 to-yellow-500/0 group-hover:from-[#84c1d94d] group-hover:to-yellow-500/30 transition-all duration-300 rounded-xl z-[1]"></div>
-                        <div
-                            class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-[2]"
-                            style="background-image:url('https://ik.imagekit.io/nkmvdjnna/PAAN/summit/who-should-join/card-pattern.webp');background-repeat:repeat;background-position:center;background-size:200px 200px"></div>
-                        <div class="relative z-10">
-                            <div
-                                class="w-10 h-10 sm:w-12 sm:h-12 mb-3 sm:mb-4 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                                <img alt="Creative Industry Leaders" class="w-full h-full"
-                                     src="{{ asset('assets/media/images/icon-8.webp') }}">
-                            </div>
-                            <h3 class="text-base sm:text-lg font-bold text-slate-800 mb-1.5 sm:mb-2">Development Partners & NGOs</h3>
-                            <p class="text-gray-600 text-xs sm:text-sm leading-relaxed">Organizations working in economic development, governance, and education
-                                They add a global and impact-driven perspective.</p>
-                        </div>
-                    </div>
-                    <div
-                        class="group relative bg-[#E6F2F7] rounded-xl p-4 sm:p-5 md:p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-[#84c1d91a] overflow-hidden">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-b from-[#84C1DA]/0 to-yellow-500/0 group-hover:from-[#84c1d94d] group-hover:to-yellow-500/30 transition-all duration-300 rounded-xl z-[1]"></div>
-                        <div
-                            class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-[2]"
-                            style="background-image:url('https://ik.imagekit.io/nkmvdjnna/PAAN/summit/who-should-join/card-pattern.webp');background-repeat:repeat;background-position:center;background-size:200px 200px"></div>
-                        <div class="relative z-10">
-                            <div
-                                class="w-10 h-10 sm:w-12 sm:h-12 mb-3 sm:mb-4 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                                <img alt="Creative Industry Leaders" class="w-full h-full"
-                                     src="{{ asset('assets/media/images/icon-9.webp') }}">
-                            </div>
-                            <h3 class="text-base sm:text-lg font-bold text-slate-800 mb-1.5 sm:mb-2">Sponsors & Corporate Partners</h3>
+                            <h3 class="text-base sm:text-lg font-bold text-slate-800 mb-1.5 sm:mb-2">Corporate
+                                Partners</h3>
                             <p class="text-gray-600 text-xs sm:text-sm leading-relaxed">Banks, consulting firms, tech companies, insurance firms
                                 They support the event and showcase solutions/products to professionals.</p>
                         </div>
@@ -1456,13 +1314,17 @@
                             style="background-image:url('https://ik.imagekit.io/nkmvdjnna/PAAN/summit/who-should-join/card-pattern.webp');background-repeat:repeat;background-position:center;background-size:200px 200px"></div>
                         <div class="relative z-10">
                             <div
-                                class="w-10 h-10 sm:w-12 sm:h-12 mb-3 sm:mb-4 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                                class="w-10 h-10 sm:w-12 sm:h-12 mb-4 sm:mb-4 flex items-center justify-center
+                                group-hover:scale-110 transition-transform duration-300">
                                 <img alt="Creative Industry Leaders" class="w-full h-full"
-                                     src="{{ asset('assets/media/images/icon-10.webp') }}">
+                                     src="{{ asset('assets/media/images/icon-4.webp') }}">
                             </div>
                             <h3 class="text-base sm:text-lg font-bold text-slate-800 mb-1.5 sm:mb-2">Media & Content Creators</h3>
-                            <p class="text-gray-600 text-xs sm:text-sm leading-relaxed">Business journalists, PR agencies, digital creators
-                                They amplify the conference reach and visibility.</p>
+                            <p class="text-gray-600 text-xs sm:text-sm leading-relaxed">Business journalists, PR
+                                agencies, digital creators <br />
+                                They amplify the conference reach and visibility.
+
+                            </p>
                         </div>
                     </div>
                     <div
@@ -1474,15 +1336,18 @@
                             style="background-image:url('https://ik.imagekit.io/nkmvdjnna/PAAN/summit/who-should-join/card-pattern.webp');background-repeat:repeat;background-position:center;background-size:200px 200px"></div>
                         <div class="relative z-10">
                             <div
-                                class="w-10 h-10 sm:w-12 sm:h-12 mb-3 sm:mb-4 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                                class="w-10 h-10 sm:w-12 sm:h-12 mb-4 sm:mb-4 flex items-center justify-center
+                                group-hover:scale-110 transition-transform duration-300">
                                 <img alt="Creative Industry Leaders" class="w-full h-full"
-                                     src="{{ asset('assets/media/images/icon-4.webp') }}">
+                                     src="{{ asset('assets/media/images/icon-3.webp') }}">
                             </div>
-                            <h3 class="text-base sm:text-lg font-bold text-slate-800 mb-1.5 sm:mb-2">International Delegates</h3>
+                            <h3 class="text-base sm:text-lg font-bold text-slate-800 mb-1.5 sm:mb-2">International
+                                delegates</h3>
                             <p class="text-gray-600 text-xs sm:text-sm leading-relaxed">Global professionals, speakers, and institutions
                                 They bring global best practices and cross-border insights.</p>
                         </div>
                     </div>
+
                 </div>
             </section>
         </div>
@@ -1718,23 +1583,12 @@
                     <div class="inline-flex animate-marquee-right">
                         <div class="flex space-x-4 sm:space-x-6 md:space-x-8 whitespace-nowrap">
                             <div class="flex items-center space-x-4 sm:space-x-6 md:space-x-8"><span
-                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">Finance & Accounting Professionals</span><span
+                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800
+                                    whitespace-nowrap">Corporate Partners</span><span
                                     class="text-2xl sm:text-3xl text-red-500">•</span><span
-                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">Business & Corporate Leaders</span>
-                                <span class="text-2xl sm:text-3xl text-[#84C1DA]">•</span><span
-                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">ICT & Digital Transformation Experts</span><span
-                                    class="text-2xl sm:text-3xl text-slate-800">•</span>
-                                <span
-                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">Human Resource & Organizational Development Professionals</span>
-                                <span class="text-2xl sm:text-3xl text-yellow-500">•</span><span
-                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">Marketing, Media & Communication Professionals</span><span
-                                    class="text-2xl sm:text-3xl text-yellow-500">•</span></div>
-                            <div class="flex items-center space-x-4 sm:space-x-6 md:space-x-8"><span
-                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">Procurement & Supply Chain Professionals</span><span
-                                    class="text-2xl sm:text-3xl text-red-500">•</span>
-                              <span
-                                    class="text-2xl sm:text-3xl text-slate-800">
-                                    •</span>
+                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800
+                                    whitespace-nowrap">Media & Content creators</span>
+
                                 </div>
                         </div>
                     </div>
@@ -1743,20 +1597,9 @@
                     <div class="inline-flex animate-marquee-left">
                         <div class="flex space-x-4 sm:space-x-6 md:space-x-8 whitespace-nowrap">
                             <div class="flex items-center space-x-4 sm:space-x-6 md:space-x-8"><span
-                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">Legal & Governance Experts</span>
-                                <span class="text-2xl sm:text-3xl text-[#84C1DA]">•</span><span
-                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">Entrepreneurs & Business Owners</span><span
-                                    class="text-2xl sm:text-3xl text-slate-800">•</span>
-                                <span
-                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">Academia, Researchers & Thought Leaders</span>
-                                <span class="text-2xl sm:text-3xl text-yellow-500">•</span><span
-                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">Public Sector & Policy Makers </span><span
-                                    class="text-2xl sm:text-3xl text-yellow-500">•</span></div>
-                            <div class="flex items-center space-x-4 sm:space-x-6 md:space-x-8"><span
-                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">Development Partners & NGOs</span><span
-                                    class="text-2xl sm:text-3xl text-red-500">•</span><span
-                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">Students & Emerging Professionals</span>
-                                <span class="text-2xl sm:text-3xl text-[#84C1DA]">•</span>
+                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800
+                                    whitespace-nowrap">International Delegates</span>
+
                             </div>
                         </div>
                     </div>
@@ -1772,7 +1615,7 @@
                 <div class="flex flex-col sm:flex-row justify-center items-center mb-6 sm:mb-8 gap-4">
                     <div>
                         <h3 class="text-3xl sm:text-4xl text-white font-normal">Beyond the sessions</h3>
-                        <p class="text-base sm:text-lg md:text-xl font-normal text-white mb-4">Experience Nairobi and
+                        <p class="text-base sm:text-lg md:text-xl font-normal text-white mb-4">Experience Mombasa and
                             make connections that last.</p>
                     </div>
                 </div>
@@ -1832,7 +1675,8 @@
             class="relative py-6 sm:py-8 md:py-12 lg:py-16 xl:py-20 overflow-hidden h-[320px] sm:h-[400px] md:h-[450px] lg:h-[500px] xl:h-[550px]"
             id="exhibition">
             <div class="absolute inset-0 bg-cover bg-center sm:bg-fixed bg-scroll"
-                 style="background-image:url('https://ik.imagekit.io/nkmvdjnna/PAAN/summit/exhibitor.png');filter:brightness(0.8);background-position:center center"></div>
+                 style="background-image:url('{{ asset('assets/media/images/exhibition.webp') }}');filter:brightness(0.8);background-position:center
+                 center"></div>
             <div class="absolute inset-0 bg-slate-800/40 sm:bg-slate-800/30"></div>
             <div class="absolute inset-0 bg-gradient-to-l from-yellow-500/30 to-transparent"></div>
             <section class="relative mx-auto max-w-7xl px-3 sm:px-4 md:px-6 lg:px-8 h-full flex items-center">
@@ -1840,10 +1684,14 @@
                     <div
                         class="flex flex-col justify-center items-center text-center sm:text-left sm:items-start space-y-4 sm:space-y-6 md:space-y-8">
                         <h3 class="text-lg sm:text-2xl md:text-3xl lg:text-4xl text-white font-normal leading-tight max-w-3xl">
-                            Showcase your brand at Africa's Borderless Creative Economy Summit.</h3>
+                            KICP Exhibition Zone: Your Gateway to Professional Future</h3>
                         <p class="text-sm sm:text-base md:text-lg font-normal text-white/90 leading-relaxed max-w-2xl">
-                            Join leading agencies, startups, and creative innovators in the Exhibition Zone. Connect
-                            with investors and partners at Africa's most influential creative economy gathering.</p>
+                            Elevate your brand and engage with a dynamic community at the KICP Exhibition Zone.
+                            This pivotal forum connects leading agencies, innovative startups, and creative professionals for unparalleled learning and exchange.
+                        </p>
+                        <p>
+                            Showcase your brand among thought leaders and actively shape the future of the professional landscape. Seize this unique opportunity to forge powerful connections with investors and partners.
+                        </p>
                     </div>
                     <div class="flex justify-center sm:justify-start mt-6 sm:mt-8 md:mt-10">
                         <button
@@ -1864,16 +1712,16 @@
                 <div class="flex flex-col text-center mb-6 sm:mb-8 md:mb-12">
                     <h3 class="text-xl sm:text-3xl md:text-4xl text-slate-800 font-bold">Secure Your Spot</h3>
                     <p class="text-sm sm:text-base md:text-lg lg:text-xl font-normal text-slate-800 mb-4 sm:mb-6 md:mb-8 leading-relaxed">
-                        Deal rooms, clinics, awards. Register now.</p>
+                        Deal rooms, clinics. Register now.</p>
                 </div>
                 <div class="bg-[#F3F9FB] rounded-2xl shadow-2xl overflow-hidden">
                     <div class="flex flex-col lg:flex-row">
                         <div class="flex-1 text-slate-800">
                             <div class="p-4 sm:p-5 md:p-6"
                                  style="background:linear-gradient(to bottom, #CA983C, #F9EC97, #CA983C)">
-                                <h2 class="text-2xl sm:text-3xl md:text-4xl mb-2 sm:mb-3 text-slate-800">PAAN SUMMIT
-                                    2026</h2>
-                                <p class="text-base text-slate-800/90">Africa Borderless Creative Economy Summit</p>
+                                <h2 class="text-2xl sm:text-3xl md:text-4xl mb-2 sm:mb-3 text-slate-800">KICP 2026
+                                    Conference</h2>
+                                <p class="text-base text-slate-800/90">The professional Landscape in the fourth Industrial revolution</p>
                             </div>
                             <div
                                 class="bg-[#F3F9FB] p-4 sm:p-5 mb-6 sm:mb-8 flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-6 border-b-2 border-slate-800 ml-4 sm:ml-6">
@@ -1899,7 +1747,7 @@
                                         <path fill="currentColor"
                                               d="M12 11.5A2.5 2.5 0 0 1 9.5 9A2.5 2.5 0 0 1 12 6.5A2.5 2.5 0 0 1 14.5 9a2.5 2.5 0 0 1-2.5 2.5M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7"></path>
                                     </svg>
-                                    <span class="text-sm sm:text-base font-normal text-slate-800">TBD</span>
+                                    <span class="text-sm sm:text-base font-normal text-slate-800">PrideInn Paradise Beach Resort Spa, Mombasa </span>
                                 </div>
                             </div>
                             <div class="mb-6 sm:mb-8 text-slate-800/90 ml-4">
@@ -1913,7 +1761,8 @@
                                             <path fill="currentColor"
                                                   d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10s10-4.5 10-10S17.5 2 12 2m-2 15l-5-5l1.41-1.41L10 14.17l7.59-7.59L19 8z"></path>
                                         </svg>
-                                        <span class="text-sm sm:text-base md:text-lg">Actionable sessions &amp; workshops</span>
+                                        <span class="text-sm sm:text-base md:text-lg">Actionable sessions &amp;
+                                            networking</span>
                                     </li>
                                     <li class="flex items-start gap-3">
                                         <svg xmlns="http://www.w3.org/2000/svg"
@@ -1995,116 +1844,111 @@
                                 <div
                                     class="bg-white w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden relative flex items-center justify-center flex-shrink-0 border border-gray-100"
                                     style="background-color:#1a1a1a"><img
-                                        src="{{ asset('assets/media/images/partners/aia.svg') }}" alt="AIA Logo"
+                                        src="{{ asset('assets/media/images/partners/psv.webp') }}" alt="PSV Logo"
                                         class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain"></div>
                                 <div
                                     class="bg-white w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden relative flex items-center justify-center flex-shrink-0 border border-gray-100">
-                                    <img src="{{ asset('assets/media/images/partners/IAN.png') }}" alt="IAN Logo"
+                                    <img src="{{ asset('assets/media/images/partners/kebs.webp') }}" alt="KEBS Logo"
                                          class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain"></div>
                                 <div
                                     class="bg-white w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden relative flex items-center justify-center flex-shrink-0 border border-gray-100">
-                                    <img src="{{ asset('assets/media/images/partners/ICCO.png') }}" alt="ICCO Logo"
+                                    <img src="{{ asset('assets/media/images/partners/ifac.webp') }}" alt="IFAC Logo"
                                          class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain"></div>
                                 <div
                                     class="bg-white w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden relative flex items-center justify-center flex-shrink-0 border border-gray-100">
-                                    <img src="{{ asset('assets/media/images/partners/PRCA.png') }}" alt="PRCA Logo"
+                                    <img src="{{ asset('assets/media/images/partners/mygov.webp') }}" alt="MyGov Logo"
                                          class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain"></div>
                                 <div
                                     class="bg-white w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden relative flex items-center justify-center flex-shrink-0 border border-gray-100"
                                     style="background-color:#1a1a1a"><img
-                                        src="{{ asset('assets/media/images/partners/viamo.svg') }}" alt="Viamo Logo"
+                                        src="{{ asset('assets/media/images/partners/kuccps.webp') }}" alt="KUCCPS Logo"
                                         class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain"></div>
                                 <div
-                                    class="bg-white w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden relative flex items-center justify-center flex-shrink-0 border border-gray-100">
-                                    <img src="{{ asset('assets/media/images/partners/gcg.png') }}" alt="Growthpad Logo"
-                                         class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain"></div>
+                                    class="bg-white w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden relative flex items-center justify-center flex-shrink-0 border border-gray-100"
+                                    style="background-color:#1a1a1a"><img
+                                        src="{{ asset('assets/media/images/partners/tveta.webp') }}" alt="TVETA Logo"
+                                        class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain"></div>
                                 <div
-                                    class="bg-white w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden relative flex items-center justify-center flex-shrink-0 border border-gray-100">
-                                    <img src="{{ asset('assets/media/images/partners/penquin.png') }}"
-                                         alt="Penguin Agency Logo"
-                                         class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain"></div>
+                                    class="bg-white w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden relative flex items-center justify-center flex-shrink-0 border border-gray-100"
+                                    style="background-color:#1a1a1a"><img
+                                        src="{{ asset('assets/media/images/partners/helb.webp') }}" alt="HELB Logo"
+                                        class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain"></div>
                                 <div
-                                    class="bg-white w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden relative flex items-center justify-center flex-shrink-0 border border-gray-100">
-                                    <img src="{{ asset('assets/media/images/partners/cevent.png') }}"
-                                         alt="Penguin Agency Logo"
-                                         class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain"></div>
+                                    class="bg-white w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden relative flex items-center justify-center flex-shrink-0 border border-gray-100"
+                                    style="background-color:#1a1a1a"><img
+                                        src="{{ asset('assets/media/images/partners/treasury.webp') }}" alt="Treasury Logo"
+                                        class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain"></div>
+                                <div
+                                    class="bg-white w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden relative flex items-center justify-center flex-shrink-0 border border-gray-100"
+                                    style="background-color:#1a1a1a"><img
+                                        src="{{ asset('assets/media/images/partners/cpak.webp') }}" alt="CPAK Logo"
+                                        class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain"></div>
+                                <div
+                                    class="bg-white w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden relative flex items-center justify-center flex-shrink-0 border border-gray-100"
+                                    style="background-color:#1a1a1a"><img
+                                        src="{{ asset('assets/media/images/partners/cue.webp') }}" alt="CUE Logo"
+                                        class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain"></div>
+                                <div
+                                    class="bg-white w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden relative flex items-center justify-center flex-shrink-0 border border-gray-100"
+                                    style="background-color:#1a1a1a"><img
+                                        src="{{ asset('assets/media/images/partners/icifa.webp') }}" alt="ICIFA Logo"
+                                        class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain"></div>
+
                             </div>
                             <div class="flex items-center space-x-6 sm:space-x-8 md:space-x-10">
                                 <div
                                     class="bg-white w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden relative flex items-center justify-center flex-shrink-0 border border-gray-100"
-                                    style="background-color:#1a1a1a"><img
-                                        src="{{ asset('assets/media/images/images/partners/aia.svg') }}" alt="AIA Logo"
+                                    style="background-color:#1a1a1a">
+                                    <img
+                                        src="{{ asset('assets/media/images/partners/psv.webp') }}" alt="PSV
+                                        Logo"
                                         class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain"></div>
-                                <div
-                                    class="bg-white w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden relative flex items-center justify-center flex-shrink-0 border border-gray-100">
-                                    <img src="{{ asset('assets/media/images/partners/IAN.png') }}" alt="IAN Logo"
-                                         class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain"></div>
-                                <div
-                                    class="bg-white w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden relative flex items-center justify-center flex-shrink-0 border border-gray-100">
-                                    <img src="{{ asset('assets/media/images/partners/ICCO.png') }}" alt="ICCO Logo"
-                                         class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain"></div>
-                                <div
-                                    class="bg-white w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden relative flex items-center justify-center flex-shrink-0 border border-gray-100">
-                                    <img src="{{ asset('assets/media/images/partners/PRCA.png') }}" alt="PRCA Logo"
-                                         class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain"></div>
                                 <div
                                     class="bg-white w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden relative flex items-center justify-center flex-shrink-0 border border-gray-100"
-                                    style="background-color:#1a1a1a"><img
-                                        src="{{ asset('assets/media/images/partners/viamo.svg') }}" alt="Viamo Logo"
+                                    style="background-color:#1a1a1a">
+                                    <img
+                                        src="{{ asset('assets/media/images/partners/kebs.webp') }}" alt="KEBS
+                                        Logo"
                                         class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain"></div>
                                 <div
                                     class="bg-white w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden relative flex items-center justify-center flex-shrink-0 border border-gray-100">
-                                    <img src="{{ asset('assets/media/images/partners/gcg.png') }}" alt="Growthpad Logo"
+                                    <img src="{{ asset('assets/media/images/partners/ifac.webp') }}" alt="IFAC Logo"
                                          class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain"></div>
                                 <div
                                     class="bg-white w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden relative flex items-center justify-center flex-shrink-0 border border-gray-100">
-                                    <img src="{{ asset('assets/media/images/partners/penquin.png') }}"
-                                         alt="Penguin Agency Logo"
+                                    <img src="{{ asset('assets/media/images/partners/mygov.webp') }}" alt="MyGov Logo"
                                          class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain"></div>
                                 <div
                                     class="bg-white w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden relative flex items-center justify-center flex-shrink-0 border border-gray-100">
-                                    <img src="{{ asset('assets/media/images/partners/cevent.png') }}"
-                                         alt="Penguin Agency Logo"
+                                    <img src="{{ asset('assets/media/images/partners/tveta.webp') }}" alt="TVETA Logo"
                                          class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain"></div>
+                                <div
+                                    class="bg-white w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden relative flex items-center justify-center flex-shrink-0 border border-gray-100">
+                                    <img src="{{ asset('assets/media/images/partners/helb.webp') }}" alt="HELB Logo"
+                                         class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain"></div>
+                                <div
+                                    class="bg-white w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden relative flex items-center justify-center flex-shrink-0 border border-gray-100">
+                                    <img src="{{ asset('assets/media/images/partners/treasury.webp') }}" alt="Treasury
+                                    Logo"
+                                         class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain"></div>
+                                <div
+                                    class="bg-white w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden relative flex items-center justify-center flex-shrink-0 border border-gray-100">
+                                    <img src="{{ asset('assets/media/images/partners/cpak.webp') }}" alt="CPAK
+                                    Logo"
+                                         class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain"></div>
+                                <div
+                                    class="bg-white w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden relative flex items-center justify-center flex-shrink-0 border border-gray-100">
+                                    <img src="{{ asset('assets/media/images/partners/cue.webp') }}" alt="CUE
+                                    Logo"
+                                         class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain"></div>
+                                <div
+                                    class="bg-white w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden relative flex items-center justify-center flex-shrink-0 border border-gray-100">
+                                    <img src="{{ asset('assets/media/images/partners/icifa.webp') }}" alt="ICIFA
+                                    Logo"
+                                         class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain"></div>
+
                             </div>
-                            <div class="flex items-center space-x-6 sm:space-x-8 md:space-x-10">
-                                <div
-                                    class="bg-white w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden relative flex items-center justify-center flex-shrink-0 border border-gray-100"
-                                    style="background-color:#1a1a1a"><img
-                                        src="{{ asset('assets/media/images/partners/aia.svg') }}" alt="AIA Logo"
-                                        class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain"></div>
-                                <div
-                                    class="bg-white w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden relative flex items-center justify-center flex-shrink-0 border border-gray-100">
-                                    <img src="{{ asset('assets/media/images/partners/IAN.png') }}" alt="IAN Logo"
-                                         class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain"></div>
-                                <div
-                                    class="bg-white w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden relative flex items-center justify-center flex-shrink-0 border border-gray-100">
-                                    <img src="{{ asset('assets/media/images/partners/ICCO.png') }}" alt="ICCO Logo"
-                                         class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain"></div>
-                                <div
-                                    class="bg-white w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden relative flex items-center justify-center flex-shrink-0 border border-gray-100">
-                                    <img src="{{ asset('assets/media/images/partners/PRCA.png') }}" alt="PRCA Logo"
-                                         class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain"></div>
-                                <div
-                                    class="bg-white w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden relative flex items-center justify-center flex-shrink-0 border border-gray-100"
-                                    style="background-color:#1a1a1a"><img
-                                        src="{{ asset('assets/media/images/partners/viamo.svg') }}" alt="Viamo Logo"
-                                        class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain"></div>
-                                <div
-                                    class="bg-white w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden relative flex items-center justify-center flex-shrink-0 border border-gray-100">
-                                    <img src="{{ asset('assets/media/images/partners/gcg.png') }}" alt="Growthpad Logo"
-                                         class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain"></div>
-                                <div
-                                    class="bg-white w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden relative flex items-center justify-center flex-shrink-0 border border-gray-100">
-                                    <img src="{{ asset('assets/media/images/partners/penquin.png') }}"
-                                         alt="Penguin Agency Logo"
-                                         class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain"></div>
-                                <div
-                                    class="bg-white w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden relative flex items-center justify-center flex-shrink-0 border border-gray-100">
-                                    <img src="{{ asset('assets/media/images/partners/cevent.png') }}"
-                                         alt="Penguin Agency Logo"
-                                         class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain"></div>
-                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -2117,7 +1961,7 @@
                         Plan Your Trip</h3>
                     <h2 class="text-2xl sm:text-3xl text-slate-800 font-bold uppercase mb-3 sm:mb-4">Plan Your Trip</h2>
                     <p class="text-base sm:text-lg md:text-xl font-normal text-slate-800">Smooth logistics,
-                        unforgettable Nairobi experience.</p>
+                        unforgettable Mombasa experience.</p>
                 </div>
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mb-8 sm:mb-12">
                     <div class="bg-gradient-to-br from-[#DAECF4] to-[#F3F9FB] rounded-xl p-4 sm:p-6 shadow-lg">
@@ -2132,7 +1976,7 @@
                             </div>
                             <h3 class="text-lg sm:text-xl font-bold text-slate-800">Venue Information</h3>
                         </div>
-                        <p class="text-slate-800 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">Final venue details will be announced soon. Expect world‑class facilities, breakout rooms for deal‑making, and easy access to World class professionals.</p>
+                        <p class="text-slate-800 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">Expect world‑class facilities, breakout rooms for deal‑making, and easy access to World class professionals.</p>
                         <div class="space-y-3 sm:space-y-4">
                             <div class="bg-white rounded-lg p-3 sm:p-4 shadow-md">
                                 <div class="flex items-center gap-2 sm:gap-3 mb-2">
@@ -2142,7 +1986,7 @@
                                         <path fill="currentColor"
                                               d="M12 11.5A2.5 2.5 0 0 1 9.5 9A2.5 2.5 0 0 1 12 6.5A2.5 2.5 0 0 1 14.5 9a2.5 2.5 0 0 1-2.5 2.5M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7"></path>
                                     </svg>
-                                    <h4 class="font-semibold text-slate-800 text-sm sm:text-base">TBD</h4>
+                                    <h4 class="font-semibold text-slate-800 text-sm sm:text-base">PrideInn Paradise Beach Resort Spa,Mombasa </h4>
                                 </div>
                                 <a href="#" target="_blank"
                                    class="text-[#84C1DA] hover:text-red-500 transition-colors text-xs sm:text-sm">View
@@ -2205,11 +2049,11 @@
                             open: 1,
                             items: [
                                 { id: 1, title: 'Who Should Attend?', content: `
-                                    <p> Professionals,Accountants,Agencies, tech innovators, investors, and policy leaders driving the future of professional economy.</p>
+                                    <p> Professionals, accountants, agencies, tech innovators, investors, and policy leaders driving the future of the professional economy.</p>
                                 `},
                                 { id: 2, title: 'Accommodation', content: `
                                     <p>
-                                        We've secured special rates at partner hotels near the venue. Options range from luxury hotels to budget-friendly accommodations. All partner hotels offer complimentary airport transfers and are within walking distance of the summit venue.
+                                        We've secured special rates at partner hotels near the venue. Options range from luxury beachfront resorts to budget-friendly accommodations. All partner hotels offer convenient access to the venue, with selected hotels providing complimentary airport transfers.
                                     </p>
                                 ` },
                                 { id: 3, title: 'Visa Requirements', content: `
@@ -2219,12 +2063,12 @@
                                 ` },
                                 { id: 4, title: 'Transportation', content: `
                                     <p>
-                                        Nairobi has a reliable network of taxis, ride-sharing services, and public transport. We'll provide detailed transportation guides and can arrange group transfers from the airport to the venue for registered attendees.
+                                        Mombasa has a reliable network of taxis, ride-sharing services, and public transport. Attendees can also access the venue easily from the airport, hotels, and key transport hubs. Detailed transportation guides and group transfer arrangements will be available for registered participants.
                                     </p>
                                 ` },
                                 { id: 5, title: 'Safety &amp; Security', content: `
                                     <p>
-                                        Nairobi is generally safe for visitors, especially in Westands where our venue is located. We work with local security partners to ensure a safe environment. Basic safety precautions are recommended as in any major city.
+                                        Mombasa is a welcoming and vibrant coastal city that receives visitors from around the world. We work closely with local security partners to ensure a safe and secure environment throughout the event. As with any major destination, attendees are encouraged to observe basic safety precautions during their stay.
                                     </p>
                                 ` },
                             ],
