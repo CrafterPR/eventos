@@ -353,7 +353,7 @@
             <div class="max-w-6xl mx-auto px-3 sm:px-0">
                 <p class="pt-10 pb-24 border-t border-gray-400 text-center text-gray-200 text-sm relative z-10">©
                     <!-- -->2026
-                    <!-- -->PAAN.
+                    <!-- -->KICP.
                     <!-- -->All rights reserved.
                     <!-- -->|<a class="ml-2 text-white hover:text-[#84c1d9] transition-colors duration-300" href="/privacy-policy">Privacy Policy</a></p>
             </div>

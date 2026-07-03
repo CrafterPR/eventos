@@ -21,7 +21,8 @@
                                               d="M12 11.5A2.5 2.5 0 0 1 9.5 9A2.5 2.5 0 0 1 12 6.5A2.5 2.5 0 0 1 14.5 9a2.5 2.5 0 0 1-2.5 2.5M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7"></path>
                                     </svg>
                                     <span
-                                        class="break-words sm:whitespace-nowrap">TBD - <strong>- April 2026</strong></span>
+                                        class="break-words sm:whitespace-nowrap">PrideInn Paradise Beach Resort Spa,
+                                        Mombasa  - <strong>- 14<sup>th</sup> - 18<sup>th</sup> September 2026</strong></span>
                                 </div>
                                 <div class="flex items-center gap-2 text-white text-xs sm:text-sm">
                                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -41,7 +42,7 @@
                                         <path fill="currentColor"
                                               d="M17.9 17.39c-.26-.8-1.01-1.39-1.9-1.39h-1v-3a1 1 0 0 0-1-1H8v-2h2a1 1 0 0 0 1-1V7h2a2 2 0 0 0 2-2v-.41a7.984 7.984 0 0 1 2.9 12.8M11 19.93c-3.95-.49-7-3.85-7-7.93c0-.62.08-1.22.21-1.79L9 15v1a2 2 0 0 0 2 2m1-16A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2"></path>
                                     </svg>
-                                    <span class="whitespace-nowrap">2,000+ Streaming</span>
+                                    <span class="whitespace-nowrap">1,000+ Streaming</span>
                                 </div>
                             </div>
                         </div>
@@ -110,8 +111,9 @@
                     <div class="flex flex-col gap-4 sm:gap-6 relative z-10 md:pr-6">
                         <div class="flex flex-col gap-3 sm:gap-4" style="opacity: 1; transform: none;">
                             <h2 class="text-2xl sm:text-3xl md:text-4xl text-white font-normal">About the Summit</h2>
-                            <h3 class="text-lg sm:text-xl md:text-2xl text-white font-normal">A deal-first gathering
-                                built for action.</h3>
+                            <h3 class="text-lg sm:text-xl md:text-2xl text-white font-normal">The professional
+                                Landscape in the fourth Industrial revolution
+                                .</h3>
                         </div>
                         <div class="space-y-3 sm:space-y-4 text-white text-sm sm:text-base md:text-lg leading-relaxed"
                              style="opacity: 1; transform: none;">
@@ -332,27 +334,16 @@
                                          class="w-full h-full object-cover"></div>
                                 <div
                                     class="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-white flex items-center justify-center overflow-hidden shadow-sm">
-                                    <img src="https://flagcdn.com/w40/ng.png" alt="Nigeria"
-                                         class="w-full h-full object-cover"></div>
-                                <div
-                                    class="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-white flex items-center justify-center overflow-hidden shadow-sm">
-                                    <img src="https://flagcdn.com/w40/za.png" alt="South Africa"
-                                         class="w-full h-full object-cover"></div>
-                                <div
-                                    class="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-white flex items-center justify-center overflow-hidden shadow-sm">
                                     <img src="https://flagcdn.com/w40/tz.png" alt="Tanzania"
                                          class="w-full h-full object-cover"></div>
                                 <div
                                     class="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-white flex items-center justify-center overflow-hidden shadow-sm">
                                     <img src="https://flagcdn.com/w40/ug.png" alt="Uganda"
                                          class="w-full h-full object-cover"></div>
-                                <div
-                                    class="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-white flex items-center justify-center overflow-hidden shadow-sm">
-                                    <img src="https://flagcdn.com/w40/gh.png" alt="Ghana"
-                                         class="w-full h-full object-cover"></div>
+
                             </div>
                         </div>
-                        <h4 class="text-2xl sm:text-3xl md:text-4xl text-slate-800 text-left">5+</h4>
+                        <h4 class="text-2xl sm:text-3xl md:text-4xl text-slate-800 text-left">3+</h4>
                         <h5 class="text-sm sm:text-base font-normal text-left">Countries Represented</h5>
                     </div>
                     <div class="bg-white rounded-lg shadow-lg p-3 sm:p-4">
@@ -362,7 +353,7 @@
                                      alt="Video Call Icon" class="w-10 h-10 sm:w-12 sm:h-12">
                             </div>
                         </div>
-                        <h4 class="text-2xl sm:text-3xl md:text-4xl text-slate-800 text-left">2,000+</h4>
+                        <h4 class="text-2xl sm:text-3xl md:text-4xl text-slate-800 text-left">1,000+</h4>
                         <h5 class="text-sm sm:text-base font-normal text-left">Streaming Attendees</h5>
                     </div>
                     <div class="bg-white rounded-lg shadow-lg p-3 sm:p-4">
@@ -393,7 +384,7 @@
                             </div>
                         </div>
                         <h4 class="text-2xl sm:text-3xl md:text-4xl text-slate-800 text-left">40+</h4>
-                        <h5 class="text-sm sm:text-base font-normal text-left">Sessions &amp; clinics</h5>
+                        <h5 class="text-sm sm:text-base font-normal text-left">Sessions &amp; networking</h5>
                     </div>
                 </div>
                 <div class="flex flex-col sm:flex-row gap-3 sm:gap-2 pt-4">

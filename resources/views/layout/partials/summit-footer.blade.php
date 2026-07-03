@@ -1,7 +1,7 @@
 <footer class="text-white relative"
         style="background-image:url(https://ik.imagekit.io/nkmvdjnna/PAAN/summit/summit-footer-pattern.webp), linear-gradient(to right, #84C1D9, #172840);background-repeat:repeat, no-repeat;background-position:center, center;background-size:auto, cover">
     <div class="relative z-10">
-        
+
         <div class="border-t border-white/20">
             <div class="max-w-6xl mx-auto px-6 py-6">
                 <div class="flex flex-col md:flex-row justify-between items-center gap-4">
@@ -30,7 +30,7 @@
         console.log('🚀 Initializing countdown timer...');
 
         // Event target date - April 21, 2026, 00:00:00 (UTC+3 Nairobi Time)
-        const eventDate = new Date('2026-04-21T00:00:00+03:00').getTime();
+        const eventDate = new Date('2026-09-14T00:00:00+03:00').getTime();
         console.log('📅 Event Date (timestamp):', eventDate);
         console.log('📅 Event Date (readable):', new Date(eventDate).toString());
 
