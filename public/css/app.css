@@ -1807,6 +1807,14 @@ input:where([type='file']):focus {
   --tw-bg-opacity: 1;
   background-color: rgb(239 246 255 / var(--tw-bg-opacity, 1));
 }
+.bg-blue-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(59 130 246 / var(--tw-bg-opacity, 1));
+}
+.bg-blue-600 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(37 99 235 / var(--tw-bg-opacity, 1));
+}
 .bg-gray-200 {
   --tw-bg-opacity: 1;
   background-color: rgb(229 231 235 / var(--tw-bg-opacity, 1));
@@ -1860,14 +1868,6 @@ input:where([type='file']):focus {
 .bg-yellow-500 {
   --tw-bg-opacity: 1;
   background-color: rgb(234 179 8 / var(--tw-bg-opacity, 1));
-}
-.bg-blue-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(59 130 246 / var(--tw-bg-opacity, 1));
-}
-.bg-blue-600 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(37 99 235 / var(--tw-bg-opacity, 1));
 }
 .bg-opacity-50 {
   --tw-bg-opacity: 0.5;
@@ -1932,11 +1932,6 @@ input:where([type='file']):focus {
   --tw-gradient-to: rgb(242 183 6 / 0) var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
-.from-\[\#f2b790\] {
-  --tw-gradient-from: #f2b790 var(--tw-gradient-from-position);
-  --tw-gradient-to: rgb(242 183 144 / 0) var(--tw-gradient-to-position);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
 .from-black\/60 {
   --tw-gradient-from: rgb(0 0 0 / 0.6) var(--tw-gradient-from-position);
   --tw-gradient-to: rgb(0 0 0 / 0) var(--tw-gradient-to-position);
@@ -1983,14 +1978,14 @@ input:where([type='file']):focus {
 .to-\[\#172840\] {
   --tw-gradient-to: #172840 var(--tw-gradient-to-position);
 }
+.to-\[\#7BC7F0\] {
+  --tw-gradient-to: #7BC7F0 var(--tw-gradient-to-position);
+}
 .to-\[\#84C1DA\] {
   --tw-gradient-to: #84C1DA var(--tw-gradient-to-position);
 }
 .to-\[\#84C1DA\]\/60 {
   --tw-gradient-to: rgb(132 193 218 / 0.6) var(--tw-gradient-to-position);
-}
-.to-\[\#84c1d9\] {
-  --tw-gradient-to: #84c1d9 var(--tw-gradient-to-position);
 }
 .to-\[\#84c1d9cc\] {
   --tw-gradient-to: #84c1d9cc var(--tw-gradient-to-position);
@@ -2024,9 +2019,6 @@ input:where([type='file']):focus {
 }
 .to-yellow-500\/60 {
   --tw-gradient-to: rgb(234 179 8 / 0.6) var(--tw-gradient-to-position);
-}
-.to-\[\#7BC7F0\] {
-  --tw-gradient-to: #7BC7F0 var(--tw-gradient-to-position);
 }
 .bg-cover {
   background-size: cover;
@@ -2426,6 +2418,10 @@ input:where([type='file']):focus {
   --tw-text-opacity: 1;
   color: rgb(132 193 218 / var(--tw-text-opacity, 1));
 }
+.text-blue-400 {
+  --tw-text-opacity: 1;
+  color: rgb(96 165 250 / var(--tw-text-opacity, 1));
+}
 .text-emerald-400 {
   --tw-text-opacity: 1;
   color: rgb(52 211 153 / var(--tw-text-opacity, 1));
@@ -2494,25 +2490,9 @@ input:where([type='file']):focus {
 .text-white\/90 {
   color: rgb(255 255 255 / 0.9);
 }
-.text-yellow-400 {
-  --tw-text-opacity: 1;
-  color: rgb(250 204 21 / var(--tw-text-opacity, 1));
-}
 .text-yellow-500 {
   --tw-text-opacity: 1;
   color: rgb(234 179 8 / var(--tw-text-opacity, 1));
-}
-.text-blue-400 {
-  --tw-text-opacity: 1;
-  color: rgb(96 165 250 / var(--tw-text-opacity, 1));
-}
-.text-blue-700 {
-  --tw-text-opacity: 1;
-  color: rgb(29 78 216 / var(--tw-text-opacity, 1));
-}
-.text-yellow-600 {
-  --tw-text-opacity: 1;
-  color: rgb(202 138 4 / var(--tw-text-opacity, 1));
 }
 .underline {
   text-decoration-line: underline;
@@ -2768,6 +2748,10 @@ input:where([type='file']):focus {
   --tw-bg-opacity: 1;
   background-color: rgb(23 40 64 / var(--tw-bg-opacity, 1));
 }
+.hover\:bg-\[\#175C93\]:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(23 92 147 / var(--tw-bg-opacity, 1));
+}
 .hover\:bg-\[\#84C1D9\]:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(132 193 217 / var(--tw-bg-opacity, 1));
@@ -2778,10 +2762,6 @@ input:where([type='file']):focus {
 .hover\:bg-\[\#D6473C\]:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(214 71 60 / var(--tw-bg-opacity, 1));
-}
-.hover\:bg-\[\#F2B706\]:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(242 183 6 / var(--tw-bg-opacity, 1));
 }
 .hover\:bg-gray-300:hover {
   --tw-bg-opacity: 1;
@@ -2823,10 +2803,6 @@ input:where([type='file']):focus {
 }
 .hover\:bg-white\/10:hover {
   background-color: rgb(255 255 255 / 0.1);
-}
-.hover\:bg-\[\#175C93\]:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(23 92 147 / var(--tw-bg-opacity, 1));
 }
 .hover\:text-\[\#84c1d9\]:hover {
   --tw-text-opacity: 1;

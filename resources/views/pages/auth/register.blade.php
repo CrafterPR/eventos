@@ -1878,7 +1878,9 @@
         </div>
 
         <div class="relative py-8 sm:py-12 md:py-16 lg:py-20 overflow-hidden h-[350px] sm:h-[400px] md:h-[450px] lg:h-[500px]" id="parallax-section">
-            <div class="absolute inset-0 bg-cover bg-center bg-fixed" style="background-image:url('https://ik.imagekit.io/nkmvdjnna/PAAN/summit/travel-guide-parallax-image.png');filter:brightness(0.8)"></div>
+            <div class="absolute inset-0 bg-cover bg-center bg-fixed" style="background-image:url('{!! asset
+            ('assets/media/images/mobasa.webp') !!}');
+            filter:brightness(0.8)"></div>
             <div class="absolute inset-0 bg-gray-900/40"></div>
             <section class="relative mx-auto max-w-6xl px-3 sm:px-4 md:px-6 h-full flex items-center justify-center">
                 <div class="text-left w-full max-w-4xl">
