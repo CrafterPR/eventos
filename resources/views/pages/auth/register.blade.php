@@ -14,8 +14,8 @@
             <div class="relative h-full flex items-end pb-4 sm:pb-6 md:pb-8 lg:pb-10">
                 <div class="mx-auto max-w-7xl w-full px-3 sm:px-4">
                     <div class="max-w-2xl" style="opacity: 1; transform: none;">
-                        <h1 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold uppercase text-yellow-600
-                        mb-3 sm:mb-4 md:mb-6 leading-tight" style="opacity: 1; transform: none;">
+                        <h1 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl uppercase text-yellow-500 mb-3 sm:mb-4 md:mb-6 leading-tight" style="opacity: 1; transform: none;">
+
                             Register for KICP Conference 2026
                         </h1>
                         <div class="flex flex-col sm:flex-row gap-2 sm:gap-4 mb-3 sm:mb-4 md:mb-6" style="opacity: 1; transform: none;">
