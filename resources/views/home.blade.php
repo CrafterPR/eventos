@@ -49,7 +49,7 @@
                         <div class="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 md:gap-8"
                              style="opacity: 1; transform: none;">
                             <a href="{{ route('register') }}"
-                                class="bg-gradient-to-r from-[#f2b706] to-[#84c1d9] text-white px-6 sm:px-8 py-3 rounded-full hover:opacity-90 transition-all duration-300 font-medium text-sm sm:text-base shadow-lg flex items-center justify-center gap-2 w-full sm:w-auto">
+                                class="bg-gradient-to-r from-[#175C93] to-[#7BC7F0] text-white px-6 sm:px-8 py-3 rounded-full hover:opacity-90 transition-all duration-300 font-medium text-sm sm:text-base shadow-lg flex items-center justify-center gap-2 w-full sm:w-auto">
                                 Register Now
                             </a>
                             <button
@@ -76,7 +76,7 @@
                             <div class="absolute inset-0 rounded-lg opacity-40"
                                  style="background-image:url('https://ik.imagekit.io/nkmvdjnna/PAAN/summit/counter-pattern.webp');background-size:cover;background-position:center;background-repeat:repeat"></div>
                             <div
-                                class="absolute inset-0 bg-gradient-to-r from-[#F25849] to-[#172840] rounded-lg opacity-100 mix-blend-overlay"></div>
+                                class="absolute inset-0 bg-gradient-to-r from-[#175C93] to-[#7BC7F0] rounded-lg opacity-100 mix-blend-overlay"></div>
                             <div class="text-center relative z-10">
                                 <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
                                     <div class="text-center bg-white/20 backdrop-blur-sm rounded-lg p-3 sm:p-4">
@@ -134,7 +134,7 @@
                         <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-3 sm:pt-4 relative z-20"
                              style="opacity: 1; transform: none;">
                             <a href="{{ route('register') }}"
-                                class="px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold bg-gradient-to-r from-[#f2b706] to-[#84c1d9] text-white hover:opacity-90 rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 cursor-pointer relative z-20 w-full sm:w-auto">
+                                class="px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold bg-gradient-to-r from-[#175C93] to-[#7BC7F0] text-white hover:opacity-90 rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 cursor-pointer relative z-20 w-full sm:w-auto">
                                 Register Now
                             </a>
                         </div>
@@ -273,7 +273,7 @@
                 </div>
             </section>
         </div>
-        <div class="mt-6 sm:mt-10 bg-gradient-to-br from-[#f2b706] to-[#84c1d9] relative overflow-hidden">
+        <div class="mt-6 sm:mt-10 bg-gradient-to-br from-[#175C93] to-[#7BC7F0] relative overflow-hidden">
             <div class="absolute inset-0 z-0 opacity-30"
                  style="background-image:url('https://ik.imagekit.io/nkmvdjnna/PAAN/summit/at-a-glance.png');background-size:cover;background-position:center;background-repeat:no-repeat"></div>
             <section class="relative text-center mx-auto max-w-6xl py-12 sm:py-16 md:py-20 px-4 sm:px-6 z-10">
@@ -417,7 +417,7 @@
                             <img alt="Film production"
                                  class="object-cover md:object-contain md:object-center md:-mt-20"
                                  style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent"
-                                 src="{{ asset('assets/media/images/film-production.webp') }}">
+                                 src="{{ asset('assets/media/images/change.webp') }}">
                         </div>
                         <div
                             class="bg-[#DAECF3] rounded-b-lg md:rounded-t-lg p-4 sm:p-5 md:p-6 transition-all duration-300 md:absolute md:bottom-0 md:left-0 md:right-0 z-10 relative group"
@@ -1284,7 +1284,79 @@
                     <h2 class="text-2xl sm:text-3xl font-normal text-slate-800 mb-3 sm:mb-4">Who Should Join</h2>
                     <p class="text-sm sm:text-base md:text-lg text-gray-600 px-2">Connect with diverse professionals shaping opportunity to connect, learn and grow at the forefront of industry</p>
                 </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
+                    <div
+                        class="group relative bg-[#E6F2F7] rounded-xl p-4 sm:p-5 md:p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-[#84c1d91a] overflow-hidden">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-b from-[#84C1DA]/0 to-yellow-500/0 group-hover:from-[#84c1d94d] group-hover:to-yellow-500/30 transition-all duration-300 rounded-xl z-[1]"></div>
+                        <div
+                            class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-[2]"
+                            style="background-image:url('https://ik.imagekit.io/nkmvdjnna/PAAN/summit/who-should-join/card-pattern.webp');background-repeat:repeat;background-position:center;background-size:200px 200px"></div>
+                        <div class="relative z-10">
+                            <div
+                                class="w-10 h-10 sm:w-12 sm:h-12 mb-3 sm:mb-4 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                                <img alt="Creative Industry Leaders" class="w-full h-full"
+                                     src="{{ asset('assets/media/images/icon-1.webp') }}">
+                            </div>
+                            <h3 class="text-base sm:text-lg font-bold text-slate-800 mb-1.5 sm:mb-2">Industry Professionals</h3>
+                            <p class="text-gray-600 text-xs sm:text-sm leading-relaxed">Accountants, auditors, financial analysts,HR professionals, procurement specialists, marketers,ICT and data professionals</p>
+                        </div>
+                    </div>
+                    <div
+                        class="group relative bg-[#E6F2F7] rounded-xl p-4 sm:p-5 md:p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-[#84c1d91a] overflow-hidden">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-b from-[#84C1DA]/0 to-yellow-500/0 group-hover:from-[#84c1d94d] group-hover:to-yellow-500/30 transition-all duration-300 rounded-xl z-[1]"></div>
+                        <div
+                            class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-[2]"
+                            style="background-image:url('https://ik.imagekit.io/nkmvdjnna/PAAN/summit/who-should-join/card-pattern.webp');background-repeat:repeat;background-position:center;background-size:200px 200px"></div>
+                        <div class="relative z-10">
+                            <div
+                                class="w-10 h-10 sm:w-12 sm:h-12 mb-3 sm:mb-4 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                                <img alt="Creative Industry Leaders" class="w-full h-full"
+                                     src="{{ asset('assets/media/images/icon-2.webp') }}">
+                            </div>
+                            <h3 class="text-base sm:text-lg font-bold text-slate-800 mb-1.5 sm:mb-2">Business & Corporate Leaders</h3>
+                            <p class="text-gray-600 text-xs sm:text-sm leading-relaxed">CEOs, Managing Directors, Founders,Senior managers and decision-makers
+                                They bring strategic perspectives and real-world business experience.
+                            </p>
+                        </div>
+                    </div>
+                    <div
+                        class="group relative bg-[#E6F2F7] rounded-xl p-4 sm:p-5 md:p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-[#84c1d91a] overflow-hidden">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-b from-[#84C1DA]/0 to-yellow-500/0 group-hover:from-[#84c1d94d] group-hover:to-yellow-500/30 transition-all duration-300 rounded-xl z-[1]"></div>
+                        <div
+                            class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-[2]"
+                            style="background-image:url('https://ik.imagekit.io/nkmvdjnna/PAAN/summit/who-should-join/card-pattern.webp');background-repeat:repeat;background-position:center;background-size:200px 200px"></div>
+                        <div class="relative z-10">
+                            <div
+                                class="w-10 h-10 sm:w-12 sm:h-12 mb-3 sm:mb-4 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                                <img alt="Creative Industry Leaders" class="w-full h-full"
+                                     src="{{ asset('assets/media/images/icon-3.webp') }}">
+                            </div>
+                            <h3 class="text-base sm:text-lg font-bold text-slate-800 mb-1.5 sm:mb-2">Government & Policy Makers</h3>
+                            <p class="text-gray-600 text-xs sm:text-sm leading-relaxed">Regulators, policymakers, and public sector leaders
+                                Important for shaping conversations around policy, compliance, and economic direction.</p>
+                        </div>
+                    </div>
+                    <div
+                        class="group relative bg-[#E6F2F7] rounded-xl p-4 sm:p-5 md:p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-[#84c1d91a] overflow-hidden">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-b from-[#84C1DA]/0 to-yellow-500/0 group-hover:from-[#84c1d94d] group-hover:to-yellow-500/30 transition-all duration-300 rounded-xl z-[1]"></div>
+                        <div
+                            class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-[2]"
+                            style="background-image:url('https://ik.imagekit.io/nkmvdjnna/PAAN/summit/who-should-join/card-pattern.webp');background-repeat:repeat;background-position:center;background-size:200px 200px"></div>
+                        <div class="relative z-10">
+                            <div
+                                class="w-10 h-10 sm:w-12 sm:h-12 mb-3 sm:mb-4 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                                <img alt="Creative Industry Leaders" class="w-full h-full"
+                                     src="{{ asset('assets/media/images/icon-4.webp') }}">
+                            </div>
+                            <h3 class="text-base sm:text-lg font-bold text-slate-800 mb-1.5 sm:mb-2">Academia & Researchers</h3>
+                            <p class="text-gray-600 text-xs sm:text-sm leading-relaxed">Lecturers, scholars, and industry researchers
+                                They contribute thought leadership, data-driven insights, and innovation.</p>
+                        </div>
+                    </div>
                     <div
                         class="group relative bg-[#E6F2F7] rounded-xl p-4 sm:p-5 md:p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-[#84c1d91a] overflow-hidden">
                         <div
@@ -1583,12 +1655,23 @@
                     <div class="inline-flex animate-marquee-right">
                         <div class="flex space-x-4 sm:space-x-6 md:space-x-8 whitespace-nowrap">
                             <div class="flex items-center space-x-4 sm:space-x-6 md:space-x-8"><span
-                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800
-                                    whitespace-nowrap">Corporate Partners</span><span
+                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">Finance & Accounting Professionals</span><span
                                     class="text-2xl sm:text-3xl text-red-500">•</span><span
-                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800
-                                    whitespace-nowrap">Media & Content creators</span>
-
+                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">Business & Corporate Leaders</span>
+                                <span class="text-2xl sm:text-3xl text-[#84C1DA]">•</span><span
+                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">ICT & Digital Transformation Experts</span><span
+                                    class="text-2xl sm:text-3xl text-slate-800">•</span>
+                                <span
+                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">Human Resource & Organizational Development Professionals</span>
+                                <span class="text-2xl sm:text-3xl text-yellow-500">•</span><span
+                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">Marketing, Media & Communication Professionals</span><span
+                                    class="text-2xl sm:text-3xl text-yellow-500">•</span></div>
+                            <div class="flex items-center space-x-4 sm:space-x-6 md:space-x-8"><span
+                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">Procurement & Supply Chain Professionals</span><span
+                                    class="text-2xl sm:text-3xl text-red-500">•</span>
+                              <span
+                                    class="text-2xl sm:text-3xl text-slate-800">
+                                    •</span>
                                 </div>
                         </div>
                     </div>
@@ -1597,9 +1680,27 @@
                     <div class="inline-flex animate-marquee-left">
                         <div class="flex space-x-4 sm:space-x-6 md:space-x-8 whitespace-nowrap">
                             <div class="flex items-center space-x-4 sm:space-x-6 md:space-x-8"><span
-                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800
-                                    whitespace-nowrap">International Delegates</span>
-
+                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">Legal & Governance Experts</span>
+                                <span class="text-2xl sm:text-3xl text-[#84C1DA]">•</span><span
+                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">Entrepreneurs & Business Owners</span><span
+                                    class="text-2xl sm:text-3xl text-slate-800">•</span>
+                                <span
+                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">Academia, Researchers & Thought Leaders</span>
+                                <span class="text-2xl sm:text-3xl text-yellow-500">•</span><span
+                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">Public Sector & Policy Makers </span><span
+                                    class="text-2xl sm:text-3xl text-yellow-500">•</span></div>
+                            <div class="flex items-center space-x-4 sm:space-x-6 md:space-x-8"><span
+                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">Development Partners & NGOs</span><span
+                                    class="text-2xl sm:text-3xl text-red-500">•</span><span
+                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">Students & Emerging Professionals</span>
+                                <span class="text-2xl sm:text-3xl text-[#84C1DA]">•</span>
+                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">Public Sector & Policy Makers </span><span
+                                    class="text-2xl sm:text-3xl text-yellow-500">•</span></div>
+                            <div class="flex items-center space-x-4 sm:space-x-6 md:space-x-8"><span
+                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">Development Partners & NGOs</span><span
+                                    class="text-2xl sm:text-3xl text-red-500">•</span><span
+                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">Students & Emerging Professionals</span>
+                                <span class="text-2xl sm:text-3xl text-[#84C1DA]">•</span>
                             </div>
                         </div>
                     </div>
@@ -1619,23 +1720,8 @@
                             make connections that last.</p>
                     </div>
                 </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-                    <div class="relative rounded-xl shadow-xl overflow-hidden group cursor-pointer h-80 sm:h-96">
-                        <img alt="Creator Crawl" class="w-full h-full object-cover"
-                             src="{{ asset('assets/media/images/creator-crawl.webp') }}">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
-                        <div
-                            class="absolute bottom-0 left-0 right-0 p-4 sm:p-6 group-hover:bg-white transition-all duration-300 rounded-t-xl flex flex-col">
-                            <div class="flex-1"></div>
-                            <div>
-                                <h4 class="text-lg sm:text-xl font-bold text-white group-hover:text-slate-800 transition-colors duration-300">
-                                    Creator Crawl</h4>
-                                <p class="hidden group-hover:block transition-all duration-300 text-slate-800 text-xs sm:text-sm leading-relaxed mt-2">
-                                    An evening tour of Nairobi's creative hotspots designed for networking and
-                                    collaboration.</p>
-                            </div>
-                        </div>
-                    </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 sm:gap-8">
+
                     <div class="relative rounded-xl shadow-xl overflow-hidden group cursor-pointer h-80 sm:h-96">
                         <img alt="Creator Crawl" class="w-full h-full object-cover"
                              src="{{ asset('assets/media/images/city-excursions.webp') }}">
@@ -1647,8 +1733,7 @@
                                 <h4 class="text-lg sm:text-xl font-bold text-white group-hover:text-slate-800 transition-colors duration-300">
                                     City Excursions</h4>
                                 <p class="hidden group-hover:block transition-all duration-300 text-slate-800 text-xs sm:text-sm leading-relaxed mt-2">
-                                    Curated cultural and innovation hub visits to immerse participants in Nairobi's
-                                    vibrant ecosystem.</p>
+                                    Curated cultural and innovation hub visits to immerse participants in Mombasa's vibrant ecosystem.</p>
                             </div>
                         </div>
                     </div>
@@ -1663,8 +1748,7 @@
                                 <h4 class="text-lg sm:text-xl font-bold text-white group-hover:text-slate-800 transition-colors duration-300">
                                     Investor Roundtables</h4>
                                 <p class="hidden group-hover:block transition-all duration-300 text-slate-800 text-xs sm:text-sm leading-relaxed mt-2">
-                                    Invite-only sessions connecting startups, creators, and investors for candid
-                                    deal-making discussions.</p>
+                                    Invite-only sessions connecting startups, creators, and investors for candid deal-making discussions.</p>
                             </div>
                         </div>
                     </div>
@@ -1718,7 +1802,7 @@
                     <div class="flex flex-col lg:flex-row">
                         <div class="flex-1 text-slate-800">
                             <div class="p-4 sm:p-5 md:p-6"
-                                 style="background:linear-gradient(to bottom, #CA983C, #F9EC97, #CA983C)">
+                                 style="background:linear-gradient(to bottom, #175C93, #7BC7F0)">
                                 <h2 class="text-2xl sm:text-3xl md:text-4xl mb-2 sm:mb-3 text-slate-800">KICP 2026
                                     Conference</h2>
                                 <p class="text-base text-slate-800/90">The professional Landscape in the fourth Industrial revolution</p>
@@ -1790,14 +1874,14 @@
 
                                 </ul>
                             </div>
-                            <div class="bg-gradient-to-br from-[#F25849] to-[#172840] p-4 sm:p-6">
+                            <div class="p-4 sm:p-6" style="background:linear-gradient(135deg,#175C93,#7BC7F0)">
                                 <p class="text-xs text-white/80 italic">This preview shows standard event access. Final
                                     benefits vary by pass type.</p>
                             </div>
                         </div>
-                        <div
+                            <div
                             class="flex-1 p-6 sm:p-8 md:p-10 lg:p-12 flex flex-col items-center justify-center border-t lg:border-t-0 lg:border-l border-white/20"
-                            style="background:linear-gradient(to bottom, #CA983C, #F9EC97, #CA983C)">
+                            style="background:linear-gradient(to bottom, #175C93, #7BC7F0)">
                             <div class="text-center mb-6 sm:mb-8">
                                 <h3 class="text-xl sm:text-2xl md:text-3xl font-bold text-slate-800 mb-2 sm:mb-3">Summit
                                     Access Pass</h3>

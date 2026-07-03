@@ -1884,6 +1884,11 @@ input:where([type='file']):focus {
   --tw-gradient-to: rgb(23 40 64 / 0) var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
+.from-\[\#175C93\] {
+  --tw-gradient-from: #175C93 var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(23 92 147 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
 .from-\[\#84C1DA\] {
   --tw-gradient-from: #84C1DA var(--tw-gradient-from-position);
   --tw-gradient-to: rgb(132 193 218 / 0) var(--tw-gradient-to-position);
@@ -1917,6 +1922,11 @@ input:where([type='file']):focus {
 .from-\[\#f2b706\] {
   --tw-gradient-from: #f2b706 var(--tw-gradient-from-position);
   --tw-gradient-to: rgb(242 183 6 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+.from-\[\#f2b790\] {
+  --tw-gradient-from: #f2b790 var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(242 183 144 / 0) var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 .from-black\/60 {
@@ -2006,6 +2016,9 @@ input:where([type='file']):focus {
 }
 .to-yellow-500\/60 {
   --tw-gradient-to: rgb(234 179 8 / 0.6) var(--tw-gradient-to-position);
+}
+.to-\[\#7BC7F0\] {
+  --tw-gradient-to: #7BC7F0 var(--tw-gradient-to-position);
 }
 .bg-cover {
   background-size: cover;
@@ -2790,6 +2803,10 @@ input:where([type='file']):focus {
 }
 .hover\:bg-white\/10:hover {
   background-color: rgb(255 255 255 / 0.1);
+}
+.hover\:bg-\[\#175C93\]:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(23 92 147 / var(--tw-bg-opacity, 1));
 }
 .hover\:text-\[\#84c1d9\]:hover {
   --tw-text-opacity: 1;

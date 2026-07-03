@@ -36,18 +36,15 @@
                         can attend</a>
                     <a
                         href="@if(!request()->routeIs('/')) {{ route('/') }}#speakers-section @else #speakers-section @endif"
-                        class="text-[#172840] hover:text-gray-900 hover:bg-[#F2B706] px-2 sm:px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer text-xs sm:text-sm">Speakers</a>
-                    <a
-                        href="@if(!request()->routeIs('/')) {{ route('/') }}#paan-awards-section @else #paan-awards-section @endif"
-                        class="text-[#172840] hover:text-gray-900 hover:bg-[#F2B706] px-2 sm:px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer text-xs sm:text-sm">Awards</a>
+                        class="text-[#172840] hover:text-gray-900 hover:bg-[#175C93] px-2 sm:px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer text-xs sm:text-sm">Speakers</a>
                     <a href="@if(!request()->routeIs('/')) {{ route('/') }}#exhibition @else #exhibition @endif"
-                       class="text-[#172840] hover:text-gray-900 hover:bg-[#F2B706] px-2 sm:px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer text-xs sm:text-sm">Exhibit</a>
+                       class="text-[#172840] hover:text-gray-900 hover:bg-[#175C93] px-2 sm:px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer text-xs sm:text-sm">Exhibit</a>
                     <a
                         href="@if(!request()->routeIs('/')) {{ route('/') }}#tickets-section @else #tickets-section @endif"
-                        class="text-[#172840] hover:text-gray-900 hover:bg-[#F2B706] px-2 sm:px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer text-xs sm:text-sm">Tickets</a>
+                        class="text-[#172840] hover:text-gray-900 hover:bg-[#175C93] px-2 sm:px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer text-xs sm:text-sm">Tickets</a>
                     <a
                         href="@if(!request()->routeIs('/')) {{ route('/') }}#plan-your-trip @else #plan-your-trip @endif"
-                        class="text-[#172840] hover:text-gray-900 hover:bg-[#F2B706] px-2 sm:px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer text-xs sm:text-sm">Plan</a>
+                        class="text-[#172840] hover:text-gray-900 hover:bg-[#175C93] px-2 sm:px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer text-xs sm:text-sm">Plan</a>
                 </div>
 {{--                <div class="relative">--}}
 {{--                    <div id="google_translate_element"--}}
