@@ -7,7 +7,7 @@
             <div class="relative h-full flex items-center justify-center pt-16 sm:pt-24 md:pt-32">
                 <div class="mx-auto max-w-6xl w-full px-4 sm:px-6">
                     <div class="max-w-2xl mx-auto text-center">
-                        <h1 class="text-2xl sm:text-3xl md:text-4xl font-normal text-red-600 mb-6 sm:mb-8
+                        <h1 class="text-2xl sm:text-3xl md:text-4xl font-normal text-white mb-6 sm:mb-8
                         leading-tight"
                             style="opacity: 1; transform: none;">Create. Connect. Commercialize.</h1>
                         <div class="flex flex-col sm:flex-row gap-2 sm:gap-4 mb-6 sm:mb-10 justify-center"
@@ -1695,7 +1695,8 @@
                                     class="text-2xl sm:text-3xl text-red-500">•</span><span
                                     class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">Students & Emerging Professionals</span>
                                 <span class="text-2xl sm:text-3xl text-[#84C1DA]">•</span>
-                                    class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">Public Sector & Policy Makers </span><span
+                                    <span class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800
+                                whitespace-nowrap">Public Sector & Policy Makers </span><span
                                     class="text-2xl sm:text-3xl text-yellow-500">•</span></div>
                             <div class="flex items-center space-x-4 sm:space-x-6 md:space-x-8"><span
                                     class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">Development Partners & NGOs</span><span
