@@ -23,7 +23,7 @@
                                     </svg>
                                     <span
                                         class="break-words sm:whitespace-nowrap">PrideInn Paradise Beach Resort Spa,
-                                        Mombasa  - <strong>- 14<sup>th</sup> - 18<sup>th</sup> September 2026</strong></span>
+                                        Mombasa <strong>- 14<sup>th</sup> - 18<sup>th</sup> September 2026</strong></span>
                                 </div>
                                 <div class="flex items-center gap-2 text-white text-xs sm:text-sm">
                                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
