@@ -1958,7 +1958,7 @@
                         }
                     };
                     document.addEventListener('click', removeHandler);
-                }
+                },
 
                 // Helper function to create error message with SVG icon
                 createErrorMessage(text) {
