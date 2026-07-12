@@ -1569,7 +1569,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="flex items-center">
-                                                        <input id="attending" x-model="formData.purchaser.isAttending" class="mr-2 rounded-sm h-3 w-3" type="checkbox" name="attending">
+                                                        <input id="attending" x-model="formData.purchaser.isAttending" @change="syncAttendees()" class="mr-2 rounded-sm h-3 w-3" type="checkbox" name="attending">
                                                         <label for="attending" class="text-[#172840] text-sm font-medium">I'm also attending</label>
                                                     </div>
                                                 </form>
@@ -1577,51 +1577,57 @@
                                             <div class="p-4 sm:p-6 bg-white border border-[#84C1D9] rounded-lg shadow-sm">
                                                 <h2 class="text-lg sm:text-xl font-semibold text-slate-800 mb-2">Attendees</h2>
                                                 <p class="text-gray-600 mb-3 sm:mb-4 text-sm sm:text-base">Each ticket must be assigned to a person. You can edit names later from your confirmation email.</p>
-                                                <div class="py-3 sm:py-4 my-3 sm:my-4 border border-[#84C1D9] p-3 sm:p-4 rounded-lg" style="opacity: 1; transform: none;">
-                                                    <h3 class="font-semibold text-slate-800 py-1 sm:py-2 text-sm sm:text-base">Attendee 1 — Virtual Access</h3>
-                                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-                                                        <div class=""><label for="attendee0Name" class="block text-slate-800 text-sm font-semibold mb-2">Full Name <span class="text-red-500 ml-0.5">*</span></label>
-                                                            <div class="relative"><input id="attendee0Name" class="w-full px-4 sm:px-4 py-2.5 sm:py-3 border rounded-lg bg-white focus:outline-none focus:ring-2 transition-all duration-300 text-sm sm:text-base border-gray-300 focus:ring-slate-800 focus:border-slate-800 hover:border-[#84C1D9] shadow-sm hover:shadow-md"
-                                                                                         placeholder="Enter attendee's full name" type="text" value=""></div>
+                                                <div x-init="syncAttendees()">
+                                                    <template x-if="ticketTypesArray().length === 0">
+                                                        <div class="text-sm text-gray-500">No attendees — select tickets first.</div>
+                                                    </template>
+
+                                                    <template x-for="(att, i) in formData.attendees" :key="i">
+                                                        <div class="py-3 sm:py-4 my-3 sm:my-4 border border-[#84C1D9] p-3 sm:p-4 rounded-lg">
+                                                            <h3 class="font-semibold text-slate-800 py-1 sm:py-2 text-sm sm:text-base" x-text="`Attendee ${ (formData.purchaser.isAttending ? i+2 : i+1) } — ${att.ticketType || (ticketTypesArray()[ formData.purchaser.isAttending ? i+1 : i ] || '') }`"></h3>
+
+                                                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                                                                <div>
+                                                                    <label :for="`attendee${i}Name`" class="block text-slate-800 text-sm font-semibold mb-2">Full Name <span class="text-red-500 ml-0.5">*</span></label>
+                                                                    <div class="relative">
+                                                                        <input :id="`attendee${i}Name`" :name="`attendee${i}Name`" x-model="formData.attendees[i].name" class="w-full px-4 sm:px-4 py-2.5 sm:py-3 border rounded-lg bg-white focus:outline-none focus:ring-2 transition-all duration-300 text-sm sm:text-base border-gray-300 focus:ring-slate-800 focus:border-slate-800 hover:border-[#84C1D9] shadow-sm hover:shadow-md" placeholder="Enter attendee's full name" type="text" />
+                                                                    </div>
+                                                                </div>
+
+                                                                <div>
+                                                                    <label :for="`attendee${i}Email`" class="block text-slate-800 text-sm font-semibold mb-2">Email <span class="text-red-500 ml-0.5">*</span></label>
+                                                                    <div class="relative">
+                                                                        <input :id="`attendee${i}Email`" :name="`attendee${i}Email`" x-model="formData.attendees[i].email" class="w-full px-4 sm:px-4 py-2.5 sm:py-3 border rounded-lg bg-white focus:outline-none focus:ring-2 transition-all duration-300 text-sm sm:text-base border-gray-300 focus:ring-slate-800 focus:border-slate-800 hover:border-[#84C1D9] shadow-sm hover:shadow-md" placeholder="Enter attendee's email" type="email" />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+                                                                <div>
+                                                                    <label :for="`attendee${i}Role`" class="block text-slate-800 text-sm font-semibold mb-2">Job/ Role <span class="text-red-500 ml-0.5">*</span></label>
+                                                                    <div class="relative">
+                                                                        <input :id="`attendee${i}Role`" :name="`attendee${i}Role`" x-model="formData.attendees[i].role" class="w-full px-4 sm:px-4 py-2.5 sm:py-3 border rounded-lg bg-white focus:outline-none focus:ring-2 transition-all duration-300 text-sm sm:text-base border-gray-300 focus:ring-slate-800 focus:border-slate-800 hover:border-[#84C1D9] shadow-sm hover:shadow-md" placeholder="Enter job/role" type="text" />
+                                                                    </div>
+                                                                </div>
+
+                                                                <div>
+                                                                    <label :for="`attendee${i}Org`" class="block text-slate-800 text-sm font-semibold mb-2">Company / Organization <span class="text-red-500 ml-0.5">*</span></label>
+                                                                    <div class="relative">
+                                                                        <input :id="`attendee${i}Org`" :name="`attendee${i}Org`" x-model="formData.attendees[i].organization" class="w-full px-4 sm:px-4 py-2.5 sm:py-3 border rounded-lg bg-white focus:outline-none focus:ring-2 transition-all duration-300 text-sm sm:text-base border-gray-300 focus:ring-slate-800 focus:border-slate-800 hover:border-[#84C1D9] shadow-sm hover:shadow-md" placeholder="Enter organization" type="text" />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="pt-3">
+                                                                <label :for="`attendee${i}Ticket`" class="block text-slate-800 text-sm font-semibold mb-2">Ticket Category</label>
+                                                                <select :id="`attendee${i}Ticket`" x-model="formData.attendees[i].ticketType" class="w-full px-3 py-2 border rounded-lg">
+                                                                    <template x-for="(opt, oidx) in distinctTicketTypes()" :key="oidx">
+                                                                        <option :value="opt" x-text="opt"></option>
+                                                                    </template>
+                                                                </select>
+                                                            </div>
                                                         </div>
-                                                        <div class=""><label for="attendee0Email" class="block text-slate-800 text-sm font-semibold mb-2">Email <span class="text-red-500 ml-0.5">*</span></label>
-                                                            <div class="relative"><input id="attendee0Email" class="w-full px-4 sm:px-4 py-2.5 sm:py-3 border rounded-lg bg-white focus:outline-none focus:ring-2 transition-all duration-300 text-sm sm:text-base border-gray-300 focus:ring-slate-800 focus:border-slate-800 hover:border-[#84C1D9] shadow-sm hover:shadow-md"
-                                                                                         placeholder="Enter attendee's email" type="email" value=""></div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
-                                                        <div class=""><label for="attendee0Role" class="block text-slate-800 text-sm font-semibold mb-2">Job/ Role <span class="text-red-500 ml-0.5">*</span></label>
-                                                            <div class="relative"><input id="attendee0Role" class="w-full px-4 sm:px-4 py-2.5 sm:py-3 border rounded-lg bg-white focus:outline-none focus:ring-2 transition-all duration-300 text-sm sm:text-base border-gray-300 focus:ring-slate-800 focus:border-slate-800 hover:border-[#84C1D9] shadow-sm hover:shadow-md"
-                                                                                         placeholder="Enter job/role" type="text" value=""></div>
-                                                        </div>
-                                                        <div class=""><label for="attendee0Org" class="block text-slate-800 text-sm font-semibold mb-2">Company / Organization <span class="text-red-500 ml-0.5">*</span></label>
-                                                            <div class="relative"><input id="attendee0Org" class="w-full px-4 sm:px-4 py-2.5 sm:py-3 border rounded-lg bg-white focus:outline-none focus:ring-2 transition-all duration-300 text-sm sm:text-base border-gray-300 focus:ring-slate-800 focus:border-slate-800 hover:border-[#84C1D9] shadow-sm hover:shadow-md"
-                                                                                         placeholder="Enter organization" type="text" value=""></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="py-3 sm:py-4 my-3 sm:my-4 border border-[#84C1D9] p-3 sm:p-4 rounded-lg" style="opacity: 1; transform: none;">
-                                                    <h3 class="font-semibold text-slate-800 py-1 sm:py-2 text-sm sm:text-base">Attendee 2 — International Delegate</h3>
-                                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-                                                        <div class=""><label for="attendee1Name" class="block text-slate-800 text-sm font-semibold mb-2">Full Name <span class="text-red-500 ml-0.5">*</span></label>
-                                                            <div class="relative"><input id="attendee1Name" class="w-full px-4 sm:px-4 py-2.5 sm:py-3 border rounded-lg bg-white focus:outline-none focus:ring-2 transition-all duration-300 text-sm sm:text-base border-gray-300 focus:ring-slate-800 focus:border-slate-800 hover:border-[#84C1D9] shadow-sm hover:shadow-md"
-                                                                                         placeholder="Enter attendee's full name" type="text" value=""></div>
-                                                        </div>
-                                                        <div class=""><label for="attendee1Email" class="block text-slate-800 text-sm font-semibold mb-2">Email <span class="text-red-500 ml-0.5">*</span></label>
-                                                            <div class="relative"><input id="attendee1Email" class="w-full px-4 sm:px-4 py-2.5 sm:py-3 border rounded-lg bg-white focus:outline-none focus:ring-2 transition-all duration-300 text-sm sm:text-base border-gray-300 focus:ring-slate-800 focus:border-slate-800 hover:border-[#84C1D9] shadow-sm hover:shadow-md"
-                                                                                         placeholder="Enter attendee's email" type="email" value=""></div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
-                                                        <div class=""><label for="attendee1Role" class="block text-slate-800 text-sm font-semibold mb-2">Job/ Role <span class="text-red-500 ml-0.5">*</span></label>
-                                                            <div class="relative"><input id="attendee1Role" class="w-full px-4 sm:px-4 py-2.5 sm:py-3 border rounded-lg bg-white focus:outline-none focus:ring-2 transition-all duration-300 text-sm sm:text-base border-gray-300 focus:ring-slate-800 focus:border-slate-800 hover:border-[#84C1D9] shadow-sm hover:shadow-md"
-                                                                                         placeholder="Enter job/role" type="text" value=""></div>
-                                                        </div>
-                                                        <div class=""><label for="attendee1Org" class="block text-slate-800 text-sm font-semibold mb-2">Company / Organization <span class="text-red-500 ml-0.5">*</span></label>
-                                                            <div class="relative"><input id="attendee1Org" class="w-full px-4 sm:px-4 py-2.5 sm:py-3 border rounded-lg bg-white focus:outline-none focus:ring-2 transition-all duration-300 text-sm sm:text-base border-gray-300 focus:ring-slate-800 focus:border-slate-800 hover:border-[#84C1D9] shadow-sm hover:shadow-md"
-                                                                                         placeholder="Enter organization" type="text" value=""></div>
-                                                        </div>
-                                                    </div>
+                                                    </template>
                                                 </div>
                                             </div>
                                             <div class="p-6 bg-white border border-[#84C1D9] rounded-lg shadow-sm">
@@ -2500,6 +2506,8 @@
 
                 removeTicket(ticketType) {
                     this.selectedTickets = this.selectedTickets.filter(ticket => ticket.type !== ticketType);
+                    // Sync attendee fields whenever tickets change
+                    this.syncAttendees();
                 },
 
                 selectTicket(ticketType, price, count) {
@@ -2540,7 +2548,55 @@
                         });
                     }
 
+                    // Keep attendees in sync with tickets
+                    this.syncAttendees();
+
                     console.log('Selected tickets:', this.selectedTickets);
+                },
+
+                // Return expanded array of ticket types (repeated per count)
+                ticketTypesArray() {
+                    const arr = [];
+                    if (!this.selectedTickets) return arr;
+                    this.selectedTickets.forEach(t => {
+                        for (let i = 0; i < (t.count || 0); i++) arr.push(t.type);
+                    });
+                    return arr;
+                },
+
+                // Return distinct ticket types (for dropdown options)
+                distinctTicketTypes() {
+                    const set = new Set((this.selectedTickets || []).map(t => t.type));
+                    return Array.from(set);
+                },
+
+                // Ensure formData.attendees length matches number of attendee forms required
+                syncAttendees() {
+                    const tickets = this.ticketTypesArray();
+                    const totalTickets = tickets.length;
+                    const purchaserAttending = !!this.formData.purchaser.isAttending;
+                    const needed = Math.max(0, totalTickets - (purchaserAttending ? 1 : 0));
+
+                    // Shrink or expand attendees array
+                    this.formData.attendees = this.formData.attendees || [];
+
+                    // Trim extras
+                    if (this.formData.attendees.length > needed) {
+                        this.formData.attendees = this.formData.attendees.slice(0, needed);
+                    }
+
+                    // Add missing attendee placeholders
+                    for (let i = this.formData.attendees.length; i < needed; i++) {
+                        const attendeeIndex = purchaserAttending ? i + 1 : i; // offset into tickets array
+                        const defaultTicket = tickets[attendeeIndex] || this.distinctTicketTypes()[0] || '';
+                        this.formData.attendees.push({
+                            name: '',
+                            email: '',
+                            role: '',
+                            organization: '',
+                            ticketType: defaultTicket
+                        });
+                    }
                 },
 
 
