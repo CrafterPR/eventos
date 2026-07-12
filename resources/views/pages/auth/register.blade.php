@@ -1527,7 +1527,7 @@
                             <div class="mx-auto max-w-7xl ">
                                 <div class="text-slate-800 text-center py-4">
                                     <h2 class="font-bold text-2xl">Attendee Details</h2>
-                                    <p class="font-normal">You're registering <span x-text="formData.attendees.length"></span> attendee(s) for KICP Conference 2026
+                                    <p class="font-normal">You're registering <span x-text="totalTickets()"></span> attendee(s) for KICP Conference 2026
                                         .</p>
                                 </div>
                                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 pt-4 sm:pt-6 pb-8 sm:pb-10 max-w-7xl mx-auto px-3 sm:px-4">
