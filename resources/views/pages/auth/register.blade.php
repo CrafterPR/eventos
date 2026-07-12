@@ -1574,7 +1574,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="">
-                                                        <label for="country" class="block text-[#172840] text-sm font-medium mb-2">Countrys <span class="text-red-500">*</span></label>
+                                                        <label for="country" class="block text-[#172840] text-sm font-medium mb-2">Country <span class="text-red-500">*</span></label>
                                                         <div class="relative">
                                                             <input type="text" name="country" id="country1" x-model="formData.purchaser.country" class="w-full px-4 sm:px-4 py-2.5 sm:py-3 border rounded-lg bg-white focus:outline-none focus:ring-2 transition-all duration-300 text-sm sm:text-base border-gray-300 focus:ring-slate-800 focus:border-slate-800 hover:border-[#84C1D9] shadow-sm hover:shadow-md" />
                                                         </div>
@@ -1583,6 +1583,17 @@
                                                         <input id="attending" x-model="formData.purchaser.isAttending" @change="syncAttendees()" class="mr-2 rounded-sm h-3 w-3" type="checkbox" name="attending">
                                                         <label for="attending" class="text-[#172840] text-sm font-medium">I'm also attending</label>
                                                     </div>
+
+                                                    <template x-if="formData.purchaser.isAttending">
+                                                        <div class="mt-3">
+                                                            <label for="purchaserTicket" class="block text-slate-800 text-sm font-semibold mb-2">Purchaser Ticket Category</label>
+                                                            <select id="purchaserTicket" x-model="formData.purchaser.ticketType" @change="syncAttendees()" class="w-full px-3 py-2 border rounded-lg">
+                                                                <template x-for="(opt, oidx) in distinctTicketTypes()" :key="oidx">
+                                                                    <option :value="opt" x-text="opt" :disabled="!isOptionAvailableForPurchaser(opt) && formData.purchaser.ticketType !== opt"></option>
+                                                                </template>
+                                                            </select>
+                                                        </div>
+                                                    </template>
                                                 </form>
                                             </div>
                                             <div class="p-4 sm:p-6 bg-white border border-[#84C1D9] rounded-lg shadow-sm">
@@ -1631,9 +1642,9 @@
 
                                                             <div class="pt-3">
                                                                 <label :for="`attendee${i}Ticket`" class="block text-slate-800 text-sm font-semibold mb-2">Ticket Category</label>
-                                                                <select :id="`attendee${i}Ticket`" x-model="formData.attendees[i].ticketType" class="w-full px-3 py-2 border rounded-lg">
+                                                                <select :id="`attendee${i}Ticket`" x-model="formData.attendees[i].ticketType" class="w-full px-3 py-2 border rounded-lg" @change="syncAttendees()">
                                                                     <template x-for="(opt, oidx) in distinctTicketTypes()" :key="oidx">
-                                                                        <option :value="opt" x-text="opt"></option>
+                                                                        <option :value="opt" x-text="opt" :disabled="!isOptionAvailable(opt, i) && formData.attendees[i].ticketType !== opt"></option>
                                                                     </template>
                                                                 </select>
                                                             </div>
@@ -2443,34 +2454,23 @@
                     }
                     if (isAttending) this.formData.purchaser.isAttending = isAttending.checked;
 
-                    // Save attendees
-                    this.formData.attendees = [];
-                    const totalTickets = this.totalTickets();
+                    // Attendees are bound to formData.attendees via x-model; ensure sync
+                    this.syncAttendees();
 
-                    for (let i = 0; i < totalTickets; i++) {
-                        const attendeeName = document.querySelector(`#attendee${i}Name`);
-                        const attendeeEmail = document.querySelector(`#attendee${i}Email`);
-                        const attendeeRole = document.querySelector(`#attendee${i}Role`);
-                        const attendeeOrg = document.querySelector(`#attendee${i}Org`);
-
-                        // Get ticket type from the section heading
-                        const attendeeSection = attendeeName?.closest('.py-3.sm\\:py-4');
-                        let ticketType = '';
-                        if (attendeeSection) {
-                            const heading = attendeeSection.querySelector('h3');
-                            if (heading) {
-                                ticketType = heading.textContent.replace('Attendee ' + (i + 1) + ' — ', '');
-                            }
-                        }
-
-                        this.formData.attendees.push({
-                            name: attendeeName?.value || '',
-                            email: attendeeEmail?.value || '',
-                            role: attendeeRole?.value || '',
-                            organization: attendeeOrg?.value || '',
-                            ticketType: ticketType
-                        });
+                    // If purchaser is attending, ensure purchaser.ticketType is recorded (bound via x-model in UI)
+                    if (this.formData.purchaser.isAttending && !this.formData.purchaser.ticketType) {
+                        const tickets = this.ticketTypesArray();
+                        this.formData.purchaser.ticketType = tickets[0] || null;
                     }
+
+                    // Normalize attendees (fill defaults where necessary)
+                    this.formData.attendees = (this.formData.attendees || []).map((a, idx) => ({
+                        name: a.name || '',
+                        email: a.email || '',
+                        role: a.role || '',
+                        organization: a.organization || this.formData.purchaser.organization || this.formData.organization || '',
+                        ticketType: a.ticketType || this.ticketTypesArray()[ (this.formData.purchaser.isAttending ? idx+1 : idx) ] || ''
+                    }));
 
                     // Save documents & support
                     const visaLetter = document.querySelector('#visaLetter');
@@ -2592,10 +2592,10 @@
                 // Build tickets array order
                 const tickets = this.ticketTypesArray();
 
-                // If purchaser attending, consume first ticket
+                // If purchaser attending, consume purchaser selected ticket if set else consume first ticket
                 let idx = 0;
                 if (this.formData.purchaser.isAttending) {
-                    const ptype = tickets[0];
+                    const ptype = this.formData.purchaser.ticketType || tickets[0];
                     if (ptype) {
                         counts[ptype] = (counts[ptype] || 0) - 1;
                     }
@@ -2611,6 +2611,7 @@
                 return counts; // may have negative numbers if over-assigned
                 },
 
+
                 // Whether an option is available for a given attendee index
                 isOptionAvailable(opt, attendeeIndex) {
                 const counts = this.availableTicketCounts();
@@ -2620,6 +2621,14 @@
 
                 // Option available if count > 0
                 return (counts[opt] || 0) > 0;
+                },
+
+                // Whether purchaser can pick an option
+                isOptionAvailableForPurchaser(opt) {
+                    const counts = this.availableTicketCounts();
+                    const current = this.formData.purchaser.ticketType || null;
+                    if (current === opt) return true;
+                    return (counts[opt] || 0) > 0;
                 },
 
                 // Ensure formData.attendees length matches number of attendee forms required
