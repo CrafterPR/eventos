@@ -179,15 +179,15 @@
                                                 </div>
                                             </div>
                                             <div class="pt-8 border-t border-gray-100">
-                                                <div class="bg-blue-50 border border-[#84C1D9]/30 rounded-xl p-5 mb-6">
-                                                    <div class="flex items-start gap-3">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-5 h-5 text-[#84C1D9] mt-0.5 flex-shrink-0 iconify iconify--mdi" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M11 9h2V7h-2m1 13c-4.41 0-8-3.59-8-8s3.59-8 8-8s8 3.59 8 8s-3.59 8-8 8m0-18A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2m-1 15h2v-6h-2z"></path></svg>
-                                                        <p class="text-sm text-gray-700 leading-relaxed">By
-                                                            continuing, you agree to receive updates about KICP
-                                                            Conference
-                                                            2026. We respect your privacy and won't spam you.</p>
-                                                    </div>
-                                                </div>
+{{--                                                <div class="bg-blue-50 border border-[#84C1D9]/30 rounded-xl p-5 mb-6">--}}
+{{--                                                    <div class="flex items-start gap-3">--}}
+{{--                                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-5 h-5 text-[#84C1D9] mt-0.5 flex-shrink-0 iconify iconify--mdi" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M11 9h2V7h-2m1 13c-4.41 0-8-3.59-8-8s3.59-8 8-8s8 3.59 8 8s-3.59 8-8 8m0-18A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2m-1 15h2v-6h-2z"></path></svg>--}}
+{{--                                                        <p class="text-sm text-gray-700 leading-relaxed">By--}}
+{{--                                                            continuing, you agree to receive updates about KICP--}}
+{{--                                                            Conference--}}
+{{--                                                            2026. We respect your privacy and won't spam you.</p>--}}
+{{--                                                    </div>--}}
+{{--                                                </div>--}}
                                                 <div class="text-center">
                                                     <button @click="validateStep()" x-show="currentStep < steps.length - 1" type="button" class="bg-[#84C1D9] text-white px-10 sm:px-12 py-4 rounded-full font-semibold hover:bg-slate-800 transition-all duration-300 shadow-lg hover:shadow-xl text-base sm:text-lg transform hover:scale-105 active:scale-95 inline-flex items-center gap-2">
                                                         Continue to Ticket Selection
@@ -1527,7 +1527,8 @@
                             <div class="mx-auto max-w-7xl ">
                                 <div class="text-slate-800 text-center py-4">
                                     <h2 class="font-bold text-2xl">Attendee Details</h2>
-                                    <p class="font-normal">You're registering <span x-text="totalTickets()"></span> attendee(s) for KICP Conference 2026
+                                    <p class="font-normal">You're registering <span x-text="totalTickets()"></span>
+                                        attendee(s) for KICP Conference 2026
                                         .</p>
                                 </div>
                                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 pt-4 sm:pt-6 pb-8 sm:pb-10 max-w-7xl mx-auto px-3 sm:px-4">
@@ -1691,7 +1692,11 @@
                                                             <input id="terms" class="mr-3 mt-1 rounded-sm h-3 w-3" type="checkbox" name="terms">
                                                             <label for="terms" class="text-sm text-gray-700">I accept the <a href="/terms-and-conditions" class="text-[#84C1D9] hover:underline">terms &amp; conditions</a> and <a href="/privacy-policy" class="text-[#84C1D9] hover:underline">privacy policy</a> <span class="text-red-500">*</span></label>
                                                         </div>
-                                                        <div class="flex items-start"><input id="updates" class="mr-3 mt-1 rounded-sm h-3 w-3" type="checkbox" name="updates"><label for="updates" class="text-sm text-gray-700">Send me summit updates (optional)</label></div>
+                                                        <div class="flex items-start"><input id="updates" class="mr-3
+                                                         mt-1 rounded-sm h-3 w-3" type="checkbox"
+                                                                                             name="updates"><label
+                                                                for="updates" class="text-sm text-gray-700">Send me
+                                                                conference updates (optional)</label></div>
                                                     </div>
                                                 </form>
                                             </div>
@@ -1902,7 +1907,7 @@
             const countryInput = document.querySelector('#country');
             if (countryInput) {
                 $(countryInput).countrySelect({
-                    defaultCountry: "",  // No default country
+                    defaultCountry: "ke",  // No default country
                     preferredCountries: ['ke', 'ng', 'za', 'gh', 'tz', 'ug', 'rw'], // African countries preferred
                     responsiveDropdown: true
                 });
@@ -1912,7 +1917,7 @@
             const countryInputStep2 = document.querySelector('#wizardForm #country');
             if (countryInputStep2 && countryInputStep2 !== countryInput) {
                 $(countryInputStep2).countrySelect({
-                    defaultCountry: "",
+                    defaultCountry: "ke",
                     preferredCountries: ['ke', 'ng', 'za', 'gh', 'tz', 'ug', 'rw'],
                     responsiveDropdown: true
                 });
@@ -1924,7 +1929,7 @@
             const countryInput = document.querySelector('#country1');
             if (countryInput) {
                 $(countryInput).countrySelect({
-                    defaultCountry: "",  // No default country
+                    defaultCountry: "ke",  // No default country
                     preferredCountries: ['ke', 'ng', 'za', 'gh', 'tz', 'ug', 'rw'], // African countries preferred
                     responsiveDropdown: true
                 });
@@ -1934,7 +1939,7 @@
             const countryInputStep2 = document.querySelector('#wizardForm #country1');
             if (countryInputStep2 && countryInputStep2 !== countryInput) {
                 $(countryInputStep2).countrySelect({
-                    defaultCountry: "",
+                    defaultCountry: "ke",
                     preferredCountries: ['ke', 'ng', 'za', 'gh', 'tz', 'ug', 'rw'],
                     responsiveDropdown: true
                 });
