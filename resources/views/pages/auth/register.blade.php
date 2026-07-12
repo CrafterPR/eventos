@@ -2602,19 +2602,29 @@
                 // Build tickets array order
                 const tickets = this.ticketTypesArray();
 
-                // If purchaser attending, consume purchaser selected ticket if set else consume first ticket
+                // If purchaser attending, consume purchaser selected ticket only if explicitly assigned (non-empty)
                 let idx = 0;
                 if (this.formData.purchaser.isAttending) {
-                    const ptype = this.formData.purchaser.ticketType || tickets[0];
+                    const ptype = (this.formData.purchaser.ticketType && this.formData.purchaser.ticketType !== '') ? this.formData.purchaser.ticketType : null;
                     if (ptype) {
                         counts[ptype] = (counts[ptype] || 0) - 1;
                     }
                     idx = 1;
                 }
 
-                // Subtract assigned attendee tickets
+                // Subtract assigned attendee tickets. Treat explicit empty selections ('') as unassigned.
                 (this.formData.attendees || []).forEach((a, ai) => {
-                    const ttype = a.ticketType || tickets[idx + ai] || null;
+                    let ttype = null;
+                    if (a.ticketType && a.ticketType !== '') {
+                        ttype = a.ticketType;
+                    } else if (a.ticketType == null) {
+                        // no explicit selection stored: fall back to default ticket order
+                        ttype = tickets[idx + ai] || null;
+                    } else {
+                        // a.ticketType is explicitly empty string => unassigned, skip
+                        ttype = null;
+                    }
+
                     if (ttype) counts[ttype] = (counts[ttype] || 0) - 1;
                 });
 
