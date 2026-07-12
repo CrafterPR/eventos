@@ -1674,16 +1674,23 @@
                                     <div>
                                         <div class="p-4 sm:p-6 bg-white border border-[#84C1D9] rounded-lg shadow-sm sticky top-40">
                                             <div class="flex justify-between mb-3 sm:mb-4">
-                                                <h2 class="text-lg sm:text-xl font-semibold text-slate-800">Your Selection</h2>
+                                                <div>
+                                                    <h2 class="text-lg sm:text-xl font-semibold text-slate-800">Your Selection</h2>
+                                                    <p class="text-sm text-gray-500" x-text="totalTickets() + ' ticket(s) selected'"></p>
+                                                </div>
                                                 <p class="font-normal text-red-500 text-xs sm:text-sm">Early Bird active</p>
                                             </div>
                                             <div class="space-y-2 mb-3 sm:mb-4">
-                                                <div class="flex justify-between text-sm sm:text-base"><span>Virtual Access × 1</span><span>$20</span></div>
-                                                <div class="flex justify-between text-sm sm:text-base"><span>International Delegate × 1</span><span>$250</span></div>
+                                                <template x-if="!selectedTickets || selectedTickets.length === 0">
+                                                    <div class="text-sm text-gray-500">No tickets selected</div>
+                                                </template>
+                                                <template x-for="(ticket, idx) in selectedTickets" :key="idx">
+                                                    <div class="flex justify-between text-sm sm:text-base"><span x-text="ticket.type + ' × ' + ticket.count"></span><span x-text="'$' + (ticket.price * ticket.count)"></span></div>
+                                                </template>
                                                 <hr class="my-2">
-                                                <div class="flex justify-between text-sm sm:text-base"><span>Subtotal</span><span>$270</span></div>
+                                                <div class="flex justify-between text-sm sm:text-base"><span>Subtotal</span><span x-text="'$' + totalAmount()"></span></div>
                                                 <div class="flex justify-between text-sm sm:text-base"><span>Promo</span><span class="text-green-600">-$0</span></div>
-                                                <div class="flex justify-between font-bold text-base sm:text-lg"><span>Total</span><span>$270</span></div>
+                                                <div class="flex justify-between font-bold text-base sm:text-lg"><span>Total</span><span x-text="'$' + totalAmount()"></span></div>
                                             </div>
                                             <div class="mb-4">
                                                 <h3 class="font-semibold text-slate-800 mb-2">Payment Method</h3>
