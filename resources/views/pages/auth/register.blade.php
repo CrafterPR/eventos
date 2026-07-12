@@ -1784,23 +1784,19 @@
                                                 <p class="font-normal text-red-500 text-xs sm:text-sm">Early Bird active</p>
                                             </div>
                                             <div class="space-y-2 mb-3 sm:mb-4">
-                                                <div class="flex justify-between text-sm sm:text-base">
-                                                    <span>General Admission × 1</span>
-                                                    <span>$65</span>
-                                                </div>
-                                                <hr>
-                                                <div class="flex justify-between text-sm sm:text-base">
-                                                    <span>Subtotal</span>
-                                                    <span>$65</span>
-                                                </div>
-                                                <div class="flex justify-between text-sm sm:text-base">
-                                                    <span>Promo</span>
-                                                    <span class="text-green-600">-$0</span>
-                                                </div>
-                                                <div class="flex justify-between font-bold text-base sm:text-lg">
-                                                    <span>Total</span>
-                                                    <span>$65</span>
-                                                </div>
+                                                <template x-if="!selectedTickets || selectedTickets.length === 0">
+                                                    <div class="text-sm text-gray-500">No tickets selected</div>
+                                                </template>
+                                                <template x-for="(ticket, idx) in selectedTickets" :key="idx">
+                                                    <div class="flex justify-between text-sm sm:text-base">
+                                                        <span x-text="ticket.type + ' × ' + ticket.count"></span>
+                                                        <span x-text="'$' + (ticket.price * ticket.count)"></span>
+                                                    </div>
+                                                </template>
+                                                <hr class="my-2">
+                                                <div class="flex justify-between text-sm sm:text-base"><span>Subtotal</span><span x-text="'$' + totalAmount()"></span></div>
+                                                <div class="flex justify-between text-sm sm:text-base"><span>Promo</span><span class="text-green-600">-$0</span></div>
+                                                <div class="flex justify-between font-bold text-base sm:text-lg"><span>Total</span><span x-text="'$' + totalAmount()"></span></div>
                                             </div>
                                             <div class="mb-3 sm:mb-4">
                                                 <form>
