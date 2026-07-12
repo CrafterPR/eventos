@@ -2007,6 +2007,11 @@
                         }
                     };
                     document.addEventListener('click', removeHandler);
+                    const clickTracker = function(e) {
+                        const tile = e.target && e.target.closest ? e.target.closest('[x-data]') : null;
+                        if (tile) self._lastClickedTile = tile;
+                    };
+                    document.addEventListener('click', clickTracker);
                 },
 
                 // Helper function to create error message with SVG icon
@@ -2540,8 +2545,8 @@
                     let pr = price;
 
                     try {
-                        const active = document.activeElement;
-                        const tile = active && active.closest && active.closest('[x-data]');
+                        // Prefer using the last clicked tile tracked by a global click listener (more reliable)
+                        const tile = this._lastClickedTile || (document.activeElement && document.activeElement.closest ? document.activeElement.closest('[x-data]') : null);
                         if (tile) {
                             const heading = tile.querySelector('h2');
                             const priceEl = tile.querySelector('h3');
@@ -2563,13 +2568,19 @@
                     if (existingIndex >= 0) {
                         // Update existing ticket
                         this.selectedTickets[existingIndex].count = count;
+                        // If count becomes 0, remove the ticket
+                        if (this.selectedTickets[existingIndex].count <= 0) {
+                            this.selectedTickets.splice(existingIndex, 1);
+                        }
                     } else {
                         // Add new ticket
-                        this.selectedTickets.push({
-                            type: type,
-                            price: pr || price,
-                            count: count
-                        });
+                        if ((count || 0) > 0) {
+                            this.selectedTickets.push({
+                                type: type,
+                                price: pr || price,
+                                count: count
+                            });
+                        }
                     }
 
                     // Keep attendees in sync with tickets
@@ -2577,6 +2588,7 @@
 
                     console.log('Selected tickets:', this.selectedTickets);
                 },
+
 
                 // Return expanded array of ticket types (repeated per count)
                 ticketTypesArray() {
