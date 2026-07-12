@@ -58,72 +58,7 @@
         </div>
 
         <div class="bg-[#DAECF3]">
-            <div>
-                <section class="relative mx-auto max-w-6xl px-3 sm:px-4 md:px-6 py-12 sm:py-16 md:py-20">
-                    <div class="text-center mb-6 sm:mb-8 md:mb-12 px-2" style="opacity: 1; transform: none;">
-                        <h2 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-[#172840] font-bold mb-2 sm:mb-3 md:mb-4">What's Included</h2>
-                        <h3 class="text-sm sm:text-base md:text-lg lg:text-xl text-[#172840] font-normal max-w-3xl mx-auto px-2">Your full access to sessions, networking, and experiences.</h3>
-                    </div>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
-                        <div class="group bg-slate-800 rounded-lg shadow-lg p-4 sm:p-5 md:p-6 flex flex-col h-full transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:scale-[1.02] cursor-pointer" style="opacity: 1; transform: none;">
-                            <div class="flex items-start justify-start mb-3 sm:mb-4" style="opacity: 1; transform: none;">
-                                <img src="https://ik.imagekit.io/nkmvdjnna/PAAN/summit/icons/keynote-panel.svg" alt="Keynotes &amp; Panels Icon" class="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3 flex-shrink-0">
-                            </div>
-                            <h3 class="text-white text-left my-2 sm:my-3 md:my-4 font-bold text-sm sm:text-base md:text-lg" style="opacity: 1; transform: none;">Keynotes &amp; Panels</h3>
-                            <p class="text-white text-xs sm:text-sm md:text-base font-normal text-left mt-auto leading-relaxed" style="opacity: 1; transform: none;">Learn from top African and global leaders shaping the creative and business landscape.</p>
-                        </div>
-                        <div class="group bg-slate-800 rounded-lg shadow-lg p-4 sm:p-5 md:p-6 flex flex-col h-full transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:scale-[1.02] cursor-pointer" style="opacity: 1; transform: none;">
-                            <div class="flex items-start justify-start mb-3 sm:mb-4" style="opacity: 1; transform: none;">
-                                <img src="https://ik.imagekit.io/nkmvdjnna/PAAN/summit/icons/exhibition-hall.svg" alt="Exhibition Hall Icon" class="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3 flex-shrink-0">
-                            </div>
-                            <h3 class="text-white text-left my-2 sm:my-3 md:my-4 font-bold text-sm sm:text-base md:text-lg" style="opacity: 1; transform: none;">Exhibition Hall</h3>
-                            <p class="text-white text-xs sm:text-sm md:text-base font-normal text-left mt-auto leading-relaxed" style="opacity: 1; transform: none;">Explore tools, technologies, agencies, and brands driving innovation across the continent.</p>
-                        </div>
-                        <div class="group bg-slate-800 rounded-lg shadow-lg p-4 sm:p-5 md:p-6 flex flex-col h-full transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:scale-[1.02] cursor-pointer" style="opacity: 1; transform: none;">
-                            <div class="flex items-start justify-start mb-3 sm:mb-4" style="opacity: 1; transform: none;">
-                                <img src="https://ik.imagekit.io/nkmvdjnna/PAAN/summit/icons/smart-networking.svg" alt="Smart Networking Icon" class="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3 flex-shrink-0">
-                            </div>
-                            <h3 class="text-white text-left my-2 sm:my-3 md:my-4 font-bold text-sm sm:text-base md:text-lg" style="opacity: 1; transform: none;">Smart Networking</h3>
-                            <p class="text-white text-xs sm:text-sm md:text-base font-normal text-left mt-auto leading-relaxed" style="opacity: 1; transform: none;">Meet collaborators, clients, agencies, creators, and investors through the Summit app.</p>
-                        </div>
-                        <div class="group bg-slate-800 rounded-lg shadow-lg p-4 sm:p-5 md:p-6 flex flex-col h-full transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:scale-[1.02] cursor-pointer" style="opacity: 1; transform: none;">
-                            <div class="flex items-start justify-start mb-3 sm:mb-4" style="opacity: 1; transform: none;">
-                                <img src="https://ik.imagekit.io/nkmvdjnna/PAAN/summit/icons/career-lounge.svg" alt="Career Lounge Icon" class="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3 flex-shrink-0">
-                            </div>
-                            <h3 class="text-white text-left my-2 sm:my-3 md:my-4 font-bold text-sm sm:text-base md:text-lg" style="opacity: 1; transform: none;">Career Lounge</h3>
-                            <p class="text-white text-xs sm:text-sm md:text-base font-normal text-left mt-auto leading-relaxed" style="opacity: 1; transform: none;">Get career guidance, portfolio reviews, job leads, and mentorship opportunities.</p>
-                        </div>
-                        <div class="group bg-slate-800 rounded-lg shadow-lg p-4 sm:p-5 md:p-6 flex flex-col h-full transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:scale-[1.02] cursor-pointer" style="opacity: 1; transform: none;">
-                            <div class="flex items-start justify-start mb-3 sm:mb-4" style="opacity: 1; transform: none;">
-                                <img src="https://ik.imagekit.io/nkmvdjnna/PAAN/summit/icons/business-opportunity.svg" alt="Business Opportunities Icon" class="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3 flex-shrink-0">
-                            </div>
-                            <h3 class="text-white text-left my-2 sm:my-3 md:my-4 font-bold text-sm sm:text-base md:text-lg" style="opacity: 1; transform: none;">Business Opportunities</h3>
-                            <p class="text-white text-xs sm:text-sm md:text-base font-normal text-left mt-auto leading-relaxed" style="opacity: 1; transform: none;">Discover cross-border projects, partnerships, co-bidding options, and new market entry paths.</p>
-                        </div>
-                        <div class="group bg-slate-800 rounded-lg shadow-lg p-4 sm:p-5 md:p-6 flex flex-col h-full transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:scale-[1.02] cursor-pointer" style="opacity: 1; transform: none;">
-                            <div class="flex items-start justify-start mb-3 sm:mb-4" style="opacity: 1; transform: none;">
-                                <img src="https://ik.imagekit.io/nkmvdjnna/PAAN/summit/icons/certificate.svg" alt="Certificates Icon" class="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3 flex-shrink-0">
-                            </div>
-                            <h3 class="text-white text-left my-2 sm:my-3 md:my-4 font-bold text-sm sm:text-base md:text-lg" style="opacity: 1; transform: none;">Certificates</h3>
-                            <p class="text-white text-xs sm:text-sm md:text-base font-normal text-left mt-auto leading-relaxed" style="opacity: 1; transform: none;">Receive a digital participation certificate and access session materials (where applicable).</p>
-                        </div>
-                        <div class="group bg-slate-800 rounded-lg shadow-lg p-4 sm:p-5 md:p-6 flex flex-col h-full transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:scale-[1.02] cursor-pointer" style="opacity: 1; transform: none;">
-                            <div class="flex items-start justify-start mb-3 sm:mb-4" style="opacity: 1; transform: none;">
-                                <img src="https://ik.imagekit.io/nkmvdjnna/PAAN/summit/icons/creative-experinces.svg" alt="Creative Experiences Icon" class="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3 flex-shrink-0">
-                            </div>
-                            <h3 class="text-white text-left my-2 sm:my-3 md:my-4 font-bold text-sm sm:text-base md:text-lg" style="opacity: 1; transform: none;">Creative Experiences</h3>
-                            <p class="text-white text-xs sm:text-sm md:text-base font-normal text-left mt-auto leading-relaxed" style="opacity: 1; transform: none;">Enjoy showcases, brand activations, live demos, and curated summit experiences.</p>
-                        </div>
-                        <div class="group bg-slate-800 rounded-lg shadow-lg p-4 sm:p-5 md:p-6 flex flex-col h-full transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:scale-[1.02] cursor-pointer" style="opacity: 1; transform: none;">
-                            <div class="flex items-start justify-start mb-3 sm:mb-4" style="opacity: 1; transform: none;">
-                                <img src="https://ik.imagekit.io/nkmvdjnna/PAAN/summit/icons/onground-support.svg" alt="On-Ground Support Icon" class="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3 flex-shrink-0">
-                            </div>
-                            <h3 class="text-white text-left my-2 sm:my-3 md:my-4 font-bold text-sm sm:text-base md:text-lg" style="opacity: 1; transform: none;">On-Ground Support</h3>
-                            <p class="text-white text-xs sm:text-sm md:text-base font-normal text-left mt-auto leading-relaxed" style="opacity: 1; transform: none;">Benefit from visa letters, priority check-in, and help desk support depending on your ticket.</p>
-                        </div>
-                    </div>
-                </section>
-            </div>
+
 
             <div x-data="wizard()">
 

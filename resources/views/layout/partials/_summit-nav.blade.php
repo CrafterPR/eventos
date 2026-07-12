@@ -25,6 +25,11 @@
                         class="text-slate-800 bg-blue-500 px-2 sm:px-3 py-1.5 rounded-full transition-all duration-300
                         cursor-pointer text-xs sm:text-sm font-medium">Home</a>
                     <a
+                        href="@if(!request()->routeIs('/')) {{ route('/') }}#package @else #package @endif"
+                        class="text-[#172840] hover:text-gray-900 hover:bg-[#175C93] px-2 sm:px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer text-xs sm:text-sm">
+                        The package
+                    </a>
+                    <a
                         href="@if(!request()->routeIs('/')) {{ route('/') }}#program @else #program @endif"
                         class="text-[#172840] hover:text-gray-900 hover:bg-[#175C93] px-2 sm:px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer text-xs sm:text-sm">
                         Sessions
