@@ -162,9 +162,20 @@
                                                 </div>
                                             </div>
                                             <div class="">
-                                                <label for="country" class="block text-[#172840] text-sm font-medium mb-2">Country <span class="text-red-500">*</span></label>
-                                                <div class="relative">
-                                                    <input type="text" name="country" id="country" class="w-full px-4 sm:px-4 py-2.5 sm:py-3 border rounded-lg bg-white focus:outline-none focus:ring-2 transition-all duration-300 text-sm sm:text-base border-gray-300 focus:ring-slate-800 focus:border-slate-800 hover:border-[#84C1D9] shadow-sm hover:shadow-md" />
+                                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                                    <div>
+                                                        <label for="country" class="block text-[#172840] text-sm font-medium mb-2">Country <span class="text-red-500">*</span></label>
+                                                        <div class="relative">
+                                                            <input type="text" name="country" id="country" class="w-full px-4 sm:px-4 py-2.5 sm:py-3 border rounded-lg bg-white focus:outline-none focus:ring-2 transition-all duration-300 text-sm sm:text-base border-gray-300 focus:ring-slate-800 focus:border-slate-800 hover:border-[#84C1D9] shadow-sm hover:shadow-md" />
+                                                        </div>
+                                                    </div>
+
+                                                    <div>
+                                                        <label for="organizationRoot" class="block text-[#172840] text-sm font-medium mb-2">Organization</label>
+                                                        <div class="relative">
+                                                            <input id="organizationRoot" type="text" x-model="formData.organization" placeholder="Enter your organization" class="w-full px-4 sm:px-4 py-2.5 sm:py-3 border rounded-lg bg-white focus:outline-none focus:ring-2 transition-all duration-300 text-sm sm:text-base border-gray-300 focus:ring-slate-800 focus:border-slate-800 hover:border-[#84C1D9] shadow-sm hover:shadow-md" />
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="pt-8 border-t border-gray-100">
@@ -1924,6 +1935,7 @@
                     email: '',
                     phone: '',
                     country: '',
+                    organization: '',
                     // Step 2 data
                     purchaser: {
                         fullName: '',
@@ -1933,6 +1945,8 @@
                         country: '',
                         isAttending: false
                     },
+                    attendees: [],
+
                     attendees: [],
                     documents: {
                         needVisaLetter: '',
@@ -2570,34 +2584,78 @@
                     return Array.from(set);
                 },
 
+                // Return ticket -> remaining count after accounting for assigned attendees
+                availableTicketCounts() {
+                const counts = {};
+                (this.selectedTickets || []).forEach(t => { counts[t.type] = (counts[t.type] || 0) + (t.count || 0); });
+
+                // Build tickets array order
+                const tickets = this.ticketTypesArray();
+
+                // If purchaser attending, consume first ticket
+                let idx = 0;
+                if (this.formData.purchaser.isAttending) {
+                    const ptype = tickets[0];
+                    if (ptype) {
+                        counts[ptype] = (counts[ptype] || 0) - 1;
+                    }
+                    idx = 1;
+                }
+
+                // Subtract assigned attendee tickets
+                (this.formData.attendees || []).forEach((a, ai) => {
+                    const ttype = a.ticketType || tickets[idx + ai] || null;
+                    if (ttype) counts[ttype] = (counts[ttype] || 0) - 1;
+                });
+
+                return counts; // may have negative numbers if over-assigned
+                },
+
+                // Whether an option is available for a given attendee index
+                isOptionAvailable(opt, attendeeIndex) {
+                const counts = this.availableTicketCounts();
+                // If attendee already has this option, allow it (so they don't get forced out)
+                const current = (this.formData.attendees && this.formData.attendees[attendeeIndex] && this.formData.attendees[attendeeIndex].ticketType) || null;
+                if (current === opt) return true;
+
+                // Option available if count > 0
+                return (counts[opt] || 0) > 0;
+                },
+
                 // Ensure formData.attendees length matches number of attendee forms required
                 syncAttendees() {
-                    const tickets = this.ticketTypesArray();
-                    const totalTickets = tickets.length;
-                    const purchaserAttending = !!this.formData.purchaser.isAttending;
-                    const needed = Math.max(0, totalTickets - (purchaserAttending ? 1 : 0));
+                const tickets = this.ticketTypesArray();
+                const totalTickets = tickets.length;
+                const purchaserAttending = !!this.formData.purchaser.isAttending;
+                const needed = Math.max(0, totalTickets - (purchaserAttending ? 1 : 0));
 
-                    // Shrink or expand attendees array
-                    this.formData.attendees = this.formData.attendees || [];
+                // Shrink or expand attendees array
+                this.formData.attendees = this.formData.attendees || [];
 
-                    // Trim extras
-                    if (this.formData.attendees.length > needed) {
-                        this.formData.attendees = this.formData.attendees.slice(0, needed);
-                    }
+                // Trim extras
+                if (this.formData.attendees.length > needed) {
+                    this.formData.attendees = this.formData.attendees.slice(0, needed);
+                }
 
-                    // Add missing attendee placeholders
-                    for (let i = this.formData.attendees.length; i < needed; i++) {
-                        const attendeeIndex = purchaserAttending ? i + 1 : i; // offset into tickets array
-                        const defaultTicket = tickets[attendeeIndex] || this.distinctTicketTypes()[0] || '';
-                        this.formData.attendees.push({
-                            name: '',
-                            email: '',
-                            role: '',
-                            organization: '',
-                            ticketType: defaultTicket
-                        });
-                    }
+                // Add missing attendee placeholders
+                for (let i = this.formData.attendees.length; i < needed; i++) {
+                    const attendeeIndex = purchaserAttending ? i + 1 : i; // offset into tickets array
+                    const defaultTicket = tickets[attendeeIndex] || this.distinctTicketTypes()[0] || '';
+                    this.formData.attendees.push({
+                        name: '',
+                        email: '',
+                        role: '',
+                        organization: this.formData.purchaser.organization || this.formData.organization || '',
+                        ticketType: defaultTicket
+                    });
+                }
+
+                // Ensure existing attendees have organization filled
+                this.formData.attendees.forEach(a => {
+                    if (!a.organization) a.organization = this.formData.purchaser.organization || this.formData.organization || '';
+                });
                 },
+
 
 
                 manualValidation(fields) {
@@ -2684,6 +2742,10 @@
                     if (email) this.formData.email = email.value;
                     if (phone) this.formData.phone = phone.value;
 
+                    // Read organization from root contact step
+                    const org = document.querySelector('#organizationRoot');
+                    if (org) this.formData.organization = org.value;
+
                     // Get country value from the country select plugin
                     if (country) {
                         const countryData = $(country).countrySelect('getSelectedCountryData');
@@ -2692,6 +2754,7 @@
 
                     console.log('Form data saved:', this.formData);
                 },
+
 
                 nextStep() {
                     if (this.currentStep < this.steps.length - 1) {
@@ -2705,7 +2768,17 @@
                             if (!this.formData.purchaser.email && this.formData.email) this.formData.purchaser.email = this.formData.email;
                             if (!this.formData.purchaser.phone1 && this.formData.phone) this.formData.purchaser.phone1 = this.formData.phone;
                             if (!this.formData.purchaser.country && this.formData.country) this.formData.purchaser.country = this.formData.country;
+                            if (!this.formData.purchaser.organization && this.formData.organization) this.formData.purchaser.organization = this.formData.organization;
+
+                            // Prefill attendees organization if not set
+                            if (this.formData.purchaser.organization) {
+                                this.formData.attendees = this.formData.attendees || [];
+                                this.formData.attendees.forEach(a => {
+                                    if (!a.organization) a.organization = this.formData.purchaser.organization;
+                                });
+                            }
                         }
+
 
                         // Scroll to top of form
                         const wizardForm = document.getElementById('wizardForm');
