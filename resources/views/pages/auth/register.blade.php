@@ -1489,31 +1489,23 @@
                                     <div class="mt-4 sm:mt-6 p-4 sm:p-6 bg-white border border-[#84C1D9] rounded-lg max-w-4xl mx-auto shadow-lg" style="opacity: 1; transform: none;">
                                         <h3 class="text-lg sm:text-xl font-bold text-slate-800 mb-3 sm:mb-4">Ticket Summary</h3>
                                         <div class="space-y-2">
-                                            <div class="flex justify-between items-center py-2 border-b border-gray-100 text-sm sm:text-base">
-                                                <div class="flex-1"><span class="font-medium">International Delegate × 1</span></div>
-                                                <div class="flex items-center gap-3">
-                                                    <span class="font-semibold">$250</span>
-                                                    <button class="text-red-500 hover:text-red-700 transition-colors p-1" title="Remove ticket">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-5 h-5 iconify iconify--mdi" width="1em" height="1em" viewBox="0 0 24 24">
-                                                            <path fill="currentColor" d="M12 2c5.53 0 10 4.47 10 10s-4.47 10-10 10S2 17.53 2 12S6.47 2 12 2m3.59 5L12 10.59L8.41 7L7 8.41L10.59 12L7 15.59L8.41 17L12 13.41L15.59 17L17 15.59L13.41 12L17 8.41z"></path></svg>
-                                                    </button>
+                                            <template x-for="(ticket, idx) in selectedTickets" :key="idx">
+                                                <div class="flex justify-between items-center py-2 border-b border-gray-100 text-sm sm:text-base">
+                                                    <div class="flex-1"><span class="font-medium" x-text="ticket.type + ' × ' + ticket.count"></span></div>
+                                                    <div class="flex items-center gap-3">
+                                                        <span class="font-semibold" x-text="'$' + (ticket.price * ticket.count)"></span>
+                                                        <button class="text-red-500 hover:text-red-700 transition-colors p-1" title="Remove ticket" @click.prevent="removeTicket(ticket.type)">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-5 h-5 iconify iconify--mdi" width="1em" height="1em" viewBox="0 0 24 24">
+                                                                <path fill="currentColor" d="M12 2c5.53 0 10 4.47 10 10s-4.47 10-10 10S2 17.53 2 12S6.47 2 12 2m3.59 5L12 10.59L8.41 7L7 8.41L10.59 12L7 15.59L8.41 17L12 13.41L15.59 17L17 15.59L13.41 12L17 8.41z"></path></svg>
+                                                        </button>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="flex justify-between items-center py-2 border-b border-gray-100 text-sm sm:text-base">
-                                                <div class="flex-1"><span class="font-medium">Virtual Access × 1</span></div>
-                                                <div class="flex items-center gap-3">
-                                                    <span class="font-semibold">$20</span>
-                                                    <button class="text-red-500 hover:text-red-700 transition-colors p-1" title="Remove ticket">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-5 h-5 iconify iconify--mdi" width="1em" height="1em" viewBox="0 0 24 24">
-                                                            <path fill="currentColor" d="M12 2c5.53 0 10 4.47 10 10s-4.47 10-10 10S2 17.53 2 12S6.47 2 12 2m3.59 5L12 10.59L8.41 7L7 8.41L10.59 12L7 15.59L8.41 17L12 13.41L15.59 17L17 15.59L13.41 12L17 8.41z"></path></svg>
-                                                    </button>
-                                                </div>
-                                            </div>
+                                            </template>
                                         </div>
                                         <hr class="my-3 sm:my-4">
                                         <div class="flex justify-between font-bold text-base sm:text-lg">
                                             <span>Total</span>
-                                            <span>$270</span>
+                                            <span x-text="'$' + totalAmount()"></span>
                                         </div>
                                     </div>
                                 </div>
@@ -1949,7 +1941,24 @@
                             this.setupValidator();
                         }, 200);
                     });
-                },
+
+                    // Global click listener to handle Remove Ticket buttons inside ticket cards.
+                    const self = this;
+                    const removeHandler = function(e) {
+                        const btn = e.target.closest && e.target.closest('button');
+                        if (!btn) return;
+                        if (btn.textContent && btn.textContent.trim() === 'Remove Ticket') {
+                            const tile = btn.closest('[x-data]');
+                            const heading = tile ? tile.querySelector('h2') : null;
+                            const type = heading ? heading.textContent.trim() : null;
+                            if (type) {
+                                // Remove from selectedTickets if present
+                                self.removeTicket(type);
+                            }
+                        }
+                    };
+                    document.addEventListener('click', removeHandler);
+                }
 
                 // Helper function to create error message with SVG icon
                 createErrorMessage(text) {
