@@ -1527,7 +1527,8 @@
                             <div class="mx-auto max-w-7xl ">
                                 <div class="text-slate-800 text-center py-4">
                                     <h2 class="font-bold text-2xl">Attendee Details</h2>
-                                    <p class="font-normal">You're registering 2 attendee(s) for KICP Conference 2026.</p>
+                                    <p class="font-normal">You're registering <span x-text="formData.attendees.length"></span> attendee(s) for KICP Conference 2026
+                                        .</p>
                                 </div>
                                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 pt-4 sm:pt-6 pb-8 sm:pb-10 max-w-7xl mx-auto px-3 sm:px-4">
                                     <div>
@@ -1588,6 +1589,7 @@
                                                         <div class="mt-3">
                                                             <label for="purchaserTicket" class="block text-slate-800 text-sm font-semibold mb-2">Purchaser Ticket Category</label>
                                                             <select id="purchaserTicket" x-model="formData.purchaser.ticketType" @change="syncAttendees()" class="w-full px-3 py-2 border rounded-lg">
+                                                                <option value="">Select ticket</option>
                                                                 <template x-for="(opt, oidx) in distinctTicketTypes()" :key="oidx">
                                                                     <option :value="opt" x-text="opt" :disabled="!isOptionAvailableForPurchaser(opt) && formData.purchaser.ticketType !== opt"></option>
                                                                 </template>
@@ -1643,6 +1645,7 @@
                                                             <div class="pt-3">
                                                                 <label :for="`attendee${i}Ticket`" class="block text-slate-800 text-sm font-semibold mb-2">Ticket Category</label>
                                                                 <select :id="`attendee${i}Ticket`" x-model="formData.attendees[i].ticketType" class="w-full px-3 py-2 border rounded-lg" @change="syncAttendees()">
+                                                                    <option value="">Select ticket</option>
                                                                     <template x-for="(opt, oidx) in distinctTicketTypes()" :key="oidx">
                                                                         <option :value="opt" x-text="opt" :disabled="!isOptionAvailable(opt, i) && formData.attendees[i].ticketType !== opt"></option>
                                                                     </template>
