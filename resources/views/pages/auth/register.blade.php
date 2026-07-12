@@ -2495,8 +2495,30 @@
                 },
 
                 selectTicket(ticketType, price, count) {
+                    // Try to detect the clicked ticket card if the caller passed generic/hardcoded values.
+                    let type = ticketType;
+                    let pr = price;
+
+                    try {
+                        const active = document.activeElement;
+                        const tile = active && active.closest && active.closest('[x-data]');
+                        if (tile) {
+                            const heading = tile.querySelector('h2');
+                            const priceEl = tile.querySelector('h3');
+                            const typeFromDom = heading ? heading.textContent.trim() : null;
+                            const priceFromDom = priceEl ? parseFloat(priceEl.textContent.replace(/[^0-9.]/g, '')) : NaN;
+
+                            if (typeFromDom) type = typeFromDom;
+                            if (!isNaN(priceFromDom)) pr = priceFromDom;
+                        }
+                    } catch (e) {
+                        console.log('selectTicket detect error', e);
+                    }
+
+                    if (!type) return;
+
                     // Check if ticket type already exists
-                    const existingIndex = this.selectedTickets.findIndex(t => t.type === ticketType);
+                    const existingIndex = this.selectedTickets.findIndex(t => t.type === type);
 
                     if (existingIndex >= 0) {
                         // Update existing ticket
@@ -2504,14 +2526,15 @@
                     } else {
                         // Add new ticket
                         this.selectedTickets.push({
-                            type: ticketType,
-                            price: price,
+                            type: type,
+                            price: pr || price,
                             count: count
                         });
                     }
 
                     console.log('Selected tickets:', this.selectedTickets);
                 },
+
 
                 manualValidation(fields) {
                     let isValid = true;
