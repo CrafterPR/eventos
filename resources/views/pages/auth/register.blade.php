@@ -1963,10 +1963,6 @@
                         ticketType: ''
                     },
                     attendees: [],
-                },
-                purchaserLocked: false,
-
-                    attendees: [],
                     documents: {
                         needVisaLetter: '',
                         passportName: '',
@@ -1978,6 +1974,7 @@
                         receiveUpdates: false
                     }
                 },
+                purchaserLocked: false,
                 selectedTickets: [],
 
                 init() {
