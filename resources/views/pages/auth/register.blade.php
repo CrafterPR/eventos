@@ -1529,15 +1529,15 @@
                                                         <div class="">
                                                             <label for="fullName1" class="block text-slate-800 text-sm font-semibold mb-2">Full Name <span class="text-red-500 ml-0.5">*</span></label>
                                                             <div class="relative">
-                                                                <input id="fullName1" class="w-full px-4 sm:px-4 py-2.5 sm:py-3 border rounded-lg bg-white focus:outline-none focus:ring-2 transition-all duration-300 text-sm sm:text-base border-gray-300 focus:ring-slate-800 focus:border-slate-800 hover:border-[#84C1D9] shadow-sm hover:shadow-md"
-                                                                       placeholder="Enter your full name" type="text" value="" name="fullName">
+                                                                <input id="fullName1" x-model="formData.purchaser.fullName" class="w-full px-4 sm:px-4 py-2.5 sm:py-3 border rounded-lg bg-white focus:outline-none focus:ring-2 transition-all duration-300 text-sm sm:text-base border-gray-300 focus:ring-slate-800 focus:border-slate-800 hover:border-[#84C1D9] shadow-sm hover:shadow-md"
+                                                                       placeholder="Enter your full name" type="text" name="fullName">
                                                             </div>
                                                         </div>
                                                         <div class="">
                                                             <label for="email1" class="block text-slate-800 text-sm font-semibold mb-2">Email <span class="text-red-500 ml-0.5">*</span></label>
                                                             <div class="relative">
-                                                                <input id="email1" class="w-full px-4 sm:px-4 py-2.5 sm:py-3 border rounded-lg bg-white focus:outline-none focus:ring-2 transition-all duration-300 text-sm sm:text-base border-gray-300 focus:ring-slate-800 focus:border-slate-800 hover:border-[#84C1D9] shadow-sm hover:shadow-md"
-                                                                       placeholder="Enter your email" type="email" value="" name="email">
+                                                                <input id="email1" x-model="formData.purchaser.email" class="w-full px-4 sm:px-4 py-2.5 sm:py-3 border rounded-lg bg-white focus:outline-none focus:ring-2 transition-all duration-300 text-sm sm:text-base border-gray-300 focus:ring-slate-800 focus:border-slate-800 hover:border-[#84C1D9] shadow-sm hover:shadow-md"
+                                                                       placeholder="Enter your email" type="email" name="email">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1547,6 +1547,7 @@
                                                             <div class="relative">
                                                                 <input
                                                                     id="phone1"
+                                                                    x-model="formData.purchaser.phone1"
                                                                     name="phone1"
                                                                     class="w-full px-4 sm:px-4 py-2.5 sm:py-3 border rounded-lg bg-white focus:outline-none focus:ring-2 transition-all duration-300 text-sm sm:text-base border-gray-300 focus:ring-slate-800 focus:border-slate-800 hover:border-[#84C1D9] shadow-sm hover:shadow-md"
                                                                     phone-country-input="#country1"
@@ -1556,19 +1557,19 @@
                                                         <div class="">
                                                             <label for="organization" class="block text-slate-800 text-sm font-semibold mb-2">Company / Organization <span class="text-red-500 ml-0.5">*</span></label>
                                                             <div class="relative">
-                                                                <input id="organization" class="w-full px-4 sm:px-4 py-2.5 sm:py-3 border rounded-lg bg-white focus:outline-none focus:ring-2 transition-all duration-300 text-sm sm:text-base border-gray-300 focus:ring-slate-800 focus:border-slate-800 hover:border-[#84C1D9] shadow-sm hover:shadow-md"
-                                                                       placeholder="Enter your organization" type="text" value="" name="organization">
+                                                                <input id="organization" x-model="formData.purchaser.organization" class="w-full px-4 sm:px-4 py-2.5 sm:py-3 border rounded-lg bg-white focus:outline-none focus:ring-2 transition-all duration-300 text-sm sm:text-base border-gray-300 focus:ring-slate-800 focus:border-slate-800 hover:border-[#84C1D9] shadow-sm hover:shadow-md"
+                                                                       placeholder="Enter your organization" type="text" name="organization">
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="">
                                                         <label for="country" class="block text-[#172840] text-sm font-medium mb-2">Countrys <span class="text-red-500">*</span></label>
                                                         <div class="relative">
-                                                            <input type="text" name="country" id="country1" class="w-full px-4 sm:px-4 py-2.5 sm:py-3 border rounded-lg bg-white focus:outline-none focus:ring-2 transition-all duration-300 text-sm sm:text-base border-gray-300 focus:ring-slate-800 focus:border-slate-800 hover:border-[#84C1D9] shadow-sm hover:shadow-md" />
+                                                            <input type="text" name="country" id="country1" x-model="formData.purchaser.country" class="w-full px-4 sm:px-4 py-2.5 sm:py-3 border rounded-lg bg-white focus:outline-none focus:ring-2 transition-all duration-300 text-sm sm:text-base border-gray-300 focus:ring-slate-800 focus:border-slate-800 hover:border-[#84C1D9] shadow-sm hover:shadow-md" />
                                                         </div>
                                                     </div>
                                                     <div class="flex items-center">
-                                                        <input id="attending" class="mr-2 rounded-sm h-3 w-3" type="checkbox" name="attending">
+                                                        <input id="attending" x-model="formData.purchaser.isAttending" class="mr-2 rounded-sm h-3 w-3" type="checkbox" name="attending">
                                                         <label for="attending" class="text-[#172840] text-sm font-medium">I'm also attending</label>
                                                     </div>
                                                 </form>
@@ -2641,6 +2642,15 @@
                         this.currentStep++;
                         console.log('Moving to step:', this.currentStep);
 
+                        // If moving to Attendee Details (step 2), prefill purchaser info from step 0
+                        if (this.currentStep === 2) {
+                            // Copy root formData values into purchaser if purchaser fields are empty
+                            if (!this.formData.purchaser.fullName && this.formData.fullName) this.formData.purchaser.fullName = this.formData.fullName;
+                            if (!this.formData.purchaser.email && this.formData.email) this.formData.purchaser.email = this.formData.email;
+                            if (!this.formData.purchaser.phone1 && this.formData.phone) this.formData.purchaser.phone1 = this.formData.phone;
+                            if (!this.formData.purchaser.country && this.formData.country) this.formData.purchaser.country = this.formData.country;
+                        }
+
                         // Scroll to top of form
                         const wizardForm = document.getElementById('wizardForm');
                         if (wizardForm) {
@@ -2648,6 +2658,7 @@
                         }
                     }
                 },
+
 
                 prevStep() {
                     if (this.currentStep > 0) {
