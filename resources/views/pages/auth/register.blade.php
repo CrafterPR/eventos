@@ -1589,7 +1589,9 @@
                                                         <div class="mt-3">
                                                             <label for="purchaserTicket" class="block text-slate-800 text-sm font-semibold mb-2">Purchaser Ticket Category</label>
                                                             <select id="purchaserTicket" x-model="formData.purchaser.ticketType" @change="syncAttendees()" class="w-full px-3 py-2 border rounded-lg">
-                                                                <option value="">Select ticket</option>
+                                                                <template x-if="!purchaserLocked">
+                                                                    <option value="">Select ticket</option>
+                                                                </template>
                                                                 <template x-for="(opt, oidx) in distinctTicketTypes()" :key="oidx">
                                                                     <option :value="opt" x-text="opt" :disabled="!isOptionAvailableForPurchaser(opt) && formData.purchaser.ticketType !== opt"></option>
                                                                 </template>
@@ -1957,9 +1959,12 @@
                         phone1: '',
                         organization: '',
                         country: '',
-                        isAttending: false
+                        isAttending: false,
+                        ticketType: ''
                     },
                     attendees: [],
+                },
+                purchaserLocked: false,
 
                     attendees: [],
                     documents: {
@@ -2640,6 +2645,19 @@
                 const totalTickets = tickets.length;
                 const purchaserAttending = !!this.formData.purchaser.isAttending;
                 const needed = Math.max(0, totalTickets - (purchaserAttending ? 1 : 0));
+
+                // If purchaser attending and only one ticket selected, auto-assign and lock purchaser
+                if (purchaserAttending && totalTickets === 1) {
+                    const single = tickets[0] || null;
+                    if (single) {
+                        this.formData.purchaser.ticketType = single;
+                        this.purchaserLocked = true;
+                    } else {
+                        this.purchaserLocked = false;
+                    }
+                } else {
+                    this.purchaserLocked = false;
+                }
 
                 // Shrink or expand attendees array
                 this.formData.attendees = this.formData.attendees || [];
