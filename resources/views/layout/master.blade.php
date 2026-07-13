@@ -61,6 +61,22 @@
         gtag('config', 'G-5K1BSSB2FG');
 
     </script>
+<style>
+    /* Prevent horizontal overflow on mobile and ensure consistent box-sizing */
+    html, body {
+        overflow-x: hidden;
+        box-sizing: border-box;
+    }
+    *, *::before, *::after {
+        box-sizing: inherit;
+    }
+
+    /* Additional safety for small screens */
+    @media (max-width: 640px) {
+        body { overflow-x: hidden !important; }
+        .max-w-7xl, .max-w-6xl, .max-w-2xl { max-width: 100% !important; }
+    }
+</style>
 </head>
 <!--end::Head-->
 
