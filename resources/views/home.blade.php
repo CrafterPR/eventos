@@ -863,17 +863,16 @@
                                     </div>
                                     <div class="p-4 sm:p-6 relative flex-1 overflow-y-auto">
                                         <div class="space-y-4 sm:space-y-6 relative">
-                                            <div
-                                                class="absolute left-[5px] top-[6px] bottom-[6px] w-0.5 bg-[#175C93]"></div>
-                                            <div class="flex items-center relative">
+{{--                                            <div--}}
+{{--                                                class="absolute left-[5px] top-[6px] bottom-[6px] w-0.5 bg-[#ef4444]"></div>--}}
+                                            <div class="flex  relative">
                                                 <div class="relative">
                                                     <div
-                                                        class="w-3 h-3 bg-[#175C93] rounded-full shadow-lg shadow-[#7BC7F0]/50 flex-shrink-0 z-10 relative">
+                                                        class="w-3 h-3 bg-[#ef4444] rounded-full shadow-lg shadow-[#ef4444]/50 flex-shrink-0 z-10 relative">
 
                                                     </div>
                                                     <div
-                                                        class="absolute inset-0 w-3 h-3 bg-[#7BC7F0] rounded-full
-                                                        opacity-30 animate-ping"></div>
+                                                        class="absolute inset-0 w-3 h-3 bg-[#ef4444] rounded-full opacity-30 animate-ping"></div>
                                                 </div>
                                                 <div class="ml-4 sm:ml-6">
                                                     <div class="text-xs sm:text-sm font-bold text-[#84C1D9]
@@ -896,7 +895,7 @@
                         <section x-cloak x-show="tabs.find(tab => tab.id === 2).active || mobileActiveTab == 2">
                             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
                                 <div class="bg-white rounded-xl shadow-xl overflow-hidden flex flex-col"
-                                     style="height:auto">
+                                     style="height:680px">
                                     <div
                                         class="bg-gradient-to-r from-[#175C93] to-[#7BC7F0] text-white p-4 sm:p-6
                                         flex-shrink-0">
@@ -906,13 +905,13 @@
                                     <div class="p-4 sm:p-6 relative flex-1 overflow-y-auto">
                                         <div class="space-y-4 sm:space-y-6 relative">
                                             <div
-                                                class="absolute left-[5px] top-[6px] bottom-[6px] w-0.5 bg-[#175C93]"></div>
-                                            <div class="flex items-center relative">
+                                                class="absolute left-[5px] top-[6px] bottom-[6px] w-0.5 bg-[#ef4444]"></div>
+                                            <div class="flex relative">
                                                 <div class="relative">
                                                     <div
-                                                        class="w-3 h-3 bg-[#175C93] rounded-full shadow-lg shadow-[#7BC7F0]/50 flex-shrink-0 z-10 relative"></div>
+                                                        class="w-3 h-3 bg-[#ef4444] rounded-full shadow-lg shadow-[#ef4444]/50 flex-shrink-0 z-10 relative"></div>
                                                     <div
-                                                        class="absolute inset-0 w-3 h-3 bg-[#7BC7F0] rounded-full opacity-30 animate-ping"></div>
+                                                        class="absolute inset-0 w-3 h-3 bg-[#ef4444] rounded-full opacity-30 animate-ping"></div>
                                                 </div>
                                                 <div class="ml-4 sm:ml-6">
                                                     <div class="text-xs sm:text-sm font-bold text-[#84C1D9] mb-1">8:00a.m. – 8:30a.m.
@@ -928,196 +927,154 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="flex items-center relative">
-                                                <div class="relative">
-                                                    <div
-                                                        class="w-3 h-3 bg-[#175C93] rounded-full shadow-lg shadow-[#7BC7F0]/50 flex-shrink-0 z-10 relative"></div>
-                                                    <div
-                                                        class="absolute inset-0 w-3 h-3 bg-[#7BC7F0] rounded-full opacity-30 animate-ping"></div>
-                                                </div>
+                                            <div class="flex  relative">
+
                                                 <div class="ml-4 sm:ml-6">
-                                                    <div class="text-xs sm:text-sm font-bold text-[#84C1D9] mb-1">09:10
-                                                        – 09:40
+
+                                                    <h5 class="text-[#1a365d] text-sm sm:text-base">Setting the Stage:
+                                                        National Anthem & Prayers </h5>
+                                                    <div class="flex items-center gap-1 mt-0.5">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 text-[#84C1D9] flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                                            <circle cx="12" cy="7" r="4"></circle>
+                                                        </svg>
+                                                        <h6 class="text-[#84C1D9] text-xs italic font-normal
+                                                        leading-tight">Johnson Mwakazi,
+                                                            Master of Ceremony</h6>
                                                     </div>
-                                                    <h5 class="text-[#1a365d] text-sm sm:text-base">Keynote: From Reach
-                                                        to Revenue — The Future of Marketing, Data &amp; Commerce in
-                                                        Africa</h5>
+                                                </div>
+
+                                            </div>
+                                            <div class="flex  relative">
+
+                                                <div class="ml-4 sm:ml-6">
+
+                                                    <h5 class="text-[#1a365d] text-sm sm:text-base">Welcome Remarks
+                                                        (10 minutes)</h5>
+                                                    <div class="flex items-center gap-1 mt-0.5">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 text-[#84C1D9] flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                                            <circle cx="12" cy="7" r="4"></circle>
+                                                        </svg>
+                                                        <h6 class="text-[#84C1D9] text-xs italic font-normal
+                                                        leading-tight">Prof. Nicholas K. Letting’,
+                                                            Ph.D, EBS, HSC
+                                                            Chief Executive Officer,
+                                                            KASNEB</h6>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="flex items-center relative">
-                                                <div class="relative">
-                                                    <div
-                                                        class="w-3 h-3 bg-[#175C93] rounded-full shadow-lg shadow-[#7BC7F0]/50 flex-shrink-0 z-10 relative"></div>
-                                                    <div
-                                                        class="absolute inset-0 w-3 h-3 bg-[#7BC7F0] rounded-full opacity-30 animate-ping"></div>
-                                                </div>
+                                            <div class="flex  relative">
+
                                                 <div class="ml-4 sm:ml-6">
-                                                    <div class="text-xs sm:text-sm font-bold text-[#84C1D9] mb-1">09:40
-                                                        – 10:20
+
+                                                    <h5 class="text-[#1a365d] text-sm sm:text-base">Opening Remarks
+                                                        (15 minutes)</h5>
+                                                    <div class="flex items-center gap-1 mt-0.5">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 text-[#84C1D9] flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                                            <circle cx="12" cy="7" r="4"></circle>
+                                                        </svg>
+                                                        <h6 class="text-[#84C1D9] text-xs italic font-normal
+                                                        leading-tight">Dr. Percy Opio
+                                                            Board Chairman, KASNEB</h6>
                                                     </div>
-                                                    <h5 class="text-[#1a365d] text-sm sm:text-base">Panel: Creator
-                                                        Economy 2.0 — From Influence to Infrastructure</h5>
                                                 </div>
                                             </div>
-                                            <div class="flex items-center relative">
-                                                <div class="relative">
-                                                    <div
-                                                        class="w-3 h-3 bg-[#175C93] rounded-full shadow-lg shadow-[#7BC7F0]/50 flex-shrink-0 z-10 relative"></div>
-                                                    <div
-                                                        class="absolute inset-0 w-3 h-3 bg-[#7BC7F0] rounded-full opacity-30 animate-ping"></div>
-                                                </div>
+                                            <div class="flex relative">
+
                                                 <div class="ml-4 sm:ml-6">
-                                                    <div class="text-xs sm:text-sm font-bold text-[#84C1D9] mb-1">10:20
-                                                        – 11:10
+
+                                                    <h5 class="text-[#1a365d] text-sm sm:text-base">Address
+                                                        Topic: Professionals
+                                                        Advancing Africa’s Global
+                                                        Competitiveness</h5>
+                                                    <div class="flex items-center gap-1 mt-0.5">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 text-[#84C1D9] flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                                            <circle cx="12" cy="7" r="4"></circle>
+                                                        </svg>
+                                                        <h6 class="text-[#84C1D9] text-xs italic font-normal
+                                                        leading-tight">Mr. Walid Ben Salah
+                                                            President, Pan African
+                                                            Federation of Accountants</h6>
                                                     </div>
-                                                    <h5 class="text-[#1a365d] text-sm sm:text-base"><span
-                                                            class="font-bold">Track 7:</span> Cross-Border Collaboration
-                                                        &amp; Ecosystem Growth<br>Session: Operating Across Borders —
-                                                        Tax, IP, and Legal Realities<br><span
-                                                            class="font-bold">Track 4:</span> Creator &amp; Freelance
-                                                        Economy<br>Session: Fair Pay Africa — Pricing Creativity for
-                                                        Value<br><span class="font-bold">Track 2:</span> Creative +
-                                                        Media Performance<br>Session: Short-Form Mastery:
-                                                        Crafting Stories That Stick</h5>
                                                 </div>
                                             </div>
-                                            <div class="flex items-center relative">
+                                            <div class="flex relative">
                                                 <div class="relative">
                                                     <div
-                                                        class="w-3 h-3 bg-[#175C93] rounded-full shadow-lg shadow-[#7BC7F0]/50 flex-shrink-0 z-10 relative"></div>
+                                                        class="w-3 h-3 bg-[#ef4444] rounded-full shadow-lg shadow-[#ef4444]/50 flex-shrink-0 z-10 relative"></div>
                                                     <div
-                                                        class="absolute inset-0 w-3 h-3 bg-[#7BC7F0] rounded-full opacity-30 animate-ping"></div>
+                                                        class="absolute inset-0 w-3 h-3 bg-[#ef4444] rounded-full opacity-30 animate-ping"></div>
                                                 </div>
                                                 <div class="ml-4 sm:ml-6">
-                                                    <div class="text-xs sm:text-sm font-bold text-[#84C1D9] mb-1">11:10
-                                                        – 11:40
+                                                    <div class="text-xs sm:text-sm font-bold text-[#84C1D9]
+                                                    mb-1">8:30a.m. – 10:30a.m.
                                                     </div>
-                                                    <h5 class="text-[#1a365d] text-sm sm:text-base">Networking Break +
-                                                        Partner Activations</h5>
+                                                    <h5 class="text-[#1a365d] text-sm sm:text-base">
+                                                        Opening Keynote Address
+                                                        Topic: The Success Mindset
+                                                        as A Competitive Advantage
+                                                        (20 minutes)</h5>
+                                                    <div class="flex items-center gap-1 mt-0.5">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 text-[#84C1D9] flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                                            <circle cx="12" cy="7" r="4"></circle>
+                                                        </svg>
+                                                        <h6 class="text-[#84C1D9] text-xs italic font-normal
+                                                        leading-tight">Mr. Paul Russo, EBS
+                                                            Group CEO, KCB Bank</h6>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="flex items-center relative">
-                                                <div class="relative">
-                                                    <div
-                                                        class="w-3 h-3 bg-[#175C93] rounded-full shadow-lg shadow-[#7BC7F0]/50 flex-shrink-0 z-10 relative"></div>
-                                                    <div
-                                                        class="absolute inset-0 w-3 h-3 bg-[#7BC7F0] rounded-full opacity-30 animate-ping"></div>
-                                                </div>
+                                            <div class="flex relative">
+
                                                 <div class="ml-4 sm:ml-6">
-                                                    <div class="text-xs sm:text-sm font-bold text-[#84C1D9] mb-1">11:40
-                                                        – 12:25
+                                                    <h4 class="text-[#1a365d] text-sm sm:text-base">Fireside Chat</h4>
+                                                    <h5 class="text-[#1a365d] text-sm sm:text-base">
+                                                        Topic: The Reinvented
+                                                        Leader: Leading Evolving
+                                                        Professionals in a Dynamic
+                                                        Work Environment
+                                                        (45 minutes)
+                                                        </h5>
+                                                    <div class="flex items-center gap-1 mt-0.5">
+
+                                                        <h6 class="text-[#84C1D9] text-xs italic font-normal
+                                                        leading-tight">
+                                                            <strong>Speakers</strong>
+                                                        </h6>
+                                                        <div class="flex items-center gap-1 mt-0.5">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 text-[#84C1D9] flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                                            <circle cx="12" cy="7" r="4"></circle>
+                                                        </svg>
+                                                        <h6 class="text-[#84C1D9] text-xs italic font-normal
+                                                        leading-tight">Mr. Walid Ben Salah
+                                                            President, Pan African
+                                                            Federation of Accountants</h6>
                                                     </div>
-                                                    <h5 class="text-[#1a365d] text-sm sm:text-base"><span
-                                                            class="font-bold">Track 6:</span> Commerce, Platforms &amp;
-                                                        The Business of Marketing<br>Session: Chat Commerce &amp; Social
-                                                        Selling: Converting Conversations into Sales<br><span
-                                                            class="font-bold">Track 5:</span> Communication, PR &amp;
-                                                        Brand Trust<br>Session: Influence with Integrity — The New
-                                                        PR-Creator Relationship<br><span
-                                                            class="font-bold">Track 1:</span> AI &amp; Technology<br>Session:
-                                                        Building
-                                                        Smarter Campaign Workflows with Automation</h5>
+                                                    <div class="flex items-center gap-1 mt-0.5">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 text-[#84C1D9] flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                                        <circle cx="12" cy="7" r="4"></circle>
+                                                    </svg>
+                                                    <h6 class="text-[#84C1D9] text-xs italic font-normal
+                                                        leading-tight">Mr. Walid Ben Salah
+                                                        President, Pan African
+                                                        Federation of Accountants</h6>
+                                                </div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="flex items-center relative">
-                                                <div class="relative">
-                                                    <div
-                                                        class="w-3 h-3 bg-[#175C93] rounded-full shadow-lg shadow-[#7BC7F0]/50 flex-shrink-0 z-10 relative"></div>
-                                                    <div
-                                                        class="absolute inset-0 w-3 h-3 bg-[#7BC7F0] rounded-full opacity-30 animate-ping"></div>
-                                                </div>
-                                                <div class="ml-4 sm:ml-6">
-                                                    <div class="text-xs sm:text-sm font-bold text-[#84C1D9] mb-1">12:30
-                                                        – 14:00
-                                                    </div>
-                                                    <h5 class="text-[#1a365d] text-sm sm:text-base">Lunch + Deal Rooms
-                                                        (Round 2: Tech x Agencies x Brands)</h5>
-                                                </div>
-                                            </div>
-                                            <div class="flex items-center relative">
-                                                <div class="relative">
-                                                    <div
-                                                        class="w-3 h-3 bg-[#175C93] rounded-full shadow-lg shadow-[#7BC7F0]/50 flex-shrink-0 z-10 relative"></div>
-                                                    <div
-                                                        class="absolute inset-0 w-3 h-3 bg-[#7BC7F0] rounded-full opacity-30 animate-ping"></div>
-                                                </div>
-                                                <div class="ml-4 sm:ml-6">
-                                                    <div class="text-xs sm:text-sm font-bold text-[#84C1D9] mb-1">14:00
-                                                        – 14:45
-                                                    </div>
-                                                    <h5 class="text-[#1a365d] text-sm sm:text-base">Workshop Series:<br>•
-                                                        Contracts &amp; IP for Creators &amp; Agencies<br>• Data
-                                                        Strategy for Marketing Teams<br>• AI Productivity Tools for
-                                                        Creative Teams</h5>
-                                                </div>
-                                            </div>
-                                            <div class="flex items-center relative">
-                                                <div class="relative">
-                                                    <div
-                                                        class="w-3 h-3 bg-[#175C93] rounded-full shadow-lg shadow-[#7BC7F0]/50 flex-shrink-0 z-10 relative"></div>
-                                                    <div
-                                                        class="absolute inset-0 w-3 h-3 bg-[#7BC7F0] rounded-full opacity-30 animate-ping"></div>
-                                                </div>
-                                                <div class="ml-4 sm:ml-6">
-                                                    <div class="text-xs sm:text-sm font-bold text-[#84C1D9] mb-1">14:45
-                                                        – 15:30
-                                                    </div>
-                                                    <h5 class="text-[#1a365d] text-sm sm:text-base">Panel: How In-House
-                                                        Marketing Teams &amp; Agencies Can Co-Create Growth</h5>
-                                                </div>
-                                            </div>
-                                            <div class="flex items-center relative">
-                                                <div class="relative">
-                                                    <div
-                                                        class="w-3 h-3 bg-[#175C93] rounded-full shadow-lg shadow-[#7BC7F0]/50 flex-shrink-0 z-10 relative"></div>
-                                                    <div
-                                                        class="absolute inset-0 w-3 h-3 bg-[#7BC7F0] rounded-full opacity-30 animate-ping"></div>
-                                                </div>
-                                                <div class="ml-4 sm:ml-6">
-                                                    <div class="text-xs sm:text-sm font-bold text-[#84C1D9] mb-1">15:30
-                                                        – 16:15
-                                                    </div>
-                                                    <h5 class="text-[#1a365d] text-sm sm:text-base">Fireside Chat:
-                                                        Exporting African Creativity to the World — Scaling Beyond
-                                                        Borders</h5>
-                                                </div>
-                                            </div>
-                                            <div class="flex items-center relative">
-                                                <div class="relative">
-                                                    <div
-                                                        class="w-3 h-3 bg-[#175C93] rounded-full shadow-lg shadow-[#7BC7F0]/50 flex-shrink-0 z-10 relative"></div>
-                                                    <div
-                                                        class="absolute inset-0 w-3 h-3 bg-[#7BC7F0] rounded-full opacity-30 animate-ping"></div>
-                                                </div>
-                                                <div class="ml-4 sm:ml-6">
-                                                    <div class="text-xs sm:text-sm font-bold text-[#84C1D9] mb-1">16:15
-                                                        – 17:00
-                                                    </div>
-                                                    <h5 class="text-[#1a365d] text-sm sm:text-base">Closing Plenary:
-                                                        Africa's Next Creative Frontier — Collaboration as Capital</h5>
-                                                </div>
-                                            </div>
-                                            <div class="flex items-center relative">
-                                                <div class="relative">
-                                                    <div
-                                                        class="w-3 h-3 bg-[#175C93] rounded-full shadow-lg shadow-[#7BC7F0]/50 flex-shrink-0 z-10 relative"></div>
-                                                    <div
-                                                        class="absolute inset-0 w-3 h-3 bg-[#7BC7F0] rounded-full opacity-30 animate-ping"></div>
-                                                </div>
-                                                <div class="ml-4 sm:ml-6">
-                                                    <div class="text-xs sm:text-sm font-bold text-[#84C1D9] mb-1">19:00
-                                                        – 21:30
-                                                    </div>
-                                                    <h5 class="text-[#1a365d] text-sm sm:text-base">KICP Africa Creative
-                                                        Excellence Awards Gala Celebrating excellence in campaigns,
-                                                        creativity, and collaboration across the continent.</h5>
-                                                </div>
-                                            </div>
+
+
                                         </div>
                                     </div>
                                 </div>
                                 <div class="bg-white rounded-xl shadow-xl overflow-hidden flex flex-col"
-                                     style="height:auto">
+                                     style="height:680px">
                                     <div
                                         class="bg-gradient-to-r from-[#175C93] to-[#7BC7F0] text-white p-4 sm:p-6
                                         flex-shrink-0">
@@ -1128,13 +1085,13 @@
                                     <div class="p-4 sm:p-6 relative flex-1 overflow-y-auto">
                                         <div class="space-y-4 sm:space-y-6 relative">
                                             <div
-                                                class="absolute left-[5px] top-[6px] bottom-[6px] w-0.5 bg-[#175C93]"></div>
+                                                class="absolute left-[5px] top-[6px] bottom-[6px] w-0.5 bg-[#ef4444]"></div>
                                             <div class="flex items-center relative">
                                                 <div class="relative">
                                                     <div
-                                                        class="w-3 h-3 bg-[#175C93] rounded-full shadow-lg shadow-[#7BC7F0]/50 flex-shrink-0 z-10 relative"></div>
+                                                        class="w-3 h-3 bg-[#ef4444] rounded-full shadow-lg shadow-[#ef4444]/50 flex-shrink-0 z-10 relative"></div>
                                                     <div
-                                                        class="absolute inset-0 w-3 h-3 bg-[#7BC7F0] rounded-full opacity-30 animate-ping"></div>
+                                                        class="absolute inset-0 w-3 h-3 bg-[#ef4444] rounded-full opacity-30 animate-ping"></div>
                                                 </div>
                                                 <div class="ml-4 sm:ml-6">
                                                     <div class="text-xs sm:text-sm font-bold text-[#84C1D9] mb-1">08:45
@@ -1147,9 +1104,9 @@
                                             <div class="flex items-center relative">
                                                 <div class="relative">
                                                     <div
-                                                        class="w-3 h-3 bg-[#175C93] rounded-full shadow-lg shadow-[#7BC7F0]/50 flex-shrink-0 z-10 relative"></div>
+                                                        class="w-3 h-3 bg-[#ef4444] rounded-full shadow-lg shadow-[#ef4444]/50 flex-shrink-0 z-10 relative"></div>
                                                     <div
-                                                        class="absolute inset-0 w-3 h-3 bg-[#7BC7F0] rounded-full opacity-30 animate-ping"></div>
+                                                        class="absolute inset-0 w-3 h-3 bg-[#ef4444] rounded-full opacity-30 animate-ping"></div>
                                                 </div>
                                                 <div class="ml-4 sm:ml-6">
                                                     <div class="text-xs sm:text-sm font-bold text-[#84C1D9] mb-1">09:10
@@ -1163,9 +1120,9 @@
                                             <div class="flex items-center relative">
                                                 <div class="relative">
                                                     <div
-                                                        class="w-3 h-3 bg-[#175C93] rounded-full shadow-lg shadow-[#7BC7F0]/50 flex-shrink-0 z-10 relative"></div>
+                                                        class="w-3 h-3 bg-[#ef4444] rounded-full shadow-lg shadow-[#ef4444]/50 flex-shrink-0 z-10 relative"></div>
                                                     <div
-                                                        class="absolute inset-0 w-3 h-3 bg-[#7BC7F0] rounded-full opacity-30 animate-ping"></div>
+                                                        class="absolute inset-0 w-3 h-3 bg-[#ef4444] rounded-full opacity-30 animate-ping"></div>
                                                 </div>
                                                 <div class="ml-4 sm:ml-6">
                                                     <div class="text-xs sm:text-sm font-bold text-[#84C1D9] mb-1">09:40
@@ -1178,9 +1135,9 @@
                                             <div class="flex items-center relative">
                                                 <div class="relative">
                                                     <div
-                                                        class="w-3 h-3 bg-[#175C93] rounded-full shadow-lg shadow-[#7BC7F0]/50 flex-shrink-0 z-10 relative"></div>
+                                                        class="w-3 h-3 bg-[#ef4444] rounded-full shadow-lg shadow-[#ef4444]/50 flex-shrink-0 z-10 relative"></div>
                                                     <div
-                                                        class="absolute inset-0 w-3 h-3 bg-[#7BC7F0] rounded-full opacity-30 animate-ping"></div>
+                                                        class="absolute inset-0 w-3 h-3 bg-[#ef4444] rounded-full opacity-30 animate-ping"></div>
                                                 </div>
                                                 <div class="ml-4 sm:ml-6">
                                                     <div class="text-xs sm:text-sm font-bold text-[#84C1D9] mb-1">10:20
@@ -1200,9 +1157,9 @@
                                             <div class="flex items-center relative">
                                                 <div class="relative">
                                                     <div
-                                                        class="w-3 h-3 bg-[#175C93] rounded-full shadow-lg shadow-[#7BC7F0]/50 flex-shrink-0 z-10 relative"></div>
+                                                        class="w-3 h-3 bg-[#ef4444] rounded-full shadow-lg shadow-[#ef4444]/50 flex-shrink-0 z-10 relative"></div>
                                                     <div
-                                                        class="absolute inset-0 w-3 h-3 bg-[#7BC7F0] rounded-full opacity-30 animate-ping"></div>
+                                                        class="absolute inset-0 w-3 h-3 bg-[#ef4444] rounded-full opacity-30 animate-ping"></div>
                                                 </div>
                                                 <div class="ml-4 sm:ml-6">
                                                     <div class="text-xs sm:text-sm font-bold text-[#84C1D9] mb-1">11:10
@@ -1215,9 +1172,9 @@
                                             <div class="flex items-center relative">
                                                 <div class="relative">
                                                     <div
-                                                        class="w-3 h-3 bg-[#175C93] rounded-full shadow-lg shadow-[#7BC7F0]/50 flex-shrink-0 z-10 relative"></div>
+                                                        class="w-3 h-3 bg-[#ef4444] rounded-full shadow-lg shadow-[#ef4444]/50 flex-shrink-0 z-10 relative"></div>
                                                     <div
-                                                        class="absolute inset-0 w-3 h-3 bg-[#7BC7F0] rounded-full opacity-30 animate-ping"></div>
+                                                        class="absolute inset-0 w-3 h-3 bg-[#ef4444] rounded-full opacity-30 animate-ping"></div>
                                                 </div>
                                                 <div class="ml-4 sm:ml-6">
                                                     <div class="text-xs sm:text-sm font-bold text-[#84C1D9] mb-1">11:40
@@ -1238,9 +1195,9 @@
                                             <div class="flex items-center relative">
                                                 <div class="relative">
                                                     <div
-                                                        class="w-3 h-3 bg-[#175C93] rounded-full shadow-lg shadow-[#7BC7F0]/50 flex-shrink-0 z-10 relative"></div>
+                                                        class="w-3 h-3 bg-[#ef4444] rounded-full shadow-lg shadow-[#ef4444]/50 flex-shrink-0 z-10 relative"></div>
                                                     <div
-                                                        class="absolute inset-0 w-3 h-3 bg-[#7BC7F0] rounded-full opacity-30 animate-ping"></div>
+                                                        class="absolute inset-0 w-3 h-3 bg-[#ef4444] rounded-full opacity-30 animate-ping"></div>
                                                 </div>
                                                 <div class="ml-4 sm:ml-6">
                                                     <div class="text-xs sm:text-sm font-bold text-[#84C1D9] mb-1">12:30
@@ -1253,9 +1210,9 @@
                                             <div class="flex items-center relative">
                                                 <div class="relative">
                                                     <div
-                                                        class="w-3 h-3 bg-[#175C93] rounded-full shadow-lg shadow-[#7BC7F0]/50 flex-shrink-0 z-10 relative"></div>
+                                                        class="w-3 h-3 bg-[#ef4444] rounded-full shadow-lg shadow-[#ef4444]/50 flex-shrink-0 z-10 relative"></div>
                                                     <div
-                                                        class="absolute inset-0 w-3 h-3 bg-[#7BC7F0] rounded-full opacity-30 animate-ping"></div>
+                                                        class="absolute inset-0 w-3 h-3 bg-[#ef4444] rounded-full opacity-30 animate-ping"></div>
                                                 </div>
                                                 <div class="ml-4 sm:ml-6">
                                                     <div class="text-xs sm:text-sm font-bold text-[#84C1D9] mb-1">14:00
@@ -1270,9 +1227,9 @@
                                             <div class="flex items-center relative">
                                                 <div class="relative">
                                                     <div
-                                                        class="w-3 h-3 bg-[#175C93] rounded-full shadow-lg shadow-[#7BC7F0]/50 flex-shrink-0 z-10 relative"></div>
+                                                        class="w-3 h-3 bg-[#ef4444] rounded-full shadow-lg shadow-[#ef4444]/50 flex-shrink-0 z-10 relative"></div>
                                                     <div
-                                                        class="absolute inset-0 w-3 h-3 bg-[#7BC7F0] rounded-full opacity-30 animate-ping"></div>
+                                                        class="absolute inset-0 w-3 h-3 bg-[#ef4444] rounded-full opacity-30 animate-ping"></div>
                                                 </div>
                                                 <div class="ml-4 sm:ml-6">
                                                     <div class="text-xs sm:text-sm font-bold text-[#84C1D9] mb-1">14:45
@@ -1285,9 +1242,9 @@
                                             <div class="flex items-center relative">
                                                 <div class="relative">
                                                     <div
-                                                        class="w-3 h-3 bg-[#175C93] rounded-full shadow-lg shadow-[#7BC7F0]/50 flex-shrink-0 z-10 relative"></div>
+                                                        class="w-3 h-3 bg-[#ef4444] rounded-full shadow-lg shadow-[#ef4444]/50 flex-shrink-0 z-10 relative"></div>
                                                     <div
-                                                        class="absolute inset-0 w-3 h-3 bg-[#7BC7F0] rounded-full opacity-30 animate-ping"></div>
+                                                        class="absolute inset-0 w-3 h-3 bg-[#ef4444] rounded-full opacity-30 animate-ping"></div>
                                                 </div>
                                                 <div class="ml-4 sm:ml-6">
                                                     <div class="text-xs sm:text-sm font-bold text-[#84C1D9] mb-1">15:30
@@ -1301,9 +1258,9 @@
                                             <div class="flex items-center relative">
                                                 <div class="relative">
                                                     <div
-                                                        class="w-3 h-3 bg-[#175C93] rounded-full shadow-lg shadow-[#7BC7F0]/50 flex-shrink-0 z-10 relative"></div>
+                                                        class="w-3 h-3 bg-[#ef4444] rounded-full shadow-lg shadow-[#ef4444]/50 flex-shrink-0 z-10 relative"></div>
                                                     <div
-                                                        class="absolute inset-0 w-3 h-3 bg-[#7BC7F0] rounded-full opacity-30 animate-ping"></div>
+                                                        class="absolute inset-0 w-3 h-3 bg-[#ef4444] rounded-full opacity-30 animate-ping"></div>
                                                 </div>
                                                 <div class="ml-4 sm:ml-6">
                                                     <div class="text-xs sm:text-sm font-bold text-[#84C1D9] mb-1">16:15
@@ -1316,9 +1273,9 @@
                                             <div class="flex items-center relative">
                                                 <div class="relative">
                                                     <div
-                                                        class="w-3 h-3 bg-[#175C93] rounded-full shadow-lg shadow-[#7BC7F0]/50 flex-shrink-0 z-10 relative"></div>
+                                                        class="w-3 h-3 bg-[#ef4444] rounded-full shadow-lg shadow-[#ef4444]/50 flex-shrink-0 z-10 relative"></div>
                                                     <div
-                                                        class="absolute inset-0 w-3 h-3 bg-[#7BC7F0] rounded-full opacity-30 animate-ping"></div>
+                                                        class="absolute inset-0 w-3 h-3 bg-[#ef4444] rounded-full opacity-30 animate-ping"></div>
                                                 </div>
                                                 <div class="ml-4 sm:ml-6">
                                                     <div class="text-xs sm:text-sm font-bold text-[#84C1D9] mb-1">19:00

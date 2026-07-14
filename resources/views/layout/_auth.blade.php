@@ -4,7 +4,8 @@
     <main class="h-screen">
         <section class="w-full">
             <div class="banner-wrap d-flex flex-column flex-column-fluid flex-lg-row h-full"
-                 style="background-image:url('{{ asset('assets/media/images/banner.webp') }}'); min-height: 100vh !important;  background-attachment: fixed;background-position: center;background-repeat: no-repeat;background-size: cover;">
+                 style="background-image:url('{{ asset('assets/media/images/login.webp') }}'); min-height: 100vh
+                 !important;  background-attachment: fixed;background-position: center;background-repeat: no-repeat;background-size: cover;">
                 <section class="flex-column flex-column-fluid flex-lg-row">
                   <div class="d-flex flex-center w-lg-50 pt-15 pt-lg-0 px-10">
                       <div class="banner-wrap_content">
