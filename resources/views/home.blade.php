@@ -3,8 +3,9 @@
     @include('layout/partials/_summit-nav')
         <div class="relative h-screen w-full section-visible" id="home">
             <div class="absolute inset-0 bg-cover bg-center"
-                 style="background-image:url('{{ asset('assets/media/images/summit-hero-2.webp') }}');filter:brightness(0.5)"></div>
-            <div class="relative h-full flex items-center justify-center pt-16 sm:pt-24 md:pt-32">
+                 style="background-image:url('{{ asset('assets/media/images/summit-hero-2.webp') }}');
+                 filter:brightness(0.4)"></div>
+            <div class="relative h-full flex items-center justify-center pt-4 sm:pt-16 md:pt-24">
                 <div class="mx-auto max-w-6xl w-full px-4 sm:px-6">
                     <div class="max-w-2xl mx-auto text-center">
                         <h1 class="text-2xl sm:text-3xl md:text-4xl font-normal text-white mb-6 sm:mb-8
@@ -52,7 +53,7 @@
 
                         </div>
                         <div class="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 md:gap-8 pb-20 font-bold">
-                            <div class="flex items-center gap-2 text-white text-xxl sm:text-xl">
+                            <div class="flex items-center gap-2 text-red-500 text-xxl sm:text-xl">
                                 <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img"
                                      class="text-red-500 flex-shrink-0 iconify iconify--mdi" width="20" height="20"
                                      viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -65,10 +66,9 @@
                                     <path d="M18 16l-4-2.5" stroke="currentColor"></path>
                                 </svg>
                                 <span
-                                    class="break-words sm:whitespace-nowrap">Theme: <span
+                                    class="break-words sm:whitespace-nowrap">Theme:  <span
                                         class="break-words sm:whitespace-nowrap"><strong>Shaping
-                                                Tomorrow’s
-                                            Professional Landscape</strong></span></span>
+                                                Tomorrow's Professional Landscape</strong></span></span>
 
                             </div>
 
@@ -89,7 +89,7 @@
                             </button>
                         </div>
                     </div>
-                    <p class="text-white/80 text-xs sm:text-sm text-center mt-4 sm:mt-6">Organized &amp; managed by the
+                    <p class="text-white/80 text-xs sm:text-sm text-center mt-4 sm:mt-6">Organized &amp; managed by
                         <span class="font-bold text-red-500"><a href="/" class="hover:text-red-500 transition-colors">Crafted PR</a></span>
                     </p>
                 </div>
@@ -138,24 +138,25 @@
                     <div class="flex flex-col gap-4 sm:gap-6 relative z-10 md:pr-6">
                         <div class="flex flex-col gap-3 sm:gap-4" style="opacity: 1; transform: none;">
                             <h2 class="text-2xl sm:text-3xl md:text-4xl text-white font-normal">About the Summit</h2>
-                            <h3 class="text-lg sm:text-xl md:text-2xl text-white font-normal">The professional
-                                Landscape in the fourth Industrial revolution
+                            <h3 class="text-lg sm:text-xl md:text-2xl text-white font-normal">Shaping Tomorrow’s Professional Landscape
                                 .</h3>
                         </div>
                         <div class="space-y-3 sm:space-y-4 text-white text-sm sm:text-base md:text-lg leading-relaxed"
                              style="opacity: 1; transform: none;">
                             <p>
-                                The professional landscape is evolving rapidly as environmental, political, economic, and
-                                technological changes reshape how professionals work and deliver value. The rise of the
-                                Fourth Industrial Revolution continues to transform industries, presenting both new
-                                opportunities and complex challenges for professionals worldwide.
+                                The world of work is changing faster than ever before, and so are the expectations placed
+                                on today's professionals. From emerging technologies and evolving business models to sustainability,
+                                governance and changing workforce dynamics, professionals are being called upon to adapt,
+                                innovate and lead in new ways. Success requires more than technical expertise, it calls
+                                for adaptability, continuous learning, collaboration and forward-thinking leadership.
                             </p>
                             <p>
-                                Through keynote presentations, panel discussions, and interactive sessions,
-                                the conference explores emerging trends, innovations, and strategies that
-                                professionals need to remain relevant in an increasingly disruptive environment.
-                                Participants gain valuable insights, build networks across diverse professions and regions,
-                                and exchange ideas that foster innovation, resilience, and sustainable growth in the professional landscape.
+                                The 2nd KASNEB International Conference for Professionals (KICP) brings together professionals,
+                                industry leaders, policymakers and academia to examine the forces shaping the future of
+                                work and professional practice. Through engaging conversations, practical insights and
+                                networking opportunities, the Conference will challenge delegates to think beyond today's
+                                realities, share experiences across disciplines and explore how they can remain relevant,
+                                resilient and impactful in an increasingly dynamic professional landscape.
                             </p>
                         </div>
                         <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-3 sm:pt-4 relative z-20"
@@ -183,13 +184,13 @@
         <div class="bg-white relative py-12 sm:py-16 md:py-20 section-visible" id="objectives">
             <section class="relative mx-auto max-w-6xl px-4 sm:px-6">
 
-                <div class="text-center mb-8 sm:mb-12">
-                    <h2 class="text-2xl sm:text-3xl md:text-4xl text-[#172840] font-normal mb-3 sm:mb-4">Summit
+                <div class="text-center mb-5 sm:mb-12">
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl text-[#172840] font-normal mb-5 sm:mb-4">Summit
                         Objectives</h2>
                     <h3 class="text-base sm:text-lg md:text-xl text-[#172840] font-normal max-w-3xl mx-auto">What we aim
                         to achieve across five days of sessions.</h3>
                 </div>
-                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-6">
                     <div
                         class="bg-slate-800 rounded-lg shadow-lg p-5 sm:p-7 md:p-8 flex flex-col h-full relative overflow-hidden group transition-all duration-300 hover:shadow-xl">
                         <div
@@ -202,29 +203,42 @@
                                 <img src="{{ asset('assets/media/icons/knowledge-sharing.svg') }}"
                                      alt="Community Icon" class="w-10 h-10 sm:w-12 sm:h-12">
                             </div>
-                            <p class="text-white text-sm sm:text-base font-normal text-left mt-auto">Knowledge
-                                sharing</p>
+                            <p class="text-red-500 text-sm sm:text-base font-normal text-left mt-auto">Leadership &
+                                Future-Ready Professionals</p>
+                            <div class="relative z-10 flex flex-col h-full justify-between">
+                            <small class="text-gray-300 text-sm sm:text-sm font-light">
+                                From visionary leadership to professional resilience, this track explores the skills,
+                                mindset and strategies professionals need to lead with confidence, adapt to change and remain relevant in an evolving world.
+                            </small>
+                            </div>
                         </div>
                     </div>
                     <div
                         class="bg-slate-800 rounded-lg shadow-lg p-5 sm:p-7 md:p-8 flex flex-col h-full relative overflow-hidden group transition-all duration-300 hover:shadow-xl">
                         <div
-                            class="absolute inset-0 bg-gradient-to-t from-[#F25849] to-[#172840] rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            class="absolute inset-0 bg-gradient-to-t from-[#175C93] to-[#7BC7F0] rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                         <div
                             class="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-40 transition-opacity duration-300 z-[1]"
                             style="background-image:url('https://ik.imagekit.io/nkmvdjnna/PAAN/summit/summit-objective-pattern.webp');background-size:cover;background-position:center;background-repeat:repeat"></div>
-                        <div class="relative z-10 flex flex-col h-full">
+                        <div class="relative z-10 flex flex-col h-full justify-between">
                             <div class="flex items-start justify-start mb-5 sm:mb-6">
                                 <img src="https://ik.imagekit.io/nkmvdjnna/PAAN/summit/icons/user-group.svg"
                                      alt="Community Icon" class="w-10 h-10 sm:w-12 sm:h-12">
                             </div>
-                            <p class="text-white text-sm sm:text-base font-normal text-left mt-auto">Networking</p>
+                            <p class="text-red-500 text-sm sm:text-base font-normal text-left">Digital Innovation &
+                                Emerging Technologies</p>
+                            <div class="relative z-10 flex flex-col h-full justify-between">
+                            <small class="text-gray-300 text-sm sm:text-sm font-light">
+                                Explore how artificial intelligence, the digital economy, smart cities and emerging technologies
+                                are reshaping industries, redefining professional practice and creating new opportunities for growth.
+                            </small>
+                            </div>
                         </div>
                     </div>
                     <div
                         class="bg-slate-800 rounded-lg shadow-lg p-5 sm:p-7 md:p-8 flex flex-col h-full relative overflow-hidden group transition-all duration-300 hover:shadow-xl">
                         <div
-                            class="absolute inset-0 bg-gradient-to-t from-[#F25849] to-[#172840] rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            class="absolute inset-0 bg-gradient-to-t from-[#175C93] to-[#7BC7F0] rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                         <div
                             class="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-40 transition-opacity duration-300 z-[1]"
                             style="background-image:url('https://ik.imagekit.io/nkmvdjnna/PAAN/summit/summit-objective-pattern.webp');background-size:cover;background-position:center;background-repeat:repeat"></div>
@@ -233,14 +247,20 @@
                                 <img src="{{ asset('assets/media/icons/prof-dev.svg') }}"
                                      alt="Unlock Icon" class="w-10 h-10 sm:w-12 sm:h-12">
                             </div>
-                            <p class="text-white text-sm sm:text-base font-normal text-left mt-auto">Professional Development
-                            </p>
+                            <p class="text-red-500 text-sm sm:text-base font-normal text-left mt-auto">Governance, Policy &
+                                Ethical Leadership</p>
+                            <div class="relative z-10 flex flex-col h-full justify-between">
+                            <small class="text-gray-300 text-sm sm:text-sm font-light">
+                                Delve into the role of governance, legislation, ethics and public policy in strengthening
+                                institutions, enhancing accountability and shaping a resilient professional landscape.
+                            </small>
+                            </div>
                         </div>
                     </div>
                     <div
                         class="bg-slate-800 rounded-lg shadow-lg p-5 sm:p-7 md:p-8 flex flex-col h-full relative overflow-hidden group transition-all duration-300 hover:shadow-xl">
                         <div
-                            class="absolute inset-0 bg-gradient-to-t from-[#F25849] to-[#172840] rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            class="absolute inset-0 bg-gradient-to-t from-[#175C93] to-[#7BC7F0] rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                         <div
                             class="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-40 transition-opacity duration-300 z-[1]"
                             style="background-image:url('https://ik.imagekit.io/nkmvdjnna/PAAN/summit/summit-objective-pattern.webp');background-size:cover;background-position:center;background-repeat:repeat"></div>
@@ -250,55 +270,62 @@
                                     src="{{ asset('assets/media/icons/mentorship.svg') }}"
                                     alt="Connect Icon" class="w-10 h-10 sm:w-12 sm:h-12">
                             </div>
-                            <p class="text-white text-sm sm:text-base font-normal text-left mt-auto">Mentorship</p>
+                            <p class="text-red-500 text-sm sm:text-base font-normal text-left mt-auto">Economic Growth &
+                                Financial Resilience</p>
+                            <div class="relative z-10 flex flex-col h-full justify-between">
+                            <small class="text-gray-300 text-sm sm:text-sm font-light">
+                                Discover insights into wealth creation, investment, retirement planning, public-private
+                                partnerships and economic transformation that empower professionals to drive sustainable prosperity.
+                            </small>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="bg-slate-800 rounded-lg shadow-lg p-5 sm:p-7 md:p-8 flex flex-col h-full relative overflow-hidden group transition-all duration-300 hover:shadow-xl">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-[#175C93] to-[#7BC7F0] rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <div
+                            class="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-40 transition-opacity duration-300 z-[1]"
+                            style="background-image:url('https://ik.imagekit.io/nkmvdjnna/PAAN/summit/summit-objective-pattern.webp');background-size:cover;background-position:center;background-repeat:repeat"></div>
+                        <div class="relative z-10 flex flex-col h-full">
+                            <div class="flex items-start justify-start mb-5 sm:mb-6">
+                                <img
+                                    src="{{ asset('assets/media/icons/strategic-partnership.svg') }}"
+                                    alt="Connect Icon" class="w-10 h-10 sm:w-12 sm:h-12">
+                            </div>
+                            <p class="text-red-500 text-sm sm:text-base font-normal text-left mt-auto">Sustainability & Global Competitiveness</p>
+                            <div class="relative z-10 flex flex-col h-full justify-between">
+                            <small class="text-gray-300 text-sm sm:text-sm font-light">
+                                Examine how climate action, innovation, international collaboration and global trends are
+                                influencing the future of professional practice and national competitiveness.
+                            </small>
+                            </div>
                         </div>
                     </div>
 
                     <div
                         class="bg-slate-800 rounded-lg shadow-lg p-5 sm:p-7 md:p-8 flex flex-col h-full relative overflow-hidden group transition-all duration-300 hover:shadow-xl">
                         <div
-                            class="absolute inset-0 bg-gradient-to-t from-[#F25849] to-[#172840] rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            class="absolute inset-0 bg-gradient-to-t from-[#175C93] to-[#7BC7F0] rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                         <div
                             class="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-40 transition-opacity duration-300 z-[1]"
                             style="background-image:url('https://ik.imagekit.io/nkmvdjnna/PAAN/summit/summit-objective-pattern.webp');background-size:cover;background-position:center;background-repeat:repeat"></div>
                         <div class="relative z-10 flex flex-col h-full">
                             <div class="flex items-start justify-start mb-5 sm:mb-6">
-                                <img src="{{ asset('assets/media/icons/industry-trends.svg') }}"
-                                     alt="Impact Icon" class="w-10 h-10 sm:w-12 sm:h-12">
+                                <img
+                                    src="{{ asset('assets/media/icons/policy-dialog.svg') }}"
+                                    alt="Connect Icon" class="w-10 h-10 sm:w-12 sm:h-12">
                             </div>
-                            <p class="text-white text-sm sm:text-base font-normal text-left mt-auto">Industry Trends</p>
+                            <p class="text-red-500 text-sm sm:text-base font-normal text-left mt-auto">Talent, Learning & Professional Development</p>
+                            <div class="relative z-10 flex flex-col h-full justify-between">
+                                <small class="text-gray-300 text-sm sm:text-sm font-light">
+                                    Focus on the future of education, professional training, intellectual property,
+                                    global career opportunities and lifelong learning to prepare professionals for tomorrow's workplace.
+                                </small>
+                            </div>
                         </div>
                     </div>
-                    <div
-                        class="bg-slate-800 rounded-lg shadow-lg p-5 sm:p-7 md:p-8 flex flex-col h-full relative overflow-hidden group transition-all duration-300 hover:shadow-xl">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-[#F25849] to-[#172840] rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                        <div
-                            class="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-40 transition-opacity duration-300 z-[1]"
-                            style="background-image:url('https://ik.imagekit.io/nkmvdjnna/PAAN/summit/summit-objective-pattern.webp');background-size:cover;background-position:center;background-repeat:repeat"></div>
-                        <div class="relative z-10 flex flex-col h-full">
-                            <div class="flex items-start justify-start mb-5 sm:mb-6">
-                                <img src="{{ asset('assets/media/icons/policy-dialog.svg') }}"
-                                     alt="Impact Icon" class="w-10 h-10 sm:w-12 sm:h-12">
-                            </div>
-                            <p class="text-white text-sm sm:text-base font-normal text-left mt-auto">Policy Dialogue</p>
-                        </div>
-                    </div>
-                    <div
-                        class="bg-slate-800 rounded-lg shadow-lg p-5 sm:p-7 md:p-8 flex flex-col h-full relative overflow-hidden group transition-all duration-300 hover:shadow-xl">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-[#F25849] to-[#172840] rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                        <div
-                            class="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-40 transition-opacity duration-300 z-[1]"
-                            style="background-image:url('https://ik.imagekit.io/nkmvdjnna/PAAN/summit/summit-objective-pattern.webp');background-size:cover;background-position:center;background-repeat:repeat"></div>
-                        <div class="relative z-10 flex flex-col h-full">
-                            <div class="flex items-start justify-start mb-5 sm:mb-6">
-                                <img src="{{ asset('assets/media/icons/strategic-partnership.svg') }}"
-                                     alt="Impact Icon" class="w-10 h-10 sm:w-12 sm:h-12">
-                            </div>
-                            <p class="text-white text-sm sm:text-base font-normal text-left mt-auto">Strategic Partnerships</p>
-                        </div>
-                    </div>
+
                 </div>
             </section>
         </div>
@@ -788,7 +815,7 @@
             <section class="mx-auto max-w-6xl px-4 sm:px-6">
                 <div class="text-center mb-8 sm:mb-12">
                     <h2 class="text-2xl sm:text-3xl font-normal text-[#1a365d] mb-3 sm:mb-4">Summit Agenda</h2>
-                    <p class="text-base sm:text-lg text-gray-600">Five days of intensive learning, networking, and deal-making</p>
+                    <p class="text-base sm:text-lg text-gray-600">Five days of thought leadership and professional networking</p>
                 </div>
 
                 <!--Inner Tabs section -->
@@ -812,7 +839,7 @@
                                         <!-- Icon container -->
                                         <div
                                             class="px-6 sm:px-8 py-2 sm:py-3 rounded-full transition-all duration-300 font-medium text-sm sm:text-base shadow-lg flex items-center gap-2"
-                                            :class="tab.active ? 'bg-gradient-to-r from-[#F2B706] to-[#F25849] border border-transparent text-white' : 'uppercase bg-transparent border border-[#84C1D9] text-[#84C1D9] hover:bg-red-500 hover:text-white'"
+                                            :class="tab.active ? 'bg-gradient-to-r from-[#175C93] to-[#7BC7F0] border border-transparent text-white' : 'uppercase bg-transparent border border-[#84C1D9] text-[#84C1D9] hover:bg-[#175C93] hover:text-white'"
                                             x-text="tab.title">
                                         </div>
                                     </a>
@@ -825,238 +852,40 @@
                         <!-- tab 1 -->
                         <section x-cloak x-show="tabs.find(tab => tab.id === 1).active || mobileActiveTab == 1">
                             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
-                                <div class="space-y-4 sm:space-y-6">
-                                    <div class="relative rounded-lg overflow-hidden shadow-lg">
-                                        <img alt="Day 1 Morning Sessions" class="w-full h-64 sm:h-80 object-cover"
-                                             src="{{ asset('assets/media/images/day1-1.webp') }}">
-                                        <div class="absolute inset-0 bg-black/40"></div>
-                                        <div class="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 text-white">
-                                            <h3 class="text-lg sm:text-xl font-bold">Morning Sessions</h3>
-                                            <p class="text-xs sm:text-sm">Keynotes &amp; Panels</p>
-                                        </div>
-                                    </div>
-                                    <div class="relative rounded-lg overflow-hidden shadow-lg">
-                                        <img alt="Day 1 Afternoon Sessions" class="w-full h-64 sm:h-80 object-cover"
-                                             src="{{ asset('assets/media/images/day1-2.webp') }}">
-                                        <div class="absolute inset-0 bg-black/40"></div>
-                                        <div class="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 text-white">
-                                            <h3 class="text-lg sm:text-xl font-bold">Afternoon Sessions</h3>
-                                            <p class="text-xs sm:text-sm">Deal Rooms &amp; Clinics</p>
-                                        </div>
-                                    </div>
-                                </div>
+
                                 <div class="bg-white rounded-xl shadow-xl overflow-hidden flex flex-col"
-                                     style="height:680px">
+                                     style="height:auto">
                                     <div
-                                        class="bg-gradient-to-r from-yellow-500 to-slate-800 text-white p-4 sm:p-6 flex-shrink-0">
-                                        <h4 class="text-lg sm:text-xl font-bold">Day 1 – Creativity, Intelligence &
-                                            Innovation</h4>
-                                        <p class="text-xs sm:text-sm opacity-90 mt-1">April 22, 2026</p>
+                                        class="bg-gradient-to-r from-[#175C93] to-[#7BC7F0] text-white p-4 sm:p-6
+                                        flex-shrink-0">
+                                        <h4 class="text-lg sm:text-xl font-bold">Day 1 – Registration</h4>
+                                        <p class="text-xs sm:text-sm opacity-90 mt-1">Sep 14, 2026</p>
                                     </div>
                                     <div class="p-4 sm:p-6 relative flex-1 overflow-y-auto">
                                         <div class="space-y-4 sm:space-y-6 relative">
                                             <div
-                                                class="absolute left-[5px] top-[6px] bottom-[6px] w-0.5 bg-[#ef4444]"></div>
+                                                class="absolute left-[5px] top-[6px] bottom-[6px] w-0.5 bg-[#175C93]"></div>
                                             <div class="flex items-center relative">
                                                 <div class="relative">
                                                     <div
-                                                        class="w-3 h-3 bg-[#ef4444] rounded-full shadow-lg shadow-[#ef4444]/50 flex-shrink-0 z-10 relative"></div>
+                                                        class="w-3 h-3 bg-[#175C93] rounded-full shadow-lg shadow-[#7BC7F0]/50 flex-shrink-0 z-10 relative">
+
+                                                    </div>
                                                     <div
-                                                        class="absolute inset-0 w-3 h-3 bg-[#ef4444] rounded-full opacity-30 animate-ping"></div>
+                                                        class="absolute inset-0 w-3 h-3 bg-[#7BC7F0] rounded-full
+                                                        opacity-30 animate-ping"></div>
                                                 </div>
                                                 <div class="ml-4 sm:ml-6">
-                                                    <div class="text-xs sm:text-sm font-bold text-[#84C1D9] mb-1">08:45
-                                                        – 09:10
+                                                    <div class="text-xs sm:text-sm font-bold text-[#84C1D9]
+                                                    mb-1">09:00 am
+                                                        – 05:00 pm
                                                     </div>
-                                                    <h5 class="text-[#1a365d] text-sm sm:text-base">Morning Coffee +
-                                                        Recap Video: Day 1 Highlights</h5>
+                                                    <h5 class="text-[#1a365d] text-sm sm:text-base">Delegates /
+                                                        Exhibitors
+                                                        Registration</h5>
                                                 </div>
                                             </div>
-                                            <div class="flex items-center relative">
-                                                <div class="relative">
-                                                    <div
-                                                        class="w-3 h-3 bg-[#ef4444] rounded-full shadow-lg shadow-[#ef4444]/50 flex-shrink-0 z-10 relative"></div>
-                                                    <div
-                                                        class="absolute inset-0 w-3 h-3 bg-[#ef4444] rounded-full opacity-30 animate-ping"></div>
-                                                </div>
-                                                <div class="ml-4 sm:ml-6">
-                                                    <div class="text-xs sm:text-sm font-bold text-[#84C1D9] mb-1">09:10
-                                                        – 09:40
-                                                    </div>
-                                                    <h5 class="text-[#1a365d] text-sm sm:text-base">Keynote: From Reach
-                                                        to Revenue — The Future of Marketing, Data &amp; Commerce in
-                                                        Africa</h5>
-                                                </div>
-                                            </div>
-                                            <div class="flex items-center relative">
-                                                <div class="relative">
-                                                    <div
-                                                        class="w-3 h-3 bg-[#ef4444] rounded-full shadow-lg shadow-[#ef4444]/50 flex-shrink-0 z-10 relative"></div>
-                                                    <div
-                                                        class="absolute inset-0 w-3 h-3 bg-[#ef4444] rounded-full opacity-30 animate-ping"></div>
-                                                </div>
-                                                <div class="ml-4 sm:ml-6">
-                                                    <div class="text-xs sm:text-sm font-bold text-[#84C1D9] mb-1">09:40
-                                                        – 10:20
-                                                    </div>
-                                                    <h5 class="text-[#1a365d] text-sm sm:text-base">Panel: Creator
-                                                        Economy 2.0 — From Influence to Infrastructure</h5>
-                                                </div>
-                                            </div>
-                                            <div class="flex items-center relative">
-                                                <div class="relative">
-                                                    <div
-                                                        class="w-3 h-3 bg-[#ef4444] rounded-full shadow-lg shadow-[#ef4444]/50 flex-shrink-0 z-10 relative"></div>
-                                                    <div
-                                                        class="absolute inset-0 w-3 h-3 bg-[#ef4444] rounded-full opacity-30 animate-ping"></div>
-                                                </div>
-                                                <div class="ml-4 sm:ml-6">
-                                                    <div class="text-xs sm:text-sm font-bold text-[#84C1D9] mb-1">10:20
-                                                        – 11:10
-                                                    </div>
-                                                    <h5 class="text-[#1a365d] text-sm sm:text-base"><span
-                                                            class="font-bold">Track 7:</span> Cross-Border Collaboration
-                                                        &amp; Ecosystem Growth<br>Session: Operating Across Borders —
-                                                        Tax, IP, and Legal Realities<br><span
-                                                            class="font-bold">Track 4:</span> Creator &amp; Freelance
-                                                        Economy<br>Session: Fair Pay Africa — Pricing Creativity for
-                                                        Value<br><span class="font-bold">Track 2:</span> Creative +
-                                                        Media Performance<br>Session: Short-Form Mastery:
-                                                        Crafting Stories That Stick</h5>
-                                                </div>
-                                            </div>
-                                            <div class="flex items-center relative">
-                                                <div class="relative">
-                                                    <div
-                                                        class="w-3 h-3 bg-[#ef4444] rounded-full shadow-lg shadow-[#ef4444]/50 flex-shrink-0 z-10 relative"></div>
-                                                    <div
-                                                        class="absolute inset-0 w-3 h-3 bg-[#ef4444] rounded-full opacity-30 animate-ping"></div>
-                                                </div>
-                                                <div class="ml-4 sm:ml-6">
-                                                    <div class="text-xs sm:text-sm font-bold text-[#84C1D9] mb-1">11:10
-                                                        – 11:40
-                                                    </div>
-                                                    <h5 class="text-[#1a365d] text-sm sm:text-base">Networking Break +
-                                                        Partner Activations</h5>
-                                                </div>
-                                            </div>
-                                            <div class="flex items-center relative">
-                                                <div class="relative">
-                                                    <div
-                                                        class="w-3 h-3 bg-[#ef4444] rounded-full shadow-lg shadow-[#ef4444]/50 flex-shrink-0 z-10 relative"></div>
-                                                    <div
-                                                        class="absolute inset-0 w-3 h-3 bg-[#ef4444] rounded-full opacity-30 animate-ping"></div>
-                                                </div>
-                                                <div class="ml-4 sm:ml-6">
-                                                    <div class="text-xs sm:text-sm font-bold text-[#84C1D9] mb-1">11:40
-                                                        – 12:25
-                                                    </div>
-                                                    <h5 class="text-[#1a365d] text-sm sm:text-base"><span
-                                                            class="font-bold">Track 6:</span> Commerce, Platforms &amp;
-                                                        The Business of Marketing<br>Session: Chat Commerce &amp; Social
-                                                        Selling: Converting Conversations into Sales<br><span
-                                                            class="font-bold">Track 5:</span> Communication, PR &amp;
-                                                        Brand Trust<br>Session: Influence with Integrity — The New
-                                                        PR-Creator Relationship<br><span
-                                                            class="font-bold">Track 1:</span> AI &amp; Technology<br>Session:
-                                                        Building
-                                                        Smarter Campaign Workflows with Automation</h5>
-                                                </div>
-                                            </div>
-                                            <div class="flex items-center relative">
-                                                <div class="relative">
-                                                    <div
-                                                        class="w-3 h-3 bg-[#ef4444] rounded-full shadow-lg shadow-[#ef4444]/50 flex-shrink-0 z-10 relative"></div>
-                                                    <div
-                                                        class="absolute inset-0 w-3 h-3 bg-[#ef4444] rounded-full opacity-30 animate-ping"></div>
-                                                </div>
-                                                <div class="ml-4 sm:ml-6">
-                                                    <div class="text-xs sm:text-sm font-bold text-[#84C1D9] mb-1">12:30
-                                                        – 14:00
-                                                    </div>
-                                                    <h5 class="text-[#1a365d] text-sm sm:text-base">Lunch + Deal Rooms
-                                                        (Round 2: Tech x Agencies x Brands)</h5>
-                                                </div>
-                                            </div>
-                                            <div class="flex items-center relative">
-                                                <div class="relative">
-                                                    <div
-                                                        class="w-3 h-3 bg-[#ef4444] rounded-full shadow-lg shadow-[#ef4444]/50 flex-shrink-0 z-10 relative"></div>
-                                                    <div
-                                                        class="absolute inset-0 w-3 h-3 bg-[#ef4444] rounded-full opacity-30 animate-ping"></div>
-                                                </div>
-                                                <div class="ml-4 sm:ml-6">
-                                                    <div class="text-xs sm:text-sm font-bold text-[#84C1D9] mb-1">14:00
-                                                        – 14:45
-                                                    </div>
-                                                    <h5 class="text-[#1a365d] text-sm sm:text-base">Workshop Series:<br>•
-                                                        Contracts &amp; IP for Creators &amp; Agencies<br>• Data
-                                                        Strategy for Marketing Teams<br>• AI Productivity Tools for
-                                                        Creative Teams</h5>
-                                                </div>
-                                            </div>
-                                            <div class="flex items-center relative">
-                                                <div class="relative">
-                                                    <div
-                                                        class="w-3 h-3 bg-[#ef4444] rounded-full shadow-lg shadow-[#ef4444]/50 flex-shrink-0 z-10 relative"></div>
-                                                    <div
-                                                        class="absolute inset-0 w-3 h-3 bg-[#ef4444] rounded-full opacity-30 animate-ping"></div>
-                                                </div>
-                                                <div class="ml-4 sm:ml-6">
-                                                    <div class="text-xs sm:text-sm font-bold text-[#84C1D9] mb-1">14:45
-                                                        – 15:30
-                                                    </div>
-                                                    <h5 class="text-[#1a365d] text-sm sm:text-base">Panel: How In-House
-                                                        Marketing Teams &amp; Agencies Can Co-Create Growth</h5>
-                                                </div>
-                                            </div>
-                                            <div class="flex items-center relative">
-                                                <div class="relative">
-                                                    <div
-                                                        class="w-3 h-3 bg-[#ef4444] rounded-full shadow-lg shadow-[#ef4444]/50 flex-shrink-0 z-10 relative"></div>
-                                                    <div
-                                                        class="absolute inset-0 w-3 h-3 bg-[#ef4444] rounded-full opacity-30 animate-ping"></div>
-                                                </div>
-                                                <div class="ml-4 sm:ml-6">
-                                                    <div class="text-xs sm:text-sm font-bold text-[#84C1D9] mb-1">15:30
-                                                        – 16:15
-                                                    </div>
-                                                    <h5 class="text-[#1a365d] text-sm sm:text-base">Fireside Chat:
-                                                        Exporting African Creativity to the World — Scaling Beyond
-                                                        Borders</h5>
-                                                </div>
-                                            </div>
-                                            <div class="flex items-center relative">
-                                                <div class="relative">
-                                                    <div
-                                                        class="w-3 h-3 bg-[#ef4444] rounded-full shadow-lg shadow-[#ef4444]/50 flex-shrink-0 z-10 relative"></div>
-                                                    <div
-                                                        class="absolute inset-0 w-3 h-3 bg-[#ef4444] rounded-full opacity-30 animate-ping"></div>
-                                                </div>
-                                                <div class="ml-4 sm:ml-6">
-                                                    <div class="text-xs sm:text-sm font-bold text-[#84C1D9] mb-1">16:15
-                                                        – 17:00
-                                                    </div>
-                                                    <h5 class="text-[#1a365d] text-sm sm:text-base">Closing Plenary:
-                                                        Africa's Next Creative Frontier — Collaboration as Capital</h5>
-                                                </div>
-                                            </div>
-                                            <div class="flex items-center relative">
-                                                <div class="relative">
-                                                    <div
-                                                        class="w-3 h-3 bg-[#ef4444] rounded-full shadow-lg shadow-[#ef4444]/50 flex-shrink-0 z-10 relative"></div>
-                                                    <div
-                                                        class="absolute inset-0 w-3 h-3 bg-[#ef4444] rounded-full opacity-30 animate-ping"></div>
-                                                </div>
-                                                <div class="ml-4 sm:ml-6">
-                                                    <div class="text-xs sm:text-sm font-bold text-[#84C1D9] mb-1">19:00
-                                                        – 21:30
-                                                    </div>
-                                                    <h5 class="text-[#1a365d] text-sm sm:text-base">PAAN Africa Creative
-                                                        Excellence Awards Gala Celebrating excellence in campaigns,
-                                                        creativity, and collaboration across the continent.</h5>
-                                                </div>
-                                            </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -1066,59 +895,45 @@
                         <!-- tab 2 -->
                         <section x-cloak x-show="tabs.find(tab => tab.id === 2).active || mobileActiveTab == 2">
                             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
-                                <div class="space-y-4 sm:space-y-6">
-                                    <div class="relative rounded-lg overflow-hidden shadow-lg">
-                                        <img alt="Day 1 Morning Sessions" class="w-full h-64 sm:h-80 object-cover"
-                                             src="{{ asset('assets/media/images/day1-1.webp') }}">
-                                        <div class="absolute inset-0 bg-black/40"></div>
-                                        <div class="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 text-white">
-                                            <h3 class="text-lg sm:text-xl font-bold">Morning Sessions</h3>
-                                            <p class="text-xs sm:text-sm">Keynotes &amp; Panels</p>
-                                        </div>
-                                    </div>
-                                    <div class="relative rounded-lg overflow-hidden shadow-lg">
-                                        <img alt="Day 1 Afternoon Sessions" class="w-full h-64 sm:h-80 object-cover"
-                                             src="{{ asset('assets/media/images/day1-2.webp') }}">
-                                        <div class="absolute inset-0 bg-black/40"></div>
-                                        <div class="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 text-white">
-                                            <h3 class="text-lg sm:text-xl font-bold">Afternoon Sessions</h3>
-                                            <p class="text-xs sm:text-sm">Deal Rooms &amp; Clinics</p>
-                                        </div>
-                                    </div>
-                                </div>
                                 <div class="bg-white rounded-xl shadow-xl overflow-hidden flex flex-col"
-                                     style="height:680px">
+                                     style="height:auto">
                                     <div
-                                        class="bg-gradient-to-r from-yellow-500 to-slate-800 text-white p-4 sm:p-6 flex-shrink-0">
-                                        <h4 class="text-lg sm:text-xl font-bold">Day 2 – Execution, Commerce &
-                                            Collaboration</h4>
-                                        <p class="text-xs sm:text-sm opacity-90 mt-1">April 22, 2026</p>
+                                        class="bg-gradient-to-r from-[#175C93] to-[#7BC7F0] text-white p-4 sm:p-6
+                                        flex-shrink-0">
+                                        <h4 class="text-lg sm:text-xl font-bold">DAY TWO: TUESDAY, 15 SEPTEMBER 2026</h4>
+                                        <p class="text-xs sm:text-sm opacity-90 mt-1">Morning</p>
                                     </div>
                                     <div class="p-4 sm:p-6 relative flex-1 overflow-y-auto">
                                         <div class="space-y-4 sm:space-y-6 relative">
                                             <div
-                                                class="absolute left-[5px] top-[6px] bottom-[6px] w-0.5 bg-[#ef4444]"></div>
+                                                class="absolute left-[5px] top-[6px] bottom-[6px] w-0.5 bg-[#175C93]"></div>
                                             <div class="flex items-center relative">
                                                 <div class="relative">
                                                     <div
-                                                        class="w-3 h-3 bg-[#ef4444] rounded-full shadow-lg shadow-[#ef4444]/50 flex-shrink-0 z-10 relative"></div>
+                                                        class="w-3 h-3 bg-[#175C93] rounded-full shadow-lg shadow-[#7BC7F0]/50 flex-shrink-0 z-10 relative"></div>
                                                     <div
-                                                        class="absolute inset-0 w-3 h-3 bg-[#ef4444] rounded-full opacity-30 animate-ping"></div>
+                                                        class="absolute inset-0 w-3 h-3 bg-[#7BC7F0] rounded-full opacity-30 animate-ping"></div>
                                                 </div>
                                                 <div class="ml-4 sm:ml-6">
-                                                    <div class="text-xs sm:text-sm font-bold text-[#84C1D9] mb-1">08:45
-                                                        – 09:10
+                                                    <div class="text-xs sm:text-sm font-bold text-[#84C1D9] mb-1">8:00a.m. – 8:30a.m.
                                                     </div>
-                                                    <h5 class="text-[#1a365d] text-sm sm:text-base">Morning Coffee +
-                                                        Recap Video: Day 1 Highlights</h5>
+                                                    <h5 class="text-[#1a365d] text-sm sm:text-base">Registration and Networking
+                                                        Breakfast</h5>
+                                                    <div class="flex items-center gap-1.5 mt-1">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 text-[#84C1D9] flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                                            <circle cx="12" cy="7" r="4"></circle>
+                                                        </svg>
+                                                        <h6 class="text-[#84C1D9] text-xs sm:text-sm italic font-normal">All</h6>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="flex items-center relative">
                                                 <div class="relative">
                                                     <div
-                                                        class="w-3 h-3 bg-[#ef4444] rounded-full shadow-lg shadow-[#ef4444]/50 flex-shrink-0 z-10 relative"></div>
+                                                        class="w-3 h-3 bg-[#175C93] rounded-full shadow-lg shadow-[#7BC7F0]/50 flex-shrink-0 z-10 relative"></div>
                                                     <div
-                                                        class="absolute inset-0 w-3 h-3 bg-[#ef4444] rounded-full opacity-30 animate-ping"></div>
+                                                        class="absolute inset-0 w-3 h-3 bg-[#7BC7F0] rounded-full opacity-30 animate-ping"></div>
                                                 </div>
                                                 <div class="ml-4 sm:ml-6">
                                                     <div class="text-xs sm:text-sm font-bold text-[#84C1D9] mb-1">09:10
@@ -1132,9 +947,9 @@
                                             <div class="flex items-center relative">
                                                 <div class="relative">
                                                     <div
-                                                        class="w-3 h-3 bg-[#ef4444] rounded-full shadow-lg shadow-[#ef4444]/50 flex-shrink-0 z-10 relative"></div>
+                                                        class="w-3 h-3 bg-[#175C93] rounded-full shadow-lg shadow-[#7BC7F0]/50 flex-shrink-0 z-10 relative"></div>
                                                     <div
-                                                        class="absolute inset-0 w-3 h-3 bg-[#ef4444] rounded-full opacity-30 animate-ping"></div>
+                                                        class="absolute inset-0 w-3 h-3 bg-[#7BC7F0] rounded-full opacity-30 animate-ping"></div>
                                                 </div>
                                                 <div class="ml-4 sm:ml-6">
                                                     <div class="text-xs sm:text-sm font-bold text-[#84C1D9] mb-1">09:40
@@ -1147,9 +962,9 @@
                                             <div class="flex items-center relative">
                                                 <div class="relative">
                                                     <div
-                                                        class="w-3 h-3 bg-[#ef4444] rounded-full shadow-lg shadow-[#ef4444]/50 flex-shrink-0 z-10 relative"></div>
+                                                        class="w-3 h-3 bg-[#175C93] rounded-full shadow-lg shadow-[#7BC7F0]/50 flex-shrink-0 z-10 relative"></div>
                                                     <div
-                                                        class="absolute inset-0 w-3 h-3 bg-[#ef4444] rounded-full opacity-30 animate-ping"></div>
+                                                        class="absolute inset-0 w-3 h-3 bg-[#7BC7F0] rounded-full opacity-30 animate-ping"></div>
                                                 </div>
                                                 <div class="ml-4 sm:ml-6">
                                                     <div class="text-xs sm:text-sm font-bold text-[#84C1D9] mb-1">10:20
@@ -1169,9 +984,9 @@
                                             <div class="flex items-center relative">
                                                 <div class="relative">
                                                     <div
-                                                        class="w-3 h-3 bg-[#ef4444] rounded-full shadow-lg shadow-[#ef4444]/50 flex-shrink-0 z-10 relative"></div>
+                                                        class="w-3 h-3 bg-[#175C93] rounded-full shadow-lg shadow-[#7BC7F0]/50 flex-shrink-0 z-10 relative"></div>
                                                     <div
-                                                        class="absolute inset-0 w-3 h-3 bg-[#ef4444] rounded-full opacity-30 animate-ping"></div>
+                                                        class="absolute inset-0 w-3 h-3 bg-[#7BC7F0] rounded-full opacity-30 animate-ping"></div>
                                                 </div>
                                                 <div class="ml-4 sm:ml-6">
                                                     <div class="text-xs sm:text-sm font-bold text-[#84C1D9] mb-1">11:10
@@ -1184,9 +999,9 @@
                                             <div class="flex items-center relative">
                                                 <div class="relative">
                                                     <div
-                                                        class="w-3 h-3 bg-[#ef4444] rounded-full shadow-lg shadow-[#ef4444]/50 flex-shrink-0 z-10 relative"></div>
+                                                        class="w-3 h-3 bg-[#175C93] rounded-full shadow-lg shadow-[#7BC7F0]/50 flex-shrink-0 z-10 relative"></div>
                                                     <div
-                                                        class="absolute inset-0 w-3 h-3 bg-[#ef4444] rounded-full opacity-30 animate-ping"></div>
+                                                        class="absolute inset-0 w-3 h-3 bg-[#7BC7F0] rounded-full opacity-30 animate-ping"></div>
                                                 </div>
                                                 <div class="ml-4 sm:ml-6">
                                                     <div class="text-xs sm:text-sm font-bold text-[#84C1D9] mb-1">11:40
@@ -1207,9 +1022,9 @@
                                             <div class="flex items-center relative">
                                                 <div class="relative">
                                                     <div
-                                                        class="w-3 h-3 bg-[#ef4444] rounded-full shadow-lg shadow-[#ef4444]/50 flex-shrink-0 z-10 relative"></div>
+                                                        class="w-3 h-3 bg-[#175C93] rounded-full shadow-lg shadow-[#7BC7F0]/50 flex-shrink-0 z-10 relative"></div>
                                                     <div
-                                                        class="absolute inset-0 w-3 h-3 bg-[#ef4444] rounded-full opacity-30 animate-ping"></div>
+                                                        class="absolute inset-0 w-3 h-3 bg-[#7BC7F0] rounded-full opacity-30 animate-ping"></div>
                                                 </div>
                                                 <div class="ml-4 sm:ml-6">
                                                     <div class="text-xs sm:text-sm font-bold text-[#84C1D9] mb-1">12:30
@@ -1222,9 +1037,9 @@
                                             <div class="flex items-center relative">
                                                 <div class="relative">
                                                     <div
-                                                        class="w-3 h-3 bg-[#ef4444] rounded-full shadow-lg shadow-[#ef4444]/50 flex-shrink-0 z-10 relative"></div>
+                                                        class="w-3 h-3 bg-[#175C93] rounded-full shadow-lg shadow-[#7BC7F0]/50 flex-shrink-0 z-10 relative"></div>
                                                     <div
-                                                        class="absolute inset-0 w-3 h-3 bg-[#ef4444] rounded-full opacity-30 animate-ping"></div>
+                                                        class="absolute inset-0 w-3 h-3 bg-[#7BC7F0] rounded-full opacity-30 animate-ping"></div>
                                                 </div>
                                                 <div class="ml-4 sm:ml-6">
                                                     <div class="text-xs sm:text-sm font-bold text-[#84C1D9] mb-1">14:00
@@ -1239,9 +1054,9 @@
                                             <div class="flex items-center relative">
                                                 <div class="relative">
                                                     <div
-                                                        class="w-3 h-3 bg-[#ef4444] rounded-full shadow-lg shadow-[#ef4444]/50 flex-shrink-0 z-10 relative"></div>
+                                                        class="w-3 h-3 bg-[#175C93] rounded-full shadow-lg shadow-[#7BC7F0]/50 flex-shrink-0 z-10 relative"></div>
                                                     <div
-                                                        class="absolute inset-0 w-3 h-3 bg-[#ef4444] rounded-full opacity-30 animate-ping"></div>
+                                                        class="absolute inset-0 w-3 h-3 bg-[#7BC7F0] rounded-full opacity-30 animate-ping"></div>
                                                 </div>
                                                 <div class="ml-4 sm:ml-6">
                                                     <div class="text-xs sm:text-sm font-bold text-[#84C1D9] mb-1">14:45
@@ -1254,9 +1069,9 @@
                                             <div class="flex items-center relative">
                                                 <div class="relative">
                                                     <div
-                                                        class="w-3 h-3 bg-[#ef4444] rounded-full shadow-lg shadow-[#ef4444]/50 flex-shrink-0 z-10 relative"></div>
+                                                        class="w-3 h-3 bg-[#175C93] rounded-full shadow-lg shadow-[#7BC7F0]/50 flex-shrink-0 z-10 relative"></div>
                                                     <div
-                                                        class="absolute inset-0 w-3 h-3 bg-[#ef4444] rounded-full opacity-30 animate-ping"></div>
+                                                        class="absolute inset-0 w-3 h-3 bg-[#7BC7F0] rounded-full opacity-30 animate-ping"></div>
                                                 </div>
                                                 <div class="ml-4 sm:ml-6">
                                                     <div class="text-xs sm:text-sm font-bold text-[#84C1D9] mb-1">15:30
@@ -1270,9 +1085,9 @@
                                             <div class="flex items-center relative">
                                                 <div class="relative">
                                                     <div
-                                                        class="w-3 h-3 bg-[#ef4444] rounded-full shadow-lg shadow-[#ef4444]/50 flex-shrink-0 z-10 relative"></div>
+                                                        class="w-3 h-3 bg-[#175C93] rounded-full shadow-lg shadow-[#7BC7F0]/50 flex-shrink-0 z-10 relative"></div>
                                                     <div
-                                                        class="absolute inset-0 w-3 h-3 bg-[#ef4444] rounded-full opacity-30 animate-ping"></div>
+                                                        class="absolute inset-0 w-3 h-3 bg-[#7BC7F0] rounded-full opacity-30 animate-ping"></div>
                                                 </div>
                                                 <div class="ml-4 sm:ml-6">
                                                     <div class="text-xs sm:text-sm font-bold text-[#84C1D9] mb-1">16:15
@@ -1285,9 +1100,225 @@
                                             <div class="flex items-center relative">
                                                 <div class="relative">
                                                     <div
-                                                        class="w-3 h-3 bg-[#ef4444] rounded-full shadow-lg shadow-[#ef4444]/50 flex-shrink-0 z-10 relative"></div>
+                                                        class="w-3 h-3 bg-[#175C93] rounded-full shadow-lg shadow-[#7BC7F0]/50 flex-shrink-0 z-10 relative"></div>
                                                     <div
-                                                        class="absolute inset-0 w-3 h-3 bg-[#ef4444] rounded-full opacity-30 animate-ping"></div>
+                                                        class="absolute inset-0 w-3 h-3 bg-[#7BC7F0] rounded-full opacity-30 animate-ping"></div>
+                                                </div>
+                                                <div class="ml-4 sm:ml-6">
+                                                    <div class="text-xs sm:text-sm font-bold text-[#84C1D9] mb-1">19:00
+                                                        – 21:30
+                                                    </div>
+                                                    <h5 class="text-[#1a365d] text-sm sm:text-base">KICP Africa Creative
+                                                        Excellence Awards Gala Celebrating excellence in campaigns,
+                                                        creativity, and collaboration across the continent.</h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bg-white rounded-xl shadow-xl overflow-hidden flex flex-col"
+                                     style="height:auto">
+                                    <div
+                                        class="bg-gradient-to-r from-[#175C93] to-[#7BC7F0] text-white p-4 sm:p-6
+                                        flex-shrink-0">
+                                        <h4 class="text-lg sm:text-xl font-bold">Day 2 – Execution, Commerce &
+                                            Collaboration</h4>
+                                        <p class="text-xs sm:text-sm opacity-90 mt-1">April 22, 2026</p>
+                                    </div>
+                                    <div class="p-4 sm:p-6 relative flex-1 overflow-y-auto">
+                                        <div class="space-y-4 sm:space-y-6 relative">
+                                            <div
+                                                class="absolute left-[5px] top-[6px] bottom-[6px] w-0.5 bg-[#175C93]"></div>
+                                            <div class="flex items-center relative">
+                                                <div class="relative">
+                                                    <div
+                                                        class="w-3 h-3 bg-[#175C93] rounded-full shadow-lg shadow-[#7BC7F0]/50 flex-shrink-0 z-10 relative"></div>
+                                                    <div
+                                                        class="absolute inset-0 w-3 h-3 bg-[#7BC7F0] rounded-full opacity-30 animate-ping"></div>
+                                                </div>
+                                                <div class="ml-4 sm:ml-6">
+                                                    <div class="text-xs sm:text-sm font-bold text-[#84C1D9] mb-1">08:45
+                                                        – 09:10
+                                                    </div>
+                                                    <h5 class="text-[#1a365d] text-sm sm:text-base">Morning Coffee +
+                                                        Recap Video: Day 1 Highlights</h5>
+                                                </div>
+                                            </div>
+                                            <div class="flex items-center relative">
+                                                <div class="relative">
+                                                    <div
+                                                        class="w-3 h-3 bg-[#175C93] rounded-full shadow-lg shadow-[#7BC7F0]/50 flex-shrink-0 z-10 relative"></div>
+                                                    <div
+                                                        class="absolute inset-0 w-3 h-3 bg-[#7BC7F0] rounded-full opacity-30 animate-ping"></div>
+                                                </div>
+                                                <div class="ml-4 sm:ml-6">
+                                                    <div class="text-xs sm:text-sm font-bold text-[#84C1D9] mb-1">09:10
+                                                        – 09:40
+                                                    </div>
+                                                    <h5 class="text-[#1a365d] text-sm sm:text-base">Keynote: From Reach
+                                                        to Revenue — The Future of Marketing, Data &amp; Commerce in
+                                                        Africa</h5>
+                                                </div>
+                                            </div>
+                                            <div class="flex items-center relative">
+                                                <div class="relative">
+                                                    <div
+                                                        class="w-3 h-3 bg-[#175C93] rounded-full shadow-lg shadow-[#7BC7F0]/50 flex-shrink-0 z-10 relative"></div>
+                                                    <div
+                                                        class="absolute inset-0 w-3 h-3 bg-[#7BC7F0] rounded-full opacity-30 animate-ping"></div>
+                                                </div>
+                                                <div class="ml-4 sm:ml-6">
+                                                    <div class="text-xs sm:text-sm font-bold text-[#84C1D9] mb-1">09:40
+                                                        – 10:20
+                                                    </div>
+                                                    <h5 class="text-[#1a365d] text-sm sm:text-base">Panel: Creator
+                                                        Economy 2.0 — From Influence to Infrastructure</h5>
+                                                </div>
+                                            </div>
+                                            <div class="flex items-center relative">
+                                                <div class="relative">
+                                                    <div
+                                                        class="w-3 h-3 bg-[#175C93] rounded-full shadow-lg shadow-[#7BC7F0]/50 flex-shrink-0 z-10 relative"></div>
+                                                    <div
+                                                        class="absolute inset-0 w-3 h-3 bg-[#7BC7F0] rounded-full opacity-30 animate-ping"></div>
+                                                </div>
+                                                <div class="ml-4 sm:ml-6">
+                                                    <div class="text-xs sm:text-sm font-bold text-[#84C1D9] mb-1">10:20
+                                                        – 11:10
+                                                    </div>
+                                                    <h5 class="text-[#1a365d] text-sm sm:text-base"><span
+                                                            class="font-bold">Track 7:</span> Cross-Border Collaboration
+                                                        &amp; Ecosystem Growth<br>Session: Operating Across Borders —
+                                                        Tax, IP, and Legal Realities<br><span
+                                                            class="font-bold">Track 4:</span> Creator &amp; Freelance
+                                                        Economy<br>Session: Fair Pay Africa — Pricing Creativity for
+                                                        Value<br><span class="font-bold">Track 2:</span> Creative +
+                                                        Media Performance<br>Session: Short-Form Mastery:
+                                                        Crafting Stories That Stick</h5>
+                                                </div>
+                                            </div>
+                                            <div class="flex items-center relative">
+                                                <div class="relative">
+                                                    <div
+                                                        class="w-3 h-3 bg-[#175C93] rounded-full shadow-lg shadow-[#7BC7F0]/50 flex-shrink-0 z-10 relative"></div>
+                                                    <div
+                                                        class="absolute inset-0 w-3 h-3 bg-[#7BC7F0] rounded-full opacity-30 animate-ping"></div>
+                                                </div>
+                                                <div class="ml-4 sm:ml-6">
+                                                    <div class="text-xs sm:text-sm font-bold text-[#84C1D9] mb-1">11:10
+                                                        – 11:40
+                                                    </div>
+                                                    <h5 class="text-[#1a365d] text-sm sm:text-base">Networking Break +
+                                                        Partner Activations</h5>
+                                                </div>
+                                            </div>
+                                            <div class="flex items-center relative">
+                                                <div class="relative">
+                                                    <div
+                                                        class="w-3 h-3 bg-[#175C93] rounded-full shadow-lg shadow-[#7BC7F0]/50 flex-shrink-0 z-10 relative"></div>
+                                                    <div
+                                                        class="absolute inset-0 w-3 h-3 bg-[#7BC7F0] rounded-full opacity-30 animate-ping"></div>
+                                                </div>
+                                                <div class="ml-4 sm:ml-6">
+                                                    <div class="text-xs sm:text-sm font-bold text-[#84C1D9] mb-1">11:40
+                                                        – 12:25
+                                                    </div>
+                                                    <h5 class="text-[#1a365d] text-sm sm:text-base"><span
+                                                            class="font-bold">Track 6:</span> Commerce, Platforms &amp;
+                                                        The Business of Marketing<br>Session: Chat Commerce &amp; Social
+                                                        Selling: Converting Conversations into Sales<br><span
+                                                            class="font-bold">Track 5:</span> Communication, PR &amp;
+                                                        Brand Trust<br>Session: Influence with Integrity — The New
+                                                        PR-Creator Relationship<br><span
+                                                            class="font-bold">Track 1:</span> AI &amp; Technology<br>Session:
+                                                        Building
+                                                        Smarter Campaign Workflows with Automation</h5>
+                                                </div>
+                                            </div>
+                                            <div class="flex items-center relative">
+                                                <div class="relative">
+                                                    <div
+                                                        class="w-3 h-3 bg-[#175C93] rounded-full shadow-lg shadow-[#7BC7F0]/50 flex-shrink-0 z-10 relative"></div>
+                                                    <div
+                                                        class="absolute inset-0 w-3 h-3 bg-[#7BC7F0] rounded-full opacity-30 animate-ping"></div>
+                                                </div>
+                                                <div class="ml-4 sm:ml-6">
+                                                    <div class="text-xs sm:text-sm font-bold text-[#84C1D9] mb-1">12:30
+                                                        – 14:00
+                                                    </div>
+                                                    <h5 class="text-[#1a365d] text-sm sm:text-base">Lunch + Deal Rooms
+                                                        (Round 2: Tech x Agencies x Brands)</h5>
+                                                </div>
+                                            </div>
+                                            <div class="flex items-center relative">
+                                                <div class="relative">
+                                                    <div
+                                                        class="w-3 h-3 bg-[#175C93] rounded-full shadow-lg shadow-[#7BC7F0]/50 flex-shrink-0 z-10 relative"></div>
+                                                    <div
+                                                        class="absolute inset-0 w-3 h-3 bg-[#7BC7F0] rounded-full opacity-30 animate-ping"></div>
+                                                </div>
+                                                <div class="ml-4 sm:ml-6">
+                                                    <div class="text-xs sm:text-sm font-bold text-[#84C1D9] mb-1">14:00
+                                                        – 14:45
+                                                    </div>
+                                                    <h5 class="text-[#1a365d] text-sm sm:text-base">Workshop Series:<br>•
+                                                        Contracts &amp; IP for Creators &amp; Agencies<br>• Data
+                                                        Strategy for Marketing Teams<br>• AI Productivity Tools for
+                                                        Creative Teams</h5>
+                                                </div>
+                                            </div>
+                                            <div class="flex items-center relative">
+                                                <div class="relative">
+                                                    <div
+                                                        class="w-3 h-3 bg-[#175C93] rounded-full shadow-lg shadow-[#7BC7F0]/50 flex-shrink-0 z-10 relative"></div>
+                                                    <div
+                                                        class="absolute inset-0 w-3 h-3 bg-[#7BC7F0] rounded-full opacity-30 animate-ping"></div>
+                                                </div>
+                                                <div class="ml-4 sm:ml-6">
+                                                    <div class="text-xs sm:text-sm font-bold text-[#84C1D9] mb-1">14:45
+                                                        – 15:30
+                                                    </div>
+                                                    <h5 class="text-[#1a365d] text-sm sm:text-base">Panel: How In-House
+                                                        Marketing Teams &amp; Agencies Can Co-Create Growth</h5>
+                                                </div>
+                                            </div>
+                                            <div class="flex items-center relative">
+                                                <div class="relative">
+                                                    <div
+                                                        class="w-3 h-3 bg-[#175C93] rounded-full shadow-lg shadow-[#7BC7F0]/50 flex-shrink-0 z-10 relative"></div>
+                                                    <div
+                                                        class="absolute inset-0 w-3 h-3 bg-[#7BC7F0] rounded-full opacity-30 animate-ping"></div>
+                                                </div>
+                                                <div class="ml-4 sm:ml-6">
+                                                    <div class="text-xs sm:text-sm font-bold text-[#84C1D9] mb-1">15:30
+                                                        – 16:15
+                                                    </div>
+                                                    <h5 class="text-[#1a365d] text-sm sm:text-base">Fireside Chat:
+                                                        Exporting African Creativity to the World — Scaling Beyond
+                                                        Borders</h5>
+                                                </div>
+                                            </div>
+                                            <div class="flex items-center relative">
+                                                <div class="relative">
+                                                    <div
+                                                        class="w-3 h-3 bg-[#175C93] rounded-full shadow-lg shadow-[#7BC7F0]/50 flex-shrink-0 z-10 relative"></div>
+                                                    <div
+                                                        class="absolute inset-0 w-3 h-3 bg-[#7BC7F0] rounded-full opacity-30 animate-ping"></div>
+                                                </div>
+                                                <div class="ml-4 sm:ml-6">
+                                                    <div class="text-xs sm:text-sm font-bold text-[#84C1D9] mb-1">16:15
+                                                        – 17:00
+                                                    </div>
+                                                    <h5 class="text-[#1a365d] text-sm sm:text-base">Closing Plenary:
+                                                        Africa's Next Creative Frontier — Collaboration as Capital</h5>
+                                                </div>
+                                            </div>
+                                            <div class="flex items-center relative">
+                                                <div class="relative">
+                                                    <div
+                                                        class="w-3 h-3 bg-[#175C93] rounded-full shadow-lg shadow-[#7BC7F0]/50 flex-shrink-0 z-10 relative"></div>
+                                                    <div
+                                                        class="absolute inset-0 w-3 h-3 bg-[#7BC7F0] rounded-full opacity-30 animate-ping"></div>
                                                 </div>
                                                 <div class="ml-4 sm:ml-6">
                                                     <div class="text-xs sm:text-sm font-bold text-[#84C1D9] mb-1">19:00
