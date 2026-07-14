@@ -919,12 +919,12 @@
                                                     </div>
                                                     <h5 class="text-[#1a365d] text-sm sm:text-base">Registration and Networking
                                                         Breakfast</h5>
-                                                    <div class="flex items-center gap-1.5 mt-1">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 text-[#84C1D9] flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                    <div class="flex items-center gap-1 mt-0.5">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 text-[#84C1D9] flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                                             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                                                             <circle cx="12" cy="7" r="4"></circle>
                                                         </svg>
-                                                        <h6 class="text-[#84C1D9] text-xs sm:text-sm italic font-normal">All</h6>
+                                                        <h6 class="text-[#84C1D9] text-xs italic font-normal leading-tight">All</h6>
                                                     </div>
                                                 </div>
                                             </div>
