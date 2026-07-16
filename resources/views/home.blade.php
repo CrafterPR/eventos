@@ -10,7 +10,7 @@
                     <div class="max-w-2xl mx-auto text-center">
                         <h1 class="text-2xl sm:text-3xl md:text-4xl font-normal text-white mb-6 sm:mb-8
                         leading-tight"
-                            style="opacity: 1; transform: none;">Create. Connect. Commercialize.</h1>
+                            style="opacity: 1; transform: none;">2 <sup>nd</sup>KASNEB International Conference for Professionals (KICP)</h1>
                         <div class="flex flex-col sm:flex-row gap-2 sm:gap-4 mb-6 sm:mb-10 justify-center"
                              style="opacity: 1; transform: none;">
                             <div class="flex flex-col sm:flex-row gap-2 sm:gap-4">
@@ -23,8 +23,8 @@
                                               d="M12 11.5A2.5 2.5 0 0 1 9.5 9A2.5 2.5 0 0 1 12 6.5A2.5 2.5 0 0 1 14.5 9a2.5 2.5 0 0 1-2.5 2.5M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7"></path>
                                     </svg>
                                     <span
-                                        class="break-words sm:whitespace-nowrap">PrideInn Paradise Beach Resort Spa,
-                                        Mombasa <strong>- 14<sup>th</sup> - 18<sup>th</sup> September
+                                        class="break-words sm:whitespace-nowrap">TBD,
+                                        Nairobi <strong>- 14<sup>th</sup> - 18<sup>th</sup> September
                                             2026</strong></span>
 
                                 </div>
@@ -1734,7 +1734,7 @@
                 <div class="flex flex-col sm:flex-row justify-center items-center mb-6 sm:mb-8 gap-4">
                     <div>
                         <h3 class="text-3xl sm:text-4xl text-white font-normal">Beyond the sessions</h3>
-                        <p class="text-base sm:text-lg md:text-xl font-normal text-white mb-4">Experience Mombasa and
+                        <p class="text-base sm:text-lg md:text-xl font-normal text-white mb-4">Experience Nairobi and
                             make connections that last.</p>
                     </div>
                 </div>
@@ -1751,7 +1751,7 @@
                                 <h4 class="text-lg sm:text-xl font-bold text-white group-hover:text-slate-800 transition-colors duration-300">
                                     City Excursions</h4>
                                 <p class="hidden group-hover:block transition-all duration-300 text-slate-800 text-xs sm:text-sm leading-relaxed mt-2">
-                                    Curated cultural and innovation hub visits to immerse participants in Mombasa's vibrant ecosystem.</p>
+                                    Curated cultural and innovation hub visits to immerse participants in Nairobi's vibrant ecosystem.</p>
                             </div>
                         </div>
                     </div>
@@ -1849,7 +1849,7 @@
                                         <path fill="currentColor"
                                               d="M12 11.5A2.5 2.5 0 0 1 9.5 9A2.5 2.5 0 0 1 12 6.5A2.5 2.5 0 0 1 14.5 9a2.5 2.5 0 0 1-2.5 2.5M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7"></path>
                                     </svg>
-                                    <span class="text-sm sm:text-base font-normal text-slate-800">PrideInn Paradise Beach Resort Spa, Mombasa </span>
+                                    <span class="text-sm sm:text-base font-normal text-slate-800">TBD, Nairobi </span>
                                 </div>
                             </div>
                             <div class="mb-6 sm:mb-8 text-slate-800/90 ml-4">
@@ -2063,7 +2063,7 @@
                         Plan Your Trip</h3>
                     <h2 class="text-2xl sm:text-3xl text-slate-800 font-bold uppercase mb-3 sm:mb-4">Plan Your Trip</h2>
                     <p class="text-base sm:text-lg md:text-xl font-normal text-slate-800">Smooth logistics,
-                        unforgettable Mombasa experience.</p>
+                        unforgettable Nairobi experience.</p>
                 </div>
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mb-8 sm:mb-12">
                     <div class="bg-gradient-to-br from-[#DAECF4] to-[#F3F9FB] rounded-xl p-4 sm:p-6 shadow-lg">
@@ -2088,7 +2088,7 @@
                                         <path fill="currentColor"
                                               d="M12 11.5A2.5 2.5 0 0 1 9.5 9A2.5 2.5 0 0 1 12 6.5A2.5 2.5 0 0 1 14.5 9a2.5 2.5 0 0 1-2.5 2.5M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7"></path>
                                     </svg>
-                                    <h4 class="font-semibold text-slate-800 text-sm sm:text-base">PrideInn Paradise Beach Resort Spa,Mombasa </h4>
+                                    <h4 class="font-semibold text-slate-800 text-sm sm:text-base">TBD,Nairobi </h4>
                                 </div>
                                 <a href="#" target="_blank"
                                    class="text-[#84C1DA] hover:text-red-500 transition-colors text-xs sm:text-sm">View
@@ -2165,12 +2165,12 @@
                                 ` },
                                 { id: 4, title: 'Transportation', content: `
                                     <p>
-                                        Mombasa has a reliable network of taxis, ride-sharing services, and public transport. Attendees can also access the venue easily from the airport, hotels, and key transport hubs. Detailed transportation guides and group transfer arrangements will be available for registered participants.
+                                        Nairobi has a reliable network of taxis, ride-sharing services, and public transport. Attendees can also access the venue easily from the airport, hotels, and key transport hubs. Detailed transportation guides and group transfer arrangements will be available for registered participants.
                                     </p>
                                 ` },
                                 { id: 5, title: 'Safety &amp; Security', content: `
                                     <p>
-                                        Mombasa is a welcoming and vibrant coastal city that receives visitors from around the world. We work closely with local security partners to ensure a safe and secure environment throughout the event. As with any major destination, attendees are encouraged to observe basic safety precautions during their stay.
+                                        Nairobi is a welcoming and vibrant coastal city that receives visitors from around the world. We work closely with local security partners to ensure a safe and secure environment throughout the event. As with any major destination, attendees are encouraged to observe basic safety precautions during their stay.
                                     </p>
                                 ` },
                             ],
