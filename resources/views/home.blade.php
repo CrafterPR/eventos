@@ -1469,7 +1469,7 @@
                 <div class="flex flex-col sm:flex-row justify-between items-start mb-6 sm:mb-8 gap-4">
                     <div>
                         <h3 class="text-3xl sm:text-4xl text-slate-800 font-normal">Meet the speakers</h3>
-                        <p class="text-base sm:text-lg md:text-xl font-normal text-slate-800 mb-4">Africa’s Professionals . Innovators. Enablers. All in one place.</p>
+                        <p class="text-base sm:text-lg md:text-xl font-normal text-slate-800 mb-4">Gain insights from leading voices in business, governance and professional development</p>
                     </div>
                     <div class="flex gap-2 self-end">
                         <button id="speakers-prev"
@@ -1493,6 +1493,81 @@
                 <!-- Speakers Carousel -->
                 <div id="speakers-carousel-container" class="overflow-hidden rounded-xl">
                     <div id="speakers-carousel-track" class="flex gap-4 sm:gap-6 transition-transform duration-500 ease-out">
+                    {{-- i. Koskei - COF--}}
+                        <div class="flex-shrink-0 w-full sm:w-1/2 lg:w-1/3">
+                            <div class="relative rounded-xl shadow-xl overflow-hidden group cursor-pointer h-80 sm:h-96">
+                                <img alt="Anna Ceesay" loading="lazy" width="400" height="500"
+                                     class="w-full h-full object-cover" style="color:transparent"
+                                     src="{{ asset('assets/media/images/speakers/fkoskei.jpg') }}">
+                                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent group-hover:bg-gradient-to-t group-hover:from-black/0 group-hover:to-transparent transition-all duration-300 p-4 sm:p-6">
+                                    <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                                         style="background:linear-gradient(to top, #F2B706 0%, #F2B706 40%, rgba(0,0,0,0) 100%)"></div>
+                                    <div class="relative z-10 flex justify-between items-center">
+                                        <div>
+                                            <h4 class="text-lg sm:text-xl font-bold text-white mb-1">Mr. Felix Koskei, EGH
+                                            </h4>
+                                            <p class="text-white/90 text-xs sm:text-sm">Chief of Staff and Head of Public Service</p>
+                                        </div>
+                                        <div class="flex-shrink-0"><a
+                                                href="#"
+                                                target="_blank" rel="noopener noreferrer"
+                                                class="hover:scale-110 transition-transform duration-200">
+
+                                            </a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {{--2. CS Mbadi--}}
+                        <div class="flex-shrink-0 w-full sm:w-1/2 lg:w-1/3">
+                            <div class="relative rounded-xl shadow-xl overflow-hidden group cursor-pointer h-80 sm:h-96">
+                                <img alt="Anna Ceesay" loading="lazy" width="400" height="500"
+                                     class="w-full h-full object-cover" style="color:transparent"
+                                     src="{{ asset('assets/media/images/speakers/cs-mbadi.jpeg') }}">
+                                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent group-hover:bg-gradient-to-t group-hover:from-black/0 group-hover:to-transparent transition-all duration-300 p-4 sm:p-6">
+                                    <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                                         style="background:linear-gradient(to top, #F2B706 0%, #F2B706 40%, rgba(0,0,0,0) 100%)"></div>
+                                    <div class="relative z-10 flex justify-between items-center">
+                                        <div>
+                                            <h4 class="text-lg sm:text-xl font-bold text-white mb-1">FCPA Hon. John Mbadi Ng'ongo, EGH
+                                            </h4>
+                                            <p class="text-white/90 text-xs sm:text-sm">Cabinet Secretary, The National Treasury and Economic Planning</p>
+                                        </div>
+                                        <div class="flex-shrink-0"><a
+                                                href="#"
+                                                target="_blank" rel="noopener noreferrer"
+                                                class="hover:scale-110 transition-transform duration-200">
+
+                                            </a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {{--3. Dr. Chris K. Kiptoo, CBS--}}
+                        <div class="flex-shrink-0 w-full sm:w-1/2 lg:w-1/3">
+                            <div class="relative rounded-xl shadow-xl overflow-hidden group cursor-pointer h-80 sm:h-96">
+                                <img alt="Anna Ceesay" loading="lazy" width="400" height="500"
+                                     class="w-full h-full object-cover" style="color:transparent"
+                                     src="{{ asset('assets/media/images/speakers/ps-Kiptoo.jpeg') }}">
+                                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent group-hover:bg-gradient-to-t group-hover:from-black/0 group-hover:to-transparent transition-all duration-300 p-4 sm:p-6">
+                                    <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                                         style="background:linear-gradient(to top, #F2B706 0%, #F2B706 40%, rgba(0,0,0,0) 100%)"></div>
+                                    <div class="relative z-10 flex justify-between items-center">
+                                        <div>
+                                            <h4 class="text-lg sm:text-xl font-bold text-white mb-1">Dr. Chris K. Kiptoo, CBS
+                                            </h4>
+                                            <p class="text-white/90 text-xs sm:text-sm">Principal Secretary, The National Treasury</p>
+                                        </div>
+                                        <div class="flex-shrink-0"><a
+                                                href="#"
+                                                target="_blank" rel="noopener noreferrer"
+                                                class="hover:scale-110 transition-transform duration-200">
+
+                                            </a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <!-- Speaker 1: Anna -->
                         <div class="flex-shrink-0 w-full sm:w-1/2 lg:w-1/3">
                             <div class="relative rounded-xl shadow-xl overflow-hidden group cursor-pointer h-80 sm:h-96">
@@ -1511,13 +1586,7 @@
                                             href="#"
                                             target="_blank" rel="noopener noreferrer"
                                             class="hover:scale-110 transition-transform duration-200">
-                                            <svg xmlns="http://www.w3.org/2000/svg"
-                                                xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
-                                                class="text-white iconify iconify--mdi" width="20" height="20"
-                                                viewBox="0 0 24 24">
-                                                <path fill="currentColor"
-                                                    d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93zM6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37z"></path>
-                                            </svg>
+
                                         </a></div>
                                     </div>
                                 </div>
@@ -1542,13 +1611,7 @@
                                             href="#"
                                             target="_blank" rel="noopener noreferrer"
                                             class="hover:scale-110 transition-transform duration-200">
-                                            <svg xmlns="http://www.w3.org/2000/svg"
-                                                xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
-                                                class="text-white iconify iconify--mdi" width="20" height="20"
-                                                viewBox="0 0 24 24">
-                                                <path fill="currentColor"
-                                                    d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93zM6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37z"></path>
-                                            </svg>
+
                                         </a></div>
                                     </div>
                                 </div>
@@ -1573,13 +1636,7 @@
                                             href="https://www.linkedin.com/in/gillian-hammah?originalSubdomain=gh"
                                             target="_blank" rel="noopener noreferrer"
                                             class="hover:scale-110 transition-transform duration-200">
-                                            <svg xmlns="http://www.w3.org/2000/svg"
-                                                xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
-                                                class="text-white iconify iconify--mdi" width="20" height="20"
-                                                viewBox="0 0 24 24">
-                                                <path fill="currentColor"
-                                                    d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93zM6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37z"></path>
-                                            </svg>
+
                                         </a></div>
                                     </div>
                                 </div>
