@@ -282,13 +282,19 @@
                                                         <div class="absolute -top-2 right-2 sm:right-4 px-2 sm:px-3 py-1 rounded-full text-xs font-semibold shadow-lg bg-red-500 text-white" style="opacity: 1; transform: none;">MOST POPULAR</div>
                                                         <div class="flex flex-col h-full">
                                                             <div class="mb-3 sm:mb-4">
-                                                                <h2 class="text-lg sm:text-xl font-bold text-slate-800 mb-2">General Admission</h2>
+                                                                <h2 class="text-lg sm:text-xl font-bold
+                                                                text-slate-800 mb-2">Individual Delegate</h2>
                                                                 <p class="text-slate-800/80 text-xs sm:text-sm">Access all keynotes, panels, exhibition &amp; networking app.</p>
                                                             </div>
                                                             <div class="mb-3 sm:mb-4">
-                                                                <div class="flex items-baseline gap-2 mb-2"><span class="text-gray-500 line-through text-xs sm:text-sm">$95</span><span class="text-xs text-red-500 font-medium">Save 32%</span></div>
-                                                                <h3 class="text-2xl sm:text-3xl font-bold text-slate-800">$65</h3>
-                                                                <p class="text-xs text-red-500 mt-1">Early bird pricing (until February 21st, 2026)</p>
+{{--                                                                <div class="flex items-baseline gap-2 mb-2"><span--}}
+{{--                                                                        class="text-gray-500 line-through text-xs--}}
+{{--                                                                        sm:text-sm">Ksh 20,000</span><span--}}
+{{--                                                                        class="text-xs--}}
+{{--                                                                        text-red-500 font-medium">Save 32%</span>--}}
+{{--                                                                </div>--}}
+                                                                <h3 class="text-2xl sm:text-3xl font-bold
+                                                                text-slate-800">Ksh. 20,000</h3>
                                                             </div>
                                                             <div class="mb-4 sm:mb-6">
                                                                 <ul class="space-y-1 text-slate-800 text-xs sm:text-sm">
@@ -323,7 +329,7 @@
                                                                         </button>
                                                                     </div>
 
-                                                                    <button @click="selected = true; selectTicket('General Admission', 65, count)" class="rounded-full px-4 sm:px-6 py-2 font-medium transition-colors text-sm sm:text-base bg-slate-800 text-white hover:bg-[#84C1D9]">
+                                                                    <button @click="selected = true; selectTicket('Individual Delegate', 20000, count)" class="rounded-full px-4 sm:px-6 py-2 font-medium transition-colors text-sm sm:text-base bg-slate-800 text-white hover:bg-[#84C1D9]">
                                                                         Select Ticket
                                                                     </button>
                                                                 </div>
@@ -359,22 +365,40 @@
                                                         <div class="absolute -top-2 right-2 sm:right-4 px-2 sm:px-3 py-1 rounded-full text-xs font-semibold shadow-lg bg-[#84C1D9] text-white" style="opacity: 1; transform: none;">MEMBER PRICE</div>
                                                         <div class="flex flex-col h-full">
                                                             <div class="mb-3 sm:mb-4">
-                                                                <h2 class="text-lg sm:text-xl font-bold text-slate-800 mb-2">Agency/Team Pass</h2>
-                                                                <p class="text-slate-800/80 text-xs sm:text-sm">Special pricing for creative agencies and teams.</p>
+                                                                <h2 class="text-lg sm:text-xl font-bold
+                                                                text-slate-800 mb-2">Group registration</h2>
+                                                                <p class="text-slate-800/80 text-xs
+                                                                sm:text-sm">Special pricing for organization and
+                                                                    company staff and teams</p>
                                                             </div>
                                                             <div class="mb-3 sm:mb-4">
                                                                 <div class="flex items-baseline gap-2 mb-2"><span class="text-gray-500 line-through text-xs sm:text-sm">$180</span><span class="text-xs text-red-500 font-medium">Save 19%</span></div>
-                                                                <h3 class="text-2xl sm:text-3xl font-bold text-slate-800">$145</h3>
-                                                                <p class="text-xs text-red-500 mt-1">Early bird pricing (until February 21st, 2026)</p>
+                                                                <h3 class="text-2xl sm:text-3xl font-bold
+                                                                text-slate-800">Ksh. 14,500</h3>
+                                                                <h4 class="text-xl sm:text-2xl
+                                                                text-slate-800">per person</h4>
                                                             </div>
                                                             <div class="mb-4 sm:mb-6">
                                                                 <ul class="space-y-1 text-slate-800 text-xs sm:text-sm">
                                                                     <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi"
-                                                                                                       width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"></path></svg>Full 2-day access</li>
+                                                                                                       width="1em"
+                                                                                                       height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"></path></svg>Full 5-day access</li>
                                                                     <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi"
-                                                                                                       width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"></path></svg>Team networking zone</li>
+                                                                                                       width="1em"
+                                                                                                       height="1em"
+                                                                                                       viewBox="0 0
+                                                                                                       24 24"><path
+                                                                                fill="currentColor" d="M21 7L9 19l-5
+                                                                                .5-5.5l1.41-1.41L9 16.17L19.59 5
+                                                                                .59z"></path></svg>Break  & Lunch</li>
                                                                     <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi"
-                                                                                                       width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"></path></svg>Agency showcase</li>
+                                                                                                       width="1em"
+                                                                                                       height="1em"
+                                                                                                       viewBox="0 0
+                                                                                                       24 24"><path
+                                                                                fill="currentColor" d="M21 7L9 19l-5
+                                                                                .5-5.5l1.41-1.41L9 16.17L19.59 5
+                                                                                .59z"></path></svg>Exhibition access</li>
                                                                     <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi"
                                                                                                        width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"></path></svg>Digital certificate</li>
                                                                 </ul>
@@ -402,7 +426,10 @@
                                                                         </button>
                                                                     </div>
 
-                                                                    <button @click="selected = true; selectTicket('General Admission', 65, count)" class="rounded-full px-4 sm:px-6 py-2 font-medium transition-colors text-sm sm:text-base bg-slate-800 text-white hover:bg-[#84C1D9]">
+                                                                    <button @click="selected = true; selectTicket
+                                                                    ('Group registration', 14500, count)"
+                                                                            class="rounded-full px-4
+                                                                    sm:px-6 py-2 font-medium transition-colors text-sm sm:text-base bg-slate-800 text-white hover:bg-[#84C1D9]">
                                                                         Select Ticket
                                                                     </button>
                                                                 </div>
@@ -435,25 +462,41 @@
                                                     <div x-data="{ count: 1, selected:false }" :class="selected
                                                         ? 'bg-gradient-to-r from-[#f2b706] to-[#f25849] border-[#f2b706]'
                                                         : 'bg-white border-gray-200'" class="p-4 sm:p-6 rounded-lg border-2 shadow-sm hover:shadow-lg transition-all duration-300 relative" tabindex="0" style="opacity: 1; transform: none;">
-                                                        <div class="absolute -top-2 right-2 sm:right-4 px-2 sm:px-3 py-1 rounded-full text-xs font-semibold shadow-lg bg-[#84C1D9] text-white" style="opacity: 1; transform: none;">PRIORITY</div>
+                                                        <div class="absolute -top-2 right-2 sm:right-4 px-2 sm:px-3 py-1 rounded-full text-xs font-semibold shadow-lg bg-[#84C1D9] text-white" style="opacity: 1; transform: none;">MEMBER PRICE</div>
                                                         <div class="flex flex-col h-full">
                                                             <div class="mb-3 sm:mb-4">
-                                                                <h2 class="text-lg sm:text-xl font-bold text-slate-800 mb-2">International Delegate</h2>
-                                                                <p class="text-slate-800/80 text-xs sm:text-sm">Special pricing for international attendees.</p>
+                                                                <h2 class="text-lg sm:text-xl font-bold
+                                                                text-slate-800 mb-2">Exhibition Booth</h2>
+                                                                <p class="text-slate-800/80 text-xs
+                                                                sm:text-sm">Special pricing for exhibitors</p>
                                                             </div>
                                                             <div class="mb-3 sm:mb-4">
-                                                                <div class="flex items-baseline gap-2 mb-2"><span class="text-gray-500 line-through text-xs sm:text-sm">$280</span><span class="text-xs text-red-500 font-medium">Save 11%</span></div>
-                                                                <h3 class="text-2xl sm:text-3xl font-bold text-slate-800">$250</h3>
-                                                                <p class="text-xs text-red-500 mt-1">Early bird pricing (until February 21st, 2026)</p>
+                                                                <div class="flex items-baseline gap-2 mb-2"><span class="text-gray-500 line-through text-xs sm:text-sm">$180</span><span class="text-xs text-red-500 font-medium">Save 19%</span></div>
+                                                                <h3 class="text-2xl sm:text-3xl font-bold
+                                                                text-slate-800">Ksh. 30,000</h3>
+
                                                             </div>
                                                             <div class="mb-4 sm:mb-6">
                                                                 <ul class="space-y-1 text-slate-800 text-xs sm:text-sm">
                                                                     <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi"
-                                                                                                       width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"></path></svg>Full 2-day access</li>
+                                                                                                       width="1em"
+                                                                                                       height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"></path></svg>Full 5-day access</li>
                                                                     <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi"
-                                                                                                       width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"></path></svg>International networking</li>
+                                                                                                       width="1em"
+                                                                                                       height="1em"
+                                                                                                       viewBox="0 0
+                                                                                                       24 24"><path
+                                                                                fill="currentColor" d="M21 7L9 19l-5
+                                                                                .5-5.5l1.41-1.41L9 16.17L19.59 5
+                                                                                .59z"></path></svg>Exhibition booth</li>
                                                                     <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi"
-                                                                                                       width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"></path></svg>Global insights sessions</li>
+                                                                                                       width="1em"
+                                                                                                       height="1em"
+                                                                                                       viewBox="0 0
+                                                                                                       24 24"><path
+                                                                                fill="currentColor" d="M21 7L9 19l-5
+                                                                                .5-5.5l1.41-1.41L9 16.17L19.59 5
+                                                                                .59z"></path></svg>Breaks & Lunch</li>
                                                                     <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi"
                                                                                                        width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"></path></svg>Digital certificate</li>
                                                                 </ul>
@@ -481,7 +524,10 @@
                                                                         </button>
                                                                     </div>
 
-                                                                    <button @click="selected = true; selectTicket('General Admission', 65, count)" class="rounded-full px-4 sm:px-6 py-2 font-medium transition-colors text-sm sm:text-base bg-slate-800 text-white hover:bg-[#84C1D9]">
+                                                                    <button @click="selected = true; selectTicket
+                                                                    ('Exhibition Booth', 30000, count)"
+                                                                            class="rounded-full px-4
+                                                                    sm:px-6 py-2 font-medium transition-colors text-sm sm:text-base bg-slate-800 text-white hover:bg-[#84C1D9]">
                                                                         Select Ticket
                                                                     </button>
                                                                 </div>
@@ -1500,7 +1546,8 @@
                                                     <div class="h-8 w-px bg-gray-300"></div>
                                                     <div>
                                                         <p class="text-xs text-gray-500">Total Amount</p>
-                                                        <p class="font-bold text-slate-800 text-lg sm:text-xl" x-text="'$' + totalAmount()"></p>
+                                                        <p class="font-bold text-slate-800 text-lg sm:text-xl"
+                                                           x-text="'Ksh. ' + totalAmount()"></p>
                                                     </div>
                                                 </div>
                                                 <div class="flex items-center gap-3 w-full sm:w-auto">
@@ -1526,7 +1573,8 @@
                                                 <div class="flex justify-between items-center py-2 border-b border-gray-100 text-sm sm:text-base">
                                                     <div class="flex-1"><span class="font-medium" x-text="ticket.type + ' × ' + ticket.count"></span></div>
                                                     <div class="flex items-center gap-3">
-                                                        <span class="font-semibold" x-text="'$' + (ticket.price * ticket.count)"></span>
+                                                        <span class="font-semibold" x-text="'Ksh. ' + (ticket.price *
+                                                        ticket.count)"></span>
                                                         <button class="text-red-500 hover:text-red-700 transition-colors p-1" title="Remove ticket" @click.prevent="removeTicket(ticket.type)">
                                                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-5 h-5 iconify iconify--mdi" width="1em" height="1em" viewBox="0 0 24 24">
                                                                 <path fill="currentColor" d="M12 2c5.53 0 10 4.47 10 10s-4.47 10-10 10S2 17.53 2 12S6.47 2 12 2m3.59 5L12 10.59L8.41 7L7 8.41L10.59 12L7 15.59L8.41 17L12 13.41L15.59 17L17 15.59L13.41 12L17 8.41z"></path></svg>
@@ -1538,7 +1586,7 @@
                                         <hr class="my-3 sm:my-4">
                                         <div class="flex justify-between font-bold text-base sm:text-lg">
                                             <span>Total</span>
-                                            <span x-text="'$' + totalAmount()"></span>
+                                            <span x-text="'Ksh. ' + totalAmount()"></span>
                                         </div>
                                     </div>
                                 </div>
@@ -1749,9 +1797,10 @@
                                                     <div class="flex justify-between text-sm sm:text-base"><span x-text="ticket.type + ' × ' + ticket.count"></span><span x-text="'$' + (ticket.price * ticket.count)"></span></div>
                                                 </template>
                                                 <hr class="my-2">
-                                                <div class="flex justify-between text-sm sm:text-base"><span>Subtotal</span><span x-text="'$' + totalAmount()"></span></div>
+                                                <div class="flex justify-between text-sm
+                                                sm:text-base"><span>Subtotal</span><span x-text="'Ksh. ' + totalAmount()                                     totalAmount()"></span></div>
                                                 <div class="flex justify-between text-sm sm:text-base"><span>Promo</span><span class="text-green-600">-$0</span></div>
-                                                <div class="flex justify-between font-bold text-base sm:text-lg"><span>Total</span><span x-text="'$' + totalAmount()"></span></div>
+                                                <div class="flex justify-between font-bold text-base sm:text-lg"><span>Total</span><span x-text="'Ksh. ' + totalAmount()"></span></div>
                                             </div>
                                             <div class="mb-4">
                                                 <h3 class="font-semibold text-slate-800 mb-2">Payment Method</h3>
@@ -1812,13 +1861,13 @@
                                                 <template x-for="(ticket, idx) in selectedTickets" :key="idx">
                                                     <div class="flex justify-between text-sm sm:text-base">
                                                         <span x-text="ticket.type + ' × ' + ticket.count"></span>
-                                                        <span x-text="'$' + (ticket.price * ticket.count)"></span>
+                                                        <span x-text="'Ksh. ' + (ticket.price * ticket.count)"></span>
                                                     </div>
                                                 </template>
                                                 <hr class="my-2">
-                                                <div class="flex justify-between text-sm sm:text-base"><span>Subtotal</span><span x-text="'$' + totalAmount()"></span></div>
-                                                <div class="flex justify-between text-sm sm:text-base"><span>Promo</span><span class="text-green-600">-$0</span></div>
-                                                <div class="flex justify-between font-bold text-base sm:text-lg"><span>Total</span><span x-text="'$' + totalAmount()"></span></div>
+                                                <div class="flex justify-between text-sm sm:text-base"><span>Subtotal</span><span x-text="'Ksh. ' + totalAmount()"></span></div>
+                                                <div class="flex justify-between text-sm sm:text-base"><span>Promo</span><span class="text-green-600">-Ksh. 0</span></div>
+                                                <div class="flex justify-between font-bold text-base sm:text-lg"><span>Total</span><span x-text="'Ksh. ' + totalAmount()"></span></div>
                                             </div>
                                             <div class="mb-3 sm:mb-4">
                                                 <form>

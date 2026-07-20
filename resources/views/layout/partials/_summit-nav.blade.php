@@ -39,9 +39,15 @@
                         can attend</a>
                     <a
                         href="@if(!request()->routeIs('/')) {{ route('/') }}#speakers-section @else #speakers-section @endif"
-                        class="text-[#172840] hover:text-gray-900 hover:bg-[#175C93] px-2 sm:px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer text-xs sm:text-sm">Speakers</a>
+                        class="text-[#172840] hover:text-gray-900 hover:bg-[#175C93] px-2 sm:px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer text-xs sm:text-sm">Speakers
+                    </a>
                     <a href="@if(!request()->routeIs('/')) {{ route('/') }}#exhibition @else #exhibition @endif"
-                       class="text-[#172840] hover:text-gray-900 hover:bg-[#175C93] px-2 sm:px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer text-xs sm:text-sm">Exhibit</a>
+                       class="text-[#172840] hover:text-gray-900 hover:bg-[#175C93] px-2 sm:px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer text-xs sm:text-sm">Exhibit
+                    </a>
+                    <a href="{{ asset('assets/media/images/KICP 2 SPONSORSHIP PROPOSAL 2026.pdf') }}" target="_blank"
+                       class="text-[#172840] hover:text-gray-900 hover:bg-[#175C93] px-2 sm:px-3 py-1.5 rounded-full
+                       transition-all duration-300 cursor-pointer text-xs sm:text-sm">Sponsorship
+                    </a>
 
                 </div>
 {{--                <div class="relative">--}}
@@ -161,13 +167,18 @@
                 </a>
                 <a
                     href="#paan-awards-section"
-                    class="text-[#172840] hover:text-gray-900 hover:bg-[#175C93] block px-3 sm:px-4 py-2 sm:py-3 rounded-full transition-all duration-300 cursor-pointer text-sm sm:text-base">Awards</a>
+                    class="text-[#172840] hover:text-gray-900 hover:bg-[#175C93] block px-3 sm:px-4 py-2 sm:py-3 rounded-full transition-all duration-300 cursor-pointer text-sm sm:text-base">Awards
+                </a>
                 <a href="#exhibition"
-                   class="text-[#172840] hover:text-gray-900 hover:bg-[#175C93] block px-3 sm:px-4 py-2 sm:py-3 rounded-full transition-all duration-300 cursor-pointer text-sm sm:text-base">Exhibit</a><a
-                    href="#tickets-section"
-                    class="text-[#172840] hover:text-gray-900 hover:bg-[#175C93] block px-3 sm:px-4 py-2 sm:py-3 rounded-full transition-all duration-300 cursor-pointer text-sm sm:text-base">Tickets</a><a
-                    href="#plan-your-trip"
-                    class="text-[#172840] hover:text-gray-900 hover:bg-[#175C93] block px-3 sm:px-4 py-2 sm:py-3 rounded-full transition-all duration-300 cursor-pointer text-sm sm:text-base">Plan</a>
+                   class="text-[#172840] hover:text-gray-900 hover:bg-[#175C93] block px-3 sm:px-4 py-2 sm:py-3 rounded-full transition-all duration-300 cursor-pointer text-sm sm:text-base">Exhibit
+                </a>
+                <a
+                    href="{{ asset('assets/media/images/KICP 2 SPONSORSHIP PROPOSAL 2026.pdf') }}"
+                     target="_blank"
+                    class="text-[#172840] hover:text-gray-900 hover:bg-[#175C93] block px-3 sm:px-4 py-2 sm:py-3
+                    rounded-full transition-all duration-300 cursor-pointer text-sm sm:text-base">Sponsorship
+                </a>
+
                 <div class="px-3 sm:px-4 py-3 mt-4">
                     <a href="{{ route('register') }}"
                         class="bg-red-500 text-white px-4 py-2 text-sm rounded-full hover:bg-red-500/90 transition-all duration-300 font-medium shadow-lg flex items-center justify-center gap-2 w-full">
