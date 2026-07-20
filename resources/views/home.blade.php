@@ -170,13 +170,7 @@
                                 resilient and impactful in an increasingly dynamic professional landscape.
                             </p>
                         </div>
-                        <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-3 sm:pt-4 relative z-20"
-                             style="opacity: 1; transform: none;">
-                            <a href="{{ route('register') }}"
-                                class="px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold bg-gradient-to-r from-[#175C93] to-[#7BC7F0] text-white hover:opacity-90 rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 cursor-pointer relative z-20 w-full sm:w-auto">
-                                Register Now
-                            </a>
-                        </div>
+
                     </div><div class="flex justify-center lg:justify-end h-full" style="opacity: 1; transform: none;">
                         <div class="relative overflow-hidden w-full max-w-md lg:max-w-none rounded-lg h-full">
                             <div class="w-full h-full overflow-hidden rounded-xl">
@@ -196,7 +190,7 @@
             <section class="relative mx-auto max-w-6xl px-4 sm:px-6">
 
                 <div class="text-center mb-5 sm:mb-12">
-                    <h2 class="text-2xl sm:text-3xl md:text-4xl text-[#172840] font-normal mb-5 sm:mb-4">Summit
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl text-[#172840] font-normal mb-5 sm:mb-4">Conference
                         Objectives</h2>
                     <h3 class="text-base sm:text-lg md:text-xl text-[#172840] font-normal max-w-3xl mx-auto">What we aim
                         to achieve across five days of sessions.</h3>
