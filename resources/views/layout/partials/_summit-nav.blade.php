@@ -1,7 +1,7 @@
 <nav
     class="w-full z-20 transition-all duration-300 left-1/2 transform -translate-x-1/2 bg-white rounded-none sm:rounded-lg mx-0 sm:mx-4 mt-0 sm:mt-4 shadow-md max-w-none sm:max-w-7xl"
     id="floating-nav"
-    style="position: fixed; top: 1px;">
+    style="position: fixed; top: -16px;">
     <div class="w-full px-3 sm:px-4 md:px-6 lg:px-8">
         <div class="flex items-center justify-between py-2 sm:py-3">
             <div class="flex-shrink-0">

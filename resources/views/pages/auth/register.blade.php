@@ -80,11 +80,8 @@
 {{--        </div>--}}
 
         <div class="bg-[#DAECF3]">
-
-
             <div x-data="wizard()">
-
-                <div class="w-full py-4 sm:py-6 px-3 sm:px-4">
+                <div class="w-full px-3 sm:px-4" style="padding-top: 5rem;padding-bottom: 1rem;">
                     <!-- Step Indicators -->
                     <nav aria-label="Progress" class="max-w-3xl mx-auto">
                         <ol role="list" class="flex items-center justify-between w-full">
@@ -149,7 +146,8 @@
                                                 </div>
                                                 <div>
                                                     <h3 class="text-2xl sm:text-3xl font-bold text-slate-800">Let's Get Started</h3>
-                                                    <p class="text-gray-500 text-sm sm:text-base mt-1">Step 1 of 4 - Contact Information</p>
+                                                    <p class="text-gray-500 text-sm sm:text-base mt-1">Step 1 of 3 -
+                                                        Contact Information</p>
                                                 </div>
                                             </div>
                                             <p class="text-gray-600 text-base leading-relaxed">Please provide your contact information. This helps us keep you updated about your registration and follow up if needed.</p>
@@ -234,11 +232,7 @@
                                 <div class="max-w-7xl mx-auto px-3 sm:px-4 pb-24" style="opacity: 1; transform: none;">
                                     <!--Inner Tabs section -->
                                     <div x-data="{ tabs: [
-                                        { id: 1, title: 'All', active: true},
-                                        { id: 2, title: 'In-Person', active: false},
-                                        { id: 3, title: 'Virtual', active: false},
-                                        { id: 4, title: 'Student', active: false },
-                                        { id: 5, title: 'VIP', active: false}
+                                        { id: 1, title: 'All', active: true}
                                         ], activeTab: 1, mobileActiveTab: 1 }">
                                         <!-- mobile Tabs -->
                                         <div class="lg:hidden mb-4">
@@ -249,26 +243,6 @@
                                                     <option x-bind:value="tab.id" x-text="tab.total_notiiications > 0 ? `${tab.title} (${tab.total_notiiications})` : tab.title"></option>
                                                 </template>
                                             </select>
-                                        </div>
-
-                                        <!-- desktop Tabs -->
-                                        <div class="hidden lg:block">
-                                            <div>
-                                                <nav class="flex flex-wrap justify-left py-4 mb-6 sm:mb-8">
-                                                    <template x-for="(tab, ix) in tabs" x-bind:key="tab.id" class="" aria-label="Tabs">
-                                                        <a href="#"
-                                                           @click.prevent="tabs.forEach(tab => tab.active = false); tabs[ix].active = true; mobileActiveTab = tab.id"
-                                                           class="inline-flex flex-col items-center justify-start pb-4 px-1"
-                                                           :aria-current="tab.active ? 'page' : 'undefined'">
-                                                            <!-- Icon container -->
-                                                            <div
-                                                                class="px-3 sm:px-6 py-2 rounded-full font-medium transition-all duration-300 text-xs sm:text-sm leading-none border-2 border-slate-800 hover:bg-slate-800 hover:text-white"
-                                                                :class="tab.active ? 'bg-slate-800 text-white' : 'bg-transparent text-slate-800'" x-text="tab.title">
-                                                            </div>
-                                                        </a>
-                                                    </template>
-                                                </nav>
-                                            </div>
                                         </div>
 
                                         <div>
@@ -299,9 +273,12 @@
                                                             <div class="mb-4 sm:mb-6">
                                                                 <ul class="space-y-1 text-slate-800 text-xs sm:text-sm">
                                                                     <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi"
-                                                                                                       width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"></path></svg>Full 2-day access</li>
+                                                                                                       width="1em"
+                                                                                                       height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"></path></svg>Full 5-day access</li>
                                                                     <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi"
                                                                                                        width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"></path></svg>Exhibitions &amp; keynotes</li>
+                                                                    <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi"
+                                                                                                       width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"></path></svg>Refreshments & Lunch</li>
                                                                     <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi"
                                                                                                        width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"></path></svg>Digital certificate</li>
                                                                 </ul>
@@ -362,17 +339,24 @@
                                                     <div x-data="{ count: 1, selected:false }" :class="selected
                                                         ? 'bg-gradient-to-r from-[#f2b706] to-[#f25849] border-[#f2b706]'
                                                         : 'bg-white border-gray-200'" class="p-4 sm:p-6 rounded-lg border-2 shadow-sm hover:shadow-lg transition-all duration-300 relative" tabindex="0" style="opacity: 1; transform: none;">
-                                                        <div class="absolute -top-2 right-2 sm:right-4 px-2 sm:px-3 py-1 rounded-full text-xs font-semibold shadow-lg bg-[#84C1D9] text-white" style="opacity: 1; transform: none;">MEMBER PRICE</div>
+                                                        <div class="absolute -top-2 right-2 sm:right-4 px-2 sm:px-3
+                                                        py-1 rounded-full text-xs font-semibold shadow-lg
+                                                        bg-[#84C1D9] text-white" style="opacity: 1; transform: none;
+                                                        ">GROUP'S OFFER</div>
                                                         <div class="flex flex-col h-full">
                                                             <div class="mb-3 sm:mb-4">
                                                                 <h2 class="text-lg sm:text-xl font-bold
                                                                 text-slate-800 mb-2">Group registration</h2>
                                                                 <p class="text-slate-800/80 text-xs
-                                                                sm:text-sm">Special pricing for organization and
-                                                                    company staff and teams</p>
+                                                                sm:text-sm">Special pricing for organization,
+                                                                    groups and teams</p>
                                                             </div>
                                                             <div class="mb-3 sm:mb-4">
-                                                                <div class="flex items-baseline gap-2 mb-2"><span class="text-gray-500 line-through text-xs sm:text-sm">$180</span><span class="text-xs text-red-500 font-medium">Save 19%</span></div>
+                                                                <div class="flex items-baseline gap-2 mb-2"><span
+                                                                        class="text-gray-500 line-through text-xs
+                                                                        sm:text-sm">Ksh. 5,500</span><span
+                                                                        class="text-xs
+                                                                         text-red-500 font-medium">Save 19%</span></div>
                                                                 <h3 class="text-2xl sm:text-3xl font-bold
                                                                 text-slate-800">Ksh. 14,500</h3>
                                                                 <h4 class="text-xl sm:text-2xl
@@ -390,7 +374,7 @@
                                                                                                        24 24"><path
                                                                                 fill="currentColor" d="M21 7L9 19l-5
                                                                                 .5-5.5l1.41-1.41L9 16.17L19.59 5
-                                                                                .59z"></path></svg>Break  & Lunch</li>
+                                                                                .59z"></path></svg>Refreshments & Lunch</li>
                                                                     <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi"
                                                                                                        width="1em"
                                                                                                        height="1em"
@@ -462,7 +446,10 @@
                                                     <div x-data="{ count: 1, selected:false }" :class="selected
                                                         ? 'bg-gradient-to-r from-[#f2b706] to-[#f25849] border-[#f2b706]'
                                                         : 'bg-white border-gray-200'" class="p-4 sm:p-6 rounded-lg border-2 shadow-sm hover:shadow-lg transition-all duration-300 relative" tabindex="0" style="opacity: 1; transform: none;">
-                                                        <div class="absolute -top-2 right-2 sm:right-4 px-2 sm:px-3 py-1 rounded-full text-xs font-semibold shadow-lg bg-[#84C1D9] text-white" style="opacity: 1; transform: none;">MEMBER PRICE</div>
+                                                        <div class="absolute -top-2 right-2 sm:right-4 px-2 sm:px-3
+                                                        py-1 rounded-full text-xs font-semibold shadow-lg
+                                                        bg-[#84C1D9] text-white" style="opacity: 1; transform: none;
+                                                        ">FOR EXHIBITORS</div>
                                                         <div class="flex flex-col h-full">
                                                             <div class="mb-3 sm:mb-4">
                                                                 <h2 class="text-lg sm:text-xl font-bold
@@ -471,7 +458,6 @@
                                                                 sm:text-sm">Special pricing for exhibitors</p>
                                                             </div>
                                                             <div class="mb-3 sm:mb-4">
-                                                                <div class="flex items-baseline gap-2 mb-2"><span class="text-gray-500 line-through text-xs sm:text-sm">$180</span><span class="text-xs text-red-500 font-medium">Save 19%</span></div>
                                                                 <h3 class="text-2xl sm:text-3xl font-bold
                                                                 text-slate-800">Ksh. 30,000</h3>
 
@@ -496,7 +482,7 @@
                                                                                                        24 24"><path
                                                                                 fill="currentColor" d="M21 7L9 19l-5
                                                                                 .5-5.5l1.41-1.41L9 16.17L19.59 5
-                                                                                .59z"></path></svg>Breaks & Lunch</li>
+                                                                                .59z"></path></svg>Refreshments & Lunch</li>
                                                                     <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi"
                                                                                                        width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"></path></svg>Digital certificate</li>
                                                                 </ul>
@@ -560,974 +546,7 @@
                                                 </div>
                                             </section>
 
-                                            <!-- tab 2 -->
-                                            <section x-cloak x-show="tabs.find(tab => tab.id === 2).active || mobileActiveTab == 2">
-                                                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6" style="opacity: 1;">
-                                                    <div x-data="{ count: 1, selected:false }" :class="selected
-                                                        ? 'bg-gradient-to-r from-[#f2b706] to-[#f25849] border-[#f2b706]'
-                                                        : 'bg-white border-gray-200'" class="p-4 sm:p-6 rounded-lg border-2 shadow-sm hover:shadow-lg transition-all duration-300 relative" tabindex="0" style="opacity: 1; transform: none;">
-
-                                                        <div class="absolute -top-2 right-2 sm:right-4 px-2 sm:px-3 py-1 rounded-full text-xs font-semibold shadow-lg bg-[#84C1D9] text-white" style="opacity: 1; transform: none;">PRIORITY</div>
-                                                        <div class="flex flex-col h-full">
-                                                            <div class="mb-3 sm:mb-4">
-                                                                <h2 class="text-lg sm:text-xl font-bold text-slate-800 mb-2">General Admission</h2>
-                                                                <p class="text-slate-800/80 text-xs sm:text-sm">Access all keynotes, panels, exhibition &amp; networking app.</p>
-                                                            </div>
-                                                            <div class="mb-3 sm:mb-4">
-                                                                <div class="flex items-baseline gap-2 mb-2"><span class="text-gray-500 line-through text-xs sm:text-sm">$95</span><span class="text-xs text-red-500 font-medium">Save 32%</span></div>
-                                                                <h3 class="text-2xl sm:text-3xl font-bold text-slate-800">$65</h3>
-                                                                <p class="text-xs text-red-500 mt-1">Early bird pricing (until February 21st, 2026)</p>
-                                                            </div>
-                                                            <div class="mb-4 sm:mb-6">
-                                                                <ul class="space-y-1 text-slate-800 text-xs sm:text-sm">
-                                                                    <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi"
-                                                                                                       width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"></path></svg>Full 2-day access</li>
-                                                                    <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi"
-                                                                                                       width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"></path></svg>Exhibitions &amp; keynotes</li>
-                                                                    <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi"
-                                                                                                       width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"></path></svg>Digital certificate</li>
-                                                                </ul>
-                                                            </div>
-                                                            <div class="flex flex-col sm:flex-row items-center justify-between mt-auto gap-3">
-                                                                <!-- NOT SELECTED -->
-                                                                <div x-show="!selected" class="flex flex-col sm:flex-row items-center w-full justify-between mt-auto gap-3">
-
-                                                                    <div class="flex items-center gap-2 sm:gap-3">
-                                                                        <!-- subtract -->
-                                                                        <button @click="if(count > 1) count--" :disabled="count <= 1" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-slate-800 flex items-center justify-center hover:bg-slate-800 hover:text-white transition-colors disabled:opacity-50">
-                                                                            <svg class="w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24">
-                                                                                <path fill="currentColor" d="M19 13H5v-2h14z"></path>
-                                                                            </svg>
-                                                                        </button>
-
-                                                                        <!-- count -->
-                                                                        <span x-text="count" class="font-semibold text-slate-800 min-w-6 sm:min-w-8 text-center text-sm sm:text-base"></span>
-
-                                                                        <!-- add -->
-                                                                        <button @click="count++" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-slate-800 flex items-center justify-center hover:bg-slate-800 hover:text-white transition-colors">
-                                                                            <svg class="w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24">
-                                                                                <path fill="currentColor" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6z"></path>
-                                                                            </svg>
-                                                                        </button>
-                                                                    </div>
-
-                                                                    <button @click="selected = true; selectTicket('General Admission', 65, count)" class="rounded-full px-4 sm:px-6 py-2 font-medium transition-colors text-sm sm:text-base bg-slate-800 text-white hover:bg-[#84C1D9]">
-                                                                        Select Ticket
-                                                                    </button>
-                                                                </div>
-
-                                                                <!-- SELECTED -->
-                                                                <div x-show="selected" class="w-full flex flex-col gap-2 mt-auto">
-
-                                                                    <div class="flex items-center justify-between w-full">
-                                                                        <div class="flex items-center gap-2">
-                                                                            <svg class="w-5 h-5 text-white" viewBox="0 0 24 24">
-                                                                                <path fill="currentColor" d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10s10-4.5 10-10S17.5 2 12 2m-2 15l-5-5l1.41-1.41L10 14.17l7.59-7.59L19 8z"></path>
-                                                                            </svg>
-                                                                            <span class="text-white font-semibold text-sm">
-                                                                            Selected: <span x-text="count"></span> ticket(s)
-                                                                        </span>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <button @click="selected = false" class="w-full rounded-full px-4 py-2 font-medium transition-all text-sm bg-white/20 text-white hover:bg-red-500 hover:text-white border border-white/30 flex items-center justify-center gap-2">
-                                                                        <svg class="w-4 h-4" viewBox="0 0 24 24">
-                                                                            <path fill="currentColor" d="M12 2c5.53 0 10 4.47 10 10s-4.47 10-10 10S2 17.53 2 12S6.47 2 12 2m3.59 5L12 10.59L8.41 7L7 8.41L10.59 12L7 15.59L8.41 17L12 13.41L15.59 17L17 15.59L13.41 12L17 8.41z"></path>
-                                                                        </svg>
-                                                                        Remove Ticket
-                                                                    </button>
-
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div x-data="{ count: 1, selected:false }" :class="selected
-                                                        ? 'bg-gradient-to-r from-[#f2b706] to-[#f25849] border-[#f2b706]'
-                                                        : 'bg-white border-gray-200'" class="p-4 sm:p-6 rounded-lg border-2 shadow-sm hover:shadow-lg transition-all duration-300 relative" tabindex="0" style="opacity: 1; transform: none;">
-                                                        <div class="absolute -top-2 right-2 sm:right-4 px-2 sm:px-3 py-1 rounded-full text-xs font-semibold shadow-lg bg-[#84C1D9] text-white" style="opacity: 1; transform: none;">MEMBER PRICE</div>
-                                                        <div class="flex flex-col h-full">
-                                                            <div class="mb-3 sm:mb-4">
-                                                                <h2 class="text-lg sm:text-xl font-bold text-slate-800 mb-2">Agency/Team Pass</h2>
-                                                                <p class="text-slate-800/80 text-xs sm:text-sm">Special pricing for creative agencies and teams.</p>
-                                                            </div>
-                                                            <div class="mb-3 sm:mb-4">
-                                                                <div class="flex items-baseline gap-2 mb-2"><span class="text-gray-500 line-through text-xs sm:text-sm">$180</span><span class="text-xs text-red-500 font-medium">Save 19%</span></div>
-                                                                <h3 class="text-2xl sm:text-3xl font-bold text-slate-800">$145</h3>
-                                                                <p class="text-xs text-red-500 mt-1">Early bird pricing (until February 21st, 2026)</p>
-                                                            </div>
-                                                            <div class="mb-4 sm:mb-6">
-                                                                <ul class="space-y-1 text-slate-800 text-xs sm:text-sm">
-                                                                    <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi"
-                                                                                                       width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"></path></svg>Full 2-day access</li>
-                                                                    <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi"
-                                                                                                       width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"></path></svg>Team networking zone</li>
-                                                                    <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi"
-                                                                                                       width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"></path></svg>Agency showcase</li>
-                                                                    <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi"
-                                                                                                       width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"></path></svg>Digital certificate</li>
-                                                                </ul>
-                                                            </div>
-                                                            <div class="flex flex-col sm:flex-row items-center justify-between mt-auto gap-3">
-                                                                <!-- NOT SELECTED -->
-                                                                <div x-show="!selected" class="flex flex-col sm:flex-row items-center w-full justify-between mt-auto gap-3">
-
-                                                                    <div class="flex items-center gap-2 sm:gap-3">
-                                                                        <!-- subtract -->
-                                                                        <button @click="if(count > 1) count--" :disabled="count <= 1" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-slate-800 flex items-center justify-center hover:bg-slate-800 hover:text-white transition-colors disabled:opacity-50">
-                                                                            <svg class="w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24">
-                                                                                <path fill="currentColor" d="M19 13H5v-2h14z"></path>
-                                                                            </svg>
-                                                                        </button>
-
-                                                                        <!-- count -->
-                                                                        <span x-text="count" class="font-semibold text-slate-800 min-w-6 sm:min-w-8 text-center text-sm sm:text-base"></span>
-
-                                                                        <!-- add -->
-                                                                        <button @click="count++" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-slate-800 flex items-center justify-center hover:bg-slate-800 hover:text-white transition-colors">
-                                                                            <svg class="w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24">
-                                                                                <path fill="currentColor" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6z"></path>
-                                                                            </svg>
-                                                                        </button>
-                                                                    </div>
-
-                                                                    <button @click="selected = true; selectTicket('General Admission', 65, count)" class="rounded-full px-4 sm:px-6 py-2 font-medium transition-colors text-sm sm:text-base bg-slate-800 text-white hover:bg-[#84C1D9]">
-                                                                        Select Ticket
-                                                                    </button>
-                                                                </div>
-
-                                                                <!-- SELECTED -->
-                                                                <div x-show="selected" class="w-full flex flex-col gap-2 mt-auto">
-
-                                                                    <div class="flex items-center justify-between w-full">
-                                                                        <div class="flex items-center gap-2">
-                                                                            <svg class="w-5 h-5 text-white" viewBox="0 0 24 24">
-                                                                                <path fill="currentColor" d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10s10-4.5 10-10S17.5 2 12 2m-2 15l-5-5l1.41-1.41L10 14.17l7.59-7.59L19 8z"></path>
-                                                                            </svg>
-                                                                            <span class="text-white font-semibold text-sm">
-                                                                            Selected: <span x-text="count"></span> ticket(s)
-                                                                        </span>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <button @click="selected = false" class="w-full rounded-full px-4 py-2 font-medium transition-all text-sm bg-white/20 text-white hover:bg-red-500 hover:text-white border border-white/30 flex items-center justify-center gap-2">
-                                                                        <svg class="w-4 h-4" viewBox="0 0 24 24">
-                                                                            <path fill="currentColor" d="M12 2c5.53 0 10 4.47 10 10s-4.47 10-10 10S2 17.53 2 12S6.47 2 12 2m3.59 5L12 10.59L8.41 7L7 8.41L10.59 12L7 15.59L8.41 17L12 13.41L15.59 17L17 15.59L13.41 12L17 8.41z"></path>
-                                                                        </svg>
-                                                                        Remove Ticket
-                                                                    </button>
-
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div x-data="{ count: 1, selected:false }" :class="selected
-                                                        ? 'bg-gradient-to-r from-[#f2b706] to-[#f25849] border-[#f2b706]'
-                                                        : 'bg-white border-gray-200'" class="p-4 sm:p-6 rounded-lg border-2 shadow-sm hover:shadow-lg transition-all duration-300 relative" tabindex="0" style="opacity: 1; transform: none;">
-                                                        <div class="absolute -top-2 right-2 sm:right-4 px-2 sm:px-3 py-1 rounded-full text-xs font-semibold shadow-lg bg-[#84C1D9] text-white" style="opacity: 1; transform: none;">PRIORITY</div>
-                                                        <div class="flex flex-col h-full">
-                                                            <div class="mb-3 sm:mb-4">
-                                                                <h2 class="text-lg sm:text-xl font-bold text-slate-800 mb-2">International Delegate</h2>
-                                                                <p class="text-slate-800/80 text-xs sm:text-sm">Special pricing for international attendees.</p>
-                                                            </div>
-                                                            <div class="mb-3 sm:mb-4">
-                                                                <div class="flex items-baseline gap-2 mb-2"><span class="text-gray-500 line-through text-xs sm:text-sm">$280</span><span class="text-xs text-red-500 font-medium">Save 11%</span></div>
-                                                                <h3 class="text-2xl sm:text-3xl font-bold text-slate-800">$250</h3>
-                                                                <p class="text-xs text-red-500 mt-1">Early bird pricing (until February 21st, 2026)</p>
-                                                            </div>
-                                                            <div class="mb-4 sm:mb-6">
-                                                                <ul class="space-y-1 text-slate-800 text-xs sm:text-sm">
-                                                                    <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi"
-                                                                                                       width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"></path></svg>Full 2-day access</li>
-                                                                    <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi"
-                                                                                                       width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"></path></svg>International networking</li>
-                                                                    <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi"
-                                                                                                       width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"></path></svg>Global insights sessions</li>
-                                                                    <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi"
-                                                                                                       width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"></path></svg>Digital certificate</li>
-                                                                </ul>
-                                                            </div>
-                                                            <div class="flex flex-col sm:flex-row items-center justify-between mt-auto gap-3">
-                                                                <!-- NOT SELECTED -->
-                                                                <div x-show="!selected" class="flex flex-col sm:flex-row items-center w-full justify-between mt-auto gap-3">
-
-                                                                    <div class="flex items-center gap-2 sm:gap-3">
-                                                                        <!-- subtract -->
-                                                                        <button @click="if(count > 1) count--" :disabled="count <= 1" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-slate-800 flex items-center justify-center hover:bg-slate-800 hover:text-white transition-colors disabled:opacity-50">
-                                                                            <svg class="w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24">
-                                                                                <path fill="currentColor" d="M19 13H5v-2h14z"></path>
-                                                                            </svg>
-                                                                        </button>
-
-                                                                        <!-- count -->
-                                                                        <span x-text="count" class="font-semibold text-slate-800 min-w-6 sm:min-w-8 text-center text-sm sm:text-base"></span>
-
-                                                                        <!-- add -->
-                                                                        <button @click="count++" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-slate-800 flex items-center justify-center hover:bg-slate-800 hover:text-white transition-colors">
-                                                                            <svg class="w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24">
-                                                                                <path fill="currentColor" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6z"></path>
-                                                                            </svg>
-                                                                        </button>
-                                                                    </div>
-
-                                                                    <button @click="selected = true; selectTicket('General Admission', 65, count)" class="rounded-full px-4 sm:px-6 py-2 font-medium transition-colors text-sm sm:text-base bg-slate-800 text-white hover:bg-[#84C1D9]">
-                                                                        Select Ticket
-                                                                    </button>
-                                                                </div>
-
-                                                                <!-- SELECTED -->
-                                                                <div x-show="selected" class="w-full flex flex-col gap-2 mt-auto">
-
-                                                                    <div class="flex items-center justify-between w-full">
-                                                                        <div class="flex items-center gap-2">
-                                                                            <svg class="w-5 h-5 text-white" viewBox="0 0 24 24">
-                                                                                <path fill="currentColor" d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10s10-4.5 10-10S17.5 2 12 2m-2 15l-5-5l1.41-1.41L10 14.17l7.59-7.59L19 8z"></path>
-                                                                            </svg>
-                                                                            <span class="text-white font-semibold text-sm">
-                                                                            Selected: <span x-text="count"></span> ticket(s)
-                                                                        </span>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <button @click="selected = false" class="w-full rounded-full px-4 py-2 font-medium transition-all text-sm bg-white/20 text-white hover:bg-red-500 hover:text-white border border-white/30 flex items-center justify-center gap-2">
-                                                                        <svg class="w-4 h-4" viewBox="0 0 24 24">
-                                                                            <path fill="currentColor" d="M12 2c5.53 0 10 4.47 10 10s-4.47 10-10 10S2 17.53 2 12S6.47 2 12 2m3.59 5L12 10.59L8.41 7L7 8.41L10.59 12L7 15.59L8.41 17L12 13.41L15.59 17L17 15.59L13.41 12L17 8.41z"></path>
-                                                                        </svg>
-                                                                        Remove Ticket
-                                                                    </button>
-
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </section>
-
-                                            <!-- tab 3 -->
-                                            <section x-cloak x-show="tabs.find(tab => tab.id === 3).active || mobileActiveTab == 3">
-                                                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6" style="opacity: 1;">
-                                                    <div x-data="{ count: 1, selected:false }" :class="selected
-                                                        ? 'bg-gradient-to-r from-[#f2b706] to-[#f25849] border-[#f2b706]'
-                                                        : 'bg-white border-gray-200'" class="p-4 sm:p-6 rounded-lg border-2 shadow-sm hover:shadow-lg transition-all duration-300 relative" tabindex="0" style="opacity: 1; transform: none;">
-
-                                                        <div class="absolute -top-2 right-2 sm:right-4 px-2 sm:px-3 py-1 rounded-full text-xs font-semibold shadow-lg bg-red-500 text-white" style="opacity: 1; transform: none;">MOST POPULAR</div>
-                                                        <div class="flex flex-col h-full">
-                                                            <div class="mb-3 sm:mb-4">
-                                                                <h2 class="text-lg sm:text-xl font-bold text-slate-800 mb-2">General Admission</h2>
-                                                                <p class="text-slate-800/80 text-xs sm:text-sm">Access all keynotes, panels, exhibition &amp; networking app.</p>
-                                                            </div>
-                                                            <div class="mb-3 sm:mb-4">
-                                                                <div class="flex items-baseline gap-2 mb-2"><span class="text-gray-500 line-through text-xs sm:text-sm">$95</span><span class="text-xs text-red-500 font-medium">Save 32%</span></div>
-                                                                <h3 class="text-2xl sm:text-3xl font-bold text-slate-800">$65</h3>
-                                                                <p class="text-xs text-red-500 mt-1">Early bird pricing (until February 21st, 2026)</p>
-                                                            </div>
-                                                            <div class="mb-4 sm:mb-6">
-                                                                <ul class="space-y-1 text-slate-800 text-xs sm:text-sm">
-                                                                    <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi"
-                                                                                                       width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"></path></svg>Full 2-day access</li>
-                                                                    <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi"
-                                                                                                       width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"></path></svg>Exhibitions &amp; keynotes</li>
-                                                                    <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi"
-                                                                                                       width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"></path></svg>Digital certificate</li>
-                                                                </ul>
-                                                            </div>
-                                                            <div class="flex flex-col sm:flex-row items-center justify-between mt-auto gap-3">
-                                                                <!-- NOT SELECTED -->
-                                                                <div x-show="!selected" class="flex flex-col sm:flex-row items-center w-full justify-between mt-auto gap-3">
-
-                                                                    <div class="flex items-center gap-2 sm:gap-3">
-                                                                        <!-- subtract -->
-                                                                        <button @click="if(count > 1) count--" :disabled="count <= 1" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-slate-800 flex items-center justify-center hover:bg-slate-800 hover:text-white transition-colors disabled:opacity-50">
-                                                                            <svg class="w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24">
-                                                                                <path fill="currentColor" d="M19 13H5v-2h14z"></path>
-                                                                            </svg>
-                                                                        </button>
-
-                                                                        <!-- count -->
-                                                                        <span x-text="count" class="font-semibold text-slate-800 min-w-6 sm:min-w-8 text-center text-sm sm:text-base"></span>
-
-                                                                        <!-- add -->
-                                                                        <button @click="count++" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-slate-800 flex items-center justify-center hover:bg-slate-800 hover:text-white transition-colors">
-                                                                            <svg class="w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24">
-                                                                                <path fill="currentColor" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6z"></path>
-                                                                            </svg>
-                                                                        </button>
-                                                                    </div>
-
-                                                                    <button @click="selected = true; selectTicket('General Admission', 65, count)" class="rounded-full px-4 sm:px-6 py-2 font-medium transition-colors text-sm sm:text-base bg-slate-800 text-white hover:bg-[#84C1D9]">
-                                                                        Select Ticket
-                                                                    </button>
-                                                                </div>
-
-                                                                <!-- SELECTED -->
-                                                                <div x-show="selected" class="w-full flex flex-col gap-2 mt-auto">
-
-                                                                    <div class="flex items-center justify-between w-full">
-                                                                        <div class="flex items-center gap-2">
-                                                                            <svg class="w-5 h-5 text-white" viewBox="0 0 24 24">
-                                                                                <path fill="currentColor" d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10s10-4.5 10-10S17.5 2 12 2m-2 15l-5-5l1.41-1.41L10 14.17l7.59-7.59L19 8z"></path>
-                                                                            </svg>
-                                                                            <span class="text-white font-semibold text-sm">
-                                                                            Selected: <span x-text="count"></span> ticket(s)
-                                                                        </span>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <button @click="selected = false" class="w-full rounded-full px-4 py-2 font-medium transition-all text-sm bg-white/20 text-white hover:bg-red-500 hover:text-white border border-white/30 flex items-center justify-center gap-2">
-                                                                        <svg class="w-4 h-4" viewBox="0 0 24 24">
-                                                                            <path fill="currentColor" d="M12 2c5.53 0 10 4.47 10 10s-4.47 10-10 10S2 17.53 2 12S6.47 2 12 2m3.59 5L12 10.59L8.41 7L7 8.41L10.59 12L7 15.59L8.41 17L12 13.41L15.59 17L17 15.59L13.41 12L17 8.41z"></path>
-                                                                        </svg>
-                                                                        Remove Ticket
-                                                                    </button>
-
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div x-data="{ count: 1, selected:false }" :class="selected
-                                                        ? 'bg-gradient-to-r from-[#f2b706] to-[#f25849] border-[#f2b706]'
-                                                        : 'bg-white border-gray-200'" class="p-4 sm:p-6 rounded-lg border-2 shadow-sm hover:shadow-lg transition-all duration-300 relative" tabindex="0" style="opacity: 1; transform: none;">
-                                                        <div class="absolute -top-2 right-2 sm:right-4 px-2 sm:px-3 py-1 rounded-full text-xs font-semibold shadow-lg bg-[#84C1D9] text-white" style="opacity: 1; transform: none;">MEMBER PRICE</div>
-                                                        <div class="flex flex-col h-full">
-                                                            <div class="mb-3 sm:mb-4">
-                                                                <h2 class="text-lg sm:text-xl font-bold text-slate-800 mb-2">Agency/Team Pass</h2>
-                                                                <p class="text-slate-800/80 text-xs sm:text-sm">Special pricing for creative agencies and teams.</p>
-                                                            </div>
-                                                            <div class="mb-3 sm:mb-4">
-                                                                <div class="flex items-baseline gap-2 mb-2"><span class="text-gray-500 line-through text-xs sm:text-sm">$180</span><span class="text-xs text-red-500 font-medium">Save 19%</span></div>
-                                                                <h3 class="text-2xl sm:text-3xl font-bold text-slate-800">$145</h3>
-                                                                <p class="text-xs text-red-500 mt-1">Early bird pricing (until February 21st, 2026)</p>
-                                                            </div>
-                                                            <div class="mb-4 sm:mb-6">
-                                                                <ul class="space-y-1 text-slate-800 text-xs sm:text-sm">
-                                                                    <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi"
-                                                                                                       width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"></path></svg>Full 2-day access</li>
-                                                                    <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi"
-                                                                                                       width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"></path></svg>Team networking zone</li>
-                                                                    <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi"
-                                                                                                       width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"></path></svg>Agency showcase</li>
-                                                                    <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi"
-                                                                                                       width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"></path></svg>Digital certificate</li>
-                                                                </ul>
-                                                            </div>
-                                                            <div class="flex flex-col sm:flex-row items-center justify-between mt-auto gap-3">
-                                                                <!-- NOT SELECTED -->
-                                                                <div x-show="!selected" class="flex flex-col sm:flex-row items-center w-full justify-between mt-auto gap-3">
-
-                                                                    <div class="flex items-center gap-2 sm:gap-3">
-                                                                        <!-- subtract -->
-                                                                        <button @click="if(count > 1) count--" :disabled="count <= 1" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-slate-800 flex items-center justify-center hover:bg-slate-800 hover:text-white transition-colors disabled:opacity-50">
-                                                                            <svg class="w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24">
-                                                                                <path fill="currentColor" d="M19 13H5v-2h14z"></path>
-                                                                            </svg>
-                                                                        </button>
-
-                                                                        <!-- count -->
-                                                                        <span x-text="count" class="font-semibold text-slate-800 min-w-6 sm:min-w-8 text-center text-sm sm:text-base"></span>
-
-                                                                        <!-- add -->
-                                                                        <button @click="count++" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-slate-800 flex items-center justify-center hover:bg-slate-800 hover:text-white transition-colors">
-                                                                            <svg class="w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24">
-                                                                                <path fill="currentColor" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6z"></path>
-                                                                            </svg>
-                                                                        </button>
-                                                                    </div>
-
-                                                                    <button @click="selected = true; selectTicket('General Admission', 65, count)" class="rounded-full px-4 sm:px-6 py-2 font-medium transition-colors text-sm sm:text-base bg-slate-800 text-white hover:bg-[#84C1D9]">
-                                                                        Select Ticket
-                                                                    </button>
-                                                                </div>
-
-                                                                <!-- SELECTED -->
-                                                                <div x-show="selected" class="w-full flex flex-col gap-2 mt-auto">
-
-                                                                    <div class="flex items-center justify-between w-full">
-                                                                        <div class="flex items-center gap-2">
-                                                                            <svg class="w-5 h-5 text-white" viewBox="0 0 24 24">
-                                                                                <path fill="currentColor" d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10s10-4.5 10-10S17.5 2 12 2m-2 15l-5-5l1.41-1.41L10 14.17l7.59-7.59L19 8z"></path>
-                                                                            </svg>
-                                                                            <span class="text-white font-semibold text-sm">
-                                                                            Selected: <span x-text="count"></span> ticket(s)
-                                                                        </span>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <button @click="selected = false" class="w-full rounded-full px-4 py-2 font-medium transition-all text-sm bg-white/20 text-white hover:bg-red-500 hover:text-white border border-white/30 flex items-center justify-center gap-2">
-                                                                        <svg class="w-4 h-4" viewBox="0 0 24 24">
-                                                                            <path fill="currentColor" d="M12 2c5.53 0 10 4.47 10 10s-4.47 10-10 10S2 17.53 2 12S6.47 2 12 2m3.59 5L12 10.59L8.41 7L7 8.41L10.59 12L7 15.59L8.41 17L12 13.41L15.59 17L17 15.59L13.41 12L17 8.41z"></path>
-                                                                        </svg>
-                                                                        Remove Ticket
-                                                                    </button>
-
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div x-data="{ count: 1, selected:false }" :class="selected
-                                                        ? 'bg-gradient-to-r from-[#f2b706] to-[#f25849] border-[#f2b706]'
-                                                        : 'bg-white border-gray-200'" class="p-4 sm:p-6 rounded-lg border-2 shadow-sm hover:shadow-lg transition-all duration-300 relative" tabindex="0" style="opacity: 1; transform: none;">
-                                                        <div class="absolute -top-2 right-2 sm:right-4 px-2 sm:px-3 py-1 rounded-full text-xs font-semibold shadow-lg bg-[#84C1D9] text-white" style="opacity: 1; transform: none;">PRIORITY</div>
-                                                        <div class="flex flex-col h-full">
-                                                            <div class="mb-3 sm:mb-4">
-                                                                <h2 class="text-lg sm:text-xl font-bold text-slate-800 mb-2">International Delegate</h2>
-                                                                <p class="text-slate-800/80 text-xs sm:text-sm">Special pricing for international attendees.</p>
-                                                            </div>
-                                                            <div class="mb-3 sm:mb-4">
-                                                                <div class="flex items-baseline gap-2 mb-2"><span class="text-gray-500 line-through text-xs sm:text-sm">$280</span><span class="text-xs text-red-500 font-medium">Save 11%</span></div>
-                                                                <h3 class="text-2xl sm:text-3xl font-bold text-slate-800">$250</h3>
-                                                                <p class="text-xs text-red-500 mt-1">Early bird pricing (until February 21st, 2026)</p>
-                                                            </div>
-                                                            <div class="mb-4 sm:mb-6">
-                                                                <ul class="space-y-1 text-slate-800 text-xs sm:text-sm">
-                                                                    <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi"
-                                                                                                       width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"></path></svg>Full 2-day access</li>
-                                                                    <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi"
-                                                                                                       width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"></path></svg>International networking</li>
-                                                                    <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi"
-                                                                                                       width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"></path></svg>Global insights sessions</li>
-                                                                    <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi"
-                                                                                                       width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"></path></svg>Digital certificate</li>
-                                                                </ul>
-                                                            </div>
-                                                            <div class="flex flex-col sm:flex-row items-center justify-between mt-auto gap-3">
-                                                                <!-- NOT SELECTED -->
-                                                                <div x-show="!selected" class="flex flex-col sm:flex-row items-center w-full justify-between mt-auto gap-3">
-
-                                                                    <div class="flex items-center gap-2 sm:gap-3">
-                                                                        <!-- subtract -->
-                                                                        <button @click="if(count > 1) count--" :disabled="count <= 1" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-slate-800 flex items-center justify-center hover:bg-slate-800 hover:text-white transition-colors disabled:opacity-50">
-                                                                            <svg class="w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24">
-                                                                                <path fill="currentColor" d="M19 13H5v-2h14z"></path>
-                                                                            </svg>
-                                                                        </button>
-
-                                                                        <!-- count -->
-                                                                        <span x-text="count" class="font-semibold text-slate-800 min-w-6 sm:min-w-8 text-center text-sm sm:text-base"></span>
-
-                                                                        <!-- add -->
-                                                                        <button @click="count++" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-slate-800 flex items-center justify-center hover:bg-slate-800 hover:text-white transition-colors">
-                                                                            <svg class="w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24">
-                                                                                <path fill="currentColor" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6z"></path>
-                                                                            </svg>
-                                                                        </button>
-                                                                    </div>
-
-                                                                    <button @click="selected = true; selectTicket('General Admission', 65, count)" class="rounded-full px-4 sm:px-6 py-2 font-medium transition-colors text-sm sm:text-base bg-slate-800 text-white hover:bg-[#84C1D9]">
-                                                                        Select Ticket
-                                                                    </button>
-                                                                </div>
-
-                                                                <!-- SELECTED -->
-                                                                <div x-show="selected" class="w-full flex flex-col gap-2 mt-auto">
-
-                                                                    <div class="flex items-center justify-between w-full">
-                                                                        <div class="flex items-center gap-2">
-                                                                            <svg class="w-5 h-5 text-white" viewBox="0 0 24 24">
-                                                                                <path fill="currentColor" d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10s10-4.5 10-10S17.5 2 12 2m-2 15l-5-5l1.41-1.41L10 14.17l7.59-7.59L19 8z"></path>
-                                                                            </svg>
-                                                                            <span class="text-white font-semibold text-sm">
-                                                                            Selected: <span x-text="count"></span> ticket(s)
-                                                                        </span>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <button @click="selected = false" class="w-full rounded-full px-4 py-2 font-medium transition-all text-sm bg-white/20 text-white hover:bg-red-500 hover:text-white border border-white/30 flex items-center justify-center gap-2">
-                                                                        <svg class="w-4 h-4" viewBox="0 0 24 24">
-                                                                            <path fill="currentColor" d="M12 2c5.53 0 10 4.47 10 10s-4.47 10-10 10S2 17.53 2 12S6.47 2 12 2m3.59 5L12 10.59L8.41 7L7 8.41L10.59 12L7 15.59L8.41 17L12 13.41L15.59 17L17 15.59L13.41 12L17 8.41z"></path>
-                                                                        </svg>
-                                                                        Remove Ticket
-                                                                    </button>
-
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </section>
-
-                                            <!-- tab 4 -->
-                                            <section x-cloak x-show="tabs.find(tab => tab.id === 4).active || mobileActiveTab == 4">
-                                                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6" style="opacity: 1;">
-                                                    <div x-data="{ count: 1, selected:false }" :class="selected
-                                                        ? 'bg-gradient-to-r from-[#f2b706] to-[#f25849] border-[#f2b706]'
-                                                        : 'bg-white border-gray-200'" class="p-4 sm:p-6 rounded-lg border-2 shadow-sm hover:shadow-lg transition-all duration-300 relative" tabindex="0" style="opacity: 1; transform: none;">
-
-                                                        <div class="absolute -top-2 right-2 sm:right-4 px-2 sm:px-3 py-1 rounded-full text-xs font-semibold shadow-lg bg-red-500 text-white" style="opacity: 1; transform: none;">MOST POPULAR</div>
-                                                        <div class="flex flex-col h-full">
-                                                            <div class="mb-3 sm:mb-4">
-                                                                <h2 class="text-lg sm:text-xl font-bold text-slate-800 mb-2">General Admission</h2>
-                                                                <p class="text-slate-800/80 text-xs sm:text-sm">Access all keynotes, panels, exhibition &amp; networking app.</p>
-                                                            </div>
-                                                            <div class="mb-3 sm:mb-4">
-                                                                <div class="flex items-baseline gap-2 mb-2"><span class="text-gray-500 line-through text-xs sm:text-sm">$95</span><span class="text-xs text-red-500 font-medium">Save 32%</span></div>
-                                                                <h3 class="text-2xl sm:text-3xl font-bold text-slate-800">$65</h3>
-                                                                <p class="text-xs text-red-500 mt-1">Early bird pricing (until February 21st, 2026)</p>
-                                                            </div>
-                                                            <div class="mb-4 sm:mb-6">
-                                                                <ul class="space-y-1 text-slate-800 text-xs sm:text-sm">
-                                                                    <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi"
-                                                                                                       width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"></path></svg>Full 2-day access</li>
-                                                                    <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi"
-                                                                                                       width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"></path></svg>Exhibitions &amp; keynotes</li>
-                                                                    <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi"
-                                                                                                       width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"></path></svg>Digital certificate</li>
-                                                                </ul>
-                                                            </div>
-                                                            <div class="flex flex-col sm:flex-row items-center justify-between mt-auto gap-3">
-                                                                <!-- NOT SELECTED -->
-                                                                <div x-show="!selected" class="flex flex-col sm:flex-row items-center w-full justify-between mt-auto gap-3">
-
-                                                                    <div class="flex items-center gap-2 sm:gap-3">
-                                                                        <!-- subtract -->
-                                                                        <button @click="if(count > 1) count--" :disabled="count <= 1" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-slate-800 flex items-center justify-center hover:bg-slate-800 hover:text-white transition-colors disabled:opacity-50">
-                                                                            <svg class="w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24">
-                                                                                <path fill="currentColor" d="M19 13H5v-2h14z"></path>
-                                                                            </svg>
-                                                                        </button>
-
-                                                                        <!-- count -->
-                                                                        <span x-text="count" class="font-semibold text-slate-800 min-w-6 sm:min-w-8 text-center text-sm sm:text-base"></span>
-
-                                                                        <!-- add -->
-                                                                        <button @click="count++" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-slate-800 flex items-center justify-center hover:bg-slate-800 hover:text-white transition-colors">
-                                                                            <svg class="w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24">
-                                                                                <path fill="currentColor" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6z"></path>
-                                                                            </svg>
-                                                                        </button>
-                                                                    </div>
-
-                                                                    <button @click="selected = true; selectTicket('General Admission', 65, count)" class="rounded-full px-4 sm:px-6 py-2 font-medium transition-colors text-sm sm:text-base bg-slate-800 text-white hover:bg-[#84C1D9]">
-                                                                        Select Ticket
-                                                                    </button>
-                                                                </div>
-
-                                                                <!-- SELECTED -->
-                                                                <div x-show="selected" class="w-full flex flex-col gap-2 mt-auto">
-
-                                                                    <div class="flex items-center justify-between w-full">
-                                                                        <div class="flex items-center gap-2">
-                                                                            <svg class="w-5 h-5 text-white" viewBox="0 0 24 24">
-                                                                                <path fill="currentColor" d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10s10-4.5 10-10S17.5 2 12 2m-2 15l-5-5l1.41-1.41L10 14.17l7.59-7.59L19 8z"></path>
-                                                                            </svg>
-                                                                            <span class="text-white font-semibold text-sm">
-                                                                            Selected: <span x-text="count"></span> ticket(s)
-                                                                        </span>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <button @click="selected = false" class="w-full rounded-full px-4 py-2 font-medium transition-all text-sm bg-white/20 text-white hover:bg-red-500 hover:text-white border border-white/30 flex items-center justify-center gap-2">
-                                                                        <svg class="w-4 h-4" viewBox="0 0 24 24">
-                                                                            <path fill="currentColor" d="M12 2c5.53 0 10 4.47 10 10s-4.47 10-10 10S2 17.53 2 12S6.47 2 12 2m3.59 5L12 10.59L8.41 7L7 8.41L10.59 12L7 15.59L8.41 17L12 13.41L15.59 17L17 15.59L13.41 12L17 8.41z"></path>
-                                                                        </svg>
-                                                                        Remove Ticket
-                                                                    </button>
-
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div x-data="{ count: 1, selected:false }" :class="selected
-                                                        ? 'bg-gradient-to-r from-[#f2b706] to-[#f25849] border-[#f2b706]'
-                                                        : 'bg-white border-gray-200'" class="p-4 sm:p-6 rounded-lg border-2 shadow-sm hover:shadow-lg transition-all duration-300 relative" tabindex="0" style="opacity: 1; transform: none;">
-                                                        <div class="absolute -top-2 right-2 sm:right-4 px-2 sm:px-3 py-1 rounded-full text-xs font-semibold shadow-lg bg-[#84C1D9] text-white" style="opacity: 1; transform: none;">MEMBER PRICE</div>
-                                                        <div class="flex flex-col h-full">
-                                                            <div class="mb-3 sm:mb-4">
-                                                                <h2 class="text-lg sm:text-xl font-bold text-slate-800 mb-2">Agency/Team Pass</h2>
-                                                                <p class="text-slate-800/80 text-xs sm:text-sm">Special pricing for creative agencies and teams.</p>
-                                                            </div>
-                                                            <div class="mb-3 sm:mb-4">
-                                                                <div class="flex items-baseline gap-2 mb-2"><span class="text-gray-500 line-through text-xs sm:text-sm">$180</span><span class="text-xs text-red-500 font-medium">Save 19%</span></div>
-                                                                <h3 class="text-2xl sm:text-3xl font-bold text-slate-800">$145</h3>
-                                                                <p class="text-xs text-red-500 mt-1">Early bird pricing (until February 21st, 2026)</p>
-                                                            </div>
-                                                            <div class="mb-4 sm:mb-6">
-                                                                <ul class="space-y-1 text-slate-800 text-xs sm:text-sm">
-                                                                    <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi"
-                                                                                                       width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"></path></svg>Full 2-day access</li>
-                                                                    <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi"
-                                                                                                       width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"></path></svg>Team networking zone</li>
-                                                                    <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi"
-                                                                                                       width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"></path></svg>Agency showcase</li>
-                                                                    <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi"
-                                                                                                       width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"></path></svg>Digital certificate</li>
-                                                                </ul>
-                                                            </div>
-                                                            <div class="flex flex-col sm:flex-row items-center justify-between mt-auto gap-3">
-                                                                <!-- NOT SELECTED -->
-                                                                <div x-show="!selected" class="flex flex-col sm:flex-row items-center w-full justify-between mt-auto gap-3">
-
-                                                                    <div class="flex items-center gap-2 sm:gap-3">
-                                                                        <!-- subtract -->
-                                                                        <button @click="if(count > 1) count--" :disabled="count <= 1" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-slate-800 flex items-center justify-center hover:bg-slate-800 hover:text-white transition-colors disabled:opacity-50">
-                                                                            <svg class="w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24">
-                                                                                <path fill="currentColor" d="M19 13H5v-2h14z"></path>
-                                                                            </svg>
-                                                                        </button>
-
-                                                                        <!-- count -->
-                                                                        <span x-text="count" class="font-semibold text-slate-800 min-w-6 sm:min-w-8 text-center text-sm sm:text-base"></span>
-
-                                                                        <!-- add -->
-                                                                        <button @click="count++" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-slate-800 flex items-center justify-center hover:bg-slate-800 hover:text-white transition-colors">
-                                                                            <svg class="w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24">
-                                                                                <path fill="currentColor" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6z"></path>
-                                                                            </svg>
-                                                                        </button>
-                                                                    </div>
-
-                                                                    <button @click="selected = true; selectTicket('General Admission', 65, count)" class="rounded-full px-4 sm:px-6 py-2 font-medium transition-colors text-sm sm:text-base bg-slate-800 text-white hover:bg-[#84C1D9]">
-                                                                        Select Ticket
-                                                                    </button>
-                                                                </div>
-
-                                                                <!-- SELECTED -->
-                                                                <div x-show="selected" class="w-full flex flex-col gap-2 mt-auto">
-
-                                                                    <div class="flex items-center justify-between w-full">
-                                                                        <div class="flex items-center gap-2">
-                                                                            <svg class="w-5 h-5 text-white" viewBox="0 0 24 24">
-                                                                                <path fill="currentColor" d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10s10-4.5 10-10S17.5 2 12 2m-2 15l-5-5l1.41-1.41L10 14.17l7.59-7.59L19 8z"></path>
-                                                                            </svg>
-                                                                            <span class="text-white font-semibold text-sm">
-                                                                            Selected: <span x-text="count"></span> ticket(s)
-                                                                        </span>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <button @click="selected = false" class="w-full rounded-full px-4 py-2 font-medium transition-all text-sm bg-white/20 text-white hover:bg-red-500 hover:text-white border border-white/30 flex items-center justify-center gap-2">
-                                                                        <svg class="w-4 h-4" viewBox="0 0 24 24">
-                                                                            <path fill="currentColor" d="M12 2c5.53 0 10 4.47 10 10s-4.47 10-10 10S2 17.53 2 12S6.47 2 12 2m3.59 5L12 10.59L8.41 7L7 8.41L10.59 12L7 15.59L8.41 17L12 13.41L15.59 17L17 15.59L13.41 12L17 8.41z"></path>
-                                                                        </svg>
-                                                                        Remove Ticket
-                                                                    </button>
-
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div x-data="{ count: 1, selected:false }" :class="selected
-                                                        ? 'bg-gradient-to-r from-[#f2b706] to-[#f25849] border-[#f2b706]'
-                                                        : 'bg-white border-gray-200'" class="p-4 sm:p-6 rounded-lg border-2 shadow-sm hover:shadow-lg transition-all duration-300 relative" tabindex="0" style="opacity: 1; transform: none;">
-                                                        <div class="absolute -top-2 right-2 sm:right-4 px-2 sm:px-3 py-1 rounded-full text-xs font-semibold shadow-lg bg-[#84C1D9] text-white" style="opacity: 1; transform: none;">PRIORITY</div>
-                                                        <div class="flex flex-col h-full">
-                                                            <div class="mb-3 sm:mb-4">
-                                                                <h2 class="text-lg sm:text-xl font-bold text-slate-800 mb-2">International Delegate</h2>
-                                                                <p class="text-slate-800/80 text-xs sm:text-sm">Special pricing for international attendees.</p>
-                                                            </div>
-                                                            <div class="mb-3 sm:mb-4">
-                                                                <div class="flex items-baseline gap-2 mb-2"><span class="text-gray-500 line-through text-xs sm:text-sm">$280</span><span class="text-xs text-red-500 font-medium">Save 11%</span></div>
-                                                                <h3 class="text-2xl sm:text-3xl font-bold text-slate-800">$250</h3>
-                                                                <p class="text-xs text-red-500 mt-1">Early bird pricing (until February 21st, 2026)</p>
-                                                            </div>
-                                                            <div class="mb-4 sm:mb-6">
-                                                                <ul class="space-y-1 text-slate-800 text-xs sm:text-sm">
-                                                                    <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi"
-                                                                                                       width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"></path></svg>Full 2-day access</li>
-                                                                    <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi"
-                                                                                                       width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"></path></svg>International networking</li>
-                                                                    <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi"
-                                                                                                       width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"></path></svg>Global insights sessions</li>
-                                                                    <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi"
-                                                                                                       width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"></path></svg>Digital certificate</li>
-                                                                </ul>
-                                                            </div>
-                                                            <div class="flex flex-col sm:flex-row items-center justify-between mt-auto gap-3">
-                                                                <!-- NOT SELECTED -->
-                                                                <div x-show="!selected" class="flex flex-col sm:flex-row items-center w-full justify-between mt-auto gap-3">
-
-                                                                    <div class="flex items-center gap-2 sm:gap-3">
-                                                                        <!-- subtract -->
-                                                                        <button @click="if(count > 1) count--" :disabled="count <= 1" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-slate-800 flex items-center justify-center hover:bg-slate-800 hover:text-white transition-colors disabled:opacity-50">
-                                                                            <svg class="w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24">
-                                                                                <path fill="currentColor" d="M19 13H5v-2h14z"></path>
-                                                                            </svg>
-                                                                        </button>
-
-                                                                        <!-- count -->
-                                                                        <span x-text="count" class="font-semibold text-slate-800 min-w-6 sm:min-w-8 text-center text-sm sm:text-base"></span>
-
-                                                                        <!-- add -->
-                                                                        <button @click="count++" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-slate-800 flex items-center justify-center hover:bg-slate-800 hover:text-white transition-colors">
-                                                                            <svg class="w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24">
-                                                                                <path fill="currentColor" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6z"></path>
-                                                                            </svg>
-                                                                        </button>
-                                                                    </div>
-
-                                                                    <button @click="selected = true; selectTicket('General Admission', 65, count)" class="rounded-full px-4 sm:px-6 py-2 font-medium transition-colors text-sm sm:text-base bg-slate-800 text-white hover:bg-[#84C1D9]">
-                                                                        Select Ticket
-                                                                    </button>
-                                                                </div>
-
-                                                                <!-- SELECTED -->
-                                                                <div x-show="selected" class="w-full flex flex-col gap-2 mt-auto">
-
-                                                                    <div class="flex items-center justify-between w-full">
-                                                                        <div class="flex items-center gap-2">
-                                                                            <svg class="w-5 h-5 text-white" viewBox="0 0 24 24">
-                                                                                <path fill="currentColor" d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10s10-4.5 10-10S17.5 2 12 2m-2 15l-5-5l1.41-1.41L10 14.17l7.59-7.59L19 8z"></path>
-                                                                            </svg>
-                                                                            <span class="text-white font-semibold text-sm">
-                                                                            Selected: <span x-text="count"></span> ticket(s)
-                                                                        </span>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <button @click="selected = false" class="w-full rounded-full px-4 py-2 font-medium transition-all text-sm bg-white/20 text-white hover:bg-red-500 hover:text-white border border-white/30 flex items-center justify-center gap-2">
-                                                                        <svg class="w-4 h-4" viewBox="0 0 24 24">
-                                                                            <path fill="currentColor" d="M12 2c5.53 0 10 4.47 10 10s-4.47 10-10 10S2 17.53 2 12S6.47 2 12 2m3.59 5L12 10.59L8.41 7L7 8.41L10.59 12L7 15.59L8.41 17L12 13.41L15.59 17L17 15.59L13.41 12L17 8.41z"></path>
-                                                                        </svg>
-                                                                        Remove Ticket
-                                                                    </button>
-
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </section>
-
-                                            <!-- tab 5 -->
-                                            <section x-cloak x-show="tabs.find(tab => tab.id === 5).active || mobileActiveTab == 5">
-                                                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6" style="opacity: 1;">
-                                                    <div x-data="{ count: 1, selected:false }" :class="selected
-                                                        ? 'bg-gradient-to-r from-[#f2b706] to-[#f25849] border-[#f2b706]'
-                                                        : 'bg-white border-gray-200'" class="p-4 sm:p-6 rounded-lg border-2 shadow-sm hover:shadow-lg transition-all duration-300 relative" tabindex="0" style="opacity: 1; transform: none;">
-
-                                                        <div class="absolute -top-2 right-2 sm:right-4 px-2 sm:px-3 py-1 rounded-full text-xs font-semibold shadow-lg bg-[#84C1D9] text-white" style="opacity: 1; transform: none;">PRIORITY</div>
-                                                        <div class="flex flex-col h-full">
-                                                            <div class="mb-3 sm:mb-4">
-                                                                <h2 class="text-lg sm:text-xl font-bold text-slate-800 mb-2">General Admission</h2>
-                                                                <p class="text-slate-800/80 text-xs sm:text-sm">Access all keynotes, panels, exhibition &amp; networking app.</p>
-                                                            </div>
-                                                            <div class="mb-3 sm:mb-4">
-                                                                <div class="flex items-baseline gap-2 mb-2"><span class="text-gray-500 line-through text-xs sm:text-sm">$95</span><span class="text-xs text-red-500 font-medium">Save 32%</span></div>
-                                                                <h3 class="text-2xl sm:text-3xl font-bold text-slate-800">$65</h3>
-                                                                <p class="text-xs text-red-500 mt-1">Early bird pricing (until February 21st, 2026)</p>
-                                                            </div>
-                                                            <div class="mb-4 sm:mb-6">
-                                                                <ul class="space-y-1 text-slate-800 text-xs sm:text-sm">
-                                                                    <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi"
-                                                                                                       width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"></path></svg>Full 2-day access</li>
-                                                                    <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi"
-                                                                                                       width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"></path></svg>Exhibitions &amp; keynotes</li>
-                                                                    <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi"
-                                                                                                       width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"></path></svg>Digital certificate</li>
-                                                                </ul>
-                                                            </div>
-                                                            <div class="flex flex-col sm:flex-row items-center justify-between mt-auto gap-3">
-                                                                <!-- NOT SELECTED -->
-                                                                <div x-show="!selected" class="flex flex-col sm:flex-row items-center w-full justify-between mt-auto gap-3">
-
-                                                                    <div class="flex items-center gap-2 sm:gap-3">
-                                                                        <!-- subtract -->
-                                                                        <button @click="if(count > 1) count--" :disabled="count <= 1" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-slate-800 flex items-center justify-center hover:bg-slate-800 hover:text-white transition-colors disabled:opacity-50">
-                                                                            <svg class="w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24">
-                                                                                <path fill="currentColor" d="M19 13H5v-2h14z"></path>
-                                                                            </svg>
-                                                                        </button>
-
-                                                                        <!-- count -->
-                                                                        <span x-text="count" class="font-semibold text-slate-800 min-w-6 sm:min-w-8 text-center text-sm sm:text-base"></span>
-
-                                                                        <!-- add -->
-                                                                        <button @click="count++" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-slate-800 flex items-center justify-center hover:bg-slate-800 hover:text-white transition-colors">
-                                                                            <svg class="w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24">
-                                                                                <path fill="currentColor" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6z"></path>
-                                                                            </svg>
-                                                                        </button>
-                                                                    </div>
-
-                                                                    <button @click="selected = true; selectTicket('General Admission', 65, count)" class="rounded-full px-4 sm:px-6 py-2 font-medium transition-colors text-sm sm:text-base bg-slate-800 text-white hover:bg-[#84C1D9]">
-                                                                        Select Ticket
-                                                                    </button>
-                                                                </div>
-
-                                                                <!-- SELECTED -->
-                                                                <div x-show="selected" class="w-full flex flex-col gap-2 mt-auto">
-
-                                                                    <div class="flex items-center justify-between w-full">
-                                                                        <div class="flex items-center gap-2">
-                                                                            <svg class="w-5 h-5 text-white" viewBox="0 0 24 24">
-                                                                                <path fill="currentColor" d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10s10-4.5 10-10S17.5 2 12 2m-2 15l-5-5l1.41-1.41L10 14.17l7.59-7.59L19 8z"></path>
-                                                                            </svg>
-                                                                            <span class="text-white font-semibold text-sm">
-                                                                            Selected: <span x-text="count"></span> ticket(s)
-                                                                        </span>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <button @click="selected = false" class="w-full rounded-full px-4 py-2 font-medium transition-all text-sm bg-white/20 text-white hover:bg-red-500 hover:text-white border border-white/30 flex items-center justify-center gap-2">
-                                                                        <svg class="w-4 h-4" viewBox="0 0 24 24">
-                                                                            <path fill="currentColor" d="M12 2c5.53 0 10 4.47 10 10s-4.47 10-10 10S2 17.53 2 12S6.47 2 12 2m3.59 5L12 10.59L8.41 7L7 8.41L10.59 12L7 15.59L8.41 17L12 13.41L15.59 17L17 15.59L13.41 12L17 8.41z"></path>
-                                                                        </svg>
-                                                                        Remove Ticket
-                                                                    </button>
-
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div x-data="{ count: 1, selected:false }" :class="selected
-                                                        ? 'bg-gradient-to-r from-[#f2b706] to-[#f25849] border-[#f2b706]'
-                                                        : 'bg-white border-gray-200'" class="p-4 sm:p-6 rounded-lg border-2 shadow-sm hover:shadow-lg transition-all duration-300 relative" tabindex="0" style="opacity: 1; transform: none;">
-                                                        <div class="absolute -top-2 right-2 sm:right-4 px-2 sm:px-3 py-1 rounded-full text-xs font-semibold shadow-lg bg-[#84C1D9] text-white" style="opacity: 1; transform: none;">MEMBER PRICE</div>
-                                                        <div class="flex flex-col h-full">
-                                                            <div class="mb-3 sm:mb-4">
-                                                                <h2 class="text-lg sm:text-xl font-bold text-slate-800 mb-2">Agency/Team Pass</h2>
-                                                                <p class="text-slate-800/80 text-xs sm:text-sm">Special pricing for creative agencies and teams.</p>
-                                                            </div>
-                                                            <div class="mb-3 sm:mb-4">
-                                                                <div class="flex items-baseline gap-2 mb-2"><span class="text-gray-500 line-through text-xs sm:text-sm">$180</span><span class="text-xs text-red-500 font-medium">Save 19%</span></div>
-                                                                <h3 class="text-2xl sm:text-3xl font-bold text-slate-800">$145</h3>
-                                                                <p class="text-xs text-red-500 mt-1">Early bird pricing (until February 21st, 2026)</p>
-                                                            </div>
-                                                            <div class="mb-4 sm:mb-6">
-                                                                <ul class="space-y-1 text-slate-800 text-xs sm:text-sm">
-                                                                    <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi"
-                                                                                                       width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"></path></svg>Full 2-day access</li>
-                                                                    <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi"
-                                                                                                       width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"></path></svg>Team networking zone</li>
-                                                                    <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi"
-                                                                                                       width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"></path></svg>Agency showcase</li>
-                                                                    <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi"
-                                                                                                       width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"></path></svg>Digital certificate</li>
-                                                                </ul>
-                                                            </div>
-                                                            <div class="flex flex-col sm:flex-row items-center justify-between mt-auto gap-3">
-                                                                <!-- NOT SELECTED -->
-                                                                <div x-show="!selected" class="flex flex-col sm:flex-row items-center w-full justify-between mt-auto gap-3">
-
-                                                                    <div class="flex items-center gap-2 sm:gap-3">
-                                                                        <!-- subtract -->
-                                                                        <button @click="if(count > 1) count--" :disabled="count <= 1" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-slate-800 flex items-center justify-center hover:bg-slate-800 hover:text-white transition-colors disabled:opacity-50">
-                                                                            <svg class="w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24">
-                                                                                <path fill="currentColor" d="M19 13H5v-2h14z"></path>
-                                                                            </svg>
-                                                                        </button>
-
-                                                                        <!-- count -->
-                                                                        <span x-text="count" class="font-semibold text-slate-800 min-w-6 sm:min-w-8 text-center text-sm sm:text-base"></span>
-
-                                                                        <!-- add -->
-                                                                        <button @click="count++" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-slate-800 flex items-center justify-center hover:bg-slate-800 hover:text-white transition-colors">
-                                                                            <svg class="w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24">
-                                                                                <path fill="currentColor" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6z"></path>
-                                                                            </svg>
-                                                                        </button>
-                                                                    </div>
-
-                                                                    <button @click="selected = true; selectTicket('General Admission', 65, count)" class="rounded-full px-4 sm:px-6 py-2 font-medium transition-colors text-sm sm:text-base bg-slate-800 text-white hover:bg-[#84C1D9]">
-                                                                        Select Ticket
-                                                                    </button>
-                                                                </div>
-
-                                                                <!-- SELECTED -->
-                                                                <div x-show="selected" class="w-full flex flex-col gap-2 mt-auto">
-
-                                                                    <div class="flex items-center justify-between w-full">
-                                                                        <div class="flex items-center gap-2">
-                                                                            <svg class="w-5 h-5 text-white" viewBox="0 0 24 24">
-                                                                                <path fill="currentColor" d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10s10-4.5 10-10S17.5 2 12 2m-2 15l-5-5l1.41-1.41L10 14.17l7.59-7.59L19 8z"></path>
-                                                                            </svg>
-                                                                            <span class="text-white font-semibold text-sm">
-                                                                            Selected: <span x-text="count"></span> ticket(s)
-                                                                        </span>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <button @click="selected = false" class="w-full rounded-full px-4 py-2 font-medium transition-all text-sm bg-white/20 text-white hover:bg-red-500 hover:text-white border border-white/30 flex items-center justify-center gap-2">
-                                                                        <svg class="w-4 h-4" viewBox="0 0 24 24">
-                                                                            <path fill="currentColor" d="M12 2c5.53 0 10 4.47 10 10s-4.47 10-10 10S2 17.53 2 12S6.47 2 12 2m3.59 5L12 10.59L8.41 7L7 8.41L10.59 12L7 15.59L8.41 17L12 13.41L15.59 17L17 15.59L13.41 12L17 8.41z"></path>
-                                                                        </svg>
-                                                                        Remove Ticket
-                                                                    </button>
-
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div x-data="{ count: 1, selected:false }" :class="selected
-                                                        ? 'bg-gradient-to-r from-[#f2b706] to-[#f25849] border-[#f2b706]'
-                                                        : 'bg-white border-gray-200'" class="p-4 sm:p-6 rounded-lg border-2 shadow-sm hover:shadow-lg transition-all duration-300 relative" tabindex="0" style="opacity: 1; transform: none;">
-                                                        <div class="absolute -top-2 right-2 sm:right-4 px-2 sm:px-3 py-1 rounded-full text-xs font-semibold shadow-lg bg-[#84C1D9] text-white" style="opacity: 1; transform: none;">PRIORITY</div>
-                                                        <div class="flex flex-col h-full">
-                                                            <div class="mb-3 sm:mb-4">
-                                                                <h2 class="text-lg sm:text-xl font-bold text-slate-800 mb-2">International Delegate</h2>
-                                                                <p class="text-slate-800/80 text-xs sm:text-sm">Special pricing for international attendees.</p>
-                                                            </div>
-                                                            <div class="mb-3 sm:mb-4">
-                                                                <div class="flex items-baseline gap-2 mb-2"><span class="text-gray-500 line-through text-xs sm:text-sm">$280</span><span class="text-xs text-red-500 font-medium">Save 11%</span></div>
-                                                                <h3 class="text-2xl sm:text-3xl font-bold text-slate-800">$250</h3>
-                                                                <p class="text-xs text-red-500 mt-1">Early bird pricing (until February 21st, 2026)</p>
-                                                            </div>
-                                                            <div class="mb-4 sm:mb-6">
-                                                                <ul class="space-y-1 text-slate-800 text-xs sm:text-sm">
-                                                                    <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi"
-                                                                                                       width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"></path></svg>Full 2-day access</li>
-                                                                    <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi"
-                                                                                                       width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"></path></svg>International networking</li>
-                                                                    <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi"
-                                                                                                       width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"></path></svg>Global insights sessions</li>
-                                                                    <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi"
-                                                                                                       width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"></path></svg>Digital certificate</li>
-                                                                </ul>
-                                                            </div>
-                                                            <div class="flex flex-col sm:flex-row items-center justify-between mt-auto gap-3">
-                                                                <!-- NOT SELECTED -->
-                                                                <div x-show="!selected" class="flex flex-col sm:flex-row items-center w-full justify-between mt-auto gap-3">
-
-                                                                    <div class="flex items-center gap-2 sm:gap-3">
-                                                                        <!-- subtract -->
-                                                                        <button @click="if(count > 1) count--" :disabled="count <= 1" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-slate-800 flex items-center justify-center hover:bg-slate-800 hover:text-white transition-colors disabled:opacity-50">
-                                                                            <svg class="w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24">
-                                                                                <path fill="currentColor" d="M19 13H5v-2h14z"></path>
-                                                                            </svg>
-                                                                        </button>
-
-                                                                        <!-- count -->
-                                                                        <span x-text="count" class="font-semibold text-slate-800 min-w-6 sm:min-w-8 text-center text-sm sm:text-base"></span>
-
-                                                                        <!-- add -->
-                                                                        <button @click="count++" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-slate-800 flex items-center justify-center hover:bg-slate-800 hover:text-white transition-colors">
-                                                                            <svg class="w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24">
-                                                                                <path fill="currentColor" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6z"></path>
-                                                                            </svg>
-                                                                        </button>
-                                                                    </div>
-
-                                                                    <button @click="selected = true; selectTicket('General Admission', 65, count)" class="rounded-full px-4 sm:px-6 py-2 font-medium transition-colors text-sm sm:text-base bg-slate-800 text-white hover:bg-[#84C1D9]">
-                                                                        Select Ticket
-                                                                    </button>
-                                                                </div>
-
-                                                                <!-- SELECTED -->
-                                                                <div x-show="selected" class="w-full flex flex-col gap-2 mt-auto">
-
-                                                                    <div class="flex items-center justify-between w-full">
-                                                                        <div class="flex items-center gap-2">
-                                                                            <svg class="w-5 h-5 text-white" viewBox="0 0 24 24">
-                                                                                <path fill="currentColor" d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10s10-4.5 10-10S17.5 2 12 2m-2 15l-5-5l1.41-1.41L10 14.17l7.59-7.59L19 8z"></path>
-                                                                            </svg>
-                                                                            <span class="text-white font-semibold text-sm">
-                                                                            Selected: <span x-text="count"></span> ticket(s)
-                                                                        </span>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <button @click="selected = false" class="w-full rounded-full px-4 py-2 font-medium transition-all text-sm bg-white/20 text-white hover:bg-red-500 hover:text-white border border-white/30 flex items-center justify-center gap-2">
-                                                                        <svg class="w-4 h-4" viewBox="0 0 24 24">
-                                                                            <path fill="currentColor" d="M12 2c5.53 0 10 4.47 10 10s-4.47 10-10 10S2 17.53 2 12S6.47 2 12 2m3.59 5L12 10.59L8.41 7L7 8.41L10.59 12L7 15.59L8.41 17L12 13.41L15.59 17L17 15.59L13.41 12L17 8.41z"></path>
-                                                                        </svg>
-                                                                        Remove Ticket
-                                                                    </button>
-
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </section>
-                                        </div>
+                                             </div>
 
                                     </div>
                                     <!--Inner Tabs section -->
@@ -1536,8 +555,10 @@
                                         <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4">
                                             <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
                                                 <div class="flex items-center gap-4 sm:gap-6">
-                                                    <div class="flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-5 h-5 sm:w-6 sm:h-6 text-[#84C1D9] iconify iconify--mdi" width="1em" height="1em"
-                                                                                              viewBox="0 0 24 24"><path fill="currentColor" d="M15.58 16.8L12 14.5l-3.58 2.3l1.08-4.12L6.21 10l4.25-.26L12 5.8l1.54 3.94l4.25.26l-3.29 2.68M20 12a2 2 0 0 1 2-2V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v4a2 2 0 0 1 2 2a2 2 0 0 1-2 2v4a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-4a2 2 0 0 1-2-2"></path></svg>
+                                                    <div class="flex items-center gap-2">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-5 h-5 sm:w-6 sm:h-6 text-[#84C1D9] iconify iconify--mdi" width="1em" height="1em"
+                                                                                              viewBox="0 0 24 24"><path fill="currentColor" d="M15.58 16.8L12 14.5l-3.58 2.3l1.08-4.12L6.21 10l4.25-.26L12 5.8l1.54 3.94l4.25.26l-3.29 2.68M20 12a2 2 0 0 1 2-2V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v4a2 2 0 0 1 2 2a2 2 0 0 1-2 2v4a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-4a2 2 0 0 1-2-2"></path>
+                                                        </svg>
                                                         <div>
                                                             <p class="text-xs text-gray-500">Selected Tickets</p>
                                                             <p class="font-bold text-slate-800 text-sm sm:text-base" x-text="totalTickets() + ' tickets'"></p>
@@ -1557,7 +578,7 @@
                                                         </svg>Back
                                                     </button>
                                                     <button x-show="currentStep < steps.length - 1" @click="nextStep" class="flex-1 sm:flex-none bg-[#84C1D9] text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-full font-semibold hover:bg-slate-800 transition-all duration-300 shadow-lg hover:shadow-xl text-sm sm:text-base inline-flex items-center justify-center gap-2">
-                                                        Proceed to Attendee Details
+                                                        Proceed to Payment
                                                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-4 h-4 iconify iconify--mdi" width="1em" height="1em" viewBox="0 0 24 24">
                                                             <path fill="currentColor" d="M4 11v2h12l-5.5 5.5l1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5L16 11z"></path></svg>
                                                     </button>
@@ -1574,11 +595,8 @@
                                                     <div class="flex-1"><span class="font-medium" x-text="ticket.type + ' × ' + ticket.count"></span></div>
                                                     <div class="flex items-center gap-3">
                                                         <span class="font-semibold" x-text="'Ksh. ' + (ticket.price *
-                                                        ticket.count)"></span>
-                                                        <button class="text-red-500 hover:text-red-700 transition-colors p-1" title="Remove ticket" @click.prevent="removeTicket(ticket.type)">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-5 h-5 iconify iconify--mdi" width="1em" height="1em" viewBox="0 0 24 24">
-                                                                <path fill="currentColor" d="M12 2c5.53 0 10 4.47 10 10s-4.47 10-10 10S2 17.53 2 12S6.47 2 12 2m3.59 5L12 10.59L8.41 7L7 8.41L10.59 12L7 15.59L8.41 17L12 13.41L15.59 17L17 15.59L13.41 12L17 8.41z"></path></svg>
-                                                        </button>
+                                                         ticket.count)"></span>
+
                                                     </div>
                                                 </div>
                                             </template>
@@ -1593,230 +611,190 @@
                             </div>
                         </section>
 
+{{--                        <section x-cloak x-show="currentStep === 2">--}}
+{{--                            <div class="mx-auto max-w-7xl ">--}}
+{{--                                <div class="text-slate-800 text-center py-4">--}}
+{{--                                    <h2 class="font-bold text-2xl">Attendee Details</h2>--}}
+{{--                                    <p class="font-normal">You're registering <span x-text="totalTickets()"></span>--}}
+{{--                                        attendee(s) for KICP Conference 2026--}}
+{{--                                        .</p>--}}
+{{--                                </div>--}}
+{{--                                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 pt-4 sm:pt-6 pb-8 sm:pb-10 max-w-7xl mx-auto px-3 sm:px-4">--}}
+{{--                                    <div>--}}
+{{--                                        <div class="flex flex-col gap-4">--}}
+{{--                                            <div class="p-4 sm:p-6 bg-white border border-[#84C1D9] rounded-lg shadow-sm">--}}
+{{--                                                <h2 class="text-lg sm:text-xl font-semibold text-slate-800 mb-2">Purchaser Information</h2>--}}
+{{--                                                <p class="text-gray-600 mb-3 sm:mb-4 text-sm sm:text-base">The purchaser receives the receipt and support emails.</p>--}}
+{{--                                                <form class="space-y-3 sm:space-y-4">--}}
+{{--                                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">--}}
+{{--                                                        <div class="">--}}
+{{--                                                            <label for="fullName1" class="block text-slate-800 text-sm font-semibold mb-2">Full Name <span class="text-red-500 ml-0.5">*</span></label>--}}
+{{--                                                            <div class="relative">--}}
+{{--                                                                <input id="fullName1" x-model="formData.purchaser.fullName" class="w-full px-4 sm:px-4 py-2.5 sm:py-3 border rounded-lg bg-white focus:outline-none focus:ring-2 transition-all duration-300 text-sm sm:text-base border-gray-300 focus:ring-slate-800 focus:border-slate-800 hover:border-[#84C1D9] shadow-sm hover:shadow-md"--}}
+{{--                                                                       placeholder="Enter your full name" type="text" name="fullName">--}}
+{{--                                                            </div>--}}
+{{--                                                        </div>--}}
+{{--                                                        <div class="">--}}
+{{--                                                            <label for="email1" class="block text-slate-800 text-sm font-semibold mb-2">Email <span class="text-red-500 ml-0.5">*</span></label>--}}
+{{--                                                            <div class="relative">--}}
+{{--                                                                <input id="email1" x-model="formData.purchaser.email" class="w-full px-4 sm:px-4 py-2.5 sm:py-3 border rounded-lg bg-white focus:outline-none focus:ring-2 transition-all duration-300 text-sm sm:text-base border-gray-300 focus:ring-slate-800 focus:border-slate-800 hover:border-[#84C1D9] shadow-sm hover:shadow-md"--}}
+{{--                                                                       placeholder="Enter your email" type="email" name="email">--}}
+{{--                                                            </div>--}}
+{{--                                                        </div>--}}
+{{--                                                    </div>--}}
+{{--                                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">--}}
+{{--                                                        <div class="">--}}
+{{--                                                            <label for="phone1" class="block text-slate-800 text-sm font-semibold mb-2">Phone Number <span class="text-red-500 ml-0.5">*</span></label>--}}
+{{--                                                            <div class="relative">--}}
+{{--                                                                <input--}}
+{{--                                                                    id="phone1"--}}
+{{--                                                                    x-model="formData.purchaser.phone1"--}}
+{{--                                                                    name="phone1"--}}
+{{--                                                                    class="w-full px-4 sm:px-4 py-2.5 sm:py-3 border rounded-lg bg-white focus:outline-none focus:ring-2 transition-all duration-300 text-sm sm:text-base border-gray-300 focus:ring-slate-800 focus:border-slate-800 hover:border-[#84C1D9] shadow-sm hover:shadow-md"--}}
+{{--                                                                    phone-country-input="#country1"--}}
+{{--                                                                />--}}
+{{--                                                            </div>--}}
+{{--                                                        </div>--}}
+{{--                                                        <div class="">--}}
+{{--                                                            <label for="organization" class="block text-slate-800 text-sm font-semibold mb-2">Company / Organization <span class="text-red-500 ml-0.5">*</span></label>--}}
+{{--                                                            <div class="relative">--}}
+{{--                                                                <input id="organization" x-model="formData.purchaser.organization" class="w-full px-4 sm:px-4 py-2.5 sm:py-3 border rounded-lg bg-white focus:outline-none focus:ring-2 transition-all duration-300 text-sm sm:text-base border-gray-300 focus:ring-slate-800 focus:border-slate-800 hover:border-[#84C1D9] shadow-sm hover:shadow-md"--}}
+{{--                                                                       placeholder="Enter your organization" type="text" name="organization">--}}
+{{--                                                            </div>--}}
+{{--                                                        </div>--}}
+{{--                                                    </div>--}}
+{{--                                                    <div class="">--}}
+{{--                                                        <label for="country" class="block text-[#172840] text-sm font-medium mb-2">Country <span class="text-red-500">*</span></label>--}}
+{{--                                                        <div class="relative">--}}
+{{--                                                            <input type="text" name="country" id="country1" x-model="formData.purchaser.country" class="w-full px-4 sm:px-4 py-2.5 sm:py-3 border rounded-lg bg-white focus:outline-none focus:ring-2 transition-all duration-300 text-sm sm:text-base border-gray-300 focus:ring-slate-800 focus:border-slate-800 hover:border-[#84C1D9] shadow-sm hover:shadow-md" />--}}
+{{--                                                        </div>--}}
+{{--                                                    </div>--}}
+{{--                                                    <div class="flex items-center">--}}
+{{--                                                        <input id="attending" x-model="formData.purchaser.isAttending" @change="syncAttendees()" class="mr-2 rounded-sm h-3 w-3" type="checkbox" name="attending">--}}
+{{--                                                        <label for="attending" class="text-[#172840] text-sm font-medium">I'm also attending</label>--}}
+{{--                                                    </div>--}}
+
+{{--                                                    <template x-if="formData.purchaser.isAttending">--}}
+{{--                                                        <div class="mt-3">--}}
+{{--                                                            <label for="purchaserTicket" class="block text-slate-800 text-sm font-semibold mb-2">Purchaser Ticket Category</label>--}}
+{{--                                                            <select id="purchaserTicket" x-model="formData.purchaser.ticketType" @change="syncAttendees()" class="w-full px-3 py-2 border rounded-lg">--}}
+{{--                                                                <template x-if="!purchaserLocked">--}}
+{{--                                                                    <option value="">Select ticket</option>--}}
+{{--                                                                </template>--}}
+{{--                                                                <template x-for="(opt, oidx) in distinctTicketTypes()" :key="oidx">--}}
+{{--                                                                    <option :value="opt" x-text="opt" :disabled="!isOptionAvailableForPurchaser(opt) && formData.purchaser.ticketType !== opt"></option>--}}
+{{--                                                                </template>--}}
+{{--                                                            </select>--}}
+{{--                                                        </div>--}}
+{{--                                                    </template>--}}
+{{--                                                </form>--}}
+{{--                                            </div>--}}
+{{--                                            <div class="p-4 sm:p-6 bg-white border border-[#84C1D9] rounded-lg shadow-sm">--}}
+{{--                                                <h2 class="text-lg sm:text-xl font-semibold text-slate-800 mb-2">Attendees</h2>--}}
+{{--                                                <p class="text-gray-600 mb-3 sm:mb-4 text-sm sm:text-base">Each ticket must be assigned to a person. You can edit names later from your confirmation email.</p>--}}
+{{--                                                <div x-init="syncAttendees()">--}}
+{{--                                                    <template x-if="ticketTypesArray().length === 0">--}}
+{{--                                                        <div class="text-sm text-gray-500">No attendees — select tickets first.</div>--}}
+{{--                                                    </template>--}}
+
+{{--                                                    <template x-for="(att, i) in formData.attendees" :key="i">--}}
+{{--                                                        <div class="py-3 sm:py-4 my-3 sm:my-4 border border-[#84C1D9] p-3 sm:p-4 rounded-lg">--}}
+{{--                                                            <h3 class="font-semibold text-slate-800 py-1 sm:py-2 text-sm sm:text-base" x-text="`Attendee ${ (formData.purchaser.isAttending ? i+2 : i+1) } — ${att.ticketType || (ticketTypesArray()[ formData.purchaser.isAttending ? i+1 : i ] || '') }`"></h3>--}}
+
+{{--                                                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">--}}
+{{--                                                                <div>--}}
+{{--                                                                    <label :for="`attendee${i}Name`" class="block text-slate-800 text-sm font-semibold mb-2">Full Name <span class="text-red-500 ml-0.5">*</span></label>--}}
+{{--                                                                    <div class="relative">--}}
+{{--                                                                        <input :id="`attendee${i}Name`" :name="`attendee${i}Name`" x-model="formData.attendees[i].name" class="w-full px-4 sm:px-4 py-2.5 sm:py-3 border rounded-lg bg-white focus:outline-none focus:ring-2 transition-all duration-300 text-sm sm:text-base border-gray-300 focus:ring-slate-800 focus:border-slate-800 hover:border-[#84C1D9] shadow-sm hover:shadow-md" placeholder="Enter attendee's full name" type="text" />--}}
+{{--                                                                    </div>--}}
+{{--                                                                </div>--}}
+
+{{--                                                                <div>--}}
+{{--                                                                    <label :for="`attendee${i}Email`" class="block text-slate-800 text-sm font-semibold mb-2">Email <span class="text-red-500 ml-0.5">*</span></label>--}}
+{{--                                                                    <div class="relative">--}}
+{{--                                                                        <input :id="`attendee${i}Email`" :name="`attendee${i}Email`" x-model="formData.attendees[i].email" class="w-full px-4 sm:px-4 py-2.5 sm:py-3 border rounded-lg bg-white focus:outline-none focus:ring-2 transition-all duration-300 text-sm sm:text-base border-gray-300 focus:ring-slate-800 focus:border-slate-800 hover:border-[#84C1D9] shadow-sm hover:shadow-md" placeholder="Enter attendee's email" type="email" />--}}
+{{--                                                                    </div>--}}
+{{--                                                                </div>--}}
+{{--                                                            </div>--}}
+
+{{--                                                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">--}}
+{{--                                                                <div>--}}
+{{--                                                                    <label :for="`attendee${i}Role`" class="block text-slate-800 text-sm font-semibold mb-2">Job/ Role <span class="text-red-500 ml-0.5">*</span></label>--}}
+{{--                                                                    <div class="relative">--}}
+{{--                                                                        <input :id="`attendee${i}Role`" :name="`attendee${i}Role`" x-model="formData.attendees[i].role" class="w-full px-4 sm:px-4 py-2.5 sm:py-3 border rounded-lg bg-white focus:outline-none focus:ring-2 transition-all duration-300 text-sm sm:text-base border-gray-300 focus:ring-slate-800 focus:border-slate-800 hover:border-[#84C1D9] shadow-sm hover:shadow-md" placeholder="Enter job/role" type="text" />--}}
+{{--                                                                    </div>--}}
+{{--                                                                </div>--}}
+
+{{--                                                                <div>--}}
+{{--                                                                    <label :for="`attendee${i}Org`" class="block text-slate-800 text-sm font-semibold mb-2">Company / Organization <span class="text-red-500 ml-0.5">*</span></label>--}}
+{{--                                                                    <div class="relative">--}}
+{{--                                                                        <input :id="`attendee${i}Org`" :name="`attendee${i}Org`" x-model="formData.attendees[i].organization" class="w-full px-4 sm:px-4 py-2.5 sm:py-3 border rounded-lg bg-white focus:outline-none focus:ring-2 transition-all duration-300 text-sm sm:text-base border-gray-300 focus:ring-slate-800 focus:border-slate-800 hover:border-[#84C1D9] shadow-sm hover:shadow-md" placeholder="Enter organization" type="text" />--}}
+{{--                                                                    </div>--}}
+{{--                                                                </div>--}}
+{{--                                                            </div>--}}
+
+{{--                                                            <div class="pt-3">--}}
+{{--                                                                <label :for="`attendee${i}Ticket`" class="block text-slate-800 text-sm font-semibold mb-2">Ticket Category</label>--}}
+{{--                                                                <select :id="`attendee${i}Ticket`" x-model="formData.attendees[i].ticketType" class="w-full px-3 py-2 border rounded-lg" @change="syncAttendees()">--}}
+{{--                                                                    <option value="">Select ticket</option>--}}
+{{--                                                                    <template x-for="(opt, oidx) in distinctTicketTypes()" :key="oidx">--}}
+{{--                                                                        <option :value="opt" x-text="opt" :disabled="!isOptionAvailable(opt, i) && formData.attendees[i].ticketType !== opt"></option>--}}
+{{--                                                                    </template>--}}
+{{--                                                                </select>--}}
+{{--                                                            </div>--}}
+{{--                                                        </div>--}}
+{{--                                                    </template>--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+
+
+{{--                                            <div class="flex flex-col sm:flex-row justify-between mt-4 sm:mt-6 gap-3 sm:gap-0">--}}
+{{--                                                <button @click="prevStep" class="bg-[#84C1D9] text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full font-medium hover:bg-[#84C1D9]/90 transition-colors text-sm sm:text-base">--}}
+{{--                                                    Back to Tickets--}}
+{{--                                                </button>--}}
+{{--                                                <button @click="validateAndGoToPayment()" class="bg-slate-800 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full font-medium hover:bg-[#84C1D9] transition-colors text-sm sm:text-base">--}}
+{{--                                                    Continue to Payment--}}
+{{--                                                </button>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div>--}}
+{{--                                        <div class="p-4 sm:p-6 bg-white border border-[#84C1D9] rounded-lg shadow-sm sticky top-40">--}}
+{{--                                            <div class="flex justify-between mb-3 sm:mb-4">--}}
+{{--                                                <div>--}}
+{{--                                                    <h2 class="text-lg sm:text-xl font-semibold text-slate-800">Your Selection</h2>--}}
+{{--                                                    <p class="text-sm text-gray-500" x-text="totalTickets() + ' ticket(s) selected'"></p>--}}
+{{--                                                </div>--}}
+{{--                                                <p class="font-normal text-red-500 text-xs sm:text-sm">Early Bird active</p>--}}
+{{--                                            </div>--}}
+{{--                                            <div class="space-y-2 mb-3 sm:mb-4">--}}
+{{--                                                <template x-if="!selectedTickets || selectedTickets.length === 0">--}}
+{{--                                                    <div class="text-sm text-gray-500">No tickets selected</div>--}}
+{{--                                                </template>--}}
+{{--                                                <template x-for="(ticket, idx) in selectedTickets" :key="idx">--}}
+{{--                                                    <div class="flex justify-between text-sm sm:text-base"><span x-text="ticket.type + ' × ' + ticket.count"></span><span x-text="'$' + (ticket.price * ticket.count)"></span></div>--}}
+{{--                                                </template>--}}
+{{--                                                <hr class="my-2">--}}
+{{--                                                <div class="flex justify-between text-sm--}}
+{{--                                                sm:text-base"><span>Subtotal</span><span x-text="'Ksh. ' + totalAmount()                                     totalAmount()"></span></div>--}}
+{{--                                                <div class="flex justify-between text-sm sm:text-base"><span>Promo</span><span class="text-green-600">-$0</span></div>--}}
+{{--                                                <div class="flex justify-between font-bold text-base sm:text-lg"><span>Total</span><span x-text="'Ksh. ' + totalAmount()"></span></div>--}}
+{{--                                            </div>--}}
+{{--                                            <div class="mb-4">--}}
+{{--                                                <h3 class="font-semibold text-slate-800 mb-2">Payment Method</h3>--}}
+{{--                                                <div class="space-y-2">--}}
+{{--                                                    <div class="flex items-center"><input id="card-attendees" class="mr-2" type="radio" value="card" checked="" name="method"><label for="card-attendees" class="text-sm">Credit/Debit Card</label></div>--}}
+{{--                                                    <div class="flex items-center"><input id="bank-attendees" class="mr-2" type="radio" value="bank" name="method"><label for="bank-attendees" class="text-sm">Bank Transfer/Invoice</label></div>--}}
+{{--                                                    <div class="flex items-center"><input id="mpesa-attendees" class="mr-2" type="radio" value="mpesa" name="method"><label for="mpesa-attendees" class="text-sm">Mobile Money (Mpesa)</label></div>--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </section>--}}
+
                         <section x-cloak x-show="currentStep === 2">
-                            <div class="mx-auto max-w-7xl ">
-                                <div class="text-slate-800 text-center py-4">
-                                    <h2 class="font-bold text-2xl">Attendee Details</h2>
-                                    <p class="font-normal">You're registering <span x-text="totalTickets()"></span>
-                                        attendee(s) for KICP Conference 2026
-                                        .</p>
-                                </div>
-                                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 pt-4 sm:pt-6 pb-8 sm:pb-10 max-w-7xl mx-auto px-3 sm:px-4">
-                                    <div>
-                                        <div class="flex flex-col gap-4">
-                                            <div class="p-4 sm:p-6 bg-white border border-[#84C1D9] rounded-lg shadow-sm">
-                                                <h2 class="text-lg sm:text-xl font-semibold text-slate-800 mb-2">Purchaser Information</h2>
-                                                <p class="text-gray-600 mb-3 sm:mb-4 text-sm sm:text-base">The purchaser receives the receipt and support emails.</p>
-                                                <form class="space-y-3 sm:space-y-4">
-                                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-                                                        <div class="">
-                                                            <label for="fullName1" class="block text-slate-800 text-sm font-semibold mb-2">Full Name <span class="text-red-500 ml-0.5">*</span></label>
-                                                            <div class="relative">
-                                                                <input id="fullName1" x-model="formData.purchaser.fullName" class="w-full px-4 sm:px-4 py-2.5 sm:py-3 border rounded-lg bg-white focus:outline-none focus:ring-2 transition-all duration-300 text-sm sm:text-base border-gray-300 focus:ring-slate-800 focus:border-slate-800 hover:border-[#84C1D9] shadow-sm hover:shadow-md"
-                                                                       placeholder="Enter your full name" type="text" name="fullName">
-                                                            </div>
-                                                        </div>
-                                                        <div class="">
-                                                            <label for="email1" class="block text-slate-800 text-sm font-semibold mb-2">Email <span class="text-red-500 ml-0.5">*</span></label>
-                                                            <div class="relative">
-                                                                <input id="email1" x-model="formData.purchaser.email" class="w-full px-4 sm:px-4 py-2.5 sm:py-3 border rounded-lg bg-white focus:outline-none focus:ring-2 transition-all duration-300 text-sm sm:text-base border-gray-300 focus:ring-slate-800 focus:border-slate-800 hover:border-[#84C1D9] shadow-sm hover:shadow-md"
-                                                                       placeholder="Enter your email" type="email" name="email">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                                        <div class="">
-                                                            <label for="phone1" class="block text-slate-800 text-sm font-semibold mb-2">Phone Number <span class="text-red-500 ml-0.5">*</span></label>
-                                                            <div class="relative">
-                                                                <input
-                                                                    id="phone1"
-                                                                    x-model="formData.purchaser.phone1"
-                                                                    name="phone1"
-                                                                    class="w-full px-4 sm:px-4 py-2.5 sm:py-3 border rounded-lg bg-white focus:outline-none focus:ring-2 transition-all duration-300 text-sm sm:text-base border-gray-300 focus:ring-slate-800 focus:border-slate-800 hover:border-[#84C1D9] shadow-sm hover:shadow-md"
-                                                                    phone-country-input="#country1"
-                                                                />
-                                                            </div>
-                                                        </div>
-                                                        <div class="">
-                                                            <label for="organization" class="block text-slate-800 text-sm font-semibold mb-2">Company / Organization <span class="text-red-500 ml-0.5">*</span></label>
-                                                            <div class="relative">
-                                                                <input id="organization" x-model="formData.purchaser.organization" class="w-full px-4 sm:px-4 py-2.5 sm:py-3 border rounded-lg bg-white focus:outline-none focus:ring-2 transition-all duration-300 text-sm sm:text-base border-gray-300 focus:ring-slate-800 focus:border-slate-800 hover:border-[#84C1D9] shadow-sm hover:shadow-md"
-                                                                       placeholder="Enter your organization" type="text" name="organization">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="">
-                                                        <label for="country" class="block text-[#172840] text-sm font-medium mb-2">Country <span class="text-red-500">*</span></label>
-                                                        <div class="relative">
-                                                            <input type="text" name="country" id="country1" x-model="formData.purchaser.country" class="w-full px-4 sm:px-4 py-2.5 sm:py-3 border rounded-lg bg-white focus:outline-none focus:ring-2 transition-all duration-300 text-sm sm:text-base border-gray-300 focus:ring-slate-800 focus:border-slate-800 hover:border-[#84C1D9] shadow-sm hover:shadow-md" />
-                                                        </div>
-                                                    </div>
-                                                    <div class="flex items-center">
-                                                        <input id="attending" x-model="formData.purchaser.isAttending" @change="syncAttendees()" class="mr-2 rounded-sm h-3 w-3" type="checkbox" name="attending">
-                                                        <label for="attending" class="text-[#172840] text-sm font-medium">I'm also attending</label>
-                                                    </div>
-
-                                                    <template x-if="formData.purchaser.isAttending">
-                                                        <div class="mt-3">
-                                                            <label for="purchaserTicket" class="block text-slate-800 text-sm font-semibold mb-2">Purchaser Ticket Category</label>
-                                                            <select id="purchaserTicket" x-model="formData.purchaser.ticketType" @change="syncAttendees()" class="w-full px-3 py-2 border rounded-lg">
-                                                                <template x-if="!purchaserLocked">
-                                                                    <option value="">Select ticket</option>
-                                                                </template>
-                                                                <template x-for="(opt, oidx) in distinctTicketTypes()" :key="oidx">
-                                                                    <option :value="opt" x-text="opt" :disabled="!isOptionAvailableForPurchaser(opt) && formData.purchaser.ticketType !== opt"></option>
-                                                                </template>
-                                                            </select>
-                                                        </div>
-                                                    </template>
-                                                </form>
-                                            </div>
-                                            <div class="p-4 sm:p-6 bg-white border border-[#84C1D9] rounded-lg shadow-sm">
-                                                <h2 class="text-lg sm:text-xl font-semibold text-slate-800 mb-2">Attendees</h2>
-                                                <p class="text-gray-600 mb-3 sm:mb-4 text-sm sm:text-base">Each ticket must be assigned to a person. You can edit names later from your confirmation email.</p>
-                                                <div x-init="syncAttendees()">
-                                                    <template x-if="ticketTypesArray().length === 0">
-                                                        <div class="text-sm text-gray-500">No attendees — select tickets first.</div>
-                                                    </template>
-
-                                                    <template x-for="(att, i) in formData.attendees" :key="i">
-                                                        <div class="py-3 sm:py-4 my-3 sm:my-4 border border-[#84C1D9] p-3 sm:p-4 rounded-lg">
-                                                            <h3 class="font-semibold text-slate-800 py-1 sm:py-2 text-sm sm:text-base" x-text="`Attendee ${ (formData.purchaser.isAttending ? i+2 : i+1) } — ${att.ticketType || (ticketTypesArray()[ formData.purchaser.isAttending ? i+1 : i ] || '') }`"></h3>
-
-                                                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-                                                                <div>
-                                                                    <label :for="`attendee${i}Name`" class="block text-slate-800 text-sm font-semibold mb-2">Full Name <span class="text-red-500 ml-0.5">*</span></label>
-                                                                    <div class="relative">
-                                                                        <input :id="`attendee${i}Name`" :name="`attendee${i}Name`" x-model="formData.attendees[i].name" class="w-full px-4 sm:px-4 py-2.5 sm:py-3 border rounded-lg bg-white focus:outline-none focus:ring-2 transition-all duration-300 text-sm sm:text-base border-gray-300 focus:ring-slate-800 focus:border-slate-800 hover:border-[#84C1D9] shadow-sm hover:shadow-md" placeholder="Enter attendee's full name" type="text" />
-                                                                    </div>
-                                                                </div>
-
-                                                                <div>
-                                                                    <label :for="`attendee${i}Email`" class="block text-slate-800 text-sm font-semibold mb-2">Email <span class="text-red-500 ml-0.5">*</span></label>
-                                                                    <div class="relative">
-                                                                        <input :id="`attendee${i}Email`" :name="`attendee${i}Email`" x-model="formData.attendees[i].email" class="w-full px-4 sm:px-4 py-2.5 sm:py-3 border rounded-lg bg-white focus:outline-none focus:ring-2 transition-all duration-300 text-sm sm:text-base border-gray-300 focus:ring-slate-800 focus:border-slate-800 hover:border-[#84C1D9] shadow-sm hover:shadow-md" placeholder="Enter attendee's email" type="email" />
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
-                                                                <div>
-                                                                    <label :for="`attendee${i}Role`" class="block text-slate-800 text-sm font-semibold mb-2">Job/ Role <span class="text-red-500 ml-0.5">*</span></label>
-                                                                    <div class="relative">
-                                                                        <input :id="`attendee${i}Role`" :name="`attendee${i}Role`" x-model="formData.attendees[i].role" class="w-full px-4 sm:px-4 py-2.5 sm:py-3 border rounded-lg bg-white focus:outline-none focus:ring-2 transition-all duration-300 text-sm sm:text-base border-gray-300 focus:ring-slate-800 focus:border-slate-800 hover:border-[#84C1D9] shadow-sm hover:shadow-md" placeholder="Enter job/role" type="text" />
-                                                                    </div>
-                                                                </div>
-
-                                                                <div>
-                                                                    <label :for="`attendee${i}Org`" class="block text-slate-800 text-sm font-semibold mb-2">Company / Organization <span class="text-red-500 ml-0.5">*</span></label>
-                                                                    <div class="relative">
-                                                                        <input :id="`attendee${i}Org`" :name="`attendee${i}Org`" x-model="formData.attendees[i].organization" class="w-full px-4 sm:px-4 py-2.5 sm:py-3 border rounded-lg bg-white focus:outline-none focus:ring-2 transition-all duration-300 text-sm sm:text-base border-gray-300 focus:ring-slate-800 focus:border-slate-800 hover:border-[#84C1D9] shadow-sm hover:shadow-md" placeholder="Enter organization" type="text" />
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="pt-3">
-                                                                <label :for="`attendee${i}Ticket`" class="block text-slate-800 text-sm font-semibold mb-2">Ticket Category</label>
-                                                                <select :id="`attendee${i}Ticket`" x-model="formData.attendees[i].ticketType" class="w-full px-3 py-2 border rounded-lg" @change="syncAttendees()">
-                                                                    <option value="">Select ticket</option>
-                                                                    <template x-for="(opt, oidx) in distinctTicketTypes()" :key="oidx">
-                                                                        <option :value="opt" x-text="opt" :disabled="!isOptionAvailable(opt, i) && formData.attendees[i].ticketType !== opt"></option>
-                                                                    </template>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                    </template>
-                                                </div>
-                                            </div>
-                                            <div class="p-6 bg-white border border-[#84C1D9] rounded-lg shadow-sm">
-                                                <h2 class="text-xl font-semibold text-slate-800 mb-2">Documents &amp; Support (optional)</h2>
-                                                <p class="text-gray-600 mb-4">The purchaser receives the receipt and support emails.</p>
-                                                <form class="space-y-4">
-                                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                                        <div class=""><label for="visaLetter" class="block text-slate-800 text-sm font-semibold mb-2">Need a visa letter? </label>
-                                                            <div class="relative"><input id="visaLetter" class="w-full px-4 sm:px-4 py-2.5 sm:py-3 border rounded-lg bg-white focus:outline-none focus:ring-2 transition-all duration-300 text-sm sm:text-base border-gray-300 focus:ring-slate-800 focus:border-slate-800 hover:border-[#84C1D9] shadow-sm hover:shadow-md"
-                                                                                         placeholder="Enter your full name" type="text" name="visaLetter"></div>
-                                                        </div>
-                                                        <div class=""><label for="passportName" class="block text-slate-800 text-sm font-semibold mb-2">Passport Name </label>
-                                                            <div class="relative"><input id="passportName" class="w-full px-4 sm:px-4 py-2.5 sm:py-3 border rounded-lg bg-white focus:outline-none focus:ring-2 transition-all duration-300 text-sm sm:text-base border-gray-300 focus:ring-slate-800 focus:border-slate-800 hover:border-[#84C1D9] shadow-sm hover:shadow-md"
-                                                                                         placeholder="Enter passport name" type="text" name="passportName"></div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                                        <div class=""><label for="nationality" class="block text-slate-800 text-sm font-semibold mb-2">Nationality </label>
-                                                            <div class="relative"><input id="nationality" class="w-full px-4 sm:px-4 py-2.5 sm:py-3 border rounded-lg bg-white focus:outline-none focus:ring-2 transition-all duration-300 text-sm sm:text-base border-gray-300 focus:ring-slate-800 focus:border-slate-800 hover:border-[#84C1D9] shadow-sm hover:shadow-md"
-                                                                                         placeholder="Enter your nationality" type="text" name="nationality"></div>
-                                                        </div>
-                                                        <div class=""><label for="invoiceDetails" class="block text-slate-800 text-sm font-semibold mb-2">Invoice details (optional) </label>
-                                                            <div class="relative"><input id="invoiceDetails" class="w-full px-4 sm:px-4 py-2.5 sm:py-3 border rounded-lg bg-white focus:outline-none focus:ring-2 transition-all duration-300 text-sm sm:text-base border-gray-300 focus:ring-slate-800 focus:border-slate-800 hover:border-[#84C1D9] shadow-sm hover:shadow-md"
-                                                                                         placeholder="Enter invoice details" type="text" name="invoiceDetails"></div>
-                                                        </div>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                            <div class="p-6 bg-white border border-[#84C1D9] rounded-lg shadow-sm">
-                                                <h2 class="text-xl font-semibold text-slate-800 mb-4">Terms &amp; Preferences</h2>
-                                                <form>
-                                                    <div class="space-y-3">
-                                                        <div class="flex items-start">
-                                                            <input id="terms" class="mr-3 mt-1 rounded-sm h-3 w-3" type="checkbox" name="terms">
-                                                            <label for="terms" class="text-sm text-gray-700">I accept the <a href="/terms-and-conditions" class="text-[#84C1D9] hover:underline">terms &amp; conditions</a> and <a href="/privacy-policy" class="text-[#84C1D9] hover:underline">privacy policy</a> <span class="text-red-500">*</span></label>
-                                                        </div>
-                                                        <div class="flex items-start"><input id="updates" class="mr-3
-                                                         mt-1 rounded-sm h-3 w-3" type="checkbox"
-                                                                                             name="updates"><label
-                                                                for="updates" class="text-sm text-gray-700">Send me
-                                                                conference updates (optional)</label></div>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                            <div class="flex flex-col sm:flex-row justify-between mt-4 sm:mt-6 gap-3 sm:gap-0">
-                                                <button @click="prevStep" class="bg-[#84C1D9] text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full font-medium hover:bg-[#84C1D9]/90 transition-colors text-sm sm:text-base">
-                                                    Back to Tickets
-                                                </button>
-                                                <button @click="validateAndGoToPayment()" class="bg-slate-800 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full font-medium hover:bg-[#84C1D9] transition-colors text-sm sm:text-base">
-                                                    Continue to Payment
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="p-4 sm:p-6 bg-white border border-[#84C1D9] rounded-lg shadow-sm sticky top-40">
-                                            <div class="flex justify-between mb-3 sm:mb-4">
-                                                <div>
-                                                    <h2 class="text-lg sm:text-xl font-semibold text-slate-800">Your Selection</h2>
-                                                    <p class="text-sm text-gray-500" x-text="totalTickets() + ' ticket(s) selected'"></p>
-                                                </div>
-                                                <p class="font-normal text-red-500 text-xs sm:text-sm">Early Bird active</p>
-                                            </div>
-                                            <div class="space-y-2 mb-3 sm:mb-4">
-                                                <template x-if="!selectedTickets || selectedTickets.length === 0">
-                                                    <div class="text-sm text-gray-500">No tickets selected</div>
-                                                </template>
-                                                <template x-for="(ticket, idx) in selectedTickets" :key="idx">
-                                                    <div class="flex justify-between text-sm sm:text-base"><span x-text="ticket.type + ' × ' + ticket.count"></span><span x-text="'$' + (ticket.price * ticket.count)"></span></div>
-                                                </template>
-                                                <hr class="my-2">
-                                                <div class="flex justify-between text-sm
-                                                sm:text-base"><span>Subtotal</span><span x-text="'Ksh. ' + totalAmount()                                     totalAmount()"></span></div>
-                                                <div class="flex justify-between text-sm sm:text-base"><span>Promo</span><span class="text-green-600">-$0</span></div>
-                                                <div class="flex justify-between font-bold text-base sm:text-lg"><span>Total</span><span x-text="'Ksh. ' + totalAmount()"></span></div>
-                                            </div>
-                                            <div class="mb-4">
-                                                <h3 class="font-semibold text-slate-800 mb-2">Payment Method</h3>
-                                                <div class="space-y-2">
-                                                    <div class="flex items-center"><input id="card-attendees" class="mr-2" type="radio" value="card" checked="" name="method"><label for="card-attendees" class="text-sm">Credit/Debit Card</label></div>
-                                                    <div class="flex items-center"><input id="bank-attendees" class="mr-2" type="radio" value="bank" name="method"><label for="bank-attendees" class="text-sm">Bank Transfer/Invoice</label></div>
-                                                    <div class="flex items-center"><input id="mpesa-attendees" class="mr-2" type="radio" value="mpesa" name="method"><label for="mpesa-attendees" class="text-sm">Mobile Money (Mpesa)</label></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-
-                        <section x-cloak x-show="currentStep === 3">
                             <div class="mx-auto max-w-7xl ">
                                 <div class="text-slate-800 text-center py-4">
                                     <h2 class="font-bold text-2xl">Payment</h2>
@@ -1846,6 +824,17 @@
                                                     </div>
                                                 </div>
                                             </form>
+                                            <div class="p-6  bg-white border ">
+                                                <h2 class="text-xl font-semibold text-slate-800 mb-4">Terms &amp; Preferences</h2>
+                                                <form>
+                                                    <div class="space-y-3">
+                                                        <div class="flex items-start">
+                                                            <input id="terms" class="mr-3 mt-1 rounded-sm h-3 w-3" type="checkbox" name="terms">
+                                                            <label for="terms" class="text-sm text-gray-700">I accept the <a href="/terms-and-conditions" class="text-[#84C1D9] hover:underline">terms &amp; conditions</a> and <a href="/privacy-policy" class="text-[#84C1D9] hover:underline">privacy policy</a> <span class="text-red-500">*</span></label>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
                                         </div>
                                     </div>
                                     <div>
@@ -1880,7 +869,8 @@
                                                 </form>
                                             </div>
                                             <div class="flex flex-col sm:flex-row justify-between gap-3 sm:gap-0">
-                                                <button class="bg-gray-200 text-gray-700 px-4 sm:px-6 py-2 sm:py-3 rounded-full font-medium hover:bg-gray-300 transition-colors text-sm sm:text-base">Back to Details</button>
+                                                <button @click="prevStep" class="bg-gray-200 text-gray-700 px-4 sm:px-6 py-2 sm:py-3
+                                                rounded-full font-medium hover:bg-gray-300 transition-colors text-sm sm:text-base">Back to Details</button>
                                                 <button class="px-4 sm:px-6 py-2 sm:py-3 rounded-full font-medium transition-colors text-sm sm:text-base bg-red-500 text-white hover:bg-red-600">Complete Purchase</button>
                                             </div>
                                         </div>
@@ -2016,7 +1006,7 @@
         function wizard() {
             return {
                 currentStep: 0,
-                steps: ['Contact Info', 'Select Tickets', 'Attendee Details', 'Payment'],
+                steps: ['Delegates Info', 'Ticket Selection', 'Payment'],
                 validators: null,
                 formData: {
                     fullName: '',
@@ -2024,27 +1014,6 @@
                     phone: '',
                     country: '',
                     organization: '',
-                    // Step 2 data
-                    purchaser: {
-                        fullName: '',
-                        email: '',
-                        phone1: '',
-                        organization: '',
-                        country: '',
-                        isAttending: false,
-                        ticketType: ''
-                    },
-                    attendees: [],
-                    documents: {
-                        needVisaLetter: '',
-                        passportName: '',
-                        nationality: '',
-                        invoiceDetails: ''
-                    },
-                    terms: {
-                        accepted: false,
-                        receiveUpdates: false
-                    }
                 },
                 purchaserLocked: false,
                 selectedTickets: [],
@@ -2248,9 +1217,30 @@
                     if (this.validateStep2()) {
                         this.saveStep2Data();
 
+                        // Validate Terms & Preferences
+                        const termsCheckbox = document.querySelector('#terms');
+                        if (termsCheckbox) {
+                            const parent = termsCheckbox.closest('.flex.items-start');
+                            const existingError = parent.querySelector('.custom-error-container');
+                            if (existingError) {
+                                existingError.remove();
+                            }
+
+                            if (!termsCheckbox.checked) {
+                                isValid = false;
+                                termsCheckbox.classList.add('border-red-500');
+
+                                const errorContainer = this.createErrorMessage('You must accept the terms and conditions to proceed');
+                                errorContainer.classList.add('custom-error-container', 'mt-2');
+                                parent.appendChild(errorContainer);
+                            } else {
+                                termsCheckbox.classList.remove('border-red-500');
+                            }
+                        }
+
                         // Move to payment step (step 3)
                         this.currentStep = 3;
-                        console.log('Moving to payment step:', this.currentStep);
+                        //console.log('Moving to payment step:', this.currentStep);
 
                         // Scroll to top of form
                         const wizardForm = document.getElementById('wizardForm');
@@ -2258,7 +1248,7 @@
                             wizardForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
                         }
                     } else {
-                        console.log('Validation failed for step 2');
+                        //console.log('Validation failed for step 2');
 
                         // Scroll to first error
                         const firstError = document.querySelector('.border-red-500');
@@ -2411,26 +1401,6 @@
                         }
                     }
 
-                    // Validate Terms & Preferences
-                    const termsCheckbox = document.querySelector('#terms');
-                    if (termsCheckbox) {
-                        const parent = termsCheckbox.closest('.flex.items-start');
-                        const existingError = parent.querySelector('.custom-error-container');
-                        if (existingError) {
-                            existingError.remove();
-                        }
-
-                        if (!termsCheckbox.checked) {
-                            isValid = false;
-                            termsCheckbox.classList.add('border-red-500');
-
-                            const errorContainer = this.createErrorMessage('You must accept the terms and conditions to proceed');
-                            errorContainer.classList.add('custom-error-container', 'mt-2');
-                            parent.appendChild(errorContainer);
-                        } else {
-                            termsCheckbox.classList.remove('border-red-500');
-                        }
-                    }
 
                     return isValid;
                 },
@@ -2441,24 +1411,22 @@
                     const stepFields = {
                         0: ['#fullName', '#email', '#phone', '#country'],
                         1: [], // Ticket selection - handled separately
-                        2: [], // Attendee details - handled by validateStep2
-                        3: [] // Payment - to be implemented
+                        2: [] // Payment - to be implemented
                     };
 
-                    if (this.currentStep === 2) {
-                        // Use custom validation for step 2
-                        if (this.validateStep2()) {
-                            this.saveStep2Data();
-                            this.nextStep();
-                        } else {
-                            // Scroll to first error
-                            const firstError = document.querySelector('.border-red-500');
-                            if (firstError) {
-                                firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                            }
-                        }
-                        return;
-                    }
+                    // if (this.currentStep === 2) {
+                    //     // Use custom validation for step 2
+                    //     if (this.validateStep2()) {
+                    //         this.nextStep();
+                    //     } else {
+                    //         // Scroll to first error
+                    //         const firstError = document.querySelector('.border-red-500');
+                    //         if (firstError) {
+                    //             firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    //         }
+                    //     }
+                    //     return;
+                    // }
 
                     const fieldsToValidate = stepFields[this.currentStep] || [];
 
@@ -2512,63 +1480,49 @@
                     }
                 },
 
-                saveStep2Data() {
-                    // Save purchaser information
-                    const purchaserFullName = document.querySelector('#fullName1');
-                    const purchaserEmail = document.querySelector('#wizardForm #email');
-                    const purchaserPhone = document.querySelector('#wizardForm #phone');
-                    const purchaserOrg = document.querySelector('#organization');
-                    const purchaserCountry = document.querySelector('#country1');
-                    const isAttending = document.querySelector('#attending');
-
-                    if (purchaserFullName) this.formData.purchaser.fullName = purchaserFullName.value;
-                    if (purchaserEmail) this.formData.purchaser.email = purchaserEmail.value;
-                    if (purchaserPhone) this.formData.purchaser.phone = purchaserPhone.value;
-                    if (purchaserOrg) this.formData.purchaser.organization = purchaserOrg.value;
-                    if (purchaserCountry) {
-                        const countryData = $(purchaserCountry).countrySelect('getSelectedCountryData');
-                        this.formData.purchaser.country = countryData ? countryData.name : purchaserCountry.value;
-                    }
-                    if (isAttending) this.formData.purchaser.isAttending = isAttending.checked;
-
-                    // Attendees are bound to formData.attendees via x-model; ensure sync
-                    this.syncAttendees();
-
-                    // If purchaser is attending, ensure purchaser.ticketType is recorded (bound via x-model in UI)
-                    if (this.formData.purchaser.isAttending && !this.formData.purchaser.ticketType) {
-                        const tickets = this.ticketTypesArray();
-                        this.formData.purchaser.ticketType = tickets[0] || null;
-                    }
-
-                    // Normalize attendees (fill defaults where necessary)
-                    this.formData.attendees = (this.formData.attendees || []).map((a, idx) => ({
-                        name: a.name || '',
-                        email: a.email || '',
-                        role: a.role || '',
-                        organization: a.organization || this.formData.purchaser.organization || this.formData.organization || '',
-                        ticketType: a.ticketType || this.ticketTypesArray()[ (this.formData.purchaser.isAttending ? idx+1 : idx) ] || ''
-                    }));
-
-                    // Save documents & support
-                    const visaLetter = document.querySelector('#visaLetter');
-                    const passportName = document.querySelector('#passportName');
-                    const nationality = document.querySelector('#nationality');
-                    const invoiceDetails = document.querySelector('#invoiceDetails');
-
-                    if (visaLetter) this.formData.documents.needVisaLetter = visaLetter.value;
-                    if (passportName) this.formData.documents.passportName = passportName.value;
-                    if (nationality) this.formData.documents.nationality = nationality.value;
-                    if (invoiceDetails) this.formData.documents.invoiceDetails = invoiceDetails.value;
-
-                    // Save terms & preferences
-                    const terms = document.querySelector('#terms');
-                    const updates = document.querySelector('#updates');
-
-                    if (terms) this.formData.terms.accepted = terms.checked;
-                    if (updates) this.formData.terms.receiveUpdates = updates.checked;
-
-                    console.log('Step 2 data saved:', this.formData);
-                },
+                // saveStep2Data() {
+                //     // Save purchaser information
+                //     const purchaserFullName = document.querySelector('#fullName1');
+                //     const purchaserEmail = document.querySelector('#wizardForm #email');
+                //     const purchaserPhone = document.querySelector('#wizardForm #phone');
+                //     const purchaserOrg = document.querySelector('#organization');
+                //     const purchaserCountry = document.querySelector('#country1');
+                //     const isAttending = document.querySelector('#attending');
+                //
+                //     if (purchaserFullName) this.formData.purchaser.fullName = purchaserFullName.value;
+                //     if (purchaserEmail) this.formData.purchaser.email = purchaserEmail.value;
+                //     if (purchaserPhone) this.formData.purchaser.phone = purchaserPhone.value;
+                //     if (purchaserOrg) this.formData.purchaser.organization = purchaserOrg.value;
+                //     if (purchaserCountry) {
+                //         const countryData = $(purchaserCountry).countrySelect('getSelectedCountryData');
+                //         this.formData.purchaser.country = countryData ? countryData.name : purchaserCountry.value;
+                //     }
+                //     if (isAttending) this.formData.purchaser.isAttending = isAttending.checked;
+                //
+                //     // Attendees are bound to formData.attendees via x-model; ensure sync
+                //     this.syncAttendees();
+                //
+                //     // If purchaser is attending, ensure purchaser.ticketType is recorded (bound via x-model in UI)
+                //     if (this.formData.purchaser.isAttending && !this.formData.purchaser.ticketType) {
+                //         const tickets = this.ticketTypesArray();
+                //         this.formData.purchaser.ticketType = tickets[0] || null;
+                //     }
+                //
+                //     // Normalize attendees (fill defaults where necessary)
+                //     this.formData.attendees = (this.formData.attendees || []).map((a, idx) => ({
+                //         name: a.name || '',
+                //         email: a.email || '',
+                //         role: a.role || '',
+                //         organization: a.organization || this.formData.purchaser.organization || this.formData.organization || '',
+                //         ticketType: a.ticketType || this.ticketTypesArray()[ (this.formData.purchaser.isAttending ? idx+1 : idx) ] || ''
+                //     }));
+                //
+                //
+                //     // Save terms & preferences
+                //     const terms = document.querySelector('#terms');
+                //
+                //     if (terms) this.formData.terms.accepted = terms.checked;
+                // },
 
                 clearAllErrors() {
                     // Remove all custom error containers
@@ -2606,6 +1560,7 @@
                     let type = ticketType;
                     let pr = price;
 
+
                     try {
                         const active = document.activeElement;
                         const tile = active && active.closest && active.closest('[x-data]');
@@ -2613,10 +1568,11 @@
                             const heading = tile.querySelector('h2');
                             const priceEl = tile.querySelector('h3');
                             const typeFromDom = heading ? heading.textContent.trim() : null;
-                            const priceFromDom = priceEl ? parseFloat(priceEl.textContent.replace(/[^0-9.]/g, '')) : NaN;
+                            const priceFromDom = priceEl ? parseInt(priceEl.textContent.replace(/[^0-9.]/g, '')) : NaN;
 
                             if (typeFromDom) type = typeFromDom;
                             if (!isNaN(priceFromDom)) pr = priceFromDom;
+
                         }
                     } catch (e) {
                         console.log('selectTicket detect error', e);
@@ -2642,7 +1598,6 @@
                     // Keep attendees in sync with tickets
                     this.syncAttendees();
 
-                    console.log('Selected tickets:', this.selectedTickets);
                 },
 
                 // Return expanded array of ticket types (repeated per count)
@@ -2871,22 +1826,22 @@
                         console.log('Moving to step:', this.currentStep);
 
                         // If moving to Attendee Details (step 2), prefill purchaser info from step 0
-                        if (this.currentStep === 2) {
-                            // Copy root formData values into purchaser if purchaser fields are empty
-                            if (!this.formData.purchaser.fullName && this.formData.fullName) this.formData.purchaser.fullName = this.formData.fullName;
-                            if (!this.formData.purchaser.email && this.formData.email) this.formData.purchaser.email = this.formData.email;
-                            if (!this.formData.purchaser.phone1 && this.formData.phone) this.formData.purchaser.phone1 = this.formData.phone;
-                            if (!this.formData.purchaser.country && this.formData.country) this.formData.purchaser.country = this.formData.country;
-                            if (!this.formData.purchaser.organization && this.formData.organization) this.formData.purchaser.organization = this.formData.organization;
-
-                            // Prefill attendees organization if not set
-                            if (this.formData.purchaser.organization) {
-                                this.formData.attendees = this.formData.attendees || [];
-                                this.formData.attendees.forEach(a => {
-                                    if (!a.organization) a.organization = this.formData.purchaser.organization;
-                                });
-                            }
-                        }
+                        // if (this.currentStep === 2) {
+                        //     // Copy root formData values into purchaser if purchaser fields are empty
+                        //     if (!this.formData.purchaser.fullName && this.formData.fullName) this.formData.purchaser.fullName = this.formData.fullName;
+                        //     if (!this.formData.purchaser.email && this.formData.email) this.formData.purchaser.email = this.formData.email;
+                        //     if (!this.formData.purchaser.phone1 && this.formData.phone) this.formData.purchaser.phone1 = this.formData.phone;
+                        //     if (!this.formData.purchaser.country && this.formData.country) this.formData.purchaser.country = this.formData.country;
+                        //     if (!this.formData.purchaser.organization && this.formData.organization) this.formData.purchaser.organization = this.formData.organization;
+                        //
+                        //     // Prefill attendees organization if not set
+                        //     if (this.formData.purchaser.organization) {
+                        //         this.formData.attendees = this.formData.attendees || [];
+                        //         this.formData.attendees.forEach(a => {
+                        //             if (!a.organization) a.organization = this.formData.purchaser.organization;
+                        //         });
+                        //     }
+                        // }
 
 
                         // Scroll to top of form
