@@ -192,8 +192,9 @@
                 <div class="text-center mb-5 sm:mb-12">
                     <h2 class="text-2xl sm:text-3xl md:text-4xl text-[#172840] font-normal mb-5 sm:mb-4">Conference
                         Objectives</h2>
-                    <h3 class="text-base sm:text-lg md:text-xl text-[#172840] font-normal max-w-3xl mx-auto">What we aim
-                        to achieve across five days of sessions.</h3>
+                    <h3 class="text-base sm:text-lg md:text-xl text-[#172840] font-normal max-w-3xl mx-auto">We aim to unite professionals, leaders and emerging talent to share knowledge, mentor, network and drive innovation and impact.
+                        Knowledge Sharing
+                    </h3>
                 </div>
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-6">
                     <div
@@ -208,12 +209,11 @@
                                 <img src="{{ asset('assets/media/icons/knowledge-sharing.svg') }}"
                                      alt="Community Icon" class="w-10 h-10 sm:w-12 sm:h-12">
                             </div>
-                            <p class="text-red-500 text-sm sm:text-base font-normal text-left mt-auto">Leadership &
-                                Future-Ready Professionals</p>
+                            <p class="text-red-500 text-sm sm:text-base font-normal text-left mt-auto">Innovation & Technology</p>
                             <div class="relative z-10 flex flex-col h-full justify-between">
                             <small class="text-gray-300 text-sm sm:text-sm font-light">
-                                From visionary leadership to professional resilience, this track explores the skills,
-                                mindset and strategies professionals need to lead with confidence, adapt to change and remain relevant in an evolving world.
+                                Explore emerging technologies and innovative solutions that drive digital transformation,
+                                improve efficiency, and create sustainable opportunities for businesses, governments, and communities
                             </small>
                             </div>
                         </div>
@@ -230,12 +230,11 @@
                                 <img src="https://ik.imagekit.io/nkmvdjnna/PAAN/summit/icons/user-group.svg"
                                      alt="Community Icon" class="w-10 h-10 sm:w-12 sm:h-12">
                             </div>
-                            <p class="text-red-500 text-sm sm:text-base font-normal text-left">Digital Innovation &
-                                Emerging Technologies</p>
+                            <p class="text-red-500 text-sm sm:text-base font-normal text-left">Leadership & Governance</p>
                             <div class="relative z-10 flex flex-col h-full justify-between">
                             <small class="text-gray-300 text-sm sm:text-sm font-light">
-                                Explore how artificial intelligence, the digital economy, smart cities and emerging technologies
-                                are reshaping industries, redefining professional practice and creating new opportunities for growth.
+                                Strengthen leadership capacity and promote effective governance practices that foster
+                                accountability, collaboration, ethical decision-making, and sustainable organizational growth.
                             </small>
                             </div>
                         </div>
@@ -252,12 +251,11 @@
                                 <img src="{{ asset('assets/media/icons/prof-dev.svg') }}"
                                      alt="Unlock Icon" class="w-10 h-10 sm:w-12 sm:h-12">
                             </div>
-                            <p class="text-red-500 text-sm sm:text-base font-normal text-left mt-auto">Governance, Policy &
-                                Ethical Leadership</p>
+                            <p class="text-red-500 text-sm sm:text-base font-normal text-left mt-auto">Policy & Industry Dialogue</p>
                             <div class="relative z-10 flex flex-col h-full justify-between">
                             <small class="text-gray-300 text-sm sm:text-sm font-light">
-                                Delve into the role of governance, legislation, ethics and public policy in strengthening
-                                institutions, enhancing accountability and shaping a resilient professional landscape.
+                                Foster meaningful dialogue between policymakers, industry leaders, and stakeholders to
+                                shape forward-looking policies, address emerging challenges, and drive inclusive economic and sectoral development
                             </small>
                             </div>
                         </div>
@@ -275,12 +273,11 @@
                                     src="{{ asset('assets/media/icons/mentorship.svg') }}"
                                     alt="Connect Icon" class="w-10 h-10 sm:w-12 sm:h-12">
                             </div>
-                            <p class="text-red-500 text-sm sm:text-base font-normal text-left mt-auto">Economic Growth &
-                                Financial Resilience</p>
+                            <p class="text-red-500 text-sm sm:text-base font-normal text-left mt-auto">Networking & Strategic Partnerships</p>
                             <div class="relative z-10 flex flex-col h-full justify-between">
                             <small class="text-gray-300 text-sm sm:text-sm font-light">
-                                Discover insights into wealth creation, investment, retirement planning, public-private
-                                partnerships and economic transformation that empower professionals to drive sustainable prosperity.
+                                Facilitate meaningful connections and strategic partnerships that encourage collaboration,
+                                knowledge exchange, investment opportunities, and long-term business and institutional growth
                             </small>
                             </div>
                         </div>
@@ -298,38 +295,16 @@
                                     src="{{ asset('assets/media/icons/strategic-partnership.svg') }}"
                                     alt="Connect Icon" class="w-10 h-10 sm:w-12 sm:h-12">
                             </div>
-                            <p class="text-red-500 text-sm sm:text-base font-normal text-left mt-auto">Sustainability & Global Competitiveness</p>
+                            <p class="text-red-500 text-sm sm:text-base font-normal text-left mt-auto">Talent Development</p>
                             <div class="relative z-10 flex flex-col h-full justify-between">
                             <small class="text-gray-300 text-sm sm:text-sm font-light">
-                                Examine how climate action, innovation, international collaboration and global trends are
-                                influencing the future of professional practice and national competitiveness.
+                                Empower individuals and organizations through skills development, continuous learning,
+                                and capacity building to cultivate a future-ready, innovative, and resilient workforce.
                             </small>
                             </div>
                         </div>
                     </div>
 
-                    <div
-                        class="bg-slate-800 rounded-lg shadow-lg p-5 sm:p-7 md:p-8 flex flex-col h-full relative overflow-hidden group transition-all duration-300 hover:shadow-xl">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-[#175C93] to-[#7BC7F0] rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                        <div
-                            class="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-40 transition-opacity duration-300 z-[1]"
-                            style="background-image:url('https://ik.imagekit.io/nkmvdjnna/PAAN/summit/summit-objective-pattern.webp');background-size:cover;background-position:center;background-repeat:repeat"></div>
-                        <div class="relative z-10 flex flex-col h-full">
-                            <div class="flex items-start justify-start mb-5 sm:mb-6">
-                                <img
-                                    src="{{ asset('assets/media/icons/policy-dialog.svg') }}"
-                                    alt="Connect Icon" class="w-10 h-10 sm:w-12 sm:h-12">
-                            </div>
-                            <p class="text-red-500 text-sm sm:text-base font-normal text-left mt-auto">Talent, Learning & Professional Development</p>
-                            <div class="relative z-10 flex flex-col h-full justify-between">
-                                <small class="text-gray-300 text-sm sm:text-sm font-light">
-                                    Focus on the future of education, professional training, intellectual property,
-                                    global career opportunities and lifelong learning to prepare professionals for tomorrow's workplace.
-                                </small>
-                            </div>
-                        </div>
-                    </div>
 
                 </div>
             </section>
@@ -459,8 +434,8 @@
         </div>
         <div class="bg-white relative overflow-hidden section-visible" id="program">
             <section class="mx-auto max-w-6xl py-8 sm:py-12 md:py-16 lg:py-20 px-4 sm:px-6">
-                <h2 class="text-2xl sm:text-3xl text-center md:text-4xl font-normal text-slate-800 mb-2 sm:mb-3">Summit
-                    Tracks</h2>
+                <h2 class="text-2xl sm:text-3xl text-center md:text-4xl font-normal text-slate-800 mb-2
+                sm:mb-3">Conference Tracks</h2>
                 <h3 class="text-sm sm:text-base md:text-lg font-normal py-2 sm:py-3 md:py-4 text-center text-slate-800 mb-6 sm:mb-8">
                     Tracks and the five-day agenda snapshot.</h3>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
@@ -483,9 +458,9 @@
                                 style="background-image:url('https://ik.imagekit.io/nkmvdjnna/PAAN/summit/summit-objective-pattern.webp');background-size:cover;background-position:center;background-repeat:repeat"></div>
                             <div class="relative z-10 text-slate-800 group-hover:text-white">
                                 <h4 class="text-base sm:text-lg md:text-xl font-bold mb-2 sm:mb-3 transition-colors duration-300 line-clamp-2">
-                                    Change & Continuity</h4>
+                                    Leadership & Future of Work</h4>
                                 <p class="text-xs sm:text-sm md:text-base mb-3 sm:mb-4 transition-colors duration-300 line-clamp-2">
-                                    Lights, camera, action! From capturing every smile to streaming events live, our production team ensures no moment goes unnoticed. Professional, precise, and just a little obsessed with getting the perfect shot.</p>
+                                    Preparing professionals to lead through disruption, build resilient institutions and thrive in a rapidly changing world.</p>
                                 <div class="flex flex-wrap gap-2 sm:gap-2.5">
                                     <div class="flex items-center gap-1.5">
                                         <div
@@ -533,10 +508,10 @@
                                 style="background-image:url('https://ik.imagekit.io/nkmvdjnna/PAAN/summit/summit-objective-pattern.webp');background-size:cover;background-position:center;background-repeat:repeat"></div>
                             <div class="relative z-10 text-slate-800 group-hover:text-white">
                                 <h4 class="text-base sm:text-lg md:text-xl font-bold mb-2 sm:mb-3 transition-colors duration-300 line-clamp-2">
-                                    Digital Transformation and
-                                    <!-- -->&amp;<br class="hidden sm:block">the Professional Space</h4>
+                                    Digital Innovation
+                                    <!-- -->&amp;<br class="hidden sm:block">Emerging Technologies</h4>
                                 <p class="text-xs sm:text-sm md:text-base mb-3 sm:mb-4 transition-colors duration-300 line-clamp-2">
-                                    Turn bold ideas into measurable Business outcomes across channels.
+                                    Exploring AI, the digital economy, smart cities, innovation and the technologies transforming professional practice.
                                 </p>
                                 <div class="flex flex-wrap gap-2 sm:gap-2.5">
                                     <div class="flex items-center gap-1.5">
@@ -585,10 +560,12 @@
                                 style="background-image:url('https://ik.imagekit.io/nkmvdjnna/PAAN/summit/summit-objective-pattern.webp');background-size:cover;background-position:center;background-repeat:repeat"></div>
                             <div class="relative z-10 text-slate-800 group-hover:text-white">
                                 <h4 class="text-base sm:text-lg md:text-xl font-bold mb-2 sm:mb-3 transition-colors duration-300 line-clamp-2">
-                                    New Government in the
-                                    <!-- --><br class="hidden sm:block">New World Order</h4>
+                                    Governance, Policy &
+                                    <!-- --><br class="hidden sm:block">Global Affairs</h4>
                                 <p class="text-xs sm:text-sm md:text-base mb-3 sm:mb-4 transition-colors duration-300 line-clamp-2">
-                                    Build accountable growth with clean data and clear attribution.
+                                    Examining governance, public policy, ethics, geopolitics and the
+                                    partnerships shaping resilient economies and institutions.
+
                                 </p>
                                 <div class="flex flex-wrap gap-2 sm:gap-2.5">
                                     <div class="flex items-center gap-1.5">
@@ -632,10 +609,11 @@
                                 style="background-image:url('https://ik.imagekit.io/nkmvdjnna/PAAN/summit/summit-objective-pattern.webp');background-size:cover;background-position:center;background-repeat:repeat"></div>
                             <div class="relative z-10 text-slate-800 group-hover:text-white">
                                 <h4 class="text-base sm:text-lg md:text-xl font-bold mb-2 sm:mb-3 transition-colors duration-300 line-clamp-2">
-                                    Flight of Mind:
-                                    <!-- --><br class="hidden sm:block">Unlimited Technological Possibilities</h4>
+                                    Economic Growth &
+                                    <!-- --><br class="hidden sm:block">Financial Resilience</h4>
                                 <p class="text-xs sm:text-sm md:text-base mb-3 sm:mb-4 transition-colors duration-300 line-clamp-2">
-                                    Power sustainable independent careers and creator-led studios.
+                                    From wealth creation and investment to trade, retirement and economic
+                                    transformation, this track focuses on building sustainable prosperity.
                                 </p>
                                 <div class="flex flex-wrap gap-2 sm:gap-2.5">
                                     <div class="flex items-center gap-1.5">
@@ -679,10 +657,11 @@
                                 style="background-image:url('https://ik.imagekit.io/nkmvdjnna/PAAN/summit/summit-objective-pattern.webp');background-size:cover;background-position:center;background-repeat:repeat"></div>
                             <div class="relative z-10 text-slate-800 group-hover:text-white">
                                 <h4 class="text-base sm:text-lg md:text-xl font-bold mb-2 sm:mb-3 transition-colors duration-300 line-clamp-2">
-                                    Professional Training &<br class="hidden sm:block"> Certification in the New
-                                    World Order</h4>
+                                    Sustainability & <br class="hidden sm:block"> Inclusive Development</h4>
                                 <p class="text-xs sm:text-sm md:text-base mb-3 sm:mb-4 transition-colors duration-300 line-clamp-2">
-                                    Build credible brands in an era of activism and misinformation.
+                                    Exploring climate action, sustainability, public-private collaboration and
+                                    innovation for long-term impact and competitiveness.
+
                                 </p>
                                 <div class="flex flex-wrap gap-2 sm:gap-2.5">
                                     <div class="flex items-center gap-1.5">
@@ -726,10 +705,12 @@
                                 style="background-image:url('https://ik.imagekit.io/nkmvdjnna/PAAN/summit/summit-objective-pattern.webp');background-size:cover;background-position:center;background-repeat:repeat"></div>
                             <div class="relative z-10 text-slate-800 group-hover:text-white">
                                 <h4 class="text-base sm:text-lg md:text-xl font-bold mb-2 sm:mb-3 transition-colors duration-300 line-clamp-2">
-                                    Commerce, Platforms
-                                    <!-- -->&amp;<br class="hidden sm:block">Marketing Business</h4>
+                                    Talent, Learning &
+                                    <!-- -->&amp;<br class="hidden sm:block">Professional Excellence</h4>
                                 <p class="text-xs sm:text-sm md:text-base mb-3 sm:mb-4 transition-colors duration-300 line-clamp-2">
-                                    Where retail media, social commerce and fintech converge.</p>
+                                    Reimagining education, professional standards, global careers and lifelong
+                                    learning to prepare tomorrow's professionals.
+                                </p>
                                 <div class="flex flex-wrap gap-2 sm:gap-2.5">
                                     <div class="flex items-center gap-1.5">
                                         <div
@@ -759,60 +740,14 @@
                             </div>
                         </div>
                     </div>
-                    <div
-                        class="relative rounded-lg shadow-lg overflow-hidden min-h-[320px] sm:min-h-[360px] md:h-80 lg:h-96 flex flex-col md:block ">
-                        <div
-                            class="relative flex-1 min-h-[180px] sm:min-h-[200px] md:absolute md:inset-0 overflow-hidden">
-                            <img alt="AI, Technology &amp; The Future of Creative Work"
-                                 class="object-cover md:object-contain md:object-center md:-mt-20"
-                                 style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent"
-                                 src="{{ asset('assets/media/images/content-img-7.webp') }}">
-                        </div>
-                        <div
-                            class="bg-[#DAECF3] rounded-b-lg md:rounded-t-lg p-4 sm:p-5 md:p-6 transition-all duration-300 md:absolute md:bottom-0 md:left-0 md:right-0 z-10 relative group"
-                            style="background-image:none">
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-[#F25849] to-[#172840] rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                            <div
-                                class="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-40 transition-opacity duration-300 z-[1]"
-                                style="background-image:url('https://ik.imagekit.io/nkmvdjnna/PAAN/summit/summit-objective-pattern.webp');background-size:cover;background-position:center;background-repeat:repeat"></div>
-                            <div class="relative z-10 text-slate-800 group-hover:text-white">
-                                <h4 class="text-base sm:text-lg md:text-xl font-bold mb-2 sm:mb-3 transition-colors duration-300 line-clamp-2">
-                                    Cross-Border Collaboration
-                                    <!-- -->&amp;<br class="hidden sm:block">Ecosystem Growth</h4>
-                                <p class="text-xs sm:text-sm md:text-base mb-3 sm:mb-4 transition-colors duration-300 line-clamp-2">
-                                    Partner across markets to scale Africa's creative economy.
-                                </p>
-                                <div class="flex flex-wrap gap-2 sm:gap-2.5">
-                                    <div class="flex items-center gap-1.5">
-                                        <div
-                                            class="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-yellow-500 rounded-full flex-shrink-0"></div>
-                                        <small
-                                            class="text-[10px] sm:text-xs transition-colors duration-300 leading-tight">Multi
-                                            Market Ops</small></div>
-                                    <div class="flex items-center gap-1.5">
-                                        <div
-                                            class="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-yellow-500 rounded-full flex-shrink-0"></div>
-                                        <small
-                                            class="text-[10px] sm:text-xs transition-colors duration-300 leading-tight">ip
-                                            & Billing Martech</small></div>
-                                    <div class="flex items-center gap-1.5">
-                                        <div
-                                            class="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-yellow-500 rounded-full flex-shrink-0"></div>
-                                        <small
-                                            class="text-[10px] sm:text-xs transition-colors duration-300 leading-tight">Talent
-                                            Mobility</small></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
             </section>
         </div>
         <div class="bg-[#F3F9FB] py-12 sm:py-16 md:py-20" id="agenda">
             <section class="mx-auto max-w-6xl px-4 sm:px-6">
                 <div class="text-center mb-8 sm:mb-12">
-                    <h2 class="text-2xl sm:text-3xl font-normal text-[#1a365d] mb-3 sm:mb-4">Summit Agenda</h2>
+                    <h2 class="text-2xl sm:text-3xl font-normal text-[#1a365d] mb-3 sm:mb-4">Conference Programme</h2>
                     <p class="text-base sm:text-lg text-gray-600">Five days of thought leadership and professional networking</p>
                 </div>
 
