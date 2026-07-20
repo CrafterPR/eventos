@@ -8,7 +8,7 @@
             <div class="relative h-full flex items-center justify-center pt-4 sm:pt-16 md:pt-24">
                 <div class="mx-auto max-w-6xl w-full px-4 sm:px-6">
                     <div class="max-w-2xl mx-auto text-center">
-                        <h1 class="text-2xl sm:text-3xl md:text-4xl font-normal text-white mb-6 sm:mb-8
+                        <h1 class="text-xl sm:text-2xl md:text-2xl font-normal text-white mb-6 sm:mb-8
                         leading-tight"
                             style="opacity: 1; transform: none;">2 <sup>nd</sup>KASNEB International Conference for Professionals (KICP)</h1>
                         <div class="flex flex-col sm:flex-row gap-2 sm:gap-4 mb-6 sm:mb-10 justify-center"
@@ -94,7 +94,7 @@
                                     <path d="M18 16l-4-2.5" stroke="currentColor"></path>
                                 </svg>
                                 <span
-                                    class="break-words sm:whitespace-nowrap">Theme:  <span
+                                    class="break-words sm:whitespace-nowrap text-white/80">Theme:  <span
                                         class="break-words sm:whitespace-nowrap"><strong>Shaping
                                                 Tomorrow's Professional Landscape</strong></span></span>
 
@@ -155,19 +155,12 @@
                 <div class="grid md:grid-cols-2 gap-8 py-12 sm:py-16 md:py-28 items-stretch min-h-screen">
                     <div class="flex flex-col gap-4 sm:gap-6 relative z-10 md:pr-6">
                         <div class="flex flex-col gap-3 sm:gap-4" style="opacity: 1; transform: none;">
-                            <h2 class="text-2xl sm:text-3xl md:text-4xl text-white font-normal">About the Summit</h2>
-                            <h3 class="text-lg sm:text-xl md:text-2xl text-white font-normal">Shaping Tomorrow’s Professional Landscape
-                                .</h3>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl text-white font-normal">About the
+                                Conference</h2>
+                            <h3 class="text-lg sm:text-xl md:text-2xl text-white font-normal">Shaping Tomorrow’s Professional Landscape</h3>
                         </div>
                         <div class="space-y-3 sm:space-y-4 text-white text-sm sm:text-base md:text-lg leading-relaxed"
                              style="opacity: 1; transform: none;">
-                            <p>
-                                The world of work is changing faster than ever before, and so are the expectations placed
-                                on today's professionals. From emerging technologies and evolving business models to sustainability,
-                                governance and changing workforce dynamics, professionals are being called upon to adapt,
-                                innovate and lead in new ways. Success requires more than technical expertise, it calls
-                                for adaptability, continuous learning, collaboration and forward-thinking leadership.
-                            </p>
                             <p>
                                 The 2nd KASNEB International Conference for Professionals (KICP) brings together professionals,
                                 industry leaders, policymakers and academia to examine the forces shaping the future of
