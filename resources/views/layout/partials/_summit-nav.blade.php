@@ -24,10 +24,15 @@
                     <a href="{{ route('/') }}"
                         class="text-slate-800 bg-blue-500 px-2 sm:px-3 py-1.5 rounded-full transition-all duration-300
                         cursor-pointer text-xs sm:text-sm font-medium">Home</a>
+                    <a href="@if(!request()->routeIs('/')) {{ route('/') }}#about @else #about @endif"
+                       class="text-[#172840] hover:text-gray-900 hover:bg-[#175C93] px-2 sm:px-3 py-1.5 rounded-full
+                       transition-all duration-300 cursor-pointer text-xs sm:text-sm">About the conference
 
+                        <a href="@if(!request()->routeIs('/')) {{ route('/') }}#agenda @else #agenda @endif"
+                       class="text-[#172840] hover:text-gray-900 hover:bg-[#175C93] px-2 sm:px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer text-xs sm:text-sm">Programme
+                    </a>
 
-                    <a href="@if(!request()->routeIs('/')) {{ route('/') }}#agenda @else #agenda @endif"
-                       class="text-[#172840] hover:text-gray-900 hover:bg-[#175C93] px-2 sm:px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer text-xs sm:text-sm">Programme</a>
+                    </a>
                     <a
                         href="@if(!request()->routeIs('/')) {{ route('/') }}#participants @else #participants @endif"
                         class="text-[#172840] hover:text-gray-900 hover:bg-[#175C93] px-2 sm:px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer text-xs sm:text-sm">Who
@@ -141,18 +146,19 @@
                 <a href="#home"
                    class="text-slate-800 bg-blue-600 block px-3 sm:px-4 py-2 sm:py-3 rounded-full transition-all duration-300 cursor-pointer text-sm sm:text-base font-medium">Home
                 </a>
-                <a href="{{ route('about') }}"
-                   class="text-slate-800 bg-blue-600 block px-3 sm:px-4 py-2 sm:py-3 rounded-full transition-all duration-300 cursor-pointer text-sm sm:text-base font-medium">About
+                <a href="#about"
+                   class="text-[#172840] hover:text-gray-900 hover:bg-[#175C93] block px-3 sm:px-4 py-2 sm:py-3 rounded-full transition-all duration-300 cursor-pointer text-sm sm:text-base">About the conference
+                </a>
+
+                <a href="#agenda"
+                   class="text-[#172840] hover:text-gray-900 hover:bg-[#175C93] block px-3 sm:px-4 py-2 sm:py-3 rounded-full transition-all duration-300 cursor-pointer text-sm sm:text-base">Programme
                 </a>
                 <a
-                    href="#program"
-                    class="text-[#172840] hover:text-gray-900 hover:bg-[#175C93] block px-3 sm:px-4 py-2 sm:py-3 rounded-full transition-all duration-300 cursor-pointer text-sm sm:text-base">Sessions</a>
-                <a href="#agenda"
-                   class="text-[#172840] hover:text-gray-900 hover:bg-[#175C93] block px-3 sm:px-4 py-2 sm:py-3 rounded-full transition-all duration-300 cursor-pointer text-sm sm:text-base">Programme</a><a
                     href="#participants"
                     class="text-[#172840] hover:text-gray-900 hover:bg-[#175C93] block px-3 sm:px-4 py-2 sm:py-3 rounded-full transition-all duration-300 cursor-pointer text-sm sm:text-base">Who
                     can attend</a><a href="#speakers-section"
-                                     class="text-[#172840] hover:text-gray-900 hover:bg-[#175C93] block px-3 sm:px-4 py-2 sm:py-3 rounded-full transition-all duration-300 cursor-pointer text-sm sm:text-base">Speakers</a>
+                                     class="text-[#172840] hover:text-gray-900 hover:bg-[#175C93] block px-3 sm:px-4 py-2 sm:py-3 rounded-full transition-all duration-300 cursor-pointer text-sm sm:text-base">Speakers
+                </a>
                 <a
                     href="#paan-awards-section"
                     class="text-[#172840] hover:text-gray-900 hover:bg-[#175C93] block px-3 sm:px-4 py-2 sm:py-3 rounded-full transition-all duration-300 cursor-pointer text-sm sm:text-base">Awards</a>

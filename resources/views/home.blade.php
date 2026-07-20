@@ -151,7 +151,7 @@
             <div class="absolute inset-0 z-0 bg-repeat bg-cover"
                  style="background-image:url('https://ik.imagekit.io/nkmvdjnna/PAAN/summit/about-summit-pattern.webp');background-size:60%;background-blend-mode:overlay;opacity:0.7"></div>
             <div class="absolute inset-0 bg-gradient-to-r from-[#172840] to-[#84c1d9cc] z-0"></div>
-            <section class="relative mx-auto max-w-6xl z-10 px-4 sm:px-6">
+            <section class="relative mx-auto max-w-6xl z-10 px-4 sm:px-6" id="about">
                 <div class="grid md:grid-cols-2 gap-8 py-12 sm:py-16 md:py-28 items-stretch min-h-screen">
                     <div class="flex flex-col gap-4 sm:gap-6 relative z-10 md:pr-6">
                         <div class="flex flex-col gap-3 sm:gap-4" style="opacity: 1; transform: none;">
@@ -1672,7 +1672,7 @@
                                     class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">Human Resource & Organizational Development Professionals</span>
                                 <span class="text-2xl sm:text-3xl text-[#175C93]">•</span><span
                                     class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">Marketing, Media & Communication Professionals</span><span
-                                    class="text-2xl sm:text-3xl text-[#175C93]">•</span></div>
+                                    class="text-2xl sm:xtext-3xl text-[#175C93]">•</span></div>
                             <div class="flex items-center space-x-4 sm:space-x-6 md:space-x-8"><span
                                     class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">Procurement & Supply Chain Professionals</span><span
                                     class="text-2xl sm:text-3xl text-red-500">•</span>

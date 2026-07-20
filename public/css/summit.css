@@ -2272,6 +2272,10 @@ input:where([type='file']):focus{
   --tw-text-opacity: 1;
   color: rgb(23 40 64 / var(--tw-text-opacity, 1));
 }
+.text-\[\#175C93\]{
+  --tw-text-opacity: 1;
+  color: rgb(23 92 147 / var(--tw-text-opacity, 1));
+}
 .text-\[\#1a365d\]{
   --tw-text-opacity: 1;
   color: rgb(26 54 93 / var(--tw-text-opacity, 1));
@@ -2351,10 +2355,6 @@ input:where([type='file']):focus{
 }
 .text-white\/90{
   color: rgb(255 255 255 / 0.9);
-}
-.text-yellow-500{
-  --tw-text-opacity: 1;
-  color: rgb(234 179 8 / var(--tw-text-opacity, 1));
 }
 .underline{
   text-decoration-line: underline;
