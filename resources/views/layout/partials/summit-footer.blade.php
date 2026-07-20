@@ -8,11 +8,17 @@
                     <div class="flex items-center gap-2"><span class="text-white/80 text-sm">© 2026 KICP Conference.
                             All rights reserved.</span>
                     </div>
+                    <div class="text-white/80 flex items-center gap-2 text-sm">Organized &amp; managed by
+                        <span class="text-red-500"><a href="http://www.craftedpr.co.ke"
+                                                                class="hover:text-white/80
+                        transition-colors">Crafted PR</a></span>
+                    </div>
                     <div class="flex gap-6 text-sm"><a href="/privacy-policy"
                                                        class="text-white/80 hover:text-red-500 transition-colors">Privacy
                             Policy</a><a href="/terms-and-conditions"
                                          class="text-white/80 hover:text-red-500 transition-colors">Terms of
-                            Service</a></div>
+                            Service</a>
+                    </div>
                 </div>
             </div>
         </div>

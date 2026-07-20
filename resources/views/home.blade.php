@@ -20,13 +20,41 @@
                                          class="text-red-500 flex-shrink-0 iconify iconify--mdi" width="20" height="20"
                                          viewBox="0 0 24 24">
                                         <path fill="currentColor"
-                                              d="M12 11.5A2.5 2.5 0 0 1 9.5 9A2.5 2.5 0 0 1 12 6.5A2.5 2.5 0 0 1 14.5 9a2.5 2.5 0 0 1-2.5 2.5M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7"></path>
+                                              d="M12 11.5A2.5 2.5 0 0 1 9.5 9A2.5 2.5 0 0 1 12 6.5A2.5 2.5 0 0 1 14.5 9a2.5 2.5 0 0 1-2.5 2.5M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7">
+
+                                        </path>
                                     </svg>
                                     <span
                                         class="break-words sm:whitespace-nowrap">TBD,
-                                        Nairobi <strong>- 14<sup>th</sup> - 18<sup>th</sup> September
-                                            2026</strong></span>
+                                        Nairobi
+                                    </span>
 
+                                </div>
+                                <div class="flex items-center gap-2 text-white text-xs sm:text-sm">
+                                    <svg width="20" height="20" viewBox="0 0 1024 1024" class="icon"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M182.067 383.79h664.916v473.911H182.067z" fill="#FCE3C3" />
+                                        <path d="M846.983 857.701H170.007V401.632h676.976v456.069zM189.428 838.28h638.134V421.053H189.428V838.28z" fill="#300604" />
+                                        <path d="M850.483 861.201H166.507V398.132h683.977v463.069z m-676.976-7h669.977V405.132H173.507v449.069z m657.555-12.421H185.929V417.553h645.134V841.78z m-638.133-7h631.134V424.553H192.929V834.78z" fill="#300604" />
+                                        <path d="M179.718 273.282h657.556v138.061H179.718z" fill="#300604" />
+                                        <path d="M840.774 414.844H176.219V269.782h664.556v145.062z m-657.555-7h650.556V276.782H183.219v131.062z" fill="#300604" />
+                                        <path d="M846.983 421.053H170.007V263.572h676.976v157.481z m-657.555-19.421h638.134V282.994H189.428v118.638z" fill="#300604" />
+                                        <path d="M850.483 424.553H166.507v-164.48h683.977v164.48z m-676.976-7h669.977v-150.48H173.507v150.48z m657.555-12.421H185.929V279.494h645.134v125.638z m-638.133-7h631.134V286.494H192.929v111.638z" fill="#300604" />
+                                        <path d="M672.215 190.225h63.426v162.87h-63.426z" fill="#ED8F27" />
+                                        <path d="M745.351 362.806h-82.847V180.514h82.847v182.292z m-63.426-19.421h44.005v-143.45h-44.005v143.45z" fill="#300604" />
+                                        <path d="M281.351 190.225h63.426v162.87h-63.426z" fill="#ED8F27" />
+                                        <path d="M354.487 362.806H271.64V180.514h82.847v182.292z m-63.426-19.421h44.005v-143.45h-44.005v143.45z" fill="#300604" />
+                                        <path d="M688.071 468.427h66.597v66.597h-66.597z" fill="#B12800" />
+                                        <path d="M688.071 596.369h66.597v66.597h-66.597zM688.071 724.31h66.597v66.598h-66.597zM546.156 468.427h66.597v66.597h-66.597z" fill="#228E9D" />
+                                        <path d="M546.156 596.369h66.597v66.597h-66.597z" fill="#B12800" />
+                                        <path d="M546.156 724.31h66.597v66.598h-66.597zM404.239 468.427h66.598v66.597h-66.598z" fill="#228E9D" />
+                                        <path d="M404.239 596.369h66.598v66.597h-66.598z" fill="#B12800" />
+                                        <path d="M404.239 724.31h66.598v66.598h-66.598zM262.323 596.369h66.598v66.597h-66.598z" fill="#228E9D" />
+                                        <path d="M262.323 724.31h66.598v66.598h-66.598z" fill="#B12800" /></svg>
+                                    <strong>
+
+                                        14<sup>th</sup> - 18<sup>th</sup> September
+                                        2026</strong>
                                 </div>
                                 <div class="flex items-center gap-2 text-white text-xs sm:text-sm">
                                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -79,19 +107,9 @@
                                 class="bg-gradient-to-r from-[#175C93] to-[#7BC7F0] text-white px-6 sm:px-8 py-3 rounded-full hover:opacity-90 transition-all duration-300 font-medium text-sm sm:text-base shadow-lg flex items-center justify-center gap-2 w-full sm:w-auto">
                                 Register Now
                             </a>
-                            <button
-                                class="bg-transparent border border-white text-white px-6 sm:px-8 py-3 rounded-full hover:bg-white hover:text-red-500 transition-all duration-300 font-medium text-sm sm:text-base shadow-lg flex items-center justify-center gap-2 w-full sm:w-auto">
-                                Partner With Us
-                            </button>
-                            <button
-                                class="bg-transparent border border-white text-white px-6 sm:px-8 py-3 rounded-full hover:bg-white hover:text-red-500 transition-all duration-300 font-medium text-sm sm:text-base shadow-lg flex items-center justify-center gap-2 w-full sm:w-auto">
-                                View Track
-                            </button>
                         </div>
                     </div>
-                    <p class="text-white/80 text-xs sm:text-sm text-center mt-4 sm:mt-6">Organized &amp; managed by
-                        <span class="font-bold text-red-500"><a href="/" class="hover:text-red-500 transition-colors">Crafted PR</a></span>
-                    </p>
+
                 </div>
             </div>
         </div>
@@ -448,14 +466,7 @@
                         class="bg-gradient-to-r from-[#172840] to-[#F25849] text-white px-6 sm:px-8 py-3 text-sm sm:text-base font-medium w-full sm:w-auto rounded-full hover:opacity-90 transition-all duration-300 shadow-lg flex items-center justify-center gap-2">
                         Register Now
                     </a>
-                    <button
-                        class="bg-transparent border border-slate-800 text-slate-800 px-6 sm:px-8 py-3 rounded-full hover:bg-slate-800 hover:text-white transition-all duration-300 font-medium text-sm sm:text-base shadow-lg flex items-center justify-center gap-2 w-full sm:w-auto">
-                        Partner With Us
-                    </button>
-                    <button
-                        class="bg-transparent border border-slate-800 text-slate-800 px-6 sm:px-8 py-3 rounded-full hover:bg-slate-800 hover:text-white transition-all duration-300 font-medium text-sm sm:text-base shadow-lg flex items-center justify-center gap-2 w-full sm:w-auto">
-                        View Agenda
-                    </button>
+
                 </div>
             </section>
         </div>
@@ -2058,90 +2069,6 @@
         </div>
         <div class="bg-white relative py-12 sm:py-16 md:py-20" id="plan-your-trip">
             <section class="relative mx-auto max-w-6xl px-4 sm:px-6">
-                <div class="text-left mb-8 sm:mb-12">
-                    <h3 class="text-xs sm:text-sm w-fit text-white font-light bg-[#84C1DA] rounded-full px-3 sm:px-4 py-2 mb-3 sm:mb-4">
-                        Plan Your Trip</h3>
-                    <h2 class="text-2xl sm:text-3xl text-slate-800 font-bold uppercase mb-3 sm:mb-4">Plan Your Trip</h2>
-                    <p class="text-base sm:text-lg md:text-xl font-normal text-slate-800">Smooth logistics,
-                        unforgettable Nairobi experience.</p>
-                </div>
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mb-8 sm:mb-12">
-                    <div class="bg-gradient-to-br from-[#DAECF4] to-[#F3F9FB] rounded-xl p-4 sm:p-6 shadow-lg">
-                        <div class="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
-                            <div class="bg-red-500 rounded-full p-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                     aria-hidden="true" role="img" class="text-white iconify iconify--mdi" width="20"
-                                     height="20" viewBox="0 0 24 24">
-                                    <path fill="currentColor"
-                                          d="M12 11.5A2.5 2.5 0 0 1 9.5 9A2.5 2.5 0 0 1 12 6.5A2.5 2.5 0 0 1 14.5 9a2.5 2.5 0 0 1-2.5 2.5M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7"></path>
-                                </svg>
-                            </div>
-                            <h3 class="text-lg sm:text-xl font-bold text-slate-800">Venue Information</h3>
-                        </div>
-                        <p class="text-slate-800 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">Expect world‑class facilities, breakout rooms for deal‑making, and easy access to World class professionals.</p>
-                        <div class="space-y-3 sm:space-y-4">
-                            <div class="bg-white rounded-lg p-3 sm:p-4 shadow-md">
-                                <div class="flex items-center gap-2 sm:gap-3 mb-2">
-                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                         aria-hidden="true" role="img" class="text-red-500 iconify iconify--mdi"
-                                         width="16" height="16" viewBox="0 0 24 24">
-                                        <path fill="currentColor"
-                                              d="M12 11.5A2.5 2.5 0 0 1 9.5 9A2.5 2.5 0 0 1 12 6.5A2.5 2.5 0 0 1 14.5 9a2.5 2.5 0 0 1-2.5 2.5M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7"></path>
-                                    </svg>
-                                    <h4 class="font-semibold text-slate-800 text-sm sm:text-base">TBD,Nairobi </h4>
-                                </div>
-                                <a href="#" target="_blank"
-                                   class="text-[#84C1DA] hover:text-red-500 transition-colors text-xs sm:text-sm">View
-                                    Directions →</a>
-                            </div>
-                            <div class="bg-white rounded-lg p-3 sm:p-4 shadow-md">
-                                <div class="flex items-center gap-2 sm:gap-3 mb-2">
-                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                         aria-hidden="true" role="img" class="text-red-500 iconify iconify--mdi"
-                                         width="16" height="16" viewBox="0 0 24 24">
-                                        <path fill="currentColor"
-                                              d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"></path>
-                                    </svg>
-                                    <h4 class="font-semibold text-slate-800 text-sm sm:text-base">Event Dates</h4>
-                                </div>
-                                <p class="text-slate-800 text-sm sm:text-base">14th-18th September 2026</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bg-gradient-to-br from-[#F3F9FB] to-[#DAECF4] rounded-xl p-4 sm:p-6 shadow-lg">
-                        <div class="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
-                            <div class="bg-[#84C1DA] rounded-full p-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                     aria-hidden="true" role="img" class="text-white iconify iconify--mdi" width="20"
-                                     height="20" viewBox="0 0 24 24">
-                                    <path fill="currentColor"
-                                          d="m15.07 11.25l-.9.92C13.45 12.89 13 13.5 13 15h-2v-.5c0-1.11.45-2.11 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41a2 2 0 0 0-2-2a2 2 0 0 0-2 2H8a4 4 0 0 1 4-4a4 4 0 0 1 4 4a3.2 3.2 0 0 1-.93 2.25M13 19h-2v-2h2M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10c0-5.53-4.5-10-10-10"></path>
-                                </svg>
-                            </div>
-                            <h3 class="text-lg sm:text-xl font-bold text-slate-800">Travel Support</h3>
-                        </div>
-                        <div class="space-y-3 sm:space-y-4">
-                            <div class="bg-white rounded-lg p-3 sm:p-4 shadow-md">
-                                <h4 class="font-semibold text-slate-800 mb-2 text-sm sm:text-base">Need Assistance?</h4>
-                                <p class="text-slate-800 text-xs sm:text-sm mb-3">Our travel team is here to help with
-                                    logistics, accommodation, and any questions you might have.</p><a
-                                    href="#"
-                                    class="text-[#84C1DA] hover:text-red-500 transition-colors font-medium text-xs sm:text-sm break-all">www.kicp.co.ke </a>
-                            </div>
-                            <button
-                                class="w-full bg-slate-800 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg hover:bg-red-500 transition-all duration-300 font-medium shadow-lg flex items-center justify-center gap-2 text-sm sm:text-base">
-                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                     aria-hidden="true" role="img" class="iconify iconify--mdi" width="16" height="16"
-                                     viewBox="0 0 24 24">
-                                    <path fill="currentColor"
-                                          d="M13 12h7v1.5h-7m0-4h7V11h-7m0 3.5h7V16h-7m8-12H3a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h18a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2m0 15h-9V6h9"></path>
-                                </svg>
-                                Open
-                                Travel Guide
-                            </button>
-                        </div>
-                    </div>
-                </div>
                 <div class="w-full">
                     <h3 class="text-xl sm:text-2xl font-bold text-slate-800 mb-4 sm:mb-6">Frequently Asked
                         Questions</h3>
