@@ -1471,6 +1471,10 @@
                                     </div>
                                     <div class="p-4 sm:p-6 relative flex-1 overflow-y-auto">
                                         <div class="space-y-4 sm:space-y-6 relative">
+                                            <div
+                                                class="absolute left-[5px] top-[6px] bottom-[6px] w-0.5 bg-[#ef4444]">
+
+                                            </div>
                                             <div class="flex relative">
                                                 <div class="relative">
                                                     <div
@@ -1818,7 +1822,9 @@
                                     <div class="p-4 sm:p-6 relative flex-1 overflow-y-auto">
                                         <div class="space-y-4 sm:space-y-6 relative">
                                             <div
-                                                class="absolute left-[5px] top-[6px] bottom-[6px] w-0.5 bg-[#ef4444]"></div>
+                                                class="absolute left-[5px] top-[6px] bottom-[6px] w-0.5 bg-[#ef4444]">
+
+                                            </div>
                                             <div class="flex relative">
                                                 <div class="relative">
                                                     <div
@@ -2390,13 +2396,20 @@
                                         <p class="text-xs sm:text-sm opacity-90 mt-1">Afternoon session</p>
                                     </div>
                                     <div class="p-4 sm:p-6 relative flex-1 overflow-y-auto">
+
                                         <div class="space-y-4 sm:space-y-6 relative">
+                                            <div
+                                                class="absolute left-[5px] top-[6px] bottom-[6px] w-0.5 bg-[#ef4444]">
+
+                                            </div>
                                             <div class="flex relative">
                                                 <div class="relative">
                                                     <div
                                                         class="w-3 h-3 bg-[#ef4444] rounded-full shadow-lg shadow-[#ef4444]/50 flex-shrink-0 z-10 relative"></div>
                                                     <div
-                                                        class="absolute inset-0 w-3 h-3 bg-[#ef4444] rounded-full opacity-30 animate-ping"></div>
+                                                        class="absolute inset-0 w-3 h-3 bg-[#ef4444] rounded-full opacity-30 animate-ping">
+
+                                                    </div>
                                                 </div>
                                                 <div class="ml-4 sm:ml-6 ">
                                                     <div class="text-xs sm:text-sm font-bold text-[#84C1D9]
@@ -3311,6 +3324,9 @@
                                     </div>
                                     <div class="p-4 sm:p-6 relative flex-1 overflow-y-auto">
                                         <div class="space-y-4 sm:space-y-6 relative">
+                                            <div
+                                                class="absolute left-[5px] top-[6px] bottom-[6px] w-0.5 bg-[#ef4444]">
+                                            </div>
                                             <div class="flex relative">
                                                 <div class="relative">
                                                     <div
@@ -4231,6 +4247,10 @@
                                     </div>
                                     <div class="p-4 sm:p-6 relative flex-1 overflow-y-auto">
                                         <div class="space-y-4 sm:space-y-6 relative">
+                                            <div
+                                                class="absolute left-[5px] top-[6px] bottom-[6px] w-0.5 bg-[#ef4444]">
+
+                                            </div>
                                             <div class="flex relative">
                                                 <div class="relative">
                                                     <div
