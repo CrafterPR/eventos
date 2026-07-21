@@ -136,7 +136,7 @@
                 </div>
             </div>
         </div>
-        <div class="absolute top-[90vh] left-0 right-0 z-10 pointer-events-none transform -translate-y-1/2">
+        <div class="absolute top-[100vh] left-0 right-0 z-10 pointer-events-none transform -translate-y-1/2">
             <div class="pointer-events-auto">
                 <div class="hidden sm:block relative z-8">
                     <div class="mx-auto max-w-4xl px-4 sm:px-6">
@@ -367,7 +367,7 @@
             <div class="absolute inset-0 z-0 opacity-30"
                  style="background-image:url('https://ik.imagekit.io/nkmvdjnna/PAAN/summit/at-a-glance.png');background-size:cover;background-position:center;background-repeat:no-repeat"></div>
             <section class="relative text-center mx-auto max-w-6xl py-12 sm:py-16 md:py-20 px-4 sm:px-6 z-10">
-                <h2 class="text-2xl sm:text-3xl md:text-4xl font-normal text-slate-800">At a Glance</h2>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-normal text-white">At a Glance</h2>
                 <h3 class="text-sm sm:text-base md:text-md font-normal py-3 sm:py-4 text-slate-800">The scale and reach
                     of the Summit.</h3>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
@@ -499,12 +499,15 @@
                             class="relative flex-1 min-h-[180px] sm:min-h-[200px] md:absolute md:inset-0 overflow-hidden">
                             <img alt="Film production"
                                  class="object-cover md:object-contain md:object-center md:-mt-20"
-                                 style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent"
-                                 src="{{ asset('assets/media/images/change.webp') }}">
+                                 style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;
+                                 color:transparent;border-radius:1px"
+                                 src="{{ asset('assets/media/images/content-img-5.webp') }}">
                         </div>
-                        <div
-                            class="bg-[#DAECF3] rounded-b-lg md:rounded-t-lg p-4 sm:p-5 md:p-6 transition-all duration-300 md:absolute md:bottom-0 md:left-0 md:right-0 z-10 relative group"
+                        <div class="bg-[#DAECF3] rounded-b-lg md:rounded-t-lg p-4 sm:p-5 md:p-6 transition-all
+                        duration-300
+                             md:absolute md:bottom-0 md:left-0 md:right-0 z-10 relative group"
                             style="background-image:none">
+
                             <div
                                 class="absolute inset-0 bg-gradient-to-t from-[#F25849] to-[#172840] rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                             <div
@@ -521,25 +524,28 @@
                                         <div
                                             class="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-yellow-500 rounded-full flex-shrink-0"></div>
                                         <small
-                                            class="text-[10px] sm:text-xs transition-colors duration-300 leading-tight">Digital
-                                            Transformation and the Professional Space</small></div>
+                                            class="text-[10px] sm:text-xs transition-colors duration-300 leading-tight">Digital Leadership & Transformation
+                                            </small></div>
                                     <div class="flex items-center gap-1.5">
                                         <div
                                             class="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-yellow-500 rounded-full flex-shrink-0"></div>
                                         <small
-                                            class="text-[10px] sm:text-xs transition-colors duration-300 leading-tight">Governance</small>
+                                            class="text-[10px] sm:text-xs transition-colors duration-300 leading-tight">Governance, Ethics & Accountability
+                                            </small>
                                     </div>
                                     <div class="flex items-center gap-1.5">
                                         <div
                                             class="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-yellow-500 rounded-full flex-shrink-0"></div>
                                         <small
-                                            class="text-[10px] sm:text-xs transition-colors duration-300 leading-tight">Productivity</small>
+                                            class="text-[10px] sm:text-xs transition-colors duration-300
+                                            leading-tight">Workplace Productivity & Performance
+                                        </small>
                                     </div>
                                     <div class="flex items-center gap-1.5">
                                         <div
                                             class="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-yellow-500 rounded-full flex-shrink-0"></div>
                                         <small
-                                            class="text-[10px] sm:text-xs transition-colors duration-300 leading-tight">Tech</small>
+                                            class="text-[10px] sm:text-xs transition-colors duration-300 leading-tight">Technology & the Future of Work</small>
                                     </div>
                                 </div>
                             </div>
@@ -575,14 +581,12 @@
                                         <div
                                             class="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-yellow-500 rounded-full flex-shrink-0"></div>
                                         <small
-                                            class="text-[10px] sm:text-xs transition-colors duration-300 leading-tight">Design
-                                            Thinking</small></div>
+                                            class="text-[10px] sm:text-xs transition-colors duration-300 leading-tight">Artificial Intelligence & Machine Learning</small></div>
                                     <div class="flex items-center gap-1.5">
                                         <div
                                             class="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-yellow-500 rounded-full flex-shrink-0"></div>
                                         <small
-                                            class="text-[10px] sm:text-xs transition-colors duration-300 leading-tight">Brand
-                                            Lift</small></div>
+                                            class="text-[10px] sm:text-xs transition-colors duration-300 leading-tight">Emerging Technologies & Future Trends</small></div>
                                     <div class="flex items-center gap-1.5">
                                         <div
                                             class="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-yellow-500 rounded-full flex-shrink-0"></div>
@@ -593,8 +597,7 @@
                                         <div
                                             class="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-yellow-500 rounded-full flex-shrink-0"></div>
                                         <small
-                                            class="text-[10px] sm:text-xs transition-colors duration-300 leading-tight">Attention
-                                            Metrics</small></div>
+                                            class="text-[10px] sm:text-xs transition-colors duration-300 leading-tight">Cybersecurity & Digital Trust</small></div>
                                 </div>
                             </div>
                         </div>
@@ -630,19 +633,17 @@
                                         <div
                                             class="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-yellow-500 rounded-full flex-shrink-0"></div>
                                         <small
-                                            class="text-[10px] sm:text-xs transition-colors duration-300 leading-tight">Cookieless
-                                            attribution</small></div>
+                                            class="text-[10px] sm:text-xs transition-colors duration-300 leading-tight">Public Policy & Regulatory Frameworks</small></div>
                                     <div class="flex items-center gap-1.5">
                                         <div
                                             class="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-yellow-500 rounded-full flex-shrink-0"></div>
                                         <small
-                                            class="text-[10px] sm:text-xs transition-colors duration-300 leading-tight">Audience
-                                            Insights</small></div>
+                                            class="text-[10px] sm:text-xs transition-colors duration-300 leading-tight">Good Governance, Ethics & Accountability</small></div>
                                     <div class="flex items-center gap-1.5">
                                         <div
                                             class="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-yellow-500 rounded-full flex-shrink-0"></div>
                                         <small
-                                            class="text-[10px] sm:text-xs transition-colors duration-300 leading-tight">collaboration</small>
+                                            class="text-[10px] sm:text-xs transition-colors duration-300 leading-tight">Digital Governance & Policy Innovation</small>
                                     </div>
                                 </div>
                             </div>
@@ -678,19 +679,17 @@
                                         <div
                                             class="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-yellow-500 rounded-full flex-shrink-0"></div>
                                         <small
-                                            class="text-[10px] sm:text-xs transition-colors duration-300 leading-tight">Pricing
-                                            & IP</small></div>
+                                            class="text-[10px] sm:text-xs transition-colors duration-300 leading-tight">Investment, Trade & Entrepreneurship</small></div>
                                     <div class="flex items-center gap-1.5">
                                         <div
                                             class="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-yellow-500 rounded-full flex-shrink-0"></div>
                                         <small
-                                            class="text-[10px] sm:text-xs transition-colors duration-300 leading-tight">Business
-                                            Ops Martech</small></div>
+                                            class="text-[10px] sm:text-xs transition-colors duration-300 leading-tight">Financial Inclusion & Access to Capital</small></div>
                                     <div class="flex items-center gap-1.5">
                                         <div
                                             class="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-yellow-500 rounded-full flex-shrink-0"></div>
                                         <small
-                                            class="text-[10px] sm:text-xs transition-colors duration-300 leading-tight">agency-freelancer</small>
+                                            class="text-[10px] sm:text-xs transition-colors duration-300 leading-tight">Macroeconomic Policy & Economic Stability</small>
                                     </div>
                                 </div>
                             </div>
@@ -726,20 +725,17 @@
                                         <div
                                             class="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-yellow-500 rounded-full flex-shrink-0"></div>
                                         <small
-                                            class="text-[10px] sm:text-xs transition-colors duration-300 leading-tight">Crisis
-                                            Comms</small></div>
+                                            class="text-[10px] sm:text-xs transition-colors duration-300 leading-tight">Inclusive Growth & Social Equity</small></div>
                                     <div class="flex items-center gap-1.5">
                                         <div
                                             class="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-yellow-500 rounded-full flex-shrink-0"></div>
                                         <small
-                                            class="text-[10px] sm:text-xs transition-colors duration-300 leading-tight">Media
-                                            trust</small></div>
+                                            class="text-[10px] sm:text-xs transition-colors duration-300 leading-tight">Green Economy & Circular Innovation</small></div>
                                     <div class="flex items-center gap-1.5">
                                         <div
                                             class="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-yellow-500 rounded-full flex-shrink-0"></div>
                                         <small
-                                            class="text-[10px] sm:text-xs transition-colors duration-300 leading-tight">Reputation
-                                            ESG Storytelling</small></div>
+                                            class="text-[10px] sm:text-xs transition-colors duration-300 leading-tight">Sustainable Business & Responsible Investment</small></div>
                                 </div>
                             </div>
                         </div>
@@ -774,26 +770,22 @@
                                         <div
                                             class="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-yellow-500 rounded-full flex-shrink-0"></div>
                                         <small
-                                            class="text-[10px] sm:text-xs transition-colors duration-300 leading-tight">Retail
-                                            media</small></div>
+                                            class="text-[10px] sm:text-xs transition-colors duration-300 leading-tight">Continuous Learning & Professional Growth</small></div>
                                     <div class="flex items-center gap-1.5">
                                         <div
                                             class="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-yellow-500 rounded-full flex-shrink-0"></div>
                                         <small
-                                            class="text-[10px] sm:text-xs transition-colors duration-300 leading-tight">Chat
-                                            commerce</small></div>
+                                            class="text-[10px] sm:text-xs transition-colors duration-300 leading-tight">Leadership & Executive Development</small></div>
                                     <div class="flex items-center gap-1.5">
                                         <div
                                             class="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-yellow-500 rounded-full flex-shrink-0"></div>
                                         <small
-                                            class="text-[10px] sm:text-xs transition-colors duration-300 leading-tight">D2C
-                                            growth</small></div>
+                                            class="text-[10px] sm:text-xs transition-colors duration-300 leading-tight">Digital Skills & Technology Literacy</small></div>
                                     <div class="flex items-center gap-1.5">
                                         <div
                                             class="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-yellow-500 rounded-full flex-shrink-0"></div>
                                         <small
-                                            class="text-[10px] sm:text-xs transition-colors duration-300 leading-tight">Conversion
-                                            tech</small></div>
+                                            class="text-[10px] sm:text-xs transition-colors duration-300 leading-tight">Innovation, Creativity & Critical Thinking</small></div>
                                 </div>
                             </div>
                         </div>
