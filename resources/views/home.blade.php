@@ -1,6 +1,6 @@
 <x-home-layout>
     <main class="relative">
-    @include('layout/partials/_summit-nav')
+        @include('layout/partials/_summit-nav')
         <div class="relative h-screen w-full section-visible" id="home">
             <div class="absolute inset-0 bg-cover bg-center"
                  style="background-image:url('{{ asset('assets/media/images/summit-hero-2.webp') }}');
@@ -10,7 +10,8 @@
                     <div class="max-w-2xl mx-auto text-center">
                         <h1 class="text-xl sm:text-2xl md:text-2xl font-normal text-white mb-6 sm:mb-8
                         leading-tight"
-                            style="opacity: 1; transform: none;">2 <sup>nd</sup>KASNEB International Conference for Professionals (KICP)</h1>
+                            style="opacity: 1; transform: none;">2 <sup>nd</sup>KASNEB International Conference for
+                            Professionals (KICP)</h1>
                         <div class="flex flex-col sm:flex-row gap-2 sm:gap-4 mb-6 sm:mb-10 justify-center"
                              style="opacity: 1; transform: none;">
                             <div class="flex flex-col sm:flex-row gap-2 sm:gap-4">
@@ -33,24 +34,45 @@
                                 <div class="flex items-center gap-2 text-white text-xs sm:text-sm">
                                     <svg width="20" height="20" viewBox="0 0 1024 1024" class="icon"
                                          xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M182.067 383.79h664.916v473.911H182.067z" fill="#FCE3C3" />
-                                        <path d="M846.983 857.701H170.007V401.632h676.976v456.069zM189.428 838.28h638.134V421.053H189.428V838.28z" fill="#300604" />
-                                        <path d="M850.483 861.201H166.507V398.132h683.977v463.069z m-676.976-7h669.977V405.132H173.507v449.069z m657.555-12.421H185.929V417.553h645.134V841.78z m-638.133-7h631.134V424.553H192.929V834.78z" fill="#300604" />
-                                        <path d="M179.718 273.282h657.556v138.061H179.718z" fill="#300604" />
-                                        <path d="M840.774 414.844H176.219V269.782h664.556v145.062z m-657.555-7h650.556V276.782H183.219v131.062z" fill="#300604" />
-                                        <path d="M846.983 421.053H170.007V263.572h676.976v157.481z m-657.555-19.421h638.134V282.994H189.428v118.638z" fill="#300604" />
-                                        <path d="M850.483 424.553H166.507v-164.48h683.977v164.48z m-676.976-7h669.977v-150.48H173.507v150.48z m657.555-12.421H185.929V279.494h645.134v125.638z m-638.133-7h631.134V286.494H192.929v111.638z" fill="#300604" />
-                                        <path d="M672.215 190.225h63.426v162.87h-63.426z" fill="#ED8F27" />
-                                        <path d="M745.351 362.806h-82.847V180.514h82.847v182.292z m-63.426-19.421h44.005v-143.45h-44.005v143.45z" fill="#300604" />
-                                        <path d="M281.351 190.225h63.426v162.87h-63.426z" fill="#ED8F27" />
-                                        <path d="M354.487 362.806H271.64V180.514h82.847v182.292z m-63.426-19.421h44.005v-143.45h-44.005v143.45z" fill="#300604" />
-                                        <path d="M688.071 468.427h66.597v66.597h-66.597z" fill="#B12800" />
-                                        <path d="M688.071 596.369h66.597v66.597h-66.597zM688.071 724.31h66.597v66.598h-66.597zM546.156 468.427h66.597v66.597h-66.597z" fill="#228E9D" />
-                                        <path d="M546.156 596.369h66.597v66.597h-66.597z" fill="#B12800" />
-                                        <path d="M546.156 724.31h66.597v66.598h-66.597zM404.239 468.427h66.598v66.597h-66.598z" fill="#228E9D" />
-                                        <path d="M404.239 596.369h66.598v66.597h-66.598z" fill="#B12800" />
-                                        <path d="M404.239 724.31h66.598v66.598h-66.598zM262.323 596.369h66.598v66.597h-66.598z" fill="#228E9D" />
-                                        <path d="M262.323 724.31h66.598v66.598h-66.598z" fill="#B12800" /></svg>
+                                        <path d="M182.067 383.79h664.916v473.911H182.067z" fill="#FCE3C3"/>
+                                        <path
+                                            d="M846.983 857.701H170.007V401.632h676.976v456.069zM189.428 838.28h638.134V421.053H189.428V838.28z"
+                                            fill="#300604"/>
+                                        <path
+                                            d="M850.483 861.201H166.507V398.132h683.977v463.069z m-676.976-7h669.977V405.132H173.507v449.069z m657.555-12.421H185.929V417.553h645.134V841.78z m-638.133-7h631.134V424.553H192.929V834.78z"
+                                            fill="#300604"/>
+                                        <path d="M179.718 273.282h657.556v138.061H179.718z" fill="#300604"/>
+                                        <path
+                                            d="M840.774 414.844H176.219V269.782h664.556v145.062z m-657.555-7h650.556V276.782H183.219v131.062z"
+                                            fill="#300604"/>
+                                        <path
+                                            d="M846.983 421.053H170.007V263.572h676.976v157.481z m-657.555-19.421h638.134V282.994H189.428v118.638z"
+                                            fill="#300604"/>
+                                        <path
+                                            d="M850.483 424.553H166.507v-164.48h683.977v164.48z m-676.976-7h669.977v-150.48H173.507v150.48z m657.555-12.421H185.929V279.494h645.134v125.638z m-638.133-7h631.134V286.494H192.929v111.638z"
+                                            fill="#300604"/>
+                                        <path d="M672.215 190.225h63.426v162.87h-63.426z" fill="#ED8F27"/>
+                                        <path
+                                            d="M745.351 362.806h-82.847V180.514h82.847v182.292z m-63.426-19.421h44.005v-143.45h-44.005v143.45z"
+                                            fill="#300604"/>
+                                        <path d="M281.351 190.225h63.426v162.87h-63.426z" fill="#ED8F27"/>
+                                        <path
+                                            d="M354.487 362.806H271.64V180.514h82.847v182.292z m-63.426-19.421h44.005v-143.45h-44.005v143.45z"
+                                            fill="#300604"/>
+                                        <path d="M688.071 468.427h66.597v66.597h-66.597z" fill="#B12800"/>
+                                        <path
+                                            d="M688.071 596.369h66.597v66.597h-66.597zM688.071 724.31h66.597v66.598h-66.597zM546.156 468.427h66.597v66.597h-66.597z"
+                                            fill="#228E9D"/>
+                                        <path d="M546.156 596.369h66.597v66.597h-66.597z" fill="#B12800"/>
+                                        <path
+                                            d="M546.156 724.31h66.597v66.598h-66.597zM404.239 468.427h66.598v66.597h-66.598z"
+                                            fill="#228E9D"/>
+                                        <path d="M404.239 596.369h66.598v66.597h-66.598z" fill="#B12800"/>
+                                        <path
+                                            d="M404.239 724.31h66.598v66.598h-66.598zM262.323 596.369h66.598v66.597h-66.598z"
+                                            fill="#228E9D"/>
+                                        <path d="M262.323 724.31h66.598v66.598h-66.598z" fill="#B12800"/>
+                                    </svg>
                                     <strong>
 
                                         14<sup>th</sup> - 18<sup>th</sup> September
@@ -84,7 +106,8 @@
                             <div class="flex items-center gap-2 text-red-500 text-xxl sm:text-xl">
                                 <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img"
                                      class="text-red-500 flex-shrink-0 iconify iconify--mdi" width="20" height="20"
-                                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                     stroke-linecap="round" stroke-linejoin="round">
                                     <!-- Professional networking icon: central node connected to others -->
                                     <circle cx="12" cy="7" r="2" fill="currentColor"></circle>
                                     <circle cx="5" cy="17" r="1.6" fill="currentColor"></circle>
@@ -104,7 +127,7 @@
                         <div class="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 md:gap-8"
                              style="opacity: 1; transform: none;">
                             <a href="{{ route('register') }}"
-                                class="bg-gradient-to-r from-[#175C93] to-[#7BC7F0] text-white px-6 sm:px-8 py-3 rounded-full hover:opacity-90 transition-all duration-300 font-medium text-sm sm:text-base shadow-lg flex items-center justify-center gap-2 w-full sm:w-auto">
+                               class="bg-gradient-to-r from-[#175C93] to-[#7BC7F0] text-white px-6 sm:px-8 py-3 rounded-full hover:opacity-90 transition-all duration-300 font-medium text-sm sm:text-base shadow-lg flex items-center justify-center gap-2 w-full sm:w-auto">
                                 Register Now
                             </a>
                         </div>
@@ -125,19 +148,27 @@
                             <div class="text-center relative z-10">
                                 <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
                                     <div class="text-center bg-white/20 backdrop-blur-sm rounded-lg p-3 sm:p-4">
-                                        <div id="countdown-days" class="text-xl sm:text-2xl md:text-3xl font-bold text-white">49</div>
+                                        <div id="countdown-days"
+                                             class="text-xl sm:text-2xl md:text-3xl font-bold text-white">49
+                                        </div>
                                         <div class="text-xs sm:text-sm text-white/80">Days</div>
                                     </div>
                                     <div class="text-center bg-white/20 backdrop-blur-sm rounded-lg p-3 sm:p-4">
-                                        <div id="countdown-hours" class="text-xl sm:text-2xl md:text-3xl font-bold text-white">7</div>
+                                        <div id="countdown-hours"
+                                             class="text-xl sm:text-2xl md:text-3xl font-bold text-white">7
+                                        </div>
                                         <div class="text-xs sm:text-sm text-white/80">Hours</div>
                                     </div>
                                     <div class="text-center bg-white/20 backdrop-blur-sm rounded-lg p-3 sm:p-4">
-                                        <div id="countdown-minutes" class="text-xl sm:text-2xl md:text-3xl font-bold text-white">20</div>
+                                        <div id="countdown-minutes"
+                                             class="text-xl sm:text-2xl md:text-3xl font-bold text-white">20
+                                        </div>
                                         <div class="text-xs sm:text-sm text-white/80">Minutes</div>
                                     </div>
                                     <div class="text-center bg-white/20 backdrop-blur-sm rounded-lg p-3 sm:p-4">
-                                        <div id="countdown-seconds" class="text-xl sm:text-2xl md:text-3xl font-bold text-white">27</div>
+                                        <div id="countdown-seconds"
+                                             class="text-xl sm:text-2xl md:text-3xl font-bold text-white">27
+                                        </div>
                                         <div class="text-xs sm:text-sm text-white/80">Seconds</div>
                                     </div>
                                 </div>
@@ -157,24 +188,30 @@
                         <div class="flex flex-col gap-3 sm:gap-4" style="opacity: 1; transform: none;">
                             <h2 class="text-2xl sm:text-3xl md:text-4xl text-white font-normal">About the
                                 Conference</h2>
-                            <h3 class="text-lg sm:text-xl md:text-2xl text-white font-normal">Shaping Tomorrow’s Professional Landscape</h3>
+                            <h3 class="text-lg sm:text-xl md:text-2xl text-white font-normal">Shaping Tomorrow’s
+                                Professional Landscape</h3>
                         </div>
                         <div class="space-y-3 sm:space-y-4 text-white text-sm sm:text-base md:text-lg leading-relaxed"
                              style="opacity: 1; transform: none;">
                             <p>
-                                The 2nd KASNEB International Conference for Professionals (KICP) brings together professionals,
+                                The 2nd KASNEB International Conference for Professionals (KICP) brings together
+                                professionals,
                                 industry leaders, policymakers and academia to examine the forces shaping the future of
                                 work and professional practice. Through engaging conversations, practical insights and
-                                networking opportunities, the Conference will challenge delegates to think beyond today's
-                                realities, share experiences across disciplines and explore how they can remain relevant,
+                                networking opportunities, the Conference will challenge delegates to think beyond
+                                today's
+                                realities, share experiences across disciplines and explore how they can remain
+                                relevant,
                                 resilient and impactful in an increasingly dynamic professional landscape.
                             </p>
                         </div>
 
-                    </div><div class="flex justify-center lg:justify-end h-full" style="opacity: 1; transform: none;">
+                    </div>
+                    <div class="flex justify-center lg:justify-end h-full" style="opacity: 1; transform: none;">
                         <div class="relative overflow-hidden w-full max-w-md lg:max-w-none rounded-lg h-full">
                             <div class="w-full h-full overflow-hidden rounded-xl">
-                                <img src="{{ asset('assets/media/images/about-kicp.webp') }}" class="w-full h-full object-cover" alt="about the event">
+                                <img src="{{ asset('assets/media/images/about-kicp.webp') }}"
+                                     class="w-full h-full object-cover" alt="about the event">
                             </div>
 
                         </div>
@@ -192,7 +229,9 @@
                 <div class="text-center mb-5 sm:mb-12">
                     <h2 class="text-2xl sm:text-3xl md:text-4xl text-[#172840] font-normal mb-5 sm:mb-4">Conference
                         Objectives</h2>
-                    <h3 class="text-base sm:text-lg md:text-xl text-[#172840] font-normal max-w-3xl mx-auto">We aim to unite professionals, leaders and emerging talent to share knowledge, mentor, network and drive innovation and impact.
+                    <h3 class="text-base sm:text-lg md:text-xl text-[#172840] font-normal max-w-3xl mx-auto">We aim to
+                        unite professionals, leaders and emerging talent to share knowledge, mentor, network and drive
+                        innovation and impact.
                         Knowledge Sharing
                     </h3>
                 </div>
@@ -209,12 +248,15 @@
                                 <img src="{{ asset('assets/media/icons/knowledge-sharing.svg') }}"
                                      alt="Community Icon" class="w-10 h-10 sm:w-12 sm:h-12">
                             </div>
-                            <p class="text-red-500 text-sm sm:text-base font-normal text-left mt-auto">Innovation & Technology</p>
+                            <p class="text-red-500 text-sm sm:text-base font-normal text-left mt-auto">Innovation &
+                                Technology</p>
                             <div class="relative z-10 flex flex-col h-full justify-between">
-                            <small class="text-gray-300 text-sm sm:text-sm font-light">
-                                Explore emerging technologies and innovative solutions that drive digital transformation,
-                                improve efficiency, and create sustainable opportunities for businesses, governments, and communities
-                            </small>
+                                <small class="text-gray-300 text-sm sm:text-sm font-light">
+                                    Explore emerging technologies and innovative solutions that drive digital
+                                    transformation,
+                                    improve efficiency, and create sustainable opportunities for businesses,
+                                    governments, and communities
+                                </small>
                             </div>
                         </div>
                     </div>
@@ -230,12 +272,15 @@
                                 <img src="https://ik.imagekit.io/nkmvdjnna/PAAN/summit/icons/user-group.svg"
                                      alt="Community Icon" class="w-10 h-10 sm:w-12 sm:h-12">
                             </div>
-                            <p class="text-red-500 text-sm sm:text-base font-normal text-left">Leadership & Governance</p>
+                            <p class="text-red-500 text-sm sm:text-base font-normal text-left">Leadership &
+                                Governance</p>
                             <div class="relative z-10 flex flex-col h-full justify-between">
-                            <small class="text-gray-300 text-sm sm:text-sm font-light">
-                                Strengthen leadership capacity and promote effective governance practices that foster
-                                accountability, collaboration, ethical decision-making, and sustainable organizational growth.
-                            </small>
+                                <small class="text-gray-300 text-sm sm:text-sm font-light">
+                                    Strengthen leadership capacity and promote effective governance practices that
+                                    foster
+                                    accountability, collaboration, ethical decision-making, and sustainable
+                                    organizational growth.
+                                </small>
                             </div>
                         </div>
                     </div>
@@ -251,12 +296,15 @@
                                 <img src="{{ asset('assets/media/icons/prof-dev.svg') }}"
                                      alt="Unlock Icon" class="w-10 h-10 sm:w-12 sm:h-12">
                             </div>
-                            <p class="text-red-500 text-sm sm:text-base font-normal text-left mt-auto">Policy & Industry Dialogue</p>
+                            <p class="text-red-500 text-sm sm:text-base font-normal text-left mt-auto">Policy & Industry
+                                Dialogue</p>
                             <div class="relative z-10 flex flex-col h-full justify-between">
-                            <small class="text-gray-300 text-sm sm:text-sm font-light">
-                                Foster meaningful dialogue between policymakers, industry leaders, and stakeholders to
-                                shape forward-looking policies, address emerging challenges, and drive inclusive economic and sectoral development
-                            </small>
+                                <small class="text-gray-300 text-sm sm:text-sm font-light">
+                                    Foster meaningful dialogue between policymakers, industry leaders, and stakeholders
+                                    to
+                                    shape forward-looking policies, address emerging challenges, and drive inclusive
+                                    economic and sectoral development
+                                </small>
                             </div>
                         </div>
                     </div>
@@ -273,12 +321,15 @@
                                     src="{{ asset('assets/media/icons/mentorship.svg') }}"
                                     alt="Connect Icon" class="w-10 h-10 sm:w-12 sm:h-12">
                             </div>
-                            <p class="text-red-500 text-sm sm:text-base font-normal text-left mt-auto">Networking & Strategic Partnerships</p>
+                            <p class="text-red-500 text-sm sm:text-base font-normal text-left mt-auto">Networking &
+                                Strategic Partnerships</p>
                             <div class="relative z-10 flex flex-col h-full justify-between">
-                            <small class="text-gray-300 text-sm sm:text-sm font-light">
-                                Facilitate meaningful connections and strategic partnerships that encourage collaboration,
-                                knowledge exchange, investment opportunities, and long-term business and institutional growth
-                            </small>
+                                <small class="text-gray-300 text-sm sm:text-sm font-light">
+                                    Facilitate meaningful connections and strategic partnerships that encourage
+                                    collaboration,
+                                    knowledge exchange, investment opportunities, and long-term business and
+                                    institutional growth
+                                </small>
                             </div>
                         </div>
                     </div>
@@ -295,12 +346,15 @@
                                     src="{{ asset('assets/media/icons/strategic-partnership.svg') }}"
                                     alt="Connect Icon" class="w-10 h-10 sm:w-12 sm:h-12">
                             </div>
-                            <p class="text-red-500 text-sm sm:text-base font-normal text-left mt-auto">Talent Development</p>
+                            <p class="text-red-500 text-sm sm:text-base font-normal text-left mt-auto">Talent
+                                Development</p>
                             <div class="relative z-10 flex flex-col h-full justify-between">
-                            <small class="text-gray-300 text-sm sm:text-sm font-light">
-                                Empower individuals and organizations through skills development, continuous learning,
-                                and capacity building to cultivate a future-ready, innovative, and resilient workforce.
-                            </small>
+                                <small class="text-gray-300 text-sm sm:text-sm font-light">
+                                    Empower individuals and organizations through skills development, continuous
+                                    learning,
+                                    and capacity building to cultivate a future-ready, innovative, and resilient
+                                    workforce.
+                                </small>
                             </div>
                         </div>
                     </div>
@@ -425,7 +479,7 @@
                 </div>
                 <div class="flex flex-col sm:flex-row gap-3 sm:gap-2 pt-4">
                     <a href="{{ route('register') }}"
-                        class="bg-gradient-to-r from-[#172840] to-[#F25849] text-white px-6 sm:px-8 py-3 text-sm sm:text-base font-medium w-full sm:w-auto rounded-full hover:opacity-90 transition-all duration-300 shadow-lg flex items-center justify-center gap-2">
+                       class="bg-gradient-to-r from-[#172840] to-[#F25849] text-white px-6 sm:px-8 py-3 text-sm sm:text-base font-medium w-full sm:w-auto rounded-full hover:opacity-90 transition-all duration-300 shadow-lg flex items-center justify-center gap-2">
                         Register Now
                     </a>
 
@@ -460,13 +514,15 @@
                                 <h4 class="text-base sm:text-lg md:text-xl font-bold mb-2 sm:mb-3 transition-colors duration-300 line-clamp-2">
                                     Leadership & Future of Work</h4>
                                 <p class="text-xs sm:text-sm md:text-base mb-3 sm:mb-4 transition-colors duration-300 line-clamp-2">
-                                    Preparing professionals to lead through disruption, build resilient institutions and thrive in a rapidly changing world.</p>
+                                    Preparing professionals to lead through disruption, build resilient institutions and
+                                    thrive in a rapidly changing world.</p>
                                 <div class="flex flex-wrap gap-2 sm:gap-2.5">
                                     <div class="flex items-center gap-1.5">
                                         <div
                                             class="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-yellow-500 rounded-full flex-shrink-0"></div>
                                         <small
-                                            class="text-[10px] sm:text-xs transition-colors duration-300 leading-tight">Digital Transformation and the Professional Space</small></div>
+                                            class="text-[10px] sm:text-xs transition-colors duration-300 leading-tight">Digital
+                                            Transformation and the Professional Space</small></div>
                                     <div class="flex items-center gap-1.5">
                                         <div
                                             class="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-yellow-500 rounded-full flex-shrink-0"></div>
@@ -511,7 +567,8 @@
                                     Digital Innovation
                                     <!-- -->&amp;<br class="hidden sm:block">Emerging Technologies</h4>
                                 <p class="text-xs sm:text-sm md:text-base mb-3 sm:mb-4 transition-colors duration-300 line-clamp-2">
-                                    Exploring AI, the digital economy, smart cities, innovation and the technologies transforming professional practice.
+                                    Exploring AI, the digital economy, smart cities, innovation and the technologies
+                                    transforming professional practice.
                                 </p>
                                 <div class="flex flex-wrap gap-2 sm:gap-2.5">
                                     <div class="flex items-center gap-1.5">
@@ -530,7 +587,8 @@
                                         <div
                                             class="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-yellow-500 rounded-full flex-shrink-0"></div>
                                         <small
-                                            class="text-[10px] sm:text-xs transition-colors duration-300 leading-tight"></small></div>
+                                            class="text-[10px] sm:text-xs transition-colors duration-300 leading-tight"></small>
+                                    </div>
                                     <div class="flex items-center gap-1.5">
                                         <div
                                             class="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-yellow-500 rounded-full flex-shrink-0"></div>
@@ -748,7 +806,8 @@
             <section class="mx-auto max-w-6xl px-4 sm:px-6">
                 <div class="text-center mb-8 sm:mb-12">
                     <h2 class="text-2xl sm:text-3xl font-normal text-[#1a365d] mb-3 sm:mb-4">Conference Programme</h2>
-                    <p class="text-base sm:text-lg text-gray-600">Five days of thought leadership and professional networking</p>
+                    <p class="text-base sm:text-lg text-gray-600">Five days of thought leadership and professional
+                        networking</p>
                 </div>
 
                 <!--Inner Tabs section -->
@@ -796,8 +855,8 @@
                                     </div>
                                     <div class="p-4 sm:p-6 relative flex-1 overflow-y-auto">
                                         <div class="space-y-4 sm:space-y-6 relative">
-{{--                                            <div--}}
-{{--                                                class="absolute left-[5px] top-[6px] bottom-[6px] w-0.5 bg-[#ef4444]"></div>--}}
+                                            {{--                                            <div--}}
+                                            {{--                                                class="absolute left-[5px] top-[6px] bottom-[6px] w-0.5 bg-[#ef4444]"></div>--}}
                                             <div class="flex  relative">
                                                 <div class="relative">
                                                     <div
@@ -832,7 +891,8 @@
                                     <div
                                         class="bg-gradient-to-r from-[#175C93] to-[#7BC7F0] text-white p-4 sm:p-6
                                         flex-shrink-0">
-                                        <h4 class="text-lg sm:text-xl font-bold">DAY TWO: TUESDAY, 15 SEPTEMBER 2026</h4>
+                                        <h4 class="text-lg sm:text-xl font-bold">DAY TWO: TUESDAY, 15 SEPTEMBER
+                                            2026</h4>
                                         <p class="text-xs sm:text-sm opacity-90 mt-1">Morning</p>
                                     </div>
                                     <div class="p-4 sm:p-6 relative flex-1 overflow-y-auto">
@@ -847,16 +907,22 @@
                                                         class="absolute inset-0 w-3 h-3 bg-[#ef4444] rounded-full opacity-30 animate-ping"></div>
                                                 </div>
                                                 <div class="ml-4 sm:ml-6">
-                                                    <div class="text-xs sm:text-sm font-bold text-[#84C1D9] mb-1">8:00a.m. – 8:30a.m.
+                                                    <div class="text-xs sm:text-sm font-bold text-[#84C1D9] mb-1">
+                                                        8:00a.m. – 8:30a.m.
                                                     </div>
-                                                    <h5 class="text-[#1a365d] text-sm sm:text-base">Registration and Networking
+                                                    <h5 class="text-[#1a365d] text-sm sm:text-base">Registration and
+                                                        Networking
                                                         Breakfast</h5>
                                                     <div class="flex items-center gap-1 mt-0.5">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 text-[#84C1D9] flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                             class="w-3 h-3 text-[#84C1D9] flex-shrink-0"
+                                                             viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                             stroke-width="2">
                                                             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                                                             <circle cx="12" cy="7" r="4"></circle>
                                                         </svg>
-                                                        <h6 class="text-[#84C1D9] text-xs italic font-normal leading-tight">All</h6>
+                                                        <h6 class="text-[#84C1D9] text-xs italic font-normal leading-tight">
+                                                            All</h6>
                                                     </div>
                                                 </div>
                                             </div>
@@ -867,7 +933,10 @@
                                                     <h5 class="text-[#1a365d] text-sm sm:text-base">Setting the Stage:
                                                         National Anthem & Prayers </h5>
                                                     <div class="flex items-center gap-1 mt-0.5">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 text-[#84C1D9] flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                             class="w-3 h-3 text-[#84C1D9] flex-shrink-0"
+                                                             viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                             stroke-width="2">
                                                             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                                                             <circle cx="12" cy="7" r="4"></circle>
                                                         </svg>
@@ -885,7 +954,10 @@
                                                     <h5 class="text-[#1a365d] text-sm sm:text-base">Welcome Remarks
                                                         (10 minutes)</h5>
                                                     <div class="flex items-center gap-1 mt-0.5">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 text-[#84C1D9] flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                             class="w-3 h-3 text-[#84C1D9] flex-shrink-0"
+                                                             viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                             stroke-width="2">
                                                             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                                                             <circle cx="12" cy="7" r="4"></circle>
                                                         </svg>
@@ -904,7 +976,10 @@
                                                     <h5 class="text-[#1a365d] text-sm sm:text-base">Opening Remarks
                                                         (15 minutes)</h5>
                                                     <div class="flex items-center gap-1 mt-0.5">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 text-[#84C1D9] flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                             class="w-3 h-3 text-[#84C1D9] flex-shrink-0"
+                                                             viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                             stroke-width="2">
                                                             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                                                             <circle cx="12" cy="7" r="4"></circle>
                                                         </svg>
@@ -923,7 +998,10 @@
                                                         Advancing Africa’s Global
                                                         Competitiveness</h5>
                                                     <div class="flex items-center gap-1 mt-0.5">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 text-[#84C1D9] flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                             class="w-3 h-3 text-[#84C1D9] flex-shrink-0"
+                                                             viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                             stroke-width="2">
                                                             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                                                             <circle cx="12" cy="7" r="4"></circle>
                                                         </svg>
@@ -951,7 +1029,10 @@
                                                         as A Competitive Advantage
                                                         (20 minutes)</h5>
                                                     <div class="flex items-center gap-1 mt-0.5">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 text-[#84C1D9] flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                             class="w-3 h-3 text-[#84C1D9] flex-shrink-0"
+                                                             viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                             stroke-width="2">
                                                             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                                                             <circle cx="12" cy="7" r="4"></circle>
                                                         </svg>
@@ -971,7 +1052,12 @@
                                                         Professionals in a Dynamic
                                                         Work Environment
                                                         (45 minutes)
-                                                        </h5>
+                                                    </h5>
+                                                    <span class="py-20 text-justify text-sm text-red-500">
+                                                        Session Chair:
+                                                            Dr. Percy Opio
+                                                            Board Chairman, KASNEB
+                                                    </span>
                                                     <div class="flex items-center gap-1 mt-0.5">
 
                                                         <h6 class="text-[#84C1D9] text-xs italic font-normal
@@ -979,25 +1065,718 @@
                                                             <strong>Speakers</strong>
                                                         </h6>
                                                         <div class="flex items-center gap-1 mt-0.5">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 text-[#84C1D9] flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                                 class="w-3 h-3 text-[#84C1D9] flex-shrink-0"
+                                                                 viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                                 stroke-width="2">
+                                                                <path
+                                                                    d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                                                <circle cx="12" cy="7" r="4"></circle>
+                                                            </svg>
+                                                            <h6 class="text-[#84C1D9] text-xs italic font-normal
+                                                            leading-tight">Mr. Walid Ben Salah
+                                                                President, Pan African
+                                                                Federation of Accountants</h6>
+                                                        </div>
+                                                        <div class="flex items-center gap-1 mt-0.5">
+                                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                                 class="w-3 h-3 text-[#84C1D9] flex-shrink-0"
+                                                                 viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                                 stroke-width="2">
+                                                                <path
+                                                                    d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                                                <circle cx="12" cy="7" r="4"></circle>
+                                                            </svg>
+                                                            <h6 class="text-[#84C1D9] text-xs italic font-normal
+                                                            leading-tight">Mr. Walid Ben Salah
+                                                                President, Pan African
+                                                                Federation of Accountants</h6>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="flex relative bg-[#84C1D9] rounded text-white ">
+                                                <div class="relative">
+                                                    <div
+                                                        class="w-3 h-3 bg-[#ef4444] rounded-full shadow-lg shadow-[#ef4444]/50 flex-shrink-0 z-10 relative"></div>
+                                                    <div
+                                                        class="absolute inset-0 w-3 h-3 bg-[#ef4444] rounded-full opacity-30 animate-ping"></div>
+                                                </div>
+                                                <div class="ml-4 sm:ml-6 ">
+                                                    <div class="text-xs sm:text-sm font-bold text-white
+                                                    mb-1">10:30a.m. – 11:00a.m
+                                                    </div>
+                                                    <ul class="text-white text-sm sm:text-base space-y-2">
+                                                        <li class="before:mr-2 before:text-red-500 before:content-['→']">
+                                                            Exhibition Tour by Guests
+                                                        </li>
+                                                        <li class="before:mr-2 before:text-red-500 before:content-['→']">
+                                                            Health Break
+                                                        </li>
+                                                    </ul>
+                                                    <div class="flex items-center gap-1 mt-0.5">
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                             class="w-3 h-3 text-white flex-shrink-0"
+                                                             viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                             stroke-width="2">
                                                             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                                                             <circle cx="12" cy="7" r="4"></circle>
                                                         </svg>
-                                                        <h6 class="text-[#84C1D9] text-xs italic font-normal
-                                                        leading-tight">Mr. Walid Ben Salah
-                                                            President, Pan African
-                                                            Federation of Accountants</h6>
+                                                        <h6 class="text-white text-xs italic font-normal
+                                                        leading-tight">Dr. Percy Opio
+                                                            Board Chairman, KASNEB</h6>
                                                     </div>
-                                                    <div class="flex items-center gap-1 mt-0.5">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 text-[#84C1D9] flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                                                        <circle cx="12" cy="7" r="4"></circle>
-                                                    </svg>
-                                                    <h6 class="text-[#84C1D9] text-xs italic font-normal
-                                                        leading-tight">Mr. Walid Ben Salah
-                                                        President, Pan African
-                                                        Federation of Accountants</h6>
                                                 </div>
+                                            </div>
+
+                                            <div class="flex relative">
+                                                <div class="relative">
+                                                    <div
+                                                        class="w-3 h-3 bg-[#ef4444] rounded-full shadow-lg shadow-[#ef4444]/50 flex-shrink-0 z-10 relative"></div>
+                                                    <div
+                                                        class="absolute inset-0 w-3 h-3 bg-[#ef4444] rounded-full opacity-30 animate-ping"></div>
+                                                </div>
+                                                <div class="ml-4 sm:ml-6">
+                                                    <div class="text-xs sm:text-sm font-bold text-[#84C1D9]
+                                                    mb-1">11:00a.m. – 12:30p.m.
+                                                    </div>
+                                                    <h5 class="text-[#175C93] text-sm sm:text-base">
+                                                        Parallel Sessions</h5>
+
+                                                    <div class="block p-2 mb-2 sm:mb-4 sm:p-6 relative flex-1
+                                                    overflow-y-auto bg-[#DAECF3] rounded-lg shadow-lg">
+                                                        <ul>
+                                                            <li><strong>Session 1:</strong>
+                                                                Topic: Thriving in a World that
+                                                                is Not Staying Still: Preparing
+                                                                Professionals for What’s
+                                                                Next?
+                                                            </li>
+
+                                                            <li>
+                                                                <strong>Session Chair:</strong>
+                                                                Prof. Charles Ochieng’
+                                                                Ong’ondo
+                                                                Chief Executive Officer
+                                                                (CEO), Kenya Institute of
+                                                                Curriculum Development
+                                                            </li>
+                                                        </ul>
+
+                                                        <h2>Speaker:</h2>
+
+                                                        <div class="flex items-center gap-1 mt-0.5">
+
+                                                            <h6 class="text-[#84C1D9] text-xs italic font-normal
+                                                        leading-tight">
+                                                                <strong>Speaker</strong>
+                                                            </h6>
+                                                            <div class="flex items-center gap-1 mt-0.5">
+                                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                                     class="w-3 h-3 text-[#84C1D9] flex-shrink-0"
+                                                                     viewBox="0 0 24 24" fill="none"
+                                                                     stroke="currentColor"
+                                                                     stroke-width="2">
+                                                                    <path
+                                                                        d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                                                    <circle cx="12" cy="7" r="4"></circle>
+                                                                </svg>
+                                                                <h6 class="text-[#84C1D9] text-xs italic font-normal
+                                                            leading-tight">Mrs. Funmi Ekundayo, FCIS President,
+                                                                    Corporate Secretaries International Association</h6>
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="flex items-center gap-1 mt-0.5">
+
+                                                            <h6 class="text-[#84C1D9] text-xs italic font-normal
+                                                        leading-tight">
+                                                                <strong>Discussants</strong>
+                                                            </h6>
+                                                            <div class="flex items-center gap-1 mt-0.5">
+                                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                                     class="w-3 h-3 text-[#84C1D9] flex-shrink-0"
+                                                                     viewBox="0 0 24 24" fill="none"
+                                                                     stroke="currentColor"
+                                                                     stroke-width="2">
+                                                                    <path
+                                                                        d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                                                    <circle cx="12" cy="7" r="4"></circle>
+                                                                </svg>
+                                                                <h6 class="text-[#84C1D9] text-xs italic font-normal
+                                                            leading-tight">Dr. George Wakah
+                                                                    Director of Administration,
+                                                                    Finance and Corporate
+                                                                    Affairs,
+                                                                    Centre for Parliamentary
+                                                                    Studies and Training (CPST)</h6>
+                                                            </div>
+                                                            <div class="flex items-center gap-1 mt-0.5">
+                                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                                     class="w-3 h-3 text-[#84C1D9] flex-shrink-0"
+                                                                     viewBox="0 0 24 24" fill="none"
+                                                                     stroke="currentColor"
+                                                                     stroke-width="2">
+                                                                    <path
+                                                                        d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                                                    <circle cx="12" cy="7" r="4"></circle>
+                                                                </svg>
+                                                                <h6 class="text-[#84C1D9] text-xs italic font-normal
+                                                            leading-tight">Prof. Nura Mohamed
+                                                                    Director General, Kenya
+                                                                    School of Government</h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="block p-2 mb-2 sm:mb-4 sm:p-6 relative flex-1
+                                                    overflow-y-auto bg-[#DAECF3] rounded-lg shadow-lg">
+                                                        <ul>
+                                                            <li><strong>Session 2:</strong>
+                                                                Topic: The Smart City
+                                                            </li>
+
+                                                            <li>
+                                                                <strong>Session Chair:</strong>
+                                                                Mr. David Mugonyi, EBS
+                                                                Director General,
+                                                                Communications Authority
+                                                            </li>
+                                                        </ul>
+
+                                                        <h2>Speaker:</h2>
+
+                                                        <div class="flex items-center gap-1 mt-0.5">
+
+                                                            <h6 class="text-[#84C1D9] text-xs italic font-normal
+                                                        leading-tight">
+                                                                <strong>Speaker</strong>
+                                                            </h6>
+                                                            <div class="flex items-center gap-1 mt-0.5">
+                                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                                     class="w-3 h-3 text-[#84C1D9] flex-shrink-0"
+                                                                     viewBox="0 0 24 24" fill="none"
+                                                                     stroke="currentColor"
+                                                                     stroke-width="2">
+                                                                    <path
+                                                                        d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                                                    <circle cx="12" cy="7" r="4"></circle>
+                                                                </svg>
+                                                                <h6 class="text-[#84C1D9] text-xs italic font-normal
+                                                            leading-tight">Ms. Anacláudia Rossbach
+                                                                    Executive Director, UNHabitat in Nairobi</h6>
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="flex items-center gap-1 mt-0.5">
+
+                                                            <h6 class="text-[#84C1D9] text-xs italic font-normal
+                                                        leading-tight">
+                                                                <strong>Discussants</strong>
+                                                            </h6>
+                                                            <div class="flex items-center gap-1 mt-0.5">
+                                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                                     class="w-3 h-3 text-[#84C1D9] flex-shrink-0"
+                                                                     viewBox="0 0 24 24" fill="none"
+                                                                     stroke="currentColor"
+                                                                     stroke-width="2">
+                                                                    <path
+                                                                        d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                                                    <circle cx="12" cy="7" r="4"></circle>
+                                                                </svg>
+                                                                <h6 class="text-[#84C1D9] text-xs italic font-normal
+                                                            leading-tight">Mr. John Okwiri, OGW, MBA,
+                                                                    MCIPS
+                                                                    Chief Executive Officer,
+                                                                    Technopolis Development
+                                                                    Authority</h6>
+                                                            </div>
+                                                            <div class="flex items-center gap-1 mt-0.5">
+                                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                                     class="w-3 h-3 text-[#84C1D9] flex-shrink-0"
+                                                                     viewBox="0 0 24 24" fill="none"
+                                                                     stroke="currentColor"
+                                                                     stroke-width="2">
+                                                                    <path
+                                                                        d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                                                    <circle cx="12" cy="7" r="4"></circle>
+                                                                </svg>
+                                                                <h6 class="text-[#84C1D9] text-xs italic font-normal
+                                                            leading-tight">Dr. Kenneth Chelule, P. Eng,
+                                                                    FIET, EBS
+                                                                    Chief Executive Office,
+                                                                    Special Economic Zones
+                                                                    Authority</h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="block p-2 mb-2 sm:mb-4 sm:p-6 relative flex-1
+                                                    overflow-y-auto bg-[#DAECF3] rounded-lg shadow-lg">
+                                                        <ul>
+                                                            <li><strong>Session 3:</strong>
+                                                                Topic: Geopolitical Conflicts
+                                                                Driving High Cost of Living:
+                                                                Navigating Crisis the
+                                                                Professional Way
+                                                            </li>
+
+                                                            <li>
+                                                                <strong>Session Chair:</strong>
+                                                                Prof. Isaiah I.C. Wakindiki
+                                                                Vice Chancelor, KCA
+                                                                University
+                                                            </li>
+                                                        </ul>
+
+                                                        <h2>Speaker:</h2>
+
+                                                        <div class="flex items-center gap-1 mt-0.5">
+
+                                                            <h6 class="text-[#84C1D9] text-xs italic font-normal
+                                                        leading-tight">
+                                                                <strong>Speaker</strong>
+                                                            </h6>
+                                                            <div class="flex items-center gap-1 mt-0.5">
+                                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                                     class="w-3 h-3 text-[#84C1D9] flex-shrink-0"
+                                                                     viewBox="0 0 24 24" fill="none"
+                                                                     stroke="currentColor"
+                                                                     stroke-width="2">
+                                                                    <path
+                                                                        d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                                                    <circle cx="12" cy="7" r="4"></circle>
+                                                                </svg>
+                                                                <h6 class="text-[#84C1D9] text-xs italic font-normal
+                                                            leading-tight">Dr. Workneh Gebeyehu
+                                                                    Executive Director,
+                                                                    Intergovernmental
+                                                                    Authority on Development</h6>
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="flex items-center gap-1 mt-0.5">
+
+                                                            <h6 class="text-[#84C1D9] text-xs italic font-normal
+                                                        leading-tight">
+                                                                <strong>Discussants</strong>
+                                                            </h6>
+                                                            <div class="flex items-center gap-1 mt-0.5">
+                                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                                     class="w-3 h-3 text-[#84C1D9] flex-shrink-0"
+                                                                     viewBox="0 0 24 24" fill="none"
+                                                                     stroke="currentColor"
+                                                                     stroke-width="2">
+                                                                    <path
+                                                                        d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                                                    <circle cx="12" cy="7" r="4"></circle>
+                                                                </svg>
+                                                                <h6 class="text-[#84C1D9] text-xs italic font-normal
+                                                            leading-tight">Dr. Korir Sing'oei, Principal Secretary, Foreign
+                                                                    Affairs</h6>
+                                                            </div>
+                                                            <div class="flex items-center gap-1 mt-0.5">
+                                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                                     class="w-3 h-3 text-[#84C1D9] flex-shrink-0"
+                                                                     viewBox="0 0 24 24" fill="none"
+                                                                     stroke="currentColor"
+                                                                     stroke-width="2">
+                                                                    <path
+                                                                        d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                                                    <circle cx="12" cy="7" r="4"></circle>
+                                                                </svg>
+                                                                <h6 class="text-[#84C1D9] text-xs italic font-normal
+                                                            leading-tight">Ms. Regina Akoth Ombam
+                                                                    Principal Secretary, State
+                                                                    Department for Trade</h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="flex relative bg-[#84C1D9] rounded text-white ">
+                                                <div class="relative">
+                                                    <div
+                                                        class="w-3 h-3 bg-[#ef4444] rounded-full shadow-lg shadow-[#ef4444]/50 flex-shrink-0 z-10 relative"></div>
+                                                    <div
+                                                        class="absolute inset-0 w-3 h-3 bg-[#ef4444] rounded-full opacity-30 animate-ping"></div>
+                                                </div>
+                                                <div class="ml-4 sm:ml-6 ">
+                                                    <div class="text-xs sm:text-sm font-bold text-white
+                                                    mb-1">12:30p.m. – 1:00p.m.
+                                                    </div>
+                                                    <ul class="text-white text-sm sm:text-base space-y-2">
+                                                        <li class="before:mr-2 before:text-red-500 before:content-['→']">
+                                                            Networking & Tour of
+                                                            Exhibition
+                                                        </li>
+                                                    </ul>
+                                                    <div class="flex items-center gap-1 mt-0.5">
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                             class="w-3 h-3 text-white flex-shrink-0"
+                                                             viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                             stroke-width="2">
+                                                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                                            <circle cx="12" cy="7" r="4"></circle>
+                                                        </svg>
+                                                        <h6 class="text-white text-xs italic font-normal
+                                                        leading-tight">All</h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="flex relative bg-[#84C1D9] rounded text-white ">
+                                                <div class="relative">
+                                                    <div
+                                                        class="w-3 h-3 bg-[#ef4444] rounded-full shadow-lg shadow-[#ef4444]/50 flex-shrink-0 z-10 relative"></div>
+                                                    <div
+                                                        class="absolute inset-0 w-3 h-3 bg-[#ef4444] rounded-full opacity-30 animate-ping"></div>
+                                                </div>
+                                                <div class="ml-4 sm:ml-6 ">
+                                                    <div class="text-xs sm:text-sm font-bold text-white
+                                                    mb-1">1:00p.m - 2:00pm
+                                                    </div>
+                                                    <ul class="text-white text-sm sm:text-base space-y-2">
+                                                        <li class="before:mr-2 before:text-red-500 before:content-['→']">
+                                                            Lunch & Networking
+                                                        </li>
+                                                    </ul>
+                                                    <div class="flex items-center gap-1 mt-0.5">
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                             class="w-3 h-3 text-white flex-shrink-0"
+                                                             viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                             stroke-width="2">
+                                                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                                            <circle cx="12" cy="7" r="4"></circle>
+                                                        </svg>
+                                                        <h6 class="text-white text-xs italic font-normal
+                                                        leading-tight">All</h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="flex relative">
+                                                <div class="relative">
+                                                    <div
+                                                        class="w-3 h-3 bg-[#ef4444] rounded-full shadow-lg shadow-[#ef4444]/50 flex-shrink-0 z-10 relative"></div>
+                                                    <div
+                                                        class="absolute inset-0 w-3 h-3 bg-[#ef4444] rounded-full opacity-30 animate-ping"></div>
+                                                </div>
+                                                <div class="ml-4 sm:ml-6 ">
+                                                    <div class="text-xs sm:text-sm font-bold text-[#84C1D9]
+                                                    mb-1">2:00p.m. – 2:30p.m.
+                                                    </div>
+                                                    <ul class="text-[#84C1D9] text-sm sm:text-base space-y-2">
+                                                        <li class="before:mr-2 before:text-red-500 before:content-['→']">
+                                                            The debate: Can Robots Be
+                                                            Professional?
+                                                        </li>
+                                                    </ul>
+                                                    <div class="flex items-center gap-1 mt-0.5">
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                             class="w-3 h-3 text-[#84C1D9]  flex-shrink-0"
+                                                             viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                             stroke-width="2">
+                                                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                                            <circle cx="12" cy="7" r="4"></circle>
+                                                        </svg>
+                                                        <h6 class="text-[#84C1D9]  text-xs italic font-normal
+                                                        leading-tight">KCA University</h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="flex relative">
+                                                <div class="relative">
+                                                    <div
+                                                        class="w-3 h-3 bg-[#ef4444] rounded-full shadow-lg shadow-[#ef4444]/50 flex-shrink-0 z-10 relative"></div>
+                                                    <div
+                                                        class="absolute inset-0 w-3 h-3 bg-[#ef4444] rounded-full opacity-30 animate-ping"></div>
+                                                </div>
+                                                <div class="ml-4 sm:ml-6">
+                                                    <div class="text-xs sm:text-sm font-bold text-[#84C1D9]
+                                                    mb-1">2:30p.m. – 4:00p.m
+                                                    </div>
+                                                    <h5 class="text-[#175C93] text-sm sm:text-base">
+                                                        Parallel Sessions</h5>
+
+                                                    <div class="block p-2 mb-2 sm:mb-4 sm:p-6 relative flex-1
+                                                    overflow-y-auto bg-[#DAECF3] rounded-lg shadow-lg">
+                                                        <ul>
+                                                            <li><strong>Masterclass:</strong>
+                                                                Beyond the
+                                                                Paycheck: Building Wealth
+                                                                That Lasts for Generations
+                                                            </li>
+
+                                                            <li>
+                                                                <strong>Session Chair:</strong>
+                                                                Dr Jonah Aiyabei, Ph.D
+                                                                Chief Executive Officer,
+                                                                Public Service
+                                                                Superannuation Fund
+                                                                (PSSF)
+                                                            </li>
+                                                        </ul>
+
+
+                                                        <div class="flex items-center gap-1 mt-0.5">
+
+                                                            <h6 class="text-[#84C1D9] text-xs italic font-normal
+                                                        leading-tight">
+                                                                <strong>Speaker</strong>
+                                                            </h6>
+                                                            <div class="flex items-center gap-1 mt-0.5">
+                                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                                     class="w-3 h-3 text-[#84C1D9] flex-shrink-0"
+                                                                     viewBox="0 0 24 24" fill="none"
+                                                                     stroke="currentColor"
+                                                                     stroke-width="2">
+                                                                    <path
+                                                                        d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                                                    <circle cx="12" cy="7" r="4"></circle>
+                                                                </svg>
+                                                                <h6 class="text-[#84C1D9] text-xs italic font-normal
+                                                            leading-tight">Mr. Philip Lopokoiyit
+                                                                    Chief Executive Officer,
+                                                                    ICEA Lion Group</h6>
+                                                            </div>
+
+                                                        </div>
+
+                                                        <h3>
+                                                            <strong>Panel Session:</strong> Evolving
+                                                            Professional Standards in
+                                                            Response to Technological
+                                                            Changes
+                                                        </h3>
+
+                                                        <h6 class="text-[#84C1D9] text-xs italic font-normal
+                                                        leading-tight">
+                                                            <strong>Panellists</strong>
+                                                        </h6>
+                                                        <div class="flex items-center gap-1 mt-0.5">
+
+                                                            <div class="flex items-center gap-1 mt-0.5">
+                                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                                     class="w-3 h-3 text-[#84C1D9] flex-shrink-0"
+                                                                     viewBox="0 0 24 24" fill="none"
+                                                                     stroke="currentColor"
+                                                                     stroke-width="2">
+                                                                    <path
+                                                                        d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                                                    <circle cx="12" cy="7" r="4"></circle>
+                                                                </svg>
+                                                                <h6 class="text-[#84C1D9] text-xs italic font-normal
+                                                            leading-tight">Prof. CPA Elizabeth N.
+                                                                    Kalunda-Muvui, PhD
+                                                                    President, Institute of
+                                                                    Certified Public
+                                                                    Accountants of Kenya</h6>
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="flex items-center gap-1 mt-0.5">
+
+                                                            <div class="flex items-center gap-1 mt-0.5">
+                                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                                     class="w-3 h-3 text-[#84C1D9] flex-shrink-0"
+                                                                     viewBox="0 0 24 24" fill="none"
+                                                                     stroke="currentColor"
+                                                                     stroke-width="2">
+                                                                    <path
+                                                                        d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                                                    <circle cx="12" cy="7" r="4"></circle>
+                                                                </svg>
+                                                                <h6 class="text-[#84C1D9] text-xs italic font-normal
+                                                            leading-tight">FCS Jacqueline Waihenya
+                                                                    Chairperson, Institute of
+                                                                    Certified Secretaries of
+                                                                    Kenya</h6>
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="flex items-center gap-1 mt-0.5">
+
+                                                            <div class="flex items-center gap-1 mt-0.5">
+                                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                                     class="w-3 h-3 text-[#84C1D9] flex-shrink-0"
+                                                                     viewBox="0 0 24 24" fill="none"
+                                                                     stroke="currentColor"
+                                                                     stroke-width="2">
+                                                                    <path
+                                                                        d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                                                    <circle cx="12" cy="7" r="4"></circle>
+                                                                </svg>
+                                                                <h6 class="text-[#84C1D9] text-xs italic font-normal
+                                                            leading-tight">Mr. Charles Kanjama
+                                                                    President, Law Society of
+                                                                    Kenya</h6>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="block p-2 mb-2 sm:mb-4 sm:p-6 relative flex-1
+                                                    overflow-y-auto bg-[#DAECF3] rounded-lg shadow-lg">
+                                                        <ul>
+                                                            <li><strong>Session 2:</strong>
+                                                                Topic: The Smart City
+                                                            </li>
+
+                                                            <li>
+                                                                <strong>Session Chair:</strong>
+                                                                Mr. David Mugonyi, EBS
+                                                                Director General,
+                                                                Communications Authority
+                                                            </li>
+                                                        </ul>
+
+                                                        <h2>Speaker:</h2>
+
+                                                        <div class="flex items-center gap-1 mt-0.5">
+
+                                                            <h6 class="text-[#84C1D9] text-xs italic font-normal
+                                                        leading-tight">
+                                                                <strong>Speaker</strong>
+                                                            </h6>
+                                                            <div class="flex items-center gap-1 mt-0.5">
+                                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                                     class="w-3 h-3 text-[#84C1D9] flex-shrink-0"
+                                                                     viewBox="0 0 24 24" fill="none"
+                                                                     stroke="currentColor"
+                                                                     stroke-width="2">
+                                                                    <path
+                                                                        d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                                                    <circle cx="12" cy="7" r="4"></circle>
+                                                                </svg>
+                                                                <h6 class="text-[#84C1D9] text-xs italic font-normal
+                                                            leading-tight">Ms. Anacláudia Rossbach
+                                                                    Executive Director, UNHabitat in Nairobi</h6>
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="flex items-center gap-1 mt-0.5">
+
+                                                            <h6 class="text-[#84C1D9] text-xs italic font-normal
+                                                        leading-tight">
+                                                                <strong>Discussants</strong>
+                                                            </h6>
+                                                            <div class="flex items-center gap-1 mt-0.5">
+                                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                                     class="w-3 h-3 text-[#84C1D9] flex-shrink-0"
+                                                                     viewBox="0 0 24 24" fill="none"
+                                                                     stroke="currentColor"
+                                                                     stroke-width="2">
+                                                                    <path
+                                                                        d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                                                    <circle cx="12" cy="7" r="4"></circle>
+                                                                </svg>
+                                                                <h6 class="text-[#84C1D9] text-xs italic font-normal
+                                                            leading-tight">Mr. John Okwiri, OGW, MBA,
+                                                                    MCIPS
+                                                                    Chief Executive Officer,
+                                                                    Technopolis Development
+                                                                    Authority</h6>
+                                                            </div>
+                                                            <div class="flex items-center gap-1 mt-0.5">
+                                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                                     class="w-3 h-3 text-[#84C1D9] flex-shrink-0"
+                                                                     viewBox="0 0 24 24" fill="none"
+                                                                     stroke="currentColor"
+                                                                     stroke-width="2">
+                                                                    <path
+                                                                        d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                                                    <circle cx="12" cy="7" r="4"></circle>
+                                                                </svg>
+                                                                <h6 class="text-[#84C1D9] text-xs italic font-normal
+                                                            leading-tight">Dr. Kenneth Chelule, P. Eng,
+                                                                    FIET, EBS
+                                                                    Chief Executive Office,
+                                                                    Special Economic Zones
+                                                                    Authority</h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="block p-2 mb-2 sm:mb-4 sm:p-6 relative flex-1
+                                                    overflow-y-auto bg-[#DAECF3] rounded-lg shadow-lg">
+                                                        <ul>
+                                                            <li><strong>Session 3:</strong>
+                                                                Topic: Geopolitical Conflicts
+                                                                Driving High Cost of Living:
+                                                                Navigating Crisis the
+                                                                Professional Way
+                                                            </li>
+
+                                                            <li>
+                                                                <strong>Session Chair:</strong>
+                                                                Prof. Isaiah I.C. Wakindiki
+                                                                Vice Chancelor, KCA
+                                                                University
+                                                            </li>
+                                                        </ul>
+
+                                                        <h2>Speaker:</h2>
+
+                                                        <div class="flex items-center gap-1 mt-0.5">
+
+                                                            <h6 class="text-[#84C1D9] text-xs italic font-normal
+                                                        leading-tight">
+                                                                <strong>Speaker</strong>
+                                                            </h6>
+                                                            <div class="flex items-center gap-1 mt-0.5">
+                                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                                     class="w-3 h-3 text-[#84C1D9] flex-shrink-0"
+                                                                     viewBox="0 0 24 24" fill="none"
+                                                                     stroke="currentColor"
+                                                                     stroke-width="2">
+                                                                    <path
+                                                                        d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                                                    <circle cx="12" cy="7" r="4"></circle>
+                                                                </svg>
+                                                                <h6 class="text-[#84C1D9] text-xs italic font-normal
+                                                            leading-tight">Dr. Workneh Gebeyehu
+                                                                    Executive Director,
+                                                                    Intergovernmental
+                                                                    Authority on Development</h6>
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="flex items-center gap-1 mt-0.5">
+
+                                                            <h6 class="text-[#84C1D9] text-xs italic font-normal
+                                                        leading-tight">
+                                                                <strong>Discussants</strong>
+                                                            </h6>
+                                                            <div class="flex items-center gap-1 mt-0.5">
+                                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                                     class="w-3 h-3 text-[#84C1D9] flex-shrink-0"
+                                                                     viewBox="0 0 24 24" fill="none"
+                                                                     stroke="currentColor"
+                                                                     stroke-width="2">
+                                                                    <path
+                                                                        d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                                                    <circle cx="12" cy="7" r="4"></circle>
+                                                                </svg>
+                                                                <h6 class="text-[#84C1D9] text-xs italic font-normal
+                                                            leading-tight">Dr. Korir Sing'oei, Principal Secretary, Foreign
+                                                                    Affairs</h6>
+                                                            </div>
+                                                            <div class="flex items-center gap-1 mt-0.5">
+                                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                                     class="w-3 h-3 text-[#84C1D9] flex-shrink-0"
+                                                                     viewBox="0 0 24 24" fill="none"
+                                                                     stroke="currentColor"
+                                                                     stroke-width="2">
+                                                                    <path
+                                                                        d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                                                    <circle cx="12" cy="7" r="4"></circle>
+                                                                </svg>
+                                                                <h6 class="text-[#84C1D9] text-xs italic font-normal
+                                                            leading-tight">Ms. Regina Akoth Ombam
+                                                                    Principal Secretary, State
+                                                                    Department for Trade</h6>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1234,11 +2013,12 @@
                 <div class="flex flex-col sm:flex-row justify-between items-start mb-6 sm:mb-8 gap-4">
                     <div>
                         <h3 class="text-3xl sm:text-4xl text-slate-800 font-normal">Meet the speakers</h3>
-                        <p class="text-base sm:text-lg md:text-xl font-normal text-slate-800 mb-4">Gain insights from leading voices in business, governance and professional development</p>
+                        <p class="text-base sm:text-lg md:text-xl font-normal text-slate-800 mb-4">Gain insights from
+                            leading voices in business, governance and professional development</p>
                     </div>
                     <div class="flex gap-2 self-end">
                         <button id="speakers-prev"
-                            class="w-10 h-10 sm:w-12 sm:h-12 border border-slate-800 text-slate-800 rounded-full flex items-center justify-center hover:bg-slate-800 hover:text-white transition-colors duration-300 shadow-lg">
+                                class="w-10 h-10 sm:w-12 sm:h-12 border border-slate-800 text-slate-800 rounded-full flex items-center justify-center hover:bg-slate-800 hover:text-white transition-colors duration-300 shadow-lg">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                                  aria-hidden="true" role="img" class="iconify iconify--mdi" width="20" height="20"
                                  viewBox="0 0 24 24">
@@ -1246,7 +2026,7 @@
                             </svg>
                         </button>
                         <button id="speakers-next"
-                            class="w-10 h-10 sm:w-12 sm:h-12 border border-slate-800 text-slate-800 rounded-full flex items-center justify-center hover:bg-slate-800 hover:text-white transition-colors duration-300 shadow-lg">
+                                class="w-10 h-10 sm:w-12 sm:h-12 border border-slate-800 text-slate-800 rounded-full flex items-center justify-center hover:bg-slate-800 hover:text-white transition-colors duration-300 shadow-lg">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                                  aria-hidden="true" role="img" class="iconify iconify--mdi" width="20" height="20"
                                  viewBox="0 0 24 24">
@@ -1257,21 +2037,27 @@
                 </div>
                 <!-- Speakers Carousel -->
                 <div id="speakers-carousel-container" class="overflow-hidden rounded-xl">
-                    <div id="speakers-carousel-track" class="flex gap-4 sm:gap-6 transition-transform duration-500 ease-out">
-                    {{-- i. Koskei - COF--}}
+                    <div id="speakers-carousel-track"
+                         class="flex gap-4 sm:gap-6 transition-transform duration-500 ease-out">
+                        {{-- i. Koskei - COF--}}
                         <div class="flex-shrink-0 w-full sm:w-1/2 lg:w-1/3">
-                            <div class="relative rounded-xl shadow-xl overflow-hidden group cursor-pointer h-80 sm:h-96">
-                                <img alt="Anna Ceesay" loading="lazy" width="400" height="500"
+                            <div
+                                class="relative rounded-xl shadow-xl overflow-hidden group cursor-pointer h-80 sm:h-96">
+                                <img alt="Felix Koskei" loading="lazy" width="400" height="500"
                                      class="w-full h-full object-cover" style="color:transparent"
                                      src="{{ asset('assets/media/images/speakers/fkoskei.jpg') }}">
-                                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent group-hover:bg-gradient-to-t group-hover:from-black/0 group-hover:to-transparent transition-all duration-300 p-4 sm:p-6">
-                                    <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                                         style="background:linear-gradient(to top, #F2B706 0%, #F2B706 40%, rgba(0,0,0,0) 100%)"></div>
+                                <div
+                                    class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent group-hover:bg-gradient-to-t group-hover:from-black/0 group-hover:to-transparent transition-all duration-300 p-4 sm:p-6">
+                                    <div
+                                        class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                                        style="background:linear-gradient(to top, #F2B706 0%, #F2B706 40%, rgba(0,0,0,0) 100%)"></div>
                                     <div class="relative z-10 flex justify-between items-center">
                                         <div>
-                                            <h4 class="text-lg sm:text-xl font-bold text-white mb-1">Mr. Felix Koskei, EGH
+                                            <h4 class="text-lg sm:text-xl font-bold text-white mb-1">Mr. Felix Koskei,
+                                                EGH
                                             </h4>
-                                            <p class="text-white/90 text-xs sm:text-sm">Chief of Staff and Head of Public Service</p>
+                                            <p class="text-white/90 text-xs sm:text-sm">Chief of Staff and Head of
+                                                Public Service</p>
                                         </div>
                                         <div class="flex-shrink-0"><a
                                                 href="#"
@@ -1285,18 +2071,23 @@
                         </div>
                         {{--2. CS Mbadi--}}
                         <div class="flex-shrink-0 w-full sm:w-1/2 lg:w-1/3">
-                            <div class="relative rounded-xl shadow-xl overflow-hidden group cursor-pointer h-80 sm:h-96">
-                                <img alt="Anna Ceesay" loading="lazy" width="400" height="500"
+                            <div
+                                class="relative rounded-xl shadow-xl overflow-hidden group cursor-pointer h-80 sm:h-96">
+                                <img alt="CS Mbadi" loading="lazy" width="400" height="500"
                                      class="w-full h-full object-cover" style="color:transparent"
                                      src="{{ asset('assets/media/images/speakers/cs-mbadi.jpeg') }}">
-                                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent group-hover:bg-gradient-to-t group-hover:from-black/0 group-hover:to-transparent transition-all duration-300 p-4 sm:p-6">
-                                    <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                                         style="background:linear-gradient(to top, #F2B706 0%, #F2B706 40%, rgba(0,0,0,0) 100%)"></div>
+                                <div
+                                    class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent group-hover:bg-gradient-to-t group-hover:from-black/0 group-hover:to-transparent transition-all duration-300 p-4 sm:p-6">
+                                    <div
+                                        class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                                        style="background:linear-gradient(to top, #F2B706 0%, #F2B706 40%, rgba(0,0,0,0) 100%)"></div>
                                     <div class="relative z-10 flex justify-between items-center">
                                         <div>
-                                            <h4 class="text-lg sm:text-xl font-bold text-white mb-1">FCPA Hon. John Mbadi Ng'ongo, EGH
+                                            <h4 class="text-lg sm:text-xl font-bold text-white mb-1">FCPA Hon. John
+                                                Mbadi Ng'ongo, EGH
                                             </h4>
-                                            <p class="text-white/90 text-xs sm:text-sm">Cabinet Secretary, The National Treasury and Economic Planning</p>
+                                            <p class="text-white/90 text-xs sm:text-sm">Cabinet Secretary, The National
+                                                Treasury and Economic Planning</p>
                                         </div>
                                         <div class="flex-shrink-0"><a
                                                 href="#"
@@ -1310,18 +2101,23 @@
                         </div>
                         {{--3. Dr. Chris K. Kiptoo, CBS--}}
                         <div class="flex-shrink-0 w-full sm:w-1/2 lg:w-1/3">
-                            <div class="relative rounded-xl shadow-xl overflow-hidden group cursor-pointer h-80 sm:h-96">
-                                <img alt="Anna Ceesay" loading="lazy" width="400" height="500"
+                            <div
+                                class="relative rounded-xl shadow-xl overflow-hidden group cursor-pointer h-80 sm:h-96">
+                                <img alt="PS Kiptoo" loading="lazy" width="400" height="500"
                                      class="w-full h-full object-cover" style="color:transparent"
                                      src="{{ asset('assets/media/images/speakers/ps-Kiptoo.jpeg') }}">
-                                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent group-hover:bg-gradient-to-t group-hover:from-black/0 group-hover:to-transparent transition-all duration-300 p-4 sm:p-6">
-                                    <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                                         style="background:linear-gradient(to top, #F2B706 0%, #F2B706 40%, rgba(0,0,0,0) 100%)"></div>
+                                <div
+                                    class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent group-hover:bg-gradient-to-t group-hover:from-black/0 group-hover:to-transparent transition-all duration-300 p-4 sm:p-6">
+                                    <div
+                                        class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                                        style="background:linear-gradient(to top, #F2B706 0%, #F2B706 40%, rgba(0,0,0,0) 100%)"></div>
                                     <div class="relative z-10 flex justify-between items-center">
                                         <div>
-                                            <h4 class="text-lg sm:text-xl font-bold text-white mb-1">Dr. Chris K. Kiptoo, CBS
+                                            <h4 class="text-lg sm:text-xl font-bold text-white mb-1">Dr. Chris K.
+                                                Kiptoo, CBS
                                             </h4>
-                                            <p class="text-white/90 text-xs sm:text-sm">Principal Secretary, The National Treasury</p>
+                                            <p class="text-white/90 text-xs sm:text-sm">Principal Secretary, The
+                                                National Treasury</p>
                                         </div>
                                         <div class="flex-shrink-0"><a
                                                 href="#"
@@ -1335,24 +2131,29 @@
                         </div>
                         <!-- Speaker 1: Anna -->
                         <div class="flex-shrink-0 w-full sm:w-1/2 lg:w-1/3">
-                            <div class="relative rounded-xl shadow-xl overflow-hidden group cursor-pointer h-80 sm:h-96">
+                            <div
+                                class="relative rounded-xl shadow-xl overflow-hidden group cursor-pointer h-80 sm:h-96">
                                 <img alt="Anna Ceesay" loading="lazy" width="400" height="500"
-                                    class="w-full h-full object-cover" style="color:transparent"
-                                    src="{{ asset('assets/media/images/speakers/percy-opiyo.jpg') }}">
-                                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent group-hover:bg-gradient-to-t group-hover:from-black/0 group-hover:to-transparent transition-all duration-300 p-4 sm:p-6">
-                                    <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                                     class="w-full h-full object-cover" style="color:transparent"
+                                     src="{{ asset('assets/media/images/speakers/percy-opiyo.jpg') }}">
+                                <div
+                                    class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent group-hover:bg-gradient-to-t group-hover:from-black/0 group-hover:to-transparent transition-all duration-300 p-4 sm:p-6">
+                                    <div
+                                        class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                                         style="background:linear-gradient(to top, #F2B706 0%, #F2B706 40%, rgba(0,0,0,0) 100%)"></div>
                                     <div class="relative z-10 flex justify-between items-center">
                                         <div>
-                                            <h4 class="text-lg sm:text-xl font-bold text-white mb-1">Dr Percy Opio PhD</h4>
-                                            <p class="text-white/90 text-xs sm:text-sm">Chairman of The Board of Directors</p>
+                                            <h4 class="text-lg sm:text-xl font-bold text-white mb-1">Dr Percy Opio
+                                                PhD</h4>
+                                            <p class="text-white/90 text-xs sm:text-sm">Chairman of The Board of
+                                                Directors</p>
                                         </div>
                                         <div class="flex-shrink-0"><a
-                                            href="#"
-                                            target="_blank" rel="noopener noreferrer"
-                                            class="hover:scale-110 transition-transform duration-200">
+                                                href="#"
+                                                target="_blank" rel="noopener noreferrer"
+                                                class="hover:scale-110 transition-transform duration-200">
 
-                                        </a></div>
+                                            </a></div>
                                     </div>
                                 </div>
                             </div>
@@ -1360,24 +2161,29 @@
 
                         <!-- Speaker 2: Yannick -->
                         <div class="flex-shrink-0 w-full sm:w-1/2 lg:w-1/3">
-                            <div class="relative rounded-xl shadow-xl overflow-hidden group cursor-pointer h-80 sm:h-96">
+                            <div
+                                class="relative rounded-xl shadow-xl overflow-hidden group cursor-pointer h-80 sm:h-96">
                                 <img alt="Yannick Lefang" loading="lazy" width="400" height="500"
-                                    class="w-full h-full object-cover" style="color:transparent"
-                                    src="{{ asset('assets/media/images/speakers/joseph-kanyi.jpg') }}">
-                                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent group-hover:bg-gradient-to-t group-hover:from-black/0 group-hover:to-transparent transition-all duration-300 p-4 sm:p-6">
-                                    <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                                     class="w-full h-full object-cover" style="color:transparent"
+                                     src="{{ asset('assets/media/images/speakers/joseph-kanyi.jpg') }}">
+                                <div
+                                    class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent group-hover:bg-gradient-to-t group-hover:from-black/0 group-hover:to-transparent transition-all duration-300 p-4 sm:p-6">
+                                    <div
+                                        class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                                         style="background:linear-gradient(to top, #F25849 0%, #F25849 40%, rgba(0,0,0,0) 100%)"></div>
                                     <div class="relative z-10 flex justify-between items-center">
                                         <div>
-                                            <h4 class="text-lg sm:text-xl font-bold text-white mb-1">Dr. Joseph M. Kanyi PhD</h4>
-                                            <p class="text-white/90 text-xs sm:text-sm">Vice Chairman of The Board of Directors, Representing Ministry of Education</p>
+                                            <h4 class="text-lg sm:text-xl font-bold text-white mb-1">Dr. Joseph M. Kanyi
+                                                PhD</h4>
+                                            <p class="text-white/90 text-xs sm:text-sm">Vice Chairman of The Board of
+                                                Directors, Representing Ministry of Education</p>
                                         </div>
                                         <div class="flex-shrink-0"><a
-                                            href="#"
-                                            target="_blank" rel="noopener noreferrer"
-                                            class="hover:scale-110 transition-transform duration-200">
+                                                href="#"
+                                                target="_blank" rel="noopener noreferrer"
+                                                class="hover:scale-110 transition-transform duration-200">
 
-                                        </a></div>
+                                            </a></div>
                                     </div>
                                 </div>
                             </div>
@@ -1385,24 +2191,29 @@
 
                         <!-- Speaker 3: Dr. Gillian -->
                         <div class="flex-shrink-0 w-full sm:w-1/2 lg:w-1/3">
-                            <div class="relative rounded-xl shadow-xl overflow-hidden group cursor-pointer h-80 sm:h-96">
+                            <div
+                                class="relative rounded-xl shadow-xl overflow-hidden group cursor-pointer h-80 sm:h-96">
                                 <img alt="Dr. Gillian Hammah" loading="lazy" width="400" height="500"
-                                    class="w-full h-full object-cover" style="color:transparent"
-                                    src="{{ asset('assets/media/images/speakers/letting.jpg') }}">
-                                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent group-hover:bg-gradient-to-t group-hover:from-black/0 group-hover:to-transparent transition-all duration-300 p-4 sm:p-6">
-                                    <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                                     class="w-full h-full object-cover" style="color:transparent"
+                                     src="{{ asset('assets/media/images/speakers/letting.jpg') }}">
+                                <div
+                                    class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent group-hover:bg-gradient-to-t group-hover:from-black/0 group-hover:to-transparent transition-all duration-300 p-4 sm:p-6">
+                                    <div
+                                        class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                                         style="background:linear-gradient(to top, #84C1D9 0%, #84C1D9 40%, rgba(0,0,0,0) 100%)"></div>
                                     <div class="relative z-10 flex justify-between items-center">
                                         <div>
-                                            <h4 class="text-lg sm:text-xl font-bold text-white mb-1">FCPA Prof. Nicholas K. Letting’ PhD, EBS, HSC</h4>
-                                            <p class="text-white/90 text-xs sm:text-sm">Secretary/Chief Executive Officer</p>
+                                            <h4 class="text-lg sm:text-xl font-bold text-white mb-1">FCPA Prof. Nicholas
+                                                K. Letting’ PhD, EBS, HSC</h4>
+                                            <p class="text-white/90 text-xs sm:text-sm">Secretary/Chief Executive
+                                                Officer</p>
                                         </div>
                                         <div class="flex-shrink-0"><a
-                                            href="https://www.linkedin.com/in/gillian-hammah?originalSubdomain=gh"
-                                            target="_blank" rel="noopener noreferrer"
-                                            class="hover:scale-110 transition-transform duration-200">
+                                                href="https://www.linkedin.com/in/gillian-hammah?originalSubdomain=gh"
+                                                target="_blank" rel="noopener noreferrer"
+                                                class="hover:scale-110 transition-transform duration-200">
 
-                                        </a></div>
+                                            </a></div>
                                     </div>
                                 </div>
                             </div>
@@ -1441,10 +2252,10 @@
                             <div class="flex items-center space-x-4 sm:space-x-6 md:space-x-8"><span
                                     class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">Procurement & Supply Chain Professionals</span><span
                                     class="text-2xl sm:text-3xl text-red-500">•</span>
-                              <span
+                                <span
                                     class="text-2xl sm:text-3xl text-slate-800">
                                     •</span>
-                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1466,7 +2277,7 @@
                                     class="text-2xl sm:text-3xl text-red-500">•</span><span
                                     class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 whitespace-nowrap">Students & Emerging Professionals</span>
                                 <span class="text-2xl sm:text-3xl text-[#84C1DA]">•</span>
-                                    <span class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800
+                                <span class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800
                                 whitespace-nowrap">Public Sector & Policy Makers </span><span
                                     class="text-2xl sm:text-3xl text-[#175C93]">•</span></div>
                             <div class="flex items-center space-x-4 sm:space-x-6 md:space-x-8"><span
@@ -1489,7 +2300,8 @@
                 <div class="flex flex-col sm:flex-row justify-center items-center mb-6 sm:mb-8 gap-4">
                     <div>
                         <h3 class="text-3xl sm:text-4xl text-white font-normal">Beyond the sessions</h3>
-                        <p class="text-base sm:text-lg md:text-xl font-normal text-white mb-4">The Inaugural Kasneb International Conference for Professionals (KICP)
+                        <p class="text-base sm:text-lg md:text-xl font-normal text-white mb-4">The Inaugural Kasneb
+                            International Conference for Professionals (KICP)
                             Looking back to where it began
                         </p>
                     </div>
@@ -1507,7 +2319,8 @@
                                 <h4 class="text-lg sm:text-xl font-bold text-white group-hover:text-slate-800 transition-colors duration-300">
                                     Empowering Professionals to Lead the Future </h4>
                                 <p class="hidden group-hover:block transition-all duration-300 text-slate-800 text-xs sm:text-sm leading-relaxed mt-2">
-                                    Curated cultural and innovation hub visits to immerse participants in Nairobi's vibrant ecosystem.</p>
+                                    Curated cultural and innovation hub visits to immerse participants in Nairobi's
+                                    vibrant ecosystem.</p>
                             </div>
                         </div>
                     </div>
@@ -1522,7 +2335,8 @@
                                 <h4 class="text-lg sm:text-xl font-bold text-white group-hover:text-slate-800 transition-colors duration-300">
                                     Investor Roundtables</h4>
                                 <p class="hidden group-hover:block transition-all duration-300 text-slate-800 text-xs sm:text-sm leading-relaxed mt-2">
-                                    Invite-only sessions connecting startups, creators, and investors for candid deal-making discussions.</p>
+                                    Invite-only sessions connecting startups, creators, and investors for candid
+                                    deal-making discussions.</p>
                             </div>
                         </div>
                     </div>
@@ -1545,10 +2359,13 @@
                             KICP Exhibition Zone: Your Gateway to Professional Future</h3>
                         <p class="text-sm sm:text-base md:text-lg font-normal text-white/90 leading-relaxed max-w-2xl">
                             Elevate your brand and engage with a dynamic community at the KICP Exhibition Zone.
-                            This pivotal forum connects leading agencies, innovative startups, and creative professionals for unparalleled learning and exchange.
+                            This pivotal forum connects leading agencies, innovative startups, and creative
+                            professionals for unparalleled learning and exchange.
                         </p>
                         <p>
-                            Showcase your brand among thought leaders and actively shape the future of the professional landscape. Seize this unique opportunity to forge powerful connections with investors and partners.
+                            Showcase your brand among thought leaders and actively shape the future of the professional
+                            landscape. Seize this unique opportunity to forge powerful connections with investors and
+                            partners.
                         </p>
                     </div>
                     <div class="flex justify-center sm:justify-start mt-6 sm:mt-8 md:mt-10">
@@ -1579,7 +2396,8 @@
                                  style="background:linear-gradient(to bottom, #175C93, #7BC7F0)">
                                 <h2 class="text-2xl sm:text-3xl md:text-4xl mb-2 sm:mb-3 text-slate-800">KICP 2026
                                     Conference</h2>
-                                <p class="text-base text-slate-800/90">The professional Landscape in the fourth Industrial revolution</p>
+                                <p class="text-base text-slate-800/90">The professional Landscape in the fourth
+                                    Industrial revolution</p>
                             </div>
                             <div
                                 class="bg-[#F3F9FB] p-4 sm:p-5 mb-6 sm:mb-8 flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-6 border-b-2 border-slate-800 ml-4 sm:ml-6">
@@ -1631,7 +2449,8 @@
                                             <path fill="currentColor"
                                                   d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10s10-4.5 10-10S17.5 2 12 2m-2 15l-5-5l1.41-1.41L10 14.17l7.59-7.59L19 8z"></path>
                                         </svg>
-                                        <span class="text-sm sm:text-base md:text-lg">Investor & partnership deal rooms</span>
+                                        <span
+                                            class="text-sm sm:text-base md:text-lg">Investor & partnership deal rooms</span>
                                     </li>
                                     <li class="flex items-start gap-3">
                                         <svg xmlns="http://www.w3.org/2000/svg"
@@ -1653,7 +2472,7 @@
                                     benefits vary by pass type.</p>
                             </div>
                         </div>
-                            <div
+                        <div
                             class="flex-1 p-6 sm:p-8 md:p-10 lg:p-12 flex flex-col items-center justify-center border-t lg:border-t-0 lg:border-l border-white/20"
                             style="background:linear-gradient(to bottom, #175C93, #7BC7F0)">
                             <div class="text-center mb-6 sm:mb-8">
@@ -1734,7 +2553,8 @@
                                 <div
                                     class="bg-white w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden relative flex items-center justify-center flex-shrink-0 border border-gray-100"
                                     style="background-color:#1a1a1a"><img
-                                        src="{{ asset('assets/media/images/partners/treasury.webp') }}" alt="Treasury Logo"
+                                        src="{{ asset('assets/media/images/partners/treasury.webp') }}"
+                                        alt="Treasury Logo"
                                         class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain"></div>
                                 <div
                                     class="bg-white w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden relative flex items-center justify-center flex-shrink-0 border border-gray-100"
@@ -1908,7 +2728,7 @@
      * Speakers Carousel Functionality
      * Shows 3 speakers per view on desktop, responsive on mobile
      */
-    (function() {
+    (function () {
         const track = document.getElementById('speakers-carousel-track');
         const prevBtn = document.getElementById('speakers-prev');
         const nextBtn = document.getElementById('speakers-next');
