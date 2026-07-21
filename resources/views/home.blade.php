@@ -5100,7 +5100,7 @@
                             <div class="flex items-center space-x-6 sm:space-x-8 md:space-x-10">
                                 <div
                                     class="bg-white w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden relative flex items-center justify-center flex-shrink-0 border border-gray-100"
-                                    style="background-color:#1a1a1a"><img
+                                    style="background-color:#ffffff"><img
                                         src="{{ asset('assets/media/images/partners/psv.webp') }}" alt="PSV Logo"
                                         class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain"></div>
                                 <div
@@ -5117,38 +5117,38 @@
                                          class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain"></div>
                                 <div
                                     class="bg-white w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden relative flex items-center justify-center flex-shrink-0 border border-gray-100"
-                                    style="background-color:#1a1a1a"><img
+                                    style="background-color:#ffffff"><img
                                         src="{{ asset('assets/media/images/partners/kuccps.webp') }}" alt="KUCCPS Logo"
                                         class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain"></div>
                                 <div
                                     class="bg-white w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden relative flex items-center justify-center flex-shrink-0 border border-gray-100"
-                                    style="background-color:#1a1a1a"><img
+                                    style="background-color:#ffffff"><img
                                         src="{{ asset('assets/media/images/partners/tveta.webp') }}" alt="TVETA Logo"
                                         class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain"></div>
                                 <div
                                     class="bg-white w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden relative flex items-center justify-center flex-shrink-0 border border-gray-100"
-                                    style="background-color:#1a1a1a"><img
+                                    style="background-color:#ffffff"><img
                                         src="{{ asset('assets/media/images/partners/helb.webp') }}" alt="HELB Logo"
                                         class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain"></div>
                                 <div
                                     class="bg-white w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden relative flex items-center justify-center flex-shrink-0 border border-gray-100"
-                                    style="background-color:#1a1a1a"><img
+                                    style="background-color:#ffffff"><img
                                         src="{{ asset('assets/media/images/partners/treasury.webp') }}"
                                         alt="Treasury Logo"
                                         class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain"></div>
                                 <div
                                     class="bg-white w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden relative flex items-center justify-center flex-shrink-0 border border-gray-100"
-                                    style="background-color:#1a1a1a"><img
+                                    style="background-color:#ffffff"><img
                                         src="{{ asset('assets/media/images/partners/cpak.webp') }}" alt="CPAK Logo"
                                         class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain"></div>
                                 <div
                                     class="bg-white w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden relative flex items-center justify-center flex-shrink-0 border border-gray-100"
-                                    style="background-color:#1a1a1a"><img
+                                    style="background-color:#ffffff"><img
                                         src="{{ asset('assets/media/images/partners/cue.webp') }}" alt="CUE Logo"
                                         class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain"></div>
                                 <div
                                     class="bg-white w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden relative flex items-center justify-center flex-shrink-0 border border-gray-100"
-                                    style="background-color:#1a1a1a"><img
+                                    style="background-color:#ffffff"><img
                                         src="{{ asset('assets/media/images/partners/icifa.webp') }}" alt="ICIFA Logo"
                                         class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain"></div>
 
@@ -5156,14 +5156,14 @@
                             <div class="flex items-center space-x-6 sm:space-x-8 md:space-x-10">
                                 <div
                                     class="bg-white w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden relative flex items-center justify-center flex-shrink-0 border border-gray-100"
-                                    style="background-color:#1a1a1a">
+                                    style="background-color:#ffffff">
                                     <img
                                         src="{{ asset('assets/media/images/partners/psv.webp') }}" alt="PSV
                                         Logo"
                                         class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain"></div>
                                 <div
                                     class="bg-white w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden relative flex items-center justify-center flex-shrink-0 border border-gray-100"
-                                    style="background-color:#1a1a1a">
+                                    style="background-color:#ffffff">
                                     <img
                                         src="{{ asset('assets/media/images/partners/kebs.webp') }}" alt="KEBS
                                         Logo"
