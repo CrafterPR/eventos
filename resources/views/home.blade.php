@@ -4,8 +4,8 @@
         <div class="relative h-screen w-full section-visible" id="home">
             <div class="absolute inset-0 bg-cover bg-center"
                  style="background-image:url('{{ asset('assets/media/images/summit-hero-2.webp') }}');
-                 filter:brightness(0.4)"></div>
-            <div class="relative h-full flex items-center justify-center pt-4 sm:pt-16 md:pt-24">
+                 filter:brightness(0.6)"></div>
+            <div class="relative h-full flex items-center justify-center pt-4 sm:pt-12 md:pt-20">
                 <div class="mx-auto max-w-6xl w-full px-4 sm:px-6">
                     <div class="max-w-2xl mx-auto text-center">
                         <h1 class="text-xl sm:text-2xl md:text-2xl font-normal text-white mb-6 sm:mb-8
@@ -136,7 +136,7 @@
                 </div>
             </div>
         </div>
-        <div class="absolute top-[100vh] left-0 right-0 z-10 pointer-events-none transform -translate-y-1/2">
+        <div class="absolute top-[90vh] left-0 right-0 z-10 pointer-events-none transform -translate-y-1/2">
             <div class="pointer-events-auto">
                 <div class="hidden sm:block relative z-8">
                     <div class="mx-auto max-w-4xl px-4 sm:px-6">
