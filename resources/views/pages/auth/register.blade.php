@@ -966,7 +966,7 @@
             if (countryInput) {
                 $(countryInput).countrySelect({
                     defaultCountry: "ke",  // No default country
-                    preferredCountries: ['ke', 'ng', 'za', 'gh', 'tz', 'ug', 'rw'], // African countries preferred
+                    preferredCountries: ['ke', 'tz', 'ug', 'rw'], // African countries preferred
                     responsiveDropdown: true
                 });
             }
@@ -976,7 +976,7 @@
             if (countryInputStep2 && countryInputStep2 !== countryInput) {
                 $(countryInputStep2).countrySelect({
                     defaultCountry: "ke",
-                    preferredCountries: ['ke', 'ng', 'za', 'gh', 'tz', 'ug', 'rw'],
+                    preferredCountries: ['ke', 'tz', 'ug', 'rw'],
                     responsiveDropdown: true
                 });
             }
@@ -988,7 +988,7 @@
             if (countryInput) {
                 $(countryInput).countrySelect({
                     defaultCountry: "ke",  // No default country
-                    preferredCountries: ['ke', 'ng', 'za', 'gh', 'tz', 'ug', 'rw'], // African countries preferred
+                    preferredCountries: ['ke', 'tz', 'ug', 'rw'], // African countries preferred
                     responsiveDropdown: true
                 });
             }
@@ -998,7 +998,7 @@
             if (countryInputStep2 && countryInputStep2 !== countryInput) {
                 $(countryInputStep2).countrySelect({
                     defaultCountry: "ke",
-                    preferredCountries: ['ke', 'ng', 'za', 'gh', 'tz', 'ug', 'rw'],
+                    preferredCountries: ['ke', 'tz', 'ug', 'rw'],
                     responsiveDropdown: true
                 });
             }

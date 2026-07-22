@@ -1,7 +1,10 @@
 <html lang="en" style="height: 100%;">
 @include('layout.partials.summit-head')
-<body>
-
+<body {!! printHtmlClasses('body') !!} {!! printHtmlAttributes('body') !!}>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TLCWHS6H"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 <div>
     {{ $slot }}
 </div>
@@ -14,21 +17,21 @@
             interval: 3000,
 
             slides: [{
-                bg: '{{ asset('assets/media/images//assets/slider-1.jpg') }}'
+                bg: '{{ asset('assets/media/images/assets/slider-1.jpg') }}'
             }, {
-                bg: '{{ asset('assets/media/images//assets/slider-2.jpg') }}'
+                bg: '{{ asset('assets/media/images/assets/slider-2.jpg') }}'
             }, {
-                bg: '{{ asset('assets/media/images//assets/slider-3.jpg') }}'
+                bg: '{{ asset('assets/media/images/assets/slider-3.jpg') }}'
             }, {
-                bg: '{{ asset('assets/media/images//assets/slider-4.jpg') }}'
+                bg: '{{ asset('assets/media/images/assets/slider-4.jpg') }}'
             }, {
-                bg: '{{ asset('assets/media/images//assets/slider-5.jpg') }}'
+                bg: '{{ asset('assets/media/images/assets/slider-5.jpg') }}'
             }, {
-                bg: '{{ asset('assets/media/images//assets/slider-6.jpg') }}'
+                bg: '{{ asset('assets/media/images/assets/slider-6.jpg') }}'
             }, {
-                bg: '{{ asset('assets/media/images//assets/slider-7.jpg') }}'
+                bg: '{{ asset('assets/media/images/assets/slider-7.jpg') }}'
             }, {
-                bg: '{{ asset('assets/media/images//assets/slider-8.jpg') }}'
+                bg: '{{ asset('assets/media/images/assets/slider-8.jpg') }}'
             }],
 
             start() {

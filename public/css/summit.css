@@ -790,11 +790,11 @@ input:where([type='file']):focus{
 .top-40{
   top: 10rem;
 }
-.top-\[100vh\]{
-  top: 100vh;
-}
 .top-\[6px\]{
   top: 6px;
+}
+.top-\[90vh\]{
+  top: 90vh;
 }
 .top-full{
   top: 100%;
@@ -1620,9 +1620,9 @@ input:where([type='file']):focus{
 .bg-\[\#172840\]\/40{
   background-color: rgb(23 40 64 / 0.4);
 }
-.bg-\[\#34B6A7\]{
+.bg-\[\#175C93\]{
   --tw-bg-opacity: 1;
-  background-color: rgb(52 182 167 / var(--tw-bg-opacity, 1));
+  background-color: rgb(23 92 147 / var(--tw-bg-opacity, 1));
 }
 .bg-\[\#84C1D9\]{
   --tw-bg-opacity: 1;
@@ -1734,14 +1734,6 @@ input:where([type='file']):focus{
 .bg-yellow-500{
   --tw-bg-opacity: 1;
   background-color: rgb(234 179 8 / var(--tw-bg-opacity, 1));
-}
-.bg-\[\#f25849\]{
-  --tw-bg-opacity: 1;
-  background-color: rgb(242 88 73 / var(--tw-bg-opacity, 1));
-}
-.bg-\[\#175C93\]{
-  --tw-bg-opacity: 1;
-  background-color: rgb(23 92 147 / var(--tw-bg-opacity, 1));
 }
 .bg-opacity-50{
   --tw-bg-opacity: 0.5;

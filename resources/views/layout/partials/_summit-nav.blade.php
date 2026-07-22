@@ -27,78 +27,41 @@
                     <a href="@if(!request()->routeIs('/')) {{ route('/') }}#about @else #about @endif"
                        class="text-[#172840] hover:text-gray-900 hover:bg-[#175C93] px-2 sm:px-3 py-1.5 rounded-full
                        transition-all duration-300 cursor-pointer text-xs sm:text-sm">About the conference
-
-                        <a href="@if(!request()->routeIs('/')) {{ route('/') }}#agenda @else #agenda @endif"
-                       class="text-[#172840] hover:text-gray-900 hover:bg-[#175C93] px-2 sm:px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer text-xs sm:text-sm">Programme
                     </a>
 
-                    </a>
+                        <a href="@if(!request()->routeIs('/')) {{ route('/') }}#programme-section @else #programme-section @endif"
+                            class="text-[#172840] hover:text-gray-900 hover:bg-[#175C93] px-2 sm:px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer text-xs sm:text-sm">
+                            Programme
+                        </a>
+
                     <a
                         href="@if(!request()->routeIs('/')) {{ route('/') }}#participants @else #participants @endif"
-                        class="text-[#172840] hover:text-gray-900 hover:bg-[#175C93] px-2 sm:px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer text-xs sm:text-sm">Who
-                        can attend</a>
+                        class="text-[#172840] hover:text-gray-900 hover:bg-[#175C93] px-2 sm:px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer text-xs sm:text-sm">
+                        Who can attend
+                    </a>
                     <a
                         href="@if(!request()->routeIs('/')) {{ route('/') }}#speakers-section @else #speakers-section @endif"
-                        class="text-[#172840] hover:text-gray-900 hover:bg-[#175C93] px-2 sm:px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer text-xs sm:text-sm">Speakers
+                        class="text-[#172840] hover:text-gray-900 hover:bg-[#175C93] px-2 sm:px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer text-xs sm:text-sm">
+                        Speakers
                     </a>
-                    <a href="@if(!request()->routeIs('/')) {{ route('/') }}#exhibition @else #exhibition @endif"
-                       class="text-[#172840] hover:text-gray-900 hover:bg-[#175C93] px-2 sm:px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer text-xs sm:text-sm">Exhibit
+                    <a href="@if(!request()->routeIs('/')) {{ route('/') }}#tracks-section @else #tracks-section @endif"
+                       class="text-[#172840] hover:text-gray-900 hover:bg-[#175C93] px-2 sm:px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer text-xs sm:text-sm">
+                        Tracks
                     </a>
                     <a href="{{ asset('assets/media/images/KICP 2 SPONSORSHIP PROPOSAL 2026.pdf') }}" target="_blank"
                        class="text-[#172840] hover:text-gray-900 hover:bg-[#175C93] px-2 sm:px-3 py-1.5 rounded-full
-                       transition-all duration-300 cursor-pointer text-xs sm:text-sm">Sponsorship
+                       transition-all duration-300 cursor-pointer text-xs sm:text-sm">
+                        Sponsorship
+                    </a>
+                    <a href="@if(!request()->routeIs('/')) {{ route('/') }}#faqs-section @else #faqs-section @endif"
+                       class="text-[#172840] hover:text-gray-900 hover:bg-[#175C93] px-2 sm:px-3 py-1.5 rounded-full
+                       transition-all duration-300 cursor-pointer text-xs sm:text-sm">
+                        FAQs
                     </a>
 
 
                 </div>
-{{--                <div class="relative">--}}
-{{--                    <div id="google_translate_element"--}}
-{{--                         style="position:absolute;height:0;overflow:hidden;top:-9999px;left:-9999px">--}}
-{{--                        <div class="skiptranslate goog-te-gadget" dir="ltr" style="">--}}
-{{--                            <div id=":0.targetLanguage" style="display: inline;"><select class="goog-te-combo"--}}
-{{--                                                                                         aria-label="Language Translate Widget">--}}
-{{--                                    <option value="">Select Language</option>--}}
-{{--                                    <option value="ar">Arabic</option>--}}
-{{--                                    <option value="fr">French</option>--}}
-{{--                                    <option value="ha">Hausa</option>--}}
-{{--                                    <option value="sw">Swahili</option>--}}
-{{--                                </select></div>&nbsp;&nbsp;Powered--}}
-{{--                            by <span style="white-space:nowrap"><a class="VIpgJd-ZVi9od-l4eHX-hSRGPd"--}}
-{{--                                                                   href="https://translate.google.com"--}}
-{{--                                                                   target="_blank"><img--}}
-{{--                                        src="https://www.gstatic.com/images/branding/googlelogo/1x/googlelogo_color_42x16dp.png"--}}
-{{--                                        width="37px" height="14px" style="padding-right: 3px"--}}
-{{--                                        alt="Google Translate">Translate</a></span></div>--}}
-{{--                    </div>--}}
-{{--                    <div class="relative group">--}}
-{{--                        <button class="p-2 rounded-full focus:outline-none hover:bg-sky-50 bg-white/50"--}}
-{{--                                aria-label="Change Language">--}}
-{{--                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"--}}
-{{--                                 aria-hidden="true" role="img" class="h-5 w-5 rounded-lg  iconify iconify--flag"--}}
-{{--                                 width="1em" height="1em" viewBox="0 0 512 512">--}}
-{{--                                <path fill="#bd3d44" d="M0 0h512v512H0"></path>--}}
-{{--                                <path stroke="#fff" stroke-width="40"--}}
-{{--                                      d="M0 58h512M0 137h512M0 216h512M0 295h512M0 374h512M0 453h512"></path>--}}
-{{--                                <path fill="#192f5d" d="M0 0h390v275H0z"></path>--}}
-{{--                                <marker id="iconifyReact65" markerHeight="30" markerWidth="30">--}}
-{{--                                    <path fill="#fff" d="m15 0l9.3 28.6L0 11h30L5.7 28.6"></path>--}}
-{{--                                </marker>--}}
-{{--                                <path fill="none" marker-mid="url(#iconifyReact65)"--}}
-{{--                                      d="m0 0l18 11h65h65h65h65h66L51 39h65h65h65h65L18 66h65h65h65h65h66L51 94h65h65h65h65L18 121h65h65h65h65h66L51 149h65h65h65h65L18 177h65h65h65h65h66L51 205h65h65h65h65L18 232h65h65h65h65h66z"></path>--}}
-{{--                            </svg>--}}
-{{--                        </button>--}}
-{{--                        <div class="--}}
-{{--      absolute top-full left-1/2 -translate-x-1/2 mt-2 w-max--}}
-{{--      bg-white text-xs py-2 px-3 rounded-full shadow-lg--}}
-{{--      opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0--}}
-{{--      transition-all duration-200 ease-in-out--}}
-{{--      text-gray-900--}}
-{{--      before:content-[''] before:absolute before:-top-1.5 before:left-1/2--}}
-{{--      before:-translate-x-1/2 before:border-4 before:border-transparent before:border-b-white--}}
-{{--    ">Change Language--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
+
                 @if(request()->routeIs('register'))
                 <a href="#contact-info-step"
                     class="bg-red-500 text-white px-4 py-2 text-sm rounded-full hover:bg-red-500/90 transition-all duration-300 font-medium shadow-lg flex items-center justify-center gap-2">
@@ -155,11 +118,13 @@
                    class="text-slate-800 bg-blue-600 block px-3 sm:px-4 py-2 sm:py-3 rounded-full transition-all duration-300 cursor-pointer text-sm sm:text-base font-medium">Home
                 </a>
                 <a href="#about"
-                   class="text-[#172840] hover:text-gray-900 hover:bg-[#175C93] block px-3 sm:px-4 py-2 sm:py-3 rounded-full transition-all duration-300 cursor-pointer text-sm sm:text-base">About the conference
+                   class="text-[#172840] hover:text-gray-900 hover:bg-[#175C93] block px-3 sm:px-4 py-2 sm:py-3 rounded-full transition-all duration-300 cursor-pointer text-sm sm:text-base">
+                    About the conference
                 </a>
 
-                <a href="#agenda"
-                   class="text-[#172840] hover:text-gray-900 hover:bg-[#175C93] block px-3 sm:px-4 py-2 sm:py-3 rounded-full transition-all duration-300 cursor-pointer text-sm sm:text-base">Programme
+                <a href="#programme-section"
+                   class="text-[#172840] hover:text-gray-900 hover:bg-[#175C93] block px-3 sm:px-4 py-2 sm:py-3 rounded-full transition-all duration-300 cursor-pointer text-sm sm:text-base">
+                    Programme
                 </a>
                 <a
                     href="#participants"
@@ -171,14 +136,20 @@
                     href="#paan-awards-section"
                     class="text-[#172840] hover:text-gray-900 hover:bg-[#175C93] block px-3 sm:px-4 py-2 sm:py-3 rounded-full transition-all duration-300 cursor-pointer text-sm sm:text-base">Awards
                 </a>
-                <a href="#exhibition"
-                   class="text-[#172840] hover:text-gray-900 hover:bg-[#175C93] block px-3 sm:px-4 py-2 sm:py-3 rounded-full transition-all duration-300 cursor-pointer text-sm sm:text-base">Exhibit
+                <a href="#tracks-section"
+                   class="text-[#172840] hover:text-gray-900 hover:bg-[#175C93] block px-3 sm:px-4 py-2 sm:py-3
+                   rounded-full transition-all duration-300 cursor-pointer text-sm sm:text-base">Tracks
                 </a>
                 <a
                     href="{{ asset('assets/media/images/KICP 2 SPONSORSHIP PROPOSAL 2026.pdf') }}"
                      target="_blank"
                     class="text-[#172840] hover:text-gray-900 hover:bg-[#175C93] block px-3 sm:px-4 py-2 sm:py-3
                     rounded-full transition-all duration-300 cursor-pointer text-sm sm:text-base">Sponsorship
+                </a>
+                <a href="@if(!request()->routeIs('/')) {{ route('/') }}#faqs-section @else #faqs-section @endif"
+                   class="text-[#172840] hover:text-gray-900 hover:bg-[#175C93] px-2 sm:px-3 py-1.5 rounded-full
+                       transition-all duration-300 cursor-pointer text-xs sm:text-sm">
+                    FAQs
                 </a>
 
                 <div class="px-3 sm:px-4 py-3 mt-4">
