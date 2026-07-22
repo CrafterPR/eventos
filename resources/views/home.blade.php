@@ -4,7 +4,7 @@
         <div class="relative h-screen w-full section-visible" id="home">
             <div class="absolute inset-0 bg-cover bg-center"
                  style="background-image:url('{{ asset('assets/media/images/landing.webp') }}');
-                 filter:brightness(0.7)"></div>
+                 filter:brightness(0.9)"></div>
             <div class="relative h-full flex items-center justify-center pt-4 sm:pt-2 md:pt-0">
                 <div class="mx-auto max-w-6xl w-full px-4 sm:px-6">
                     <div class="max-w-2xl mx-auto text-center">
@@ -114,7 +114,7 @@
                                     <path d="M18 16l-4-2.5" stroke="currentColor"></path>
                                 </svg>
                                 <span
-                                    class="break-words sm:whitespace-nowrap text-white text-3xl">Theme:  <span
+                                    class="break-words sm:whitespace-nowrap text-[#E22036] text-3xl">Theme:  <span
                                         class="break-words sm:whitespace-nowrap"><strong>Shaping
                                                 Tomorrow's Professional Landscape</strong></span></span>
 
