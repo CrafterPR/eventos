@@ -4929,7 +4929,7 @@
                     <!--Inner Tabs section -->
                     <div>
                         <div>
-                                <section >
+                                <section class="relative mx-auto max-w-6xl px-4 sm:px-6 z-10">
 
                                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6" style="opacity: 1;">
                                         <div  class="bg-white border-gray-200 p-4 sm:p-6 rounded-lg border-2
@@ -5032,7 +5032,7 @@
                                                         : 'bg-white border-gray-200'" class="p-4 sm:p-6 rounded-lg border-2 shadow-sm hover:shadow-lg transition-all duration-300 relative" tabindex="0" style="opacity: 1; transform: none;">
                                             <div class="absolute -top-2 right-2 sm:right-4 px-2 sm:px-3
                                                         py-1 rounded-full text-xs font-semibold shadow-lg
-                                                        bg-[#84C1D9] text-white" style="opacity: 1; transform: none;
+                                                        bg-[#175C93] text-white" style="opacity: 1; transform: none;
                                                         ">FOR EXHIBITORS</div>
                                             <div class="flex flex-col h-full">
                                                 <div class="mb-3 sm:mb-4">

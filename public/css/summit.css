@@ -1735,6 +1735,14 @@ input:where([type='file']):focus{
   --tw-bg-opacity: 1;
   background-color: rgb(234 179 8 / var(--tw-bg-opacity, 1));
 }
+.bg-\[\#f25849\]{
+  --tw-bg-opacity: 1;
+  background-color: rgb(242 88 73 / var(--tw-bg-opacity, 1));
+}
+.bg-\[\#175C93\]{
+  --tw-bg-opacity: 1;
+  background-color: rgb(23 92 147 / var(--tw-bg-opacity, 1));
+}
 .bg-opacity-50{
   --tw-bg-opacity: 0.5;
 }
