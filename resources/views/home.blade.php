@@ -5151,7 +5151,8 @@
                                                 <h2 class="text-lg sm:text-xl font-bold
                                                                 text-slate-800 mb-2">Exhibition Booth</h2>
                                                 <p class="text-slate-800/80 text-xs
-                                                                sm:text-sm">Special pricing for exhibitors</p>
+                                                                sm:text-sm">Price for exhibitors to
+                                                    showcase their innovations, products and services</p>
                                             </div>
                                             <div class="mb-3 sm:mb-4">
                                                 <h3 class="text-2xl sm:text-3xl font-bold
