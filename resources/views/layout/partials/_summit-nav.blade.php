@@ -48,11 +48,7 @@
                        class="text-[#172840] hover:text-gray-900 hover:bg-[#175C93] px-2 sm:px-3 py-1.5 rounded-full
                        transition-all duration-300 cursor-pointer text-xs sm:text-sm">Sponsorship
                     </a>
-                    <a
-                        href="@if(!request()->routeIs('/')) {{ route('/') }}#tickets-section @else #tickets-section
-                        @endif"
-                        class="text-[#172840] hover:text-gray-900 hover:bg-[#175C93] px-2 sm:px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer text-xs sm:text-sm">Tickets
-                    </a>
+
 
                 </div>
 {{--                <div class="relative">--}}
@@ -109,7 +105,8 @@
                     Register Now
                 </a>
                 @else
-                    <a href="{{ route('register') }}"
+                    <a href="@if(!request()->routeIs('/')) {{ route('/') }}#tickets-section @else #tickets-section
+                        @endif"
                        class="bg-red-500 text-white px-4 py-2 text-sm rounded-full hover:bg-red-500/90 transition-all duration-300 font-medium shadow-lg flex items-center justify-center gap-2">
                         Register Now
                     </a>
