@@ -4800,7 +4800,7 @@
                 </div>
             </section>
         </div>
-        <div class="bg-[#DAECF3] relative py-12 sm:py-16 md:py-20">
+        <div class="bg-[#DAECF3] relative py-12 sm:py-16 md:py-20" id="participants">
             <section class="relative mx-auto max-w-6xl px-4 sm:px-6">
                 <div class="flex justify-center mb-8 sm:mb-12">
                     <h2 class="text-xs sm:text-sm w-fit border border-slate-800 text-slate-800 mb-4 bg-[#84C1DA] rounded-full px-3 sm:px-4 py-1">
@@ -5238,7 +5238,7 @@
                                 ` },
                                 { id: 5, title: 'Safety &amp; Security', content: `
                                     <p>
-                                        Nairobi is a vibrant business and conference destination with modern infrastructure and hospitality facilities. The conference organizers are working closely with the venue and security agencies to ensure a safe and secure environment throughout the event. Delegates are encouraged to observe normal safety precautions during their stay. 
+                                        Nairobi is a vibrant business and conference destination with modern infrastructure and hospitality facilities. The conference organizers are working closely with the venue and security agencies to ensure a safe and secure environment throughout the event. Delegates are encouraged to observe normal safety precautions during their stay.
                                     </p>
                                 ` },
                             ],
