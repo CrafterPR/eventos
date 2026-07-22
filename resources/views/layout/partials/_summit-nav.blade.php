@@ -48,6 +48,11 @@
                        class="text-[#172840] hover:text-gray-900 hover:bg-[#175C93] px-2 sm:px-3 py-1.5 rounded-full
                        transition-all duration-300 cursor-pointer text-xs sm:text-sm">Sponsorship
                     </a>
+                    <a
+                        href="@if(!request()->routeIs('/')) {{ route('/') }}#tickets-section @else #tickets-section
+                        @endif"
+                        class="text-[#172840] hover:text-gray-900 hover:bg-[#175C93] px-2 sm:px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer text-xs sm:text-sm">Tickets
+                    </a>
 
                 </div>
 {{--                <div class="relative">--}}

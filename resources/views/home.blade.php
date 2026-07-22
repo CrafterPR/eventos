@@ -4920,7 +4920,7 @@
             >
 
 
-            <section >
+            <section id="tickets-section" class="relative mx-auto max-w-6xl px-4 sm:px-6 z-10">
                 <h2 class="text-2xl sm:text-3xl text-center md:text-4xl font-normal text-slate-800 mb-2
                 sm:mb-3" style="opacity: 1;">Conference Tickets</h2>
                 <h3 class="text-sm sm:text-base md:text-lg font-normal py-2 sm:py-3 md:py-4 text-center text-slate-800 mb-6 sm:mb-8">
