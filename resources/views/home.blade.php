@@ -4929,7 +4929,7 @@
                     <!--Inner Tabs section -->
                     <div>
                         <div>
-                                <section class="bg-[#34B6A7]">
+                                <section >
 
                                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6" style="opacity: 1;">
                                         <div  class="bg-white border-gray-200 p-4 sm:p-6 rounded-lg border-2
@@ -4989,10 +4989,15 @@
                                                                         sm:text-sm">Ksh. 5,500</span><span
                                                             class="text-xs
                                                                          text-red-500 font-medium">Save 19%</span></div>
-                                                    <h3 class="text-2xl sm:text-3xl font-bold
-                                                                text-slate-800">Ksh. 14,500</h3>
-                                                    <h4 class="text-xl sm:text-2xl
-                                                                text-slate-800">per person</h4>
+                                                    <div class="flex items-center gap-2 whitespace-nowrap">
+                                                        <h3 class="text-2xl sm:text-3xl font-bold text-slate-800">
+                                                            Ksh. 14,500
+                                                        </h3>
+                                                        <h5 class="text-md sm:text-xl font-bold text-red-500">
+                                                            per person
+                                                        </h5>
+                                                    </div>
+
                                                 </div>
                                                 <div class="mb-4 sm:mb-6">
                                                     <ul class="space-y-1 text-slate-800 text-xs sm:text-sm">
