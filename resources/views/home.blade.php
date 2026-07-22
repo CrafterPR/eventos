@@ -4804,7 +4804,7 @@
             <section class="relative mx-auto max-w-6xl px-4 sm:px-6">
                 <div class="flex justify-center mb-8 sm:mb-12">
                     <h2 class="text-xs sm:text-sm w-fit border border-slate-800 text-slate-800 mb-4 bg-[#84C1DA] rounded-full px-3 sm:px-4 py-1">
-                        Who's in the room</h2>
+                        Who can attend?</h2>
                 </div>
                 <div class="w-full overflow-hidden whitespace-nowrap py-4 sm:py-5 bg-white/20 rounded-lg mb-3 sm:mb-4">
                     <div class="inline-flex animate-marquee-right">
@@ -5219,26 +5219,26 @@
                             open: 1,
                             items: [
                                 { id: 1, title: 'Who Should Attend?', content: `
-                                    <p> Professionals, accountants, agencies, tech innovators, investors, and policy leaders driving the future of the professional economy.</p>
+                                    <p> The conference is designed for professionals, accountants, business leaders, entrepreneurs, government officials, policymakers, academics, students, tech innovators, investors, and industry stakeholders seeking to stay ahead of emerging trends, expand their networks, and shape the future of the professional landscape..</p>
                                 `},
-                                { id: 2, title: 'Accommodation', content: `
+                                { id: 2, title: 'How to Plan your Trip', content: `
                                     <p>
-                                        We've secured special rates at partner hotels near the venue. Options range from luxury beachfront resorts to budget-friendly accommodations. All partner hotels offer convenient access to the venue, with selected hotels providing complimentary airport transfers.
+                                        Nairobi is well connected by air, road, and rail, making it easily accessible for local and international delegates. We've partnered with selected hotels near the conference venue, offering preferential accommodation rates ranging from luxury to budget-friendly options. Travel and accommodation information will be shared with all registered participants.
                                     </p>
                                 ` },
-                                { id: 3, title: 'Visa Requirements', content: `
+                                { id: 3, title: 'How to become a Sponsor', content:  `
                                     <p>
-                                        Most African citizens can enter Kenya visa-free or with visa-on-arrival. International visitors should check visa requirements based on their nationality. We can provide invitation letters to support visa applications if needed.
+                                        Partner with KICP to position your brand before a diverse audience of professionals, corporate leaders, government representatives, and key decision-makers. A range of sponsorship packages is available, offering valuable branding, speaking, exhibition, and networking opportunities.
                                     </p>
                                 ` },
-                                { id: 4, title: 'Transportation', content: `
+                                { id: 4, title: 'How to book Exhibition Spot ', content: `
                                     <p>
-                                        Nairobi has a reliable network of taxis, ride-sharing services, and public transport. Attendees can also access the venue easily from the airport, hotels, and key transport hubs. Detailed transportation guides and group transfer arrangements will be available for registered participants.
+                                        Organizations interested in showcasing their products, services, or innovations can reserve an exhibition booth by completing the online exhibition registration form. Exhibition spaces are allocated on a first-come, first-served basis, subject to availability.
                                     </p>
                                 ` },
                                 { id: 5, title: 'Safety &amp; Security', content: `
                                     <p>
-                                        Nairobi is a welcoming and vibrant coastal city that receives visitors from around the world. We work closely with local security partners to ensure a safe and secure environment throughout the event. As with any major destination, attendees are encouraged to observe basic safety precautions during their stay.
+                                        Nairobi is a vibrant business and conference destination with modern infrastructure and hospitality facilities. The conference organizers are working closely with the venue and security agencies to ensure a safe and secure environment throughout the event. Delegates are encouraged to observe normal safety precautions during their stay. 
                                     </p>
                                 ` },
                             ],
