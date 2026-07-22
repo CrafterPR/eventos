@@ -4622,7 +4622,7 @@
                                     class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent group-hover:bg-gradient-to-t group-hover:from-black/0 group-hover:to-transparent transition-all duration-300 p-4 sm:p-6">
                                     <div
                                         class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                                        style="background:linear-gradient(to top, #F2B706 0%, #F2B706 40%, rgba(0,0,0,0) 100%)"></div>
+                                        style="background:linear-gradient(to top, #175C93 0%, #BBE1F8 40%, rgba(0,0,0,0) 100%)"></div>
                                     <div class="relative z-10 flex justify-between items-center">
                                         <div>
                                             <h4 class="text-lg sm:text-xl font-bold text-white mb-1">Mr. Felix Koskei,
@@ -4652,7 +4652,7 @@
                                     class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent group-hover:bg-gradient-to-t group-hover:from-black/0 group-hover:to-transparent transition-all duration-300 p-4 sm:p-6">
                                     <div
                                         class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                                        style="background:linear-gradient(to top, #F2B706 0%, #F2B706 40%, rgba(0,0,0,0) 100%)"></div>
+                                        style="background:linear-gradient(to top, #175C93 0%, #BBE1F8 40%, rgba(0,0,0,0) 100%)"></div>
                                     <div class="relative z-10 flex justify-between items-center">
                                         <div>
                                             <h4 class="text-lg sm:text-xl font-bold text-white mb-1">FCPA Hon. John
@@ -4682,7 +4682,7 @@
                                     class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent group-hover:bg-gradient-to-t group-hover:from-black/0 group-hover:to-transparent transition-all duration-300 p-4 sm:p-6">
                                     <div
                                         class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                                        style="background:linear-gradient(to top, #F2B706 0%, #F2B706 40%, rgba(0,0,0,0) 100%)"></div>
+                                        style="background:linear-gradient(to top, #175C93 0%, #BBE1F8 40%, rgba(0,0,0,0) 100%)"></div>
                                     <div class="relative z-10 flex justify-between items-center">
                                         <div>
                                             <h4 class="text-lg sm:text-xl font-bold text-white mb-1">Dr. Chris K.
@@ -4712,7 +4712,7 @@
                                     class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent group-hover:bg-gradient-to-t group-hover:from-black/0 group-hover:to-transparent transition-all duration-300 p-4 sm:p-6">
                                     <div
                                         class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                                        style="background:linear-gradient(to top, #F2B706 0%, #F2B706 40%, rgba(0,0,0,0) 100%)"></div>
+                                        style="background:linear-gradient(to top, #175C93 0%, #BBE1F8 40%, rgba(0,0,0,0) 100%)"></div>
                                     <div class="relative z-10 flex justify-between items-center">
                                         <div>
                                             <h4 class="text-lg sm:text-xl font-bold text-white mb-1">Dr Percy Opio
@@ -4742,7 +4742,7 @@
                                     class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent group-hover:bg-gradient-to-t group-hover:from-black/0 group-hover:to-transparent transition-all duration-300 p-4 sm:p-6">
                                     <div
                                         class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                                        style="background:linear-gradient(to top, #F25849 0%, #F25849 40%, rgba(0,0,0,0) 100%)"></div>
+                                        style="background:linear-gradient(to top, #175C93 0%, #BBE1F8 40%, rgba(0,0,0,0) 100%)"></div>
                                     <div class="relative z-10 flex justify-between items-center">
                                         <div>
                                             <h4 class="text-lg sm:text-xl font-bold text-white mb-1">Dr. Joseph M. Kanyi
@@ -4793,10 +4793,12 @@
                     </div>
                 </div>
                 <div class="flex justify-center sm:justify-start gap-2 mt-6 sm:mt-8">
-                    <button
-                        class="bg-gradient-to-r from-yellow-500 to-[#84C1DA] border border-transparent text-white px-6 sm:px-8 py-3 rounded-full hover:opacity-90 transition-all duration-300 font-medium text-sm sm:text-base shadow-lg flex items-center justify-center gap-2 w-full sm:w-auto">
-                        Apply to Speak
-                    </button>
+                    <a href="{{ route('register') }}"
+                        class="bg-gradient-to-r from-[#175C93] to-[#84C1DA] border border-transparent text-white px-6
+                         sm:px-8
+                         py-3 rounded-full hover:opacity-90 transition-all duration-300 font-medium text-sm sm:text-base shadow-lg flex items-center justify-center gap-2 w-full sm:w-auto">
+                        Register now
+                    </a>
                 </div>
             </section>
         </div>
