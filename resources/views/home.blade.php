@@ -4916,167 +4916,171 @@
             </section>
         </div>
         <div
-            class="relative py-6 sm:py-8 md:py-12 lg:py-16 xl:py-20 overflow-hidden h-[320px] sm:h-[400px] md:h-[450px] lg:h-[500px] xl:h-[550px]"
-            id="exhibition">
-            <div class="absolute inset-0 bg-cover bg-center sm:bg-fixed bg-scroll"
-                 style="background-image:url('{{ asset('assets/media/images/exhibition.webp') }}');filter:brightness(0.8);background-position:center
-                 center"></div>
-            <div class="absolute inset-0 bg-slate-800/40 sm:bg-slate-800/30"></div>
-            <div class="absolute inset-0 bg-gradient-to-l from-yellow-500/30 to-transparent"></div>
-            <section class="relative mx-auto max-w-7xl px-3 sm:px-4 md:px-6 lg:px-8 h-full flex items-center">
-                <div class="w-full">
-                    <div
-                        class="flex flex-col justify-center items-center text-center sm:text-left sm:items-start space-y-4 sm:space-y-6 md:space-y-8">
-                        <h3 class="text-lg sm:text-2xl md:text-3xl lg:text-4xl text-white font-normal leading-tight max-w-3xl">
-                            KICP Exhibition Zone: Your Gateway to Professional Future</h3>
-                        <p class="text-sm sm:text-base md:text-lg font-normal text-white/90 leading-relaxed max-w-2xl">
-                            Elevate your brand and engage with a dynamic community at the KICP Exhibition Zone.
-                            This pivotal forum connects leading agencies, innovative startups, and creative
-                            professionals for unparalleled learning and exchange.
-                        </p>
-                        <p>
-                            Showcase your brand among thought leaders and actively shape the future of the professional
-                            landscape. Seize this unique opportunity to forge powerful connections with investors and
-                            partners.
-                        </p>
-                    </div>
-                    <div class="flex justify-center sm:justify-start mt-6 sm:mt-8 md:mt-10">
-                        <button
-                            class="bg-red-500 hover:bg-red-500/90 text-white px-6 sm:px-8 md:px-10 py-3 sm:py-4 rounded-full transition-all duration-300 font-medium text-sm sm:text-base shadow-lg hover:shadow-xl flex items-center justify-center gap-2 w-full max-w-xs sm:max-w-sm md:w-auto min-h-[48px] active:scale-95">
-                            <span>View Exhibition Options</span>
-                            <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                 xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                      d="M9 5l7 7-7 7"></path>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-            </section>
-        </div>
-        <div class="bg-white relative py-12 sm:py-16 md:py-20" id="tickets-section">
-            <section class="relative mx-auto max-w-6xl px-4 sm:px-6">
-                <div class="flex flex-col text-center mb-6 sm:mb-8 md:mb-12">
-                    <h3 class="text-xl sm:text-3xl md:text-4xl text-slate-800 font-bold">Secure Your Spot</h3>
-                    <p class="text-sm sm:text-base md:text-lg lg:text-xl font-normal text-slate-800 mb-4 sm:mb-6 md:mb-8 leading-relaxed">
-                        Deal rooms, clinics. Register now.</p>
-                </div>
-                <div class="bg-[#F3F9FB] rounded-2xl shadow-2xl overflow-hidden">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="flex-1 text-slate-800">
-                            <div class="p-4 sm:p-5 md:p-6"
-                                 style="background:linear-gradient(to bottom, #175C93, #7BC7F0)">
-                                <h2 class="text-2xl sm:text-3xl md:text-4xl mb-2 sm:mb-3 text-slate-800">KICP 2026
-                                    Conference</h2>
-                                <p class="text-base text-slate-800/90">The professional Landscape in the fourth
-                                    Industrial revolution</p>
-                            </div>
-                            <div
-                                class="bg-[#F3F9FB] p-4 sm:p-5 mb-6 sm:mb-8 flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-6 border-b-2 border-slate-800 ml-4 sm:ml-6">
-                                <div class="flex items-center gap-2 sm:gap-3">
-                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                         aria-hidden="true" role="img"
-                                         class="text-red-500 w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0 iconify iconify--mdi"
-                                         width="1em" height="1em"
-                                         viewBox="0 0 24 24">
-                                        <path fill="currentColor"
-                                              d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"></path>
-                                    </svg>
-                                    <span
-                                        class="text-sm sm:text-base font-normal text-slate-800">14th-18th Sept,
-                                        2026</span>
-                                </div>
-                                <div class="flex items-center gap-2 sm:gap-3">
-                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                         aria-hidden="true" role="img"
-                                         class="text-red-500 w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0 iconify iconify--mdi"
-                                         width="1em" height="1em"
-                                         viewBox="0 0 24 24">
-                                        <path fill="currentColor"
-                                              d="M12 11.5A2.5 2.5 0 0 1 9.5 9A2.5 2.5 0 0 1 12 6.5A2.5 2.5 0 0 1 14.5 9a2.5 2.5 0 0 1-2.5 2.5M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7"></path>
-                                    </svg>
-                                    <span class="text-sm sm:text-base font-normal text-slate-800">TBD, Nairobi </span>
-                                </div>
-                            </div>
-                            <div class="mb-6 sm:mb-8 text-slate-800/90 ml-4">
-                                <ul class="space-y-3 sm:space-y-4">
-                                    <li class="flex items-start gap-3">
-                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                             xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
-                                             class="text-slate-800 w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0 mt-0.5 iconify iconify--mdi"
-                                             width="1em"
-                                             height="1em" viewBox="0 0 24 24">
-                                            <path fill="currentColor"
-                                                  d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10s10-4.5 10-10S17.5 2 12 2m-2 15l-5-5l1.41-1.41L10 14.17l7.59-7.59L19 8z"></path>
-                                        </svg>
-                                        <span class="text-sm sm:text-base md:text-lg">Actionable sessions &amp;
-                                            networking</span>
-                                    </li>
-                                    <li class="flex items-start gap-3">
-                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                             xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
-                                             class="text-slate-800 w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0 mt-0.5 iconify iconify--mdi"
-                                             width="1em"
-                                             height="1em" viewBox="0 0 24 24">
-                                            <path fill="currentColor"
-                                                  d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10s10-4.5 10-10S17.5 2 12 2m-2 15l-5-5l1.41-1.41L10 14.17l7.59-7.59L19 8z"></path>
-                                        </svg>
-                                        <span
-                                            class="text-sm sm:text-base md:text-lg">Investor & partnership deal rooms</span>
-                                    </li>
-                                    <li class="flex items-start gap-3">
-                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                             xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
-                                             class="text-slate-800 w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0 mt-0.5 iconify iconify--mdi"
-                                             width="1em"
-                                             height="1em" viewBox="0 0 24 24">
-                                            <path fill="currentColor"
-                                                  d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10s10-4.5 10-10S17.5 2 12 2m-2 15l-5-5l1.41-1.41L10 14.17l7.59-7.59L19 8z"></path>
-                                        </svg>
-                                        <span
-                                            class="text-sm sm:text-base md:text-lg">High-level networking experiences</span>
-                                    </li>
+            class="flex flex-col sm:flex-row justify-center items-center mb-6 sm:mb-8 gap-4 py-20"
+            >
 
-                                </ul>
+
+            <section >
+                <h2 class="text-2xl sm:text-3xl text-center md:text-4xl font-normal text-slate-800 mb-2
+                sm:mb-3" style="opacity: 1;">Conference Tickets</h2>
+                <h3 class="text-sm sm:text-base md:text-lg font-normal py-2 sm:py-3 md:py-4 text-center text-slate-800 mb-6 sm:mb-8">
+                    You can book for the event using one of the tickets below</h3>
+                <div class="max-w-7xl mx-auto " style="opacity: 1; transform: none;">
+                    <!--Inner Tabs section -->
+                    <div>
+                        <div>
+                                <section class="bg-[#34B6A7]">
+
+                                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6" style="opacity: 1;">
+                                        <div  class="bg-white border-gray-200 p-4 sm:p-6 rounded-lg border-2
+                                        shadow-sm hover:shadow-lg transition-all duration-300 relative" tabindex="0" style="opacity: 1; transform: none;">
+
+                                            <div class="absolute -top-2 right-2 sm:right-4 px-2 sm:px-3 py-1 rounded-full text-xs font-semibold shadow-lg bg-red-500 text-white" style="opacity: 1; transform: none;">MOST POPULAR</div>
+                                            <div class="flex flex-col h-full">
+                                                <div class="mb-3 sm:mb-4">
+                                                    <h2 class="text-lg sm:text-xl font-bold
+                                                                text-slate-800 mb-2">Individual Delegate</h2>
+                                                    <p class="text-slate-800/80 text-xs sm:text-sm">Access all keynotes, panels, exhibition &amp; networking app.</p>
+                                                </div>
+                                                <div class="mb-3 sm:mb-4">
+                                                    {{--                                                                <div class="flex items-baseline gap-2 mb-2"><span--}}
+                                                    {{--                                                                        class="text-gray-500 line-through text-xs--}}
+                                                    {{--                                                                        sm:text-sm">Ksh 20,000</span><span--}}
+                                                    {{--                                                                        class="text-xs--}}
+                                                    {{--                                                                        text-red-500 font-medium">Save 32%</span>--}}
+                                                    {{--                                                                </div>--}}
+                                                    <h3 class="text-2xl sm:text-3xl font-bold
+                                                                text-slate-800">Ksh. 20,000</h3>
+                                                </div>
+                                                <div class="mb-4 sm:mb-6">
+                                                    <ul class="space-y-1 text-slate-800 text-xs sm:text-sm">
+                                                        <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi"
+                                                                                           width="1em"
+                                                                                           height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"></path></svg>Full 5-day access</li>
+                                                        <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi"
+                                                                                           width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"></path></svg>Exhibitions &amp; keynotes</li>
+                                                        <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi"
+                                                                                           width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"></path></svg>Refreshments & Lunch</li>
+                                                        <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi"
+                                                                                           width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"></path></svg>Digital certificate</li>
+                                                    </ul>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div x-data="{ count: 1, selected:false }" :class="selected
+                                                        ? 'bg-gradient-to-r from-[#f2b706] to-[#f25849] border-[#f2b706]'
+                                                        : 'bg-white border-gray-200'" class="p-4 sm:p-6 rounded-lg border-2 shadow-sm hover:shadow-lg transition-all duration-300 relative" tabindex="0" style="opacity: 1; transform: none;">
+                                            <div class="absolute -top-2 right-2 sm:right-4 px-2 sm:px-3
+                                                        py-1 rounded-full text-xs font-semibold shadow-lg
+                                                        bg-[#84C1D9] text-white" style="opacity: 1; transform: none;
+                                                        ">GROUP'S OFFER</div>
+                                            <div class="flex flex-col h-full">
+                                                <div class="mb-3 sm:mb-4">
+                                                    <h2 class="text-lg sm:text-xl font-bold
+                                                                text-slate-800 mb-2">Group registration</h2>
+                                                    <p class="text-slate-800/80 text-xs
+                                                                sm:text-sm">Special pricing for organization,
+                                                        groups and teams</p>
+                                                </div>
+                                                <div class="mb-3 sm:mb-4">
+                                                    <div class="flex items-baseline gap-2 mb-2"><span
+                                                            class="text-gray-500 line-through text-xs
+                                                                        sm:text-sm">Ksh. 5,500</span><span
+                                                            class="text-xs
+                                                                         text-red-500 font-medium">Save 19%</span></div>
+                                                    <h3 class="text-2xl sm:text-3xl font-bold
+                                                                text-slate-800">Ksh. 14,500</h3>
+                                                    <h4 class="text-xl sm:text-2xl
+                                                                text-slate-800">per person</h4>
+                                                </div>
+                                                <div class="mb-4 sm:mb-6">
+                                                    <ul class="space-y-1 text-slate-800 text-xs sm:text-sm">
+                                                        <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi"
+                                                                                           width="1em"
+                                                                                           height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"></path></svg>Full 5-day access</li>
+                                                        <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi"
+                                                                                           width="1em"
+                                                                                           height="1em"
+                                                                                           viewBox="0 0
+                                                                                                       24 24"><path
+                                                                    fill="currentColor" d="M21 7L9 19l-5
+                                                                                .5-5.5l1.41-1.41L9 16.17L19.59 5
+                                                                                .59z"></path></svg>Refreshments & Lunch</li>
+                                                        <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi"
+                                                                                           width="1em"
+                                                                                           height="1em"
+                                                                                           viewBox="0 0
+                                                                                                       24 24"><path
+                                                                    fill="currentColor" d="M21 7L9 19l-5
+                                                                                .5-5.5l1.41-1.41L9 16.17L19.59 5
+                                                                                .59z"></path></svg>Exhibition access</li>
+                                                        <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi"
+                                                                                           width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"></path></svg>Digital certificate</li>
+                                                    </ul>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div x-data="{ count: 1, selected:false }" :class="selected
+                                                        ? 'bg-gradient-to-r from-[#f2b706] to-[#f25849] border-[#f2b706]'
+                                                        : 'bg-white border-gray-200'" class="p-4 sm:p-6 rounded-lg border-2 shadow-sm hover:shadow-lg transition-all duration-300 relative" tabindex="0" style="opacity: 1; transform: none;">
+                                            <div class="absolute -top-2 right-2 sm:right-4 px-2 sm:px-3
+                                                        py-1 rounded-full text-xs font-semibold shadow-lg
+                                                        bg-[#84C1D9] text-white" style="opacity: 1; transform: none;
+                                                        ">FOR EXHIBITORS</div>
+                                            <div class="flex flex-col h-full">
+                                                <div class="mb-3 sm:mb-4">
+                                                    <h2 class="text-lg sm:text-xl font-bold
+                                                                text-slate-800 mb-2">Exhibition Booth</h2>
+                                                    <p class="text-slate-800/80 text-xs
+                                                                sm:text-sm">Special pricing for exhibitors</p>
+                                                </div>
+                                                <div class="mb-3 sm:mb-4">
+                                                    <h3 class="text-2xl sm:text-3xl font-bold
+                                                                text-slate-800">Ksh. 30,000</h3>
+
+                                                </div>
+                                                <div class="mb-4 sm:mb-6">
+                                                    <ul class="space-y-1 text-slate-800 text-xs sm:text-sm">
+                                                        <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi"
+                                                                                           width="1em"
+                                                                                           height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"></path></svg>Full 5-day access</li>
+                                                        <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi"
+                                                                                           width="1em"
+                                                                                           height="1em"
+                                                                                           viewBox="0 0
+                                                                                                       24 24"><path
+                                                                    fill="currentColor" d="M21 7L9 19l-5
+                                                                                .5-5.5l1.41-1.41L9 16.17L19.59 5
+                                                                                .59z"></path></svg>Exhibition booth</li>
+                                                        <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi"
+                                                                                           width="1em"
+                                                                                           height="1em"
+                                                                                           viewBox="0 0
+                                                                                                       24 24"><path
+                                                                    fill="currentColor" d="M21 7L9 19l-5
+                                                                                .5-5.5l1.41-1.41L9 16.17L19.59 5
+                                                                                .59z"></path></svg>Refreshments & Lunch</li>
+                                                        <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi"
+                                                                                           width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"></path></svg>Digital certificate</li>
+                                                    </ul>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+
                             </div>
-                            <div class="p-4 sm:p-6" style="background:linear-gradient(135deg,#175C93,#7BC7F0)">
-                                <p class="text-xs text-white/80 italic">This preview shows standard event access. Final
-                                    benefits vary by pass type.</p>
-                            </div>
+
                         </div>
-                        <div
-                            class="flex-1 p-6 sm:p-8 md:p-10 lg:p-12 flex flex-col items-center justify-center border-t lg:border-t-0 lg:border-l border-white/20"
-                            style="background:linear-gradient(to bottom, #175C93, #7BC7F0)">
-                            <div class="text-center mb-6 sm:mb-8">
-                                <h3 class="text-xl sm:text-2xl md:text-3xl font-bold text-slate-800 mb-2 sm:mb-3">Summit
-                                    Access Pass</h3>
-                                <p class="text-sm sm:text-base text-slate-800/80">Seat: To be Assigned</p>
-                            </div>
-                            <div class="flex flex-col gap-3 sm:gap-4 w-full max-w-xs mb-6 sm:mb-8">
-                                <button
-                                    class="bg-slate-800 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full hover:bg-slate-800/90 transition-all duration-300 font-semibold text-sm sm:text-base md:text-lg shadow-lg flex items-center justify-center gap-2">
-                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                         aria-hidden="true" role="img" class="iconify iconify--mdi" width="20"
-                                         height="20" viewBox="0 0 24 24">
-                                        <path fill="currentColor"
-                                              d="M15.58 16.8L12 14.5l-3.58 2.3l1.08-4.12L6.21 10l4.25-.26L12 5.8l1.54 3.94l4.25.26l-3.29 2.68M20 12a2 2 0 0 1 2-2V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v4a2 2 0 0 1 2 2a2 2 0 0 1-2 2v4a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-4a2 2 0 0 1-2-2"></path>
-                                    </svg>
-                                    View Tickets
-                                </button>
-                                <button
-                                    class="bg-transparent border-2 border-slate-800 text-slate-800 px-6 sm:px-8 py-3 sm:py-4 rounded-full hover:bg-slate-800 hover:text-white transition-all duration-300 font-semibold text-sm sm:text-base md:text-lg flex items-center justify-center gap-2">
-                                    Learn More
-                                </button>
-                            </div>
-                            <div class="text-center">
-                                <p class="text-xs sm:text-sm md:text-base text-slate-800/90 font-medium">Early Bird •
-                                    General • VIP • Virtual +More</p>
-                            </div>
-                        </div>
+
+
                     </div>
-                </div>
             </section>
         </div>
+
         <div class="bg-[#D1D3D4] relative py-12 sm:py-16 md:py-20">
             <section class="relative mx-auto max-w-6xl px-4 sm:px-6">
                 <div class="flex flex-col text-center mb-8 sm:mb-12 space-y-3 sm:space-y-4">
