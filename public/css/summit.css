@@ -1798,6 +1798,9 @@ input:where([type='file']):focus{
 .to-\[\#172840\]{
   --tw-gradient-to: #172840 var(--tw-gradient-to-position);
 }
+.to-\[\#175C90\]{
+  --tw-gradient-to: #175C90 var(--tw-gradient-to-position);
+}
 .to-\[\#7BC7F0\]{
   --tw-gradient-to: #7BC7F0 var(--tw-gradient-to-position);
 }
@@ -1818,12 +1821,6 @@ input:where([type='file']):focus{
 }
 .to-transparent{
   --tw-gradient-to: transparent var(--tw-gradient-to-position);
-}
-.to-\[\#175C56\]{
-  --tw-gradient-to: #175C56 var(--tw-gradient-to-position);
-}
-.to-\[\#175C90\]{
-  --tw-gradient-to: #175C90 var(--tw-gradient-to-position);
 }
 .bg-cover{
   background-size: cover;
@@ -2218,6 +2215,10 @@ input:where([type='file']):focus{
   --tw-text-opacity: 1;
   color: rgb(132 193 218 / var(--tw-text-opacity, 1));
 }
+.text-\[\#E22036\]{
+  --tw-text-opacity: 1;
+  color: rgb(226 32 54 / var(--tw-text-opacity, 1));
+}
 .text-emerald-400{
   --tw-text-opacity: 1;
   color: rgb(52 211 153 / var(--tw-text-opacity, 1));
@@ -2282,10 +2283,6 @@ input:where([type='file']):focus{
 }
 .text-white\/90{
   color: rgb(255 255 255 / 0.9);
-}
-.text-\[\#E22036\]{
-  --tw-text-opacity: 1;
-  color: rgb(226 32 54 / var(--tw-text-opacity, 1));
 }
 .underline{
   text-decoration-line: underline;
@@ -3139,14 +3136,11 @@ body {
   .sm\:pr-20{
     padding-right: 5rem;
   }
-  .sm\:pt-12{
-    padding-top: 3rem;
+  .sm\:pt-2{
+    padding-top: 0.5rem;
   }
   .sm\:pt-6{
     padding-top: 1.5rem;
-  }
-  .sm\:pt-2{
-    padding-top: 0.5rem;
   }
   .sm\:text-2xl{
     font-size: 1.5rem;
@@ -3326,9 +3320,6 @@ body {
   }
   .md\:pr-6{
     padding-right: 1.5rem;
-  }
-  .md\:pt-20{
-    padding-top: 5rem;
   }
   .md\:pt-0{
     padding-top: 0px;

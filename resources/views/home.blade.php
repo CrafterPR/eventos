@@ -114,7 +114,7 @@
                                     <path d="M18 16l-4-2.5" stroke="currentColor"></path>
                                 </svg>
                                 <span
-                                    class="break-words sm:whitespace-nowrap text-[#E22036]">Theme:  <span
+                                    class="break-words sm:whitespace-nowrap text-white text-3xl">Theme:  <span
                                         class="break-words sm:whitespace-nowrap"><strong>Shaping
                                                 Tomorrow's Professional Landscape</strong></span></span>
 
