@@ -481,6 +481,7 @@
                                             <div class="relative">
                                                 <input id="fullName" class="w-full px-4 sm:px-4 py-2.5 sm:py-3 border rounded-lg bg-white focus:outline-none focus:ring-2 transition-all duration-300 text-sm sm:text-base border-gray-300 focus:ring-slate-800 focus:border-slate-800 hover:border-[#84C1D9] shadow-sm hover:shadow-md"
                                                        placeholder="John Doe" type="text" value="" name="fullName">
+                                                <div class="custom-error-container"></div>
                                             </div>
                                         </div>
                                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -490,6 +491,7 @@
                                                     <input id="email" class="w-full px-4 sm:px-4 py-2.5 sm:py-3 border rounded-lg bg-white focus:outline-none focus:ring-2 transition-all duration-300 text-sm sm:text-base border-gray-300 focus:ring-slate-800 focus:border-slate-800 hover:border-[#84C1D9] shadow-sm hover:shadow-md"
                                                            placeholder="john.doe@example.com" type="email" value="" name="email">
                                                 </div>
+                                                <div class="custom-error-container"></div>
                                             </div>
                                             <div class="">
                                                 <label for="phone" class="block text-slate-800 text-sm font-semibold mb-2 ">Phone Number <span class="text-red-500 ml-0.5">*</span></label>
@@ -521,15 +523,22 @@
                                             </div>
                                         </div>
                                         <div class="pt-8 border-t border-gray-100">
-                                                                                            <div class="bg-blue-50 border border-[#84C1D9]/30 rounded-xl p-5 mb-6">
-                                                                                                <div class="flex items-start gap-3">
-                                                                                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-5 h-5 text-[#84C1D9] mt-0.5 flex-shrink-0 iconify iconify--mdi" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M11 9h2V7h-2m1 13c-4.41 0-8-3.59-8-8s3.59-8 8-8s8 3.59 8 8s-3.59 8-8 8m0-18A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2m-1 15h2v-6h-2z"></path></svg>
-                                                                                                    <p class="text-sm text-gray-700 leading-relaxed">By
-                                                                                                        continuing, you agree to receive updates about KICP
-                                                                                                        Conference
-                                                                                                        2026. We respect your privacy and won't spam you.</p>
-                                                                                                </div>
-                                                                                            </div>
+                                            <div class="bg-blue-50 border border-[#84C1D9]/30 rounded-xl p-5 mb-6">
+                                                <div class="flex
+                                                items-start gap-3
+                                                text-sm">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-5 h-5 text-[#84C1D9] mt-0.5 flex-shrink-0 iconify iconify--mdi" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M11 9h2V7h-2m1 13c-4.41 0-8-3.59-8-8s3.59-8 8-8s8 3.59 8 8s-3.59 8-8 8m0-18A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2m-1 15h2v-6h-2z"></path></svg>
+                                                    <p class="text-sm text-gray-700 leading-relaxed">By continuing with your registration, you acknowledge and agree to our Data Protection and Privacy Policy and consent to the collection and processing of your personal information for conference registration and related administrative purposes. You may also choose to receive updates, announcements, and relevant information about the KICP Conference.</p>
+                                                </div>
+                                                <div class="flex items-start mt-4">
+                                                    <input id="terms" class="mr-3 mt-1 rounded-sm h-3 w-3"
+                                                           type="checkbox" name="terms" value="1" />
+                                                    <label for="terms" class="text-sm text-gray-700">I accept the
+                                                        above terms &amp;  privacy policy <span class="text-red-500">*</span></label>
+                                                </div>
+                                                <div class="custom-error-container"></div>
+
+                                            </div>
 
                                         </div>
                                     </div>
@@ -567,7 +576,7 @@
                                     </div>
                                 </div>
                                 <div class="flex items-center gap-3 w-full sm:w-auto">
-                                    <button @click="prevStep" :disabled="currentStep === 0"
+                                    <button @click="prevStep" x-show="currentStep > 0"
                                             class="flex-1 sm:flex-none bg-gray-200 text-gray-700 px-4 sm:px-6 py-2.5 sm:py-3 rounded-full font-medium hover:bg-gray-300 transition-colors text-sm sm:text-base">
                                         <svg xmlns="http://www.w3.org/2000/svg"
                                              xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
@@ -578,9 +587,12 @@
                                         </svg>
                                         Back
                                     </button>
-                                    <button x-show="currentStep < steps.length - 1" @click="nextStep"
-                                            class="flex-1 sm:flex-none bg-[#84C1D9] text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-full font-semibold hover:bg-slate-800 transition-all duration-300 shadow-lg hover:shadow-xl text-sm sm:text-base inline-flex items-center justify-center gap-2">
-                                        Proceed to Payment
+                                    <button x-show="currentStep < steps.length - 1" @click="currentStep === 1 ?
+                                    validateStep() : nextStep"
+                                            class="flex-1 sm:flex-none bg-red-500 text-white px-6 sm:px-8 py-2.5 sm:py-3
+                                            rounded-full font-semibold hover:bg-slate-800 transition-all duration-300 shadow-lg hover:shadow-xl text-sm sm:text-base inline-flex items-center justify-center gap-2">
+                                        Proceed to <span x-text="currentStep === 0 ? 'add your details' :
+                                        'make payment'"></span>
                                         <svg xmlns="http://www.w3.org/2000/svg"
                                              xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
                                              class="w-4 h-4 iconify iconify--mdi" width="1em" height="1em"
@@ -594,7 +606,7 @@
                         </div>
                     </div>
 
-                    <div x-show="hasSelectedTickets()"
+                    <div x-show="hasSelectedTickets() && currentStep === 0"
                         class="mt-4 sm:mt-6 p-4 sm:p-6 bg-white border border-[#84C1D9] rounded-lg max-w-4xl mx-auto shadow-lg"
                         style="opacity: 1; transform: none;">
                         <h3 class="text-lg sm:text-xl font-bold text-slate-800 mb-3 sm:mb-4">Ticket Summary</h3>

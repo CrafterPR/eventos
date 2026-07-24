@@ -64,6 +64,7 @@
             const track = document.getElementById('speakers-carousel-track');
             const prevBtn = document.getElementById('speakers-prev');
             const nextBtn = document.getElementById('speakers-next');
+            const nav = '';
 
             if (!track || !prevBtn || !nextBtn) {
                 console.warn('Speakers carousel elements not found');
@@ -195,7 +196,7 @@
         function wizard() {
             return {
                 currentStep: 0,
-                steps: ['Delegates Info', 'Ticket Selection', 'Payment'],
+                steps: ['Ticket Selection','Delegates Info', 'Payment'],
                 validators: null,
                 formData: {
                     fullName: '',
@@ -203,6 +204,7 @@
                     phone: '',
                     country: '',
                     organization: '',
+                    terms: 0
                 },
                 purchaserLocked: false,
                 selectedTickets: [],
@@ -293,6 +295,7 @@
 
                             // Remove existing custom error
                             const existingError = parent.querySelector('.custom-error-container');
+
                             if (existingError) {
                                 existingError.remove();
                             }
@@ -303,7 +306,7 @@
                             parent.appendChild(errorContainer);
                         };
 
-                        // Add validation rules for step 0
+                        // Add validation rules for step 1
                         this.validators
                             .addField('#fullName', [
                                 {
@@ -311,9 +314,9 @@
                                     errorMessage: 'Full name is required'
                                 },
                                 {
-                                    rule: 'minLength',
-                                    value: 2,
-                                    errorMessage: 'Name must be at least 2 characters'
+                                    rule: 'customRegexp',
+                                    value: /^[A-Za-z]+ [A-Za-z]+$/,
+                                    errorMessage: 'Please enter both first name and last name'
                                 },
                                 {
                                     rule: 'maxLength',
@@ -391,6 +394,23 @@
                                         }
                                     };
                                 }
+                            })
+                            .addField('#terms', [
+                                {
+                                    rule: 'required',
+                                    errorMessage: 'You must accept terms & conditions to proceed'
+                                }
+                            ], {
+                                errorsContainer: function(field) {
+                                    const parent = field.parentElement;
+                                    return {
+                                        render: function(errors) {
+                                            if (errors.length) {
+                                                createCustomErrorLabel(field, errors[0]);
+                                            }
+                                        }
+                                    };
+                                }
                             });
 
                         console.log('Validator setup complete');
@@ -403,29 +423,11 @@
                 validateAndGoToPayment() {
                     console.log('Validating step 2 and moving to payment');
 
-                    if (this.validateStep2()) {
+                    if (this.validateStep()) {
                         this.saveStep2Data();
 
                         // Validate Terms & Preferences
-                        const termsCheckbox = document.querySelector('#terms');
-                        if (termsCheckbox) {
-                            const parent = termsCheckbox.closest('.flex.items-start');
-                            const existingError = parent.querySelector('.custom-error-container');
-                            if (existingError) {
-                                existingError.remove();
-                            }
 
-                            if (!termsCheckbox.checked) {
-                                isValid = false;
-                                termsCheckbox.classList.add('border-red-500');
-
-                                const errorContainer = this.createErrorMessage('You must accept the terms and conditions to proceed');
-                                errorContainer.classList.add('custom-error-container', 'mt-2');
-                                parent.appendChild(errorContainer);
-                            } else {
-                                termsCheckbox.classList.remove('border-red-500');
-                            }
-                        }
 
                         // Move to payment step (step 3)
                         this.currentStep = 3;
@@ -447,159 +449,13 @@
                     }
                 },
 
-                // Validate step 2 (Attendee Details)
-                validateStep2() {
-                    let isValid = true;
-                    this.clearAllErrors();
-
-                    // Validate Purchaser Information
-                    const purchaserFields = [
-                        { selector: '#fullName1', name: 'Purchaser full name', required: true },
-                        { selector: '#wizardForm #email1', name: 'Purchaser email', required: true, isEmail: true },
-                        { selector: '#wizardForm #phone1', name: 'Purchaser phone', required: true, isPhone: true },
-                        { selector: '#organization', name: 'Organization', required: true },
-                        { selector: '#country1', name: 'Purchaser country', required: true }
-                    ];
-
-                    // Validate each purchaser field
-                    purchaserFields.forEach(field => {
-                        const element = document.querySelector(field.selector);
-                        if (!element) return;
-
-                        const parent = element.parentElement;
-                        element.classList.remove('border-red-500');
-
-                        // Required field validation
-                        if (field.required && !element.value.trim()) {
-                            element.classList.add('border-red-500');
-                            isValid = false;
-                            const errorContainer = this.createErrorMessage(`${field.name} is required`);
-                            errorContainer.classList.add('custom-error-container');
-                            parent.appendChild(errorContainer);
-                        }
-                        // Email validation
-                        else if (field.isEmail && element.value.trim()) {
-                            const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-                            if (!emailRegex.test(element.value)) {
-                                element.classList.add('border-red-500');
-                                isValid = false;
-                                const errorContainer = this.createErrorMessage('Please enter a valid email address');
-                                errorContainer.classList.add('custom-error-container');
-                                parent.appendChild(errorContainer);
-                            }
-                        }
-                        // Phone validation
-                        else if (field.isPhone && element.value.trim()) {
-                            const digitsOnly = element.value.replace(/\D/g, '');
-                            if (digitsOnly.length < 10 || digitsOnly.length > 15) {
-                                element.classList.add('border-red-500');
-                                isValid = false;
-                                const errorContainer = this.createErrorMessage('Phone number must contain 10-15 digits');
-                                errorContainer.classList.add('custom-error-container');
-                                parent.appendChild(errorContainer);
-                            }
-                        }
-                    });
-
-                    // Validate that at least one ticket is selected
-                    if (!this.hasSelectedTickets()) {
-                        isValid = false;
-                        const ticketSection = document.querySelector('#wizardForm .max-w-7xl .text-center');
-                        if (ticketSection) {
-                            const errorContainer = this.createErrorMessage('Please select at least one ticket before proceeding');
-                            errorContainer.classList.add('custom-error-container', 'mb-4', 'text-center', 'justify-center');
-                            errorContainer.style.marginTop = '10px';
-                            ticketSection.parentElement.insertBefore(errorContainer, ticketSection.nextSibling);
-                        }
-                    }
-
-                    // Validate Attendees (if any tickets selected)
-                    const totalTickets = this.totalTickets();
-                    if (totalTickets > 0) {
-                        // Check each attendee section that exists
-                        for (let i = 0; i < totalTickets; i++) {
-                            const attendeeName = document.querySelector(`#attendee${i}Name`);
-                            const attendeeEmail = document.querySelector(`#attendee${i}Email`);
-                            const attendeeRole = document.querySelector(`#attendee${i}Role`);
-                            const attendeeOrg = document.querySelector(`#attendee${i}Org`);
-
-                            // Validate attendee name
-                            if (attendeeName) {
-                                const parent = attendeeName.parentElement;
-                                attendeeName.classList.remove('border-red-500');
-
-                                if (!attendeeName.value.trim()) {
-                                    attendeeName.classList.add('border-red-500');
-                                    isValid = false;
-                                    const errorContainer = this.createErrorMessage(`Attendee ${i + 1} full name is required`);
-                                    errorContainer.classList.add('custom-error-container');
-                                    parent.appendChild(errorContainer);
-                                }
-                            }
-
-                            // Validate attendee email
-                            if (attendeeEmail) {
-                                const parent = attendeeEmail.parentElement;
-                                attendeeEmail.classList.remove('border-red-500');
-
-                                if (!attendeeEmail.value.trim()) {
-                                    attendeeEmail.classList.add('border-red-500');
-                                    isValid = false;
-                                    const errorContainer = this.createErrorMessage(`Attendee ${i + 1} email is required`);
-                                    errorContainer.classList.add('custom-error-container');
-                                    parent.appendChild(errorContainer);
-                                } else {
-                                    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-                                    if (!emailRegex.test(attendeeEmail.value)) {
-                                        attendeeEmail.classList.add('border-red-500');
-                                        isValid = false;
-                                        const errorContainer = this.createErrorMessage(`Please enter a valid email for attendee ${i + 1}`);
-                                        errorContainer.classList.add('custom-error-container');
-                                        parent.appendChild(errorContainer);
-                                    }
-                                }
-                            }
-
-                            // Validate attendee role
-                            if (attendeeRole) {
-                                const parent = attendeeRole.parentElement;
-                                attendeeRole.classList.remove('border-red-500');
-
-                                if (!attendeeRole.value.trim()) {
-                                    attendeeRole.classList.add('border-red-500');
-                                    isValid = false;
-                                    const errorContainer = this.createErrorMessage(`Attendee ${i + 1} job/role is required`);
-                                    errorContainer.classList.add('custom-error-container');
-                                    parent.appendChild(errorContainer);
-                                }
-                            }
-
-                            // Validate attendee organization
-                            if (attendeeOrg) {
-                                const parent = attendeeOrg.parentElement;
-                                attendeeOrg.classList.remove('border-red-500');
-
-                                if (!attendeeOrg.value.trim()) {
-                                    attendeeOrg.classList.add('border-red-500');
-                                    isValid = false;
-                                    const errorContainer = this.createErrorMessage(`Attendee ${i + 1} organization is required`);
-                                    errorContainer.classList.add('custom-error-container');
-                                    parent.appendChild(errorContainer);
-                                }
-                            }
-                        }
-                    }
-
-
-                    return isValid;
-                },
-
                 async validateStep() {
                     console.log('Validating step:', this.currentStep);
 
                     const stepFields = {
-                        0: ['#fullName', '#email', '#phone', '#country'],
-                        1: [], // Ticket selection - handled separately
+                        0: [],
+                        1: ['#fullName', '#email', '#phone', '#country', '#terms'], // Contact info - handled
+                        // separately
                         2: [] // Payment - to be implemented
                     };
 
@@ -626,6 +482,7 @@
                     }
 
                     // Check if validator exists
+
                     if (!this.validators) {
                         console.error('Validator not initialized');
                         this.setupValidator();
@@ -634,10 +491,30 @@
                         }, 100);
                         return;
                     }
+                    const termsCheckbox = document.querySelector('#terms');
+
+                    if (termsCheckbox) {
+                        const parent = termsCheckbox.closest('.flex.items-start');
+                        const existingError = parent.querySelector('.custom-error-container');
+                        if (existingError) {
+                            existingError.remove();
+                        }
+
+                        if (!termsCheckbox.checked) {
+                            isValid = false;
+                            termsCheckbox.classList.add('border-red-500');
+
+                            const errorContainer = this.createErrorMessage('You must accept the terms and conditions to proceed');
+                            errorContainer.classList.add('custom-error-container', 'mt-2');
+                            parent.appendChild(errorContainer);
+                        } else {
+                            termsCheckbox.classList.remove('border-red-500');
+                        }
+                    }
 
                     try {
                         // Validate specific fields
-                        const isValid = await this.validators.revalidateFields(fieldsToValidate);
+                        const isValid = await this.validators.revalidate();
 
                         console.log('Validation result:', isValid);
 
@@ -784,130 +661,15 @@
                         });
                     }
 
-                    // Keep attendees in sync with tickets
-                    this.syncAttendees();
-
-                },
-
-                // Return expanded array of ticket types (repeated per count)
-                ticketTypesArray() {
-                    const arr = [];
-                    if (!this.selectedTickets) return arr;
-                    this.selectedTickets.forEach(t => {
-                        for (let i = 0; i < (t.count || 0); i++) arr.push(t.type);
-                    });
-                    return arr;
-                },
-
-                // Return distinct ticket types (for dropdown options)
-                distinctTicketTypes() {
-                    const set = new Set((this.selectedTickets || []).map(t => t.type));
-                    return Array.from(set);
-                },
-
-                // Return ticket -> remaining count after accounting for assigned attendees
-                availableTicketCounts() {
-                    const counts = {};
-                    (this.selectedTickets || []).forEach(t => { counts[t.type] = (counts[t.type] || 0) + (t.count || 0); });
-
-                    // Build tickets array order
-                    const tickets = this.ticketTypesArray();
-
-                    // If purchaser attending, consume purchaser selected ticket only if explicitly assigned (non-empty)
-                    let idx = 0;
-                    if (this.formData.purchaser.isAttending) {
-                        const ptype = (this.formData.purchaser.ticketType && this.formData.purchaser.ticketType !== '') ? this.formData.purchaser.ticketType : null;
-                        if (ptype) {
-                            counts[ptype] = (counts[ptype] || 0) - 1;
-                        }
-                        idx = 1;
-                    }
-
-                    // Subtract assigned attendee tickets. Treat explicit empty selections ('') as unassigned.
-                    (this.formData.attendees || []).forEach((a, ai) => {
-                        let ttype = null;
-                        if (a.ticketType && a.ticketType !== '') {
-                            ttype = a.ticketType;
-                        } else if (a.ticketType == null) {
-                            // no explicit selection stored: fall back to default ticket order
-                            ttype = tickets[idx + ai] || null;
-                        } else {
-                            // a.ticketType is explicitly empty string => unassigned, skip
-                            ttype = null;
-                        }
-
-                        if (ttype) counts[ttype] = (counts[ttype] || 0) - 1;
-                    });
-
-                    return counts; // may have negative numbers if over-assigned
                 },
 
 
-                // Whether an option is available for a given attendee index
-                isOptionAvailable(opt, attendeeIndex) {
-                    const counts = this.availableTicketCounts();
-                    // If attendee already has this option, allow it (so they don't get forced out)
-                    const current = (this.formData.attendees && this.formData.attendees[attendeeIndex] && this.formData.attendees[attendeeIndex].ticketType) || null;
-                    if (current === opt) return true;
 
-                    // Option available if count > 0
-                    return (counts[opt] || 0) > 0;
-                },
 
-                // Whether purchaser can pick an option
-                isOptionAvailableForPurchaser(opt) {
-                    const counts = this.availableTicketCounts();
-                    const current = this.formData.purchaser.ticketType || null;
-                    if (current === opt) return true;
-                    return (counts[opt] || 0) > 0;
-                },
 
-                // Ensure formData.attendees length matches number of attendee forms required
-                syncAttendees() {
-                    const tickets = this.ticketTypesArray();
-                    const totalTickets = tickets.length;
-                    const purchaserAttending = !!this.formData.purchaser.isAttending;
-                    const needed = Math.max(0, totalTickets - (purchaserAttending ? 1 : 0));
 
-                    // If purchaser attending and only one ticket selected, auto-assign and lock purchaser
-                    if (purchaserAttending && totalTickets === 1) {
-                        const single = tickets[0] || null;
-                        if (single) {
-                            this.formData.purchaser.ticketType = single;
-                            this.purchaserLocked = true;
-                        } else {
-                            this.purchaserLocked = false;
-                        }
-                    } else {
-                        this.purchaserLocked = false;
-                    }
 
-                    // Shrink or expand attendees array
-                    this.formData.attendees = this.formData.attendees || [];
 
-                    // Trim extras
-                    if (this.formData.attendees.length > needed) {
-                        this.formData.attendees = this.formData.attendees.slice(0, needed);
-                    }
-
-                    // Add missing attendee placeholders
-                    for (let i = this.formData.attendees.length; i < needed; i++) {
-                        const attendeeIndex = purchaserAttending ? i + 1 : i; // offset into tickets array
-                        const defaultTicket = tickets[attendeeIndex] || this.distinctTicketTypes()[0] || '';
-                        this.formData.attendees.push({
-                            name: '',
-                            email: '',
-                            role: '',
-                            organization: this.formData.purchaser.organization || this.formData.organization || '',
-                            ticketType: defaultTicket
-                        });
-                    }
-
-                    // Ensure existing attendees have organization filled
-                    this.formData.attendees.forEach(a => {
-                        if (!a.organization) a.organization = this.formData.purchaser.organization || this.formData.organization || '';
-                    });
-                },
 
 
 
@@ -934,7 +696,7 @@
                             isValid = false;
 
                             // Add error with SVG
-                            const errorContainer = this.createErrorMessage('This field is required');
+                            const errorContainer = this.createErrorMessage('This field is compulsory');
                             errorContainer.classList.add('custom-error-container');
                             parent.appendChild(errorContainer);
                             return;
@@ -989,11 +751,12 @@
                     const fullName = document.querySelector('#fullName');
                     const email = document.querySelector('#email');
                     const phone = document.querySelector('#phone');
-                    const country = document.querySelector('#country');
+                    const accept = document.querySelector('#accept');
 
                     if (fullName) this.formData.fullName = fullName.value;
                     if (email) this.formData.email = email.value;
                     if (phone) this.formData.phone = phone.value;
+                    if (accept) this.formData.accept = accept.checked;
 
                     // Read organization from root contact step
                     const org = document.querySelector('#organizationRoot');
