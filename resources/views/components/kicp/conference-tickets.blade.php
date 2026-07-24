@@ -6,9 +6,9 @@
     <div class="max-w-7xl mx-auto " style="opacity: 1; transform: none;">
         <!--Inner Tabs section -->
         <div>
-            <div>
+            <div x-data="wizard()">
                 <section class="relative mx-auto max-w-6xl px-4 sm:px-6 z-10">
-
+                <main id="wizardForm" @submit.prevent="submitForm">
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6" style="opacity: 1;">
 
                         <div x-data="{ count: 1, selected:false }" :class="selected
@@ -530,13 +530,13 @@
                             <span x-text="'Ksh. ' + totalAmount()"></span>
                         </div>
                     </div>
+                </main>
 
                 </section>
 
             </div>
 
         </div>
-
 
     </div>
 </section>
