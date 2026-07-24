@@ -9,7 +9,8 @@
             <div x-data="wizard()">
                 <section class="relative mx-auto max-w-6xl px-4 sm:px-6 z-10">
                 <main id="wizardForm" @submit.prevent="submitForm">
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6" style="opacity: 1;">
+                    <section x-cloak x-show="currentStep === 0" id="ticket-selection">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6" style="opacity: 1;">
 
                         <div x-data="{ count: 1, selected:false }" :class="selected
                                                         ? 'bg-gradient-to-r from-[#f2b706] to-[#f25849] border-[#f2b706]'
@@ -36,7 +37,7 @@
                                     {{--                                                                        text-red-500 font-medium">Save 32%</span>--}}
                                     {{--                                                                </div>--}}
                                     <h3 class="text-2xl sm:text-3xl font-bold
-                                                                text-slate-800">Ksh. 20,000</h3>
+                                                                text-slate-800">Ksh. 75,000</h3>
                                 </div>
                                 <div class="mb-4 sm:mb-6">
                                     <ul class="space-y-1 text-slate-800 text-xs sm:text-sm">
@@ -93,7 +94,7 @@
                                          class="w-full flex flex-col gap-3 mt-auto">
 
                                         <button @click="selected = true; selectTicket
-                                                                    ('Individual Delegate', 20000, count)"
+                                                                    ('Individual Delegate', 75000, count)"
                                                 class="rounded-full px-4
                                                                     sm:px-4 py-2 font-medium transition-colors
                                                                     text-sm sm:text-base bg-slate-800 text-white hover:bg-[#84C1D9]">
@@ -152,7 +153,7 @@
 
                                     <div class="flex items-center gap-2 whitespace-nowrap">
                                         <h3 class="text-2xl sm:text-3xl font-bold text-slate-800">
-                                            Ksh. 14,500
+                                            Ksh. 63,750
                                         </h3>
                                         <h5 class="text-md sm:text-xl font-bold text-red-500">
                                             per person
@@ -174,10 +175,10 @@
                                             </svg>
                                             <span
                                                 class="text-gray-500 line-through text-xs
-                                                                        sm:text-sm">Ksh. 5,500</span><span
+                                                                        sm:text-sm">Ksh. 11,250</span><span
                                                 class="text-xs
                                                                          text-red-500 font-medium">&nbsp;Save
-                                                                27%</span></li>
+                                                                15%</span></li>
                                         <li class="flex items-center">
                                             <svg xmlns="http://www.w3.org/2000/svg"
                                                  xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
@@ -264,7 +265,7 @@
                                         </div>
 
                                         <button @click="selected = true; selectTicket
-                                                                    ('Group registration', 14500, count)"
+                                                                    ('Group registration', 63750, count)"
                                                 class="rounded-full px-4
                                                                     sm:px-4 py-2 font-medium transition-colors
                                                                     text-sm sm:text-base bg-slate-800 text-white hover:bg-[#84C1D9]">
@@ -321,7 +322,7 @@
                                 </div>
                                 <div class="mb-3 sm:mb-4">
                                     <h3 class="text-2xl sm:text-3xl font-bold
-                                                                text-slate-800">Ksh. 30,000</h3>
+                                                                text-slate-800">Ksh. 300,000</h3>
 
                                 </div>
                                 <div class="mb-4 sm:mb-6">
@@ -412,7 +413,7 @@
                                         </div>
 
                                         <button @click="selected = true; selectTicket
-                                                                    ('Exhibition Booth', 30000, count)"
+                                                                    ('Exhibition Booth', 300000, count)"
                                                 class="rounded-full px-4
                                                                     sm:px-4 py-2 font-medium transition-colors
                                                                     text-sm sm:text-base bg-slate-800 text-white hover:bg-[#84C1D9]">
@@ -450,6 +451,92 @@
                         </div>
 
                     </div>
+                    </section>
+                    <section x-cloak x-show="currentStep === 1" id="contact-info-step">
+                        <div class="mx-auto max-w-7xl ">
+                            <div class="text-slate-800 text-center py-4">
+                                <h2 class="font-bold text-2xl">Your Contact Information</h2>
+                                <p class="font-normal">Let's continue with your basic information to secure your
+                                    registration.</p>
+                            </div>
+                            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-12" style="opacity: 1; transform: none;">
+                                <div class="p-6 sm:p-8 lg:p-10 bg-white border border-gray-200 rounded-2xl shadow-xl">
+                                    <div class="mb-8">
+                                        <div class="flex items-center gap-4 mb-4">
+                                            <div class="w-12 h-12 bg-[#84C1D9] rounded-xl flex items-center justify-center shadow-lg">
+                                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-7 h-7 text-white iconify iconify--mdi" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M12 19.2c-2.5 0-4.71-1.28-6-3.2c.03-2 4-3.1 6-3.1s5.97 1.1 6 3.1a7.23 7.23 0 0 1-6 3.2M12 5a3 3 0 0 1 3 3a3 3 0 0 1-3 3a3 3 0 0 1-3-3a3 3 0 0 1 3-3m0-3A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10c0-5.53-4.5-10-10-10"></path>
+                                                </svg>
+                                            </div>
+                                            <div>
+                                                 <p class="text-gray-500 text-sm sm:text-base mt-1">Step 2 of 3 -
+                                                    Contact Information</p>
+                                            </div>
+                                        </div>
+                                        <p class="text-gray-600 text-base leading-relaxed">Please provide your contact information. This helps us keep you updated about your registration and follow up if needed.</p>
+                                    </div>
+
+                                    <div class="space-y-6">
+                                        <div class="">
+                                            <label for="fullName" class="block text-slate-800 text-sm font-semibold mb-2">Full Name <span class="text-red-500 ml-0.5">*</span></label>
+                                            <div class="relative">
+                                                <input id="fullName" class="w-full px-4 sm:px-4 py-2.5 sm:py-3 border rounded-lg bg-white focus:outline-none focus:ring-2 transition-all duration-300 text-sm sm:text-base border-gray-300 focus:ring-slate-800 focus:border-slate-800 hover:border-[#84C1D9] shadow-sm hover:shadow-md"
+                                                       placeholder="John Doe" type="text" value="" name="fullName">
+                                            </div>
+                                        </div>
+                                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                            <div class="">
+                                                <label for="email" class="block text-slate-800 text-sm font-semibold mb-2">Email Address <span class="text-red-500 ml-0.5">*</span></label>
+                                                <div class="relative">
+                                                    <input id="email" class="w-full px-4 sm:px-4 py-2.5 sm:py-3 border rounded-lg bg-white focus:outline-none focus:ring-2 transition-all duration-300 text-sm sm:text-base border-gray-300 focus:ring-slate-800 focus:border-slate-800 hover:border-[#84C1D9] shadow-sm hover:shadow-md"
+                                                           placeholder="john.doe@example.com" type="email" value="" name="email">
+                                                </div>
+                                            </div>
+                                            <div class="">
+                                                <label for="phone" class="block text-slate-800 text-sm font-semibold mb-2 ">Phone Number <span class="text-red-500 ml-0.5">*</span></label>
+                                                <div class="relative">
+                                                    <input
+                                                        id="phone"
+                                                        name="phone"
+                                                        class="w-full px-4 sm:px-4 py-2.5 sm:py-3 border rounded-lg bg-white focus:outline-none focus:ring-2 transition-all duration-300 text-sm sm:text-base border-gray-300 focus:ring-slate-800 focus:border-slate-800 hover:border-[#84C1D9] shadow-sm hover:shadow-md"
+                                                        phone-country-input="#country"
+                                                    />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="">
+                                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                                <div>
+                                                    <label for="country" class="block text-[#172840] text-sm font-medium mb-2">Country <span class="text-red-500">*</span></label>
+                                                    <div class="relative">
+                                                        <input type="text" name="country" id="country" class="w-full px-4 sm:px-4 py-2.5 sm:py-3 border rounded-lg bg-white focus:outline-none focus:ring-2 transition-all duration-300 text-sm sm:text-base border-gray-300 focus:ring-slate-800 focus:border-slate-800 hover:border-[#84C1D9] shadow-sm hover:shadow-md" />
+                                                    </div>
+                                                </div>
+
+                                                <div>
+                                                    <label for="organizationRoot" class="block text-[#172840] text-sm font-medium mb-2">Organization</label>
+                                                    <div class="relative">
+                                                        <input id="organizationRoot" type="text" x-model="formData.organization" placeholder="Enter your organization" class="w-full px-4 sm:px-4 py-2.5 sm:py-3 border rounded-lg bg-white focus:outline-none focus:ring-2 transition-all duration-300 text-sm sm:text-base border-gray-300 focus:ring-slate-800 focus:border-slate-800 hover:border-[#84C1D9] shadow-sm hover:shadow-md" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="pt-8 border-t border-gray-100">
+                                                                                            <div class="bg-blue-50 border border-[#84C1D9]/30 rounded-xl p-5 mb-6">
+                                                                                                <div class="flex items-start gap-3">
+                                                                                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-5 h-5 text-[#84C1D9] mt-0.5 flex-shrink-0 iconify iconify--mdi" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M11 9h2V7h-2m1 13c-4.41 0-8-3.59-8-8s3.59-8 8-8s8 3.59 8 8s-3.59 8-8 8m0-18A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2m-1 15h2v-6h-2z"></path></svg>
+                                                                                                    <p class="text-sm text-gray-700 leading-relaxed">By
+                                                                                                        continuing, you agree to receive updates about KICP
+                                                                                                        Conference
+                                                                                                        2026. We respect your privacy and won't spam you.</p>
+                                                                                                </div>
+                                                                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
 
                     <div x-show="hasSelectedTickets()" x-cloak
                          class="fixed bottom-0 left-0 right-0 bg-white border-t-2 border-[#84C1D9] shadow-2xl z-50"
