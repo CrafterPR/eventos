@@ -90,9 +90,7 @@
                                 <div class="flex flex-col sm:flex-row items-center justify-between mt-auto gap-3">
                                     <!-- NOT SELECTED -->
                                     <div x-show="!selected"
-                                         class="flex flex-col sm:flex-row items-center w-full justify-between mt-auto gap-3">
-
-                                        
+                                         class="w-full flex flex-col gap-3 mt-auto">
 
                                         <button @click="selected = true; selectTicket
                                                                     ('Individual Delegate', 20000, count)"
