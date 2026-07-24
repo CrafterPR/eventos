@@ -144,8 +144,9 @@
                                     <h2 class="text-lg sm:text-xl font-bold
                                                                 text-slate-800 mb-2">Group registration</h2>
                                     <p class="text-slate-800/80 text-xs
-                                                                sm:text-sm">Special pricing for organization,
-                                        groups and teams</p>
+                                                                sm:text-sm">Special pricing for organization with
+                                        more than <strong class="text-lg sm:text-xl font-bold text-red-500">10
+                                            delegates</strong></p>
                                 </div>
                                 <div class="mb-3 sm:mb-4">
 
