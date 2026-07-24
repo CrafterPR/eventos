@@ -92,32 +92,13 @@
                                     <div x-show="!selected"
                                          class="flex flex-col sm:flex-row items-center w-full justify-between mt-auto gap-3">
 
-                                        <div class="flex items-center gap-2 sm:gap-3">
-                                            <!-- subtract -->
-                                            <button @click="if(count > 1) count--" :disabled="count <= 1"
-                                                    class="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-slate-800 flex items-center justify-center hover:bg-slate-800 hover:text-white transition-colors disabled:opacity-50">
-                                                <svg class="w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24">
-                                                    <path fill="currentColor" d="M19 13H5v-2h14z"></path>
-                                                </svg>
-                                            </button>
+                                        
 
-                                            <!-- count -->
-                                            <span x-text="count"
-                                                  class="font-semibold text-slate-800 min-w-6 sm:min-w-8 text-center text-sm sm:text-base"></span>
-
-                                            <!-- add -->
-                                            <button @click="count++"
-                                                    class="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-slate-800 flex items-center justify-center hover:bg-slate-800 hover:text-white transition-colors">
-                                                <svg class="w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24">
-                                                    <path fill="currentColor"
-                                                          d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6z"></path>
-                                                </svg>
-                                            </button>
-                                        </div>
-
-                                        <button @click="selected = true; selectTicket('Individual
-                                                    Delegate', 20000, count)" class="rounded-full px-2 sm:px-4 py-2
-                                                    font-medium transition-colors text-sm sm:text-base bg-slate-800 text-white hover:bg-[#84C1D9]">
+                                        <button @click="selected = true; selectTicket
+                                                                    ('Individual Delegate', 20000, count)"
+                                                class="rounded-full px-4
+                                                                    sm:px-4 py-2 font-medium transition-colors
+                                                                    text-sm sm:text-base bg-slate-800 text-white hover:bg-[#84C1D9]">
                                             Select Ticket
                                         </button>
                                     </div>
