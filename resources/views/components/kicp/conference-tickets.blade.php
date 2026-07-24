@@ -129,7 +129,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div x-data="{ count: 2, selected:false }" :class="selected
+                        <div x-data="{ count: 10, selected:false }" :class="selected
                                                         ? 'bg-gradient-to-r from-[#f2b706] to-[#f25849] border-[#f2b706]'
                                                         : 'bg-white border-gray-200'"
                              class="p-4 sm:p-6 rounded-lg border-2 shadow-sm hover:shadow-lg transition-all duration-300 relative"
@@ -241,7 +241,7 @@
 
                                         <div class="flex items-center gap-2 sm:gap-3">
                                             <!-- subtract -->
-                                            <button @click="if(count > 2) count--" :disabled="count <= 2"
+                                            <button @click="if(count > 10) count--" :disabled="count <= 10"
                                                     class="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-slate-800 flex items-center justify-center hover:bg-slate-800 hover:text-white transition-colors disabled:opacity-50">
                                                 <svg class="w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24">
                                                     <path fill="currentColor" d="M19 13H5v-2h14z"></path>
