@@ -295,6 +295,7 @@
 
                             // Remove existing custom error
                             const existingError = parent.querySelector('.custom-error-container');
+                            console.log('parent element: ', parent);
 
                             if (existingError) {
                                 existingError.remove();
@@ -315,7 +316,7 @@
                                 },
                                 {
                                     rule: 'customRegexp',
-                                    value: /^[A-Za-z]+ [A-Za-z]+$/,
+                                    value: /^[A-Za-z]+(?: [A-Za-z]+){1,2}$/,
                                     errorMessage: 'Please enter both first name and last name'
                                 },
                                 {
@@ -458,20 +459,6 @@
                         // separately
                         2: [] // Payment - to be implemented
                     };
-
-                    // if (this.currentStep === 2) {
-                    //     // Use custom validation for step 2
-                    //     if (this.validateStep2()) {
-                    //         this.nextStep();
-                    //     } else {
-                    //         // Scroll to first error
-                    //         const firstError = document.querySelector('.border-red-500');
-                    //         if (firstError) {
-                    //             firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    //         }
-                    //     }
-                    //     return;
-                    // }
 
                     const fieldsToValidate = stepFields[this.currentStep] || [];
 

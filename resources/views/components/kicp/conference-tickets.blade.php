@@ -546,6 +546,91 @@
                             </div>
                         </div>
                     </section>
+                    <section x-cloak x-show="currentStep === 2">
+                        <div class="mx-auto max-w-7xl ">
+                            <div class="text-slate-800 text-center py-4">
+                                <h2 class="font-bold text-2xl">Payment</h2>
+                                <p class="font-normal">Complete your payment to secure your tickets.</p>
+                            </div>
+
+                            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 pt-4 sm:pt-6 pb-8 sm:pb-10 max-w-7xl mx-auto px-3 sm:px-4">
+                                <div>
+                                    <div class="p-4 sm:p-6 bg-white border border-slate-800 rounded-lg shadow-sm">
+                                        <h2 class="text-lg sm:text-xl font-bold text-slate-800 mb-3 sm:mb-4">Payment Method</h2>
+                                        <form>
+                                            <div class="space-y-4">
+                                                <div>
+                                                    <input id="card" class="mr-2" type="radio" value="card" checked="" name="method">
+                                                    <label for="card" class="font-medium text-slate-800 text-sm sm:text-base">Credit/Debit Card</label>
+                                                    <div class="ml-4 sm:ml-6 mt-2">
+                                                        <p class="text-xs sm:text-sm text-gray-600">You will be redirected to Paystack's secure payment page to enter your card details.</p>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <input id="bank" class="mr-2" type="radio" value="bank" name="method">
+                                                    <label for="bank" class="font-medium text-slate-800 text-sm sm:text-base">Bank Transfer/Invoice</label>
+                                                </div>
+                                                <div>
+                                                    <input id="mpesa" class="mr-2" type="radio" value="mpesa" name="method">
+                                                    <label for="mpesa" class="font-medium text-slate-800 text-sm sm:text-base">Mobile Money (Mpesa)</label>
+                                                </div>
+                                            </div>
+                                        </form>
+                                        <div class="p-6  bg-white border ">
+                                            <h2 class="text-xl font-semibold text-slate-800 mb-4">Terms &amp; Preferences</h2>
+                                            <form>
+                                                <div class="space-y-3">
+                                                    <div class="flex items-start">
+                                                        <input id="terms" class="mr-3 mt-1 rounded-sm h-3 w-3" type="checkbox" name="terms">
+                                                        <label for="terms" class="text-sm text-gray-700">I accept the <a href="/terms-and-conditions" class="text-[#84C1D9] hover:underline">terms &amp; conditions</a> and <a href="/privacy-policy" class="text-[#84C1D9] hover:underline">privacy policy</a> <span class="text-red-500">*</span></label>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="p-4 sm:p-6 bg-white border border-slate-800 rounded-lg shadow-sm">
+                                        <div class="flex justify-between mb-3 sm:mb-4">
+                                            <h2 class="text-lg sm:text-xl font-semibold text-slate-800">Order Summary</h2>
+                                            <p class="font-normal text-red-500 text-xs sm:text-sm">Early Bird active</p>
+                                        </div>
+                                        <div class="space-y-2 mb-3 sm:mb-4">
+                                            <template x-if="!selectedTickets || selectedTickets.length === 0">
+                                                <div class="text-sm text-gray-500">No tickets selected</div>
+                                            </template>
+                                            <template x-for="(ticket, idx) in selectedTickets" :key="idx">
+                                                <div class="flex justify-between text-sm sm:text-base">
+                                                    <span x-text="ticket.type + ' × ' + ticket.count"></span>
+                                                    <span x-text="'Ksh. ' + (ticket.price * ticket.count)"></span>
+                                                </div>
+                                            </template>
+                                            <hr class="my-2">
+                                            <div class="flex justify-between text-sm sm:text-base"><span>Subtotal</span><span x-text="'Ksh. ' + totalAmount()"></span></div>
+                                            <div class="flex justify-between text-sm sm:text-base"><span>Promo</span><span class="text-green-600">-Ksh. 0</span></div>
+                                            <div class="flex justify-between font-bold text-base sm:text-lg"><span>Total</span><span x-text="'Ksh. ' + totalAmount()"></span></div>
+                                        </div>
+                                        <div class="mb-3 sm:mb-4">
+                                            <form>
+                                                <div class="flex flex-col sm:flex-row gap-2">
+                                                    <input placeholder="Have a promo code?" class="flex-1 px-3 sm:px-4 py-2 sm:py-3 border border-[#84C1D9] rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-slate-800 focus:border-transparent text-sm sm:text-base" type="text" value="">
+                                                    <div class="flex gap-2">
+                                                        <button type="submit" disabled="" class="bg-slate-800 text-white px-3 sm:px-4 py-2 sm:py-3 rounded-lg hover:bg-slate-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm sm:text-base">Apply</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="flex flex-col sm:flex-row justify-between gap-3 sm:gap-0">
+                                            <button @click="prevStep" class="bg-gray-200 text-gray-700 px-4 sm:px-6 py-2 sm:py-3
+                                                rounded-full font-medium hover:bg-gray-300 transition-colors text-sm
+                                                sm:text-base">Back to ticket selection</button>
+                                            <button class="px-4 sm:px-6 py-2 sm:py-3 rounded-full font-medium transition-colors text-sm sm:text-base bg-red-500 text-white hover:bg-red-600">Complete Purchase</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
 
                     <div x-show="hasSelectedTickets()" x-cloak
                          class="fixed bottom-0 left-0 right-0 bg-white border-t-2 border-[#84C1D9] shadow-2xl z-50"
