@@ -1376,6 +1376,9 @@ input:where([type='file']):focus {
 .flex-grow {
   flex-grow: 1;
 }
+.border-collapse {
+  border-collapse: collapse;
+}
 .-translate-x-1\/2 {
   --tw-translate-x: -50%;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -2465,6 +2468,9 @@ input:where([type='file']):focus {
 .shadow-\[\#ef4444\]\/50 {
   --tw-shadow-color: rgb(239 68 68 / 0.5);
   --tw-shadow: var(--tw-shadow-colored);
+}
+.outline {
+  outline-style: solid;
 }
 .ring-blue-300 {
   --tw-ring-opacity: 1;

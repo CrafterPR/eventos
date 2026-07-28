@@ -1,188 +1,525 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html dir="ltr" xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office"><head>
-  <meta charset="UTF-8">
-  <meta content="width=device-width, initial-scale=1" name="viewport">
-  <meta name="x-apple-disable-message-reformatting">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta content="telephone=no" name="format-detection">
-  <title></title>
- <!--[if (mso 16)]>
- <style type="text/css">
-    a {text-decoration: none;}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html dir="ltr" xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office" lang="EN">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta name="x-apple-disable-message-reformatting">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="telephone=no" name="format-detection">
+    <title>
+        Kasneb Registration confirmation
+    </title>
+    <!--[if (mso 16)]>
+    <style type="text/css">
+        a {text-decoration: none;}
     </style>
- <![endif]-->
- <!--[if gte mso 9]><style>sup { font-size: 100% !important; }</style><![endif]-->
- <!--[if gte mso 9]>
- <xml>
-    <o:OfficeDocumentSettings>
-    <o:AllowPNG></o:AllowPNG>
-    <o:PixelsPerInch>96</o:PixelsPerInch>
-    </o:OfficeDocumentSettings>
-</xml>
- <![endif]-->
- <!--[if mso]>
- <style type="text/css">
-     ul {
-      margin: 0 !important;
-     }
-     ol {
-      margin: 0 !important;
-     }
-     li {
-      margin-left: 47px !important;
-     }
-
- </style><![endif]
---></head>
- <body class="body">
-  <div dir="ltr" class="es-wrapper-color">
-   <!--[if gte mso 9]>
-   <v:background xmlns:v="urn:schemas-microsoft-com:vml" fill="t">
-				<v:fill type="tile" color="#fafafa"></v:fill>
-			</v:background>
-   <![endif]-->
-   <table class="es-wrapper" width="100%" cellspacing="0" cellpadding="0">
-    <tbody>
-     <tr>
-      <td class="esd-email-paddings" valign="top">
-       <table class="es-header esd-header-popover" cellspacing="0" cellpadding="0" align="center">
+    <![endif]-->
+    <!--[if gte mso 9]><style>sup { font-size: 100% !important; }</style><![endif]-->
+    <!--[if gte mso 9]>
+    <noscript>
+        <xml>
+            <o:OfficeDocumentSettings>
+                <o:AllowPNG></o:AllowPNG>
+                <o:PixelsPerInch>96</o:PixelsPerInch>
+            </o:OfficeDocumentSettings>
+        </xml>
+    </noscript>
+    <![endif]-->
+    <style type="text/css">
+        .rollover:hover .rollover-first {
+            max-height:0px!important;
+            display:none!important;
+        }
+        .rollover:hover .rollover-second {
+            max-height:none!important;
+            display:block!important;
+        }
+        .rollover span {
+            font-size:0px;
+        }
+        u + .body img ~ div div {
+            display:none;
+        }
+        #outlook a {
+            padding:0;
+        }
+        span.MsoHyperlink,
+        span.MsoHyperlinkFollowed {
+            color:inherit;
+            mso-style-priority:99;
+        }
+        a.es-button {
+            mso-style-priority:100!important;
+            text-decoration:none!important;
+        }
+        a[x-apple-data-detectors] {
+            color:inherit!important;
+            text-decoration:none!important;
+            font-size:inherit!important;
+            font-family:inherit!important;
+            font-weight:inherit!important;
+            line-height:inherit!important;
+        }
+        .es-desk-hidden {
+            display:none;
+            float:left;
+            overflow:hidden;
+            width:0;
+            max-height:0;
+            line-height:0;
+            mso-hide:all;
+        }
+        .es-button-border:hover > a.es-button {
+            color:#ffffff!important;
+        }
+        @media only screen and (max-width:600px) {.es-m-p0r { padding-right:0px!important } .es-m-p0l { padding-left:0px!important } *[class="gmail-fix"] { display:none!important } p, a { line-height:150%!important } h1, h1 a { line-height:120%!important } h2, h2 a { line-height:120%!important } h3, h3 a { line-height:120%!important } h4, h4 a { line-height:120%!important } h5, h5 a { line-height:120%!important } h6, h6 a { line-height:120%!important } h1 { font-size:36px!important; text-align:left } h2 { font-size:26px!important; text-align:left } h3 { font-size:20px!important; text-align:left } h4 { font-size:24px!important; text-align:left } h5 { font-size:20px!important; text-align:left } h6 { font-size:16px!important; text-align:left } .es-header-body h1 a, .es-content-body h1 a, .es-footer-body h1 a { font-size:36px!important } .es-header-body h2 a, .es-content-body h2 a, .es-footer-body h2 a { font-size:26px!important } .es-header-body h3 a, .es-content-body h3 a, .es-footer-body h3 a { font-size:20px!important } .es-header-body h4 a, .es-content-body h4 a, .es-footer-body h4 a { font-size:24px!important } .es-header-body h5 a, .es-content-body h5 a, .es-footer-body h5 a { font-size:20px!important } .es-header-body h6 a, .es-content-body h6 a, .es-footer-body h6 a { font-size:16px!important } .es-menu td a { font-size:12px!important } .es-header-body p, .es-header-body a { font-size:14px!important } .es-content-body p, .es-content-body a { font-size:14px!important } .es-footer-body p, .es-footer-body a { font-size:14px!important } .es-infoblock p, .es-infoblock a { font-size:12px!important } .es-m-txt-c, .es-m-txt-c h1, .es-m-txt-c h2, .es-m-txt-c h3, .es-m-txt-c h4, .es-m-txt-c h5, .es-m-txt-c h6 { text-align:center!important } .es-m-txt-r, .es-m-txt-r h1, .es-m-txt-r h2, .es-m-txt-r h3, .es-m-txt-r h4, .es-m-txt-r h5, .es-m-txt-r h6 { text-align:right!important } .es-m-txt-j, .es-m-txt-j h1, .es-m-txt-j h2, .es-m-txt-j h3, .es-m-txt-j h4, .es-m-txt-j h5, .es-m-txt-j h6 { text-align:justify!important } .es-m-txt-l, .es-m-txt-l h1, .es-m-txt-l h2, .es-m-txt-l h3, .es-m-txt-l h4, .es-m-txt-l h5, .es-m-txt-l h6 { text-align:left!important } .es-m-txt-r img, .es-m-txt-c img, .es-m-txt-l img { display:inline!important } .es-m-txt-r .rollover:hover .rollover-second, .es-m-txt-c .rollover:hover .rollover-second, .es-m-txt-l .rollover:hover .rollover-second { display:inline!important } .es-m-txt-r .rollover span, .es-m-txt-c .rollover span, .es-m-txt-l .rollover span { line-height:0!important; font-size:0!important } .es-spacer { display:inline-table } a.es-button, button.es-button { font-size:20px!important; line-height:120%!important } a.es-button, button.es-button, .es-button-border { display:inline-block!important } .es-m-fw, .es-m-fw.es-fw, .es-m-fw .es-button { display:block!important } .es-m-il, .es-m-il .es-button, .es-social, .es-social td, .es-menu { display:inline-block!important } .es-adaptive table, .es-left, .es-right { width:100%!important } .es-content table, .es-header table, .es-footer table, .es-content, .es-footer, .es-header { width:100%!important; max-width:600px!important } .adapt-img { width:100%!important; height:auto!important } .es-mobile-hidden, .es-hidden { display:none!important } .es-desk-hidden { width:auto!important; overflow:visible!important; float:none!important; max-height:inherit!important; line-height:inherit!important } tr.es-desk-hidden { display:table-row!important } table.es-desk-hidden { display:table!important } td.es-desk-menu-hidden { display:table-cell!important } .es-menu td { width:1%!important } table.es-table-not-adapt, .esd-block-html table { width:auto!important } .es-social td { padding-bottom:10px } .h-auto { height:auto!important } .es-text-2575, .es-text-2575 p, .es-text-2575 a, .es-text-2575 h1, .es-text-2575 h2, .es-text-2575 h3, .es-text-2575 h4, .es-text-2575 h5, .es-text-2575 h6, .es-text-2575 ul, .es-text-2575 ol, .es-text-2575 li, .es-text-2575 span, .es-text-2575 sup, .es-text-2575 sub, .es-text-2575 u, .es-text-2575 b, .es-text-2575 strong, .es-text-2575 em, .es-text-2575 i { font-size:28px!important } .es-text-2890 .es-text-mobile-size-16, .es-text-2890 .es-text-mobile-size-16 * { font-size:16px!important; line-height:150%!important } .es-text-2890 .es-text-mobile-size-12, .es-text-2890 .es-text-mobile-size-12 * { font-size:12px!important; line-height:150%!important } }
+        @media screen and (max-width:384px) {.mail-message-content { width:414px!important } }
+    </style>
+    <!--[if mso]><xml>
+        <w:WordDocument xmlns:w="urn:schemas-microsoft-com:office:word">
+            <w:DontUseAdvancedTypographyReadingMail/>
+        </w:WordDocument>
+    </xml><![endif]-->
+</head>
+<body class="body" style="width: 100%; height: 100%; padding: 0; Margin: 0">
+<div dir="ltr" lang="EN" class="es-wrapper-color" style="background-color: #FAFAFA">
+    <!--[if gte mso 9]>
+    <v:background xmlns:v="urn:schemas-microsoft-com:vml" fill="t">
+        <v:fill type="tile" color="#fafafa"></v:fill>
+    </v:background>
+    <![endif]-->
+    <table width="100%" cellspacing="0" cellpadding="0" role="none" class="es-wrapper" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; border-spacing: 0px; padding: 0; Margin: 0; width: 100%; height: 100%; background-repeat: repeat; background-color: #FAFAFA">
         <tbody>
-         <tr>
-          <td class="esd-stripe" align="center">
-           <table class="es-header-body" width="600" cellspacing="0" cellpadding="0" bgcolor="#ffffff" align="center">
-            <tbody>
-             <tr>
-              <td class="esd-structure es-p10t es-p10b es-p20r es-p20l" align="left">
-               <table width="100%" cellspacing="0" cellpadding="0">
-                <tbody>
-                 <tr>
-                  <td class="es-m-p0r esd-container-frame" width="560" valign="top" align="center">
-                   <table width="100%" cellspacing="0" cellpadding="0">
+        <tr>
+            <td valign="top" style="padding: 0; Margin: 0">
+                <table cellpadding="0" cellspacing="0" align="center" role="none" class="es-header" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; border-spacing: 0px; width: 100%; table-layout: fixed !important; background-color: transparent; background-repeat: repeat; background-position: center top">
                     <tbody>
-                     <tr>
-                      <td class="esd-block-image es-p20b" style="font-size: 0px;" align="center"><a target="_blank" href="https://kenyainnovationweek.com/"><img src="https://ebocnln.stripocdn.email/content/guids/CABINET_0fb2e6b542688a3392fd4396218e937b470c8157dab5fff5db96faca1c607c6f/images/whatsapp_image_20231031_at_065219.jpeg" alt="Logo" style="display:block;font-size:12px" title="Logo" width="320"></a></td>
-                     </tr>
-
+                    <tr>
+                        <td align="center" style="padding: 0; Margin: 0">
+                            <table bgcolor="#ffffff" align="center" cellpadding="0" cellspacing="0" role="none" class="es-header-body" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; border-spacing: 0px; background-color: transparent; width: 600px">
+                                <tbody>
+                                <tr>
+                                    <td align="left" style="padding: 20px; Margin: 0">
+                                        <table cellpadding="0" cellspacing="0" width="100%" role="none" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; border-spacing: 0px">
+                                            <tbody>
+                                            <tr>
+                                                <td valign="top" align="center" class="es-m-p0r" style="padding: 0; Margin: 0; width: 560px">
+                                                    <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; border-spacing: 0px">
+                                                        <tbody>
+                                                        <tr>
+                                                            <td align="center" style="padding: 0; Margin: 0; padding-bottom: 10px; font-size: 0px">
+                                                                <a target="_blank" href="https://www.youtube.com/channel/UCwW96Wynouz2diAIfn6nrQA" style="mso-line-height-rule: exactly; text-decoration: underline; color: #666666; font-size: 14px">
+                                                                    <img src="https://ebocnln.stripocdn.email/content/guids/CABINET_1776b0cff132c1e15a327a25f4db76ab3906cd5f8a068dcc7b7c3eec198ed3f2/images/image.png" alt="Logo" title="Logo" width="256" class="adapt-img" style="display: block; font-size: 12px; border: 0; outline: none; text-decoration: none">
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
                     </tbody>
-                   </table></td>
-                 </tr>
-                </tbody>
-               </table></td>
-             </tr>
-            </tbody>
-           </table></td>
-         </tr>
+                </table>
+                <table cellpadding="0" cellspacing="0" align="center" role="none" class="es-content" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; border-spacing: 0px; width: 100%; table-layout: fixed !important">
+                    <tbody>
+                    <tr>
+                        <td align="center" style="padding: 0; Margin: 0">
+                            <table bgcolor="#ffffff" align="center" cellpadding="0" cellspacing="0" role="none" class="es-content-body" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; border-spacing: 0px; background-color: #FFFFFF; width: 600px">
+                                <tbody>
+                                <tr>
+                                    <td align="left" style="padding: 0; Margin: 0; padding-top: 15px; padding-right: 20px; padding-left: 20px">
+                                        <table cellpadding="0" cellspacing="0" width="100%" role="none" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; border-spacing: 0px">
+                                            <tbody>
+                                            <tr>
+                                                <td align="center" valign="top" style="padding: 0; Margin: 0; width: 560px">
+                                                    <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; border-spacing: 0px">
+                                                        <tbody>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <table cellpadding="0" cellspacing="0" align="center" role="none" class="es-content" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; border-spacing: 0px; width: 100%; table-layout: fixed !important">
+                    <tbody>
+                    <tr>
+                        <td align="center" style="padding: 0; Margin: 0">
+                            <table bgcolor="#ffffff" align="center" cellpadding="0" cellspacing="0" role="none" class="es-content-body" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; border-spacing: 0px; background-color: #FFFFFF; width: 600px">
+                                <tbody>
+                                <tr>
+                                    <td align="left" style="padding: 20px; Margin: 0">
+                                        <table cellpadding="0" cellspacing="0" width="100%" role="none" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; border-spacing: 0px">
+                                            <tbody>
+                                            <tr>
+                                                <td align="center" valign="top" style="padding: 0; Margin: 0; width: 560px">
+                                                    <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; border-spacing: 0px">
+                                                        <tbody>
+                                                        <tr>
+                                                            <td align="center" esd-text="true" class="es-m-txt-c esd-text" style="padding: 0; Margin: 0">
+                                                                <h2 style="Margin: 0; font-family: arial,&#39;helvetica neue&#39;,helvetica,sans-serif; mso-line-height-rule: exactly; letter-spacing: 0; font-size: 26px; font-style: normal; font-weight: bold; line-height: 31px; color: #333333; text-align: left">
+                                                                    Invoice No:
+                                                                    <span style="mso-line-height-rule: exactly; color: #5C68E2; font-size: 26px">
+                                                  &nbsp;
+                                                </span>
+                                                                </h2>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td align="center" esd-text="true" class="es-m-p0r es-m-p0l esd-text" style="Margin: 0; padding-top: 5px; padding-right: 40px; padding-bottom: 5px; padding-left: 40px">
+                                                                <p style="Margin: 0; mso-line-height-rule: exactly; font-family: arial,&#39;helvetica neue&#39;,helvetica,sans-serif; line-height: 21px; letter-spacing: 0; color: #333333; font-size: 14px; text-align: left">
+                                                                    <strong>
+                                                                        Dear _____________________________
+                                                                    </strong>
+                                                                    ,
+                                                                </p>
+                                                                <p style="Margin: 0; mso-line-height-rule: exactly; font-family: arial,&#39;helvetica neue&#39;,helvetica,sans-serif; line-height: 21px; letter-spacing: 0; color: #333333; font-size: 14px; text-align: left">
+                                                                    Thank you for choosing to attend the
+                                                                    <strong>
+                                                                        2
+                                                                        <sup>
+                                                                            nd
+                                                                        </sup>
+                                                                        Kasneb
+                                                                    </strong>
+                                                                    <b>
+                                                                        International Conference for Professionals 2026
+                                                                    </b>
+                                                                    on the
+                                                                    <strong>
+                                                                        14th&nbsp; - 18th of Sep 2026
+                                                                    </strong>
+                                                                    <b>
+                                                                        .
+                                                                    </b>
+                                                                </p>
+                                                                <p style="Margin: 0; mso-line-height-rule: exactly; font-family: arial,&#39;helvetica neue&#39;,helvetica,sans-serif; line-height: 21px; letter-spacing: 0; color: #333333; font-size: 14px; text-align: left">
+                                                                    <b>
+                                                                        ​
+                                                                    </b>
+                                                                </p>
+                                                                <p style="Margin: 0; mso-line-height-rule: exactly; font-family: arial,&#39;helvetica neue&#39;,helvetica,sans-serif; line-height: 21px; letter-spacing: 0; color: #333333; font-size: 14px; text-align: left">
+                                                                    To confirm your Booking, Please Make the Payments using the details below
+                                                                </p>
+                                                                <p style="Margin: 0; mso-line-height-rule: exactly; font-family: arial,&#39;helvetica neue&#39;,helvetica,sans-serif; line-height: 21px; letter-spacing: 0; color: #333333; font-size: 14px; text-align: left">
+                                                                    ​
+                                                                </p>
+                                                            </td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="left" esd-text="true" class="esd-text" style="padding: 0; Margin: 0; padding-right: 20px; padding-left: 20px; padding-top: 20px">
+                                        <p>
+                                        </p>
+                                        <p>
+                                        </p>
+                                        <p>
+                                        </p>
+                                        <p>
+                                        </p>
+                                        <table role="none" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; border-spacing: 0px; width: 100%">
+                                            <thead>
+                                            <tr esd-text="true" class="esd-text" style="background-color: #145D95">
+                                                <th colspan="2" style="border: 0.2em solid #7CC6EF; color: white; text-align: center; padding: 8px">
+                                                    Your Booking details
+                                                </th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr esd-text="true" class="esd-text">
+                                                <td style="padding: 4px; Margin: 0; border: 0.1em solid #7CC6EF; text-align: left">
+                                                    Delegate Name:
+                                                </td>
+                                                <td style="padding: 4px; Margin: 0; border: 0.1em solid #7CC6EF; text-align: left"></td>
+                                            </tr>
+                                            <tr esd-text="true" class="esd-text">
+                                                <td style="padding: 4px; Margin: 0; border: 0.1em solid #7CC6EF; text-align: left">
+                                                    Email:
+                                                </td>
+                                                <td style="padding: 4px; Margin: 0; border: 0.1em solid #7CC6EF; text-align: left"></td>
+                                            </tr>
+                                            <tr esd-text="true" class="esd-text">
+                                                <td style="padding: 4px; Margin: 0; border: 0.1em solid #7CC6EF; text-align: left">
+                                                    Ticket Type:
+                                                </td>
+                                                <td style="padding: 4px; Margin: 0; border: 0.1em solid #7CC6EF; text-align: left"></td>
+                                            </tr>
+                                            <tr esd-text="true" class="esd-text">
+                                                <td style="padding: 4px; Margin: 0; border: 0.1em solid #7CC6EF; text-align: left">
+                                                    Amount:
+                                                </td>
+                                                <td style="padding: 4px; Margin: 0; border: 0.1em solid #7CC6EF; text-align: left"></td>
+                                            </tr>
+                                            <tr esd-text="true" class="esd-text" style="background-color: #E12237">
+                                                <th colspan="2" style="border: 0.2em solid #7CC6EF; color: white; text-align: center; padding: 8px">
+                                                    Pay to
+                                                </th>
+                                            </tr>
+                                            <tr esd-text="true" class="esd-text">
+                                                <td style="padding: 4px; Margin: 0; border: 0.1em solid #7CC6EF; text-align: left">
+                                                    Bank Name:
+                                                </td>
+                                                <td style="padding: 4px; Margin: 0; border: 0.1em solid #7CC6EF; text-align: left"></td>
+                                            </tr>
+                                            <tr esd-text="true" class="esd-text">
+                                                <td style="padding: 4px; Margin: 0; border: 0.1em solid #7CC6EF; text-align: left">
+                                                    Branch:
+                                                </td>
+                                                <td style="padding: 4px; Margin: 0; border: 0.1em solid #7CC6EF; text-align: left"></td>
+                                            </tr>
+                                            <tr esd-text="true" class="esd-text">
+                                                <td style="padding: 4px; Margin: 0; border: 0.1em solid #7CC6EF; text-align: left">
+                                                    Account Name
+                                                </td>
+                                                <td style="padding: 4px; Margin: 0; border: 0.1em solid #7CC6EF; text-align: left"></td>
+                                            </tr>
+                                            <tr esd-text="true" class="esd-text">
+                                                <td style="padding: 4px; Margin: 0; border: 0.1em solid #7CC6EF; text-align: left">
+                                                    Account NO:
+                                                </td>
+                                                <td style="padding: 4px; Margin: 0; border: 0.1em solid #7CC6EF; text-align: left"></td>
+                                            </tr>
+                                            <tr esd-text="true" class="esd-text">
+                                                <td style="padding: 4px; Margin: 0; border: 0.1em solid #7CC6EF; text-align: left">
+                                                    Currency:
+                                                </td>
+                                                <td style="padding: 4px; Margin: 0; border: 0.1em solid #7CC6EF; text-align: left"></td>
+                                            </tr>
+                                            <tr esd-text="true" class="esd-text">
+                                                <td style="padding: 4px; Margin: 0; border: 0.1em solid #7CC6EF; text-align: left">
+                                                    SWIFT CODE:
+                                                </td>
+                                                <td style="padding: 4px; Margin: 0; border: 0.1em solid #7CC6EF; text-align: left; color: #145D95">
+                                                    KCOOKENA
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="left" style="padding: 0; Margin: 0; padding-right: 20px; padding-left: 20px; padding-top: 20px">
+                                        <table cellpadding="0" cellspacing="0" role="none" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; border-spacing: 0px">
+                                            <tbody>
+                                            <tr>
+                                                <td align="left" style="padding: 0; Margin: 0; width: 560px">
+                                                    <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; border-spacing: 0px">
+                                                        <tbody>
+                                                        <tr>
+                                                            <td align="left" esd-text="true" class="es-text-2890 esd-text" style="padding: 0; Margin: 0">
+                                                                <p style="Margin: 0; mso-line-height-rule: exactly; font-family: arial,&#39;helvetica neue&#39;,helvetica,sans-serif; line-height: 24px; letter-spacing: 0; color: #333333; font-size: 14px">
+                                                                    <strong style="font-size: 16px; line-height: 24px">
+                                                                        <u>
+                                                                            Notes:
+                                                                        </u>
+                                                                    </strong>
+                                                                    &nbsp;
+                                                                </p>
+                                                                <ol style="font-family: arial,&#39;helvetica neue&#39;,helvetica,sans-serif; padding: 0px 0px 0px 40px; margin: 15px 0px">
+                                                                    <li style="color: #333333; margin: 0px 0px 15px; font-size: 12px; line-height: 18px">
+                                                                        <p class="es-text-mobile-size-12" style="Margin: 0; mso-line-height-rule: exactly; font-family: arial,&#39;helvetica neue&#39;,helvetica,sans-serif; line-height: 18px; letter-spacing: 0; color: #333333; font-size: 12px; mso-margin-top-alt: 15px">
+                                                                            &nbsp;Kindly use the
+                                                                            <strong>
+                                                                                Invoice Number
+                                                                            </strong>
+                                                                            above as the Reference Number when making the Payment.
+                                                                        </p>
+                                                                    </li>
+                                                                    <li style="color: #333333; margin: 0px 0px 15px; font-size: 12px; line-height: 18px">
+                                                                        <p class="es-text-mobile-size-12" style="Margin: 0; mso-line-height-rule: exactly; font-family: arial,&#39;helvetica neue&#39;,helvetica,sans-serif; line-height: 18px; letter-spacing: 0; color: #333333; font-size: 12px; mso-margin-bottom-alt: 15px">
+                                                                            We kindly request you present the payment slip at the event registration desk for confirmation and entry processing.
+                                                                        </p>
+                                                                    </li>
+                                                                </ol>
+                                                            </td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <table cellpadding="0" cellspacing="0" align="center" role="none" class="es-footer" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; border-spacing: 0px; width: 100%; table-layout: fixed !important; background-color: transparent; background-repeat: repeat; background-position: center top">
+                    <tbody>
+                    <tr>
+                        <td align="center" style="padding: 0; Margin: 0">
+                            <table align="center" cellpadding="0" cellspacing="0" role="none" class="es-footer-body" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; border-spacing: 0px; background-color: transparent; width: 640px">
+                                <tbody>
+                                <tr>
+                                    <td align="left" style="Margin: 0; padding-right: 20px; padding-left: 20px; padding-top: 20px; padding-bottom: 20px">
+                                        <table cellpadding="0" cellspacing="0" width="100%" role="none" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; border-spacing: 0px">
+                                            <tbody>
+                                            <tr>
+                                                <td align="left" style="padding: 0; Margin: 0; width: 600px">
+                                                    <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; border-spacing: 0px">
+                                                        <tbody>
+                                                        <tr>
+                                                            <td align="center" style="padding: 0; Margin: 0; padding-top: 15px; padding-bottom: 15px; font-size: 0">
+                                                                <table cellpadding="0" cellspacing="0" role="presentation" class="es-table-not-adapt es-social" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; border-spacing: 0px">
+                                                                    <tbody>
+                                                                    <tr>
+                                                                        <td align="center" valign="top" style="padding: 0; Margin: 0; padding-right: 40px">
+                                                                            <a target="_blank" href="https://www.facebook.com/Officialkasneb/" style="mso-line-height-rule: exactly; text-decoration: underline; color: #333333; font-size: 12px">
+                                                                                <img title="Facebook" src="https://ebocnln.stripocdn.email/content/assets/img/social-icons/logo-black/facebook-logo-black.png" alt="Fb" width="32" style="display: block; font-size: 14px; border: 0; outline: none; text-decoration: none">
+                                                                            </a>
+                                                                        </td>
+                                                                        <td align="center" valign="top" style="padding: 0; Margin: 0; padding-right: 40px">
+                                                                            <a target="_blank" href="https://x.com/KASNEBOfficial" style="mso-line-height-rule: exactly; text-decoration: underline; color: #333333; font-size: 12px">
+                                                                                <img title="X.com" src="https://ebocnln.stripocdn.email/content/assets/img/social-icons/logo-black/x-logo-black.png" alt="X" width="32" style="display: block; font-size: 14px; border: 0; outline: none; text-decoration: none">
+                                                                            </a>
+                                                                        </td>
+                                                                        <td align="center" valign="top" style="padding: 0; Margin: 0; padding-right: 40px">
+                                                                            <a target="_blank" href="#" style="mso-line-height-rule: exactly; text-decoration: underline; color: #333333; font-size: 12px">
+                                                                                <img title="Instagram" src="https://ebocnln.stripocdn.email/content/assets/img/social-icons/logo-black/instagram-logo-black.png" alt="Inst" width="32" style="display: block; font-size: 14px; border: 0; outline: none; text-decoration: none">
+                                                                            </a>
+                                                                        </td>
+                                                                        <td align="center" valign="top" style="padding: 0; Margin: 0">
+                                                                            <a target="_blank" href="https://www.youtube.com/channel/UCwW96Wynouz2diAIfn6nrQA" style="mso-line-height-rule: exactly; text-decoration: underline; color: #333333; font-size: 12px">
+                                                                                <img title="Youtube" src="https://ebocnln.stripocdn.email/content/assets/img/social-icons/logo-black/youtube-logo-black.png" alt="Yt" width="32" style="display: block; font-size: 14px; border: 0; outline: none; text-decoration: none">
+                                                                            </a>
+                                                                        </td>
+                                                                    </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td align="center" esd-text="true" class="esd-text" style="padding: 0; Margin: 0; padding-bottom: 35px">
+                                                                <p style="Margin: 0; mso-line-height-rule: exactly; font-family: arial,&#39;helvetica neue&#39;,helvetica,sans-serif; line-height: 18px; letter-spacing: 0; color: #333333; font-size: 12px">
+                                                                    kasneb Towers, Off Hospital Road
+                                                                    <br>
+                                                                    P.O. Box 41362 00100
+                                                                    <br>
+                                                                    Nairobi, Kenya
+                                                                </p>
+                                                                <p style="Margin: 0; mso-line-height-rule: exactly; font-family: arial,&#39;helvetica neue&#39;,helvetica,sans-serif; line-height: 18px; letter-spacing: 0; color: #333333; font-size: 12px">
+                                                                    Tel: 020 4923000, 020 2712640, 020 2712828
+                                                                    <br>
+                                                                    ISDN: 020 4923000
+                                                                    <br>
+                                                                    Email: accounts@kicp.kasneb.or.ke
+                                                                </p>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="padding: 0; Margin: 0">
+                                                                <table cellpadding="0" cellspacing="0" width="100%" role="presentation" class="es-menu" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; border-spacing: 0px">
+                                                                    <tbody>
+                                                                    <tr>
+                                                                        <td align="center" valign="top" width="33.33%" style="Margin: 0; border: 0; padding-bottom: 5px; padding-top: 5px; padding-right: 5px; padding-left: 5px">
+                                                                            <div>
+                                                                                <a target="_blank" href="https://kasneb.or.ke" style="mso-line-height-rule: exactly; text-decoration: none; font-family: arial,&#39;helvetica neue&#39;,helvetica,sans-serif; display: block; color: #999999; font-size: 12px">
+                                                                                    Visit Us
+                                                                                </a>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td align="center" valign="top" width="33.33%" style="Margin: 0; border: 0; padding-bottom: 5px; padding-top: 5px; padding-right: 5px; padding-left: 5px; border-left: 1px solid #cccccc">
+                                                                            <div>
+                                                                                <a target="_blank" href="" style="mso-line-height-rule: exactly; text-decoration: none; font-family: arial,&#39;helvetica neue&#39;,helvetica,sans-serif; display: block; color: #999999; font-size: 12px">
+                                                                                    Privacy Policy
+                                                                                </a>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td align="center" valign="top" width="33.33%" style="Margin: 0; border: 0; padding-bottom: 5px; padding-top: 5px; padding-right: 5px; padding-left: 5px; border-left: 1px solid #cccccc">
+                                                                            <div>
+                                                                                <a target="_blank" href="" style="mso-line-height-rule: exactly; text-decoration: none; font-family: arial,&#39;helvetica neue&#39;,helvetica,sans-serif; display: block; color: #999999; font-size: 12px">
+                                                                                    Terms of Use
+                                                                                </a>
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <table cellpadding="0" cellspacing="0" align="center" role="none" class="es-content" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; border-spacing: 0px; width: 100%; table-layout: fixed !important">
+                    <tbody>
+                    <tr>
+                        <td align="center" style="padding: 0; Margin: 0">
+                            <table align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" role="none" class="es-content-body" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; border-spacing: 0px; background-color: transparent; width: 600px">
+                                <tbody>
+                                <tr>
+                                    <td align="left" style="padding: 20px; Margin: 0">
+                                        <table cellpadding="0" cellspacing="0" width="100%" role="none" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; border-spacing: 0px">
+                                            <tbody>
+                                            <tr>
+                                                <td align="center" valign="top" style="padding: 0; Margin: 0; width: 560px">
+                                                    <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; border-spacing: 0px">
+                                                        <tbody>
+                                                        <tr>
+                                                            <td align="center" esd-text="true" class="es-infoblock esd-text" style="padding: 0; Margin: 0">
+                                                                <p style="Margin: 0; mso-line-height-rule: exactly; font-family: arial,&#39;helvetica neue&#39;,helvetica,sans-serif; line-height: 18px; letter-spacing: 0; color: #CCCCCC; font-size: 12px">
+                                                                    <a target="_blank" href="" style="mso-line-height-rule: exactly; text-decoration: underline; color: #CCCCCC; font-size: 12px"></a>
+                                                                    No longer want to receive these emails?&nbsp;
+                                                                    <a href="" target="_blank" style="mso-line-height-rule: exactly; text-decoration: underline; color: #CCCCCC; font-size: 12px">
+                                                                        Unsubscribe
+                                                                    </a>
+                                                                    .
+                                                                    <a target="_blank" href="" style="mso-line-height-rule: exactly; text-decoration: underline; color: #CCCCCC; font-size: 12px"></a>
+                                                                </p>
+                                                            </td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
         </tbody>
-       </table>
-       <table class="es-content" cellspacing="0" cellpadding="0" align="center">
-        <tbody>
-         <tr>
-          <td class="esd-stripe" align="center">
-           <table class="es-content-body" style="border-top:10px solid #5C68E2;border-bottom:10px solid #5C68E2;border-width:0" width="600" cellspacing="0" cellpadding="0" bgcolor="#ffffff" align="center">
-            <tbody>
-             <tr>
-              <td class="esd-structure es-p20b es-p20t" align="left" background="https://ebocnln.stripocdn.email/content/guids/CABINET_0fb2e6b542688a3392fd4396218e937b470c8157dab5fff5db96faca1c607c6f/images/kn230407224.png" style="background-image:url(https://ebocnln.stripocdn.email/content/guids/CABINET_0fb2e6b542688a3392fd4396218e937b470c8157dab5fff5db96faca1c607c6f/images/kn230407224.png);background-repeat:no-repeat;background-position:left top">
-               <table width="100%" cellspacing="0" cellpadding="0">
-                <tbody>
-                 <tr>
-                  <td class="esd-container-frame" width="600" valign="top" align="center">
-                   <table width="100%" cellspacing="0" cellpadding="0">
-                    <tbody>
-                     <tr>
-                      <td class="esd-block-text es-text-3880" align="center"><h2 style="color:#ffffff;font-family:&#39;lucida sans unicode&#39;,&#39;lucida grande&#39;,sans-serif;font-size:20px;line-height:150%">Kenya Innovation Week 2023 - Commonwealth Edition</h2></td>
-                     </tr>
-                    </tbody>
-                   </table></td>
-                 </tr>
-                </tbody>
-               </table></td>
-             </tr>
-             <tr>
-              <td class="esd-structure es-p20t es-p20r es-p20l" style="background-image: url(https://ebocnln.stripocdn.email/content/guids/CABINET_dffae7f979b41546fc080436b1b370e5/images/61791626685093335.png); background-repeat: no-repeat; background-position: center 80px;" background="https://ebocnln.stripocdn.email/content/guids/CABINET_dffae7f979b41546fc080436b1b370e5/images/61791626685093335.png" align="left">
-               <table width="100%" cellspacing="0" cellpadding="0">
-                <tbody>
-                 <tr>
-                  <td class="esd-container-frame" width="560" valign="top" align="center">
-                   <table width="100%" cellspacing="0" cellpadding="0">
-                    <tbody>
-                     <tr>
-                      <td class="esd-block-text es-m-txt-l es-p5t es-p5b" align="left"><h3 style="color:#faa818;font-family:&#39;lucida sans unicode&#39;,&#39;lucida grande&#39;,sans-serif">Dear {{$name}},</h3></td>
-                     </tr>
-                     <tr>
-                      <td class="esd-block-text es-p20t es-p25b es-p30l es-p30r" align="left"><p style="line-height:200% !important;font-family:&#39;lucida sans unicode&#39;,&#39;lucida grande&#39;,sans-serif">{!! $emailBody !!}<span style="font-size:16px;line-height:200% !important">​</span></p></td>
-                     </tr>
-
-                    </tbody>
-                   </table></td>
-                 </tr>
-                </tbody>
-               </table></td>
-             </tr>
-            </tbody>
-           </table></td>
-         </tr>
-        </tbody>
-       </table>
-       <table class="es-content esd-footer-popover" cellspacing="0" cellpadding="0" align="center">
-        <tbody>
-         <tr>
-          <td class="esd-stripe" align="center">
-           <table class="es-content-body" width="600" cellspacing="0" cellpadding="0" bgcolor="#ffffff" align="center">
-            <tbody>
-             <tr>
-              <td class="esd-structure es-p15" align="left" style="border-radius:0">
-
-               <!--[if mso]><table width="570" cellpadding="0" cellspacing="0"><tr><td width="120" valign="top"><![endif]--><table class="es-left" cellspacing="0" cellpadding="0" align="left">
-                <tbody>
-                 <tr>
-                  <td class="esd-container-frame" width="120" align="left">
-                   <table width="100%" cellspacing="0" cellpadding="0">
-                    <tbody>
-                     <tr>
-                      <td class="esd-block-image es-p5t es-p5b es-m-txt-c" style="font-size: 0px;" align="right"><a target="_blank" href="https://kenyainnovationweek.com/"><img src="https://ebocnln.stripocdn.email/content/guids/CABINET_0fb2e6b542688a3392fd4396218e937b470c8157dab5fff5db96faca1c607c6f/images/green_logo.png" alt="KIW23" style="display:block" width="105" title="KIW23"></a></td>
-                     </tr>
-                    </tbody>
-                   </table></td>
-                 </tr>
-                </tbody>
-               </table>
-
-               <!--[if mso]></td><td width="20"></td><td width="430" valign="top"><![endif]--><table class="es-right" cellspacing="0" cellpadding="0" align="right">
-                <tbody>
-                 <tr>
-                  <td class="esd-container-frame" width="430" align="left">
-                   <table width="100%" cellspacing="0" cellpadding="0">
-                    <tbody>
-                     <tr>
-                      <td class="esd-block-text es-m-txt-c" esd-links-underline="none" align="left"><p style="line-height:120% !important;color:#16736e;font-family:&#39;comic sans ms&#39;,&#39;marker felt-thin&#39;,arial,sans-serif;font-size:11px"><em>With regards,</em></p><h6 style="line-height:120% !important;color:#16736e;font-family:verdana,geneva,sans-serif">KIW2023 CW ED Team</h6><p style="line-height:120% !important;color:#16736e"><a style="line-height:120% !important;color:#16736e;text-decoration:none" href="https://www.innovationweek.com">www.innovationweek.com</a></p><p style="line-height:120% !important;color:#16736e">kiw@innovationagency.go.ke</p><p style="line-height:120% !important;color:#16736e">​<a href="tel:+254792446">+254-792 446 976</a></p></td>
-                     </tr>
-                     <tr>
-                      <td class="esd-block-social es-m-txt-c es-p5t es-p5b" style="font-size:0" align="left">
-                       <table class="es-table-not-adapt es-social" cellspacing="0" cellpadding="0">
-                        <tbody>
-                         <tr>
-                          <td class="es-p10r" valign="top" align="center"><a target="_blank" href="https://www.facebook.com/KenyaInnovWeek/"><img title="Facebook" src="https://ebocnln.stripocdn.email/content/assets/img/social-icons/logo-colored/facebook-logo-colored.png" alt="Fb" width="24" height="24"></a></td>
-                          <td valign="top" align="center" class="es-p10r"><a target="_blank" href="https://twitter.com/KenyaInnovWeek/"><img title="X.com" src="https://ebocnln.stripocdn.email/content/assets/img/social-icons/logo-colored/x-logo-colored.png" alt="X" width="24" height="24"></a></td><td valign="top" align="center"><a target="_blank" href="https://www.linkedin.com/showcase/kenya-innovation-week-kiw/"><img title="Linkedin" src="https://ebocnln.stripocdn.email/content/assets/img/social-icons/logo-colored/linkedin-logo-colored.png" alt="In" width="24" height="24"></a></td>
-
-
-                         </tr>
-                        </tbody>
-                       </table></td>
-                     </tr>
-                    </tbody>
-                   </table></td>
-                 </tr>
-                </tbody>
-               </table><!--[if mso]></td></tr></table><![endif]-->
-               </td>
-             </tr>
-            </tbody>
-           </table></td>
-         </tr>
-        </tbody>
-       </table></td>
-     </tr>
-    </tbody>
-   </table>
-  </div>
-
-</body></html>
+    </table>
+</div>
+</body>
+</html>
