@@ -1330,6 +1330,14 @@ input:where([type='file']):focus{
 .animate-pulse{
   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
+@keyframes spin{
+  to{
+    transform: rotate(360deg);
+  }
+}
+.animate-spin{
+  animation: spin 1s linear infinite;
+}
 .cursor-default{
   cursor: default;
 }
@@ -2309,6 +2317,9 @@ input:where([type='file']):focus{
 }
 .opacity-15{
   opacity: 0.15;
+}
+.opacity-25{
+  opacity: 0.25;
 }
 .opacity-30{
   opacity: 0.3;
