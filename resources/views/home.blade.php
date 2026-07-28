@@ -207,6 +207,10 @@
                     terms: 0
                 },
                 purchaserLocked: false,
+                paymentMethod: '',
+                paymentEmail: '',
+                paymentPhone: '',
+                isSubmitting: false,
                 selectedTickets: [],
 
                 init() {
@@ -753,6 +757,65 @@
                     console.log('Form data saved:', this.formData);
                 },
 
+                onPaymentMethodChange(method) {
+                    this.paymentMethod = method;
+                    if (method === 'lpo') {
+                        this.paymentEmail = this.formData.email || '';
+                    } else if (method === 'mpesa') {
+                        const phoneEl = document.querySelector('#phone');
+                        let phoneVal = this.formData.phone || (phoneEl ? phoneEl.value : '');
+                        this.paymentPhone = phoneVal || '';
+                    }
+                },
+
+                async completePurchase() {
+                    if (this.isSubmitting) return;
+                    // Ensure latest form data
+                    this.saveFormData();
+
+                    if (!this.paymentMethod) {
+                        alert('Please select a payment method.');
+                        return;
+                    }
+
+                    this.isSubmitting = true;
+
+                    const payload = {
+                        formData: this.formData,
+                        selectedTickets: this.selectedTickets,
+                        paymentMethod: this.paymentMethod,
+                        paymentEmail: this.paymentEmail,
+                        paymentPhone: this.paymentPhone
+                    };
+
+                    try {
+                        const tokenMeta = document.querySelector('meta[name=csrf-token]');
+                        const csrf = tokenMeta ? tokenMeta.getAttribute('content') : '';
+
+                        const res = await fetch('/purchase', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'X-CSRF-TOKEN': csrf
+                            },
+                            body: JSON.stringify(payload)
+                        });
+
+                        const data = await res.json().catch(() => ({}));
+
+                        if (res.ok) {
+                            alert(data.message || 'Purchase completed successfully.');
+                        } else {
+                            alert(data.message || 'Purchase failed. Please try again.');
+                        }
+                    } catch (err) {
+                        console.error('Purchase error:', err);
+                        alert('An error occurred while processing your purchase.');
+                    } finally {
+                        this.isSubmitting = false;
+                    }
+                },
+
 
                 nextStep() {
                     if (this.currentStep < this.steps.length - 1) {
@@ -760,6 +823,13 @@
                         console.log('Moving to step:', this.currentStep);
 
                         // If moving to Attendee Details (step 2), prefill purchaser info from step 0
+                        if (this.currentStep === 2) {
+                            // Prefill payment confirmation fields from step 1
+                            this.saveFormData();
+                            this.paymentEmail = this.formData.email || '';
+                            const phoneEl = document.querySelector('#phone');
+                            this.paymentPhone = this.formData.phone || (phoneEl ? phoneEl.value : '');
+                        }
                         // if (this.currentStep === 2) {
                         //     // Copy root formData values into purchaser if purchaser fields are empty
                         //     if (!this.formData.purchaser.fullName && this.formData.fullName) this.formData.purchaser.fullName = this.formData.fullName;

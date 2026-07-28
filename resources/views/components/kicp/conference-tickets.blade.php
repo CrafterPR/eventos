@@ -556,45 +556,42 @@
                             <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 pt-4 sm:pt-6 pb-8 sm:pb-10 max-w-7xl mx-auto px-3 sm:px-4">
                                 <div>
                                     <div class="p-4 sm:p-6 bg-white border border-slate-800 rounded-lg shadow-sm">
-                                        <h2 class="text-lg sm:text-xl font-bold text-slate-800 mb-3 sm:mb-4">Payment Method</h2>
+                                        <h2 class="text-lg sm:text-xl font-bold text-slate-800 mb-3
+                                        sm:mb-4">Choose Payment Method</h2>
                                         <form>
                                             <div class="space-y-4">
                                                 <div>
-                                                    <input id="card" class="mr-2" type="radio" value="card" checked="" name="method">
-                                                    <label for="card" class="font-medium text-slate-800 text-sm sm:text-base">Credit/Debit Card</label>
+                                                    <input id="lpo" class="mr-2" type="radio" value="lpo" name="method" @change="onPaymentMethodChange('lpo')" :checked="paymentMethod === 'lpo'">
+                                                    <label for="lpo" class="font-medium text-slate-800 text-sm
+                                                    sm:text-base">Receive LPO on your invoice</label>
                                                     <div class="ml-4 sm:ml-6 mt-2">
-                                                        <p class="text-xs sm:text-sm text-gray-600">You will be redirected to Paystack's secure payment page to enter your card details.</p>
+                                                        <p class="text-xs sm:text-sm text-gray-600">You will receive
+                                                            an LPO with payment details in your email below</p>
+                                                    </div>
+
+                                                    <div x-show="paymentMethod === 'lpo'" x-cloak class="mt-3 ml-4 sm:ml-6">
+                                                        <label class="block text-sm text-slate-800 font-medium mb-1">Confirm Email</label>
+                                                        <input type="email" x-model="paymentEmail" class="w-full px-3 py-2 border rounded-lg" />
                                                     </div>
                                                 </div>
+
                                                 <div>
-                                                    <input id="bank" class="mr-2" type="radio" value="bank" name="method">
-                                                    <label for="bank" class="font-medium text-slate-800 text-sm sm:text-base">Bank Transfer/Invoice</label>
-                                                </div>
-                                                <div>
-                                                    <input id="mpesa" class="mr-2" type="radio" value="mpesa" name="method">
+                                                    <input id="mpesa" class="mr-2" type="radio" value="mpesa" name="method" @change="onPaymentMethodChange('mpesa')" :checked="paymentMethod === 'mpesa'">
                                                     <label for="mpesa" class="font-medium text-slate-800 text-sm sm:text-base">Mobile Money (Mpesa)</label>
+
+                                                    <div x-show="paymentMethod === 'mpesa'" x-cloak class="mt-3 ml-4 sm:ml-6">
+                                                        <label class="block text-sm text-slate-800 font-medium mb-1">Confirm Phone (with country code)</label>
+                                                        <input type="text" x-model="paymentPhone" class="w-full px-3 py-2 border rounded-lg" />
+                                                    </div>
                                                 </div>
                                             </div>
                                         </form>
-                                        <div class="p-6  bg-white border ">
-                                            <h2 class="text-xl font-semibold text-slate-800 mb-4">Terms &amp; Preferences</h2>
-                                            <form>
-                                                <div class="space-y-3">
-                                                    <div class="flex items-start">
-                                                        <input id="terms" class="mr-3 mt-1 rounded-sm h-3 w-3" type="checkbox" name="terms">
-                                                        <label for="terms" class="text-sm text-gray-700">I accept the <a href="/terms-and-conditions" class="text-[#84C1D9] hover:underline">terms &amp; conditions</a> and <a href="/privacy-policy" class="text-[#84C1D9] hover:underline">privacy policy</a> <span class="text-red-500">*</span></label>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
+
                                     </div>
                                 </div>
                                 <div>
                                     <div class="p-4 sm:p-6 bg-white border border-slate-800 rounded-lg shadow-sm">
-                                        <div class="flex justify-between mb-3 sm:mb-4">
-                                            <h2 class="text-lg sm:text-xl font-semibold text-slate-800">Order Summary</h2>
-                                            <p class="font-normal text-red-500 text-xs sm:text-sm">Early Bird active</p>
-                                        </div>
+
                                         <div class="space-y-2 mb-3 sm:mb-4">
                                             <template x-if="!selectedTickets || selectedTickets.length === 0">
                                                 <div class="text-sm text-gray-500">No tickets selected</div>
@@ -625,7 +622,14 @@
                                             py-2 sm:py-3
                                                 rounded-full font-medium hover:bg-gray-300 transition-colors text-sm
                                                 sm:text-base">Back to ticket selection</button>
-                                            <button class="px-4 sm:px-6 py-2 sm:py-3 rounded-full font-medium transition-colors text-sm sm:text-base bg-red-500 text-white hover:bg-red-600">Complete Purchase</button>
+                                            <button :disabled="isSubmitting" @click="completePurchase" class="px-4 sm:px-6 py-2 sm:py-3 rounded-full font-medium transition-colors text-sm sm:text-base bg-red-500 text-white hover:bg-red-600 inline-flex items-center justify-center gap-2">
+                                                <svg x-show="isSubmitting" class="animate-spin h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
+                                                </svg>
+                                                <span x-show="!isSubmitting">Complete Purchase</span>
+                                                <span x-show="isSubmitting">Processing...</span>
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
