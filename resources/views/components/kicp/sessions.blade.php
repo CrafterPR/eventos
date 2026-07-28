@@ -27,8 +27,19 @@
             </div>
         </div>
         <div class="relative rounded-xl shadow-xl overflow-hidden group cursor-pointer h-80 sm:h-96">
-            <img alt="Creator Crawl" class="w-full h-full object-cover"
-                 src="{{ asset('assets/media/images/investor-roundtable.webp') }}">
+            <div class="w-full h-full overflow-hidden rounded-xl">
+                <video
+                    class="w-full h-full object-cover"
+                    autoplay
+                    muted
+                    loop
+                    playsinline
+                    preload="auto"
+                >
+                    <source src="{{ asset('assets/media/videos/about-kicp2.mp4') }}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
             <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
             <div
                 class="absolute bottom-0 left-0 right-0 p-4 sm:p-6 group-hover:bg-white transition-all duration-300 rounded-t-xl flex flex-col">

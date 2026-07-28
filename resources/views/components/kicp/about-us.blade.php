@@ -30,8 +30,17 @@
             <div class="flex justify-center lg:justify-end h-full" style="opacity: 1; transform: none;">
                 <div class="relative overflow-hidden w-full max-w-md lg:max-w-none rounded-lg h-full">
                     <div class="w-full h-full overflow-hidden rounded-xl">
-                        <img src="{{ asset('assets/media/images/about-kicp.webp') }}"
-                             class="w-full h-full object-cover" alt="about the event">
+                        <video
+                            class="w-full h-full object-cover"
+                            autoplay
+                            muted
+                            loop
+                            playsinline
+                            preload="auto"
+                        >
+                            <source src="{{ asset('assets/media/videos/about-kicp2.mp4') }}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
                     </div>
 
                 </div>

@@ -494,6 +494,10 @@
                             const errorContainer = this.createErrorMessage('You must accept the terms and conditions to proceed');
                             errorContainer.classList.add('custom-error-container', 'mt-2');
                             parent.appendChild(errorContainer);
+                            termsCheckbox.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'center'
+                            });
                         } else {
                             termsCheckbox.classList.remove('border-red-500');
                         }
@@ -651,15 +655,6 @@
                 },
 
 
-
-
-
-
-
-
-
-
-
                 manualValidation(fields) {
                     let isValid = true;
 
@@ -792,10 +787,13 @@
                 },
 
 
-                prevStep() {
+                prevStep(step = null) {
                     if (this.currentStep > 0) {
-                        this.currentStep--;
-                        console.log('Moving to step:', this.currentStep);
+                        if (this.currentStep >= step) {
+                            this.currentStep -= step;
+                        } else {
+                            this.currentStep--;
+                        }
 
                         // Scroll to top of form
                         const wizardForm = document.getElementById('wizardForm');

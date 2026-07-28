@@ -621,7 +621,8 @@
                                             </form>
                                         </div>
                                         <div class="flex flex-col sm:flex-row justify-between gap-3 sm:gap-0">
-                                            <button @click="prevStep" class="bg-gray-200 text-gray-700 px-4 sm:px-6 py-2 sm:py-3
+                                            <button @click="prevStep(2)" class="bg-gray-200 text-gray-700 px-4 sm:px-6
+                                            py-2 sm:py-3
                                                 rounded-full font-medium hover:bg-gray-300 transition-colors text-sm
                                                 sm:text-base">Back to ticket selection</button>
                                             <button class="px-4 sm:px-6 py-2 sm:py-3 rounded-full font-medium transition-colors text-sm sm:text-base bg-red-500 text-white hover:bg-red-600">Complete Purchase</button>
