@@ -460,7 +460,6 @@
                     const stepFields = {
                         0: [],
                         1: ['#fullName', '#email', '#phone', '#country', '#terms'], // Contact info - handled
-                        // separately
                         2: [] // Payment - to be implemented
                     };
 
@@ -469,10 +468,8 @@
                     if (fieldsToValidate.length === 0) {
                         console.log('No fields to validate, moving to next step');
                         this.nextStep();
-                        return;
+                        return true;
                     }
-
-                    // Check if validator exists
 
                     if (!this.validators) {
                         console.error('Validator not initialized');
@@ -482,36 +479,31 @@
                         }, 100);
                         return;
                     }
-                    const termsCheckbox = document.querySelector('#terms');
-
-                    if (termsCheckbox) {
-                        const parent = termsCheckbox.closest('.flex.items-start');
-                        const existingError = parent.querySelector('.custom-error-container');
-                        if (existingError) {
-                            existingError.remove();
-                        }
-
-                        if (!termsCheckbox.checked) {
-                            isValid = false;
-                            termsCheckbox.classList.add('border-red-500');
-
-                            const errorContainer = this.createErrorMessage('You must accept the terms and conditions to proceed');
-                            errorContainer.classList.add('custom-error-container', 'mt-2');
-                            parent.appendChild(errorContainer);
-                            termsCheckbox.scrollIntoView({
-                                behavior: 'smooth',
-                                block: 'center'
-                            });
-                        } else {
-                            termsCheckbox.classList.remove('border-red-500');
-                        }
-                    }
 
                     try {
                         // Validate specific fields
                         const isValid = await this.validators.revalidate();
 
                         console.log('Validation result:', isValid);
+
+                        // Check terms checkbox after validator
+                        const termsCheckbox = document.querySelector('#terms');
+                        if (termsCheckbox && !termsCheckbox.checked) {
+                            const parent = termsCheckbox.closest('.flex.items-start') || termsCheckbox.parentElement;
+                            const existingError = parent.querySelector('.custom-error-container');
+                            if (existingError) existingError.remove();
+
+                            termsCheckbox.classList.add('border-red-500');
+
+                            const errorContainer = this.createErrorMessage('You must accept the terms and conditions to proceed');
+                            errorContainer.classList.add('custom-error-container', 'mt-2');
+                            parent.appendChild(errorContainer);
+
+                            termsCheckbox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                            return false;
+                        } else if (termsCheckbox) {
+                            termsCheckbox.classList.remove('border-red-500');
+                        }
 
                         if (isValid) {
                             // Clear all error messages
@@ -520,14 +512,16 @@
                             // Save form data
                             this.saveFormData();
                             this.nextStep();
+                            return true;
                         } else {
                             console.log('Validation failed');
 
                             // Scroll to first error
-                            const firstError = document.querySelector('.border-red-500');
+                            const firstError = document.querySelector('.custom-error-container') || document.querySelector('.border-red-500');
                             if (firstError) {
                                 firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
                             }
+                            return false;
                         }
                     } catch (error) {
                         console.error('Validation error:', error);
@@ -537,7 +531,9 @@
                             this.clearAllErrors();
                             this.saveFormData();
                             this.nextStep();
+                            return true;
                         }
+                        return false;
                     }
                 },
 
@@ -771,6 +767,7 @@
                 async completePurchase() {
                     if (this.isSubmitting) return;
                     // Ensure latest form data
+                    this.clearAllErrors();
                     this.saveFormData();
 
                     if (!this.paymentMethod) {
@@ -802,6 +799,30 @@
                         });
 
                         const data = await res.json().catch(() => ({}));
+
+                        // Handle validation errors from server
+                        if (res.status === 422 && data.errors) {
+                            // Display field errors
+                            for (const key in data.errors) {
+                                if (!Object.prototype.hasOwnProperty.call(data.errors, key)) continue;
+                                const messages = data.errors[key];
+                                const selector = document.querySelector(`#${key}`) || document.querySelector(`[name="${key}"]`);
+                                const parent = selector ? (selector.closest && selector.closest('div') || selector.parentElement) : null;
+                                if (selector && parent) {
+                                    // remove existing
+                                    const existing = parent.querySelector('.custom-error-container');
+                                    if (existing) existing.remove();
+                                    const errEl = this.createErrorMessage(messages[0]);
+                                    errEl.classList.add('custom-error-container');
+                                    parent.appendChild(errEl);
+                                }
+                            }
+
+                            const firstError = document.querySelector('.custom-error-container') || document.querySelector('.border-red-500');
+                            if (firstError) firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+                            return;
+                        }
 
                         if (res.ok) {
                             alert(data.message || 'Purchase completed successfully.');
