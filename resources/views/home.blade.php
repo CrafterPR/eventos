@@ -482,6 +482,7 @@
 
                     try {
                         // Validate specific fields
+                        this.clearAllErrors();
                         const isValid = await this.validators.revalidate();
 
                         console.log('Validation result:', isValid);
@@ -516,12 +517,15 @@
                         } else {
                             console.log('Validation failed');
 
-                            // Scroll to first error
+                            // Show manual validation messages for each field
+                            const manualOk = this.manualValidation(fieldsToValidate);
+                            // make sure we scroll to first shown error
                             const firstError = document.querySelector('.custom-error-container') || document.querySelector('.border-red-500');
                             if (firstError) {
                                 firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
                             }
-                            return false;
+
+                            return manualOk;
                         }
                     } catch (error) {
                         console.error('Validation error:', error);
