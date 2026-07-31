@@ -27,11 +27,11 @@
                 </div>
 
             </div>
-            <div class="flex justify-center lg:justify-end h-full" style="opacity: 1; transform: none;">
-                <div class="relative overflow-hidden w-full max-w-md lg:max-w-none rounded-lg h-full">
-                    <div class="w-full h-full overflow-hidden rounded-xl">
+            <div class="flex justify-center lg:justify-end " style="opacity: 1; transform: none;">
+                <div class="relative overflow-hidden w-full h-full rounded-lg">
+                    <div class="w-full overflow-hidden rounded-xl aspect-video">
                         <video
-                            class="w-full h-full object-cover"
+                            class="w-full h-full object-cover rounded-xl"
                             autoplay
                             muted
                             loop

@@ -13,7 +13,7 @@
                         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6" style="opacity: 1;">
 
                         <div x-data="{ count: 1, selected:false }" :class="selected
-                                                        ? 'bg-gradient-to-r from-[#f2b706] to-[#f25849] border-[#f2b706]'
+                                                        ? 'bg-gradient-to-r from-[#175C93] to-[#7BC7F0] border-[#E12035]'
                                                         : 'bg-white border-gray-200'"
                              class="p-4 sm:p-6 rounded-lg border-2 shadow-sm hover:shadow-lg transition-all duration-300 relative"
                              tabindex="0" style="opacity: 1; transform: none;">
@@ -131,7 +131,7 @@
                             </div>
                         </div>
                         <div x-data="{ count: 10, selected:false }" :class="selected
-                                                        ? 'bg-gradient-to-r from-[#f2b706] to-[#f25849] border-[#f2b706]'
+                                                        ? 'bg-gradient-to-r from-[#175C93] to-[#7BC7F0] border-[#E12035]'
                                                         : 'bg-white border-gray-200'"
                              class="p-4 sm:p-6 rounded-lg border-2 shadow-sm hover:shadow-lg transition-all duration-300 relative"
                              tabindex="0" style="opacity: 1; transform: none;">
@@ -303,7 +303,7 @@
                             </div>
                         </div>
                         <div x-data="{ count: 1, selected:false }" :class="selected
-                                                        ? 'bg-gradient-to-r from-[#f2b706] to-[#f25849] border-[#f2b706]'
+                                                        ? 'bg-gradient-to-r from-[#175C93] to-[#7BC7F0] border-[#E12035]'
                                                         : 'bg-white border-gray-200'"
                              class="p-4 sm:p-6 rounded-lg border-2 shadow-sm hover:shadow-lg transition-all duration-300 relative"
                              tabindex="0" style="opacity: 1; transform: none;">

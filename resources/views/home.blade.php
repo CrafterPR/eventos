@@ -1,7 +1,7 @@
 <x-home-layout>
     <main class="relative">
         @include('layout/partials/_summit-nav')
-        <div class="relative w-full section-visible" id="home" style="height: 95vh">
+        <div class="relative w-full section-visible" id="home" style="height: 90vh">
             <div class="absolute inset-0 bg-cover bg-center"
                  style="background-image:url('{{ asset('assets/media/images/landing.webp') }}');
                  filter:brightness(0.9)"></div>
