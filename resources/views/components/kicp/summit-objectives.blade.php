@@ -19,17 +19,13 @@
                             style="background-image:url('https://ik.imagekit.io/nkmvdjnna/PAAN/summit/summit-objective-pattern.webp');background-size:cover;background-position:center;background-repeat:repeat"></div>
                         <div class="relative z-10 flex flex-col h-full">
                             <div class="flex items-start justify-start mb-5 sm:mb-6">
-                                <img src="{{ asset('assets/media/icons/knowledge-sharing.svg') }}"
-                                     alt="Community Icon" class="w-10 h-10 sm:w-12 sm:h-12">
+                                <img src="{{ asset('assets/media/images/icons/talent_development_icon.webp') }}"
+                                     alt="Community Icon" class="w-12 h-12 sm:w-12 sm:h-12">
                             </div>
-                            <p class="text-red-500 text-sm sm:text-base font-normal text-left mt-auto">Innovation &
-                                Technology</p>
+                            <p class="text-red-500 text-sm sm:text-base font-normal text-left mt-auto">Visionary Leadership</p>
                             <div class="relative z-10 flex flex-col h-full justify-between">
                                 <small class="text-gray-300 text-sm sm:text-sm font-light">
-                                    Explore emerging technologies and innovative solutions that drive digital
-                                    transformation,
-                                    improve efficiency, and create sustainable opportunities for businesses,
-                                    governments, and communities
+                                    To provide strategic insights into emerging global trends shaping the future of professions
                                 </small>
                             </div>
                         </div>
@@ -43,17 +39,14 @@
                             style="background-image:url('https://ik.imagekit.io/nkmvdjnna/PAAN/summit/summit-objective-pattern.webp');background-size:cover;background-position:center;background-repeat:repeat"></div>
                         <div class="relative z-10 flex flex-col h-full justify-between">
                             <div class="flex items-start justify-start mb-5 sm:mb-6">
-                                <img src="https://ik.imagekit.io/nkmvdjnna/PAAN/summit/icons/user-group.svg"
-                                     alt="Community Icon" class="w-10 h-10 sm:w-12 sm:h-12">
+                                <img src="{{ asset('assets/media/images/icons/leadership_governance_icon.webp') }}"
+                                     alt="Community Icon" class="w-12 h-12 sm:w-12 sm:h-12">
                             </div>
-                            <p class="text-red-500 text-sm sm:text-base font-normal text-left">Leadership &
-                                Governance</p>
+                            <p class="text-red-500 text-sm sm:text-base font-normal text-left">Professional Resilience</p>
                             <div class="relative z-10 flex flex-col h-full justify-between">
                                 <small class="text-gray-300 text-sm sm:text-sm font-light">
-                                    Strengthen leadership capacity and promote effective governance practices that
-                                    foster
-                                    accountability, collaboration, ethical decision-making, and sustainable
-                                    organizational growth.
+                                    To enhance the capacity and resilience of professionals to operate effectively
+                                    in a rapidly evolving global environment.
                                 </small>
                             </div>
                         </div>
@@ -67,17 +60,14 @@
                             style="background-image:url('https://ik.imagekit.io/nkmvdjnna/PAAN/summit/summit-objective-pattern.webp');background-size:cover;background-position:center;background-repeat:repeat"></div>
                         <div class="relative z-10 flex flex-col h-full">
                             <div class="flex items-start justify-start mb-5 sm:mb-6">
-                                <img src="{{ asset('assets/media/icons/prof-dev.svg') }}"
+                                <img src="{{ asset('assets/media/images/icons/policy_industry_dialogue_icon.webp') }}"
                                      alt="Unlock Icon" class="w-10 h-10 sm:w-12 sm:h-12">
                             </div>
-                            <p class="text-red-500 text-sm sm:text-base font-normal text-left mt-auto">Policy & Industry
-                                Dialogue</p>
+                            <p class="text-red-500 text-sm sm:text-base font-normal text-left mt-auto">Policy & Industry Dialogue</p>
                             <div class="relative z-10 flex flex-col h-full justify-between">
                                 <small class="text-gray-300 text-sm sm:text-sm font-light">
-                                    Foster meaningful dialogue between policymakers, industry leaders, and stakeholders
-                                    to
-                                    shape forward-looking policies, address emerging challenges, and drive inclusive
-                                    economic and sectoral development
+                                    To promote high-level dialogue and strategic collaboration among professionals,
+                                    industry leaders, regulators, and policymakers.
                                 </small>
                             </div>
                         </div>
@@ -92,17 +82,13 @@
                         <div class="relative z-10 flex flex-col h-full">
                             <div class="flex items-start justify-start mb-5 sm:mb-6">
                                 <img
-                                    src="{{ asset('assets/media/icons/mentorship.svg') }}"
+                                    src="{{ asset('assets/media/images/icons/innovation_technology_icon.webp') }}"
                                     alt="Connect Icon" class="w-10 h-10 sm:w-12 sm:h-12">
                             </div>
-                            <p class="text-red-500 text-sm sm:text-base font-normal text-left mt-auto">Networking &
-                                Strategic Partnerships</p>
+                            <p class="text-red-500 text-sm sm:text-base font-normal text-left mt-auto">Digital Transformation</p>
                             <div class="relative z-10 flex flex-col h-full justify-between">
                                 <small class="text-gray-300 text-sm sm:text-sm font-light">
-                                    Facilitate meaningful connections and strategic partnerships that encourage
-                                    collaboration,
-                                    knowledge exchange, investment opportunities, and long-term business and
-                                    institutional growth
+                                    To critically examine the future of work and the evolving role of professionals in the digital era
                                 </small>
                             </div>
                         </div>
@@ -117,21 +103,19 @@
                         <div class="relative z-10 flex flex-col h-full">
                             <div class="flex items-start justify-start mb-5 sm:mb-6">
                                 <img
-                                    src="{{ asset('assets/media/icons/strategic-partnership.svg') }}"
+                                    src="{{ asset('assets/media/images/icons/networking_strategic_partnerships_icon.webp') }}"
                                     alt="Connect Icon" class="w-10 h-10 sm:w-12 sm:h-12">
                             </div>
-                            <p class="text-red-500 text-sm sm:text-base font-normal text-left mt-auto">Talent
-                                Development</p>
+                            <p class="text-red-500 text-sm sm:text-base font-normal text-left mt-auto">Networking & Strategic Partnerships</p>
                             <div class="relative z-10 flex flex-col h-full justify-between">
                                 <small class="text-gray-300 text-sm sm:text-sm font-light">
-                                    Empower individuals and organizations through skills development, continuous
-                                    learning,
-                                    and capacity building to cultivate a future-ready, innovative, and resilient
-                                    workforce.
+                                    To strengthen strategic partnerships with professional bodies to broaden participation
+                                    and facilitate access to Continuing Professional Development (CPD) opportunities.
                                 </small>
                             </div>
                         </div>
                     </div>
+
 
 
                 </div>

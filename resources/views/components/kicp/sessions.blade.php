@@ -46,7 +46,7 @@
                 <div class="flex-1"></div>
                 <div>
                     <h4 class="text-lg sm:text-xl font-bold text-white group-hover:text-slate-800 transition-colors duration-300">
-                        Inaugural Kasneb International Conference for Professionals (KICP)</h4>
+                        Inaugural KASNEB International Conference for Professionals (KICP)</h4>
                     <p class="hidden group-hover:block transition-all duration-300 text-slate-800 text-xs sm:text-sm leading-relaxed mt-2">
                         See how professionals, innovators and industry leaders came together to exchange ideas, spark innovation,
                         and shape the future of professional excellence. This is more than a conference it's where the future begins.</p>
