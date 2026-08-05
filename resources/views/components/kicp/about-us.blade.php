@@ -47,9 +47,9 @@
                 </div>
 
             </div>
-            <div class="flex justify-center lg:justify-end " style="opacity: 1; transform: none;">
+            <div class="flex justify-center lg:justify-end h-full" style="opacity: 1; transform: none;">
                 <div class="relative overflow-hidden w-full h-full rounded-lg">
-                    <div class="w-full overflow-hidden rounded-xl aspect-video">
+                    <div class="w-full h-full overflow-hidden rounded-xl">
                         <video
                             class="w-full h-full object-cover rounded-xl"
                             autoplay
