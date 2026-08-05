@@ -1,10 +1,9 @@
 <section class="relative mx-auto max-w-6xl px-4 sm:px-6">
     <div class="flex flex-col text-center mb-8 sm:mb-12 space-y-3 sm:space-y-4">
         <h3 class="text-2xl sm:text-3xl text-slate-800 font-bold uppercase">Our Partners</h3>
-        <p class="text-base sm:text-lg md:text-xl font-normal text-slate-800 mb-6 sm:mb-8">Join leading
-            agencies, startups, and creative innovators in the Exhibition Zone. Share your work, connect
-            with investors and partners, and stand out at Africa's most influential creative economy
-            gathering.</p>
+        <p class="text-base sm:text-lg md:text-xl font-normal text-slate-800 mb-6 sm:mb-8">Join leading firms, innovative
+            startups, and professional pioneers in the Exhibition Zone. Showcase your solutions, connect with strategic
+            partners and investors, and distinguish your brand at Africa’s premier gathering for the knowledge-based economy</p>
     </div>
     <div class="w-full overflow-hidden whitespace-nowrap py-6 sm:py-8">
         <div class="inline-flex animate-marquee-right">
