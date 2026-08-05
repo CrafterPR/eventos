@@ -30,6 +30,11 @@
                                         Nairobi is a vibrant business and conference destination with modern infrastructure and hospitality facilities. The conference organizers are working closely with the venue and security agencies to ensure a safe and secure environment throughout the event. Delegates are encouraged to observe normal safety precautions during their stay.
                                     </p>
                                 ` },
+                                { id: 6, title: 'Who should I contact for booking inquiries or assistance?', content: `
+                                    <p>
+                                        For all booking-related inquiries, please contact us via email at kicp2026@kasneb.or.ke. You may also reach us by phone using the official Kasneb numbers:Telephone: +254 (020) 4923000  or Mobile: +254 722 201214, +254 734 600624.
+                                    </p>
+                                ` },
                             ],
                             toggle(id) {
                                 this.open = this.open === id ? 0 : id;
