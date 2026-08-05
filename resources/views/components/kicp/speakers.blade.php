@@ -192,8 +192,8 @@
                             style="background:linear-gradient(to top, #84C1D9 0%, #84C1D9 40%, rgba(0,0,0,0) 100%)"></div>
                         <div class="relative z-10 flex justify-between items-center">
                             <div>
-                                <h4 class="text-lg sm:text-xl font-bold text-white mb-1">FCPA Prof. Nicholas
-                                    K. Letting’ PhD, EBS, HSC</h4>
+                                <h4 class="text-lg sm:text-xl font-bold text-white mb-1">Prof. Nicholas
+                                    K. Letting’ PhD, EBS</h4>
                                 <p class="text-white/90 text-xs sm:text-sm">Secretary/Chief Executive
                                     Officer</p>
                             </div>
