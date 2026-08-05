@@ -33,17 +33,18 @@
                             class="text-[#172840] hover:text-gray-900 hover:bg-[#175C93] px-2 sm:px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer text-xs sm:text-sm">
                             Programme
                         </a>
+                    <a
+                        href="@if(!request()->routeIs('/')) {{ route('/') }}#speakers-section @else #speakers-section @endif"
+                        class="text-[#172840] hover:text-gray-900 hover:bg-[#175C93] px-2 sm:px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer text-xs sm:text-sm">
+                        Speakers
+                    </a>
 
                     <a
                         href="@if(!request()->routeIs('/')) {{ route('/') }}#participants @else #participants @endif"
                         class="text-[#172840] hover:text-gray-900 hover:bg-[#175C93] px-2 sm:px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer text-xs sm:text-sm">
                         Who can attend
                     </a>
-                    <a
-                        href="@if(!request()->routeIs('/')) {{ route('/') }}#speakers-section @else #speakers-section @endif"
-                        class="text-[#172840] hover:text-gray-900 hover:bg-[#175C93] px-2 sm:px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer text-xs sm:text-sm">
-                        Speakers
-                    </a>
+
                     <a href="@if(!request()->routeIs('/')) {{ route('/') }}#tracks-section @else #tracks-section @endif"
                        class="text-[#172840] hover:text-gray-900 hover:bg-[#175C93] px-2 sm:px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer text-xs sm:text-sm">
                         Tracks
@@ -137,7 +138,7 @@
                     class="text-[#172840] hover:text-gray-900 hover:bg-[#175C93] block px-3 sm:px-4 py-2 sm:py-3 rounded-full transition-all duration-300 cursor-pointer text-sm sm:text-base">Awards
                 </a>
                 <a href="#tracks-section"
-                   class="text-[#172840] hover:text-gray-900 hover:bg-[#175C93] block px-3 sm:px-4 py-2 sm:py-3
+                   class="text-[#172840] hover:text-gray-900 hov er:bg-[#175C93] block px-3 sm:px-4 py-2 sm:py-3
                    rounded-full transition-all duration-300 cursor-pointer text-sm sm:text-base">Tracks
                 </a>
                 <a
