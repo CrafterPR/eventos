@@ -12,14 +12,16 @@
 
         <div class="relative rounded-xl shadow-xl overflow-hidden group cursor-pointer h-80 sm:h-96">
             <img alt="Creator Crawl" class="w-full h-full object-cover"
-                 src="{{ asset('assets/media/images/city-excursions.webp') }}">
+                 src="{{ asset('assets/media/images/content-img-1.webp.webp') }}">
             <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
             <div
                 class="absolute bottom-0 left-0 right-0 p-4 sm:p-6 group-hover:bg-white transition-all duration-300 rounded-t-xl flex flex-col">
                 <div class="flex-1"></div>
                 <div>
-                    <h4 class="text-lg sm:text-xl font-bold text-white group-hover:text-slate-800 transition-colors duration-300">
-                        Empowering Professionals to Lead the Future </h4>
+                    <h4 @click="" class="text-lg sm:text-xl font-bold text-white group-hover:text-slate-800
+                    transition-colors duration-300">
+                        Empowering Professionals to Lead the Future
+                    </h4>
                     <p class="hidden group-hover:block transition-all duration-300 text-slate-800 text-xs sm:text-sm leading-relaxed mt-2">
                         Curated cultural and innovation hub visits to immerse participants in Nairobi's
                         vibrant ecosystem.</p>
