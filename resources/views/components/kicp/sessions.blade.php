@@ -23,8 +23,8 @@
                         Empowering Professionals to Lead the Future
                     </h4>
                     <p class="hidden group-hover:block transition-all duration-300 text-slate-800 text-xs sm:text-sm leading-relaxed mt-2">
-                        Curated cultural and innovation hub visits to immerse participants in Nairobi's
-                        vibrant ecosystem.</p>
+                        Explore how emerging technologies, innovation, lifelong learning, and strategic collaboration
+                        are reshaping the future of professional practice. </p>
                 </div>
             </div>
         </div>
