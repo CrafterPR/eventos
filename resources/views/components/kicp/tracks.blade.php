@@ -120,7 +120,7 @@
                 <img alt="AI, Technology &amp; The Future of Creative Work"
                      class="object-cover md:object-contain md:object-center md:-mt-20"
                      style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent"
-                     src="{{ asset('assets/media/images/goverment (1).webp') }}">
+                     src="{{ asset('assets/media/images/Governance Policy.webp') }}">
             </div>
             <div
                 class="bg-[#DAECF3] rounded-b-lg md:rounded-t-lg p-4 sm:p-5 md:p-6 transition-all duration-300 md:absolute md:bottom-0 md:left-0 md:right-0 z-10 relative group"
