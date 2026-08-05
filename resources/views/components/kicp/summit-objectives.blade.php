@@ -19,7 +19,7 @@
                             style="background-image:url('https://ik.imagekit.io/nkmvdjnna/PAAN/summit/summit-objective-pattern.webp');background-size:cover;background-position:center;background-repeat:repeat"></div>
                         <div class="relative z-10 flex flex-col h-full">
                             <div class="flex items-start justify-start mb-5 sm:mb-6">
-                                <img src="{{ asset('assets/media/images/icons/talent_development_icon.webp') }}"
+                                <img src="{{ asset('assets/media/images/icons/visionary_leadership_white.png') }}"
                                      alt="Community Icon" class="w-12 h-12 sm:w-12 sm:h-12">
                             </div>
                             <p class="text-red-500 text-sm sm:text-base font-normal text-left mt-auto">Visionary Leadership</p>
@@ -39,7 +39,7 @@
                             style="background-image:url('https://ik.imagekit.io/nkmvdjnna/PAAN/summit/summit-objective-pattern.webp');background-size:cover;background-position:center;background-repeat:repeat"></div>
                         <div class="relative z-10 flex flex-col h-full justify-between">
                             <div class="flex items-start justify-start mb-5 sm:mb-6">
-                                <img src="{{ asset('assets/media/images/icons/leadership_governance_icon.webp') }}"
+                                <img src="{{ asset('assets/media/images/icons/professional_resilience_white.png') }}"
                                      alt="Community Icon" class="w-12 h-12 sm:w-12 sm:h-12">
                             </div>
                             <p class="text-red-500 text-sm sm:text-base font-normal text-left">Professional Resilience</p>
@@ -60,7 +60,7 @@
                             style="background-image:url('https://ik.imagekit.io/nkmvdjnna/PAAN/summit/summit-objective-pattern.webp');background-size:cover;background-position:center;background-repeat:repeat"></div>
                         <div class="relative z-10 flex flex-col h-full">
                             <div class="flex items-start justify-start mb-5 sm:mb-6">
-                                <img src="{{ asset('assets/media/images/icons/policy_industry_dialogue_icon.webp') }}"
+                                <img src="{{ asset('assets/media/images/icons/policy_industry_dialogue_white.png') }}"
                                      alt="Unlock Icon" class="w-10 h-10 sm:w-12 sm:h-12">
                             </div>
                             <p class="text-red-500 text-sm sm:text-base font-normal text-left mt-auto">Policy & Industry Dialogue</p>
@@ -82,7 +82,7 @@
                         <div class="relative z-10 flex flex-col h-full">
                             <div class="flex items-start justify-start mb-5 sm:mb-6">
                                 <img
-                                    src="{{ asset('assets/media/images/icons/innovation_technology_icon.webp') }}"
+                                    src="{{ asset('assets/media/images/icons/digital_transformation_white.png') }}"
                                     alt="Connect Icon" class="w-10 h-10 sm:w-12 sm:h-12">
                             </div>
                             <p class="text-red-500 text-sm sm:text-base font-normal text-left mt-auto">Digital Transformation</p>
@@ -103,7 +103,7 @@
                         <div class="relative z-10 flex flex-col h-full">
                             <div class="flex items-start justify-start mb-5 sm:mb-6">
                                 <img
-                                    src="{{ asset('assets/media/images/icons/networking_strategic_partnerships_icon.webp') }}"
+                                    src="{{ asset('assets/media/images/icons/networking_strategic_partnerships_white.png') }}"
                                     alt="Connect Icon" class="w-10 h-10 sm:w-12 sm:h-12">
                             </div>
                             <p class="text-red-500 text-sm sm:text-base font-normal text-left mt-auto">Networking & Strategic Partnerships</p>
