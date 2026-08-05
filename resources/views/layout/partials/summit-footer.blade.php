@@ -37,7 +37,7 @@
         console.log('🚀 Initializing countdown timer...');
 
         // Event target date - April 21, 2026, 00:00:00 (UTC+3 Nairobi Time)
-        const eventDate = new Date('2026-09-14T00:00:00+03:00').getTime();
+        const eventDate = new Date('2026-10-12T00:00:00+03:00').getTime();
         console.log('📅 Event Date (timestamp):', eventDate);
         console.log('📅 Event Date (readable):', new Date(eventDate).toString());
 
