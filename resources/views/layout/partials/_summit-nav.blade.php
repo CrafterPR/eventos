@@ -45,10 +45,10 @@
                         Who can attend
                     </a>
 
-                    <a href="@if(!request()->routeIs('/')) {{ route('/') }}#tracks-section @else #tracks-section @endif"
-                       class="text-[#172840] hover:text-gray-900 hover:bg-[#175C93] px-2 sm:px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer text-xs sm:text-sm">
-                        Tracks
-                    </a>
+{{--                    <a href="@if(!request()->routeIs('/')) {{ route('/') }}#tracks-section @else #tracks-section @endif"--}}
+{{--                       class="text-[#172840] hover:text-gray-900 hover:bg-[#175C93] px-2 sm:px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer text-xs sm:text-sm">--}}
+{{--                        Tracks--}}
+{{--                    </a>--}}
                     <a href="{{ asset('assets/media/images/KICP 2 SPONSORSHIP PROPOSAL 2026.pdf') }}" target="_blank"
                        class="text-[#172840] hover:text-gray-900 hover:bg-[#175C93] px-2 sm:px-3 py-1.5 rounded-full
                        transition-all duration-300 cursor-pointer text-xs sm:text-sm">
