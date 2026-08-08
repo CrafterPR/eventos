@@ -16,7 +16,6 @@ class PurchaseController extends Controller
 {
     public function store(Request $request)
     {
-        $user = auth()->user();
 
         // Support two payload shapes: { formData: { ... }, selectedTickets: [...] }
         // or flat: { fullName: ..., selectedTickets: [...] }
@@ -28,7 +27,7 @@ class PurchaseController extends Controller
         $payload = array_merge($formData, $request->all());
 
         // For authenticated users (purchase more), skip validating formData like fullName/email/phone
-        $isAuthenticatedPurchase = $user !== null;
+        $isAuthenticatedPurchase = $request->get('isPurchaseMore');
 
         if ($isAuthenticatedPurchase) {
             // Only validate tickets and payment method for purchase-more
@@ -90,10 +89,8 @@ class PurchaseController extends Controller
         try {
             DB::beginTransaction();
 
-            // If authenticated user, use existing user record
-            if ($isAuthenticatedPurchase) {
-                $user = $user;
-            } else {
+            // If is not authenticated user
+            if (!$isAuthenticatedPurchase) {
                 // Split full name into first_name and last_name
                 $fullName = trim($payload['fullName'] ?? '');
                 $firstName = null;
@@ -136,7 +133,10 @@ class PurchaseController extends Controller
 
                     $user->assignRole(Role::DELEGATE);
                 }
+            } else {
+                $user = User::where('email', $payload['paymentEmail'])->first();
             }
+
 
             // Determine tickets payload
             $tickets = $payload['selectedTickets'] ?? ($payload['tickets'] ?? []);
