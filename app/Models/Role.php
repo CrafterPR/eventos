@@ -34,6 +34,7 @@ class Role extends \Spatie\Permission\Models\Role
 
     public const ADMINISTRATOR = 'administrator';
     public const SUPER_ADMIN = 'superadmin';
+    public const DELEGATE = 'delegate';
 
 
 }

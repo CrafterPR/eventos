@@ -42,6 +42,11 @@ class RolesPermissionsSeeder extends Seeder
             ],
             \App\Models\Role::SUPER_ADMIN => [
 
+            ],
+            \App\Models\Role::DELEGATE => [
+                'register event',
+                'view events',
+                'view dashboard',
             ]
 
         ];

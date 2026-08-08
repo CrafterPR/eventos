@@ -622,6 +622,54 @@
                     this.syncAttendees();
                 },
 
+                resetAllTicketCards() {
+                    // Reset all ticket card UI states
+                    const ticketCards = document.querySelectorAll('[x-data*="count"]');
+
+                    ticketCards.forEach((card, index) => {
+                        // Method 1: Try to access Alpine component directly
+                        try {
+                            const alpineInstance = card._x_dataStack ? card._x_dataStack[0] : card.__x?.$data;
+                            if (alpineInstance) {
+                                alpineInstance.selected = false;
+                                alpineInstance.count = alpineInstance.count > 5 ? 10 : 1;
+                                return; // Success, skip other methods
+                            }
+                        } catch (e) {
+                            // Continue to next method
+                        }
+
+                        // Method 2: Use Alpine's magic $el to dispatch and update
+                        try {
+                            if (card.__x_dataStack) {
+                                const data = card.__x_dataStack[0];
+                                if (data) {
+                                    data.selected = false;
+                                    data.count = data.count > 5 ? 10 : 1;
+                                }
+                            }
+                        } catch (e) {
+                            // Continue to next method
+                        }
+
+                        // Method 3: Reset via CSS classes (fallback)
+                        card.classList.remove('bg-gradient-to-r', 'from-[#175C93]', 'to-[#7BC7F0]', 'border-[#E12035]');
+                        card.classList.add('bg-white', 'border-gray-200');
+
+                        // Reset button text if exists
+                        const button = card.querySelector('button[x-show*="selected"]');
+                        if (button) {
+                            button.textContent = 'Select';
+                        }
+
+                        // Reset counter input if exists
+                        const countInput = card.querySelector('input[type="number"]');
+                        if (countInput) {
+                            countInput.value = index > 0 && index < 2 ? '10' : '1';
+                        }
+                    });
+                },
+
                 selectTicket(ticketType, price, count) {
                     // Try to detect the clicked ticket card if the caller passed generic/hardcoded values.
                     let type = ticketType;
@@ -872,45 +920,77 @@
                         }
 
 
-
                         // Handle validation errors from server
                         if (res.status === 422 && data.errors) {
+                            console.log("ERRORS",res.status, data.errors)
+                            // Close processing Swal and move to stage 1 to show errors
+                            Swal.close();
+                            this.currentStep = 1;
+                            
                             // Display field errors
-                            for (const key in data.errors) {
-                                if (!Object.prototype.hasOwnProperty.call(data.errors, key)) continue;
-                                const messages = data.errors[key];
-                                const selector = document.querySelector(`#${key}`) || document.querySelector(`[name="${key}"]`);
-                                const parent = selector ? (selector.closest && selector.closest('div') || selector.parentElement) : null;
-                                if (selector && parent) {
-                                    // remove existing
-                                    const existing = parent.querySelector('.custom-error-container');
-                                    if (existing) existing.remove();
-                                    const errEl = this.createErrorMessage(messages[0]);
-                                    errEl.classList.add('custom-error-container');
-                                    parent.appendChild(errEl);
-                                }
-                            }
+                            setTimeout(() => {
+                                for (const key in data.errors) {
+                                    if (!Object.prototype.hasOwnProperty.call(data.errors, key)) continue;
+                                    const messages = data.errors[key];
+                                    const selector = document.querySelector(`#${key}`) || document.querySelector(`[name="${key}"]`);
+                                    const parent = selector ? (selector.closest && selector.closest('div') || selector.parentElement) : null;
+                                    if (selector && parent) {
+                                        // remove existing
+                                        const existing = parent.querySelector('.custom-error-container');
+                                       if (existing) existing.remove();
+                                       const errEl = this.createErrorMessage(messages[0]);
+                                       errEl.classList.add('custom-error-container');
+                                       parent.appendChild(errEl);
+                                   }
+                               }
 
-                            const firstError = document.querySelector('.custom-error-container') || document.querySelector('.border-red-500');
-                            if (firstError) firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                               const firstError = document.querySelector('.custom-error-container') || document.querySelector('.border-red-500');
+                               if (firstError) firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                           }, 300);
 
-                            return;
+                           return;
                         }
 
                         if (res.ok) {
                             Swal.fire({
                                 icon: 'success',
-                                title: 'Success',
+                                title: 'Registration successful!',
                                 text: data.message ?? 'Ticket purchased successfully!',
+                                showCancelButton: false,
                             });
-                            // clear form and reset UI
-                            this.formData = {};
+                            // clear form and reset UI to initial state
+                            this.clearAllErrors();
+                            this.formData = {
+                                fullName: '',
+                                email: '',
+                                phone: '',
+                                country: '',
+                                organization: '',
+                                terms: 0
+                            };
                             this.selectedTickets = [];
                             this.paymentMethod = null;
                             this.paymentEmail = '';
                             this.paymentPhone = '';
+                            this.paymentErrors = {
+                                method: '',
+                                email: '',
+                                phone: ''
+                            };
                             this.currentStep = 0;
-                            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+                            // Use setTimeout to allow Swal to display first, then reset UI
+                            setTimeout(() => {
+                                // Clear all input fields
+                                document.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"], textarea, select').forEach(field => {
+                                    if (field.name !== 'method' && field.name !== 'confirm_password_confirmation') {
+                                        field.value = '';
+                                    }
+                                });
+
+                                this.resetAllTicketCards();
+                                window.scrollTo({ top: 0, behavior: 'smooth' });
+                            }, 500);
                         } else {
                             Swal.fire({
                                 icon: 'error',
