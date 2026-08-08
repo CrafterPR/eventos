@@ -524,6 +524,9 @@
                                         </div>
                                         <div class="pt-8 border-t border-gray-100">
                                             <div class="bg-blue-50 border border-[#84C1D9]/30 rounded-xl p-5 mb-6">
+                                                <div x-show="formErrors.terms" x-cloak class="mt-2 p-3 bg-red-50 border border-red-200 rounded-lg">
+                                                    <p x-text="formErrors.terms" class="text-red-600 text-sm"></p>
+                                                </div>
                                                 <div class="flex
                                                 items-start gap-3
                                                 text-sm">
@@ -535,9 +538,6 @@
                                                            type="checkbox" name="terms" value="1" @change="formErrors.terms = ''" />
                                                     <label for="terms" class="text-sm text-gray-700">I accept the
                                                         above terms &amp;  privacy policy <span class="text-red-500">*</span></label>
-                                                </div>
-                                                <div x-show="formErrors.terms" x-cloak class="mt-2 p-3 bg-red-50 border border-red-200 rounded-lg">
-                                                    <p x-text="formErrors.terms" class="text-red-600 text-sm"></p>
                                                 </div>
 
                                             </div>
