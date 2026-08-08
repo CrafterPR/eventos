@@ -119,7 +119,7 @@ if (!function_exists("format_amount")) {
      * @param Currency $currency
      * @return string
      */
-    function format_amount($amount, Currency $currency): string
+    function format_amount($amount, Currency $currency = Currency::KES): string
     {
         return $currency == Currency::KES ? "KES " . number_format($amount, 2)
             : "$" . number_format($amount, 2);
