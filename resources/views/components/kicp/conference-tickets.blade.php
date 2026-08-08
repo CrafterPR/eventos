@@ -6,7 +6,7 @@
     <div class="max-w-7xl mx-auto " style="opacity: 1; transform: none;">
         <!--Inner Tabs section -->
         <div>
-            <div x-data="wizard()">
+            <div x-data="wizard({ isPurchaseMore: {{ Auth::check() ? 'true' : 'false' }} })">
                 <section class="relative mx-auto max-w-6xl px-4 sm:px-6 z-10">
                 <main id="wizardForm" @submit.prevent="submitForm">
                     <section x-cloak x-show="currentStep === 0" id="ticket-selection">
@@ -452,7 +452,7 @@
 
                     </div>
                     </section>
-                    <section x-cloak x-show="currentStep === 1" id="contact-info-step">
+                    <section x-cloak x-show="currentStep === 1 && !isPurchaseMore" id="contact-info-step">
                         <div class="mx-auto max-w-7xl ">
                             <div class="text-slate-800 text-center py-4">
                                 <h2 class="font-bold text-2xl">Your Contact Information</h2>
@@ -548,9 +548,17 @@
                             </div>
                         </div>
                     </section>
-                    <section x-cloak x-show="currentStep === 2">
+                    <section x-cloak x-show="(isPurchaseMore && currentStep === 1) || (!isPurchaseMore && currentStep === 2)">
                         <div class="mx-auto max-w-7xl ">
                             <div class="text-slate-800 text-center py-4">
+                                <div class="flex items-center justify-center gap-4 mb-4">
+                                    <div class="w-12 h-12 bg-[#84C1D9] rounded-xl flex items-center justify-center shadow-lg">
+                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-7 h-7 text-white iconify iconify--mdi" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M9 20c-1.1 0-2 .9-2 2s.9 2 2 2s2-.9 2-2s-.9-2-2-2m9-4c-1.1 0-2 .9-2 2s.9 2 2 2s2-.9 2-2s-.9-2-2-2M7 18h8v-2H7v2m13-5l1.46-2.04A1 1 0 0 0 21 9.5V5h-4V3h4a2 2 0 0 1 2 2v4.5a2 2 0 0 1-.54 1.46zM3 6h15v2H3zm0 5h11v2H3z"></path></svg>
+                                    </div>
+                                    <div>
+                                        <p class="text-gray-500 text-sm sm:text-base mt-1" x-text="isPurchaseMore ? 'Step 2 of 2 - Payment' : 'Step 3 of 3 - Payment'"></p>
+                                    </div>
+                                </div>
                                 <h2 class="font-bold text-2xl">Payment</h2>
                                 <p class="font-normal">Complete your payment to secure your tickets.</p>
                             </div>
@@ -625,7 +633,7 @@
                                             </form>
                                         </div>
                                         <div class="flex flex-col sm:flex-row justify-between gap-3 sm:gap-0">
-                                            <button @click="prevStep(2)" class="bg-gray-200 text-gray-700 px-4 sm:px-6
+                                            <button @click="prevStep()" class="bg-gray-200 text-gray-700 px-4 sm:px-6
                                             py-2 sm:py-3
                                                 rounded-full font-medium hover:bg-gray-300 transition-colors text-sm
                                                 sm:text-base">Back to ticket selection</button>
@@ -684,12 +692,10 @@
                                         </svg>
                                         Back
                                     </button>
-                                    <button x-show="currentStep < steps.length - 1" @click="currentStep === 1 ?
-                                    validateStep() : nextStep"
+                                    <button x-show="currentStep < steps.length - 1" @click="(isPurchaseMore && currentStep === 0) || (!isPurchaseMore && currentStep === 1) ? (isPurchaseMore ? nextStep() : validateStep()) : nextStep()"
                                             class="flex-1 sm:flex-none bg-red-500 text-white px-6 sm:px-8 py-2.5 sm:py-3
                                             rounded-full font-semibold hover:bg-slate-800 transition-all duration-300 shadow-lg hover:shadow-xl text-sm sm:text-base inline-flex items-center justify-center gap-2">
-                                        Proceed to <span x-text="currentStep === 0 ? 'add your details' :
-                                        'make payment'"></span>
+                                        Proceed to <span x-text="isPurchaseMore ? (currentStep === 0 ? 'payment' : 'complete') : (currentStep === 0 ? 'add your details' : 'make payment')"></span>
                                         <svg xmlns="http://www.w3.org/2000/svg"
                                              xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
                                              class="w-4 h-4 iconify iconify--mdi" width="1em" height="1em"

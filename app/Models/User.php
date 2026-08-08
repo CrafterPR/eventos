@@ -20,6 +20,7 @@ use Laravel\Sanctum\HasApiTokens;
 use Laravel\Sanctum\PersonalAccessToken;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Traits\HasRoles;
+use App\Models\PurchaseOrder;
 
 /**
  * App\Models\User
@@ -185,6 +186,11 @@ class User extends Authenticatable
     public function paymentVerifications(): HasMany
     {
         return $this->hasMany(Order::class);
+    }
+
+    public function purchaseOrders(): HasMany
+    {
+        return $this->hasMany(PurchaseOrder::class);
     }
 
     public function canImpersonate(): bool

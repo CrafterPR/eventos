@@ -16,6 +16,8 @@ class PurchaseController extends Controller
 {
     public function store(Request $request)
     {
+        $user = auth()->user();
+
         // Support two payload shapes: { formData: { ... }, selectedTickets: [...] }
         // or flat: { fullName: ..., selectedTickets: [...] }
         $formData = $request->input('formData') && is_array($request->input('formData'))
@@ -25,11 +27,14 @@ class PurchaseController extends Controller
         // Merge formData with top-level fields so validation can find either
         $payload = array_merge($formData, $request->all());
 
+        // For authenticated users (purchase more), skip email/phone uniqueness validation
+        $isAuthenticatedPurchase = $user !== null;
+
         $rules = [
-            'fullName' => 'required|string|max:255',
-            'email' => 'required|unique:users|email|max:255',
-            'phone' => 'required|unique:users,mobile|string|max:50',
-            'country' => 'required|string|max:100',
+            'fullName' => $isAuthenticatedPurchase ? 'nullable|string|max:255' : 'required|string|max:255',
+            'email' => $isAuthenticatedPurchase ? 'nullable' : 'required|unique:users|email|max:255',
+            'phone' => $isAuthenticatedPurchase ? 'nullable' : 'required|unique:users,mobile|string|max:50',
+            'country' => $isAuthenticatedPurchase ? 'nullable|string|max:100' : 'required|string|max:100',
             'paymentMethod' => 'required|in:lpo,mpesa',
             'selectedTickets' => 'required|array|min:1',
         ];
@@ -66,63 +71,56 @@ class PurchaseController extends Controller
             ], 422);
         }
 
-        $dataToSave = [
-            'name' => $payload['fullName'] ?? null,
-            'email' => $payload['email'] ?? null,
-            'phone' => $payload['phone'] ?? null,
-            'country' => $payload['country'] ?? null,
-            'organization' => $payload['organization'] ?? null,
-            'payment_method' => $payload['paymentMethod'] ?? null,
-            'payment_email' => $payload['paymentEmail'] ?? null,
-            'payment_phone' => $payload['paymentPhone'] ?? null,
-            'tickets' => $payload['selectedTickets'] ?? ($payload['tickets'] ?? null),
-        ];
-
         try {
             DB::beginTransaction();
 
-            // Split full name into first_name and last_name
-            $fullName = trim($payload['fullName'] ?? '');
-            $firstName = null;
-            $lastName = null;
-            if ($fullName !== '') {
-                $parts = preg_split('/\s+/', $fullName);
-                $firstName = array_shift($parts);
-                $lastName = count($parts) ? implode(' ', $parts) : null;
-            }
-
-            // Create or update user with provided registration details
-            // If the user already exists, update their profile but DO NOT overwrite their password.
-            // If the user does not exist, generate a random password now so it's present on create.
-            $existingUser = User::where('email', $payload['email'])->first();
-
-            if ($existingUser) {
-                $existingUser->update([
-                    'first_name' => $firstName,
-                    'last_name' => $lastName,
-                    'mobile' => $payload['phone'] ?? null,
-                    'country' => $payload['country'] ?? null,
-                    'organization' => $payload['organization'] ?? null,
-                ]);
-
-                $user = $existingUser;
-                $password = null; // keep existing password
+            // If authenticated user, use existing user record
+            if ($isAuthenticatedPurchase) {
+                $user = $user;
             } else {
-                // Generate a random password for new users (User model mutator will hash it)
-                $password = Str::random(10);
+                // Split full name into first_name and last_name
+                $fullName = trim($payload['fullName'] ?? '');
+                $firstName = null;
+                $lastName = null;
+                if ($fullName !== '') {
+                    $parts = preg_split('/\s+/', $fullName);
+                    $firstName = array_shift($parts);
+                    $lastName = count($parts) ? implode(' ', $parts) : null;
+                }
 
-                $user = User::create([
-                    'first_name' => $firstName,
-                    'last_name' => $lastName,
-                    'mobile' => $payload['phone'] ?? null,
-                    'country' => $payload['country'] ?? null,
-                    'organization' => $payload['organization'] ?? null,
-                    'email' => $payload['email'] ?? null,
-                    'password' => $password,
-                ]);
+                // Create or update user with provided registration details
+                // If the user already exists, update their profile but DO NOT overwrite their password.
+                // If the user does not exist, generate a random password now so it's present on create.
+                $existingUser = User::where('email', $payload['email'])->first();
+
+                if ($existingUser) {
+                    $existingUser->update([
+                        'first_name' => $firstName,
+                        'last_name' => $lastName,
+                        'mobile' => $payload['phone'] ?? null,
+                        'country' => $payload['country'] ?? null,
+                        'organization' => $payload['organization'] ?? null,
+                    ]);
+
+                    $user = $existingUser;
+                    $password = null; // keep existing password
+                } else {
+                    // Generate a random password for new users (User model mutator will hash it)
+                    $password = Str::random(10);
+
+                    $user = User::create([
+                        'first_name' => $firstName,
+                        'last_name' => $lastName,
+                        'mobile' => $payload['phone'] ?? null,
+                        'country' => $payload['country'] ?? null,
+                        'organization' => $payload['organization'] ?? null,
+                        'email' => $payload['email'] ?? null,
+                        'password' => $password,
+                    ]);
+
+                    $user->assignRole(Role::DELEGATE);
+                }
             }
-
-            $user->assignRole(Role::DELEGATE);
 
             // Determine tickets payload
             $tickets = $payload['selectedTickets'] ?? ($payload['tickets'] ?? []);
@@ -164,7 +162,7 @@ class PurchaseController extends Controller
             }
 
             // Create purchase order via Eloquent so ULID is generated by HasUlids
-             PurchaseOrder::create([
+            $purchaseOrder = PurchaseOrder::create([
                 'user_id' => $user->id,
                 'reference' => 'PO'.time().rand(100,999),
                 'payment_method' => $payload['paymentMethod'] ?? null,
@@ -177,13 +175,17 @@ class PurchaseController extends Controller
             ]);
 
             // Queue email with login details only for newly created users
-            if ($password) {
-                Mail::to($user->email)->queue(new LoginDetailsMail($user, $password));
+            if (!$isAuthenticatedPurchase && $password) {
+                Mail::to($user->email)->queue(new LoginDetailsMail($user, $password, $purchaseOrder));
             }
 
             DB::commit();
 
-            return response()->json(['message' => 'Congratulations! Check your email for login details to manage your ticket purchase.']);
+            $successMessage = $isAuthenticatedPurchase
+                ? 'Purchase order created successfully! You can proceed to payment.'
+                : 'Congratulations! Check your email for login details to manage your ticket purchase.';
+
+            return response()->json(['message' => $successMessage, 'order_id' => $purchaseOrder->id]);
         } catch (\Exception $e) {
             DB::rollBack();
             return response()->json([

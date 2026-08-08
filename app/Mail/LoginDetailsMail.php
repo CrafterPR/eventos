@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use App\Models\PurchaseOrder;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -18,10 +19,11 @@ class LoginDetailsMail extends Mailable implements ShouldQueue
     /**
      * Create a new message instance.
      */
-    public function __construct(User $user, string $password)
+    public function __construct(User $user, string $password, PurchaseOrder $purchaseOrder)
     {
         $this->user = $user;
         $this->password = $password;
+        $this->purchaseOrder = $purchaseOrder;
     }
 
     /**
@@ -29,11 +31,12 @@ class LoginDetailsMail extends Mailable implements ShouldQueue
      */
     public function build()
     {
-        return $this->subject('Your 2ndKICP account login details')
+        return $this->subject('Your 2nd KICP LPO & login details')
             ->view('emails.login-details')
             ->with([
                 'user' => $this->user,
                 'password' => $this->password,
+                'order' => $this->purchaseOrder,
             ]);
     }
 }

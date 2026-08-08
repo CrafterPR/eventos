@@ -194,10 +194,14 @@
             }
         });
 
-        function wizard() {
+        function wizard(config = {}) {
+            const isPurchaseMore = config.isPurchaseMore || false;
             return {
-                currentStep: 0,
-                steps: ['Ticket Selection','Delegates Info', 'Payment'],
+                currentStep: isPurchaseMore ? 0 : 0,
+                steps: isPurchaseMore 
+                    ? ['Ticket Selection', 'Payment']
+                    : ['Ticket Selection','Delegates Info', 'Payment'],
+                isPurchaseMore: isPurchaseMore,
                 validators: null,
                 formData: {
                     fullName: '',
@@ -874,7 +878,9 @@
                     if (this.isSubmitting) return;
                     // Ensure latest form data
                     this.clearAllErrors();
-                    this.saveFormData();
+                    if (!this.isPurchaseMore) {
+                        this.saveFormData();
+                    }
 
                     // Validate payment method and related fields
                     if (!this.validatePaymentMethod()) {
@@ -884,7 +890,7 @@
                     this.isSubmitting = true;
 
                     const payload = {
-                        formData: this.formData,
+                        formData: this.isPurchaseMore ? {} : this.formData,
                         selectedTickets: this.selectedTickets,
                         paymentMethod: this.paymentMethod,
                         paymentEmail: this.paymentEmail,
@@ -896,55 +902,58 @@
                         const csrf = tokenMeta ? tokenMeta.getAttribute('content') : '';
 
                         Swal.fire({
-                            title: 'Processing...',
-                            text: 'Please wait while we process your purchase.',
-                            allowOutsideClick: false,
-                            didOpen: () => {
-                                Swal.showLoading();
-                            }
+                           title: 'Processing...',
+                           text: 'Please wait while we process your purchase.',
+                           allowOutsideClick: false,
+                           didOpen: () => {
+                               Swal.showLoading();
+                           }
                         });
 
                         const res = await fetch('/api/v1/tickets/purchase', {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json',
-                                'Accept': 'application/json',
-                                'X-CSRF-TOKEN': csrf
-                            },
-                            credentials: 'same-origin',
-                            body: JSON.stringify(payload)
+                           method: 'POST',
+                           headers: {
+                               'Content-Type': 'application/json',
+                               'Accept': 'application/json',
+                               'X-CSRF-TOKEN': csrf
+                           },
+                           credentials: 'same-origin',
+                           body: JSON.stringify(payload)
                         });
 
                         let data;
                         try {
-                            data = await res.json();
+                           data = await res.json();
                         } catch (e) {
-                            console.log('Purchase response non-JSON, status:', res.status);
-                            data = null;
+                           console.log('Purchase response non-JSON, status:', res.status);
+                           data = null;
                         }
 
 
                         // Handle validation errors from server
                         if (res.status === 422 && data.errors) {
-                            console.log("ERRORS",res.status, data.errors)
-                            // Close processing Swal and move to stage 1 to show errors
-                            Swal.close();
-                            this.currentStep = 1;
+                           console.log("ERRORS",res.status, data.errors)
+                           // Close processing Swal and move back to relevant step to show errors
+                           Swal.close();
                             
-                            // Display field errors
-                            setTimeout(() => {
-                                for (const key in data.errors) {
-                                    if (!Object.prototype.hasOwnProperty.call(data.errors, key)) continue;
-                                    const messages = data.errors[key];
-                                    const selector = document.querySelector(`#${key}`) || document.querySelector(`[name="${key}"]`);
-                                    const parent = selector ? (selector.closest && selector.closest('div') || selector.parentElement) : null;
-                                    if (selector && parent) {
-                                        // remove existing
-                                        const existing = parent.querySelector('.custom-error-container');
-                                       if (existing) existing.remove();
-                                       const errEl = this.createErrorMessage(messages[0]);
-                                       errEl.classList.add('custom-error-container');
-                                       parent.appendChild(errEl);
+                           // For authenticated users (purchase more), stay on payment (step 1)
+                           // For new registrations, go back to delegates info (step 1)
+                           this.currentStep = 1;
+                            
+                           // Display field errors
+                           setTimeout(() => {
+                               for (const key in data.errors) {
+                                   if (!Object.prototype.hasOwnProperty.call(data.errors, key)) continue;
+                                   const messages = data.errors[key];
+                                   const selector = document.querySelector(`#${key}`) || document.querySelector(`[name="${key}"]`);
+                                   const parent = selector ? (selector.closest && selector.closest('div') || selector.parentElement) : null;
+                                   if (selector && parent) {
+                                       // remove existing
+                                       const existing = parent.querySelector('.custom-error-container');
+                                      if (existing) existing.remove();
+                                      const errEl = this.createErrorMessage(messages[0]);
+                                      errEl.classList.add('custom-error-container');
+                                      parent.appendChild(errEl);
                                    }
                                }
 
@@ -956,120 +965,127 @@
                         }
 
                         if (res.ok) {
-                            Swal.fire({
-                                icon: 'success',
-                                title: 'Registration successful!',
-                                text: data.message ?? 'Ticket purchased successfully!',
-                                showCancelButton: false,
-                            });
-                            // clear form and reset UI to initial state
-                            this.clearAllErrors();
-                            this.formData = {
-                                fullName: '',
-                                email: '',
-                                phone: '',
-                                country: '',
-                                organization: '',
-                                terms: 0
-                            };
-                            this.selectedTickets = [];
-                            this.paymentMethod = null;
-                            this.paymentEmail = '';
-                            this.paymentPhone = '';
-                            this.paymentErrors = {
-                                method: '',
-                                email: '',
-                                phone: ''
-                            };
-                            this.formErrors = {
-                                terms: ''
-                            };
-                            this.currentStep = 0;
+                           Swal.fire({
+                               icon: 'success',
+                               title: 'Registration successful!',
+                               text: data.message ?? 'Ticket purchased successfully!',
+                               showCancelButton: false,
+                           });
+                            
+                           if (this.isPurchaseMore) {
+                               // Redirect to dashboard after successful purchase
+                               setTimeout(() => {
+                                   window.location.href = '/dashboard';
+                               }, 1500);
+                           } else {
+                               // For new registrations, clear form and reset UI
+                               this.clearAllErrors();
+                               this.formData = {
+                                   fullName: '',
+                                   email: '',
+                                   phone: '',
+                                   country: '',
+                                   organization: '',
+                                   terms: 0
+                               };
+                               this.selectedTickets = [];
+                               this.paymentMethod = null;
+                               this.paymentEmail = '';
+                               this.paymentPhone = '';
+                               this.paymentErrors = {
+                                   method: '',
+                                   email: '',
+                                   phone: ''
+                               };
+                               this.formErrors = {
+                                   terms: ''
+                               };
+                               this.currentStep = 0;
 
-                            // Use setTimeout to allow Swal to display first, then reset UI
-                            setTimeout(() => {
-                                // Clear all input fields
-                                document.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"], textarea, select').forEach(field => {
-                                    if (field.name !== 'method' && field.name !== 'confirm_password_confirmation') {
-                                        field.value = '';
-                                    }
-                                });
-                                
-                                // Clear terms checkbox
-                                const termsCheckbox = document.querySelector('#terms');
-                                if (termsCheckbox) {
-                                    termsCheckbox.checked = false;
-                                }
+                               // Use setTimeout to allow Swal to display first, then reset UI
+                               setTimeout(() => {
+                                   // Clear all input fields
+                                   document.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"], textarea, select').forEach(field => {
+                                       if (field.name !== 'method' && field.name !== 'confirm_password_confirmation') {
+                                           field.value = '';
+                                       }
+                                   });
+                                    
+                                   // Clear terms checkbox
+                                   const termsCheckbox = document.querySelector('#terms');
+                                   if (termsCheckbox) {
+                                       termsCheckbox.checked = false;
+                                   }
 
-                                this.resetAllTicketCards();
-                                window.scrollTo({ top: 0, behavior: 'smooth' });
-                            }, 500);
-                        } else {
-                            Swal.fire({
-                                icon: 'error',
-                                title: 'Error',
-                                text: data && data.message ? data.message : 'Failed to purchase ticket.',
-                            });
-                        }
-                    } catch (err) {
-                        console.error('Purchase error:', err);
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'Error',
-                            text: 'An error occurred while processing your purchase.',
-                        });
-                    } finally {
-                        this.isSubmitting = false;
-                    }
+                                   this.resetAllTicketCards();
+                                   window.scrollTo({ top: 0, behavior: 'smooth' });
+                               }, 500);
+                           }
+                       } else {
+                           Swal.fire({
+                               icon: 'error',
+                               title: 'Error',
+                               text: data && data.message ? data.message : 'Failed to purchase ticket.',
+                           });
+                       }
+                   } catch (err) {
+                       console.error('Purchase error:', err);
+                       Swal.fire({
+                           icon: 'error',
+                           title: 'Error',
+                           text: 'An error occurred while processing your purchase.',
+                       });
+                   } finally {
+                       this.isSubmitting = false;
+                   }
                 },
 
 
                 nextStep() {
-                    if (this.currentStep < this.steps.length - 1) {
-                        this.currentStep++;
-                        console.log('Moving to step:', this.currentStep);
-
-                        // If moving to Attendee Details (step 2), prefill purchaser info from step 0
-                        if (this.currentStep === 2) {
-                            // Prefill payment confirmation fields from step 1
-                            this.saveFormData();
-                            this.paymentEmail = this.formData.email || '';
-                            const phoneEl = document.querySelector('#phone');
-                            this.paymentPhone = this.formData.phone || (phoneEl ? phoneEl.value : '');
+                    if (this.isPurchaseMore) {
+                        // For purchase more, skip delegates info (step 1) and go straight to payment
+                        if (this.currentStep === 0) {
+                            this.currentStep = 1; // Jump to payment (which is index 1 in the steps array)
+                        } else if (this.currentStep < this.steps.length - 1) {
+                            this.currentStep++;
                         }
-                        // if (this.currentStep === 2) {
-                        //     // Copy root formData values into purchaser if purchaser fields are empty
-                        //     if (!this.formData.purchaser.fullName && this.formData.fullName) this.formData.purchaser.fullName = this.formData.fullName;
-                        //     if (!this.formData.purchaser.email && this.formData.email) this.formData.purchaser.email = this.formData.email;
-                        //     if (!this.formData.purchaser.phone1 && this.formData.phone) this.formData.purchaser.phone1 = this.formData.phone;
-                        //     if (!this.formData.purchaser.country && this.formData.country) this.formData.purchaser.country = this.formData.country;
-                        //     if (!this.formData.purchaser.organization && this.formData.organization) this.formData.purchaser.organization = this.formData.organization;
-                        //
-                        //     // Prefill attendees organization if not set
-                        //     if (this.formData.purchaser.organization) {
-                        //         this.formData.attendees = this.formData.attendees || [];
-                        //         this.formData.attendees.forEach(a => {
-                        //             if (!a.organization) a.organization = this.formData.purchaser.organization;
-                        //         });
-                        //     }
-                        // }
-
-
-                        // Scroll to top of form
-                        const wizardForm = document.getElementById('wizardForm');
-                        if (wizardForm) {
-                            wizardForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    } else {
+                        // Normal flow - increment by 1
+                        if (this.currentStep < this.steps.length - 1) {
+                            this.currentStep++;
                         }
+                    }
+                    
+                    console.log('Moving to step:', this.currentStep);
+
+                    // If moving to Payment, prefill payment confirmation fields from step 1
+                    if ((this.isPurchaseMore && this.currentStep === 1) || (!this.isPurchaseMore && this.currentStep === 2)) {
+                        this.saveFormData();
+                        this.paymentEmail = this.formData.email || '';
+                        const phoneEl = document.querySelector('#phone');
+                        this.paymentPhone = this.formData.phone || (phoneEl ? phoneEl.value : '');
+                    }
+
+                    // Scroll to top of form
+                    const wizardForm = document.getElementById('wizardForm');
+                    if (wizardForm) {
+                        wizardForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     }
                 },
 
 
                 prevStep(step = null) {
                     if (this.currentStep > 0) {
-                        if (this.currentStep >= step) {
-                            this.currentStep -= step;
+                        if (this.isPurchaseMore) {
+                            // For purchase more, when on step 1 (payment), go back to step 0 (ticket selection)
+                            this.currentStep = 0;
                         } else {
-                            this.currentStep--;
+                            // Normal flow
+                            if (this.currentStep >= step) {
+                                this.currentStep -= step;
+                            } else {
+                                this.currentStep--;
+                            }
                         }
 
                         // Scroll to top of form
