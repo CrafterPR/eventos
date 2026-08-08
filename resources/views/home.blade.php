@@ -232,6 +232,27 @@
                         // Small delay to ensure DOM is fully loaded
                         setTimeout(() => {
                             this.setupValidator();
+
+                            // If this is a purchase-more flow and auth user data is present, prefill contact info
+                            if (this.isPurchaseMore && window.authUser) {
+                                try {
+                                    const u = window.authUser;
+                                    this.formData.fullName = [u.first_name, u.last_name].filter(Boolean).join(' ');
+                                    this.formData.email = u.email || '';
+                                    this.formData.phone = u.mobile || '';
+                                    this.formData.country = u.country || '';
+                                    this.formData.organization = u.organization || '';
+
+                                    // Lock purchaser fields to avoid accidental edits
+                                    this.purchaserLocked = true;
+
+                                    // Also prefill payment confirmation fields
+                                    this.paymentEmail = this.formData.email || '';
+                                    this.paymentPhone = this.formData.phone || '';
+                                } catch (e) {
+                                    console.warn('Failed to prefill auth user data', e);
+                                }
+                            }
                         }, 200);
                     });
 

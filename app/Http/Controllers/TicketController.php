@@ -11,7 +11,8 @@ class TicketController extends Controller
 {
     public function index(): View
     {
-        return view('pages.tickets.index');
+        $user = auth()->user();
+        return view('pages.tickets.index', ['authUser' => $user]);
     }
 
     public function show(PurchaseOrder $purchaseOrder)

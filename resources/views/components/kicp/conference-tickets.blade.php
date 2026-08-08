@@ -6,7 +6,8 @@
     <div class="max-w-7xl mx-auto " style="opacity: 1; transform: none;">
         <!--Inner Tabs section -->
         <div>
-            <div x-data="wizard({ isPurchaseMore: {{ Auth::check() ? 'true' : 'false' }} })">
+            @php $isPurchaseMore = $isPurchaseMore ?? false; @endphp
+            <div x-data="wizard({ isPurchaseMore: {{ $isPurchaseMore ? 'true' : 'false' }} })">
                 <section class="relative mx-auto max-w-6xl px-4 sm:px-6 z-10">
                 <main id="wizardForm" @submit.prevent="submitForm">
                     <section x-cloak x-show="currentStep === 0" id="ticket-selection">
