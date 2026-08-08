@@ -1867,39 +1867,76 @@
                     }
                 },
 
-                submitForm() {
+                async submitForm() {
                     console.log('Submitting form...');
 
                     // Validate final step (payment) if needed
                     if (this.currentStep === 3) {
                         // Add payment validation here if needed
                         this.saveFormData();
-                        alert('Registration submitted successfully!\n\n' + JSON.stringify(this.formData, null, 2));
-                        console.log('Complete form data:', this.formData);
 
-                        // Here you would typically submit to your backend
-                        // this.sendToBackend();
+                        try {
+                            const result = await this.sendToBackend();
+                            console.log('Complete form data:', this.formData, result);
+                            if (window.toastr) {
+                                toastr.success(result?.message || 'Registration successful!');
+                            } else {
+                                alert(result?.message || 'Registration successful!');
+                            }
+                        } catch (error) {
+                            console.error('Submit error:', error);
+                            if (window.toastr) {
+                                toastr.error(error?.message || 'Registration failed. Please try again.');
+                            } else {
+                                alert(error?.message || 'Registration failed. Please try again.');
+                            }
+                        }
                     }
                 },
 
-                sendToBackend() {
-                    // Send data to your server
-                    fetch('/api/register', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify(this.formData)
-                    })
-                        .then(response => response.json())
-                        .then(data => {
-                            console.log('Success:', data);
-                            alert('Registration successful!');
-                        })
-                        .catch((error) => {
-                            console.error('Error:', error);
-                            alert('Registration failed. Please try again.');
+
+                async sendToBackend() {
+                    try {
+                        // include CSRF token and send cookies so laravel can validate session when using web middleware
+                        const csrfToken = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') || '';
+
+                        const payload = Object.assign({}, this.formData, { selectedTickets: this.selectedTickets });
+
+                        const response = await fetch('/api/register', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'Accept': 'application/json',
+                                'X-CSRF-TOKEN': csrfToken
+                            },
+                            credentials: 'same-origin',
+                            body: JSON.stringify(payload)
                         });
+
+                        if (!response.ok) {
+                            // try parse json, otherwise fallback to text
+                            let errBody = {};
+                            try {
+                                errBody = await response.json();
+                            } catch (e) {
+                                const text = await response.text().catch(() => '');
+                                errBody.message = text || response.statusText || 'Server error';
+                            }
+
+                            if (response.status === 419) {
+                                throw new Error(errBody.message || 'Session expired / CSRF token mismatch (419)');
+                            }
+
+                            throw new Error(errBody.message || 'Server error');
+                        }
+
+                        const data = await response.json();
+                        console.log('Success:', data);
+                        return data;
+                    } catch (error) {
+                        console.error('Error:', error);
+                        throw error;
+                    }
                 }
             };
         }

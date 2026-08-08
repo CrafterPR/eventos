@@ -16,7 +16,7 @@
                             </path>
                         </svg>
                         <span
-                            class="break-words sm:whitespace-nowrap">TBD,
+                            class="break-words sm:whitespace-nowrap">The Edge Convention Centre,
                                         Nairobi
                                     </span>
 
@@ -65,7 +65,7 @@
                         </svg>
                         <strong>
 
-                            12<sup>th</sup> - 16<sup>th</sup> October
+                            26<sup>th</sup> - 30<sup>th</sup> October
                             2026</strong>
                     </div>
                     <div class="flex items-center gap-2 text-[#E22036] text-xs sm:text-sm">

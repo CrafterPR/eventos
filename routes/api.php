@@ -1,5 +1,7 @@
 <?php
-
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PurchaseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,4 +14,8 @@
 |
 */
 
+// API endpoint for frontend registration/purchase (stateless - no CSRF required)
+Route::prefix('v1')->group(function () {
+ Route::post('tickets/purchase', [\App\Http\Controllers\PurchaseController::class, 'store'])->name('purchase.store');
+});
 

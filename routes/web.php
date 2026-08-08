@@ -71,6 +71,4 @@ Route::get('/error', function () {
 });
 
 
-Route::post('/purchase', [\App\Http\Controllers\PurchaseController::class, 'store'])->name('purchase.store');
-
 require __DIR__ . '/auth.php';

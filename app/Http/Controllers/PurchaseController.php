@@ -2,30 +2,44 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\PurchaseOrder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
+use App\Models\User;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\LoginDetailsMail;
 
 class PurchaseController extends Controller
 {
     public function store(Request $request)
     {
+        // Support two payload shapes: { formData: { ... }, selectedTickets: [...] }
+        // or flat: { fullName: ..., selectedTickets: [...] }
+        $formData = $request->input('formData') && is_array($request->input('formData'))
+            ? $request->input('formData')
+            : [];
+
+        // Merge formData with top-level fields so validation can find either
+        $payload = array_merge($formData, $request->all());
+
         $rules = [
-            'formData.fullName' => 'required|string|max:255',
-            'formData.email' => 'required|email|max:255',
-            'formData.phone' => 'required|string|max:50',
-            'formData.country' => 'required|string|max:100',
+            'fullName' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'phone' => 'required|string|max:50',
+            'country' => 'required|string|max:100',
             'paymentMethod' => 'required|in:lpo,mpesa',
             'selectedTickets' => 'required|array|min:1',
         ];
 
-        if ($request->input('paymentMethod') === 'lpo') {
+        if (($payload['paymentMethod'] ?? null) === 'lpo') {
             $rules['paymentEmail'] = 'required|email|max:255';
-        } elseif ($request->input('paymentMethod') === 'mpesa') {
+        } elseif (($payload['paymentMethod'] ?? null) === 'mpesa') {
             $rules['paymentPhone'] = 'required|string|max:50';
         }
 
-        $validator = Validator::make($request->all(), $rules);
+        $validator = Validator::make($payload, $rules);
 
         if ($validator->fails()) {
             return response()->json([
@@ -35,27 +49,123 @@ class PurchaseController extends Controller
         }
 
         $dataToSave = [
-            'name' => $request->input('formData.fullName'),
-            'email' => $request->input('formData.email'),
-            'phone' => $request->input('formData.phone'),
-            'country' => $request->input('formData.country'),
-            'organization' => $request->input('formData.organization'),
-            'payment_method' => $request->input('paymentMethod'),
-            'payment_email' => $request->input('paymentEmail'),
-            'payment_phone' => $request->input('paymentPhone'),
-            'tickets' => $request->input('selectedTickets'),
+            'name' => $payload['fullName'] ?? null,
+            'email' => $payload['email'] ?? null,
+            'phone' => $payload['phone'] ?? null,
+            'country' => $payload['country'] ?? null,
+            'organization' => $payload['organization'] ?? null,
+            'payment_method' => $payload['paymentMethod'] ?? null,
+            'payment_email' => $payload['paymentEmail'] ?? null,
+            'payment_phone' => $payload['paymentPhone'] ?? null,
+            'tickets' => $payload['selectedTickets'] ?? ($payload['tickets'] ?? null),
         ];
 
         try {
-            // Save into inbox_entries.content as JSON to avoid schema assumptions
-            DB::table('inbox_entries')->insert([
-                'content' => json_encode($dataToSave),
-                'created_at' => now(),
-                'updated_at' => now(),
+            DB::beginTransaction();
+
+            // Split full name into first_name and last_name
+            $fullName = trim($payload['fullName'] ?? '');
+            $firstName = null;
+            $lastName = null;
+            if ($fullName !== '') {
+                $parts = preg_split('/\s+/', $fullName);
+                $firstName = array_shift($parts);
+                $lastName = count($parts) ? implode(' ', $parts) : null;
+            }
+
+            // Create or update user with provided registration details
+            // If the user already exists, update their profile but DO NOT overwrite their password.
+            // If the user does not exist, generate a random password now so it's present on create.
+            $existingUser = User::where('email', $payload['email'])->first();
+
+            if ($existingUser) {
+                $existingUser->update([
+                    'first_name' => $firstName,
+                    'last_name' => $lastName,
+                    'mobile' => $payload['phone'] ?? null,
+                    'country' => $payload['country'] ?? null,
+                    'organization' => $payload['organization'] ?? null,
+                ]);
+
+                $user = $existingUser;
+                $password = null; // keep existing password
+            } else {
+                // Generate a random password for new users (User model mutator will hash it)
+                $password = Str::random(10);
+
+                $user = User::create([
+                    'first_name' => $firstName,
+                    'last_name' => $lastName,
+                    'mobile' => $payload['phone'] ?? null,
+                    'country' => $payload['country'] ?? null,
+                    'organization' => $payload['organization'] ?? null,
+                    'email' => $payload['email'] ?? null,
+                    'password' => $password,
+                ]);
+            }
+
+            // Determine tickets payload
+            $tickets = $payload['selectedTickets'] ?? ($payload['tickets'] ?? []);
+            if (is_string($tickets)) {
+                $tickets = json_decode($tickets, true) ?: [];
+            }
+
+            // Compute amount from tickets if not provided explicitly
+            $amount = $payload['amount'] ?? null;
+            if ($amount === null) {
+                if (is_array($tickets)) {
+                    // Case 1: selectedTickets is an associative array with 'total'
+                    if (array_key_exists('total', $tickets) && is_numeric($tickets['total'])) {
+                        $amount = $tickets['total'];
+                    } else {
+                        // Case 2: selectedTickets is an array of items. Sum item totals or price*count
+                        $sum = 0;
+                        $computed = false;
+                        foreach ($tickets as $item) {
+                            if (!is_array($item)) continue;
+
+                            if (isset($item['total']) && is_numeric($item['total'])) {
+                                $sum += $item['total'];
+                                $computed = true;
+                            } elseif (isset($item['price']) && isset($item['count'])) {
+                                $sum += (float)$item['price'] * (int)$item['count'];
+                                $computed = true;
+                            } elseif (isset($item['price']) && isset($item['quantity'])) {
+                                $sum += (float)$item['price'] * (int)$item['quantity'];
+                                $computed = true;
+                            }
+                        }
+
+                        if ($computed) {
+                            $amount = $sum;
+                        }
+                    }
+                }
+            }
+
+            // Create purchase order via Eloquent so ULID is generated by HasUlids
+            $purchaseOrder = PurchaseOrder::create([
+                'user_id' => $user->id,
+                'reference' => 'PO'.time().rand(100,999),
+                'payment_method' => $payload['paymentMethod'] ?? null,
+                'payment_email' => $payload['paymentEmail'] ?? null,
+                'payment_phone' => $payload['paymentPhone'] ?? null,
+                'tickets' => $tickets,
+                'amount' => $amount ?? null,
+                'currency' => $payload['currency'] ?? null,
+                'status' => 'new',
             ]);
 
-            return response()->json(['message' => 'Purchase saved successfully']);
+            // Queue email with login details only for newly created users
+            if ($password) {
+                Mail::to($user->email)->queue(new LoginDetailsMail($user, $password));
+            }
+
+            DB::commit();
+
+            return response()->json(['message' => 'Purchase saved successfully. Check your email for login details to complete registration.']);
         } catch (\Exception $e) {
+            DB::rollBack();
             return response()->json([
                 'message' => 'Failed to save purchase',
                 'error' => $e->getMessage()

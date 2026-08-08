@@ -793,16 +793,26 @@
                         const tokenMeta = document.querySelector('meta[name=csrf-token]');
                         const csrf = tokenMeta ? tokenMeta.getAttribute('content') : '';
 
-                        const res = await fetch('/purchase', {
+                        const res = await fetch('/api/v1/tickets/purchase', {
                             method: 'POST',
                             headers: {
                                 'Content-Type': 'application/json',
+                                'Accept': 'application/json',
                                 'X-CSRF-TOKEN': csrf
                             },
+                            credentials: 'same-origin',
                             body: JSON.stringify(payload)
                         });
 
-                        const data = await res.json().catch(() => ({}));
+                        let data;
+                        try {
+                            data = await res.json();
+                        } catch (e) {
+                            console.log('Purchase response non-JSON, status:', res.status);
+                            data = null;
+                        }
+
+
 
                         // Handle validation errors from server
                         if (res.status === 422 && data.errors) {
@@ -898,40 +908,7 @@
                     }
                 },
 
-                submitForm() {
-                    console.log('Submitting form...');
 
-                    // Validate final step (payment) if needed
-                    if (this.currentStep === 3) {
-                        // Add payment validation here if needed
-                        this.saveFormData();
-                        alert('Registration submitted successfully!\n\n' + JSON.stringify(this.formData, null, 2));
-                        console.log('Complete form data:', this.formData);
-
-                        // Here you would typically submit to your backend
-                        // this.sendToBackend();
-                    }
-                },
-
-                sendToBackend() {
-                    // Send data to your server
-                    fetch('/api/register', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify(this.formData)
-                    })
-                        .then(response => response.json())
-                        .then(data => {
-                            console.log('Success:', data);
-                            alert('Registration successful!');
-                        })
-                        .catch((error) => {
-                            console.error('Error:', error);
-                            alert('Registration failed. Please try again.');
-                        });
-                }
             };
         }
     </script>
