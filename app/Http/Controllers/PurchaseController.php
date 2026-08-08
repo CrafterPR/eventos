@@ -33,13 +33,29 @@ class PurchaseController extends Controller
             'selectedTickets' => 'required|array|min:1',
         ];
 
+        $messages = [
+            'fullName.required' => 'Full name is required',
+            'email.required' => 'Email is required',
+            'email.email' => 'Enter a valid email address',
+            'email.unique' => 'A delegate is already registered with this email',
+            'phone.required' => 'Phone number is required',
+            'phone.unique' => 'A delegate is already registered with this number',
+            'country.required' => 'Country is required',
+            'country.string' => 'Invalid country',
+            'country.max' => 'Invalid country',
+            'paymentMethod.required' => 'Payment method is required',
+            'selectedTickets.required' => 'Selected tickets is required',
+            'selectedTickets.array' => 'You must select at least one ticket type',
+            'selectedTickets.min' => 'You must select at least one ticket type',
+        ];
+
         if (($payload['paymentMethod'] ?? null) === 'lpo') {
             $rules['paymentEmail'] = 'required|email|max:255';
         } elseif (($payload['paymentMethod'] ?? null) === 'mpesa') {
             $rules['paymentPhone'] = 'required|string|max:50';
         }
 
-        $validator = Validator::make($payload, $rules);
+        $validator = Validator::make($payload, $rules, $messages);
 
         if ($validator->fails()) {
             return response()->json([
@@ -164,7 +180,7 @@ class PurchaseController extends Controller
 
             DB::commit();
 
-            return response()->json(['message' => 'Purchase saved successfully. Check your email for login details to complete registration.']);
+            return response()->json(['message' => 'Congratulations! Check your email for login details to manage your ticket purchase.']);
         } catch (\Exception $e) {
             DB::rollBack();
             return response()->json([

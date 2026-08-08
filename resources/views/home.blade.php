@@ -218,6 +218,9 @@
                     email: '',
                     phone: ''
                 },
+                formErrors: {
+                    terms: ''
+                },
 
                 init() {
                     // Wait for Alpine to be ready
@@ -496,20 +499,11 @@
                         // Check terms checkbox after validator
                         const termsCheckbox = document.querySelector('#terms');
                         if (termsCheckbox && !termsCheckbox.checked) {
-                            const parent = termsCheckbox.closest('.flex.items-start') || termsCheckbox.parentElement;
-                            const existingError = parent.querySelector('.custom-error-container');
-                            if (existingError) existingError.remove();
-
-                            termsCheckbox.classList.add('border-red-500');
-
-                            const errorContainer = this.createErrorMessage('You must accept the terms and conditions to proceed');
-                            errorContainer.classList.add('custom-error-container', 'mt-2');
-                            parent.appendChild(errorContainer);
-
+                            this.formErrors.terms = 'You must accept the terms and conditions to proceed';
                             termsCheckbox.scrollIntoView({ behavior: 'smooth', block: 'center' });
                             return false;
                         } else if (termsCheckbox) {
-                            termsCheckbox.classList.remove('border-red-500');
+                            this.formErrors.terms = '';
                         }
 
                         if (isValid) {
@@ -866,6 +860,16 @@
                     return true;
                 },
 
+                validateTerms() {
+                    const termsCheckbox = document.querySelector('#terms');
+                    if (!termsCheckbox || !termsCheckbox.checked) {
+                        this.formErrors.terms = 'You must accept the terms and conditions to proceed';
+                        return false;
+                    }
+                    this.formErrors.terms = '';
+                    return true;
+                },
+
                 async completePurchase() {
                     if (this.isSubmitting) return;
                     // Ensure latest form data
@@ -977,6 +981,9 @@
                                 email: '',
                                 phone: ''
                             };
+                            this.formErrors = {
+                                terms: ''
+                            };
                             this.currentStep = 0;
 
                             // Use setTimeout to allow Swal to display first, then reset UI
@@ -987,6 +994,12 @@
                                         field.value = '';
                                     }
                                 });
+                                
+                                // Clear terms checkbox
+                                const termsCheckbox = document.querySelector('#terms');
+                                if (termsCheckbox) {
+                                    termsCheckbox.checked = false;
+                                }
 
                                 this.resetAllTicketCards();
                                 window.scrollTo({ top: 0, behavior: 'smooth' });

@@ -531,12 +531,14 @@
                                                     <p class="text-sm text-gray-700 leading-relaxed">By continuing with your registration, you acknowledge and agree to our Data Protection and Privacy Policy and consent to the collection and processing of your personal information for conference registration and related administrative purposes. You may also choose to receive updates, announcements, and relevant information about the KICP Conference.</p>
                                                 </div>
                                                 <div class="flex items-start mt-4">
-                                                    <input id="terms" class="mr-3 mt-1 rounded-sm h-3 w-3"
-                                                           type="checkbox" name="terms" value="1" />
+                                                    <input id="terms" class="mr-3 mt-1 rounded-sm h-3 w-3" :class="{'border-red-500 bg-red-50': formErrors.terms}"
+                                                           type="checkbox" name="terms" value="1" @change="formErrors.terms = ''" />
                                                     <label for="terms" class="text-sm text-gray-700">I accept the
                                                         above terms &amp;  privacy policy <span class="text-red-500">*</span></label>
                                                 </div>
-                                                <div class="custom-error-container"></div>
+                                                <div x-show="formErrors.terms" x-cloak class="mt-2 p-3 bg-red-50 border border-red-200 rounded-lg">
+                                                    <p x-text="formErrors.terms" class="text-red-600 text-sm"></p>
+                                                </div>
 
                                             </div>
 
