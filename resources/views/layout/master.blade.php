@@ -25,7 +25,7 @@
 <meta name="theme-color" content="#ffffff">
     <link rel="stylesheet" href="{{ asset('/assets/plugins/global/plugins.bundle.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="{{ asset('css/summit.css') }}" />
     <!--begin::Fonts-->
     {!! includeFonts() !!}
     <!--end::Fonts-->

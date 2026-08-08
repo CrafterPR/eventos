@@ -7,10 +7,10 @@ class BootstrapDefault
     public function init()
     {
         // 1) Light sidebar layout (default.html)
-        // $this->initLightSidebarLayout();
+         $this->initLightSidebarLayout();
 
         // 2) Dark sidebar layout (default.html)
-        $this->initDarkSidebarLayout();
+        //$this->initDarkSidebarLayout();
 
         // 3) Dark header layout (default_header_layout.html)
          //$this->initDarkHeaderLayout();
@@ -62,6 +62,12 @@ class BootstrapDefault
         addHtmlAttribute('body', 'data-kt-app-sidebar-push-toolbar', 'true');
         addHtmlAttribute('body', 'data-kt-app-sidebar-push-footer', 'true');
         addHtmlAttribute('body', 'data-kt-app-toolbar-enabled', 'true');
+
+        // Override sidebar & header background colors for light-sidebar layout via inline CSS variables
+        // Set multiple CSS variables in the same style attribute so existing styles pick up the new color
+        // without requiring a CSS rebuild.
+        $styleVars = '--app-sidebar-light-bg-color: #7BC7EF; --app-header-base-bg-color: #7BC7EF; --app-header-primary-base-bg-color: #7BC7EF;';
+        addHtmlAttribute('body', 'style', $styleVars);
 
         addHtmlClass('body', 'app-default');
     }

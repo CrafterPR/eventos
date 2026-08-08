@@ -236,7 +236,7 @@
                                             <tr>
                                                 <td style="padding:4px;Margin:0;border:0.1em solid #7CC6EF;text-align:left">Amount:</td>
                                                 <td style="padding:4px;Margin:0;border:0.1em solid #7CC6EF;
-                                                text-align:left"> {{ format_amount($order->amount ?? 'N/A') }}</td>
+                                                text-align:left;"> {{ format_amount($order->amount ?? 'N/A') }}</td>
                                             </tr>
                                             <tr style="background-color:#E12237">
                                                 <th colspan="2" style="border:0.2em solid #7CC6EF;color:white;text-align:center;padding:8px">Bank payment details</th>

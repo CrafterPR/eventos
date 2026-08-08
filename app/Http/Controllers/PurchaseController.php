@@ -27,39 +27,55 @@ class PurchaseController extends Controller
         // Merge formData with top-level fields so validation can find either
         $payload = array_merge($formData, $request->all());
 
-        // For authenticated users (purchase more), skip email/phone uniqueness validation
+        // For authenticated users (purchase more), skip validating formData like fullName/email/phone
         $isAuthenticatedPurchase = $user !== null;
 
-        $rules = [
-            'fullName' => $isAuthenticatedPurchase ? 'nullable|string|max:255' : 'required|string|max:255',
-            'email' => $isAuthenticatedPurchase ? 'nullable' : 'required|unique:users|email|max:255',
-            'phone' => $isAuthenticatedPurchase ? 'nullable' : 'required|unique:users,mobile|string|max:50',
-            'country' => $isAuthenticatedPurchase ? 'nullable|string|max:100' : 'required|string|max:100',
-            'paymentMethod' => 'required|in:lpo,mpesa',
-            'selectedTickets' => 'required|array|min:1',
-        ];
+        if ($isAuthenticatedPurchase) {
+            // Only validate tickets and payment method for purchase-more
+            $rules = [
+                'paymentMethod' => 'required|in:lpo,mpesa',
+                'selectedTickets' => 'required|array|min:1',
+            ];
 
-        $messages = [
-            'fullName.required' => 'Full name is required',
-            'email.required' => 'Email is required',
-            'email.email' => 'Enter a valid email address',
-            'email.unique' => 'A delegate is already registered with this email',
-            'phone.required' => 'Phone number is required',
-            'phone.unique' => 'A delegate is already registered with this number',
-            'country.required' => 'Country is required',
-            'country.string' => 'Invalid country',
-            'country.max' => 'Invalid country',
-            'paymentMethod.required' => 'Payment method is required',
-            'selectedTickets.required' => 'Selected tickets is required',
-            'selectedTickets.array' => 'You must select at least one ticket type',
-            'selectedTickets.min' => 'You must select at least one ticket type',
-        ];
+            $messages = [
+                'paymentMethod.required' => 'Payment method is required',
+                'selectedTickets.required' => 'Selected tickets is required',
+                'selectedTickets.array' => 'You must select at least one ticket type',
+                'selectedTickets.min' => 'You must select at least one ticket type',
+            ];
+        } else {
+            $rules = [
+                'fullName' => 'required|string|max:255',
+                'email' => 'required|unique:users|email|max:255',
+                'phone' => 'required|unique:users,mobile|string|max:50',
+                'country' => 'required|string|max:100',
+                'paymentMethod' => 'required|in:lpo,mpesa',
+                'selectedTickets' => 'required|array|min:1',
+            ];
+
+            $messages = [
+                'fullName.required' => 'Full name is required',
+                'email.required' => 'Email is required',
+                'email.email' => 'Enter a valid email address',
+                'email.unique' => 'A delegate is already registered with this email',
+                'phone.required' => 'Phone number is required',
+                'phone.unique' => 'A delegate is already registered with this number',
+                'country.required' => 'Country is required',
+                'country.string' => 'Invalid country',
+                'country.max' => 'Invalid country',
+                'paymentMethod.required' => 'Payment method is required',
+                'selectedTickets.required' => 'Selected tickets is required',
+                'selectedTickets.array' => 'You must select at least one ticket type',
+                'selectedTickets.min' => 'You must select at least one ticket type',
+            ];
+        }
 
         if (($payload['paymentMethod'] ?? null) === 'lpo') {
             $rules['paymentEmail'] = 'required|email|max:255';
         } elseif (($payload['paymentMethod'] ?? null) === 'mpesa') {
             $rules['paymentPhone'] = 'required|string|max:50';
         }
+
 
         $validator = Validator::make($payload, $rules, $messages);
 
