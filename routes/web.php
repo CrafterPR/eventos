@@ -33,6 +33,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
         // Tickets purchase page for delegates and other users
         Route::get('/tickets', [\App\Http\Controllers\TicketController::class, 'index'])->name('tickets.index');
+        Route::get('/tickets/{purchaseOrder}', [\App\Http\Controllers\TicketController::class, 'show'])->name('tickets.show');
 
         Route::middleware(['can:user-management'])->name('users.')->group(function () {
             Route::resource('user-management/user', UserManagementController::class)

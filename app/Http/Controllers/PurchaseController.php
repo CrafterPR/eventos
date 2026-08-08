@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\PurchaseOrder;
+use App\Models\Role;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
@@ -120,6 +121,8 @@ class PurchaseController extends Controller
                     'password' => $password,
                 ]);
             }
+
+            $user->assignRole(Role::DELEGATE);
 
             // Determine tickets payload
             $tickets = $payload['selectedTickets'] ?? ($payload['tickets'] ?? []);

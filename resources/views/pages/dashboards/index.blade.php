@@ -5,7 +5,7 @@
     @section('title')
         Dashboard
     @endsection
-
+    @if(auth()->check() && !auth()->user()->hasRole('delegate'))
     @can('view-quick-links')
         <div class="row g-5 g-xl-10 m-5 mb-xl-10">
             <div class="row card card-flush pb-6">
@@ -191,6 +191,7 @@
             </div>
         </div>
   @endcan
+    @endif
     @if(auth()->check() && auth()->user()->hasRole('delegate'))
         <div class="row g-5 g-xl-10 mx-5 mp-n4 mb-xl-10">
             <div class="col-md-12">
@@ -219,7 +220,7 @@
                                     </thead>
                                     <tbody>
                                     @foreach($data['myPurchaseOrders'] as $po)
-                                        <tr>
+                                        <tr @if($po->status === 'new') class="table-warning" @endif>
                                             <td class="text-start pe-0">
                                                 <span class="text-gray-800 fw-bold fs-6">{{ $po->reference }}</span>
                                             </td>
@@ -227,7 +228,11 @@
                                                 <span class="text-gray-600 fw-bold fs-6">{{ number_format($po->amount, 2) }} {{ $po->currency ?? 'KSH' }}</span>
                                             </td>
                                             <td class="text-start pe-0">
-                                                <span class="badge badge-light">{{ ucfirst($po->status) }}</span>
+                                                @if($po->status === 'new')
+                                                    <span class="badge badge-danger">Payment pending</span>
+                                                @else
+                                                    <span class="badge badge-light">{{ ucfirst($po->status) }}</span>
+                                                @endif
                                             </td>
                                             <td class="text-start pe-0">
                                                 @if(is_array($po->tickets) || $po->tickets instanceof \Illuminate\Support\Collection)
@@ -241,7 +246,11 @@
                                                 @endif
                                             </td>
                                             <td class="text-start pe-0">
-                                                <a href="#" class="btn btn-sm btn-light">View</a>
+                                                @if($po->status === 'new')
+                                                    <a href="{{ route('tickets.show', $po->id) }}" class="btn btn-sm btn-danger">Pay Now</a>
+                                                @else
+                                                    <a href="{{ route('tickets.show', $po->id) }}" class="btn btn-sm btn-light">View</a>
+                                                @endif
                                             </td>
                                         </tr>
                                     @endforeach
@@ -256,7 +265,7 @@
             </div>
         </div>
     @endif
-
+    @if(auth()->check() && !auth()->user()->hasRole('delegate'))
     <div class="row">
         <div class="col-md-12">
             <div class="card card-flush h-md-100">
@@ -338,6 +347,7 @@
             </div>
         </div>
     </div>
+    @endif
 
 @push('scripts')
             <!-- Styles -->
