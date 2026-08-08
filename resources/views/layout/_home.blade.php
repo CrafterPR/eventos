@@ -1,9 +1,12 @@
 <html lang="en" style="height: 100%;">
 @include('layout.partials.summit-head')
+
+
 <body {!! printHtmlClasses('body') !!} {!! printHtmlAttributes('body') !!}>
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TLCWHS6H"
                   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
 <!-- End Google Tag Manager (noscript) -->
 <div>
     {{ $slot }}

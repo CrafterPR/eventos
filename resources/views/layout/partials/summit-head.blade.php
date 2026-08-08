@@ -13,7 +13,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/country-select-js/2.1.1/js/countrySelect.min.js"></script>
     <title>2nd KICP 2026</title>
     <link rel="icon" type="image/x-icon" href="{{ asset('assets/media/favicon/favicon.ico') }}">
+    <!-- SweetAlert2 CSS - Load early to avoid styling conflicts -->
+    <!-- SweetAlert2 Custom Overrides -->
     <link rel="stylesheet" href="{{ asset('css/summit.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/swal-overrides.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.26.0/dist/sweetalert2.min.css">
+
     <style>
         html {
             scroll-behavior: smooth;
@@ -36,6 +41,8 @@
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-5K1BSSB2FG"></script>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<!-- SweetAlert2 JS -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.26.0/dist/sweetalert2.all.min.js"></script>
 
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':

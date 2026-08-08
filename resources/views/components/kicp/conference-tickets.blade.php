@@ -571,7 +571,8 @@
 
                                                     <div x-show="paymentMethod === 'lpo'" x-cloak class="mt-3 ml-4 sm:ml-6">
                                                         <label class="block text-sm text-slate-800 font-medium mb-1">Confirm Email</label>
-                                                        <input type="email" x-model="paymentEmail" class="w-full px-3 py-2 border rounded-lg" />
+                                                        <input type="email" x-model="paymentEmail" @blur="validatePaymentEmail" :class="{'border-red-500 bg-red-50': paymentErrors.email}" class="w-full px-3 py-2 border rounded-lg" />
+                                                        <p x-show="paymentErrors.email" x-text="paymentErrors.email" class="text-red-600 text-xs mt-1"></p>
                                                     </div>
                                                 </div>
 
@@ -581,9 +582,13 @@
 
                                                     <div x-show="paymentMethod === 'mpesa'" x-cloak class="mt-3 ml-4 sm:ml-6">
                                                         <label class="block text-sm text-slate-800 font-medium mb-1">Confirm Phone (with country code)</label>
-                                                        <input type="text" x-model="paymentPhone" class="w-full px-3 py-2 border rounded-lg" />
+                                                        <input type="text" x-model="paymentPhone" @blur="validatePaymentPhone" :class="{'border-red-500 bg-red-50': paymentErrors.phone}" class="w-full px-3 py-2 border rounded-lg" />
+                                                        <p x-show="paymentErrors.phone" x-text="paymentErrors.phone" class="text-red-600 text-xs mt-1"></p>
                                                     </div>
                                                 </div>
+                                            </div>
+                                            <div x-show="paymentErrors.method" x-cloak class="mt-4 p-3 bg-red-50 border border-red-200 rounded-lg">
+                                                <p x-text="paymentErrors.method" class="text-red-600 text-sm"></p>
                                             </div>
                                         </form>
 

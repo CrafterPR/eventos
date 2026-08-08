@@ -56,6 +56,11 @@ mix.postCss('resources/css/app.css', 'public/css', [
     require('tailwindcss'),
 ]);
 
+// Build SweetAlert2 Overrides
+mix.postCss('resources/css/swal-overrides.css', 'public/css', [
+    require('autoprefixer'),
+]);
+
 mix.js('resources/_keenthemes/src/js/app.js', 'public/js');
 
 // Build summit.css with Tailwind

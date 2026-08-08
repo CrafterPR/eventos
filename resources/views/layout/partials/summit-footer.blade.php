@@ -29,34 +29,21 @@
      * Initialize and manage the event countdown timer
      * Event Date: April 21, 2026 (Summit-Registration)
      */
-    console.log('✅ Countdown timer script loaded!');
 
     let countdownTimerInterval;
 
     function initializeCountdownTimer() {
-        console.log('🚀 Initializing countdown timer...');
-
         // Event target date - April 21, 2026, 00:00:00 (UTC+3 Nairobi Time)
-        const eventDate = new Date('2026-10-12T00:00:00+03:00').getTime();
-        console.log('📅 Event Date (timestamp):', eventDate);
-        console.log('📅 Event Date (readable):', new Date(eventDate).toString());
-
+        const eventDate = new Date('2026-10-26T00:00:00+03:00').getTime();
         // Get countdown display elements
         const daysElement = document.getElementById('countdown-days');
         const hoursElement = document.getElementById('countdown-hours');
         const minutesElement = document.getElementById('countdown-minutes');
         const secondsElement = document.getElementById('countdown-seconds');
 
-        // Debug: Log what we found
-        console.log('🔍 DOM Elements Found:');
-        console.log('  - countdown-days:', daysElement ? '✅ Found' : '❌ Not found');
-        console.log('  - countdown-hours:', hoursElement ? '✅ Found' : '❌ Not found');
-        console.log('  - countdown-minutes:', minutesElement ? '✅ Found' : '❌ Not found');
-        console.log('  - countdown-seconds:', secondsElement ? '✅ Found' : '❌ Not found');
 
         // Verify elements exist before proceeding
         if (!daysElement || !hoursElement || !minutesElement || !secondsElement) {
-            console.error('❌ Countdown timer elements not found on page');
             return;
         }
 
@@ -81,7 +68,6 @@
 
             // Log first update only to avoid console spam
             if (days > -1 && !window.countdownInitialLogged) {
-                console.log(`⏱️ Countdown Updated: ${days}d ${hours}h ${minutes}m ${seconds}s remaining`);
                 window.countdownInitialLogged = true;
             }
 
@@ -92,17 +78,14 @@
                 hoursElement.textContent = '00';
                 minutesElement.textContent = '00';
                 secondsElement.textContent = '00';
-                console.log('✅ Countdown timer completed - Event has started!');
             }
         }
 
         // Initial update (prevents 1-second delay)
-        console.log('🎯 Running initial countdown update...');
         updateCountdown();
 
         // Update countdown every second
         countdownTimerInterval = setInterval(updateCountdown, 1000);
-        console.log('✅ Countdown timer started - Updates every 1 second');
 
         // Store interval ID for cleanup if needed
         window.countdownTimerInterval = countdownTimerInterval;
@@ -112,27 +95,22 @@
     function startCountdown() {
         const daysElement = document.getElementById('countdown-days');
         if (daysElement) {
-            console.log('✨ DOM elements are ready, initializing countdown...');
             initializeCountdownTimer();
         } else {
-            console.log('⏳ Waiting for DOM elements...');
             setTimeout(startCountdown, 100);
         }
     }
 
     // Check DOM state and start countdown
     if (document.readyState === 'loading') {
-        console.log('📄 DOM still loading, waiting for DOMContentLoaded event...');
         document.addEventListener('DOMContentLoaded', startCountdown);
     } else {
-        console.log('📄 DOM already loaded, initializing countdown immediately...');
         startCountdown();
     }
 
     // Fallback: also try on window load
     window.addEventListener('load', function() {
         if (!window.countdownInitialLogged) {
-            console.log('🔄 Window load event fired - attempting initialization as fallback...');
             startCountdown();
         }
     });

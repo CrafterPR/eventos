@@ -7,6 +7,13 @@ module.exports = {
         "./resources/**/*.vue",
         "./src/**/*.{html,js}"
     ],
+    safelist: [
+        // Swal2 classes - prevent Tailwind from purging them
+        /^swal/,
+        /^mixin/,
+        'show',
+        'hidden',
+    ],
     theme: {
         screens: {
             xs: "320px",

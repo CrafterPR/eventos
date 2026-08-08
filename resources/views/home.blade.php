@@ -55,6 +55,7 @@
 
 
 @push('scripts')
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script type="text/javascript">
         /**
          * Speakers Carousel Functionality
@@ -212,6 +213,11 @@
                 paymentPhone: '',
                 isSubmitting: false,
                 selectedTickets: [],
+                paymentErrors: {
+                    method: '',
+                    email: '',
+                    phone: ''
+                },
 
                 init() {
                     // Wait for Alpine to be ready
@@ -759,13 +765,57 @@
 
                 onPaymentMethodChange(method) {
                     this.paymentMethod = method;
+                    this.paymentErrors.method = '';
                     if (method === 'lpo') {
                         this.paymentEmail = this.formData.email || '';
+                        this.paymentErrors.phone = '';
                     } else if (method === 'mpesa') {
                         const phoneEl = document.querySelector('#phone');
                         let phoneVal = this.formData.phone || (phoneEl ? phoneEl.value : '');
                         this.paymentPhone = phoneVal || '';
+                        this.paymentErrors.email = '';
                     }
+                },
+
+                validatePaymentEmail() {
+                    if (!this.paymentEmail) {
+                        this.paymentErrors.email = 'Email is required';
+                        return false;
+                    }
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(this.paymentEmail)) {
+                        this.paymentErrors.email = 'Please enter a valid email address';
+                        return false;
+                    }
+                    this.paymentErrors.email = '';
+                    return true;
+                },
+
+                validatePaymentPhone() {
+                    if (!this.paymentPhone) {
+                        this.paymentErrors.phone = 'Phone number is required';
+                        return false;
+                    }
+                    const phoneRegex = /^\+?[1-9]\d{1,14}$/;
+                    if (!phoneRegex.test(this.paymentPhone.replace(/[\s\-()]/g, ''))) {
+                        this.paymentErrors.phone = 'Please enter a valid phone number (with country code, e.g., +254712345678)';
+                        return false;
+                    }
+                    this.paymentErrors.phone = '';
+                    return true;
+                },
+
+                validatePaymentMethod() {
+                    if (!this.paymentMethod) {
+                        this.paymentErrors.method = 'Please select a payment method';
+                        return false;
+                    }
+                    if (this.paymentMethod === 'lpo') {
+                        return this.validatePaymentEmail();
+                    } else if (this.paymentMethod === 'mpesa') {
+                        return this.validatePaymentPhone();
+                    }
+                    return true;
                 },
 
                 async completePurchase() {
@@ -774,8 +824,8 @@
                     this.clearAllErrors();
                     this.saveFormData();
 
-                    if (!this.paymentMethod) {
-                        alert('Please select a payment method.');
+                    // Validate payment method and related fields
+                    if (!this.validatePaymentMethod()) {
                         return;
                     }
 
@@ -792,6 +842,15 @@
                     try {
                         const tokenMeta = document.querySelector('meta[name=csrf-token]');
                         const csrf = tokenMeta ? tokenMeta.getAttribute('content') : '';
+
+                        Swal.fire({
+                            title: 'Processing...',
+                            text: 'Please wait while we process your purchase.',
+                            allowOutsideClick: false,
+                            didOpen: () => {
+                                Swal.showLoading();
+                            }
+                        });
 
                         const res = await fetch('/api/v1/tickets/purchase', {
                             method: 'POST',
@@ -839,13 +898,33 @@
                         }
 
                         if (res.ok) {
-                            alert(data.message || 'Purchase completed successfully.');
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Success',
+                                text: data.message ?? 'Ticket purchased successfully!',
+                            });
+                            // clear form and reset UI
+                            this.formData = {};
+                            this.selectedTickets = [];
+                            this.paymentMethod = null;
+                            this.paymentEmail = '';
+                            this.paymentPhone = '';
+                            this.currentStep = 0;
+                            window.scrollTo({ top: 0, behavior: 'smooth' });
                         } else {
-                            alert(data.message || 'Purchase failed. Please try again.');
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Error',
+                                text: data && data.message ? data.message : 'Failed to purchase ticket.',
+                            });
                         }
                     } catch (err) {
                         console.error('Purchase error:', err);
-                        alert('An error occurred while processing your purchase.');
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: 'An error occurred while processing your purchase.',
+                        });
                     } finally {
                         this.isSubmitting = false;
                     }

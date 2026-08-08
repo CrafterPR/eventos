@@ -1,13 +1,13 @@
 <div class="relative h-full flex items-center justify-center pt-4 sm:pt-2 md:pt-0">
     <div class="mx-auto max-w-6xl w-full px-4 sm:px-6">
-        <div class="max-w-2xl mx-auto text-center">
+        <div class="max-w-4xl mx-auto text-center">
             <img class="py-4" src="{{ asset('assets/media/logos/logo.webp') }}" alt="">
             <div class="flex flex-col sm:flex-row gap-2 sm:gap-4 mb-6 sm:mb-10 justify-center"
                  style="opacity: 1; transform: none;">
                 <div class="flex flex-col sm:flex-row gap-2 sm:gap-4">
                     <div class="flex items-center gap-2 text-[#E22036] text-xs sm:text-sm">
                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                             aria-hidden="truClie" role="img"
+                             aria-hidden="true" role="img"
                              class="text-white flex-shrink-0 iconify iconify--mdi" width="20" height="20"
                              viewBox="0 0 24 24">
                             <path fill="currentColor"
