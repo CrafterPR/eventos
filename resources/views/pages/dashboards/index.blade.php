@@ -212,6 +212,7 @@
                                     <thead>
                                     <tr class="fs-7 fw-bold text-gray-400 border-bottom-0">
                                         <th class="p-0 pb-3 min-w-150px text-start">REFERENCE</th>
+                                        <th class="p-0 pb-3 min-w-150px text-start">DATE</th>
                                         <th class="p-0 pb-3 min-w-150px text-start">AMOUNT</th>
                                         <th class="p-0 pb-3 min-w-150px text-start">STATUS</th>
                                         <th class="p-0 pb-3 min-w-350px text-start">TICKETS</th>
@@ -225,7 +226,13 @@
                                                 <span class="text-gray-800 fw-bold fs-6">{{ $po->reference }}</span>
                                             </td>
                                             <td class="text-start pe-0">
-                                                <span class="text-gray-600 fw-bold fs-6">{{ number_format($po->amount, 2) }} {{ $po->currency ?? 'KSH' }}</span>
+                                                <span class="text-gray-800 fw-bold fs-6">{{ format_date
+                                                ($po->created_at, 'Y, dS M')
+                                                }}</span>
+                                            </td>
+                                            <td class="text-start pe-0">
+                                                <span class="text-gray-600 fw-bold fs-6">{{ format_amount($po->amount)
+                                                }}</span>
                                             </td>
                                             <td class="text-start pe-0">
                                                 @if($po->status === 'new')
