@@ -333,7 +333,7 @@
                         </ul>
                     </div>
                     <div class="flex flex-col items-center gap-4">
-                        <a class="flex flex-col items-center" href="/academy"><img alt="PAAN Academy Logo" loading="lazy" width="144" height="144" decoding="async" data-nimg="1" class="mb-2 object-contain w-24 h-24 sm:w-32 sm:h-32 md:w-36 md:h-36" style="color:transparent" src="{{ asset('assets/media/images/logo.svg')}}"></a>
+                        <a class="flex flex-col items-center" href="/academy"><img alt="PAAN Academy Logo" loading="lazy" width="144" height="144" decoding="async" data-nimg="1" class="mb-2 object-contain w-24 h-24 sm:w-32 sm:h-32 md:w-36 md:h-36" style="color:transparent" src="{{ asset('assets/media/images/logo.webp')}}"></a>
                     </div>
                     <div class="flex flex-col gap-4">
                         <h3 class="text-lg font-semibold text-white mb-2">Quick Links</h3>

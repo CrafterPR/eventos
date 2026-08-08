@@ -191,6 +191,72 @@
             </div>
         </div>
   @endcan
+    @if(auth()->check() && auth()->user()->hasRole('delegate'))
+        <div class="row g-5 g-xl-10 mx-5 mp-n4 mb-xl-10">
+            <div class="col-md-12">
+                <div class="card card-flush h-md-100">
+                    <div class="card-header pt-7 d-flex align-items-center">
+                        <h3 class="card-title align-items-start flex-column">
+                            <span class="card-label fw-bold text-gray-800">Your Tickets</span>
+                            <span class="text-muted small">Tickets you previously selected / purchased</span>
+                        </h3>
+                        <div class="card-toolbar ms-auto">
+                            <a href="{{ route('tickets.index') }}" class="btn btn-sm btn-primary">Purchase more</a>
+                        </div>
+                    </div>
+                    <div class="card-body pt-6">
+                        @if(isset($data['myPurchaseOrders']) && $data['myPurchaseOrders']->count())
+                            <div class="table-responsive">
+                                <table class="table table-row-dashed align-middle gs-0 gy-3 my-0">
+                                    <thead>
+                                    <tr class="fs-7 fw-bold text-gray-400 border-bottom-0">
+                                        <th class="p-0 pb-3 min-w-150px text-start">REFERENCE</th>
+                                        <th class="p-0 pb-3 min-w-150px text-start">AMOUNT</th>
+                                        <th class="p-0 pb-3 min-w-150px text-start">STATUS</th>
+                                        <th class="p-0 pb-3 min-w-350px text-start">TICKETS</th>
+                                        <th class="p-0 pb-3 min-w-100px text-start">ACTIONS</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    @foreach($data['myPurchaseOrders'] as $po)
+                                        <tr>
+                                            <td class="text-start pe-0">
+                                                <span class="text-gray-800 fw-bold fs-6">{{ $po->reference }}</span>
+                                            </td>
+                                            <td class="text-start pe-0">
+                                                <span class="text-gray-600 fw-bold fs-6">{{ number_format($po->amount, 2) }} {{ $po->currency ?? 'KSH' }}</span>
+                                            </td>
+                                            <td class="text-start pe-0">
+                                                <span class="badge badge-light">{{ ucfirst($po->status) }}</span>
+                                            </td>
+                                            <td class="text-start pe-0">
+                                                @if(is_array($po->tickets) || $po->tickets instanceof \Illuminate\Support\Collection)
+                                                    <ul class="mb-0">
+                                                        @foreach($po->tickets as $t)
+                                                            <li class="text-gray-600">@if(is_array($t) && isset($t['type'])){{ $t['type'] }} x {{ $t['count'] ?? $t['quantity'] ?? 1 }}@else{{ json_encode($t) }}@endif</li>
+                                                        @endforeach
+                                                    </ul>
+                                                @else
+                                                    <span class="text-gray-600">{{ json_encode($po->tickets) }}</span>
+                                                @endif
+                                            </td>
+                                            <td class="text-start pe-0">
+                                                <a href="#" class="btn btn-sm btn-light">View</a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        @else
+                            <div class="text-center text-muted">No tickets found. <a href="{{ route('tickets.index') }}">Purchase tickets</a></div>
+                        @endif
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
+
     <div class="row">
         <div class="col-md-12">
             <div class="card card-flush h-md-100">

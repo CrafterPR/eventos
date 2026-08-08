@@ -31,6 +31,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
+        // Tickets purchase page for delegates and other users
+        Route::get('/tickets', [\App\Http\Controllers\TicketController::class, 'index'])->name('tickets.index');
+
         Route::middleware(['can:user-management'])->name('users.')->group(function () {
             Route::resource('user-management/user', UserManagementController::class)
                 ->middleware('can:manage-staff');

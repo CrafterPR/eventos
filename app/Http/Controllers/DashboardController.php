@@ -38,6 +38,15 @@ class DashboardController extends Controller
             ...$this->getPassPrintedStats()
         ];
 
+        // If authenticated user is a delegate, include their purchase orders
+        $user = auth()->user();
+        if ($user && method_exists($user, 'hasRole') && $user->hasRole('delegate')) {
+            $purchaseOrders = \App\Models\PurchaseOrder::where('user_id', $user->id)->latest()->get();
+            $data['myPurchaseOrders'] = $purchaseOrders;
+        } else {
+            $data['myPurchaseOrders'] = collect([]);
+        }
+
         return view('pages.dashboards.index', ["data" => $data]);
     }
 

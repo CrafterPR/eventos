@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" {!! printHtmlAttributes('html') !!} data-bs-theme="dark">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" data-bs-theme-mode="light" {!! printHtmlAttributes('html') !!} data-bs-theme="light">
 <!--begin::Head-->
 <head>
      <title>{{ env('APP_NAME') }}</title>
