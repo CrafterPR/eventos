@@ -15,6 +15,7 @@ class LoginDetailsMail extends Mailable implements ShouldQueue
 
     public User $user;
     public string $password;
+    public PurchaseOrder $purchaseOrder;
 
     /**
      * Create a new message instance.
