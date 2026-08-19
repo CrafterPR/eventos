@@ -29,7 +29,8 @@ class AddUserModal extends Component
         return [
            'user.first_name' => 'required|string',
            'user.last_name' => 'required|string',
-           'user.email' => ['required', 'email:rfc,dns', 'max:255', Rule::unique('users', 'email')->ignore($this->user->id) ],
+           'user.email' => ['required', 'email:unique', 'max:255', Rule::unique('users', 'email')->ignore
+           ($this->user->id) ],
            'user.mobile' => ['required', Rule::unique('users', 'mobile')->ignore($this->user->id)],
            'role' => 'required|string',
            'avatar' => 'nullable|sometimes|image|max:4096',
