@@ -29,7 +29,7 @@ Breadcrumbs::for('users.index', function (BreadcrumbTrail $trail) {
 
 Breadcrumbs::for('users.delegates.index', function (BreadcrumbTrail $trail) {
     $trail->parent('dashboard');
-    $trail->push('Delegates Management', route('users.delegates.index'));
+    $trail->push('Delegates Management', route('events.delegates.index'));
 });
 
 // Home > Dashboard > User Management > Users
@@ -40,12 +40,12 @@ Breadcrumbs::for('users.user.index', function (BreadcrumbTrail $trail) {
 
 Breadcrumbs::for('delegates.index', function (BreadcrumbTrail $trail) {
     $trail->parent('users.delegates.index');
-    $trail->push('Delegates', route('users.delegates.index'));
+    $trail->push('Delegates', route('events.delegates.index'));
 });
 
 Breadcrumbs::for('users.delegates.show', function (BreadcrumbTrail $trail) {
     $trail->parent('users.delegates.index');
-    $trail->push('Delegate', route('users.delegates.index'));
+    $trail->push('Delegate', route('events.delegates.index'));
 });
 
 //Home > Dashboard > Ticket Management > Tickets > purchased tickets
