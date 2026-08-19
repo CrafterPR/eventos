@@ -10,7 +10,7 @@
 
     <div class="card">
         <div class="card-body">
-            <form class="form" action="{{route("users.delegates.store")}}" method="post">
+            <form class="form" action="{{route("events.delegates.store")}}" method="post">
                 @csrf
                 <div class="row mb-6">
                     <div class="col-md-2">
@@ -202,7 +202,7 @@
                 </div>
 
                 <div class="text-center pt-15">
-                    <a href="{{ route('users.delegates.index') }}" class="btn btn-light me-3">
+                    <a href="{{ route('events.delegates.index') }}" class="btn btn-light me-3">
                         Cancel
                     </a>
                     <button type="submit" class="btn btn-primary" data-kt-users-modal-action="submit">

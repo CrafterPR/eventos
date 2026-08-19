@@ -37,7 +37,8 @@
                         <!-- Transparent Link 3 -->
                         @can('create-delegate')
                             <div class="card-toolbar">
-                                <a href="{{ route('users.delegates.create') }}" class="btn btn-lg btn-flex btn-light-primary" id="">
+                                <a href="{{ route('events.delegates.create') }}" class="btn btn-lg btn-flex
+                                btn-light-primary" id="">
                                     <i class="ki-duotone ki-user-tick  fs-2qx">
                                         <span class="path1"></span>
                                         <span class="path2"></span>
@@ -60,7 +61,7 @@
                         @can('manage-delegates')
                             <div class="card-toolbar">
                                 <!--begin::Filter-->
-                                <a href="{{ route('users.delegates.index') }}" class="btn btn-lg btn-flex btn-light-primary" id="">
+                                <a href="{{ route('events.delegates.index') }}" class="btn btn-lg btn-flex btn-light-primary" id="">
                                     <i class="ki-duotone ki-people fs-2qx">
                                         <span class="path1"></span>
                                         <span class="path2"></span>
@@ -184,7 +185,7 @@
                         <span class="card-label fw-bold text-gray-800">Total delegates by category</span>
                     </h3>
                     <div class="card-toolbar">
-                        <a href="{{ route('users.delegates.index') }}" class="btn btn-sm btn-light">View All</a>
+                        <a href="{{ route('events.delegates.index') }}" class="btn btn-sm btn-light">View All</a>
                     </div>
                 </div>
                 <div id="pieChartDiv"></div>
