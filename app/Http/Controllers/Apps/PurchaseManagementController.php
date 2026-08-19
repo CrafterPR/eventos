@@ -53,7 +53,9 @@ class PurchaseManagementController extends Controller
             $purchaseOrder->save();
 
             // Generate delegates or exhibitors from tickets
-            $tickets = is_array($purchaseOrder->tickets) ? $purchaseOrder->tickets : json_decode($purchaseOrder->tickets, true) ?: [];
+            $tickets = is_array($purchaseOrder->tickets)
+                ? $purchaseOrder->tickets
+                : (json_decode($purchaseOrder->tickets, true) ?: []);
 
             foreach ($tickets as $ticket) {
                 // ticket may be associative array; fallback to purchaser data
