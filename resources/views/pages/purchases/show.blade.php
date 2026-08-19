@@ -43,7 +43,7 @@
                     @if($order->payment_receipt)
                         <p>Payment receipt: <a href="{{ asset('storage/' . $order->payment_receipt) }}" target="_blank">View</a></p>
                     @else
-                        <form action="{{ route('purchases.receipt.upload', $order) }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('events.purchases.receipt.upload', $order) }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="mb-2">
                                 <label class="form-label">Upload payment receipt (bank slip)</label>
@@ -56,7 +56,7 @@
 
                 <div class="mt-4">
                     @if($order->status === 'new' && $order->payment_receipt)
-                        <form action="{{ route('purchases.approve', $order) }}" method="post">
+                        <form action="{{ route('events.purchases.approve', $order) }}" method="post">
                             @csrf
                             <button class="btn btn-success">Approve Purchase & Create Delegates</button>
                         </form>

@@ -34,7 +34,8 @@
                                 <td>{{ strtoupper($order->payment_method ?? '') }}</td>
                                 <td>{{ ucfirst($order->status) }}</td>
                                 <td>
-                                    <a href="{{ route('purchases.show', $order) }}" class="btn btn-sm btn-light">View</a>
+                                    <a href="{{ route('events.purchases.show', $order) }}" class="btn btn-sm
+                                    btn-light">View</a>
                                 </td>
                             </tr>
                         @endforeach

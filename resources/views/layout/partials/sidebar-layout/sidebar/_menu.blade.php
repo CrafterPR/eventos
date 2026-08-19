@@ -86,8 +86,8 @@
                     @can('view-delegates')
                         <div class="menu-item">
                             <!--begin:Menu link-->
-                            <a class="menu-link {{ request()->routeIs('users.delegates.*') ? 'active' : '' }}"
-                               href="{{ route('users.delegates.index') }}">
+                            <a class="menu-link {{ request()->routeIs('events.delegates.*') ? 'active' : '' }}"
+                               href="{{ route('events.delegates.index') }}">
 							<span class="menu-bullet">
 								<span class="bullet bullet-line"></span>
 							</span>
@@ -99,11 +99,11 @@
 
                     @can('user-management')
                         <div class="menu-item">
-                            <a class="menu-link {{ request()->routeIs('purchases.*') ? 'active' : '' }}" href="{{ route('purchases.index') }}">
+                            <a class="menu-link {{ request()->routeIs('events.purchases.*') ? 'active' : '' }}" href="{{ route('events.purchases.index') }}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-line"></span>
                                 </span>
-                                <span class="menu-title">Purchases</span>
+                                <span class="menu-title">LPO Purchases</span>
                             </a>
                         </div>
                     @endcan

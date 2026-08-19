@@ -36,17 +36,17 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/tickets/{purchaseOrder}', [\App\Http\Controllers\TicketController::class, 'show'])->name('tickets.show');
 
         // Purchase orders management
-        Route::middleware(['can:user-management'])->prefix('purchases')->name('purchases.')->group(function () {
-            Route::get('/', [\App\Http\Controllers\Apps\PurchaseManagementController::class, 'index'])->name('index');
-            Route::get('/{purchaseOrder}', [\App\Http\Controllers\Apps\PurchaseManagementController::class, 'show'])->name('show');
-            Route::post('/{purchaseOrder}/receipt', [\App\Http\Controllers\Apps\PurchaseManagementController::class, 'uploadReceipt'])->name('receipt.upload');
-            Route::post('/{purchaseOrder}/approve', [\App\Http\Controllers\Apps\PurchaseManagementController::class, 'approve'])->name('approve');
+        Route::middleware(['can:event-management'])->prefix('events')->name('events.')->group(function () {
+            Route::get('purchases', [\App\Http\Controllers\Apps\PurchaseManagementController::class, 'index'])->name('purchases.index');
+            Route::resource('delegates', DelegateController::class);
+            Route::get('purchases/{purchaseOrder}', [\App\Http\Controllers\Apps\PurchaseManagementController::class, 'show'])->name('purchases.show');
+            Route::post('purchases/{purchaseOrder}/receipt', [\App\Http\Controllers\Apps\PurchaseManagementController::class, 'uploadReceipt'])->name('purchases.receipt.upload');
+            Route::post('purchases/{purchaseOrder}/approve', [\App\Http\Controllers\Apps\PurchaseManagementController::class, 'approve'])->name('purchases.approve');
         });
 
         Route::middleware(['can:user-management'])->name('users.')->group(function () {
             Route::resource('user-management/user', UserManagementController::class)
                 ->middleware('can:manage-staff');
-            Route::resource('delegate-management/delegates', DelegateController::class);
             Route::get('delegates/import', ImportDelegatesModal::class)->name('delegates.import');
             Route::post('print-count', [DelegateController::class, 'increment'])->name('delegate.print-count');
             Route::resource('user-management/role', RoleManagementController::class);
