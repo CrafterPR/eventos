@@ -96,6 +96,17 @@
                             <!--end:Menu link-->
                         </div>
                     @endcan
+
+                    @can('user-management')
+                        <div class="menu-item">
+                            <a class="menu-link {{ request()->routeIs('purchases.*') ? 'active' : '' }}" href="{{ route('purchases.index') }}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-line"></span>
+                                </span>
+                                <span class="menu-title">Purchases</span>
+                            </a>
+                        </div>
+                    @endcan
                 </div>
                     <!--end:Menu sub-->
             </div>

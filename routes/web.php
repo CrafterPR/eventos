@@ -35,6 +35,14 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/tickets', [\App\Http\Controllers\TicketController::class, 'index'])->name('tickets.index');
         Route::get('/tickets/{purchaseOrder}', [\App\Http\Controllers\TicketController::class, 'show'])->name('tickets.show');
 
+        // Purchase orders management
+        Route::middleware(['can:user-management'])->prefix('purchases')->name('purchases.')->group(function () {
+            Route::get('/', [\App\Http\Controllers\Apps\PurchaseManagementController::class, 'index'])->name('index');
+            Route::get('/{purchaseOrder}', [\App\Http\Controllers\Apps\PurchaseManagementController::class, 'show'])->name('show');
+            Route::post('/{purchaseOrder}/receipt', [\App\Http\Controllers\Apps\PurchaseManagementController::class, 'uploadReceipt'])->name('receipt.upload');
+            Route::post('/{purchaseOrder}/approve', [\App\Http\Controllers\Apps\PurchaseManagementController::class, 'approve'])->name('approve');
+        });
+
         Route::middleware(['can:user-management'])->name('users.')->group(function () {
             Route::resource('user-management/user', UserManagementController::class)
                 ->middleware('can:manage-staff');
