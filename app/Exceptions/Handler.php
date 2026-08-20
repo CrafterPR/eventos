@@ -44,8 +44,17 @@ class Handler extends ExceptionHandler
     public function register(): void
     {
         $this->reportable(function (Throwable $e) {
-            if (app()->bound('sentry') && app()->isProduction()) {
-                app('sentry')->captureException($e);
+            try {
+                if (app()->bound('sentry') && app()->isProduction()) {
+                    $sentry = app('sentry');
+                    // Defensive: ensure the bound service is an object with the captureException method
+                    if (is_object($sentry) && method_exists($sentry, 'captureException')) {
+                        $sentry->captureException($e);
+                    }
+                }
+            } catch (Throwable $reportEx) {
+                // Prevent exceptions thrown while reporting from bubbling up and breaking the app
+                // Intentionally empty: we don't want reporting errors to interfere with normal exception handling
             }
         });
     }
