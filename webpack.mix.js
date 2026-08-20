@@ -83,8 +83,35 @@ mix.postCss('resources/_keenthemes/src/sass/summit.css', 'public/css', [
     mix.scripts(file, output);
 });
 
-// Build media
-mix.copyDirectory(`${dir}/media`, `public/assets/media`);
+// Build media - selectively copy only used folders/files to reduce size
+// Copy all favicon files
+mix.copyDirectory(`${dir}/media/favicon`, `public/assets/media/favicon`);
+
+// Copy all image files (they're mostly all used)
+mix.copyDirectory(`${dir}/media/images`, `public/assets/media/images`);
+
+// Copy specific files from other folders
+(glob.sync(`${dir}/media/logos/logo.webp`) || []).forEach(file => {
+    mix.copy(file, `public/assets/media/logos/logo.webp`);
+});
+
+(glob.sync(`${dir}/media/patterns/vector-1.png`) || []).forEach(file => {
+    mix.copy(file, `public/assets/media/patterns/vector-1.png`);
+});
+
+// Copy specific stock images
+(glob.sync(`${dir}/media/stock/600x600/img-65.jpg`) || []).forEach(file => {
+    mix.copy(file, `public/assets/media/stock/600x600/img-65.jpg`);
+});
+
+(glob.sync(`${dir}/media/stock/900x600/42.png`) || []).forEach(file => {
+    mix.copy(file, `public/assets/media/stock/900x600/42.png`);
+});
+
+// Copy specific video files
+(glob.sync(`${dir}/media/videos/about-kicp2.mp4`) || []).forEach(file => {
+    mix.copy(file, `public/assets/media/videos/about-kicp2.mp4`);
+});
 
 let plugins = [
     new ReplaceInFileWebpackPlugin([

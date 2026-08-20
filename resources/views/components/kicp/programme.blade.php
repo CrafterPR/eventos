@@ -621,8 +621,7 @@
                 x-cloak
             >
 
-
-                    <div
+                <div
                         class="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12"
                         :class="day === 1 ? 'lg:grid-cols-1' : ''" >
 
