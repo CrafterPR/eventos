@@ -797,8 +797,8 @@
                                     </div>
                                     <div class="flex items-center justify-center">
                                         <div class="inline-flex items-center rounded-full border border-slate-200 bg-slate-100 p-1 shadow-sm">
-                                            <button type="button" @click="formData.currency = 'KES'" :class="formData.currency === 'KES' ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-600'" class="min-w-[72px] rounded-full px-3 py-1.5 text-sm font-semibold transition-all">KES</button>
-                                            <button type="button" @click="formData.currency = 'USD'" :class="formData.currency === 'USD' ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-600'" class="min-w-[72px] rounded-full px-3 py-1.5 text-sm font-semibold transition-all">USD</button>
+                                            <button type="button" @click="formData.currency = 'KES'" :class="formData.currency === 'KES' ? 'bg-[#175C93] text-white shadow-sm' : 'text-slate-600'" class="min-w-[72px] rounded-full px-3 py-1.5 text-sm font-semibold transition-all">KES</button>
+                                            <button type="button" @click="formData.currency = 'USD'" :class="formData.currency === 'USD' ? 'bg-[#175C93] text-white shadow-sm' : 'text-slate-600'" class="min-w-[72px] rounded-full px-3 py-1.5 text-sm font-semibold transition-all">USD</button>
                                         </div>
                                     </div>
                                     <div>
@@ -994,6 +994,43 @@
                             } catch (e) {
                                 console.warn('Failed to prefill auth user data', e);
                             }
+                        }
+
+                        // Build a hidden lookup div and a map of ticket types -> USD values
+                        try {
+                            const tiles = Array.from(document.querySelectorAll('[x-data]'));
+                            const lookup = {};
+                            let lookupDiv = document.getElementById('ticket-usd-lookup');
+                            if (!lookupDiv) {
+                                lookupDiv = document.createElement('div');
+                                lookupDiv.id = 'ticket-usd-lookup';
+                                lookupDiv.style.display = 'none';
+                                document.body.appendChild(lookupDiv);
+                            }
+                            lookupDiv.innerHTML = '';
+
+                            tiles.forEach((t) => {
+                                try {
+                                    const heading = t.querySelector('h2');
+                                    if (!heading) return;
+                                    const type = heading.textContent.trim();
+                                    if (!type) return;
+                                    const usd = this.extractUsdValueFromTile(t, 0);
+                                    if (usd && Number.isFinite(usd) && usd >= 1) {
+                                        lookup[type] = usd;
+                                        const span = document.createElement('span');
+                                        span.dataset.type = type;
+                                        span.dataset.usd = String(usd);
+                                        lookupDiv.appendChild(span);
+                                    }
+                                } catch (e) {
+                                    // ignore individual tile errors
+                                }
+                            });
+
+                            this.ticketUsdMap = lookup;
+                        } catch (e) {
+                            console.warn('ticket usd map build error', e);
                         }
                     }, 200);
                 });
@@ -1369,8 +1406,88 @@
 
             getTicketPrice(ticket) {
                 const price = Number(ticket && ticket.price ? ticket.price : 0);
-                const usd = Number(ticket && ticket.usdPrice ? ticket.usdPrice : (price ? (price / 125) : 0));
-                return this.selectedCurrency() === 'USD' ? (usd || price) : price;
+
+                // If USD selected, prefer lookup map -> stored usdPrice -> DOM extraction -> fallback conversion
+                if (this.selectedCurrency() === 'USD') {
+                    // 1) Check ticketUsdMap populated at init
+                    try {
+                        if (this.ticketUsdMap && ticket && ticket.type) {
+                            const mapped = this.ticketUsdMap[ticket.type];
+                            if (mapped && Number.isFinite(mapped) && mapped >= 1) return Number(mapped);
+                        }
+                    } catch (e) {
+                        // ignore
+                    }
+
+                    // 2) Check explicit usd price on ticket object
+                    const usdStored = ticket && (ticket.usdPrice || ticket.usd_price || ticket.usd);
+                    let usdVal = Number(usdStored || 0);
+
+                    // 3) Attempt DOM extraction for that ticket
+                    if (!Number.isFinite(usdVal) || usdVal < 1) {
+                        try {
+                            const tiles = Array.from(document.querySelectorAll('[x-data]'));
+                            const matchTile = tiles.find(t => {
+                                const h = t.querySelector('h2');
+                                return h && String(h.textContent || '').trim().toLowerCase() === (String(ticket && ticket.type || '').toLowerCase());
+                            });
+                            if (matchTile) {
+                                const extracted = this.extractUsdValueFromTile(matchTile, price);
+                                if (extracted && Number.isFinite(extracted) && extracted >= 1) {
+                                    usdVal = extracted;
+                                }
+                            }
+                        } catch (e) {
+                            console.log('getTicketPrice DOM usd extract error', e);
+                        }
+                    }
+
+                    // Final fallback to derived conversion if still not available
+                    if (!Number.isFinite(usdVal) || usdVal < 1) {
+                        usdVal = price ? (price / 125) : 0;
+                    }
+
+                    return usdVal;
+                }
+
+                // KES selected
+                return price;
+            },
+
+
+
+            extractUsdValueFromTile(tile, fallbackPrice = 0) {
+                if (!tile) return Number(fallbackPrice > 0 ? (fallbackPrice / 125) : 0);
+
+                const candidates = [];
+                const textNodes = tile.querySelectorAll('*');
+                textNodes.forEach((node) => {
+                    const text = (node.textContent || '').trim();
+                    if (!text) return;
+
+                    if (/USD\s*\$|US\$/.test(text)) {
+                        const match = text.match(/\$?\s?([0-9][0-9,]*(?:\.\d+)?)/);
+                        if (match) {
+                            const value = Number((match[1] || '').replace(/,/g, ''));
+                            if (Number.isFinite(value) && value > 0) {
+                                candidates.push(value);
+                            }
+                        }
+                    }
+                });
+
+                if (candidates.length) {
+                    return Math.max(...candidates);
+                }
+
+                const tileUsd = tile.dataset && (tile.dataset.usdPrice || tile.dataset.usd);
+                if (tileUsd) {
+                    const value = Number(String(tileUsd).replace(/[^0-9.]/g, ''));
+                    if (Number.isFinite(value) && value > 0) return value;
+                }
+
+                const fallback = Number(fallbackPrice > 0 ? fallbackPrice : 0);
+                return fallback > 0 ? (fallback / 125) : 0;
             },
 
             totalAmount() {
@@ -1445,20 +1562,45 @@
                 // Try to detect the clicked ticket card if the caller passed generic/hardcoded values.
                 let type = ticketType;
                 let pr = price;
-
+                let usdPrice = null;
 
                 try {
                     const active = document.activeElement;
-                    const tile = active && active.closest && active.closest('[x-data]');
-                    if (tile) {
-                        const heading = tile.querySelector('h2');
-                        const priceEl = tile.querySelector('h3');
+                    const activeTile = active && active.closest ? active.closest('[x-data]') : null;
+                    if (activeTile) {
+                        const heading = activeTile.querySelector('h2');
+                        const priceEl = activeTile.querySelector('h3');
                         const typeFromDom = heading ? heading.textContent.trim() : null;
                         const priceFromDom = priceEl ? parseInt(priceEl.textContent.replace(/[^0-9.]/g, '')) : NaN;
 
                         if (typeFromDom) type = typeFromDom;
                         if (!isNaN(priceFromDom)) pr = priceFromDom;
-
+                    } else {
+                        // Fallback: try to find tile by matching heading text for the ticket type
+                        const tiles = Array.from(document.querySelectorAll('[x-data]'));
+                        for (const t of tiles) {
+                            const heading = t.querySelector('h2');
+                            if (!heading) continue;
+                            const headingText = heading.textContent.trim();
+                            if (!headingText) continue;
+                            if (String(headingText).toLowerCase() === String(type || '').toLowerCase()) {
+                                const priceEl = t.querySelector('h3');
+                                const priceFromDom = priceEl ? parseInt(priceEl.textContent.replace(/[^0-9.]/g, '')) : NaN;
+                                if (!isNaN(priceFromDom)) pr = priceFromDom;
+                                // use this tile for usd extraction
+                                pr = pr || price;
+                                try {
+                                    const usdDetected = this.extractUsdValueFromTile(t, pr || price);
+                                    if (usdDetected && Number.isFinite(usdDetected) && usdDetected >= 1) {
+                                        // Use detected USD value
+                                        usdPrice = usdDetected;
+                                    }
+                                } catch(e) {
+                                    console.log('USD detect fallback error', e);
+                                }
+                                break;
+                            }
+                        }
                     }
                 } catch (e) {
                     console.log('selectTicket detect error', e);
@@ -1470,22 +1612,27 @@
                 const normalizedType = (type || '').toLowerCase();
                 const existingIndex = this.selectedTickets.findIndex(t => (t.type || '').toLowerCase() === normalizedType);
 
-                let usdPrice = null;
-                try {
-                    const activeTile = document.activeElement && document.activeElement.closest ? document.activeElement.closest('[x-data]') : null;
-                    const tile = activeTile || (document.querySelector('[x-data]') && document.querySelector('[x-data]'));
-                    if (tile) {
-                        const usdNode = Array.from(tile.querySelectorAll('*')).find((node) => /USD\s*\$/.test((node.textContent || '').trim()));
-                        if (usdNode) {
-                            const parsed = parseFloat((usdNode.textContent || '').replace(/[^0-9.]/g, ''));
-                            if (!Number.isNaN(parsed)) usdPrice = parsed;
-                        }
-                    }
-                } catch (e) {
-                    console.log('USD price detect error', e);
+                // Prefer ticketUsdMap when available
+                if ((typeof usdPrice === 'undefined' || usdPrice === null) && this.ticketUsdMap && this.ticketUsdMap[type]) {
+                    usdPrice = this.ticketUsdMap[type];
                 }
 
-                if (usdPrice === null) {
+                // If usdPrice wasn't set in fallback above, attempt extraction from active tile or general tile
+                if (typeof usdPrice === 'undefined' || usdPrice === null) {
+                    try {
+                        const activeTile = document.activeElement && document.activeElement.closest ? document.activeElement.closest('[x-data]') : null;
+                        const tile = activeTile || Array.from(document.querySelectorAll('[x-data]')).find(t => {
+                            const h = t.querySelector('h2');
+                            return h && String(h.textContent || '').trim().toLowerCase() === (String(type || '').toLowerCase());
+                        }) || document.querySelector('[x-data]');
+                        usdPrice = this.extractUsdValueFromTile(tile, pr || price);
+                    } catch (e) {
+                        console.log('USD price detect error', e);
+                        usdPrice = null;
+                    }
+                }
+
+                if (usdPrice === null || !Number.isFinite(usdPrice) || usdPrice < 1) {
                     usdPrice = Number((price && typeof price === 'number' && price > 0) ? (price / 125) : (pr ? (pr / 125) : 0));
                 }
 
