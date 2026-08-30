@@ -2,10 +2,10 @@
 
 namespace App\Actions\Pesaflow;
 
+use App\Models\PurchaseOrder;
 use App\Actions\GenerateProformaInvoice;
 use App\Enum\Currency;
 use App\Enum\PaymentStatus;
-use App\Models\Order;
 use App\Models\Pesaflow\PesaflowRequest;
 use App\Notifications\SendProformaInvoiceNotification;
 use Illuminate\Database\Eloquent\Model;
@@ -18,7 +18,7 @@ class PesaflowRequestPayment
     use AsAction;
 
     /**
-     * @param Order $order
+     * @param PurchaseOrder $order
      * @param string $billDescription
      * @param string $serviceId
      * @param string $currency
@@ -26,7 +26,7 @@ class PesaflowRequestPayment
      * @throws RequestException
      */
     public function handle(
-        Order  $order,
+        PurchaseOrder  $order,
         string $billDescription,
         string $serviceId,
         string $currency,
@@ -34,10 +34,10 @@ class PesaflowRequestPayment
         $billRefNumber = $order->reference;
         $client = $order->user;
         $clientName = $client->name;
-        $clientEmail = $client->email;
-        $clientMSISDN = $client->mobile;
+        $clientEmail = $order->payment_email;
+        $clientMSISDN = $order->payment_phone;
         $clientIDNumber = (string) $client->id_number ?? rand(100000000, 999999999);
-        $amountExpected =  (float)$order->total_amount;
+        $amountExpected =  (float)$order->amount;
 
         //use 1 bob for test purposes
         if (!app()->isProduction()) {

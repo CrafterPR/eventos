@@ -7,43 +7,40 @@
         <!--Inner Tabs section -->
         <div>
             @php $isPurchaseMore = $isPurchaseMore ?? false; @endphp
-            <div wire:ignore x-data="wizard({ isPurchaseMore: {{ $isPurchaseMore ? 'true' : 'false' }} })" x-init="(function(){ if(isPurchaseMore && window.authUser){ paymentEmail = window.authUser.email || paymentEmail; paymentPhone = window.authUser.mobile || paymentPhone; } $watch('paymentMethod', value => { if(value==='lpo' && isPurchaseMore && window.authUser){ paymentEmail = window.authUser.email || paymentEmail; } if(value==='mpesa' && isPurchaseMore && window.authUser){ paymentPhone = window.authUser.mobile || paymentPhone; } }) })()">
+            <div wire:ignore x-data="wizard({ isPurchaseMore: {{ $isPurchaseMore ? 'true' : 'false' }} })">
                 <section class="relative mx-auto max-w-6xl px-4 sm:px-6 z-10">
                 <main id="wizardForm" @submit.prevent="submitForm">
-                    <section x-cloak x-show="currentStep === 0" id="ticket-selection">
+                    <section x-cloak x-show="!showPaymentIframe && currentStep === 0" id="ticket-selection">
                         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6" style="opacity: 1;">
 
                         <div x-data="{ count: 1, selected:false }" :class="selected
-                                                        ? 'bg-gradient-to-r from-[#175C93] to-[#7BC7F0] border-[#E12035]'
-                                                        : 'bg-white border-gray-200'"
+                                                       ? 'bg-gradient-to-r from-[#175C93] to-[#7BC7F0] border-[#E12035]'
+                                                       : 'bg-white border-gray-200'"
                              class="p-4 sm:p-6 rounded-lg border-2 shadow-sm hover:shadow-lg transition-all duration-300 relative"
                              tabindex="0" style="opacity: 1; transform: none;">
 
                             <div
-                                class="absolute -top-2 right-2 sm:right-4 px-2 sm:px-3 py-1 rounded-full text-xs font-semibold shadow-lg bg-red-500 text-white"
-                                style="opacity: 1; transform: none;">MOST POPULAR
+                               class="absolute -top-2 right-2 sm:right-4 px-2 sm:px-3 py-1 rounded-full text-xs font-semibold shadow-lg bg-red-500 text-white"
+                               style="opacity: 1; transform: none;">MOST POPULAR
                             </div>
                             <div class="flex flex-col h-full">
-                                <div class="mb-3 sm:mb-4">
-                                    <h2 class="text-lg sm:text-xl font-bold
-                                                                text-slate-800 mb-2">Individual Delegate</h2>
-                                    <p class="text-slate-800/80 text-xs sm:text-sm">Access all keynotes, panels,
-                                        exhibition &amp; networking app.</p>
-                                </div>
-                                <div class="mb-3 sm:mb-4">
-                                    {{--                                                                <div class="flex items-baseline gap-2 mb-2"><span--}}
-                                    {{--                                                                        class="text-gray-500 line-through text-xs--}}
-                                    {{--                                                                        sm:text-sm">Ksh 20,000</span><span--}}
-                                    {{--                                                                        class="text-xs--}}
-                                    {{--                                                                        text-red-500 font-medium">Save 32%</span>--}}
-                                    {{--                                                                </div>--}}
-                                    <h3 class="text-2xl sm:text-3xl font-bold
-                                                                text-slate-800">Ksh. 75,000</h3>
-                                </div>
-                                <div class="mb-4 sm:mb-6">
-                                    <ul class="space-y-1 text-slate-800 text-xs sm:text-sm">
-                                        <li class="flex items-center">
-                                            <svg xmlns="http://www.w3.org/2000/svg"
+                               <div class="mb-3 sm:mb-4">
+                                   <div class="flex items-center justify-between gap-2 mb-2">
+                                       <h2 class="text-lg sm:text-xl font-bold text-slate-800">Individual Delegate</h2>
+                                       <span class="inline-flex items-center rounded-full bg-red-50 px-2 py-1 text-[10px] sm:text-[11px] font-semibold uppercase tracking-wide text-red-600">Early Bird</span>
+                                   </div>
+                                   <p class="text-slate-800/80 text-xs sm:text-sm">Access all keynotes, panels,
+                                       exhibition &amp; networking app.</p>
+                               </div>
+                               <div class="mb-3 sm:mb-4">
+                                   <h3 class="text-2xl sm:text-3xl font-bold text-slate-800">Ksh. 63,750</h3>
+                                   <div class="mt-1 text-xs sm:text-sm text-slate-600">USD $510</div>
+                                   <div class="mt-2 text-[10px] sm:text-xs font-semibold uppercase tracking-wide text-red-500">Ends 25 Sep</div>
+                               </div>
+                               <div class="mb-4 sm:mb-6">
+                                   <ul class="space-y-1 text-slate-800 text-xs sm:text-sm">
+                                       <li class="flex items-center">
+                                           <svg xmlns="http://www.w3.org/2000/svg"
                                                  xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
                                                  role="img"
                                                  class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi"
@@ -52,10 +49,10 @@
                                                 <path fill="currentColor"
                                                       d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"></path>
                                             </svg>
-                                            Full 5-day access
-                                        </li>
-                                        <li class="flex items-center">
-                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                           Full 5-day access
+                                       </li>
+                                       <li class="flex items-center">
+                                           <svg xmlns="http://www.w3.org/2000/svg"
                                                  xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
                                                  role="img"
                                                  class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi"
@@ -63,10 +60,10 @@
                                                 <path fill="currentColor"
                                                       d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"></path>
                                             </svg>
-                                            Exhibitions &amp; keynotes
-                                        </li>
-                                        <li class="flex items-center">
-                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                           Exhibitions &amp; keynotes
+                                       </li>
+                                       <li class="flex items-center">
+                                           <svg xmlns="http://www.w3.org/2000/svg"
                                                  xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
                                                  role="img"
                                                  class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi"
@@ -74,10 +71,10 @@
                                                 <path fill="currentColor"
                                                       d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"></path>
                                             </svg>
-                                            Refreshments & Lunch
-                                        </li>
-                                        <li class="flex items-center">
-                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                           Refreshments & Lunch
+                                       </li>
+                                       <li class="flex items-center">
+                                           <svg xmlns="http://www.w3.org/2000/svg"
                                                  xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
                                                  role="img"
                                                  class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi"
@@ -85,50 +82,50 @@
                                                 <path fill="currentColor"
                                                       d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"></path>
                                             </svg>
-                                            Digital certificate
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="flex flex-col sm:flex-row items-center justify-between mt-auto gap-3">
-                                    <!-- NOT SELECTED -->
-                                    <div x-show="!selected"
+                                           Digital certificate
+                                       </li>
+                                   </ul>
+                               </div>
+                               <div class="flex flex-col sm:flex-row items-center justify-between mt-auto gap-3">
+                                   <!-- NOT SELECTED -->
+                                   <div x-show="!selected"
                                          class="w-full flex flex-col gap-3 mt-auto">
 
-                                        <button @click="selected = true; selectTicket
-                                                                    ('Individual Delegate', 75000, count)"
-                                                class="rounded-full px-4
+                                       <button @click="selected = true; selectTicket
+                                                                    ('Individual Delegate', 63750, count)"
+                                               class="rounded-full px-4
                                                                     sm:px-4 py-2 font-medium transition-colors
                                                                     text-sm sm:text-base bg-slate-800 text-white hover:bg-[#84C1D9]">
-                                            Select Ticket
-                                        </button>
-                                    </div>
+                                           Select Ticket
+                                       </button>
+                                   </div>
 
-                                    <!-- SELECTED -->
-                                    <div x-show="selected" class="w-full flex flex-col gap-2 mt-auto">
+                                   <!-- SELECTED -->
+                                   <div x-show="selected" class="w-full flex flex-col gap-2 mt-auto">
 
-                                        <div class="flex items-center justify-between w-full">
-                                            <div class="flex items-center gap-2">
-                                                <svg class="w-5 h-5 text-white" viewBox="0 0 24 24">
-                                                    <path fill="currentColor"
-                                                          d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10s10-4.5 10-10S17.5 2 12 2m-2 15l-5-5l1.41-1.41L10 14.17l7.59-7.59L19 8z"></path>
-                                                </svg>
-                                                <span class="text-white font-semibold text-sm">
-                                                                            Selected: <span x-text="count"></span> ticket(s)
-                                                                        </span>
-                                            </div>
-                                        </div>
+                                       <div class="flex items-center justify-between w-full">
+                                           <div class="flex items-center gap-2">
+                                               <svg class="w-5 h-5 text-white" viewBox="0 0 24 24">
+                                                   <path fill="currentColor"
+                                                         d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10s10-4.5 10-10S17.5 2 12 2m-2 15l-5-5l1.41-1.41L10 14.17l7.59-7.59L19 8z"></path>
+                                               </svg>
+                                               <span class="text-white font-semibold text-sm">
+                                                                           Selected: <span x-text="count"></span> ticket(s)
+                                                                       </span>
+                                           </div>
+                                       </div>
 
-                                        <button @click="selected = false"
-                                                class="w-full rounded-full px-4 py-2 font-medium transition-all text-sm bg-white/20 text-white hover:bg-red-500 hover:text-white border border-white/30 flex items-center justify-center gap-2">
-                                            <svg class="w-4 h-4" viewBox="0 0 24 24">
-                                                <path fill="currentColor"
-                                                      d="M12 2c5.53 0 10 4.47 10 10s-4.47 10-10 10S2 17.53 2 12S6.47 2 12 2m3.59 5L12 10.59L8.41 7L7 8.41L10.59 12L7 15.59L8.41 17L12 13.41L15.59 17L17 15.59L13.41 12L17 8.41z"></path>
-                                            </svg>
-                                            Remove Ticket
-                                        </button>
+                                       <button @click="selected = false"
+                                               class="w-full rounded-full px-4 py-2 font-medium transition-all text-sm bg-white/20 text-white hover:bg-red-500 hover:text-white border border-white/30 flex items-center justify-center gap-2">
+                                           <svg class="w-4 h-4" viewBox="0 0 24 24">
+                                               <path fill="currentColor"
+                                                     d="M12 2c5.53 0 10 4.47 10 10s-4.47 10-10 10S2 17.53 2 12S6.47 2 12 2m3.59 5L12 10.59L8.41 7L7 8.41L10.59 12L7 15.59L8.41 17L12 13.41L15.59 17L17 15.59L13.41 12L17 8.41z"></path>
+                                           </svg>
+                                           Remove Ticket
+                                       </button>
 
-                                    </div>
-                                </div>
+                                   </div>
+                               </div>
                             </div>
                         </div>
                         <div x-data="{ count: 10, selected:false }" :class="selected
@@ -154,18 +151,19 @@
 
                                     <div class="flex items-center gap-2 whitespace-nowrap">
                                         <h3 class="text-2xl sm:text-3xl font-bold text-slate-800">
-                                            Ksh. 63,750
+                                           Ksh. 67,500
                                         </h3>
                                         <h5 class="text-md sm:text-xl font-bold text-red-500">
                                             per person
                                         </h5>
                                     </div>
+                                   <div class="mt-1 text-xs sm:text-sm text-slate-600">USD $540</div>
 
-                                </div>
-                                <div class="mb-4 sm:mb-6">
-                                    <ul class="space-y-1 text-slate-800 text-xs sm:text-sm">
-                                        <li class="flex items-center">
-                                            <svg xmlns="http://www.w3.org/2000/svg"
+                               </div>
+                               <div class="mb-4 sm:mb-6">
+                                   <ul class="space-y-1 text-slate-800 text-xs sm:text-sm">
+                                       <li class="flex items-center">
+                                           <svg xmlns="http://www.w3.org/2000/svg"
                                                  xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
                                                  role="img"
                                                  class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi"
@@ -174,14 +172,14 @@
                                                 <path fill="currentColor"
                                                       d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"></path>
                                             </svg>
-                                            <span
-                                                class="text-gray-500 line-through text-xs
-                                                                        sm:text-sm">Ksh. 11,250</span><span
-                                                class="text-xs
-                                                                         text-red-500 font-medium">&nbsp;Save
-                                                                15%</span></li>
-                                        <li class="flex items-center">
-                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                           <span
+                                               class="text-gray-500 line-through text-xs
+                                                                       sm:text-sm">Ksh. 75,000</span><span
+                                               class="text-xs
+                                                                        text-red-500 font-medium">&nbsp;Save
+                                                               10%</span></li>
+                                       <li class="flex items-center">
+                                           <svg xmlns="http://www.w3.org/2000/svg"
                                                  xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
                                                  role="img"
                                                  class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi"
@@ -190,10 +188,10 @@
                                                 <path fill="currentColor"
                                                       d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"></path>
                                             </svg>
-                                            Full 5-day access
-                                        </li>
-                                        <li class="flex items-center">
-                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                           Full 5-day access
+                                       </li>
+                                       <li class="flex items-center">
+                                           <svg xmlns="http://www.w3.org/2000/svg"
                                                  xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
                                                  role="img"
                                                  class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi"
@@ -206,10 +204,10 @@
                                                                                 .5-5.5l1.41-1.41L9 16.17L19.59 5
                                                                                 .59z"></path>
                                             </svg>
-                                            Refreshments & Lunch
-                                        </li>
-                                        <li class="flex items-center">
-                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                           Refreshments & Lunch
+                                       </li>
+                                       <li class="flex items-center">
+                                           <svg xmlns="http://www.w3.org/2000/svg"
                                                  xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
                                                  role="img"
                                                  class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi"
@@ -222,10 +220,10 @@
                                                                                 .5-5.5l1.41-1.41L9 16.17L19.59 5
                                                                                 .59z"></path>
                                             </svg>
-                                            Exhibition access
-                                        </li>
-                                        <li class="flex items-center">
-                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                           Exhibition access
+                                       </li>
+                                       <li class="flex items-center">
+                                           <svg xmlns="http://www.w3.org/2000/svg"
                                                  xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
                                                  role="img"
                                                  class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi"
@@ -233,79 +231,187 @@
                                                 <path fill="currentColor"
                                                       d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"></path>
                                             </svg>
-                                            Digital certificate
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="flex flex-col sm:flex-row items-center justify-between mt-auto gap-3">
-                                    <!-- NOT SELECTED -->
-                                    <div x-show="!selected"
+                                           Digital certificate
+                                       </li>
+                                   </ul>
+                               </div>
+                               <div class="flex flex-col sm:flex-row items-center justify-between mt-auto gap-3">
+                                   <!-- NOT SELECTED -->
+                                   <div x-show="!selected"
                                          class="flex flex-col sm:flex-row items-center w-full justify-between mt-auto gap-3">
 
-                                        <div class="flex items-center gap-2 sm:gap-3">
-                                            <!-- subtract -->
-                                            <button @click="if(count > 10) count--" :disabled="count <= 10"
-                                                    class="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-slate-800 flex items-center justify-center hover:bg-slate-800 hover:text-white transition-colors disabled:opacity-50">
-                                                <svg class="w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24">
-                                                    <path fill="currentColor" d="M19 13H5v-2h14z"></path>
-                                                </svg>
-                                            </button>
+                                       <div class="flex items-center gap-2 sm:gap-3">
+                                           <!-- subtract -->
+                                           <button @click="if(count > 10) count--" :disabled="count <= 10"
+                                                   class="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-slate-800 flex items-center justify-center hover:bg-slate-800 hover:text-white transition-colors disabled:opacity-50">
+                                               <svg class="w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24">
+                                                   <path fill="currentColor" d="M19 13H5v-2h14z"></path>
+                                               </svg>
+                                           </button>
 
-                                            <!-- count -->
-                                            <span x-text="count"
-                                                  class="font-semibold text-slate-800 min-w-6 sm:min-w-8 text-center text-sm sm:text-base"></span>
+                                           <!-- count -->
+                                           <span x-text="count"
+                                                 class="font-semibold text-slate-800 min-w-6 sm:min-w-8 text-center text-sm sm:text-base"></span>
 
-                                            <!-- add -->
-                                            <button @click="count++"
-                                                    class="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-slate-800 flex items-center justify-center hover:bg-slate-800 hover:text-white transition-colors">
-                                                <svg class="w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24">
-                                                    <path fill="currentColor"
-                                                          d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6z"></path>
-                                                </svg>
-                                            </button>
-                                        </div>
+                                           <!-- add -->
+                                           <button @click="count++"
+                                                   class="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-slate-800 flex items-center justify-center hover:bg-slate-800 hover:text-white transition-colors">
+                                               <svg class="w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24">
+                                                   <path fill="currentColor"
+                                                         d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6z"></path>
+                                               </svg>
+                                           </button>
+                                       </div>
 
-                                        <button @click="selected = true; selectTicket
-                                                                    ('Group registration', 63750, count)"
-                                                class="rounded-full px-4
+                                       <button @click="selected = true; selectTicket
+                                                                    ('Group registration', 67500, count)"
+                                               class="rounded-full px-4
                                                                     sm:px-4 py-2 font-medium transition-colors
                                                                     text-sm sm:text-base bg-slate-800 text-white hover:bg-[#84C1D9]">
-                                            Select Ticket
-                                        </button>
-                                    </div>
+                                           Select Ticket
+                                       </button>
+                                   </div>
 
-                                    <!-- SELECTED -->
-                                    <div x-show="selected" class="w-full flex flex-col gap-2 mt-auto">
+                                   <!-- SELECTED -->
+                                   <div x-show="selected" class="w-full flex flex-col gap-2 mt-auto">
 
-                                        <div class="flex items-center justify-between w-full">
-                                            <div class="flex items-center gap-2">
-                                                <svg class="w-5 h-5 text-white" viewBox="0 0 24 24">
-                                                    <path fill="currentColor"
-                                                          d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10s10-4.5 10-10S17.5 2 12 2m-2 15l-5-5l1.41-1.41L10 14.17l7.59-7.59L19 8z"></path>
-                                                </svg>
-                                                <span class="text-white font-semibold text-sm">
-                                                                            Selected: <span x-text="count"></span> ticket(s)
-                                                                        </span>
-                                            </div>
-                                        </div>
+                                       <div class="flex items-center justify-between w-full">
+                                           <div class="flex items-center gap-2">
+                                               <svg class="w-5 h-5 text-white" viewBox="0 0 24 24">
+                                                   <path fill="currentColor"
+                                                         d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10s10-4.5 10-10S17.5 2 12 2m-2 15l-5-5l1.41-1.41L10 14.17l7.59-7.59L19 8z"></path>
+                                               </svg>
+                                               <span class="text-white font-semibold text-sm">
+                                                                           Selected: <span x-text="count"></span> ticket(s)
+                                                                       </span>
+                                           </div>
+                                       </div>
 
-                                        <button @click="selected = false"
-                                                class="w-full rounded-full px-4 py-2 font-medium transition-all text-sm bg-white/20 text-white hover:bg-red-500 hover:text-white border border-white/30 flex items-center justify-center gap-2">
-                                            <svg class="w-4 h-4" viewBox="0 0 24 24">
-                                                <path fill="currentColor"
-                                                      d="M12 2c5.53 0 10 4.47 10 10s-4.47 10-10 10S2 17.53 2 12S6.47 2 12 2m3.59 5L12 10.59L8.41 7L7 8.41L10.59 12L7 15.59L8.41 17L12 13.41L15.59 17L17 15.59L13.41 12L17 8.41z"></path>
-                                            </svg>
-                                            Remove Ticket
-                                        </button>
+                                       <button @click="selected = false"
+                                               class="w-full rounded-full px-4 py-2 font-medium transition-all text-sm bg-white/20 text-white hover:bg-red-500 hover:text-white border border-white/30 flex items-center justify-center gap-2">
+                                           <svg class="w-4 h-4" viewBox="0 0 24 24">
+                                               <path fill="currentColor"
+                                                     d="M12 2c5.53 0 10 4.47 10 10s-4.47 10-10 10S2 17.53 2 12S6.47 2 12 2m3.59 5L12 10.59L8.41 7L7 8.41L10.59 12L7 15.59L8.41 17L12 13.41L15.59 17L17 15.59L13.41 12L17 8.41z"></path>
+                                           </svg>
+                                           Remove Ticket
+                                       </button>
 
-                                    </div>
-                                </div>
+                                   </div>
+                               </div>
 
                             </div>
                         </div>
                         <div x-data="{ count: 1, selected:false }" :class="selected
                                                         ? 'bg-gradient-to-r from-[#175C93] to-[#7BC7F0] border-[#E12035]'
                                                         : 'bg-white border-gray-200'"
+                             class="p-4 sm:p-6 rounded-lg border-2 shadow-sm hover:shadow-lg transition-all duration-300 relative"
+                             tabindex="0" style="opacity: 1; transform: none;">
+                            <div class="absolute -top-2 right-2 sm:right-4 px-2 sm:px-3
+                                                       py-1 rounded-full text-xs font-semibold shadow-lg
+                                                       bg-[#175C93] text-white" style="opacity: 1; transform: none;
+                                                       ">ONLINE ACCESS
+                            </div>
+                            <div class="flex flex-col h-full">
+                               <div class="mb-3 sm:mb-4">
+                                   <h2 class="text-lg sm:text-xl font-bold text-slate-800 mb-2">Virtual Ticket</h2>
+                                   <p class="text-slate-800/80 text-xs sm:text-sm">Join the summit remotely with live access to presentations and sessions.</p>
+                               </div>
+                               <div class="mb-3 sm:mb-4">
+                                   <h3 class="text-2xl sm:text-3xl font-bold text-slate-800">Ksh. 25,000</h3>
+                                   <div class="mt-1 text-xs sm:text-sm text-slate-600">USD $200</div>
+                               </div>
+                               <div class="mb-4 sm:mb-6">
+                                   <ul class="space-y-1 text-slate-800 text-xs sm:text-sm">
+                                       <li class="flex items-center">
+                                           <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"></path></svg>
+                                           Live virtual sessions
+                                       </li>
+                                       <li class="flex items-center">
+                                           <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"></path></svg>
+                                           Digital networking access
+                                       </li>
+                                       <li class="flex items-center">
+                                           <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"></path></svg>
+                                           Session recordings
+                                       </li>
+                                   </ul>
+                               </div>
+                               <div class="flex flex-col sm:flex-row items-center justify-between mt-auto gap-3">
+                                   <div x-show="!selected" class="w-full flex flex-col gap-3 mt-auto">
+                                       <button @click="selected = true; selectTicket('Virtual Ticket', 25000, count)" class="rounded-full px-4 sm:px-4 py-2 font-medium transition-colors text-sm sm:text-base bg-slate-800 text-white hover:bg-[#84C1D9]">Select Ticket</button>
+                                   </div>
+                                   <div x-show="selected" class="w-full flex flex-col gap-2 mt-auto">
+                                       <div class="flex items-center justify-between w-full">
+                                           <div class="flex items-center gap-2">
+                                               <svg class="w-5 h-5 text-white" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10s10-4.5 10-10S17.5 2 12 2m-2 15l-5-5l1.41-1.41L10 14.17l7.59-7.59L19 8z"></path></svg>
+                                               <span class="text-white font-semibold text-sm">Selected: <span x-text="count"></span> ticket(s)</span>
+                                           </div>
+                                       </div>
+                                       <button @click="selected = false" class="w-full rounded-full px-4 py-2 font-medium transition-all text-sm bg-white/20 text-white hover:bg-red-500 hover:text-white border border-white/30 flex items-center justify-center gap-2">
+                                           <svg class="w-4 h-4" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2c5.53 0 10 4.47 10 10s-4.47 10-10 10S2 17.53 2 12S6.47 2 12 2m3.59 5L12 10.59L8.41 7L7 8.41L10.59 12L7 15.59L8.41 17L12 13.41L15.59 17L17 15.59L13.41 12L17 8.41z"></path></svg>
+                                           Remove Ticket
+                                       </button>
+                                   </div>
+                               </div>
+                            </div>
+                        </div>
+                        <div x-data="{ count: 1, selected:false }" :class="selected
+                                                       ? 'bg-gradient-to-r from-[#175C93] to-[#7BC7F0] border-[#E12035]'
+                                                       : 'bg-white border-gray-200'"
+                             class="p-4 sm:p-6 rounded-lg border-2 shadow-sm hover:shadow-lg transition-all duration-300 relative"
+                             tabindex="0" style="opacity: 1; transform: none;">
+                            <div class="absolute -top-2 right-2 sm:right-4 px-2 sm:px-3
+                                                       py-1 rounded-full text-xs font-semibold shadow-lg
+                                                       bg-[#175C93] text-white" style="opacity: 1; transform: none;
+                                                       ">STUDENT
+                            </div>
+                            <div class="flex flex-col h-full">
+                               <div class="mb-3 sm:mb-4">
+                                   <h2 class="text-lg sm:text-xl font-bold text-slate-800 mb-2">Student Ticket</h2>
+                                   <p class="text-slate-800/80 text-xs sm:text-sm">For enrolled students and emerging professionals attending the summit.</p>
+                               </div>
+                               <div class="mb-3 sm:mb-4">
+                                   <h3 class="text-2xl sm:text-3xl font-bold text-slate-800">Ksh. 27,500</h3>
+                                   <div class="mt-1 text-xs sm:text-sm text-slate-600">USD $220</div>
+                               </div>
+                               <div class="mb-4 sm:mb-6">
+                                   <ul class="space-y-1 text-slate-800 text-xs sm:text-sm">
+                                       <li class="flex items-center">
+                                           <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"></path></svg>
+                                           Student-focused access
+                                       </li>
+                                       <li class="flex items-center">
+                                           <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"></path></svg>
+                                           Keynotes & networking
+                                       </li>
+                                       <li class="flex items-center">
+                                           <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 mr-2 flex-shrink-0 iconify iconify--mdi" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z"></path></svg>
+                                           Digital certificate
+                                       </li>
+                                   </ul>
+                               </div>
+                               <div class="flex flex-col sm:flex-row items-center justify-between mt-auto gap-3">
+                                   <div x-show="!selected" class="w-full flex flex-col gap-3 mt-auto">
+                                       <button @click="selected = true; selectTicket('Student Ticket', 27500, count)" class="rounded-full px-4 sm:px-4 py-2 font-medium transition-colors text-sm sm:text-base bg-slate-800 text-white hover:bg-[#84C1D9]">Select Ticket</button>
+                                   </div>
+                                   <div x-show="selected" class="w-full flex flex-col gap-2 mt-auto">
+                                       <div class="flex items-center justify-between w-full">
+                                           <div class="flex items-center gap-2">
+                                               <svg class="w-5 h-5 text-white" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10s10-4.5 10-10S17.5 2 12 2m-2 15l-5-5l1.41-1.41L10 14.17l7.59-7.59L19 8z"></path></svg>
+                                               <span class="text-white font-semibold text-sm">Selected: <span x-text="count"></span> ticket(s)</span>
+                                           </div>
+                                       </div>
+                                       <button @click="selected = false" class="w-full rounded-full px-4 py-2 font-medium transition-all text-sm bg-white/20 text-white hover:bg-red-500 hover:text-white border border-white/30 flex items-center justify-center gap-2">
+                                           <svg class="w-4 h-4" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2c5.53 0 10 4.47 10 10s-4.47 10-10 10S2 17.53 2 12S6.47 2 12 2m3.59 5L12 10.59L8.41 7L7 8.41L10.59 12L7 15.59L8.41 17L12 13.41L15.59 17L17 15.59L13.41 12L17 8.41z"></path></svg>
+                                           Remove Ticket
+                                       </button>
+                                   </div>
+                               </div>
+                            </div>
+                        </div>
+                        <div x-data="{ count: 1, selected:false }" :class="selected
+                                                       ? 'bg-gradient-to-r from-[#175C93] to-[#7BC7F0] border-[#E12035]'
+                                                       : 'bg-white border-gray-200'"
                              class="p-4 sm:p-6 rounded-lg border-2 shadow-sm hover:shadow-lg transition-all duration-300 relative"
                              tabindex="0" style="opacity: 1; transform: none;">
                             <div class="absolute -top-2 right-2 sm:right-4 px-2 sm:px-3
@@ -324,6 +430,7 @@
                                 <div class="mb-3 sm:mb-4">
                                     <h3 class="text-2xl sm:text-3xl font-bold
                                                                 text-slate-800">Ksh. 300,000</h3>
+                                    <div class="mt-1 text-xs sm:text-sm text-slate-600">USD $2,330</div>
 
                                 </div>
                                 <div class="mb-4 sm:mb-6">
@@ -453,7 +560,7 @@
 
                     </div>
                     </section>
-                    <section x-cloak x-show="currentStep === 1 && !isPurchaseMore" id="contact-info-step">
+                    <section x-cloak x-show="!showPaymentIframe && currentStep === 1 && !isPurchaseMore" id="contact-info-step">
                         <div class="mx-auto max-w-7xl ">
                             <div class="text-slate-800 text-center py-4">
                                 <h2 class="font-bold text-2xl">Your Contact Information</h2>
@@ -477,12 +584,24 @@
                                     </div>
 
                                     <div class="space-y-6">
-                                        <div class="">
-                                            <label for="fullName" class="block text-slate-800 text-sm font-semibold mb-2">Full Name <span class="text-red-500 ml-0.5">*</span></label>
-                                            <div class="relative">
-                                                <input id="fullName" class="w-full px-4 sm:px-4 py-2.5 sm:py-3 border rounded-lg bg-white focus:outline-none focus:ring-2 transition-all duration-300 text-sm sm:text-base border-gray-300 focus:ring-slate-800 focus:border-slate-800 hover:border-[#84C1D9] shadow-sm hover:shadow-md"
-                                                       placeholder="John Doe" type="text" value="" name="fullName">
-                                                <div class="custom-error-container"></div>
+                                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                            <div class="">
+                                                <label for="firstName" class="block text-slate-800 text-sm font-semibold mb-2">First Name <span class="text-red-500 ml-0.5">*</span></label>
+                                                <div class="relative">
+                                                    <input id="firstName" class="w-full px-4 sm:px-4 py-2.5 sm:py-3 border
+                                                    rounded-lg bg-white focus:outline-none focus:ring-2 transition-all duration-300 text-sm sm:text-base border-gray-300 focus:ring-slate-800 focus:border-slate-800 hover:border-[#84C1D9] shadow-sm hover:shadow-md"
+                                                           placeholder="John" type="text" value="" name="firstName">
+                                                    <div class="custom-error-container"></div>
+                                                </div>
+                                            </div>
+                                            <div class="">
+                                                <label for="lastName" class="block text-slate-800 text-sm font-semibold mb-2">Last Name <span class="text-red-500 ml-0.5">*</span></label>
+                                                <div class="relative">
+                                                    <input id="lastName" class="w-full px-4 sm:px-4 py-2.5 sm:py-3 border
+                                                    rounded-lg bg-white focus:outline-none focus:ring-2 transition-all duration-300 text-sm sm:text-base border-gray-300 focus:ring-slate-800 focus:border-slate-800 hover:border-[#84C1D9] shadow-sm hover:shadow-md"
+                                                           placeholder="Doe" type="text" value="" name="lastName">
+                                                    <div class="custom-error-container"></div>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -490,7 +609,8 @@
                                                 <label for="email" class="block text-slate-800 text-sm font-semibold mb-2">Email Address <span class="text-red-500 ml-0.5">*</span></label>
                                                 <div class="relative">
                                                     <input id="email" class="w-full px-4 sm:px-4 py-2.5 sm:py-3 border rounded-lg bg-white focus:outline-none focus:ring-2 transition-all duration-300 text-sm sm:text-base border-gray-300 focus:ring-slate-800 focus:border-slate-800 hover:border-[#84C1D9] shadow-sm hover:shadow-md"
-                                                           placeholder="john.doe@example.com" type="email" value="" name="email">
+                                                           placeholder="john.doe@kasneb.or.ke" type="email" value=""
+                                                           name="email">
                                                 </div>
                                                 <div class="custom-error-container"></div>
                                             </div>
@@ -523,6 +643,7 @@
                                                 </div>
                                             </div>
                                         </div>
+
                                         <div class="pt-8 border-t border-gray-100">
                                             <div class="bg-blue-50 border border-[#84C1D9]/30 rounded-xl p-5 mb-6">
                                                 <div x-show="formErrors.terms" x-cloak class="mt-2 p-3 bg-red-50 border border-red-200 rounded-lg">
@@ -549,7 +670,7 @@
                             </div>
                         </div>
                     </section>
-                    <section x-cloak x-show="(isPurchaseMore && currentStep === 1) || (!isPurchaseMore && currentStep === 2)">
+                    <section x-cloak x-show="!showPaymentIframe && ((isPurchaseMore && currentStep === 1) || (!isPurchaseMore && currentStep === 2))">
                         <div class="mx-auto max-w-7xl ">
                             <div class="text-slate-800 text-center py-4">
                                 <div class="flex items-center justify-center gap-4 mb-4">
@@ -615,13 +736,13 @@
                                             <template x-for="(ticket, idx) in selectedTickets" :key="idx">
                                                 <div class="flex justify-between text-sm sm:text-base">
                                                     <span x-text="ticket.type + ' × ' + ticket.count"></span>
-                                                    <span x-text="'Ksh. ' + (ticket.price * ticket.count)"></span>
+                                                    <span x-text="formatPrice(getTicketPrice(ticket) * ticket.count)"></span>
                                                 </div>
                                             </template>
                                             <hr class="my-2">
-                                            <div class="flex justify-between text-sm sm:text-base"><span>Subtotal</span><span x-text="'Ksh. ' + totalAmount()"></span></div>
+                                            <div class="flex justify-between text-sm sm:text-base"><span>Subtotal</span><span x-text="formatPrice(totalAmount())"></span></div>
                                             <div class="flex justify-between text-sm sm:text-base"><span>Promo</span><span class="text-green-600">-Ksh. 0</span></div>
-                                            <div class="flex justify-between font-bold text-base sm:text-lg"><span>Total</span><span x-text="'Ksh. ' + totalAmount()"></span></div>
+                                            <div class="flex justify-between font-bold text-base sm:text-lg"><span>Total</span><span x-text="formatPrice(totalAmount())"></span></div>
                                         </div>
                                         <div class="mb-3 sm:mb-4">
                                             <form>
@@ -653,7 +774,7 @@
                         </div>
                     </section>
 
-                    <div x-show="hasSelectedTickets()" x-cloak
+                    <div x-show="!showPaymentIframe && hasSelectedTickets()" x-cloak
                          class="fixed bottom-0 left-0 right-0 bg-white border-t-2 border-[#84C1D9] shadow-2xl z-50"
                          style="opacity: 1; transform: none;">
                         <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4">
@@ -674,11 +795,16 @@
                                                x-text="totalTickets() + ' tickets'"></p>
                                         </div>
                                     </div>
-                                    <div class="h-8 w-px bg-gray-300"></div>
+                                    <div class="flex items-center justify-center">
+                                        <div class="inline-flex items-center rounded-full border border-slate-200 bg-slate-100 p-1 shadow-sm">
+                                            <button type="button" @click="formData.currency = 'KES'" :class="formData.currency === 'KES' ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-600'" class="min-w-[72px] rounded-full px-3 py-1.5 text-sm font-semibold transition-all">KES</button>
+                                            <button type="button" @click="formData.currency = 'USD'" :class="formData.currency === 'USD' ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-600'" class="min-w-[72px] rounded-full px-3 py-1.5 text-sm font-semibold transition-all">USD</button>
+                                        </div>
+                                    </div>
                                     <div>
                                         <p class="text-xs text-gray-500">Total Amount</p>
                                         <p class="font-bold text-slate-800 text-lg sm:text-xl"
-                                           x-text="'Ksh. ' + totalAmount()"></p>
+                                           x-text="formatPrice(totalAmount())"></p>
                                     </div>
                                 </div>
                                 <div class="flex items-center gap-3 w-full sm:w-auto">
@@ -710,7 +836,22 @@
                         </div>
                     </div>
 
-                    <div x-show="hasSelectedTickets() && currentStep === 0"
+                    <section x-cloak x-show="showPaymentIframe" class="mt-6">
+                        <div class="mx-auto max-w-7xl">
+                           <div class="bg-white border border-slate-200 rounded-2xl shadow-xl p-4 sm:p-6">
+                               <div class="flex items-center justify-between gap-4 mb-4">
+                                   <div>
+                                       <h2 class="text-xl sm:text-2xl font-bold text-slate-800">Complete your payment</h2>
+                                       <p class="text-sm text-gray-600">You will be redirected to the secure PesaFlow payment page.</p>
+                                   </div>
+                                   <button type="button" @click="showPaymentIframe = false; currentStep = 0;" class="px-4 py-2 rounded-full bg-gray-200 text-gray-700 font-medium hover:bg-gray-300">Back</button>
+                               </div>
+                               <iframe :src="paymentIframeUrl" title="PesaFlow payment" class="w-full min-h-[720px] border-0 rounded-xl bg-white" loading="lazy"></iframe>
+                           </div>
+                        </div>
+                    </section>
+
+                    <div x-show="!showPaymentIframe && hasSelectedTickets() && currentStep === 0"
                         class="mt-4 sm:mt-6 p-4 sm:p-6 bg-white border border-[#84C1D9] rounded-lg max-w-4xl mx-auto shadow-lg"
                         style="opacity: 1; transform: none;">
                         <h3 class="text-lg sm:text-xl font-bold text-slate-800 mb-3 sm:mb-4">Ticket Summary</h3>
@@ -721,8 +862,7 @@
                                     <div class="flex-1"><span class="font-medium"
                                                               x-text="ticket.type + ' × ' + ticket.count"></span></div>
                                     <div class="flex items-center gap-3">
-                                                        <span class="font-semibold" x-text="'Ksh. ' + (ticket.price *
-                                                         ticket.count)"></span>
+                                                        <span class="font-semibold" x-text="formatPrice(getTicketPrice(ticket) * ticket.count)"></span>
 
                                     </div>
                                 </div>
@@ -731,7 +871,7 @@
                         <hr class="my-3 sm:my-4">
                         <div class="flex justify-between font-bold text-base sm:text-lg">
                             <span>Total</span>
-                            <span x-text="'Ksh. ' + totalAmount()"></span>
+                            <span x-text="formatPrice(totalAmount())"></span>
                         </div>
                     </div>
                 </main>
@@ -801,19 +941,23 @@
             isPurchaseMore: isPurchaseMore,
             validators: null,
             formData: {
-                fullName: '',
+                firstName: '',
+                lastName: '',
                 email: '',
                 phone: '',
                 country: '',
                 organization: '',
+                currency: 'KES',
                 terms: 0
             },
             purchaserLocked: false,
-            paymentMethod: '',
+            paymentMethod: 'pesaflow',
             paymentEmail: '',
             paymentPhone: '',
             isSubmitting: false,
             selectedTickets: [],
+            showPaymentIframe: false,
+            paymentIframeUrl: '',
             paymentErrors: {
                 method: '',
                 email: '',
@@ -834,7 +978,8 @@
                         if (this.isPurchaseMore && window.authUser) {
                             try {
                                 const u = window.authUser;
-                                this.formData.fullName = [u.first_name, u.last_name].filter(Boolean).join(' ');
+                                this.formData.firstName = u.first_name || '';
+                                this.formData.lastName = u.last_name || '';
                                 this.formData.email = u.email || '';
                                 this.formData.phone = u.mobile || '';
                                 this.formData.country = u.country || '';
@@ -851,6 +996,18 @@
                             }
                         }
                     }, 200);
+                });
+
+                this.$watch('paymentMethod', (value) => {
+                    if (this.isPurchaseMore && window.authUser) {
+                        if (value === 'lpo') {
+                            this.paymentEmail = window.authUser.email || this.paymentEmail || this.formData.email || '';
+                        }
+
+                        if (value === 'mpesa') {
+                            this.paymentPhone = window.authUser.mobile || this.paymentPhone || this.formData.phone || '';
+                        }
+                    }
                 });
 
                 // Global click listener to handle Remove Ticket buttons inside ticket cards.
@@ -944,15 +1101,32 @@
 
                     // Add validation rules for step 1
                     this.validators
-                        .addField('#fullName', [
+                        .addField('#firstName', [
                             {
                                 rule: 'required',
-                                errorMessage: 'Full name is required'
+                                errorMessage: 'First name is required'
                             },
                             {
-                                rule: 'customRegexp',
-                                value: /^[A-Za-z]+(?: [A-Za-z]+){1,2}$/,
-                                errorMessage: 'Please enter both first name and last name'
+                                rule: 'maxLength',
+                                value: 50,
+                                errorMessage: 'Name must be less than 50 characters'
+                            }
+                        ], {
+                            errorsContainer: function(field) {
+                                const parent = field.parentElement;
+                                return {
+                                    render: function(errors) {
+                                        if (errors.length) {
+                                            createCustomErrorLabel(field, errors[0]);
+                                        }
+                                    }
+                                };
+                            }
+                        })
+                        .addField('#lastName', [
+                            {
+                                rule: 'required',
+                                errorMessage: 'Last name is required'
                             },
                             {
                                 rule: 'maxLength',
@@ -1088,9 +1262,15 @@
             async validateStep() {
                 console.log('Validating step:', this.currentStep);
 
+                if (!this.isPurchaseMore && this.currentStep === 1) {
+                    this.saveFormData();
+                    await this.completePurchase();
+                    return true;
+                }
+
                 const stepFields = {
                     0: [],
-                    1: ['#fullName', '#email', '#phone', '#country', '#terms'], // Contact info - handled
+                    1: ['#firstName', '#lastName', '#email', '#phone', '#country', '#currency', '#terms'], // Contact info - handled
                     2: [] // Payment - to be implemented
                 };
 
@@ -1163,50 +1343,6 @@
                 }
             },
 
-            // saveStep2Data() {
-            //     // Save purchaser information
-            //     const purchaserFullName = document.querySelector('#fullName1');
-            //     const purchaserEmail = document.querySelector('#wizardForm #email');
-            //     const purchaserPhone = document.querySelector('#wizardForm #phone');
-            //     const purchaserOrg = document.querySelector('#organization');
-            //     const purchaserCountry = document.querySelector('#country1');
-            //     const isAttending = document.querySelector('#attending');
-            //
-            //     if (purchaserFullName) this.formData.purchaser.fullName = purchaserFullName.value;
-            //     if (purchaserEmail) this.formData.purchaser.email = purchaserEmail.value;
-            //     if (purchaserPhone) this.formData.purchaser.phone = purchaserPhone.value;
-            //     if (purchaserOrg) this.formData.purchaser.organization = purchaserOrg.value;
-            //     if (purchaserCountry) {
-            //         const countryData = $(purchaserCountry).countrySelect('getSelectedCountryData');
-            //         this.formData.purchaser.country = countryData ? countryData.name : purchaserCountry.value;
-            //     }
-            //     if (isAttending) this.formData.purchaser.isAttending = isAttending.checked;
-            //
-            //     // Attendees are bound to formData.attendees via x-model; ensure sync
-            //     this.syncAttendees();
-            //
-            //     // If purchaser is attending, ensure purchaser.ticketType is recorded (bound via x-model in UI)
-            //     if (this.formData.purchaser.isAttending && !this.formData.purchaser.ticketType) {
-            //         const tickets = this.ticketTypesArray();
-            //         this.formData.purchaser.ticketType = tickets[0] || null;
-            //     }
-            //
-            //     // Normalize attendees (fill defaults where necessary)
-            //     this.formData.attendees = (this.formData.attendees || []).map((a, idx) => ({
-            //         name: a.name || '',
-            //         email: a.email || '',
-            //         role: a.role || '',
-            //         organization: a.organization || this.formData.purchaser.organization || this.formData.organization || '',
-            //         ticketType: a.ticketType || this.ticketTypesArray()[ (this.formData.purchaser.isAttending ? idx+1 : idx) ] || ''
-            //     }));
-            //
-            //
-            //     // Save terms & preferences
-            //     const terms = document.querySelector('#terms');
-            //
-            //     if (terms) this.formData.terms.accepted = terms.checked;
-            // },
-
             clearAllErrors() {
                 // Remove all custom error containers
                 document.querySelectorAll('.custom-error-container').forEach(el => el.remove());
@@ -1227,13 +1363,32 @@
                 return this.selectedTickets ? this.selectedTickets.reduce((sum, ticket) => sum + ticket.count, 0) : 0;
             },
 
+            selectedCurrency() {
+                return (this.formData && this.formData.currency) ? this.formData.currency.toUpperCase() : 'KES';
+            },
+
+            getTicketPrice(ticket) {
+                const price = Number(ticket && ticket.price ? ticket.price : 0);
+                const usd = Number(ticket && ticket.usdPrice ? ticket.usdPrice : (price ? (price / 125) : 0));
+                return this.selectedCurrency() === 'USD' ? (usd || price) : price;
+            },
+
             totalAmount() {
-                // Calculate total amount
-                return this.selectedTickets ? this.selectedTickets.reduce((sum, ticket) => sum + (ticket.price * ticket.count), 0) : 0;
+                if (!this.selectedTickets) return 0;
+                return this.selectedTickets.reduce((sum, ticket) => sum + (this.getTicketPrice(ticket) * ticket.count), 0);
+            },
+
+            formatPrice(value) {
+                const amount = Number(value || 0);
+                if (this.selectedCurrency() === 'USD') {
+                    return '$' + amount.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 2 });
+                }
+                return 'Ksh. ' + amount.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
             },
 
             removeTicket(ticketType) {
-                this.selectedTickets = this.selectedTickets.filter(ticket => ticket.type !== ticketType);
+                const target = (ticketType || '').toLowerCase();
+                this.selectedTickets = this.selectedTickets.filter(ticket => (ticket.type || '').toLowerCase() !== target);
                 // Sync attendee fields whenever tickets change
                 this.syncAttendees();
             },
@@ -1312,16 +1467,38 @@
                 if (!type) return;
 
                 // Check if ticket type already exists
-                const existingIndex = this.selectedTickets.findIndex(t => t.type === type);
+                const normalizedType = (type || '').toLowerCase();
+                const existingIndex = this.selectedTickets.findIndex(t => (t.type || '').toLowerCase() === normalizedType);
+
+                let usdPrice = null;
+                try {
+                    const activeTile = document.activeElement && document.activeElement.closest ? document.activeElement.closest('[x-data]') : null;
+                    const tile = activeTile || (document.querySelector('[x-data]') && document.querySelector('[x-data]'));
+                    if (tile) {
+                        const usdNode = Array.from(tile.querySelectorAll('*')).find((node) => /USD\s*\$/.test((node.textContent || '').trim()));
+                        if (usdNode) {
+                            const parsed = parseFloat((usdNode.textContent || '').replace(/[^0-9.]/g, ''));
+                            if (!Number.isNaN(parsed)) usdPrice = parsed;
+                        }
+                    }
+                } catch (e) {
+                    console.log('USD price detect error', e);
+                }
+
+                if (usdPrice === null) {
+                    usdPrice = Number((price && typeof price === 'number' && price > 0) ? (price / 125) : (pr ? (pr / 125) : 0));
+                }
 
                 if (existingIndex >= 0) {
                     // Update existing ticket
                     this.selectedTickets[existingIndex].count = count;
+                    this.selectedTickets[existingIndex].usdPrice = usdPrice;
                 } else {
                     // Add new ticket
                     this.selectedTickets.push({
                         type: type,
                         price: pr || price,
+                        usdPrice: usdPrice,
                         count: count
                     });
                 }
@@ -1404,26 +1581,32 @@
 
             saveFormData() {
                 // Save form data from step 0
-                const fullName = document.querySelector('#fullName');
+                const firstName = document.querySelector('#firstName');
+                const lastName = document.querySelector('#lastName');
                 const email = document.querySelector('#email');
                 const phone = document.querySelector('#phone');
                 const accept = document.querySelector('#accept');
+                const currency = document.querySelector('#currency');
 
-                if (fullName) this.formData.fullName = fullName.value;
+                if (firstName) this.formData.firstName = firstName.value;
+                if (lastName) this.formData.lastName = lastName.value;
                 if (email) this.formData.email = email.value;
                 if (phone) this.formData.phone = phone.value;
                 if (accept) this.formData.accept = accept.checked;
+                if (currency) this.formData.currency = (currency.value || 'KES').toUpperCase();
 
                 // Read organization from root contact step
                 const org = document.querySelector('#organizationRoot');
                 if (org) this.formData.organization = org.value;
 
                 // Get country value from the country select plugin
-                if (country) {
-                    const countryData = $(country).countrySelect('getSelectedCountryData');
-                    this.formData.country = countryData ? countryData.name : country.value;
+                const countryInput = document.querySelector('#country');
+                if (countryInput) {
+                    const countryData = $(countryInput).countrySelect('getSelectedCountryData');
+                    this.formData.country = countryData ? countryData.name : countryInput.value;
                 }
 
+                this.formData.currency = (this.formData.currency || 'KES').toUpperCase();
                 console.log('Form data saved:', this.formData);
             },
 
@@ -1470,6 +1653,11 @@
             },
 
             validatePaymentMethod() {
+                this.paymentMethod = this.paymentMethod || 'pesaflow';
+                if (this.paymentMethod === 'pesaflow') {
+                    this.paymentErrors.method = '';
+                    return true;
+                }
                 if (!this.paymentMethod) {
                     this.paymentErrors.method = 'Please select a payment method';
                     return false;
@@ -1494,25 +1682,27 @@
 
             async completePurchase() {
                 if (this.isSubmitting) return;
-                // Ensure latest form data
                 this.clearAllErrors();
+                this.paymentMethod = this.paymentMethod || 'pesaflow';
                 if (!this.isPurchaseMore) {
                     this.saveFormData();
                 }
 
-                // Validate payment method and related fields
                 if (!this.validatePaymentMethod()) {
                     return;
                 }
 
                 this.isSubmitting = true;
 
+                const currency = (this.formData.currency || 'KES').toUpperCase();
                 const payload = {
                     formData: this.isPurchaseMore ? {} : this.formData,
                     selectedTickets: this.selectedTickets,
                     paymentMethod: this.paymentMethod,
-                    paymentEmail: this.paymentEmail,
-                    paymentPhone: this.paymentPhone,
+                    paymentEmail: this.formData.email || this.paymentEmail || '',
+                    paymentPhone: this.formData.phone || this.paymentPhone || '',
+                    amount: this.selectedTickets.reduce((sum, ticket) => sum + (this.getTicketPrice(ticket) * ticket.count), 0),
+                    currency,
                     isPurchaseMore: this.isPurchaseMore,
                 };
 
@@ -1522,7 +1712,7 @@
 
                     Swal.fire({
                         title: 'Processing...',
-                        text: 'Please wait while we process your purchase.',
+                        text: 'Please wait while we create your order and launch the payment page.',
                         allowOutsideClick: false,
                         didOpen: () => {
                             Swal.showLoading();
@@ -1548,18 +1738,10 @@
                         data = null;
                     }
 
-
-                    // Handle validation errors from server
-                    if (res.status === 422 && data.errors) {
-                        console.log("ERRORS",res.status, data.errors)
-                        // Close processing Swal and move back to relevant step to show errors
+                    if (res.status === 422 && data && data.errors) {
                         Swal.close();
-
-                        // For authenticated users (purchase more), stay on payment (step 1)
-                        // For new registrations, go back to delegates info (step 1)
                         this.currentStep = 1;
 
-                        // Display field errors
                         setTimeout(() => {
                             for (const key in data.errors) {
                                 if (!Object.prototype.hasOwnProperty.call(data.errors, key)) continue;
@@ -1567,7 +1749,6 @@
                                 const selector = document.querySelector(`#${key}`) || document.querySelector(`[name="${key}"]`);
                                 const parent = selector ? (selector.closest && selector.closest('div') || selector.parentElement) : null;
                                 if (selector && parent) {
-                                    // remove existing
                                     const existing = parent.querySelector('.custom-error-container');
                                     if (existing) existing.remove();
                                     const errEl = this.createErrorMessage(messages[0]);
@@ -1584,31 +1765,40 @@
                     }
 
                     if (res.ok) {
+                        const paymentUrl = data && (data.payment_url || data.iframe_url || data.invoice_link || data.url);
+                        if (paymentUrl) {
+                            this.paymentIframeUrl = paymentUrl;
+                            this.showPaymentIframe = true;
+                            this.currentStep = 0;
+                            Swal.close();
+                            return;
+                        }
+
                         Swal.fire({
                             icon: 'success',
                             title: 'Registration successful!',
-                            text: data.message ?? 'Ticket purchased successfully!',
+                            text: data && data.message ? data.message : 'Ticket purchased successfully!',
                             showCancelButton: false,
                         });
 
                         if (this.isPurchaseMore) {
-                            // Redirect to dashboard after successful purchase
                             setTimeout(() => {
                                 window.location.href = '/dashboard';
                             }, 1500);
                         } else {
-                            // For new registrations, clear form and reset UI
                             this.clearAllErrors();
                             this.formData = {
-                                fullName: '',
+                                firstName: '',
+                                lastName: '',
                                 email: '',
                                 phone: '',
                                 country: '',
                                 organization: '',
+                                currency: 'KES',
                                 terms: 0
                             };
                             this.selectedTickets = [];
-                            this.paymentMethod = null;
+                            this.paymentMethod = 'pesaflow';
                             this.paymentEmail = '';
                             this.paymentPhone = '';
                             this.paymentErrors = {
@@ -1621,16 +1811,13 @@
                             };
                             this.currentStep = 0;
 
-                            // Use setTimeout to allow Swal to display first, then reset UI
                             setTimeout(() => {
-                                // Clear all input fields
                                 document.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"], textarea, select').forEach(field => {
                                     if (field.name !== 'method' && field.name !== 'confirm_password_confirmation') {
                                         field.value = '';
                                     }
                                 });
 
-                                // Clear terms checkbox
                                 const termsCheckbox = document.querySelector('#terms');
                                 if (termsCheckbox) {
                                     termsCheckbox.checked = false;

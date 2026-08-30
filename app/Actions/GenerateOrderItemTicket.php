@@ -79,9 +79,10 @@ class GenerateOrderItemTicket
          */
         $this->fillData($orderItem->reference_no, 10, 0, 25, 46, [250,250,250], 14, 'I', );
 
-        $this->fillData("Kenya Innovation Week 2023: Commonwealth Edition", 70, 0, 70, 79, [250,168,24], 12, 'I', );
+        $this->fillData("KICP 2026", 70, 0, 70, 79, [250,168,24], 12, 'I', );
 
-        $this->fillData("27th Nov - 1st Dec 2023  NAIROBI hosted @ College of Insurance", 82, 0, 75, 94, [250,168,24], 12, 'I', );
+        $this->fillData("26th Oct - 30`st Oct 2023  NAIROBI hosted @ College of Insurance", 82, 0, 75, 94, [250,168,24],
+                        12, 'I', );
 
 
         $this->fillData(format_amount($orderItem->total, $orderItem->currency), 48, 0, 42, 110, [250,168,24], 12, 'I', );

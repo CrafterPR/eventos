@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\PurchaseOrder;
 use App\Actions\Pesaflow\PesaflowQueryPaymentStatus;
 use App\Actions\Pesaflow\PesaflowRequestPayment;
 use App\Enum\Currency;
@@ -13,14 +14,14 @@ use Illuminate\Support\HigherOrderWhenProxy;
 if (!function_exists("pesaflow_request_payment")) {
     /**
      * Request pesaflow payment
-     * @param Order $order
+     * @param PurchaseOrder $order
      * @param string $billDescription
      * @param string $serviceId
      * @param string $currency
      * @return mixed
      */
     function pesaflow_request_payment(
-        Order  $order,
+        PurchaseOrder  $order,
         string $billDescription,
         string $serviceId,
         string $currency

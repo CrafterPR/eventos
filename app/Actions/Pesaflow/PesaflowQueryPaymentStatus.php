@@ -4,9 +4,10 @@ namespace App\Actions\Pesaflow;
 
 use App\Enum\OrderStatus;
 use App\Enum\PaymentStatus;
+use App\Enum\PurchaseOrderStatus;
 use App\Events\PesaflowPaymentFailedEvent;
 use App\Events\PesaflowPaymentSuccessfulEvent;
-use App\Models\Order;
+use App\Models\PurchaseOrder;
 use App\Models\Pesaflow\PesaflowResponse;
 use Illuminate\Http\Client\RequestException;
 use Illuminate\Support\Facades\Http;
@@ -20,10 +21,10 @@ class PesaflowQueryPaymentStatus
 
     /**
      * @param $refNo
-     * @return Order|null
+     * @return PurchaseOrder|null
      * @throws RequestException
      */
-    public function handle($refNo): ?Order
+    public function handle($refNo): ?PurchaseOrder
     {
         $url = config("services.pesaflow.url");
         $apiClientId = config("services.pesaflow.api_client_id");
@@ -44,7 +45,7 @@ class PesaflowQueryPaymentStatus
             ->throw()
             ->json();
 
-        if (app()->isLocal()) {
+        if (!app()->isProduction()) {
             Log::info("PESAFLOW QUERY RESPONSE:", $response);
         }
 
@@ -63,24 +64,24 @@ class PesaflowQueryPaymentStatus
 
         $pesaflowRequest = $pesaflowResponse->pesaflowRequest;
 
-        $order = $pesaflowRequest->order;
+        $order = $pesaflowRequest->purchase_order;
 
         $pesaflowRequest->update([
             "status" => $status,
         ]);
 
-        if ($order->status == OrderStatus::SETTLED) {
+        if ($order->status == PurchaseOrderStatus::SETTLED) {
 
             $order->update([
-                "status" => PaymentStatus::SETTLED,
+                "status" => PaymentStatus::SETTLED->value,
                 "check_out_completed_at" => now(),
             ]);
 
-            event(new PesaflowPaymentSuccessfulEvent(order: $order));
+            event(new PesaflowPaymentSuccessfulEvent(purchase_order: $order));
         }
 
         if ($status != PaymentStatus::SETTLED->value) {
-            event(new PesaflowPaymentFailedEvent(order: $order, status: $status));
+            event(new PesaflowPaymentFailedEvent(purchase_order: $order, status: $status));
         }
 
         return $order;

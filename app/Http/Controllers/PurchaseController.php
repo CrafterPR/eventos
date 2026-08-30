@@ -26,34 +26,55 @@ class PurchaseController extends Controller
         // Merge formData with top-level fields so validation can find either
         $payload = array_merge($formData, $request->all());
 
+        $firstName = trim((string) ($payload['firstName'] ?? $payload['first_name'] ?? ''));
+        $lastName = trim((string) ($payload['lastName'] ?? $payload['last_name'] ?? ''));
+        $fullName = trim((string) ($payload['fullName'] ?? ''));
+
+        if ($fullName !== '' && ($firstName === '' || $lastName === '')) {
+            $parts = preg_split('/\s+/', $fullName);
+            $firstName = $firstName !== '' ? $firstName : (string) ($parts[0] ?? '');
+            $lastName = $lastName !== '' ? $lastName : implode(' ', array_slice($parts, 1));
+        }
+
+        $payload['firstName'] = $firstName;
+        $payload['lastName'] = $lastName;
+        $payload['fullName'] = trim($firstName . ' ' . $lastName);
+        $payload['currency'] = strtoupper((string) ($payload['currency'] ?? 'KES'));
+        $payload['paymentMethod'] = $payload['paymentMethod'] ?? 'pesaflow';
+
         // For authenticated users (purchase more), skip validating formData like fullName/email/phone
-        $isAuthenticatedPurchase = $request->get('isPurchaseMore');
+        $isAuthenticatedPurchase = $request->boolean('isPurchaseMore');
 
         if ($isAuthenticatedPurchase) {
             // Only validate tickets and payment method for purchase-more
             $rules = [
-                'paymentMethod' => 'required|in:lpo,mpesa',
+                'currency' => 'required|string|in:KES,USD',
+                'paymentMethod' => 'nullable|in:lpo,mpesa,pesaflow',
                 'selectedTickets' => 'required|array|min:1',
             ];
 
             $messages = [
-                'paymentMethod.required' => 'Payment method is required',
+                'currency.required' => 'Currency is required',
+                'currency.in' => 'Currency must be KES or USD',
                 'selectedTickets.required' => 'Selected tickets is required',
                 'selectedTickets.array' => 'You must select at least one ticket type',
                 'selectedTickets.min' => 'You must select at least one ticket type',
             ];
         } else {
             $rules = [
-                'fullName' => 'required|string|max:255',
+                'firstName' => 'required|string|max:255',
+                'lastName' => 'required|string|max:255',
                 'email' => 'required|unique:users|email|max:255',
                 'phone' => 'required|unique:users,mobile|string|max:50',
                 'country' => 'required|string|max:100',
-                'paymentMethod' => 'required|in:lpo,mpesa',
+                'currency' => 'required|string|in:KES,USD',
+                'paymentMethod' => 'nullable|in:lpo,mpesa,pesaflow',
                 'selectedTickets' => 'required|array|min:1',
             ];
 
             $messages = [
-                'fullName.required' => 'Full name is required',
+                'firstName.required' => 'First name is required',
+                'lastName.required' => 'Last name is required',
                 'email.required' => 'Email is required',
                 'email.email' => 'Enter a valid email address',
                 'email.unique' => 'A delegate is already registered with this email',
@@ -62,7 +83,8 @@ class PurchaseController extends Controller
                 'country.required' => 'Country is required',
                 'country.string' => 'Invalid country',
                 'country.max' => 'Invalid country',
-                'paymentMethod.required' => 'Payment method is required',
+                'currency.required' => 'Currency is required',
+                'currency.in' => 'Currency must be KES or USD',
                 'selectedTickets.required' => 'Selected tickets is required',
                 'selectedTickets.array' => 'You must select at least one ticket type',
                 'selectedTickets.min' => 'You must select at least one ticket type',
@@ -74,7 +96,6 @@ class PurchaseController extends Controller
         } elseif (($payload['paymentMethod'] ?? null) === 'mpesa') {
             $rules['paymentPhone'] = 'required|string|max:50';
         }
-
 
         $validator = Validator::make($payload, $rules, $messages);
 
@@ -91,25 +112,12 @@ class PurchaseController extends Controller
 
             // If is not authenticated user
             if (!$isAuthenticatedPurchase) {
-                // Split full name into first_name and last_name
-                $fullName = trim($payload['fullName'] ?? '');
-                $firstName = null;
-                $lastName = null;
-                if ($fullName !== '') {
-                    $parts = preg_split('/\s+/', $fullName);
-                    $firstName = array_shift($parts);
-                    $lastName = count($parts) ? implode(' ', $parts) : null;
-                }
-
-                // Create or update user with provided registration details
-                // If the user already exists, update their profile but DO NOT overwrite their password.
-                // If the user does not exist, generate a random password now so it's present on create.
                 $existingUser = User::where('email', $payload['email'])->first();
 
                 if ($existingUser) {
                     $existingUser->update([
-                        'first_name' => $firstName,
-                        'last_name' => $lastName,
+                        'first_name' => $firstName ?: null,
+                        'last_name' => $lastName ?: null,
                         'mobile' => $payload['phone'] ?? null,
                         'country' => $payload['country'] ?? null,
                         'organization' => $payload['organization'] ?? null,
@@ -122,8 +130,8 @@ class PurchaseController extends Controller
                     $password = Str::random(10);
 
                     $user = User::create([
-                        'first_name' => $firstName,
-                        'last_name' => $lastName,
+                        'first_name' => $firstName ?: null,
+                        'last_name' => $lastName ?: null,
                         'mobile' => $payload['phone'] ?? null,
                         'country' => $payload['country'] ?? null,
                         'organization' => $payload['organization'] ?? null,
@@ -134,9 +142,8 @@ class PurchaseController extends Controller
                     $user->assignRole(Role::DELEGATE);
                 }
             } else {
-                $user = User::where('email', $payload['paymentEmail'])->first();
+                $user = User::where('email', $payload['paymentEmail'] ?? $payload['email'] ?? null)->first();
             }
-
 
             // Determine tickets payload
             $tickets = $payload['selectedTickets'] ?? ($payload['tickets'] ?? []);
@@ -162,10 +169,10 @@ class PurchaseController extends Controller
                                 $sum += $item['total'];
                                 $computed = true;
                             } elseif (isset($item['price']) && isset($item['count'])) {
-                                $sum += (float)$item['price'] * (int)$item['count'];
+                                $sum += (float) $item['price'] * (int) $item['count'];
                                 $computed = true;
                             } elseif (isset($item['price']) && isset($item['quantity'])) {
-                                $sum += (float)$item['price'] * (int)$item['quantity'];
+                                $sum += (float) $item['price'] * (int) $item['quantity'];
                                 $computed = true;
                             }
                         }
@@ -177,18 +184,32 @@ class PurchaseController extends Controller
                 }
             }
 
+            $currency = strtoupper((string) ($payload['currency'] ?? 'KES'));
+            $serviceMap = [
+                'KES' => '11376294',
+                'USD' => '11376338',
+            ];
+            $serviceCode = $serviceMap[$currency] ?? '11376294';
+
             // Create purchase order via Eloquent so ULID is generated by HasUlids
             $purchaseOrder = PurchaseOrder::create([
                 'user_id' => $user->id,
                 'reference' => 'PO'.time().'2026',
-                'payment_method' => $payload['paymentMethod'] ?? null,
-                'payment_email' => $payload['paymentEmail'] ?? null,
-                'payment_phone' => $payload['paymentPhone'] ?? null,
+                'payment_method' => $payload['paymentMethod'] ?? 'pesaflow',
+                'payment_email' => $payload['paymentEmail'] ?? $payload['email'] ?? null,
+                'payment_phone' => $payload['paymentPhone'] ?? $payload['phone'] ?? null,
                 'tickets' => $tickets,
                 'amount' => $amount ?? null,
-                'currency' => $payload['currency'] ?? null,
+                'currency' => $currency,
                 'status' => 'new',
             ]);
+
+            $paymentRequest = pesaflow_request_payment(
+                $purchaseOrder,
+                'Conference Fee',
+                $serviceCode,
+                $currency
+            );
 
             // Queue email with login details only for newly created users
             if (!$isAuthenticatedPurchase && $password) {
@@ -197,11 +218,20 @@ class PurchaseController extends Controller
 
             DB::commit();
 
+            $paymentUrl = $paymentRequest->invoice_link ?? route('login');
             $successMessage = $isAuthenticatedPurchase
-                ? 'Purchase order created successfully! You can proceed to payment.'
+                ? 'Purchase order created successfully! Redirecting to payment.'
                 : 'Congratulations! Check your email for login details to manage your ticket purchase.';
 
-            return response()->json(['message' => $successMessage, 'order_id' => $purchaseOrder->id]);
+            return response()->json([
+                'message' => $successMessage,
+                'order_id' => $purchaseOrder->id,
+                'purchase_order_id' => $purchaseOrder->id,
+                'currency' => $currency,
+                'service_code' => $serviceCode,
+                'payment_url' => $paymentUrl,
+                'iframe_url' => $paymentUrl,
+            ]);
         } catch (\Exception $e) {
             DB::rollBack();
             return response()->json([

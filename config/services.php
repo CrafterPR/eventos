@@ -52,5 +52,13 @@ return [
     ],
 
     'USSD' => env('USSD_CODE'),
-
+    'pesaflow' => [
+        'url' => env("PESAFLOW_URL"),
+        'api_client_id' => env("PESAFLOW_API_CLIENT_ID"),
+        'service_id' => env("PESAFLOW_SERVICE_ID"),
+        'secret' => env("PESAFLOW_SECRET"),
+        'key' => env("PESAFLOW_KEY"),
+        'redirect_url' => env('APP_URL') . '/pesaflow/redirect-callback',
+        'notification_url' => env('APP_URL') . '/api/webhooks/pesaflow/notification',
+        ]
 ];

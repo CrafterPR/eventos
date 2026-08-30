@@ -176,9 +176,11 @@ class User extends Authenticatable
     /**
      * @return string
      */
-    public function getNameAttribute(): string
+    public function name(): Attribute
     {
-        return "$this->salutation $this->first_name $this->last_name";
+        return Attribute::make(
+            get: fn () => "$this->salutation $this->first_name $this->last_name"
+        );
     }
 
 

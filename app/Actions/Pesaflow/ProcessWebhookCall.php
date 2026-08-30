@@ -50,7 +50,7 @@ class ProcessWebhookCall
 
         $pesaflowRequest = $pesaflowResponse->pesaflowRequest;
 
-        $order = $pesaflowRequest->order;
+        $purchase_order = $pesaflowRequest->purchase_order;
 
         $pesaflowRequest->update([
             "status" => $status,
@@ -58,17 +58,17 @@ class ProcessWebhookCall
 
         if ($status == PaymentStatus::SETTLED->value) {
 
-            $order->update([
-                "status" => PaymentStatus::SETTLED,
+            $purchase_order->update([
+                "status" => PaymentStatus::SETTLED->value,
                 "check_out_completed_at" => now(),
                 "payment_method" => $pesaflowResponse->payment_channel,
                 "transaction_reference" => $transactionRef
             ]);
 
-            event(new PesaflowPaymentSuccessfulEvent(order: $order));
+            event(new PesaflowPaymentSuccessfulEvent(purchase_order: $purchase_order));
 
         } else {
-            event(new PesaflowPaymentFailedEvent(order: $order, status: $status));
+            event(new PesaflowPaymentFailedEvent(purchase_order: $purchase_order, status: $status));
         }
 
         $webhookCall->update([

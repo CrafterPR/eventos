@@ -3,6 +3,7 @@
 namespace App\Events;
 
 use App\Models\Order;
+use App\Models\PurchaseOrder;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PrivateChannel;
@@ -17,7 +18,7 @@ class PesaflowPaymentSuccessfulEvent
      * Create a new event instance.
      */
     public function __construct(
-        public Order $order
+        public PurchaseOrder $purchase_order
     )
     {
     }
@@ -30,7 +31,7 @@ class PesaflowPaymentSuccessfulEvent
     public function broadcastOn(): array
     {
         return [
-            new PrivateChannel('orders.' . $this->order->id),
+            new PrivateChannel('orders.' . $this->purchase_order->id),
         ];
     }
 }
