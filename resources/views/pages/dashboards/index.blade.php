@@ -261,9 +261,9 @@
                                                 @endif
                                             </td>
                                             <td class="text-start pe-0">
-                                                @php
+                                                <?php
                                                     $payLink = \App\Models\Pesaflow\PesaflowRequest::where('purchase_order_id', $po->id)->latest()->value('invoice_link') ?: route('tickets.show', $po->id);
-                                                @endphp
+                                                ?>
                                                 @if($po->status === \App\Enum\PurchaseOrderStatus::NEW)
                                                     @if(Str::startsWith($payLink, ['http://', 'https://']))
                                                         <a href="{{ $payLink }}" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-danger">Pay Now</a>
