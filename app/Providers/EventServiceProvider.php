@@ -34,6 +34,9 @@ class EventServiceProvider extends ServiceProvider
         'Illuminate\Http\Client\Events\RequestSending' => [
             'App\Listeners\LogRequestSending',
         ],
+        PesaflowPaymentSuccessfulEvent::class => [
+            PesaflowPaymentSuccessfulListener::class,
+        ],
 
     ];
 

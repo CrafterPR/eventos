@@ -20,6 +20,7 @@ class PurchaseOrder extends Model
     protected $casts = [
         'tickets' => 'array',
         'amount' => 'decimal:2',
+        'status' => \App\Enum\PurchaseOrderStatus::class,
     ];
 
     public function user(): BelongsTo

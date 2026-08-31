@@ -13,7 +13,7 @@
             <div class="card-body">
                 <div class="mb-4">
                     <h4 class="fw-bold">Reference: <span class="text-muted">{{ $order->reference }}</span></h4>
-                    <p class="mb-0">Status: <strong>{{ ucfirst($order->status) }}</strong></p>
+                    <p class="mb-0">Status: <strong>{{ ucfirst($order->status->value) }}</strong></p>
                     <p class="mb-0">Amount: <strong>{{ number_format($order->amount, 2) }} {{ $order->currency ?? 'KSH' }}</strong></p>
                     <p class="mb-0">Payment method: <strong>{{ strtoupper($order->payment_method ?? '') }}</strong></p>
                 </div>
@@ -54,7 +54,14 @@
 
                 <div class="mt-4">
                     @if($order->status !== 'paid')
-                        <a href="#" class="btn btn-primary">Proceed to payment</a>
+                        @php
+                            $payLink = \App\Models\Pesaflow\PesaflowRequest::where('purchase_order_id', $order->id)->latest()->value('invoice_link') ?: '#';
+                        @endphp
+                        @if($payLink !== '#')
+                            <a href="{{ $payLink }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Proceed to payment</a>
+                        @else
+                            <a href="{{ route('tickets.show', $order->id) }}" class="btn btn-primary">Proceed to payment</a>
+                        @endif
                     @endif
                 </div>
             </div>

@@ -1,6 +1,7 @@
 <?php
 
 use App\Actions\GeneratePaymentReceipt;
+use App\Http\Controllers\PesaflowController;
 use App\Http\Controllers\Apps\DelegateController;
 use App\Http\Controllers\Apps\ExhibitorController;
 use App\Http\Controllers\Apps\PermissionManagementController;
@@ -76,6 +77,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
 
     Route::impersonate();
+});
+
+Route::group(["prefix" => "pesaflow", "as" => "pesaflow."], function () {
+    Route::get("redirect-callback", [PesaflowController::class, "callback"])->name("redirect");
+    Route::get("invoice-link/{order}", [PesaflowController::class, "invoice_link"])->name("invoice_link");
+
 });
 
 Route::get('/error', function () {

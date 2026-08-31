@@ -5,7 +5,6 @@ use App\Actions\Pesaflow\PesaflowQueryPaymentStatus;
 use App\Actions\Pesaflow\PesaflowRequestPayment;
 use App\Enum\Currency;
 use App\Models\EventSummit;
-use App\Models\Order;
 use App\Models\PaymentService;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;

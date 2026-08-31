@@ -3,11 +3,9 @@
 namespace App\Actions\Pesaflow;
 
 use App\Models\PurchaseOrder;
-use App\Actions\GenerateProformaInvoice;
 use App\Enum\Currency;
 use App\Enum\PaymentStatus;
 use App\Models\Pesaflow\PesaflowRequest;
-use App\Notifications\SendProformaInvoiceNotification;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Client\RequestException;
 use Illuminate\Support\Facades\Http;
@@ -77,7 +75,7 @@ class PesaflowRequestPayment
             'amountExpected' => $amountExpected,
             'secureHash' => $secureHash,
             'format' => "json",
-            'pictureURL' => image('images/green_logo.svg'),
+            'pictureURL' => image('images/2nd KICP-logo-01.png'),
             'sendSTK' => $currency == Currency::KES->value,
         ];
 
@@ -90,7 +88,7 @@ class PesaflowRequestPayment
 
         return PesaflowRequest::updateOrCreate(
             [
-            'order_id' => $order->id,
+            'purchase_order_id' => $order->id,
             'user_id' => $client->id
             ],
             ['api_client_id' => $apiClientId,

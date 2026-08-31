@@ -645,7 +645,7 @@
                                         </div>
 
                                         <div class="pt-8 border-t border-gray-100">
-                                            <div class="bg-blue-50 border border-[#84C1D9]/30 rounded-xl p-5 mb-6">
+                                            <div id="terms-wrapper" class="bg-blue-50 border border-[#84C1D9]/30 rounded-xl p-5 mb-6">
                                                 <div x-show="formErrors.terms" x-cloak class="mt-2 p-3 bg-red-50 border border-red-200 rounded-lg">
                                                     <p x-text="formErrors.terms" class="text-red-600 text-sm"></p>
                                                 </div>
@@ -664,109 +664,6 @@
 
                                             </div>
 
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                    <section x-cloak x-show="!showPaymentIframe && ((isPurchaseMore && currentStep === 1) || (!isPurchaseMore && currentStep === 2))">
-                        <div class="mx-auto max-w-7xl ">
-                            <div class="text-slate-800 text-center py-4">
-                                <div class="flex items-center justify-center gap-4 mb-4">
-                                    <div class="w-12 h-12 bg-[#84C1D9] rounded-xl flex items-center justify-center shadow-lg">
-                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-7 h-7 text-white iconify iconify--mdi" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M9 20c-1.1 0-2 .9-2 2s.9 2 2 2s2-.9 2-2s-.9-2-2-2m9-4c-1.1 0-2 .9-2 2s.9 2 2 2s2-.9 2-2s-.9-2-2-2M7 18h8v-2H7v2m13-5l1.46-2.04A1 1 0 0 0 21 9.5V5h-4V3h4a2 2 0 0 1 2 2v4.5a2 2 0 0 1-.54 1.46zM3 6h15v2H3zm0 5h11v2H3z"></path></svg>
-                                    </div>
-                                    <div>
-                                        <p class="text-gray-500 text-sm sm:text-base mt-1" x-text="isPurchaseMore ? 'Step 2 of 2 - Payment' : 'Step 3 of 3 - Payment'"></p>
-                                    </div>
-                                </div>
-                                <h2 class="font-bold text-2xl">Payment</h2>
-                                <p class="font-normal">Complete your payment to secure your tickets.</p>
-                            </div>
-
-                            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 pt-4 sm:pt-6 pb-8 sm:pb-10 max-w-7xl mx-auto px-3 sm:px-4">
-                                <div>
-                                    <div class="p-4 sm:p-6 bg-white border border-slate-800 rounded-lg shadow-sm">
-                                        <h2 class="text-lg sm:text-xl font-bold text-slate-800 mb-3
-                                        sm:mb-4">Choose Payment Method</h2>
-                                        <form>
-                                            <div class="space-y-4">
-                                                <div>
-                                                    <input id="lpo" class="mr-2" type="radio" value="lpo" name="method" @change="onPaymentMethodChange('lpo')" :checked="paymentMethod === 'lpo'">
-                                                    <label for="lpo" class="font-medium text-slate-800 text-sm
-                                                    sm:text-base">Receive LPO on your invoice</label>
-                                                    <div class="ml-4 sm:ml-6 mt-2">
-                                                        <p class="text-xs sm:text-sm text-gray-600">You will receive
-                                                            an LPO with payment details in your email below</p>
-                                                    </div>
-
-                                                    <div x-show="paymentMethod === 'lpo'" x-cloak class="mt-3 ml-4 sm:ml-6">
-                                                        <label class="block text-sm text-slate-800 font-medium mb-1">Confirm Email</label>
-                                                        <input type="email" x-model="paymentEmail" @blur="validatePaymentEmail" :class="{'border-red-500 bg-red-50': paymentErrors.email}" class="w-full px-3 py-2 border rounded-lg" />
-                                                        <p x-show="paymentErrors.email" x-text="paymentErrors.email" class="text-red-600 text-xs mt-1"></p>
-                                                    </div>
-                                                </div>
-
-                                                <div>
-                                                    <input id="mpesa" class="mr-2" type="radio" value="mpesa" name="method" @change="onPaymentMethodChange('mpesa')" :checked="paymentMethod === 'mpesa'">
-                                                    <label for="mpesa" class="font-medium text-slate-800 text-sm sm:text-base">Mobile Money (Mpesa)</label>
-
-                                                    <div x-show="paymentMethod === 'mpesa'" x-cloak class="mt-3 ml-4 sm:ml-6">
-                                                        <label class="block text-sm text-slate-800 font-medium mb-1">Confirm Phone (with country code)</label>
-                                                        <input type="text" x-model="paymentPhone" @blur="validatePaymentPhone" :class="{'border-red-500 bg-red-50': paymentErrors.phone}" class="w-full px-3 py-2 border rounded-lg" />
-                                                        <p x-show="paymentErrors.phone" x-text="paymentErrors.phone" class="text-red-600 text-xs mt-1"></p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div x-show="paymentErrors.method" x-cloak class="mt-4 p-3 bg-red-50 border border-red-200 rounded-lg">
-                                                <p x-text="paymentErrors.method" class="text-red-600 text-sm"></p>
-                                            </div>
-                                        </form>
-
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="p-4 sm:p-6 bg-white border border-slate-800 rounded-lg shadow-sm">
-
-                                        <div class="space-y-2 mb-3 sm:mb-4">
-                                            <template x-if="!selectedTickets || selectedTickets.length === 0">
-                                                <div class="text-sm text-gray-500">No tickets selected</div>
-                                            </template>
-                                            <template x-for="(ticket, idx) in selectedTickets" :key="idx">
-                                                <div class="flex justify-between text-sm sm:text-base">
-                                                    <span x-text="ticket.type + ' × ' + ticket.count"></span>
-                                                    <span x-text="formatPrice(getTicketPrice(ticket) * ticket.count)"></span>
-                                                </div>
-                                            </template>
-                                            <hr class="my-2">
-                                            <div class="flex justify-between text-sm sm:text-base"><span>Subtotal</span><span x-text="formatPrice(totalAmount())"></span></div>
-                                            <div class="flex justify-between text-sm sm:text-base"><span>Promo</span><span class="text-green-600">-Ksh. 0</span></div>
-                                            <div class="flex justify-between font-bold text-base sm:text-lg"><span>Total</span><span x-text="formatPrice(totalAmount())"></span></div>
-                                        </div>
-                                        <div class="mb-3 sm:mb-4">
-                                            <form>
-                                                <div class="flex flex-col sm:flex-row gap-2">
-                                                    <input placeholder="Have a promo code?" class="flex-1 px-3 sm:px-4 py-2 sm:py-3 border border-[#84C1D9] rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-slate-800 focus:border-transparent text-sm sm:text-base" type="text" value="">
-                                                    <div class="flex gap-2">
-                                                        <button type="submit" disabled="" class="bg-slate-800 text-white px-3 sm:px-4 py-2 sm:py-3 rounded-lg hover:bg-slate-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm sm:text-base">Apply</button>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
-                                        <div class="flex flex-col sm:flex-row justify-between gap-3 sm:gap-0">
-                                            <button @click="prevStep()" class="bg-gray-200 text-gray-700 px-4 sm:px-6
-                                            py-2 sm:py-3
-                                                rounded-full font-medium hover:bg-gray-300 transition-colors text-sm
-                                                sm:text-base">Back to ticket selection</button>
-                                            <button :disabled="isSubmitting" @click="completePurchase" class="px-4 sm:px-6 py-2 sm:py-3 rounded-full font-medium transition-colors text-sm sm:text-base bg-red-500 text-white hover:bg-red-600 inline-flex items-center justify-center gap-2">
-                                                <svg x-show="isSubmitting" class="animate-spin h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                                                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
-                                                </svg>
-                                                <span x-show="!isSubmitting">Complete Purchase</span>
-                                                <span x-show="isSubmitting">Processing...</span>
-                                            </button>
                                         </div>
                                     </div>
                                 </div>
@@ -819,10 +716,10 @@
                                         </svg>
                                         Back
                                     </button>
-                                    <button x-show="currentStep < steps.length - 1" @click="(isPurchaseMore && currentStep === 0) || (!isPurchaseMore && currentStep === 1) ? (isPurchaseMore ? nextStep() : validateStep()) : nextStep()"
+                                    <button x-show="hasSelectedTickets()" @click="proceedFromCurrentStep()"
                                             class="flex-1 sm:flex-none bg-red-500 text-white px-6 sm:px-8 py-2.5 sm:py-3
                                             rounded-full font-semibold hover:bg-slate-800 transition-all duration-300 shadow-lg hover:shadow-xl text-sm sm:text-base inline-flex items-center justify-center gap-2">
-                                        Proceed to <span x-text="isPurchaseMore ? (currentStep === 0 ? 'payment' : 'complete') : (currentStep === 0 ? 'add your details' : 'make payment')"></span>
+                                        Proceed to <span x-text="isPurchaseMore ? 'PesaFlow' : (currentStep === 0 ? 'add your details' : 'make payment')"></span>
                                         <svg xmlns="http://www.w3.org/2000/svg"
                                              xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
                                              class="w-4 h-4 iconify iconify--mdi" width="1em" height="1em"
@@ -846,7 +743,24 @@
                                    </div>
                                    <button type="button" @click="showPaymentIframe = false; currentStep = 0;" class="px-4 py-2 rounded-full bg-gray-200 text-gray-700 font-medium hover:bg-gray-300">Back</button>
                                </div>
-                               <iframe :src="paymentIframeUrl" title="PesaFlow payment" class="w-full min-h-[720px] border-0 rounded-xl bg-white" loading="lazy"></iframe>
+                               <iframe data-payment-iframe :src="paymentIframeUrl" title="PesaFlow payment" class="w-full min-h-[720px] border-0 rounded-xl bg-white" loading="lazy"></iframe>
+
+                        <!-- Fallback UI when the iframe cannot be embedded -->
+                        <div x-show="showIframeBlocked" class="p-4 bg-yellow-50 border border-yellow-200 rounded-lg mt-4">
+                            <div class="flex items-start gap-3">
+                                <div class="flex-1">
+                                    <div class="font-semibold text-yellow-800">Payment page cannot be embedded</div>
+                                    <div class="text-sm text-yellow-700 mt-1">The payment provider prevents embedding this page in an iframe. Click the button below to open the payment page in a new tab.</div>
+                                </div>
+                                <div class="flex-shrink-0">
+                                    <a :href="paymentFallbackUrl" target="_blank" rel="noopener noreferrer"
+                                       class="bg-gradient-to-r from-[#175C93] to-[#84C1DA] border border-transparent text-white px-6
+                         sm:px-8
+                         py-3 rounded-full hover:opacity-90 transition-all duration-300 font-medium text-sm sm:text-base shadow-lg flex items-center justify-center gap-2 w-full sm:w-auto">Open payment
+                                        in new tab</a>
+                                </div>
+                            </div>
+                        </div>
                            </div>
                         </div>
                     </section>
@@ -936,8 +850,8 @@
         return {
             currentStep: isPurchaseMore ? 0 : 0,
             steps: isPurchaseMore
-                ? ['Ticket Selection', 'Payment']
-                : ['Ticket Selection','Delegates Info', 'Payment'],
+                ? ['Ticket Selection']
+                : ['Ticket Selection','Delegates Info'],
             isPurchaseMore: isPurchaseMore,
             validators: null,
             formData: {
@@ -957,7 +871,13 @@
             isSubmitting: false,
             selectedTickets: [],
             showPaymentIframe: false,
+            showIframeBlocked: false,
+            paymentFallbackUrl: '',
+            paymentPurchaseOrderId: null,
             paymentIframeUrl: '',
+            polling: false,
+            _pollInterval: null,
+
             paymentErrors: {
                 method: '',
                 email: '',
@@ -1300,9 +1220,8 @@
                 console.log('Validating step:', this.currentStep);
 
                 if (!this.isPurchaseMore && this.currentStep === 1) {
+                    // Save form data for step 1 and continue to normal validation below.
                     this.saveFormData();
-                    await this.completePurchase();
-                    return true;
                 }
 
                 const stepFields = {
@@ -1339,10 +1258,15 @@
                     const termsCheckbox = document.querySelector('#terms');
                     if (termsCheckbox && !termsCheckbox.checked) {
                         this.formErrors.terms = 'You must accept the terms and conditions to proceed';
-                        termsCheckbox.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                        return false;
+                    const termsWrapper = document.querySelector('#terms-wrapper');
+                    if (termsWrapper) {
+                        termsWrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    } else {
+                        termsCheckbox.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                    return false;
                     } else if (termsCheckbox) {
-                        this.formErrors.terms = '';
+                    this.formErrors.terms = '';
                     }
 
                     if (isValid) {
@@ -1794,6 +1718,31 @@
                 console.log('Form data saved:', this.formData);
             },
 
+            logExternalPaymentOpen(purchaseOrderId) {
+                try {
+                    if (window.dataLayer && Array.isArray(window.dataLayer)) {
+                        window.dataLayer.push({ event: 'purchase_opened_external', purchase_order_id: purchaseOrderId });
+                    }
+                    if (typeof window.gtag === 'function') {
+                        window.gtag('event', 'purchase_opened_external', { purchase_order_id: purchaseOrderId });
+                    }
+                    if (window.mixpanel && typeof window.mixpanel.track === 'function') {
+                        window.mixpanel.track('purchase_opened_external', { purchase_order_id: purchaseOrderId });
+                    }
+                    // Best-effort server-side analytics (fire-and-forget)
+                    try {
+                        fetch('/api/v1/analytics/event', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ event: 'purchase_opened_external', purchase_order_id: purchaseOrderId }),
+                            keepalive: true
+                        }).catch(()=>{});
+                    } catch(e) {}
+                } catch (e) {
+                    console.warn('Analytics logging failed', e);
+                }
+            },
+
             onPaymentMethodChange(method) {
                 this.paymentMethod = method;
                 this.paymentErrors.method = '';
@@ -1807,6 +1756,7 @@
                     this.paymentErrors.email = '';
                 }
             },
+
 
             validatePaymentEmail() {
                 if (!this.paymentEmail) {
@@ -1858,6 +1808,12 @@
                 const termsCheckbox = document.querySelector('#terms');
                 if (!termsCheckbox || !termsCheckbox.checked) {
                     this.formErrors.terms = 'You must accept the terms and conditions to proceed';
+                    const termsWrapper = document.querySelector('#terms-wrapper');
+                    if (termsWrapper) {
+                        termsWrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    } else if (termsCheckbox) {
+                        termsCheckbox.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
                     return false;
                 }
                 this.formErrors.terms = '';
@@ -1872,7 +1828,23 @@
                     this.saveFormData();
                 }
 
-                if (!this.validatePaymentMethod()) {
+                // Force pesaflow payments (remove payment selection step)
+                this.paymentMethod = 'pesaflow';
+
+                // Run form validation before invoking the API (contact fields + terms)
+                try {
+                    const canProceed = await this.validateStep();
+                    // validateStep() may return undefined when validator is still initializing — treat non-true as failure
+                    if (canProceed !== true) {
+                        // Ensure terms are validated and scrolled into view if missing
+                        if (this.validateTerms && !this.validateTerms()) {
+                            this.currentStep = 1;
+                        }
+                        return;
+                    }
+                } catch (e) {
+                    console.error('Pre-submit validation failed:', e);
+                    // If validation throws, stop submission
                     return;
                 }
 
@@ -1951,10 +1923,23 @@
                     if (res.ok) {
                         const paymentUrl = data && (data.payment_url || data.iframe_url || data.invoice_link || data.url);
                         if (paymentUrl) {
+                            // Use pesaflow invoice link — open a modal showing the invoice link for the user to pay.
                             this.paymentIframeUrl = paymentUrl;
+                            this.paymentPurchaseOrderId = data && data.purchase_order_id ? data.purchase_order_id : null;
+
+                            // Show modal and display invoice link (avoid attempting to embed to prevent framing issues)
                             this.showPaymentIframe = true;
+                            this.showIframeBlocked = true;
+                            this.paymentFallbackUrl = paymentUrl;
                             this.currentStep = 0;
                             Swal.close();
+
+                            // Start polling the server for payment status while modal is open
+                            try { this.startPaymentStatusPolling(); } catch (e) { console.warn('Start polling failed', e); }
+
+                            // Log analytics event for modal open
+                            try { this.logExternalPaymentOpen(this.paymentPurchaseOrderId); } catch(e) {}
+
                             return;
                         }
 
@@ -2031,12 +2016,28 @@
             },
 
 
+            proceedFromCurrentStep() {
+                if (this.isPurchaseMore) {
+                    this.completePurchase();
+                    return;
+                }
+
+                if (this.currentStep === 1) {
+                    this.validateStep().then((res) => {
+                        if (res === true) {
+                            this.completePurchase();
+                        }
+                    });
+                    return;
+                }
+
+                this.nextStep();
+            },
+
             nextStep() {
                 if (this.isPurchaseMore) {
-                    // For purchase more, skip delegates info (step 1) and go straight to payment
-                    if (this.currentStep === 0) {
-                        this.currentStep = 1; // Jump to payment (which is index 1 in the steps array)
-                    } else if (this.currentStep < this.steps.length - 1) {
+                    // Purchase-more users are sent directly to PesaFlow after ticket selection.
+                    if (this.currentStep < this.steps.length - 1) {
                         this.currentStep++;
                     }
                 } else {

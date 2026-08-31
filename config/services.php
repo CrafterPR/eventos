@@ -55,10 +55,11 @@ return [
     'pesaflow' => [
         'url' => env("PESAFLOW_URL"),
         'api_client_id' => env("PESAFLOW_API_CLIENT_ID"),
-        'service_id' => env("PESAFLOW_SERVICE_ID"),
+        'kes_service_id' => env("PESAFLOW_SERVICE_ID_KES"),
+        'usd_service_id' => env("PESAFLOW_SERVICE_ID_USD"),
         'secret' => env("PESAFLOW_SECRET"),
         'key' => env("PESAFLOW_KEY"),
         'redirect_url' => env('APP_URL') . '/pesaflow/redirect-callback',
-        'notification_url' => env('APP_URL') . '/api/webhooks/pesaflow/notification',
+        'notification_url' => env('APP_URL') . '/api/v1/pesaflow/notification',
         ]
 ];
