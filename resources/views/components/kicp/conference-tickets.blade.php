@@ -13,7 +13,7 @@
                     <section x-cloak x-show="!showPaymentIframe && currentStep === 0" id="ticket-selection">
                         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6" style="opacity: 1;">
 
-                        <div x-data="{ count: 1, selected:false }" :class="selected
+                        <div x-data="{ count: 1, selected:false }" data-ticket-type="Individual Delegate" data-kes-price="63750" data-usd-price="510" :class="selected
                                                        ? 'bg-gradient-to-r from-[#175C93] to-[#7BC7F0] border-[#E12035]'
                                                        : 'bg-white border-gray-200'"
                              class="p-4 sm:p-6 rounded-lg border-2 shadow-sm hover:shadow-lg transition-all duration-300 relative"
@@ -128,7 +128,7 @@
                                </div>
                             </div>
                         </div>
-                        <div x-data="{ count: 10, selected:false }" :class="selected
+                        <div x-data="{ count: 10, selected:false }" data-ticket-type="Group Registration" data-kes-price="67500" data-usd-price="540" :class="selected
                                                         ? 'bg-gradient-to-r from-[#175C93] to-[#7BC7F0] border-[#E12035]'
                                                         : 'bg-white border-gray-200'"
                              class="p-4 sm:p-6 rounded-lg border-2 shadow-sm hover:shadow-lg transition-all duration-300 relative"
@@ -301,7 +301,7 @@
 
                             </div>
                         </div>
-                        <div x-data="{ count: 1, selected:false }" :class="selected
+                        <div x-data="{ count: 1, selected:false }" data-ticket-type="Virtual Ticket" data-kes-price="25000" data-usd-price="200" :class="selected
                                                         ? 'bg-gradient-to-r from-[#175C93] to-[#7BC7F0] border-[#E12035]'
                                                         : 'bg-white border-gray-200'"
                              class="p-4 sm:p-6 rounded-lg border-2 shadow-sm hover:shadow-lg transition-all duration-300 relative"
@@ -355,7 +355,7 @@
                                </div>
                             </div>
                         </div>
-                        <div x-data="{ count: 1, selected:false }" :class="selected
+                        <div x-data="{ count: 1, selected:false }" data-ticket-type="Student Ticket" data-kes-price="27500" data-usd-price="220" :class="selected
                                                        ? 'bg-gradient-to-r from-[#175C93] to-[#7BC7F0] border-[#E12035]'
                                                        : 'bg-white border-gray-200'"
                              class="p-4 sm:p-6 rounded-lg border-2 shadow-sm hover:shadow-lg transition-all duration-300 relative"
@@ -409,7 +409,7 @@
                                </div>
                             </div>
                         </div>
-                        <div x-data="{ count: 1, selected:false }" :class="selected
+                        <div x-data="{ count: 1, selected:false }" data-ticket-type="Exhibition Booth" data-kes-price="300000" data-usd-price="2330" :class="selected
                                                        ? 'bg-gradient-to-r from-[#175C93] to-[#7BC7F0] border-[#E12035]'
                                                        : 'bg-white border-gray-200'"
                              class="p-4 sm:p-6 rounded-lg border-2 shadow-sm hover:shadow-lg transition-all duration-300 relative"
@@ -1407,23 +1407,31 @@
             getTicketPrice(ticket) {
                 const price = Number(ticket && ticket.price ? ticket.price : 0);
 
-                // If USD selected, prefer lookup map -> stored usdPrice -> DOM extraction -> fallback conversion
                 if (this.selectedCurrency() === 'USD') {
-                    // 1) Check ticketUsdMap populated at init
-                    try {
-                        if (this.ticketUsdMap && ticket && ticket.type) {
-                            const mapped = this.ticketUsdMap[ticket.type];
-                            if (mapped && Number.isFinite(mapped) && mapped >= 1) return Number(mapped);
-                        }
-                    } catch (e) {
-                        // ignore
-                    }
-
-                    // 2) Check explicit usd price on ticket object
+                    // 1) explicit stored USD value on selected ticket
                     const usdStored = ticket && (ticket.usdPrice || ticket.usd_price || ticket.usd);
                     let usdVal = Number(usdStored || 0);
 
-                    // 3) Attempt DOM extraction for that ticket
+                    // 2) match the current ticket tile by type and read its data-usd-price attribute
+                    if (!Number.isFinite(usdVal) || usdVal < 1) {
+                        try {
+                            const tiles = Array.from(document.querySelectorAll('[data-ticket-type]'));
+                            const matchTile = tiles.find(t => {
+                                const type = String(t.dataset.ticketType || '').trim().toLowerCase();
+                                return type && type === String(ticket && ticket.type || '').trim().toLowerCase();
+                            });
+                            if (matchTile && matchTile.dataset && matchTile.dataset.usdPrice) {
+                                const direct = Number(String(matchTile.dataset.usdPrice).replace(/[^0-9.]/g, ''));
+                                if (Number.isFinite(direct) && direct >= 1) {
+                                    usdVal = direct;
+                                }
+                            }
+                        } catch (e) {
+                            console.log('getTicketPrice dataset usd lookup error', e);
+                        }
+                    }
+
+                    // 3) DOM extraction fallback
                     if (!Number.isFinite(usdVal) || usdVal < 1) {
                         try {
                             const tiles = Array.from(document.querySelectorAll('[x-data]'));
@@ -1442,7 +1450,6 @@
                         }
                     }
 
-                    // Final fallback to derived conversion if still not available
                     if (!Number.isFinite(usdVal) || usdVal < 1) {
                         usdVal = price ? (price / 125) : 0;
                     }
@@ -1450,7 +1457,6 @@
                     return usdVal;
                 }
 
-                // KES selected
                 return price;
             },
 
@@ -1612,9 +1618,40 @@
                 const normalizedType = (type || '').toLowerCase();
                 const existingIndex = this.selectedTickets.findIndex(t => (t.type || '').toLowerCase() === normalizedType);
 
+                // direct dataset-based match on the ticket card
+                try {
+                    const tiles = Array.from(document.querySelectorAll('[data-ticket-type]'));
+                    const matchedTile = tiles.find(t => String(t.dataset.ticketType || '').trim().toLowerCase() === String(type || '').trim().toLowerCase());
+                    if (matchedTile && matchedTile.dataset && matchedTile.dataset.usdPrice) {
+                        const direct = Number(String(matchedTile.dataset.usdPrice).replace(/[^0-9.]/g, ''));
+                        if (Number.isFinite(direct) && direct >= 1) {
+                            usdPrice = direct;
+                        }
+                    }
+                } catch (e) {
+                    console.log('USD price dataset lookup error', e);
+                }
+
                 // Prefer ticketUsdMap when available
                 if ((typeof usdPrice === 'undefined' || usdPrice === null) && this.ticketUsdMap && this.ticketUsdMap[type]) {
                     usdPrice = this.ticketUsdMap[type];
+                }
+
+                // First try lookup div if present (ensures immediate availability)
+                try {
+                    const lookupDiv = document.getElementById('ticket-usd-lookup');
+                    if (lookupDiv && (!usdPrice || usdPrice < 1)) {
+                        const spans = Array.from(lookupDiv.querySelectorAll('span'));
+                        const matched = spans.find(s => s.dataset && s.dataset.type && String(s.dataset.type).trim().toLowerCase() === String(type || '').toLowerCase());
+                        if (matched && matched.dataset && matched.dataset.usd) {
+                            const parsed = Number(String(matched.dataset.usd).replace(/[^0-9.]/g, ''));
+                            if (Number.isFinite(parsed) && parsed >= 1) {
+                                usdPrice = parsed;
+                            }
+                        }
+                    }
+                } catch (e) {
+                    // ignore
                 }
 
                 // If usdPrice wasn't set in fallback above, attempt extraction from active tile or general tile
