@@ -173,6 +173,23 @@ class PurchaseManagementController extends Controller
             return back()->with('error', 'No payment receipt uploaded for this order.');
         }
 
+        return $this->processApproval($purchaseOrder);
+    }
+
+    /**
+     * Mark purchase as paid and create delegates (used by admin when marking paid manually)
+     */
+    public function markAsPaid(Request $request, PurchaseOrder $purchaseOrder)
+    {
+        // This bypasses receipt upload and marks the order as paid by admin
+        return $this->processApproval($purchaseOrder);
+    }
+
+    /**
+     * Shared approval processing
+     */
+    protected function processApproval(PurchaseOrder $purchaseOrder)
+    {
         DB::beginTransaction();
         try {
             $purchaseOrder->status = 'paid';
@@ -217,7 +234,7 @@ class PurchaseManagementController extends Controller
             }
 
             DB::commit();
-            return back()->with('success', 'Purchase approved and delegates created where possible.');
+            return back()->with('success', 'Purchase marked as paid and delegates created where possible.');
         } catch (\Exception $e) {
             DB::rollBack();
             return back()->with('error', 'Failed to approve purchase: ' . $e->getMessage());

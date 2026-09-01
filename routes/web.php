@@ -44,6 +44,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
             Route::post('purchases/{purchaseOrder}/receipt', [\App\Http\Controllers\Apps\PurchaseManagementController::class, 'uploadReceipt'])->name('purchases.receipt.upload');
             Route::post('purchases/{purchaseOrder}/approve', [\App\Http\Controllers\Apps\PurchaseManagementController::class, 'approve'])->name('purchases.approve');
             Route::post('purchases/{purchaseOrder}/resend-reminder', [\App\Http\Controllers\Apps\PurchaseManagementController::class, 'resendReminder'])->name('purchases.resend_reminder');
+            Route::post('purchases/{purchaseOrder}/mark-paid', [\App\Http\Controllers\Apps\PurchaseManagementController::class, 'markAsPaid'])->name('purchases.mark_paid');
             Route::get('purchases/export', [\App\Http\Controllers\Apps\PurchaseManagementController::class, 'export'])->name('purchases.export');
         });
 

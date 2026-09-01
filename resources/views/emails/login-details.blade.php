@@ -242,11 +242,13 @@
                                             <tr>
                                                 <td style="padding:4px;Margin:0;border:0.1em solid #7CC6EF;
                                                 text-align:left">Status:</td>
-                                                <td style="background-color: green;color: white;padding:4px;Margin:0;
+                                                <td style="padding:4px;Margin:0;
                                                 border:0.1em solid
                                                 #7CC6EF;
-                                                text-align:left;"> {{ $order->status ??
-                                                \App\Enum\PurchaseOrderStatus::PAID->value }}</td>
+                                                text-align:left;"> <span style="background-color: white;color: red;
+                                                text-transform: capitalize;font-size: 16px;
+                                                ">{{ $order->status ??
+                                                \App\Enum\PurchaseOrderStatus::PAID->value }}</span></td>
                                             </tr>
 
                                             </tbody>
@@ -263,9 +265,15 @@
                                                         <tr>
                                                             <td align="left" style="padding:0;Margin:0" class="a"><p style="Margin:0;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:24px;letter-spacing:0;font-weight:normal;color:#333333;font-size:14px"><strong style="font-weight:bolder !important;font-size:16px;line-height:24px"><u>Notes: </u></strong>&nbsp;</p>
                                                                 <ol style="font-family:arial, 'helvetica neue', helvetica, sans-serif;padding:0px 0px 0px 40px;margin-top:15px;margin-bottom:15px;margin:15px 0px">
-                                                                    <li style="color:#333333;margin:0px 0px 15px;font-size:12px;line-height:18px"><p class="b" style="Margin:0;mso-line-height-rule:exactly;mso-margin-bottom-alt:15px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:18px;letter-spacing:0;font-weight:normal;color:#333333;font-size:12px;mso-margin-top-alt:15px;">&nbsp;Kindly use the <strong style="font-weight:bolder !important">Invoice Number</strong> above as the Reference Number when making the Payment.</p></li>
-                                                                    <li style="color:#333333;margin:0px 0px 15px;font-size:12px;line-height:18px"><p class="b" style="Margin:0;mso-line-height-rule:exactly;mso-margin-bottom-alt:15px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:18px;letter-spacing:0;font-weight:normal;color:#333333;font-size:12px">We kindly request you present the payment slip at the event registration desk for confirmation and entry processing.</p></li>
-                                                                    <li style="color:#333333;margin:0px 0px 15px;font-size:12px;line-height:18px"><p class="b" style="Margin:0;mso-line-height-rule:exactly;mso-margin-bottom-alt:15px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:18px;letter-spacing:0;font-weight:normal;color:#333333;font-size:12px;">Validate and self &nbsp;check-in using the link (Print your delegate certificate and provide at the entrance desk): &nbsp;...........................................................................................</p></li>
+                                                                    <li style="color:#333333;margin:0px 0px 15px;
+                                                                    font-size:12px;line-height:18px">
+                                                                        <p class="b" style="Margin:0;
+                                                                        mso-line-height-rule:exactly;mso-margin-bottom-alt:15px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:18px;letter-spacing:0;font-weight:normal;color:#333333;font-size:12px;mso-margin-top-alt:15px;">&nbsp;Kindly use the
+                                                                            <a href="{{ $order->pesaflow_request->invoice_link }}"><strong
+                                                                                    style="font-weight:bolder
+                                                                                    !important"></strong> {{
+                                                                                    $order->reference }}</a>
+                                                                            to make the payment to E-Citizen</p></li>
                                                                 </ol></td>
                                                         </tr>
                                                         </tbody>

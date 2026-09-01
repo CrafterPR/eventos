@@ -55,10 +55,17 @@
                 </div>
 
                 <div class="mt-4">
-                    @if($order->status === 'new' && $order->payment_receipt)
-                        <form action="{{ route('events.purchases.approve', $order) }}" method="post">
+                    @if($order->status === 'new')
+                        @if($order->payment_receipt)
+                            <form action="{{ route('events.purchases.approve', $order) }}" method="post" style="display:inline-block; margin-right:8px;">
+                                @csrf
+                                <button class="btn btn-success">Approve Purchase & Create Delegates</button>
+                            </form>
+                        @endif
+
+                        <form action="{{ route('events.purchases.mark_paid', $order) }}" method="post" style="display:inline-block" class="mark-paid-form" data-ref="{{ $order->reference }}">
                             @csrf
-                            <button class="btn btn-success">Approve Purchase & Create Delegates</button>
+                            <button type="button" class="btn btn-primary btn-mark-paid">Mark as Paid</button>
                         </form>
                     @endif
                 </div>
@@ -66,4 +73,44 @@
         </div>
 
     </div>
+
+    @push('scripts')
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                // SweetAlert confirmation for mark-as-paid
+                document.querySelectorAll('.mark-paid-form').forEach(function(form) {
+                    const btn = form.querySelector('.btn-mark-paid');
+                    btn.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        const ref = form.dataset.ref || '';
+                        if (typeof Swal === 'undefined') {
+                            if (confirm('Mark this purchase ' + ref + ' as paid and create delegates?')) {
+                                form.submit();
+                            }
+                            return;
+                        }
+
+                        Swal.fire({
+                            title: 'Mark as paid?',
+                            text: 'This will mark purchase ' + ref + ' as paid and create delegates. Proceed? ',
+                            icon: 'warning',
+                            showCancelButton: true,
+                            confirmButtonText: 'Yes, mark as paid',
+                            cancelButtonText: 'Cancel',
+                            customClass: {
+                                confirmButton: 'btn btn-danger',
+                                cancelButton: 'btn btn-secondary'
+                            },
+                            buttonsStyling: false
+                        }).then(function (result) {
+                            if (result.isConfirmed) {
+                                form.submit();
+                            }
+                        });
+                    });
+                });
+            });
+        </script>
+    @endpush
+
 </x-default-layout>

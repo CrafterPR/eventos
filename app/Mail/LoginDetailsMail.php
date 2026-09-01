@@ -35,7 +35,7 @@ class LoginDetailsMail extends Mailable implements ShouldQueue
      */
     public function build()
     {
-        return $this->subject('Congratulation! Your 2nd KICP login details')
+        return $this->subject('Your 2nd KICP Access & Ticket details')
             ->view('emails.login-details')
             ->with([
                 'user' => $this->user,

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -27,4 +28,10 @@ class PurchaseOrder extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function pesaflow_request(): HasOne
+    {
+        return $this->hasOne(\App\Models\Pesaflow\PesaflowRequest::class, 'purchase_order_id');
+    }
+
 }

@@ -2309,6 +2309,9 @@ input:where([type='file']):focus {
 .lowercase {
   text-transform: lowercase;
 }
+.capitalize {
+  text-transform: capitalize;
+}
 .italic {
   font-style: italic;
 }
