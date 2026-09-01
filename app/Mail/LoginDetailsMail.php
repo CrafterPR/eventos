@@ -25,6 +25,7 @@ class LoginDetailsMail extends Mailable implements ShouldQueue
         $this->user = $user;
         $this->password = $password;
         $this->purchaseOrder = $purchaseOrder;
+        $this->afterCommit();
     }
 
     /**
