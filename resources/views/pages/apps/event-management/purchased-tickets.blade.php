@@ -21,6 +21,9 @@
             .form-check {
                 padding-bottom: 0.5rem;
             }
+            .lw-table-footer {
+                white-space: pre-line !important;
+            }
         </style>
 
     <div class="card">

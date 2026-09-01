@@ -1,109 +1,149 @@
-@php use App\Models\User; @endphp
-@php(extract($data))
-
+<?php
+ use App\Models\User;
+extract($data);
+use Illuminate\Support\Arr;
+?>
 <x-default-layout>
     @section('title')
         Dashboard
     @endsection
     @if(auth()->check() && !auth()->user()->hasRole('delegate'))
-        @can('view-quick-links')
-            <div class="row g-5 g-xl-10 m-5 mb-xl-10">
-                <div class="row card card-flush pb-6">
-                    <!-- Dashboard Quick Links -->
-                    <div class="card-header p-4">
-                        <h3 class="card-title align-items-start flex-column">
-                            <span class="card-label fw-bold text-gray-800">Quick Links</span>
-                        </h3>
-                    </div>
-                    <div class="col-12">
-                        <div class="d-flex flex-wrap gap-2">
-                            <!-- Transparent Link 1 -->
-                            @can('checkin-event')
-                                <div class="card-toolbar">
-                                    <a href="#" class="btn btn-lg btn-flex btn-light-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_checkin_event">
-                                        <i class="ki-duotone ki-scan-barcode fs-2qx">
-                                            <span class="path1"></span>
-                                            <span class="path2"></span>
-                                            <span class="path3"></span>
-                                            <span class="path4"></span>
-                                            <span class="path5"></span>
-                                            <span class="path6"></span>
-                                            <span class="path7"></span>
-                                            <span class="path8"></span>
-                                        </i>Checkin Delegate
-                                    </a>
+        @can('view-dashboard')
+
+            <!-- Summary cards: Revenue, Expected, Tickets Purchased, Paid Orders (per currency) -->
+            <div class="row g-5 g-xl-10 mx-5 mp-n4 mb-xl-10">
+                <div class="col-12">
+                    <?php
+
+                        // Revenue per currency (paid)
+                        $revenueByCurrency = \App\Models\PurchaseOrder::where('status', \App\Enum\PurchaseOrderStatus::PAID->value)
+                            ->select('currency', \DB::raw('SUM(amount) as total'))
+                            ->groupBy('currency')
+                            ->pluck('total', 'currency')
+                            ->toArray();
+
+                        // Expected per currency (all orders)
+                        $expectedByCurrency = \App\Models\PurchaseOrder::select('currency', \DB::raw('SUM(amount) as total'))
+                            ->groupBy('currency')
+                            ->pluck('total', 'currency')
+                            ->toArray();
+
+                        // Paid orders count per currency
+                        $paidOrdersByCurrency = \App\Models\PurchaseOrder::where('status', \App\Enum\PurchaseOrderStatus::PAID->value)
+                            ->select('currency', \DB::raw('COUNT(*) as total'))
+                            ->groupBy('currency')
+                            ->pluck('total', 'currency')
+                            ->toArray();
+
+                        // Tickets purchased per currency
+                        $ticketsByCurrency = [];
+                        $pos = \App\Models\PurchaseOrder::select('tickets', 'currency')->get();
+                        foreach ($pos as $po) {
+                            $currency = $po->currency ?: 'KES';
+                            $tickets = $po->tickets;
+                            if (is_string($tickets)) {
+                                $decoded = json_decode($tickets, true);
+                                if (json_last_error() === JSON_ERROR_NONE) {
+                                    $tickets = $decoded;
+                                }
+                            }
+
+                            if (!is_array($tickets) && !$tickets instanceof \Illuminate\Support\Collection) {
+                                continue;
+                            }
+
+                            foreach ($tickets as $t) {
+                                if (is_array($t)) {
+                                    $qty = isset($t['count']) ? (int)$t['count'] : (isset($t['quantity']) ? (int)$t['quantity'] : 1);
+                                    $ticketsByCurrency[$currency] = ($ticketsByCurrency[$currency] ?? 0) + $qty;
+                                }
+                            }
+                        }
+
+                        // Build list of all currencies present across metrics
+                        $currencies = array_unique(array_merge(array_keys($revenueByCurrency), array_keys($expectedByCurrency), array_keys($paidOrdersByCurrency), array_keys($ticketsByCurrency)));
+                        sort($currencies);
+                   ?>
+
+                    <div class="row g-3">
+                        @foreach($currencies as $currency)
+                            <div class="col-md-3">
+                                <div class="card card-flush h-md-100">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center">
+                                            <div class="symbol symbol-50px me-4">
+                                                <span class="symbol-label bg-primary">
+                                                    <i class="ki-duotone ki-wallet fs-2 text-white"></i>
+                                                </span>
+                                            </div>
+                                            <div>
+                                                <div class="text-muted fs-7">{{ $currency }} — Revenue collected</div>
+                                                <div class="fw-bold fs-4">{{ $currency }} {{ number_format($revenueByCurrency[$currency] ?? 0, 2) }}</div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            @endcan
-                            <!-- Transparent Link 3 -->
-                            @can('create-delegate')
-                                <div class="card-toolbar">
-                                    <a href="{{ route('events.delegates.create') }}" class="btn btn-lg btn-flex
-                                    btn-light-primary" id="">
-                                        <i class="ki-duotone ki-user-tick  fs-2qx">
-                                            <span class="path1"></span>
-                                            <span class="path2"></span>
-                                            <span class="path3"></span>
-                                        </i>Add a Delegate
-                                    </a>
-                                </div>
-                            @endcan
-                            <!-- Transparent Link 4 -->
-                            @can('import-delegates')
-                                <div class="card-toolbar">
-                                    <a href="#" data-bs-toggle="modal" data-bs-target="#kt_modal_import_delegates" class="btn btn-lg btn-flex btn-light-primary" id="">
-                                        <i class="ki-duotone ki-file-up  fs-2qx">
-                                            <span class="path1"></span>
-                                            <span class="path2"></span>
-                                        </i>import Delegates
-                                    </a>
-                                </div>
-                            @endcan
-                            @can('manage-delegates')
-                                <div class="card-toolbar">
-                                    <!--begin::Filter-->
-                                    <a href="{{ route('events.delegates.index') }}" class="btn btn-lg btn-flex btn-light-primary" id="">
-                                        <i class="ki-duotone ki-people fs-2qx">
-                                            <span class="path1"></span>
-                                            <span class="path2"></span>
-                                            <span class="path3"></span>
-                                            <span class="path4"></span>
-                                            <span class="path5"></span>
-                                        </i>View delegates
-                                    </a>
-                                    <!--end::Filter-->
-                                </div>
-                            @endcan
-                            @can('register-event')
-                                <div class="card-toolbar">
-                                    <a href="#" class="btn btn-lg btn-flex btn-light-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_create_event">
-                                        <i class="ki-duotone ki-brifecase-tick fs-2qx">
-                                            <span class="path1"></span>
-                                            <span class="path2"></span>
-                                            <span class="path3"></span>
-                                        </i>Create Event
-                                    </a>
-                                </div>
-                            @endcan
-                            <!-- Transparent Link 5 -->
-                           @can('manage-events')
-                            <div class="card-toolbar">
-                                <a href="{{ route('events.manage-events.index') }}" class="btn btn-lg btn-flex btn-light-primary" id="">
-                                    <i class="ki-duotone ki-text-number  fs-2qx">
-                                        <span class="path1"></span>
-                                        <span class="path2"></span>
-                                        <span class="path3"></span>
-                                        <span class="path4"></span>
-                                        <span class="path5"></span>
-                                        <span class="path6"></span>
-                                    </i>View Events
-                                </a>
                             </div>
-                            @endcan
-                            <!-- Add more links as needed -->
-                        </div>
+
+                            <div class="col-md-3">
+                                <div class="card card-flush h-md-100">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center">
+                                            <div class="symbol symbol-50px me-4">
+                                                <span class="symbol-label bg-info">
+                                                    <i class="ki-duotone ki-chart fs-2 text-white"></i>
+                                                </span>
+                                            </div>
+                                            <div>
+                                                <div class="text-muted fs-7">{{ $currency }} — Expected collections</div>
+                                                <div class="fw-bold fs-4">{{ $currency }} {{ number_format($expectedByCurrency[$currency] ?? 0, 2) }}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="card card-flush h-md-100">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center">
+                                            <div class="symbol symbol-50px me-4">
+                                                <span class="symbol-label bg-success">
+                                                    <i class="ki-duotone ki-ticket fs-2 text-white"></i>
+                                                </span>
+                                            </div>
+                                            <div>
+                                                <div class="text-muted fs-7">{{ $currency }} — Tickets purchased</div>
+                                                <div class="fw-bold fs-4">{{ number_format($ticketsByCurrency[$currency] ?? 0) }}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="card card-flush h-md-100">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center">
+                                            <div class="symbol symbol-50px me-4">
+                                                <span class="symbol-label bg-warning">
+                                                    <i class="ki-duotone ki-check fs-2 text-white"></i>
+                                                </span>
+                                            </div>
+                                            <div>
+                                                <div class="text-muted fs-7">{{ $currency }} — Paid orders</div>
+                                                <div class="fw-bold fs-4">{{ $paidOrdersByCurrency[$currency] ?? 0 }}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+
                     </div>
                 </div>
             </div>
+
                 <livewire:events.create-event-modal />
                 <livewire:events.checkin-modal />
                 <livewire:delegate.import-delegates-modal></livewire:delegate.import-delegates-modal>
@@ -171,13 +211,13 @@
                 <div class="col-md-8 card card-flush h-md-100">
                     <div class="card-header pt-7 d-flex">
                         <h3 class="card-title align-items-start flex-column justify-content-center">
-                            <span class="card-label fw-bold text-gray-800">Delegate Checkins by Date</span>
+                            <span class="card-label fw-bold text-gray-800">Ticket purchases by category</span>
                         </h3>
                         <div class="card-toolbar">
                             <a href="#" class="btn btn-sm btn-light">View All</a>
                         </div>
                     </div>
-                    <div id="chartdiv"></div>
+                    <livewire:events.ticket-purchases-by-category />
                 </div>
                 <div class="col-md-4 card card-flush h-md-100">
                     <div class="card-header pt-7 d-flex">
@@ -188,7 +228,7 @@
                             <a href="{{ route('events.delegates.index') }}" class="btn btn-sm btn-light">View All</a>
                         </div>
                     </div>
-                    <div id="pieChartDiv"></div>
+                    <livewire:events.purchase-orders-doughnut />
                 </div>
             </div>
       @endcan
@@ -291,89 +331,7 @@
             </div>
         </div>
     @endif
-    @if(auth()->check() && !auth()->user()->hasRole('delegate'))
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card card-flush h-md-100">
-                <div class="card-header pt-7">
-                    <h3 class="card-title align-items-start flex-column">
-                        <span class="card-label fw-bold text-gray-800">Recent checkins</span>
-                    </h3>
-                    <div class="card-toolbar">
-                        <a href="#" class="btn btn-sm btn-light">View All</a>
-                    </div>
-                </div>
-                <div class="card-body pt-6">
-                    <div class="table-responsive">
-                        <table class="table table-row-dashed align-middle gs-0 gy-3 my-0">
-                            <thead>
-                            <tr class="fs-7 fw-bold text-gray-400 border-bottom-0">
-                                <th class="p-0 pb-3 min-w-175px text-start">DELEGATE</th>
-                                <th class="p-0 pb-3 min-w-175px text-start">ORGANIZATION</th>
-                                <th class="p-0 pb-3 min-w-175px text-start">COUNTRY</th>
-                                <th class="p-0 pb-3 min-w-175px text-start">EVENT NAME</th>
-                                <th class="p-0 pb-3 min-w-100px text-start">CHECKIN</th>
-                                <th class="p-0 pb-3 min-w-100px text-start">CHECKIN BY</th>
 
-                                <th class="p-0 pb-3 min-w-175px text-start"></th>
-
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach($checkins as $checkin)
-                                <tr>
-                                    <td>
-                                        <div class="d-flex align-items-center">
-                                            <div class="d-flex justify-content-start flex-column">
-                                                <a href="#" class="text-gray-800 fw-bold text-hover-primary mb-1 fs-6">
-                                                    {{$checkin->delegate?->name}}
-                                                </a>
-                                                <span class="text-gray-400 fw-semibold d-block fs-7">
-                                                   {{$checkin->delegate?->email}}
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="text-start pe-0">
-                                        <span class="text-gray-600 fw-bold fs-6">
-                                            {{ $checkin->delegate?->organization }}
-                                        </span>
-                                    </td>
-                                    <td class="text-start pe-0">
-                                        <span class="text-gray-600 fw-bold fs-6">
-                                            {{ $checkin->delegate?->country?->name }}
-                                        </span>
-                                    </td>
-                                    <td class="text-start pe-0">
-                                        <span class="text-gray-600 fw-bold fs-6">
-                                            {{$checkin->delegate?->event?->title}}
-                                        </span>
-                                    </td>
-                                    <td class="text-start pe-0">
-                                        <span class="text-gray-600 fw-bold fs-6">
-                                            {{ format_date($checkin->created_at, 'd M, y H:i A') }}
-                                        </span>
-                                    </td>
-                                    <td class="text-start pe-0">
-                                        <span class="text-gray-600 fw-bold fs-6">
-                                            {{ $checkin->scannedby->name }}
-                                        </span>
-                                    </td>
-
-                                    <td class="text-start pe-0">
-
-                                    </td>
-
-                                </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    @endif
 
 @push('scripts')
             <!-- Styles -->
@@ -392,7 +350,5 @@
             <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
             <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
             <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
-            @include('pages.dashboards.charts.checkins-barchart')
-            @include('pages.dashboards.charts.delegates-checkins-piechart')
 @endpush
 </x-default-layout>

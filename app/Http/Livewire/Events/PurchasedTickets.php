@@ -87,12 +87,22 @@ class PurchasedTickets extends DataTableComponent
                   ->view('pages.apps.event-management.columns._user'),
             Column::make('Organization','user.organization')->searchable()->sortable(),
 
-            Column::make('Amount','amount')->sortable()
-                      ->setView('pages.apps.event-management.columns._amount')
-                      ->footer(function($rows) {
-                          $total = $rows->where('status', PurchaseOrderStatus::PAID)->sum('amount');
-                          return 'Total Paid: ' . number_format($total, 2, '.', ',');
-                      }),
+            Column::make('Amount', 'amount')
+                  ->sortable()
+                  ->setView('pages.apps.event-management.columns._amount')
+                  ->footer(function ($rows) {
+                      $totalPaid = $rows
+                          ->where('status', PurchaseOrderStatus::PAID)
+                          ->sum('amount');
+
+                      $totalPending = $rows
+                          ->where('status', PurchaseOrderStatus::NEW)
+                          ->sum('amount');
+
+                      return "PENDING: " . number_format($totalPending, 2, '.', ',')
+                          . "\n"
+                          . "PAID: " . number_format($totalPaid, 2, '.', ',');
+                  }),
             Column::make('Tickets','tickets')->sortable()->searchable()
                 ->view('pages.apps.event-management.columns._tickets'),
             Column::make('Status','status')->sortable()
