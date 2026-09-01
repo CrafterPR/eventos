@@ -2,13 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Enum\OrderStatus;
-use App\Enum\UserType;
 use App\Models\Order;
 use App\Models\PurchaseOrder;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Pesaflow\PesaflowRequest;
-use App\Providers\RouteServiceProvider;
 use Exception;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;

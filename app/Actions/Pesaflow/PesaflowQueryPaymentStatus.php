@@ -2,6 +2,7 @@
 
 namespace App\Actions\Pesaflow;
 
+use Carbon\Carbon;
 use App\Enum\OrderStatus;
 use App\Enum\PaymentStatus;
 use App\Enum\PurchaseOrderStatus;
@@ -57,7 +58,7 @@ class PesaflowQueryPaymentStatus
             "invoice_number" => $refNo,
             "status" => $status,
             "name" => $response["name"],
-            "payment_date" => $response["payment_date"],
+            "payment_date" => Carbon::parse($response["payment_date"])->format('Y-m-d H:i:s'),
             "currency" => $response["currency"],
             "client_invoice_ref" => $response["client_invoice_ref"],
             "amount_paid" => $response["amount_paid"],
