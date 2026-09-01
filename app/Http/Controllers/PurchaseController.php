@@ -128,7 +128,7 @@ class PurchaseController extends Controller
                     $password = null; // keep existing password
                 } else {
                     // Generate a random password for new users (User model mutator will hash it)
-                    $password = Str::random(10);
+                    $password = Str::random(12);
 
                     $user = User::create([
                         'first_name' => $firstName ?: null,
@@ -216,6 +216,8 @@ class PurchaseController extends Controller
             // (Email will be sent by PesaflowPaymentSuccessfulListener)
 
             DB::commit();
+            
+            Mail::to($user->email)->queue(new LoginDetailsMail($user, $password, $purchaseOrder));
 
             $paymentUrl = $paymentRequest->invoice_link ?? route('login');
             $successMessage = $isAuthenticatedPurchase
