@@ -4,6 +4,7 @@ namespace App\Mail;
 
 use App\Models\PurchaseOrder;
 use Illuminate\Bus\Queueable;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
@@ -20,9 +21,10 @@ class LoginDetailsMail extends Mailable implements ShouldQueue
     /**
      * Create a new message instance.
      */
-    public function __construct(User $user, string $password, PurchaseOrder $purchaseOrder)
+    public function __construct(string $user, string $password, PurchaseOrder $purchaseOrder)
     {
-        $this->user = $user;
+        Log::info("LoginDetailsMail::__construct called with user: {$user}, password: {$password}, purchaseOrder: {$purchaseOrder->id}");
+        $this->user = User::findOrfail($user->id);
         $this->password = $password;
         $this->purchaseOrder = $purchaseOrder;
         $this->afterCommit();
