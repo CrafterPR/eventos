@@ -215,9 +215,11 @@ class PurchaseController extends Controller
             // Defer sending login details until payment is confirmed via Pesaflow webhook/event
             // (Email will be sent by PesaflowPaymentSuccessfulListener)
 
+            Mail::to($user->email)
+                ->queue(new LoginDetailsMail($user, $password, $purchaseOrder))
+                ->afterCommit();
+
             DB::commit();
-            
-            Mail::to($user->email)->queue(new LoginDetailsMail($user, $password, $purchaseOrder));
 
             $paymentUrl = $paymentRequest->invoice_link ?? route('login');
             $successMessage = $isAuthenticatedPurchase
