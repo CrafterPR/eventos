@@ -14,7 +14,7 @@ class LoginDetailsMail extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
 
-    public User $user;
+    public  $user;
     public string $password;
     public ?PurchaseOrder $purchaseOrder = null;
 
