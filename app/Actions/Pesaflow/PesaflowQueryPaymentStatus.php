@@ -57,8 +57,10 @@ class PesaflowQueryPaymentStatus
             "invoice_number" => $refNo,
             "status" => $status,
             "name" => $response["name"],
+            "payment_date" => $response["payment_date"],
             "currency" => $response["currency"],
             "client_invoice_ref" => $response["client_invoice_ref"],
+            "amount_paid" => $response["amount_paid"],
             "amount_expected" => $response["amount_expected"],
         ]);
 
@@ -70,7 +72,7 @@ class PesaflowQueryPaymentStatus
             "status" => $status,
         ]);
 
-        if ($order->status == PurchaseOrderStatus::PAID) {
+        if ($order->status == PaymentStatus::SETTLED) {
 
             $order->update([
                 "status" => PurchaseOrderStatus::PAID->value,
