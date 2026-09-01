@@ -15,14 +15,50 @@ class PurchaseManagementController extends Controller
 {
     public function index()
     {
-        $orders = PurchaseOrder::with('user')->latest()->paginate(20);
-        return view('pages.purchases.index', compact('orders'));
+        // Separate pending (new) and paid orders for admin view
+        $pendingOrders = PurchaseOrder::with('user')
+            ->where('status', 'new')
+            ->latest()
+            ->get();
+
+        $paidOrders = PurchaseOrder::with('user')
+            ->where('status', 'paid')
+            ->latest()
+            ->get();
+
+        return view('pages.purchases.index', compact('pendingOrders', 'paidOrders'));
     }
 
     public function show(PurchaseOrder $purchaseOrder)
     {
         $purchaseOrder->load('user');
         return view('pages.purchases.show', ['order' => $purchaseOrder]);
+    }
+
+    public function resendReminder(Request $request, PurchaseOrder $purchaseOrder)
+    {
+        // Find the latest pesaflow invoice link
+        $invoiceLink = \App\Models\Pesaflow\PesaflowRequest::where('purchase_order_id', $purchaseOrder->id)
+            ->latest()
+            ->value('invoice_link');
+
+        $recipientEmail = $purchaseOrder->payment_email ?? $purchaseOrder->user?->email;
+        $recipientName = $purchaseOrder->user ? trim(($purchaseOrder->user->first_name ?? '') . ' ' . ($purchaseOrder->user->last_name ?? '')) : null;
+
+        if (!$recipientEmail) {
+            return back()->with('error', 'No recipient email available for this purchase order.');
+        }
+
+        if (!$invoiceLink) {
+            return back()->with('error', 'No invoice link found for this purchase order.');
+        }
+
+        try {
+            Mail::to($recipientEmail)->send(new \App\Mail\PaymentReminderMail($recipientName, $invoiceLink, $purchaseOrder->reference));
+            return back()->with('success', 'Payment reminder sent to ' . $recipientEmail);
+        } catch (\Throwable $e) {
+            return back()->with('error', 'Failed to send reminder: ' . $e->getMessage());
+        }
     }
 
     public function uploadReceipt(Request $request, PurchaseOrder $purchaseOrder)
