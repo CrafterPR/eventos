@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\PurchaseOrder;
 use App\Models\Role;
+use App\Enum\PurchaseOrderStatus;
 use Illuminate\Support\Facades\Log;
 use App\Models\Pesaflow\PesaflowRequest;
 use Illuminate\Http\Request;
@@ -203,7 +204,7 @@ class PurchaseController extends Controller
                 'tickets' => $tickets,
                 'amount' => $amount ?? null,
                 'currency' => $currency,
-                'status' => 'new',
+                'status' => PurchaseOrderStatus::NEW,
             ]);
 
             $paymentRequest = pesaflow_request_payment(
