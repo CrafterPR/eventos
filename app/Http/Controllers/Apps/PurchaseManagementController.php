@@ -10,21 +10,88 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
+use Symfony\Component\HttpFoundation\StreamedResponse;
+use App\Models\Pesaflow\PesaflowRequest;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\PurchaseExport;
 
 class PurchaseManagementController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        // Separate pending (new) and paid orders for admin view
-        $pendingOrders = PurchaseOrder::with('user')
-            ->where('status', 'new')
-            ->latest()
-            ->get();
+        // Filters from querystring
+        $paymentMethod = $request->query('payment_method'); // e.g. pesaflow, lpo, mpesa
+        $statusFilter = $request->query('status'); // new, paid, or null for all
 
-        $paidOrders = PurchaseOrder::with('user')
-            ->where('status', 'paid')
-            ->latest()
-            ->get();
+        // Build base queries
+        $pendingQuery = PurchaseOrder::with('user')->where('status', 'new');
+        $paidQuery = PurchaseOrder::with('user')->where('status', 'paid');
+
+        if ($paymentMethod && $paymentMethod !== 'all') {
+            $pendingQuery->where('payment_method', $paymentMethod);
+            $paidQuery->where('payment_method', $paymentMethod);
+        }
+
+        // Ticket type filter (category id)
+        $ticketType = $request->query('ticket_type');
+        if ($ticketType) {
+            $pendingQuery->where(function($q) use ($ticketType) {
+                $q->whereJsonContains('tickets->*.category_id', (int) $ticketType)
+                  ->orWhereJsonContains('tickets->*.category_id', (string) $ticketType);
+            });
+            $paidQuery->where(function($q) use ($ticketType) {
+                $q->whereJsonContains('tickets->*.category_id', (int) $ticketType)
+                  ->orWhereJsonContains('tickets->*.category_id', (string) $ticketType);
+            });
+        }
+
+        // Date range filter for purchase order dates
+        $dateFrom = $request->query('date_from');
+        $dateTo = $request->query('date_to');
+        if ($dateFrom) {
+            $pendingQuery->whereDate('created_at', '>=', $dateFrom);
+            $paidQuery->whereDate('created_at', '>=', $dateFrom);
+        }
+        if ($dateTo) {
+            $pendingQuery->whereDate('created_at', '<=', $dateTo);
+            $paidQuery->whereDate('created_at', '<=', $dateTo);
+        }
+
+        if ($statusFilter && $statusFilter !== 'all') {
+            // Override the two lists to show only the requested status
+            $query = PurchaseOrder::with('user')->where('status', $statusFilter);
+            if ($paymentMethod && $paymentMethod !== 'all') {
+                $query->where('payment_method', $paymentMethod);
+            }
+            if ($ticketType) {
+                $query->where(function($q) use ($ticketType) {
+                    $q->whereJsonContains('tickets->*.category_id', (int) $ticketType)
+                      ->orWhereJsonContains('tickets->*.category_id', (string) $ticketType);
+                });
+            }
+            if ($dateFrom) {
+                $query->whereDate('created_at', '>=', $dateFrom);
+            }
+            if ($dateTo) {
+                $query->whereDate('created_at', '<=', $dateTo);
+            }
+
+            $orders = $query->latest()->paginate(50);
+
+            if ($statusFilter === 'new') {
+                $pendingOrders = $orders;
+                $paidOrders = collect([]);
+            } else {
+                $paidOrders = $orders;
+                $pendingOrders = collect([]);
+            }
+
+            return view('pages.purchases.index', compact('pendingOrders', 'paidOrders'));
+        }
+
+        $pendingOrders = $pendingQuery->latest()->paginate(50);
+        $paidOrders = $paidQuery->latest()->paginate(50);
 
         return view('pages.purchases.index', compact('pendingOrders', 'paidOrders'));
     }
@@ -33,6 +100,30 @@ class PurchaseManagementController extends Controller
     {
         $purchaseOrder->load('user');
         return view('pages.purchases.show', ['order' => $purchaseOrder]);
+    }
+
+    public function export(Request $request)
+    {
+        $paymentMethod = $request->query('payment_method');
+        $statusFilter = $request->query('status');
+
+        $query = PurchaseOrder::with('user');
+
+        if ($paymentMethod && $paymentMethod !== 'all') {
+            $query->where('payment_method', $paymentMethod);
+        }
+
+        if ($statusFilter && $statusFilter !== 'all') {
+            $query->where('status', $statusFilter);
+        }
+
+        $orders = $query->latest()->get();
+
+        // Export to Excel using PurchaseExport; pass ids of filtered orders
+        $ids = $orders->pluck('id')->toArray();
+        $filename = 'purchase-orders-' . now()->format('Ymd-His') . '.xlsx';
+
+        return Excel::download(new PurchaseExport($ids), $filename);
     }
 
     public function resendReminder(Request $request, PurchaseOrder $purchaseOrder)
@@ -54,10 +145,11 @@ class PurchaseManagementController extends Controller
         }
 
         try {
-            Mail::to($recipientEmail)->send(new \App\Mail\PaymentReminderMail($recipientName, $invoiceLink, $purchaseOrder->reference));
-            return back()->with('success', 'Payment reminder sent to ' . $recipientEmail);
+            // Queue the reminder to avoid blocking the request
+            Mail::to($recipientEmail)->queue(new \App\Mail\PaymentReminderMail($recipientName, $invoiceLink, $purchaseOrder->reference));
+            return back()->with('success', 'Payment reminder queued for sending to ' . $recipientEmail);
         } catch (\Throwable $e) {
-            return back()->with('error', 'Failed to send reminder: ' . $e->getMessage());
+            return back()->with('error', 'Failed to queue reminder: ' . $e->getMessage());
         }
     }
 

@@ -2,7 +2,7 @@
     <div class="container py-8">
         <div class="mb-4">
             <h2 class="text-xl font-bold">Purchase {{ $order->reference }}</h2>
-            <p class="text-sm text-slate-600">Status: <strong>{{ ucfirst($order->status) }}</strong></p>
+            <p class="text-sm text-slate-600">Status: <strong>{{ ucfirst((string) $order->status->value) }}</strong></p>
         </div>
 
         @if(session('success'))

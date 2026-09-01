@@ -2,3 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Purchases filters layout */
+.purchases-filters {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 8px;
+  align-items: center;
+}
+.purchases-filters .filter-control {
+  min-width: 160px;
+  width: 160px;
+}
+.purchases-filters .filter-control.full {
+  min-width: 320px;
+  width: 320px;
+}
+
+/* Allow wrapping on very small screens */
+@media (max-width: 640px) {
+  .purchases-filters {
+    flex-wrap: wrap;
+  }
+  .purchases-filters .filter-control {
+    width: 100%;
+    min-width: 0;
+  }
+  .purchases-filters .filter-control.full {
+    width: 100%;
+  }
+}

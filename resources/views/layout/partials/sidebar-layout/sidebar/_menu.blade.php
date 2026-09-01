@@ -65,7 +65,7 @@
                 <!--begin:Menu link-->
                 <span class="menu-link">
 					<span class="menu-icon">{!! getIcon('abstract-28', 'fs-2') !!}</span>
-					<span class="menu-title">Events Module</span>
+					<span class="menu-title">Tickets & Delegates</span>
 					<span class="menu-arrow"></span>
 				</span>
                 <div class="menu-sub menu-sub-accordion">
@@ -103,7 +103,7 @@
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-line"></span>
                                 </span>
-                                <span class="menu-title">LPO Purchases</span>
+                                <span class="menu-title">Tickets Purchased</span>
                             </a>
                         </div>
                     @endcan
