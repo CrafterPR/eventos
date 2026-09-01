@@ -8,6 +8,21 @@
         {{ Breadcrumbs::render('tickets.view-purchased') }}
     @endsection
 
+        <style type="text/css">
+            /* Rappasoft Livewire Tables filter dropdown */
+            .dropdown-menu[role="menu"] {
+                min-width: 250px !important;
+            }
+
+            /* Give individual filters enough room */
+            .dropdown-menu[role="menu"] .p-2 {
+                width: 100%;
+            }
+            .form-check {
+                padding-bottom: 0.5rem;
+            }
+        </style>
+
     <div class="card">
         <!--begin::Card header-->
         <div class="card-header border-0 pt-6">

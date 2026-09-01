@@ -140,6 +140,6 @@ class PurchasedTickets extends DataTableComponent
     {
         return Category::query()
                        ->where('status', CategoryStatus::ACTIVE)
-                       ->pluck('title', 'id');
+                       ->pluck('title', 'title');
     }
 }
