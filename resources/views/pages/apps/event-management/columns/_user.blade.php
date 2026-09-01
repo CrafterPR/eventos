@@ -16,7 +16,8 @@
     <!--end::Avatar-->
     <!--begin::User details-->
     <div class="d-flex flex-column">
-        <a href="{{ route('events.delegates.show', $row->user) }}" class="text-gray-800 text-hover-primary mb-1">
+        <a href="{{ route('events.delegates.show', $row->user) }}" class="text-gray-800
+        text-hover-primary mb-1">
             {{ $row->user->salutation }} {{ $row->user->first_name }}  {{ $row->user->last_name }}
         </a>
         <a href="{{ route('events.delegates.show', $row->user) }}" class="text-gray-800 text-hover-primary mb-1">
