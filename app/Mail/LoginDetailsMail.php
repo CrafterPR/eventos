@@ -21,9 +21,9 @@ class LoginDetailsMail extends Mailable implements ShouldQueue
     /**
      * Create a new message instance.
      */
-    public function __construct(User $user, string $password, PurchaseOrder $purchaseOrder)
+    public function __construct($user, string $password, PurchaseOrder $purchaseOrder)
     {
-        $this->user = $user;
+        $this->user = User::findOrfail($user->id);
         $this->password = $password;
         $this->purchaseOrder = $purchaseOrder;
         $this->afterCommit();
