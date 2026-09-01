@@ -24,7 +24,6 @@ class LoginDetailsMail extends Mailable implements ShouldQueue
     public function __construct($user, string $password, PurchaseOrder $purchaseOrder)
     {
         $this->user = User::find($user->id);
-        Log::info('LoginDetailsMail: User found: ' . $this->user->email);
         $this->password = $password;
         $this->purchaseOrder = $purchaseOrder;
         $this->afterCommit();
@@ -35,7 +34,7 @@ class LoginDetailsMail extends Mailable implements ShouldQueue
      */
     public function build()
     {
-        return $this->subject('Your 2nd KICP Access & Ticket details')
+        return $this->subject('Registration successful!, Your 2nd KICP Access & Ticket details')
             ->view('emails.login-details')
             ->with([
                 'user' => $this->user,
