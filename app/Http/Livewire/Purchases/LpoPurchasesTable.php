@@ -43,9 +43,48 @@ class LpoPurchasesTable extends DataTableComponent
 
     public function export()
     {
-        $selected = $this->getSelected();
+        // Build query with current filters applied
+        $query = $this->builder();
+
+        // lpo_status filter
+        try {
+            $lpoStatus = $this->getFilterByKey('lpo_status');
+        } catch (\Throwable $e) {
+            $lpoStatus = null;
+        }
+        if ($lpoStatus) {
+            $query->where('status', $lpoStatus);
+        }
+
+        // ticket_type filter
+        try {
+            $ticketType = $this->getFilterByKey('ticket_type');
+        } catch (\Throwable $e) {
+            $ticketType = null;
+        }
+        if ($ticketType) {
+            $query->where(function($q) use ($ticketType) {
+                $q->whereJsonContains('tickets->*.category_id', (int) $ticketType)
+                  ->orWhereJsonContains('tickets->*.category_id', (string) $ticketType);
+            });
+        }
+
+        // payment_date filter (date range)
+        try {
+            $paymentDate = $this->getFilterByKey('payment_date');
+        } catch (\Throwable $e) {
+            $paymentDate = null;
+        }
+        if (is_array($paymentDate)) {
+            $start = $paymentDate['start'] ?? null;
+            $end = $paymentDate['end'] ?? null;
+            if ($start) $query->whereDate('updated_at', '>=', $start);
+            if ($end) $query->whereDate('updated_at', '<=', $end);
+        }
+
+        $ids = $query->pluck('id')->toArray();
         $this->clearSelected();
-        return Excel::download(new PurchaseExport($selected), 'lpo-purchases.xlsx');
+        return Excel::download(new PurchaseExport($ids), 'lpo-purchases.xlsx');
     }
 
     public function columns(): array

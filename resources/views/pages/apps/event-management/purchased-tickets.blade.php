@@ -24,6 +24,12 @@
             .lw-table-footer {
                 white-space: pre-line !important;
             }
+            .dropdown-menu>a{
+                inset: 0px 0px auto auto;
+                margin: 0px;
+                transform: translate3d(10px, 20.5px, 0px) !important;
+                position: absolute;
+            }
         </style>
 
     <div class="card">

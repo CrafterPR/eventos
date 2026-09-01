@@ -32,11 +32,8 @@ class PurchasedTickets extends DataTableComponent
 
     public function export()
     {
-        $po = $this->getSelected();
 
-        $this->clearSelected();
-
-        return Excel::download(new PurchaseExport($po), 'purchased_tickets.xlsx');
+        return Excel::download(new PurchaseExport(), 'all_purchased_tickets.xlsx');
     }
 
     public function configure(): void
@@ -49,16 +46,7 @@ class PurchasedTickets extends DataTableComponent
                                              ]);
         $this->setActionsInToolbarEnabled();
         $this->setColumnSelectStatus(false);
-        $this->setBulkActionsMenuAttributes([
-                                                'class' => 'px-n20',
-                                                'default-colors' => true,
-                                                'default-styling' => true,
-                                            ]);
-        $this->setBulkActionsMenuItemAttributes([
-                                                    'class' => 'bg-green-500',
-                                                    'default-colors' => true,
-                                                    'default-styling' => true,
-                                                ]);
+        // Avoid custom bulk-actions attributes to prevent dropdown positioning styles that cause translate3d
 
         $this->setLoadingPlaceholderStatus(true);
     }

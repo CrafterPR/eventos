@@ -11,20 +11,18 @@ use Maatwebsite\Excel\Concerns\WithStyles;
 
 class PurchaseExport implements FromCollection, WithHeadings, WithStyles
 {
-    public function __construct(public $ids) {}
+    public function __construct() {}
 
     public function collection(): Collection|array
     {
         return PurchaseOrder::query()
-            ->whereIn('id', $this->ids)
             ->with(['user', 'pesaflow_request'])
             ->get()
-            ->map(function ($order) {
-                $invoiceLink = PesaflowRequest::where('purchase_order_id', $order->id)->latest()->value('invoice_link');
+            ->flatMap(function ($order) {
                 $purchaser = $order->user ? trim(($order->user->first_name ?? '') . ' ' . ($order->user->last_name ?? '')) : '';
                 $email = $order->payment_email ?? $order->user?->email ?? '';
 
-                return [
+                $base = [
                     'reference' => $order->reference,
                     'purchaser' => $purchaser,
                     'email' => $email,
@@ -34,8 +32,38 @@ class PurchaseExport implements FromCollection, WithHeadings, WithStyles
                     'currency' => $order->currency ?? '',
                     'payment_method' => strtoupper($order->payment_method ?? ''),
                     'status' => $order->status->label(),
-                    'tickets' => $order->tickets ? implode(', ', $order->tickets) : '',
                 ];
+
+                $rows = [];
+
+                $tickets = $order->tickets;
+                if (is_string($tickets)) {
+                    $decoded = json_decode($tickets, true);
+                    if (json_last_error() === JSON_ERROR_NONE) {
+                        $tickets = $decoded;
+                    }
+                }
+
+                if (is_array($tickets) || $tickets instanceof Collection) {
+                    foreach ($tickets as $t) {
+                        if (!is_array($t)) {
+                            // fallback: stringify
+                            $ticketLabel = is_scalar($t) ? (string)$t : json_encode($t);
+                            $qty = 1;
+                        } else {
+                            $type = $t['type'] ?? ($t['title'] ?? null);
+                            $qty = isset($t['count']) ? (int)$t['count'] : (isset($t['quantity']) ? (int)$t['quantity'] : 1);
+                            $ticketLabel = ($type ?? 'Ticket') . ' x ' . $qty;
+                        }
+
+                        $rows[] = array_merge($base, ['tickets' => $ticketLabel]);
+                    }
+                } else {
+                    // no tickets array: emit one row with empty tickets
+                    $rows[] = array_merge($base, ['tickets' => '']);
+                }
+
+                return $rows;
             });
     }
 
