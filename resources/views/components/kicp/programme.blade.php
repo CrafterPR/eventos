@@ -12,6 +12,18 @@
     <div
         x-data="{
             activeTab: 1,
+            maskSpeaker(name, index = 1) {
+                if (!name || name === 'All') return name;
+                return 'Speaker ' + index;
+            },
+            maskDiscussants(list) {
+                if (!Array.isArray(list)) return [];
+                return list.map((_, index) => 'Speaker ' + (index + 1));
+            },
+            maskFacilitator(value) {
+                if (!value || value === 'All') return value;
+                return 'Speaker';
+            },
 
             days: {
                 1: {
@@ -757,7 +769,7 @@
                                                             class="mt-2 text-xs sm:text-sm text-[#84C1D9] italic"
                                                         >
                                                             <strong>Speaker:</strong>
-                                                            <span x-text="parallel.speaker"></span>
+                                                            <span x-text="maskSpeaker(parallel.speaker, pIndex + 1)"></span>
                                                         </p>
 
                                                         <div
@@ -770,7 +782,7 @@
 
                                                             <ul class="mt-1 space-y-1">
                                                                 <template
-                                                                    x-for="(person, personIndex) in parallel.discussants"
+                                                                    x-for="(person, personIndex) in maskDiscussants(parallel.discussants)"
                                                                     :key="personIndex"
                                                                 >
                                                                     <li
@@ -807,7 +819,7 @@
 
                                                 <h6
                                                     class="text-[#84C1D9] text-xs italic font-normal leading-tight"
-                                                    x-html="session.facilitator"
+                                                    x-html="maskFacilitator(session.facilitator)"
                                                 ></h6>
 
                                             </div>
@@ -947,7 +959,7 @@
                                                             class="mt-2 text-xs sm:text-sm text-[#84C1D9] italic"
                                                         >
                                                             <strong>Speaker:</strong>
-                                                            <span x-text="parallel.speaker"></span>
+                                                            <span x-text="maskSpeaker(parallel.speaker, pIndex + 1)"></span>
                                                         </p>
 
                                                         <div
@@ -960,7 +972,7 @@
 
                                                             <ul class="mt-1 space-y-1">
                                                                 <template
-                                                                    x-for="(person, personIndex) in parallel.discussants"
+                                                                    x-for="(person, personIndex) in maskDiscussants(parallel.discussants)"
                                                                     :key="personIndex"
                                                                 >
                                                                     <li
@@ -996,7 +1008,7 @@
 
                                                 <h6
                                                     class="text-[#84C1D9] text-xs italic font-normal leading-tight"
-                                                    x-html="session.facilitator"
+                                                    x-html="maskFacilitator(session.facilitator)"
                                                 ></h6>
 
                                             </div>
