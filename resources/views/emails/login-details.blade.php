@@ -203,7 +203,7 @@
                                                                         $user->first_name}}</strong>,</p><p style="Margin:0;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;letter-spacing:0;font-weight:normal;color:#333333;font-size:14px;text-align:left">Thank you for choosing to attend the <strong style="font-weight:bolder !important">2<sup style="display:inline-block;font-size:75% !important;line-height:1 !important;mso-text-raise:30%;vertical-align:top">nd</sup> Kasneb </strong><b>International Conference for Professionals 2026 </b>on the <strong style="font-weight:bolder !important">26th&nbsp; - 30th of Oct 2026</strong><b>.</b></p><p style="Margin:0;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;letter-spacing:0;font-weight:normal;color:#333333;font-size:14px;text-align:left"><b><br></b></p><h2 style="Margin:0;font-family:arial, 'helvetica neue', helvetica, sans-serif;mso-line-height-rule:exactly;letter-spacing:0;font-size:16px;font-style:normal;font-weight:bold;line-height:21px;color:#333333;text-align:center"><b>Your login data:</b></h2><p style="Margin:0;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;letter-spacing:0;font-weight:normal;color:#333333;font-size:14px;text-align:center"><b>Email: &nbsp; {{ $user->email }}</b></p><p style="Margin:0;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;letter-spacing:0;font-weight:normal;color:#333333;font-size:14px;text-align:center"><b>Password: &nbsp;{{ $password }}</b></p>
                                                                 <ul style="font-family:arial, 'helvetica neue', helvetica, sans-serif;padding:0px 0px 0px 40px;margin-top:15px;margin-bottom:15px;list-style-type:square">
                                                                     <li style="color:#333333;margin:0px 0px 15px;font-size:14px;Margin:0;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;letter-spacing:0;text-align:left"><p style="mso-margin-top-alt:15px;Margin:0;mso-line-height-rule:exactly;mso-margin-bottom-alt:15px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;letter-spacing:0;font-weight:normal;color:#333333;font-size:14px;"><b>Use t<a href="{{ url('login') }}" target="_blank" style="mso-line-height-rule:exactly;text-decoration:underline;color:#333333;font-size:14px;font-weight:inherit;Margin:0;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;letter-spacing:0;text-align:left">his link</a> to login and manage your tickets</b></p></li>
-                                                                </ul><p style="Margin:0;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;letter-spacing:0;font-weight:normal;color:#333333;font-size:14px;text-align:left"><b><br></b></p><p style="Margin:0;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;letter-spacing:0;font-weight:normal;color:#333333;font-size:14px;text-align:left">To confirm your Booking, Please Make the Payments using the details below</p><p style="Margin:0;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;letter-spacing:0;font-weight:normal;color:#333333;font-size:14px;text-align:left"><br></p></td>
+                                                                </ul><p style="Margin:0;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;letter-spacing:0;font-weight:normal;color:#333333;font-size:14px;text-align:left"><b><br></b></p><p style="Margin:0;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;letter-spacing:0;font-weight:normal;color:#333333;font-size:14px;text-align:left"></p><p style="Margin:0;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;letter-spacing:0;font-weight:normal;color:#333333;font-size:14px;text-align:left"><br></p></td>
                                                         </tr>
                                                         </tbody>
                                                     </table></td>
@@ -238,38 +238,17 @@
                                                 <td style="padding:4px;Margin:0;border:0.1em solid #7CC6EF;
                                                 text-align:left;"> {{ format_amount($order->amount ?? 'N/A') }}</td>
                                             </tr>
-                                            <tr style="background-color:#E12237">
-                                                <th colspan="2" style="border:0.2em solid #7CC6EF;color:white;text-align:center;padding:8px">Bank payment details</th>
-                                            </tr>
+
                                             <tr>
-                                                <td style="padding:4px;Margin:0;border:0.1em solid #7CC6EF;text-align:left">Bank Name:</td>
                                                 <td style="padding:4px;Margin:0;border:0.1em solid #7CC6EF;
-                                                text-align:left">Cooperative Bank of Kenya</td>
+                                                text-align:left">Status:</td>
+                                                <td style="background-color: green;color: white;padding:4px;Margin:0;
+                                                border:0.1em solid
+                                                #7CC6EF;
+                                                text-align:left;"> {{ $order->status ??
+                                                \App\Enum\PurchaseOrderStatus::PAID->value }}</td>
                                             </tr>
-                                            <tr>
-                                                <td style="padding:4px;Margin:0;border:0.1em solid #7CC6EF;text-align:left">Branch:</td>
-                                                <td style="padding:4px;Margin:0;border:0.1em solid #7CC6EF;text-align:left">Nairobi</td>
-                                            </tr>
-                                            <tr>
-                                                <td style="padding:4px;Margin:0;border:0.1em solid #7CC6EF;text-align:left">Account Name</td>
-                                                <td style="padding:4px;Margin:0;border:0.1em solid #7CC6EF;text-align:left"></td>
-                                            </tr>
-                                            <tr>
-                                                <td style="padding:4px;Margin:0;border:0.1em solid #7CC6EF;text-align:left">Account NO:&nbsp;</td>
-                                            </tr>
-                                            <tr>
-                                                <td style="padding:4px;Margin:0;border:0.1em solid #7CC6EF;text-align:left">Currency:</td>
-                                                <td style="padding:4px;Margin:0;border:0.1em solid #7CC6EF;
-                                                text-align:left">KES</td>
-                                            </tr>
-                                            <tr>
-                                                <td style="padding:4px;Margin:0;border:0.1em solid #7CC6EF;text-align:left"><br></td>
-                                                <td style="padding:4px;Margin:0;border:0.1em solid #7CC6EF;text-align:left"><p style="Margin:0;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;letter-spacing:0;font-weight:normal;color:#333333;font-size:14px"><br></p></td>
-                                            </tr>
-                                            <tr>
-                                                <td style="padding:4px;Margin:0;border:0.1em solid #7CC6EF;text-align:left">SWIFT CODE:</td>
-                                                <td style="padding:4px;Margin:0;border:0.1em solid #7CC6EF;text-align:left;color:#145D95">KCOOKENA</td>
-                                            </tr>
+
                                             </tbody>
                                         </table></td>
                                 </tr>

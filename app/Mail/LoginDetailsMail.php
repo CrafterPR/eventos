@@ -32,7 +32,7 @@ class LoginDetailsMail extends Mailable implements ShouldQueue
      */
     public function build()
     {
-        return $this->subject('Your 2nd KICP LPO & login details')
+        return $this->subject('Congratulation! Your 2nd KICP login details')
             ->view('emails.login-details')
             ->with([
                 'user' => $this->user,

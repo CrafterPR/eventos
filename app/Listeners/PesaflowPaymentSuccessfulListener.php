@@ -26,7 +26,7 @@ class PesaflowPaymentSuccessfulListener implements ShouldQueue
         $user = $order->user;
 
         // Generate a new password and email it to the user (or create the user if missing)
-        $password = Str::random(10);
+        $password = Str::random(12);
 
         if (!$user) {
             // Attempt best-effort creation using available contact info on the order

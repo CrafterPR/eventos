@@ -76,6 +76,7 @@ class PesaflowQueryPaymentStatus
 
             $order->update([
                 "status" => PurchaseOrderStatus::PAID->value,
+                'payment_receipt' => $response["ref_no"],
                 "check_out_completed_at" => now(),
             ]);
 
