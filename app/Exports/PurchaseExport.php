@@ -17,7 +17,7 @@ class PurchaseExport implements FromCollection, WithHeadings, WithStyles
     {
         return PurchaseOrder::query()
             ->whereIn('id', $this->ids)
-            ->with('user', 'pesaflow_request')
+            ->with(['user', 'pesaflow_request'])
             ->get()
             ->map(function ($order) {
                 $invoiceLink = PesaflowRequest::where('purchase_order_id', $order->id)->latest()->value('invoice_link');
@@ -34,7 +34,7 @@ class PurchaseExport implements FromCollection, WithHeadings, WithStyles
                     'currency' => $order->currency ?? '',
                     'payment_method' => strtoupper($order->payment_method ?? ''),
                     'status' => $order->status->label(),
-                    'invoice_link' => $invoiceLink ?? '',
+                    'tickets' => $order->tickets ? implode(', ', $order->tickets) : '',
                 ];
             });
     }
@@ -42,7 +42,7 @@ class PurchaseExport implements FromCollection, WithHeadings, WithStyles
     public function headings(): array
     {
         return [
-            'Reference', 'Purchaser', 'Email', 'Phone', 'Organization', 'Amount', 'Currency', 'Payment Method', 'Status', 'Invoice Link'
+            'Reference', 'Purchaser', 'Email', 'Phone', 'Organization', 'Amount', 'Currency', 'Payment Method', 'Status', 'Tickets'
         ];
     }
 
