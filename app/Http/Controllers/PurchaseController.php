@@ -218,6 +218,9 @@ class PurchaseController extends Controller
             Mail::to($user->email)
                 ->queue(new LoginDetailsMail($user, $password, $purchaseOrder))
                 ->afterCommit();
+            Mail::to($user->email)->queue(
+                (new LoginDetailsMail($user, $password, $purchaseOrder))
+            );
 
             DB::commit();
 
