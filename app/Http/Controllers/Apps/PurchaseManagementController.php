@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Apps;
 
+use App\Enum\PurchaseOrderStatus;
 use App\Http\Controllers\Controller;
 use App\Models\PurchaseOrder;
 use App\Models\Delegate;
@@ -66,6 +67,9 @@ class PurchaseManagementController extends Controller
 
     public function show(PurchaseOrder $purchaseOrder)
     {
+        // Check permission
+        $this->authorize('view', $purchaseOrder);
+
         $purchaseOrder->load('user');
 
         // Determine if delegates already exist for this purchase's tickets
@@ -135,6 +139,9 @@ class PurchaseManagementController extends Controller
 
     public function resendReminder(Request $request, PurchaseOrder $purchaseOrder)
     {
+        // Check permission
+        $this->authorize('sendReminder', $purchaseOrder);
+
         // Find the latest pesaflow invoice link
         $invoiceLink = \App\Models\Pesaflow\PesaflowRequest::where('purchase_order_id', $purchaseOrder->id)
             ->latest()
@@ -144,19 +151,34 @@ class PurchaseManagementController extends Controller
         $recipientName = $purchaseOrder->user ? trim(($purchaseOrder->user->first_name ?? '') . ' ' . ($purchaseOrder->user->last_name ?? '')) : null;
 
         if (!$recipientEmail) {
+            if ($request->wantsJson()) {
+                return response()->json(['error' => 'No recipient email available for this purchase order.'], 400);
+            }
             return back()->with('error', 'No recipient email available for this purchase order.');
         }
 
         if (!$invoiceLink) {
+            if ($request->wantsJson()) {
+                return response()->json(['error' => 'No invoice link found for this purchase order.'], 400);
+            }
             return back()->with('error', 'No invoice link found for this purchase order.');
         }
 
         try {
             // Queue the reminder to avoid blocking the request
             Mail::to($recipientEmail)->queue(new \App\Mail\PaymentReminderMail($recipientName, $invoiceLink, $purchaseOrder->reference));
-            return back()->with('success', 'Payment reminder queued for sending to ' . $recipientEmail);
+            $message = 'Payment reminder queued for sending to ' . $recipientEmail;
+
+            if ($request->wantsJson()) {
+                return response()->json(['success' => $message]);
+            }
+            return back()->with('success', $message);
         } catch (\Throwable $e) {
-            return back()->with('error', 'Failed to queue reminder: ' . $e->getMessage());
+            $errorMsg = 'Failed to queue reminder: ' . $e->getMessage();
+            if ($request->wantsJson()) {
+                return response()->json(['error' => $errorMsg], 500);
+            }
+            return back()->with('error', $errorMsg);
         }
     }
 
@@ -242,18 +264,21 @@ class PurchaseManagementController extends Controller
      */
     public function markAsPaid(Request $request, PurchaseOrder $purchaseOrder)
     {
+        // Check permission
+        $this->authorize('markAsPaid', $purchaseOrder);
+
         // This bypasses receipt upload and marks the order as paid by admin
-        return $this->processApproval($purchaseOrder);
+        return $this->processApproval($purchaseOrder, $request);
     }
 
     /**
      * Shared approval processing
      */
-    protected function processApproval(PurchaseOrder $purchaseOrder)
+    protected function processApproval(PurchaseOrder $purchaseOrder, Request $request = null)
     {
         DB::beginTransaction();
         try {
-            $purchaseOrder->status = 'paid';
+            $purchaseOrder->status = PurchaseOrderStatus::PAID;
             $purchaseOrder->approved_by = auth()->id();
             $purchaseOrder->approved_at = now();
             $purchaseOrder->save();
@@ -299,10 +324,24 @@ class PurchaseManagementController extends Controller
             }
 
             DB::commit();
-            return back()->with('success', 'Purchase marked as paid and delegates created where possible.');
+            $message = 'Purchase marked as paid and delegates created where possible.';
+
+            // Handle AJAX requests
+            if ($request && $request->wantsJson()) {
+                return response()->json(['success' => $message]);
+            }
+
+            return back()->with('success', $message);
         } catch (\Exception $e) {
             DB::rollBack();
-            return back()->with('error', 'Failed to approve purchase: ' . $e->getMessage());
+            $errorMsg = 'Failed to approve purchase: ' . $e->getMessage();
+
+            // Handle AJAX requests
+            if ($request && $request->wantsJson()) {
+                return response()->json(['error' => $errorMsg], 500);
+            }
+
+            return back()->with('error', $errorMsg);
         }
     }
 }

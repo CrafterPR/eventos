@@ -124,7 +124,7 @@ class PurchasedTickets extends DataTableComponent
                                   ])
                         ->filter(function(Builder $builder, string $value) {
                             return $builder->whereJsonContains('tickets', [
-                                'type' => $value
+                                'type' => '%'.$value.'%'
                             ]);
                         }),
         ];

@@ -126,11 +126,11 @@
                                             @endcan
                                             
                                             @if((string) $order->status === \App\Enum\PurchaseOrderStatus::NEW->value)
-                                                @can('send-purchase-reminder')
+                                                  @can('send-purchase-reminder')
                                                     <li>
-                                                        <form method="POST" action="{{ route('events.purchases.resend_reminder', $order) }}" class="resend-reminder-form" data-ref="{{ $order->reference }}" style="margin:0;">
+                                                        <form method="POST" action="{{ route('events.purchases.resend_reminder', $order) }}" class="resend-reminder-form" data-ref="{{ $order->reference }}" style="margin: 0;">
                                                             @csrf
-                                                            <button type="submit" class="dropdown-item">Send Reminder</button>
+                                                            <button type="submit" class="dropdown-item" style="width: 100%; text-align: left; border: 0; padding: 0.5rem 1rem; cursor: pointer;">Send Reminder</button>
                                                         </form>
                                                     </li>
                                                 @endcan
@@ -138,9 +138,9 @@
                                                 @can('mark-purchase-paid')
                                                     <li><hr class="dropdown-divider"></li>
                                                     <li>
-                                                        <form method="POST" action="{{ route('events.purchases.mark_paid', $order) }}" class="mark-paid-form" data-ref="{{ $order->reference }}" style="margin:0;">
+                                                        <form method="POST" action="{{ route('events.purchases.mark_paid', $order) }}" class="mark-paid-form" data-ref="{{ $order->reference }}" style="margin: 0;">
                                                             @csrf
-                                                            <button type="submit" class="dropdown-item text-success">Mark as Paid</button>
+                                                            <button type="submit" class="dropdown-item text-success" style="width: 100%; text-align: left; border: 0; padding: 0.5rem 1rem; cursor: pointer;">Mark as Paid</button>
                                                         </form>
                                                     </li>
                                                 @endcan
@@ -161,36 +161,97 @@
     </div>
 
     @push('scripts')
+        <style>
+            .dropdown-menu form {
+                width: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            .dropdown-menu form button {
+                display: block;
+                width: 100%;
+                text-align: left;
+                border: none;
+                background: none;
+                font-size: inherit;
+                padding: 0.5rem 1rem;
+                cursor: pointer;
+            }
+            .dropdown-menu form button:hover {
+                background-color: #f8f9fa;
+            }
+        </style>
         <script>
             document.addEventListener('DOMContentLoaded', function () {
                 const forms = document.querySelectorAll('.resend-reminder-form, .mark-paid-form');
                 forms.forEach(function (form) {
                     form.addEventListener('submit', function (e) {
                         e.preventDefault();
+                        e.stopPropagation();
+                        
                         const ref = form.dataset.ref || '';
                         const isMarkPaid = form.classList.contains('mark-paid-form');
                         const title = isMarkPaid ? 'Mark as Paid?' : 'Send payment reminder?';
                         const text = isMarkPaid ? 'This will mark order ' + ref + ' as paid and generate delegates.' : 'Send reminder to purchaser for ' + ref + '?';
 
-                        if (typeof Swal === 'undefined') {
-                            if (confirm(title + '\n\n' + text)) {
-                                form.submit();
+                        const showConfirmation = () => {
+                            if (typeof Swal === 'undefined') {
+                                if (confirm(title + '\n\n' + text)) {
+                                    submitForm();
+                                }
+                                return;
                             }
-                            return;
-                        }
 
-                        Swal.fire({
-                            title: title,
-                            text: text,
-                            icon: 'warning',
-                            showCancelButton: true,
-                            confirmButtonText: 'Yes, proceed',
-                            cancelButtonText: 'Cancel'
-                        }).then(function (result) {
-                            if (result.isConfirmed) {
-                                form.submit();
-                            }
-                        });
+                            Swal.fire({
+                                title: title,
+                                text: text,
+                                icon: 'warning',
+                                showCancelButton: true,
+                                confirmButtonText: 'Yes, proceed',
+                                cancelButtonText: 'Cancel',
+                                allowOutsideClick: false,
+                                allowEscapeKey: false
+                            }).then(function (result) {
+                                if (result.isConfirmed) {
+                                    submitForm();
+                                }
+                            });
+                        };
+
+                        const submitForm = () => {
+                            const formData = new FormData(form);
+                            const action = form.getAttribute('action');
+                            const method = form.getAttribute('method') || 'POST';
+                            
+                            fetch(action, {
+                                method: method,
+                                headers: {
+                                    'X-Requested-With': 'XMLHttpRequest',
+                                    'Accept': 'application/json'
+                                },
+                                body: formData
+                            })
+                            .then(response => {
+                                if (response.ok) {
+                                    return response.json();
+                                }
+                                throw new Error('Network error: ' + response.status);
+                            })
+                            .then(data => {
+                                // Redirect after success
+                                window.location.reload();
+                            })
+                            .catch(error => {
+                                console.error('Form submission error:', error);
+                                if (typeof Swal !== 'undefined') {
+                                    Swal.fire('Error', 'Failed to submit. Please try again.', 'error');
+                                } else {
+                                    alert('Failed to submit. Please try again.');
+                                }
+                            });
+                        };
+
+                        showConfirmation();
                     });
                 });
 
