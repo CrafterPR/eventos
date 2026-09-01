@@ -29,7 +29,7 @@
                         <ul class="mt-3 space-y-2">
                             <li class="flex items-center text-white">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-teal-300 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12H8m8 0a4 4 0 110-8 4 4 0 010 8zm0 0v6"/></svg>
-                                <a href="mailto:kicp2026@kasneb.or.ke" class="hover:underline">kicp2026@kasneb.or.ke</a>
+                                <a href="mailto:kicp2026@kasneb.or.ke" class="hover:underline"> kicpsecretariat@kasneb.or.ke</a>
                             </li>
                             <li class="flex items-center text-white">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-teal-300 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h2l2 5-2 2a11 11 0 005 5l2-2 5 2v2a2 2 0 01-2 2h-1A16 16 0 013 5z"/></svg>
@@ -37,9 +37,9 @@
                             </li>
                             <li class="flex items-center text-white">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-teal-300 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V7a2 2 0 00-2-2H8a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-                                <a href="tel:+254722201214" class="hover:underline">+254 722 201214</a>
+                                <a href="tel:+254722201214" class="hover:underline"> +254 713 683 474</a>
                                 <span class="mx-2">,</span>
-                                <a href="tel:+254734600624" class="hover:underline">+254 734 600624</a>
+                                <a href="tel:+254734600624" class="hover:underline">+254 748 569 187</a>
                             </li>
                         </ul>
                     </div>

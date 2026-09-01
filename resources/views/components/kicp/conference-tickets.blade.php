@@ -743,7 +743,6 @@
                                    </div>
                                    <button type="button" @click="showPaymentIframe = false; currentStep = 0;" class="px-4 py-2 rounded-full bg-gray-200 text-gray-700 font-medium hover:bg-gray-300">Back</button>
                                </div>
-                               <iframe data-payment-iframe :src="paymentIframeUrl" title="PesaFlow payment" class="w-full min-h-[720px] border-0 rounded-xl bg-white" loading="lazy"></iframe>
 
                         <!-- Fallback UI when the iframe cannot be embedded -->
                         <div x-show="showIframeBlocked" class="p-4 bg-yellow-50 border border-yellow-200 rounded-lg mt-4">

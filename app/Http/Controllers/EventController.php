@@ -35,4 +35,6 @@ class EventController extends Controller
         return view('pages.apps.event-management.show', compact('event'));
     }
 
+
+
 }

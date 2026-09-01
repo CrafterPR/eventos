@@ -15,7 +15,7 @@
         <div class="card">
             <div class="card-body">
                 <div class="mb-4 row">
-                    <form method="POST" action="{{ route('events.purchases.index') }}" class="filters-row"
+                    <form method="GET" action="{{ route('events.purchases.index') }}" class="filters-row"
                           style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;">
                         <div class="row">
                         <div class="col-md-2">
@@ -50,12 +50,11 @@
                         </div>
                         <div class="col-md-3">
                         <button type="submit" class="btn btn-sm btn-secondary">Filter</button>
-                        <a href="{{ route('events.purchases.export', request()->all()) }}" class="btn btn-sm btn-outline">Export Excel</a>
+                        <a href="{{ route('events.purchases.export', request()->only(['payment_method','status','ticket_type','date_from','date_to'])) }}" class="btn btn-sm btn-outline">Export Excel</a>
                         </div>
                         </div>
                     </form>
                 </div>
-
 
                 @if(request('payment_method') === 'lpo')
                     <div class="card mb-4">
@@ -71,6 +70,7 @@
                             <th>Purchaser</th>
                             <th>Amount</th>
                             <th>Payment Method</th>
+                            <th>Status</th>
                             <th>Tickets</th>
                             <th>Actions</th>
                         </tr>
@@ -86,8 +86,20 @@
                                     {{ $order->user?->first_name }} {{ $order->user?->last_name }}<br>
                                     <small>{{ $order->payment_email ?? $order->user?->email }}</small>
                                 </td>
-                                <td>{{ number_format($order->amount, 2) }} {{ $order->currency ?? 'KSH' }}</td>
+                                <td>{{ $order->currency ?? 'KSH' }} {{ number_format($order->amount, 2) }} </td>
                                 <td>{{ strtoupper($order->payment_method ?? '') }}</td>
+                                <td>
+                                    @php
+                                        $status =  $order->status;
+                                    @endphp
+                                    @if($status === \App\Enum\PurchaseOrderStatus::PAID)
+                                        <span class="badge bg-success">PAID</span>
+                                    @elseif($status === \App\Enum\PurchaseOrderStatus::NEW)
+                                        <span class="badge bg-warning">PENDING</span>
+                                    @else
+                                        <span class="badge bg-secondary">{{ Str::upper($status->value) }}</span>
+                                    @endif
+                                </td>
                                 <td>
                                     @php
                                         $tickets = is_array($order->tickets) ? $order->tickets : (json_decode($order->tickets, true) ?: []);
@@ -104,51 +116,45 @@
                                     </div>
                                 </td>
                                 <td>
-                                    <a href="{{ route('events.purchases.show', $order) }}" class="btn btn-sm btn-light">View</a>
-
-                                    <form method="POST" action="{{ route('events.purchases.resend_reminder', $order) }}" class="inline-block resend-reminder-form" data-ref="{{ $order->reference }}">
-                                        @csrf
-                                        <button type="submit" class="btn btn-sm btn-primary">Resend reminder</button>
-                                    </form>
+                                    <div class="dropdown">
+                                        <button class="btn btn-sm btn-light dropdown-toggle" type="button" id="dropdownActions{{ $order->id }}" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Actions
+                                        </button>
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownActions{{ $order->id }}">
+                                            @can('view-purchase')
+                                                <li><a class="dropdown-item" href="{{ route('events.purchases.show', $order) }}">View Details</a></li>
+                                            @endcan
+                                            
+                                            @if((string) $order->status === \App\Enum\PurchaseOrderStatus::NEW->value)
+                                                @can('send-purchase-reminder')
+                                                    <li>
+                                                        <form method="POST" action="{{ route('events.purchases.resend_reminder', $order) }}" class="resend-reminder-form" data-ref="{{ $order->reference }}" style="margin:0;">
+                                                            @csrf
+                                                            <button type="submit" class="dropdown-item">Send Reminder</button>
+                                                        </form>
+                                                    </li>
+                                                @endcan
+                                                
+                                                @can('mark-purchase-paid')
+                                                    <li><hr class="dropdown-divider"></li>
+                                                    <li>
+                                                        <form method="POST" action="{{ route('events.purchases.mark_paid', $order) }}" class="mark-paid-form" data-ref="{{ $order->reference }}" style="margin:0;">
+                                                            @csrf
+                                                            <button type="submit" class="dropdown-item text-success">Mark as Paid</button>
+                                                        </form>
+                                                    </li>
+                                                @endcan
+                                            @endif
+                                        </ul>
+                                    </div>
                                 </td>
                             </tr>
                         @empty
-                            <tr><td colspan="6">No pending purchase orders found.</td></tr>
+                            <tr><td colspan="7" class="text-center text-muted">No purchase orders found.</td></tr>
                         @endforelse
                     </tbody>
                 </table>
-                <div class="mt-3">{{ $pendingOrders->links() }}</div>
-
-                <h3 id="paid" class="text-lg font-semibold mb-2">Paid orders</h3>
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>Reference</th>
-                            <th>Purchaser</th>
-                            <th>Amount</th>
-                            <th>Payment Method</th>
-                            <th>Paid at</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @forelse($paidOrders as $order)
-                            <tr>
-                                <td>{{ $order->reference }}</td>
-                                <td>{{ $order->user?->first_name }} {{ $order->user?->last_name }}<br><small>{{ $order->user?->email }}</small></td>
-                                <td>{{ number_format($order->amount, 2) }} {{ $order->currency ?? 'KSH' }}</td>
-                                <td>{{ strtoupper($order->payment_method ?? '') }}</td>
-                                <td>{{ optional($order->updated_at)->toDateTimeString() }}</td>
-                                <td>
-                                    <a href="{{ route('events.purchases.show', $order) }}" class="btn btn-sm btn-light">View</a>
-                                </td>
-                            </tr>
-                        @empty
-                            <tr><td colspan="6">No paid purchase orders found.</td></tr>
-                        @endforelse
-                    </tbody>
-                </table>
-                <div class="mt-3">{{ $paidOrders->links() }}</div>
+                <div class="mt-3">{{ $pendingOrders->links('pagination::bootstrap-4') }}</div>
 
             </div>
         </div>
@@ -157,26 +163,28 @@
     @push('scripts')
         <script>
             document.addEventListener('DOMContentLoaded', function () {
-                const forms = document.querySelectorAll('.resend-reminder-form');
+                const forms = document.querySelectorAll('.resend-reminder-form, .mark-paid-form');
                 forms.forEach(function (form) {
                     form.addEventListener('submit', function (e) {
                         e.preventDefault();
                         const ref = form.dataset.ref || '';
+                        const isMarkPaid = form.classList.contains('mark-paid-form');
+                        const title = isMarkPaid ? 'Mark as Paid?' : 'Send payment reminder?';
+                        const text = isMarkPaid ? 'This will mark order ' + ref + ' as paid and generate delegates.' : 'Send reminder to purchaser for ' + ref + '?';
 
                         if (typeof Swal === 'undefined') {
-                            // Fallback to native confirm
-                            if (confirm('Send payment reminder to purchaser for ' + ref + '?')) {
+                            if (confirm(title + '\n\n' + text)) {
                                 form.submit();
                             }
                             return;
                         }
 
                         Swal.fire({
-                            title: 'Send payment reminder?',
-                            text: 'Send reminder to purchaser for ' + ref + '?',
+                            title: title,
+                            text: text,
                             icon: 'warning',
                             showCancelButton: true,
-                            confirmButtonText: 'Yes, send',
+                            confirmButtonText: 'Yes, proceed',
                             cancelButtonText: 'Cancel'
                         }).then(function (result) {
                             if (result.isConfirmed) {
@@ -186,36 +194,33 @@
                     });
                 });
 
-    // Initialize flatpickr range for purchase date
-    try {
-        if (typeof flatpickr !== 'undefined') {
-            flatpickr('#purchase_date_range', {
-                mode: 'range',
-                dateFormat: 'Y-m-d',
-                allowInput: true,
-                onClose: function(selectedDates, dateStr) {
-                    if (!dateStr) {
-                        document.getElementById('date_from').value = '';
-                        document.getElementById('date_to').value = '';
-                        return;
+                try {
+                    if (typeof flatpickr !== 'undefined') {
+                        flatpickr('#purchase_date_range', {
+                            mode: 'range',
+                            dateFormat: 'Y-m-d',
+                            allowInput: true,
+                            onClose: function(selectedDates, dateStr) {
+                                if (!dateStr) {
+                                    document.getElementById('date_from').value = '';
+                                    document.getElementById('date_to').value = '';
+                                    return;
+                                }
+                                var parts = dateStr.split(' to ');
+                                if (parts.length === 2) {
+                                    document.getElementById('date_from').value = parts[0];
+                                    document.getElementById('date_to').value = parts[1];
+                                } else {
+                                    document.getElementById('date_from').value = parts[0];
+                                    document.getElementById('date_to').value = parts[0];
+                                }
+                            }
+                        });
                     }
-                    var parts = dateStr.split(' to ');
-                    if (parts.length === 2) {
-                        document.getElementById('date_from').value = parts[0];
-                        document.getElementById('date_to').value = parts[1];
-                    } else {
-                        document.getElementById('date_from').value = parts[0];
-                        document.getElementById('date_to').value = parts[0];
-                    }
+                } catch (e) {
+                    console.warn('flatpickr not available');
                 }
-            });
-        }
-    } catch (err) {
-        // ignore
-    }
-
             });
         </script>
     @endpush
-
 </x-default-layout>

@@ -51,7 +51,7 @@ Breadcrumbs::for('users.delegates.show', function (BreadcrumbTrail $trail) {
 //Home > Dashboard > Ticket Management > Tickets > purchased tickets
 Breadcrumbs::for('tickets.view-purchased', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
-    $trail->push('Purchased Tickets', route('tickets.view-purchased'));
+    $trail->push('Purchased Tickets', route('events.purchases.index'));
 });
 
 Breadcrumbs::for('tickets.manage-tickets.index', function (BreadcrumbTrail $trail) {

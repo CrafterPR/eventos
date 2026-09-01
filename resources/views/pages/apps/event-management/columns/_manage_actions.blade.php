@@ -5,44 +5,36 @@
 <!--begin::Menu-->
 <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
     <!--begin::Menu item-->
-    @can('checkin-event')
-        @if( $event->status === \App\Enum\EventStatus::ACTIVE && now() > $event->start_date)
+    @can('mark-as-paid')
+        @if( $row->status === \App\Enum\PurchaseOrderStatus::NEW)
         <div class="menu-item px-3">
-            <a href="{{ route('events.delegates.checkin', ['event' => $event->id]) }}" class="menu-link px-3">
-                Check In
+            <a href="{{ route('events.purchases.mark_paid', ['purchaseOrder' => $row->id]) }}" class="menu-link
+            px-3">
+                Mark as paid
             </a>
         </div>
             @endif
     @endcan
-    @can('edit-event')
+    @can('ticker.purchase.show')
     <div class="menu-item px-3">
-        <a href="#" class="menu-link px-3" data-kt-event-id="{{ $event->id }}" data-bs-toggle="modal" data-bs-target="#kt_modal_edit_event" data-kt-action="update_event">
-            Edit
-        </a>
+        <a href="{{ route('events.purchases.show', $row) }}" class="menu-link px-3">View details</a>
     </div>
     @endcan
-    @can('activate-event')
-        @if($event->status === \App\Enum\EventStatus::INACTIVE || $event->status === \App\Enum\EventStatus::DRAFT)
-        <div class="menu-item px-3">
-            <a href="#" data-kt-event-id="{{ $event->id }}" data-kt-action="activate_row" class="menu-link px-3">
-                Activate
-            </a>
-        </div>
+    @can('resend-payment-reminder')
+        @if($row->status === \App\Enum\PurchaseOrderStatus::NEW)
+        <form method="POST" action="{{ route('events.purchases.resend_reminder', $row) }}" class="inline-block resend-reminder-form" data-ref="{{ $row->reference }}">
+            @csrf
+            <div class="menu-item px-3">
+            <button type="submit" class="menu-link px-3">Send reminder</button>
+            </div>
+        </form>
         @endif
     @endcan
-    @can('deactivate-event')
-        @if($event->status === \App\Enum\EventStatus::ACTIVE)
-            <div class="menu-item px-3">
-            <a href="#" data-kt-event-id="{{ $event->id }}" data-kt-action="inactivate_row" class="menu-link px-3">
-                Deactivate
-            </a>
-        </div>
-        @endif
-    @endcan()
-    @can('delete-event')
-    @if($event->status === \App\Enum\EventStatus::INACTIVE)
+
+    @can('delete-ticket')
+    @if($row->status === \App\Enum\PurchaseOrderStatus::FAILED || $row->status === \App\Enum\PurchaseOrderStatus::CANCELLED)
     <div class="menu-item px-3">
-        <a href="#" class="menu-link px-3" data-kt-event-id="{{ $event->id }}" data-kt-action="delete_row">
+        <a href="#" class="menu-link px-3" data-kt-order-id="{{ $row->id }}" data-kt-action="delete_row">
             Delete
         </a>
     </div>

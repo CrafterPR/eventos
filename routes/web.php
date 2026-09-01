@@ -38,14 +38,15 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
         // Purchase orders management
         Route::middleware(['can:event-management'])->prefix('events')->name('events.')->group(function () {
-            Route::get('purchases', [\App\Http\Controllers\Apps\PurchaseManagementController::class, 'index'])->name('purchases.index');
+            Route::get('purchases', [\App\Http\Controllers\TicketController::class, 'orders'])->name('purchases.index');
+            Route::get('purchases/export', [\App\Http\Controllers\Apps\PurchaseManagementController::class, 'export'])->name('purchases.export');
             Route::resource('delegates', DelegateController::class);
             Route::get('purchases/{purchaseOrder}', [\App\Http\Controllers\Apps\PurchaseManagementController::class, 'show'])->name('purchases.show');
             Route::post('purchases/{purchaseOrder}/receipt', [\App\Http\Controllers\Apps\PurchaseManagementController::class, 'uploadReceipt'])->name('purchases.receipt.upload');
             Route::post('purchases/{purchaseOrder}/approve', [\App\Http\Controllers\Apps\PurchaseManagementController::class, 'approve'])->name('purchases.approve');
             Route::post('purchases/{purchaseOrder}/resend-reminder', [\App\Http\Controllers\Apps\PurchaseManagementController::class, 'resendReminder'])->name('purchases.resend_reminder');
             Route::post('purchases/{purchaseOrder}/mark-paid', [\App\Http\Controllers\Apps\PurchaseManagementController::class, 'markAsPaid'])->name('purchases.mark_paid');
-            Route::get('purchases/export', [\App\Http\Controllers\Apps\PurchaseManagementController::class, 'export'])->name('purchases.export');
+            Route::post('purchases/{purchaseOrder}/generate-delegates', [\App\Http\Controllers\Apps\PurchaseManagementController::class, 'generateDelegates'])->name('purchases.generate_delegates');
         });
 
         Route::middleware(['can:user-management'])->name('users.')->group(function () {

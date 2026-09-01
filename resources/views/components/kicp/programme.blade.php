@@ -27,7 +27,7 @@
 
             days: {
                 1: {
-                    title: 'DAY ONE: MONDAY, 14 SEPTEMBER 2026',
+                    title: 'DAY ONE: MONDAY, 26th OCTOBER 2026',
                     subtitle: 'Arrival & Registration',
                     sessions: [
                         {
@@ -40,7 +40,7 @@
                 },
 
                 2: {
-                    title: 'DAY TWO: TUESDAY, 15 SEPTEMBER 2026',
+                    title: 'DAY TWO: TUESDAY, 27th OCTOBER 2026',
                     subtitle: 'Conference Opening & Leadership',
                     sessions: [
                         {
@@ -204,7 +204,7 @@
                 },
 
                 3: {
-                    title: 'DAY THREE: WEDNESDAY, 16 SEPTEMBER 2026',
+                    title: 'DAY THREE: WEDNESDAY, 28th OCTOBER 2026',
                     subtitle: 'Conference Official Opening',
                     sessions: [
                         {
@@ -365,7 +365,7 @@
                 },
 
                 4: {
-                    title: 'DAY FOUR: THURSDAY, 17 SEPTEMBER 2026',
+                    title: 'DAY FOUR: THURSDAY, 29th OCTOBER 2026',
                     subtitle: 'Digital Economy, Policy, Wellness & Innovation',
                     sessions: [
                         {
@@ -493,7 +493,7 @@
                 },
 
                 5: {
-                    title: 'DAY FIVE: FRIDAY, 18 SEPTEMBER 2026',
+                    title: 'DAY FIVE: FRIDAY, 29th OCTOBER 2026',
                     subtitle: 'Professional Standards, Leadership & Closing',
                     sessions: [
                         {

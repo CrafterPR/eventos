@@ -68,6 +68,17 @@
                             <button type="button" class="btn btn-primary btn-mark-paid">Mark as Paid</button>
                         </form>
                     @endif
+
+                    @if($order->status === 'paid')
+                        @if(($delegatesCount ?? 0) < ($ticketsCount ?? 0))
+                            <form action="{{ route('events.purchases.generate_delegates', $order) }}" method="post" style="display:inline-block; margin-left:8px;" onsubmit="return confirm('Generate delegates for this paid purchase?')">
+                                @csrf
+                                <button class="btn btn-info">Generate Delegates</button>
+                            </form>
+                        @else
+                            <span class="badge bg-success">Delegates created ({{ $delegatesCount }})</span>
+                        @endif
+                    @endif
                 </div>
             </div>
         </div>

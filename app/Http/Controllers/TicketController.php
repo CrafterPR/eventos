@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Illuminate\View\View;
 use App\Models\PurchaseOrder;
-use Illuminate\Http\Response;
+use App\DataTables\PurchaseOrdersDataTable;
 
 class TicketController extends Controller
 {
@@ -13,6 +12,11 @@ class TicketController extends Controller
     {
         $user = auth()->user();
         return view('pages.tickets.index', ['authUser' => $user]);
+    }
+
+    public function orders(PurchaseOrdersDataTable $dataTable)
+    {
+        return $dataTable->render('pages.apps.event-management.purchased-tickets');
     }
 
     public function show(PurchaseOrder $purchaseOrder)

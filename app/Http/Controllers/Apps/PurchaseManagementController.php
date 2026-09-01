@@ -21,77 +21,45 @@ class PurchaseManagementController extends Controller
     public function index(Request $request)
     {
         // Filters from querystring
-        $paymentMethod = $request->query('payment_method'); // e.g. pesaflow, lpo, mpesa
-        $statusFilter = $request->query('status'); // new, paid, or null for all
+        $paymentMethod = $request->query('payment_method');
+        $statusFilter = $request->query('status');
+        $ticketType = $request->query('ticket_type');
+        $dateFrom = $request->query('date_from');
+        $dateTo = $request->query('date_to');
 
-        // Build base queries
-        $pendingQuery = PurchaseOrder::with('user')->where('status', 'new');
-        $paidQuery = PurchaseOrder::with('user')->where('status', 'paid');
+        // Build unified query for all purchase orders
+        $query = PurchaseOrder::with('user');
 
         if ($paymentMethod && $paymentMethod !== 'all') {
-            $pendingQuery->where('payment_method', $paymentMethod);
-            $paidQuery->where('payment_method', $paymentMethod);
+            $query->where('payment_method', $paymentMethod);
         }
 
-        // Ticket type filter (category id)
-        $ticketType = $request->query('ticket_type');
+        if ($statusFilter && $statusFilter !== 'all') {
+            $query->where('status', $statusFilter);
+        }
+
+        // Ticket type filter (category id in JSON tickets)
         if ($ticketType) {
-            $pendingQuery->where(function($q) use ($ticketType) {
-                $q->whereJsonContains('tickets->*.category_id', (int) $ticketType)
-                  ->orWhereJsonContains('tickets->*.category_id', (string) $ticketType);
-            });
-            $paidQuery->where(function($q) use ($ticketType) {
+            $query->where(function($q) use ($ticketType) {
                 $q->whereJsonContains('tickets->*.category_id', (int) $ticketType)
                   ->orWhereJsonContains('tickets->*.category_id', (string) $ticketType);
             });
         }
 
         // Date range filter for purchase order dates
-        $dateFrom = $request->query('date_from');
-        $dateTo = $request->query('date_to');
         if ($dateFrom) {
-            $pendingQuery->whereDate('created_at', '>=', $dateFrom);
-            $paidQuery->whereDate('created_at', '>=', $dateFrom);
+            $query->whereDate('created_at', '>=', $dateFrom);
         }
         if ($dateTo) {
-            $pendingQuery->whereDate('created_at', '<=', $dateTo);
-            $paidQuery->whereDate('created_at', '<=', $dateTo);
+            $query->whereDate('created_at', '<=', $dateTo);
         }
 
-        if ($statusFilter && $statusFilter !== 'all') {
-            // Override the two lists to show only the requested status
-            $query = PurchaseOrder::with('user')->where('status', $statusFilter);
-            if ($paymentMethod && $paymentMethod !== 'all') {
-                $query->where('payment_method', $paymentMethod);
-            }
-            if ($ticketType) {
-                $query->where(function($q) use ($ticketType) {
-                    $q->whereJsonContains('tickets->*.category_id', (int) $ticketType)
-                      ->orWhereJsonContains('tickets->*.category_id', (string) $ticketType);
-                });
-            }
-            if ($dateFrom) {
-                $query->whereDate('created_at', '>=', $dateFrom);
-            }
-            if ($dateTo) {
-                $query->whereDate('created_at', '<=', $dateTo);
-            }
+        // Paginate single combined list
+        $orders = $query->latest()->paginate(50);
 
-            $orders = $query->latest()->paginate(50);
-
-            if ($statusFilter === 'new') {
-                $pendingOrders = $orders;
-                $paidOrders = collect([]);
-            } else {
-                $paidOrders = $orders;
-                $pendingOrders = collect([]);
-            }
-
-            return view('pages.purchases.index', compact('pendingOrders', 'paidOrders'));
-        }
-
-        $pendingOrders = $pendingQuery->latest()->paginate(50);
-        $paidOrders = $paidQuery->latest()->paginate(50);
+        // For backward compatibility with view, use single list
+        $pendingOrders = $orders;
+        $paidOrders = collect([]);
 
         return view('pages.purchases.index', compact('pendingOrders', 'paidOrders'));
     }
@@ -99,13 +67,36 @@ class PurchaseManagementController extends Controller
     public function show(PurchaseOrder $purchaseOrder)
     {
         $purchaseOrder->load('user');
-        return view('pages.purchases.show', ['order' => $purchaseOrder]);
+
+        // Determine if delegates already exist for this purchase's tickets
+        $tickets = is_array($purchaseOrder->tickets) ? $purchaseOrder->tickets : (json_decode($purchaseOrder->tickets, true) ?: []);
+        $emails = [];
+        foreach ($tickets as $t) {
+            if (is_array($t) && !empty($t['email'])) {
+                $emails[] = $t['email'];
+            }
+        }
+        // include purchaser email as fallback
+        if ($purchaseOrder->payment_email) {
+            $emails[] = $purchaseOrder->payment_email;
+        }
+
+        $emails = array_filter(array_unique($emails));
+        $delegatesCount = 0;
+        if (!empty($emails)) {
+            $delegatesCount = Delegate::whereIn('email', $emails)->count();
+        }
+
+        return view('pages.purchases.show', ['order' => $purchaseOrder, 'delegatesCount' => $delegatesCount, 'ticketsCount' => count($tickets)]);
     }
 
     public function export(Request $request)
     {
         $paymentMethod = $request->query('payment_method');
         $statusFilter = $request->query('status');
+        $ticketType = $request->query('ticket_type');
+        $dateFrom = $request->query('date_from');
+        $dateTo = $request->query('date_to');
 
         $query = PurchaseOrder::with('user');
 
@@ -115,6 +106,22 @@ class PurchaseManagementController extends Controller
 
         if ($statusFilter && $statusFilter !== 'all') {
             $query->where('status', $statusFilter);
+        }
+
+        // Ticket type filter (category id in JSON tickets)
+        if ($ticketType) {
+            $query->where(function($q) use ($ticketType) {
+                $q->whereJsonContains('tickets->*.category_id', (int) $ticketType)
+                  ->orWhereJsonContains('tickets->*.category_id', (string) $ticketType);
+            });
+        }
+
+        // Date range filter for purchase order dates
+        if ($dateFrom) {
+            $query->whereDate('created_at', '>=', $dateFrom);
+        }
+        if ($dateTo) {
+            $query->whereDate('created_at', '<=', $dateTo);
         }
 
         $orders = $query->latest()->get();
@@ -176,6 +183,60 @@ class PurchaseManagementController extends Controller
         return $this->processApproval($purchaseOrder);
     }
 
+    public function generateDelegates(Request $request, PurchaseOrder $purchaseOrder)
+    {
+        // Only operate on paid orders
+        if ($purchaseOrder->status !== 'paid') {
+            return back()->with('error', 'Can only generate delegates for paid purchases.');
+        }
+
+        // Reuse delegate creation logic but don't change purchase status
+        $tickets = is_array($purchaseOrder->tickets)
+            ? $purchaseOrder->tickets
+            : (json_decode($purchaseOrder->tickets, true) ?: []);
+
+        $created = 0;
+        DB::beginTransaction();
+        try {
+            foreach ($tickets as $ticket) {
+                $firstName = $ticket['first_name'] ?? $purchaseOrder->user?->first_name ?? null;
+                $lastName = $ticket['last_name'] ?? $purchaseOrder->user?->last_name ?? null;
+                $email = $ticket['email'] ?? $purchaseOrder->user?->email ?? null;
+                $mobile = $ticket['mobile'] ?? $purchaseOrder->payment_phone ?? $purchaseOrder->user?->mobile ?? null;
+                $eventId = $ticket['event_id'] ?? optional(Event::first())->id;
+                $categoryId = $ticket['category_id'] ?? optional(Category::first())->id;
+
+                if ($firstName && $lastName && $email && $eventId) {
+                    $exists = Delegate::where('email', $email)->where('event_id', $eventId)->exists();
+                    if (!$exists) {
+                        Delegate::create([
+                            'salutation' => $ticket['salutation'] ?? null,
+                            'first_name' => $firstName,
+                            'last_name' => $lastName,
+                            'email' => $email,
+                            'mobile' => $mobile,
+                            'id_number' => $ticket['id_number'] ?? null,
+                            'gender' => $ticket['gender'] ?? null,
+                            'event_id' => $eventId,
+                            'organization' => $ticket['organization'] ?? $purchaseOrder->user?->organization ?? null,
+                            'position' => $ticket['position'] ?? null,
+                            'category_id' => $categoryId,
+                            'country_id' => $ticket['country_id'] ?? null,
+                            'county_id' => $ticket['county_id'] ?? null,
+                        ]);
+                        $created++;
+                    }
+                }
+            }
+
+            DB::commit();
+            return back()->with('success', "Created {$created} delegates where possible.");
+        } catch (\Throwable $e) {
+            DB::rollBack();
+            return back()->with('error', 'Failed to generate delegates: ' . $e->getMessage());
+        }
+    }
+
     /**
      * Mark purchase as paid and create delegates (used by admin when marking paid manually)
      */
@@ -215,21 +276,25 @@ class PurchaseManagementController extends Controller
 
                 // Create a delegate record when we can
                 if ($firstName && $lastName && $email && $eventId) {
-                    Delegate::create([
-                        'salutation' => $ticket['salutation'] ?? null,
-                        'first_name' => $firstName,
-                        'last_name' => $lastName,
-                        'email' => $email,
-                        'mobile' => $mobile,
-                        'id_number' => $ticket['id_number'] ?? null,
-                        'gender' => $ticket['gender'] ?? null,
-                        'event_id' => $eventId,
-                        'organization' => $ticket['organization'] ?? $purchaseOrder->user?->organization ?? null,
-                        'position' => $ticket['position'] ?? null,
-                        'category_id' => $categoryId,
-                        'country_id' => $ticket['country_id'] ?? null,
-                        'county_id' => $ticket['county_id'] ?? null,
-                    ]);
+                    // Only create if delegate with same email doesn't already exist for the event
+                    $exists = Delegate::where('email', $email)->where('event_id', $eventId)->exists();
+                    if (!$exists) {
+                        Delegate::create([
+                            'salutation' => $ticket['salutation'] ?? null,
+                            'first_name' => $firstName,
+                            'last_name' => $lastName,
+                            'email' => $email,
+                            'mobile' => $mobile,
+                            'id_number' => $ticket['id_number'] ?? null,
+                            'gender' => $ticket['gender'] ?? null,
+                            'event_id' => $eventId,
+                            'organization' => $ticket['organization'] ?? $purchaseOrder->user?->organization ?? null,
+                            'position' => $ticket['position'] ?? null,
+                            'category_id' => $categoryId,
+                            'country_id' => $ticket['country_id'] ?? null,
+                            'county_id' => $ticket['county_id'] ?? null,
+                        ]);
+                    }
                 }
             }
 
