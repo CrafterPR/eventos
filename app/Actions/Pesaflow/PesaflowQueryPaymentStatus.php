@@ -73,10 +73,10 @@ class PesaflowQueryPaymentStatus
             "status" => $status,
         ]);
 
-        if ($order->status == PaymentStatus::SETTLED) {
+        if ($status === PaymentStatus::SETTLED->value) {
 
             $order->update([
-                "status" => PurchaseOrderStatus::PAID->value,
+                "status" => PurchaseOrderStatus::PAID,
                 'payment_receipt' => $response["ref_no"],
                 "check_out_completed_at" => now(),
             ]);
@@ -84,7 +84,7 @@ class PesaflowQueryPaymentStatus
             event(new PesaflowPaymentSuccessfulEvent(purchase_order: $order));
         }
 
-        if ($status != PaymentStatus::SETTLED->value) {
+        if ($status !== PaymentStatus::SETTLED->value) {
             event(new PesaflowPaymentFailedEvent(purchase_order: $order, status: $status));
         }
 
