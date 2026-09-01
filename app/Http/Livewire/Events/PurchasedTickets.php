@@ -19,6 +19,7 @@ use Rappasoft\LaravelLivewireTables\Views\Column;
 use Rappasoft\LaravelLivewireTables\Views\Columns\BooleanColumn;
 use Rappasoft\LaravelLivewireTables\Views\Columns\LinkColumn;
 use Rappasoft\LaravelLivewireTables\Views\Filters\SelectFilter;
+use Rappasoft\LaravelLivewireTables\Views\Filters\MultiSelectFilter;
 
 class PurchasedTickets extends DataTableComponent
 {
@@ -117,16 +118,20 @@ class PurchasedTickets extends DataTableComponent
                         ->filter(function(Builder $builder, string $value) {
                             return $builder->where('purchase_orders.status', $value);
                         }),
-            SelectFilter::make('Ticket type')
-                        ->options([
-                                      '' => 'Any',
-                                      ...$this->getCategories(),
-                                  ])
-                        ->filter(function(Builder $builder, string $value) {
-                            return $builder->whereJsonContains('tickets', [
-                                'type' => '%'.$value.'%'
-                            ]);
-                        }),
+            MultiSelectFilter::make('Ticket type')
+                             ->options([
+                                           ...$this->getCategories(),
+                                       ])
+                             ->filter(function (Builder $builder, array $values) {
+                                 $builder->where(function (Builder $query) use ($values) {
+                                     foreach ($values as $value) {
+                                         $query->orWhereRaw(
+                                             "JSON_SEARCH(tickets, 'one', ?, NULL, '$[*].type') IS NOT NULL",
+                                             [$value]
+                                         );
+                                     }
+                                 });
+                             }),
         ];
     }
 
