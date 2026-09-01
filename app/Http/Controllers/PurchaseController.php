@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\PurchaseOrder;
 use App\Models\Role;
+use Illuminate\Support\Facades\Log;
 use App\Models\Pesaflow\PesaflowRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -215,7 +216,7 @@ class PurchaseController extends Controller
             // Defer sending login details until payment is confirmed via Pesaflow webhook/event
             // (Email will be sent by PesaflowPaymentSuccessfulListener)
 
-            
+
             Mail::to($user->email)->queue(
                 (new LoginDetailsMail($user, $password, $purchaseOrder))
             );
@@ -237,6 +238,10 @@ class PurchaseController extends Controller
             ]);
         } catch (\Exception $e) {
             DB::rollBack();
+            Log::error('Failed to save purchase order: ' . $e->getMessage(), [
+                'exception' => $e,
+                'payload' => $payload,
+            ]);
             return response()->json([
                 'message' => 'Failed to save purchase',
                 'error' => $e->getMessage()
