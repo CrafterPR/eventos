@@ -27,15 +27,20 @@
                                <div class="mb-3 sm:mb-4">
                                    <div class="flex items-center justify-between gap-2 mb-2">
                                        <h2 class="text-lg sm:text-xl font-bold text-slate-800">Individual Delegate</h2>
-                                       <span class="inline-flex items-center rounded-full bg-red-50 px-2 py-1 text-[10px] sm:text-[11px] font-semibold uppercase tracking-wide text-red-600">Early Bird</span>
-                                   </div>
+                                          </div>
                                    <p class="text-slate-800/80 text-xs sm:text-sm">Access all keynotes, panels,
                                        exhibition &amp; networking app.</p>
                                </div>
                                <div class="mb-3 sm:mb-4">
+                                   <span class="inline-flex items-center rounded-full bg-red-50 px-2 py-1 text-[10px] sm:text-[11px] font-semibold uppercase tracking-wide text-red-600">Early Bird</span>
+                                   <div class="mt-2 text-[10px] sm:text-xs font-semibold uppercase tracking-wide
+                                   text-red-500">Ends 25 September 2026 11:59pm</div>
+
                                    <h3 class="text-2xl sm:text-3xl font-bold text-slate-800">Ksh. 63,750</h3>
+                                   <h4 class="text-1xl sm:text-1xl font-bold text-slate-800 line-through">Ksh. 75,
+                                       000</h4>
                                    <div class="mt-1 text-xs sm:text-sm text-slate-600">USD $510</div>
-                                   <div class="mt-2 text-[10px] sm:text-xs font-semibold uppercase tracking-wide text-red-500">Ends 25 Sep</div>
+
                                </div>
                                <div class="mb-4 sm:mb-6">
                                    <ul class="space-y-1 text-slate-800 text-xs sm:text-sm">
