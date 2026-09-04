@@ -55,7 +55,7 @@
 
                 <div class="mt-4">
                     @if($order->payment_receipt)
-                        <a href="{{ public_path('storage/' . $order->payment_receipt) }}" target="_blank" rel="noopener
+                        <a href="{{ Storage::disk('public')->url($order->payment_receipt) }}" target="_blank" rel="noopener
                         noreferrer" class="btn btn-success">Print receipt</a>
                     @else
                         @if($order->status !== \App\Enum\PurchaseOrderStatus::PAID)
