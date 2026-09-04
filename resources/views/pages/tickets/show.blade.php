@@ -1,3 +1,4 @@
+@php use App\Actions\GeneratePaymentReceipt; @endphp
 <x-default-layout>
     @section('title', 'Purchase Order')
 
@@ -54,7 +55,13 @@
                 <p>Organization: {{ $order->user?->organization ?? 'N/A' }}</p>
 
                 <div class="mt-4">
-                    @if($order->payment_receipt)
+                    @if($order->status == \App\Enum\PurchaseOrderStatus::PAID)
+                        @if(!$order->payment_receipt)
+                            @php
+                                $receiptUrl = GeneratePaymentReceipt::run($order);
+                                $order->update(['payment_receipt' => $receiptUrl]);
+                            @endphp
+                        @endif
                         <a href="{{ Storage::disk('public')->url($order->payment_receipt) }}" target="_blank" rel="noopener
                         noreferrer" class="btn btn-success">Print receipt</a>
                     @else
