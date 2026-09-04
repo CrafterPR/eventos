@@ -56,7 +56,7 @@
 
                 <div class="mt-4">
                     @if($order->status == \App\Enum\PurchaseOrderStatus::PAID)
-                        @if(!$order->payment_receipt)
+                        @if($order->payment_receipt == null)
                             @php
                                 $receiptUrl = GeneratePaymentReceipt::run($order);
                                 $order->update(['payment_receipt' => $receiptUrl]);

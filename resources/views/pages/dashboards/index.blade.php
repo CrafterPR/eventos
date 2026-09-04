@@ -9,7 +9,6 @@ use Illuminate\Support\Arr;
     @endsection
     @if(auth()->check() && !auth()->user()->hasRole('delegate'))
         @can('view-dashboard')
-
             <!-- Summary cards: Revenue, Expected, Tickets Purchased, Paid Orders (per currency) -->
             <div class="row g-5 g-xl-10 mx-5 mp-n4 mb-xl-10">
                 <div class="col-12">
@@ -19,27 +18,40 @@ use Illuminate\Support\Arr;
                         $revenueByCurrency = \App\Models\PurchaseOrder::where('status', \App\Enum\PurchaseOrderStatus::PAID->value)
                             ->select('currency', \DB::raw('SUM(amount) as total'))
                             ->groupBy('currency')
-                            ->pluck('total', 'currency')
+                            ->get()
+                            ->mapWithKeys(function($item){
+                                $k = isset($item->currency) && ($item->currency instanceof \App\Enum\Currency) ? $item->currency->value : (string)($item->currency ?? '');
+                                return [$k => $item->total];
+                            })
                             ->toArray();
 
                         // Expected per currency (all orders)
                         $expectedByCurrency = \App\Models\PurchaseOrder::select('currency', \DB::raw('SUM(amount) as total'))
                             ->groupBy('currency')
-                            ->pluck('total', 'currency')
+                            ->get()
+                            ->mapWithKeys(function($item){
+                                $k = isset($item->currency) && ($item->currency instanceof \App\Enum\Currency) ? $item->currency->value : (string)($item->currency ?? '');
+                                return [$k => $item->total];
+                            })
                             ->toArray();
 
                         // Paid orders count per currency
                         $paidOrdersByCurrency = \App\Models\PurchaseOrder::where('status', \App\Enum\PurchaseOrderStatus::PAID->value)
                             ->select('currency', \DB::raw('COUNT(*) as total'))
                             ->groupBy('currency')
-                            ->pluck('total', 'currency')
+                            ->get()
+                            ->mapWithKeys(function($item){
+                                $k = isset($item->currency) && ($item->currency instanceof \App\Enum\Currency) ? $item->currency->value : (string)($item->currency ?? '');
+                                return [$k => $item->total];
+                            })
                             ->toArray();
 
                         // Tickets purchased per currency
                         $ticketsByCurrency = [];
                         $pos = \App\Models\PurchaseOrder::select('tickets', 'currency')->get();
                         foreach ($pos as $po) {
-                            $currency = $po->currency ?: 'KES';
+                            $currency = ($po->currency instanceof \App\Enum\Currency) ? $po->currency->value : ($po->currency ?: 'KES');
+
                             $tickets = $po->tickets;
                             if (is_string($tickets)) {
                                 $decoded = json_decode($tickets, true);
@@ -55,13 +67,20 @@ use Illuminate\Support\Arr;
                             foreach ($tickets as $t) {
                                 if (is_array($t)) {
                                     $qty = isset($t['count']) ? (int)$t['count'] : (isset($t['quantity']) ? (int)$t['quantity'] : 1);
-                                    $ticketsByCurrency[$currency] = ($ticketsByCurrency[$currency] ?? 0) + $qty;
+                                    $key = $currency;
+                                    $ticketsByCurrency[$key] = ($ticketsByCurrency[$key] ?? 0) + $qty;
                                 }
                             }
                         }
 
-                        // Build list of all currencies present across metrics
-                        $currencies = array_unique(array_merge(array_keys($revenueByCurrency), array_keys($expectedByCurrency), array_keys($paidOrdersByCurrency), array_keys($ticketsByCurrency)));
+                        // Build list of all currencies present across metrics (ensure keys are strings)
+                        $allKeys = [];
+                        foreach ([$revenueByCurrency, $expectedByCurrency, $paidOrdersByCurrency, $ticketsByCurrency] as $arr) {
+                            foreach (array_keys($arr) as $k) {
+                                $allKeys[] = is_object($k) ? (string)$k : (string)$k;
+                            }
+                        }
+                        $currencies = array_values(array_unique($allKeys));
                         sort($currencies);
                    ?>
 
@@ -78,7 +97,8 @@ use Illuminate\Support\Arr;
                                             </div>
                                             <div>
                                                 <div class="text-muted fs-7">{{ $currency }} — Revenue collected</div>
-                                                <div class="fw-bold fs-4">{{ $currency }} {{ number_format($revenueByCurrency[$currency] ?? 0, 2) }}</div>
+                                                <div class="fw-bold fs-4">{{ $currency }} {{ number_format
+                                                ($revenueByCurrency[$currency] ?? 0, 2) }}</div>
                                             </div>
                                         </div>
                                     </div>
@@ -114,7 +134,8 @@ use Illuminate\Support\Arr;
                                             </div>
                                             <div>
                                                 <div class="text-muted fs-7">{{ $currency }} — Tickets purchased</div>
-                                                <div class="fw-bold fs-4">{{ number_format($ticketsByCurrency[$currency] ?? 0) }}</div>
+                                                <div class="fw-bold fs-4">{{ number_format
+                                                ($ticketsByCurrency[$currency] ?? 0) }}</div>
                                             </div>
                                         </div>
                                     </div>
@@ -132,7 +153,8 @@ use Illuminate\Support\Arr;
                                             </div>
                                             <div>
                                                 <div class="text-muted fs-7">{{ $currency }} — Paid orders</div>
-                                                <div class="fw-bold fs-4">{{ $paidOrdersByCurrency[$currency] ?? 0 }}</div>
+                                                <div class="fw-bold fs-4">{{ $paidOrdersByCurrency[$currency]
+                                                ?? 0 }}</div>
                                             </div>
                                         </div>
                                     </div>
@@ -262,7 +284,7 @@ use Illuminate\Support\Arr;
                                     </thead>
                                     <tbody>
                                     @forelse($data['myPurchaseOrders'] as $po)
-                                        <tr @if($po->status === \App\Enum\PurchaseOrderStatus::NEW) class="table-warning" @endif>
+                                        <tr @if($po->status === \App\Enum\PurchaseOrderStatus::NEW->value) class="table-warning" @endif>
                                             <td class="text-start pe-0">
                                                 <span class="text-gray-800 fw-bold fs-6">{{ $po->reference }}</span>
                                             </td>
@@ -275,11 +297,11 @@ use Illuminate\Support\Arr;
                                                 <span class="text-gray-600 fw-bold fs-6">{{ format_amount($po->amount) }}</span>
                                             </td>
                                             <td class="text-start pe-0">
-                                                @if($po->status === \App\Enum\PurchaseOrderStatus::NEW)
+                                                @if($po->status === \App\Enum\PurchaseOrderStatus::NEW->value)
                                                     <span class="badge badge-warning">
                                                         {{ Str::upper('Pending') }}
                                                     </span>
-                                                @elseif($po->status === \App\Enum\PurchaseOrderStatus::PAID)
+                                                @elseif($po->status === \App\Enum\PurchaseOrderStatus::PAID->value)
                                                     <span class="badge badge-success">
                                                         {{ Str::upper($po->status->value) }}
                                                     </span>
@@ -304,7 +326,7 @@ use Illuminate\Support\Arr;
                                                 <?php
                                                     $payLink = \App\Models\Pesaflow\PesaflowRequest::where('purchase_order_id', $po->id)->latest()->value('invoice_link') ?: route('tickets.show', $po->id);
                                                 ?>
-                                                @if($po->status === \App\Enum\PurchaseOrderStatus::NEW)
+                                                @if($po->status === \App\Enum\PurchaseOrderStatus::NEW->value)
                                                     @if(Str::startsWith($payLink, ['http://', 'https://']))
                                                         <a href="{{ $payLink }}" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-danger">Pay Now</a>
                                                     @else
