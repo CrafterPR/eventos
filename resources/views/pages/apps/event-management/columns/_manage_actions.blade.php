@@ -6,7 +6,8 @@
 <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
     <!--begin::Menu item-->
     @can('mark-as-paid')
-        @if( $row->status === \App\Enum\PurchaseOrderStatus::NEW)
+        @php $rowStatus = is_string($row->status) ? $row->status : ( $row->status instanceof \BackedEnum ? $row->status->value : (string)$row->status ); @endphp
+        @if($rowStatus === \App\Enum\PurchaseOrderStatus::NEW->value)
         <div class="menu-item px-3">
             <a href="{{ route('events.purchases.mark_paid', ['purchaseOrder' => $row->id]) }}" class="menu-link
             px-3">
@@ -32,7 +33,7 @@
     @endcan
 
     @can('delete-ticket')
-    @if($row->status === \App\Enum\PurchaseOrderStatus::FAILED || $row->status === \App\Enum\PurchaseOrderStatus::CANCELLED)
+    @if($rowStatus === \App\Enum\PurchaseOrderStatus::FAILED->value || $rowStatus === \App\Enum\PurchaseOrderStatus::CANCELLED->value)
     <div class="menu-item px-3">
         <a href="#" class="menu-link px-3" data-kt-order-id="{{ $row->id }}" data-kt-action="delete_row">
             Delete

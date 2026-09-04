@@ -2,7 +2,7 @@
     <div class="container py-8">
         <div class="mb-4">
             <h2 class="text-xl font-bold">Purchase {{ $order->reference }}</h2>
-            <p class="text-sm text-slate-600">Status: <strong>{{ ucfirst((string) $order->status->value) }}</strong></p>
+            <p class="text-sm text-slate-600">Status: <strong>{{ ucfirst($order->status_value) }}</strong></p>
         </div>
 
         @if(session('success'))
@@ -15,7 +15,7 @@
         <div class="card mb-4">
             <div class="card-body">
                 <p>Reference: <strong>{{ $order->reference }}</strong></p>
-                <p>Amount: <strong>{{ number_format($order->amount, 2) }} {{ $order->currency ?? 'KSH' }}</strong></p>
+                <p>Amount: <strong>{{ number_format($order->amount, 2) }} {{ $order->currency_value ?? 'KSH' }}</strong></p>
                 <p>Payment method: <strong>{{ strtoupper($order->payment_method ?? '') }}</strong></p>
 
                 <h5 class="mt-3">Tickets</h5>
@@ -55,7 +55,7 @@
                 </div>
 
                 <div class="mt-4">
-                    @if($order->status === 'new')
+                    @if($order->status_value === \App\Enum\PurchaseOrderStatus::NEW->value)
                         @if($order->payment_receipt)
                             <form action="{{ route('events.purchases.approve', $order) }}" method="post" style="display:inline-block; margin-right:8px;">
                                 @csrf
@@ -69,7 +69,7 @@
                         </form>
                     @endif
 
-                    @if($order->status === 'paid')
+                    @if($order->status_value === \App\Enum\PurchaseOrderStatus::PAID->value)
                         @if(($delegatesCount ?? 0) < ($ticketsCount ?? 0))
                             <form action="{{ route('events.purchases.generate_delegates', $order) }}" method="post" style="display:inline-block; margin-left:8px;" onsubmit="return confirm('Generate delegates for this paid purchase?')">
                                 @csrf

@@ -86,18 +86,18 @@
                                     {{ $order->user?->first_name }} {{ $order->user?->last_name }}<br>
                                     <small>{{ $order->payment_email ?? $order->user?->email }}</small>
                                 </td>
-                                <td>{{ $order->currency ?? 'KSH' }} {{ number_format($order->amount, 2) }} </td>
+                                <td>{{ $order->currency_value ?? 'KSH' }} {{ number_format($order->amount, 2) }} </td>
                                 <td>{{ strtoupper($order->payment_method ?? '') }}</td>
                                 <td>
                                     @php
-                                        $status =  $order->status;
+                                        $status =  $order->status_value;
                                     @endphp
-                                    @if($status === \App\Enum\PurchaseOrderStatus::PAID)
+                                    @if($status === \App\Enum\PurchaseOrderStatus::PAID->value)
                                         <span class="badge bg-success">PAID</span>
-                                    @elseif($status === \App\Enum\PurchaseOrderStatus::NEW)
+                                    @elseif($status === \App\Enum\PurchaseOrderStatus::NEW->value)
                                         <span class="badge bg-warning">PENDING</span>
                                     @else
-                                        <span class="badge bg-secondary">{{ Str::upper($status->value) }}</span>
+                                        <span class="badge bg-secondary">{{ Str::upper($status) }}</span>
                                     @endif
                                 </td>
                                 <td>
@@ -125,7 +125,7 @@
                                                 <li><a class="dropdown-item" href="{{ route('events.purchases.show', $order) }}">View Details</a></li>
                                             @endcan
                                             
-                                            @if((string) $order->status === \App\Enum\PurchaseOrderStatus::NEW->value)
+                                            @if($order->status_value === \App\Enum\PurchaseOrderStatus::NEW->value)
                                                   @can('send-purchase-reminder')
                                                     <li>
                                                         <form method="POST" action="{{ route('events.purchases.resend_reminder', $order) }}" class="resend-reminder-form" data-ref="{{ $order->reference }}" style="margin: 0;">

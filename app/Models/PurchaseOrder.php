@@ -25,6 +25,32 @@ class PurchaseOrder extends Model
         'currency' => \App\Enum\Currency::class,
     ];
 
+    /**
+     * Return the string value of the status enum to avoid BackedEnum issues in views
+     * Usage in views: $purchaseOrder->status_value
+     */
+    public function getStatusValueAttribute(): string
+    {
+        if ($this->status instanceof \BackedEnum) {
+            return $this->status->value;
+        }
+
+        return (string) ($this->status ?? '');
+    }
+
+    /**
+     * Return the string value of the currency enum
+     * Usage in views: $purchaseOrder->currency_value
+     */
+    public function getCurrencyValueAttribute(): string
+    {
+        if ($this->currency instanceof \BackedEnum) {
+            return $this->currency->value;
+        }
+
+        return (string) ($this->currency ?? '');
+    }
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);

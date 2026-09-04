@@ -14,8 +14,8 @@
             <div class="card-body">
                 <div class="mb-4">
                     <h4 class="fw-bold">Reference: <span class="text-muted">{{ $order->reference }}</span></h4>
-                    <p class="mb-0">Status: <strong>{{ ucfirst($order->status->value) }}</strong></p>
-                    <p class="mb-0">Amount: <strong>{{ number_format($order->amount, 2) }} {{ $order->currency ?? 'KSH' }}</strong></p>
+                    <p class="mb-0">Status: <strong>{{ ucfirst($order->status_value) }}</strong></p>
+                    <p class="mb-0">Amount: <strong>{{ number_format($order->amount, 2) }} {{ $order->currency_value ?? 'KSH' }}</strong></p>
                     <p class="mb-0">Payment method: <strong>{{ strtoupper($order->payment_method ?? '') }}</strong></p>
                 </div>
 
@@ -55,7 +55,7 @@
                 <p>Organization: {{ $order->user?->organization ?? 'N/A' }}</p>
 
                 <div class="mt-4">
-                    @if($order->status == \App\Enum\PurchaseOrderStatus::PAID)
+                    @if($order->status_value == \App\Enum\PurchaseOrderStatus::PAID->value)
                         @if($order->payment_receipt == null)
                             @php
                                 $receiptUrl = GeneratePaymentReceipt::run($order);
@@ -65,11 +65,11 @@
                         <a href="{{ Storage::disk('public')->url($order->payment_receipt) }}" target="_blank" rel="noopener
                         noreferrer" class="btn btn-success">Print receipt</a>
                     @else
-                        @if($order->status !== \App\Enum\PurchaseOrderStatus::PAID)
+                        @if($order->status_value !== \App\Enum\PurchaseOrderStatus::PAID->value)
                             @php
                                 $payLink = \App\Models\Pesaflow\PesaflowRequest::where('purchase_order_id', $order->id)->latest()->value('invoice_link') ?: '#';
                             @endphp
-                            @if($payLink !== '#' && $order->status === \App\Enum\PurchaseOrderStatus::NEW)
+                            @if($payLink !== '#' && $order->status_value === \App\Enum\PurchaseOrderStatus::NEW->value)
                                 <a href="{{ $payLink }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Proceed to payment</a>
                             @endif
                         @endif

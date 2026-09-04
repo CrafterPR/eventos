@@ -284,7 +284,7 @@ use Illuminate\Support\Arr;
                                     </thead>
                                     <tbody>
                                     @forelse($data['myPurchaseOrders'] as $po)
-                                        <tr @if($po->status === \App\Enum\PurchaseOrderStatus::NEW->value) class="table-warning" @endif>
+                                        <tr @if($po->status_value === \App\Enum\PurchaseOrderStatus::NEW->value) class="table-warning" @endif>
                                             <td class="text-start pe-0">
                                                 <span class="text-gray-800 fw-bold fs-6">{{ $po->reference }}</span>
                                             </td>
@@ -297,17 +297,17 @@ use Illuminate\Support\Arr;
                                                 <span class="text-gray-600 fw-bold fs-6">{{ format_amount($po->amount) }}</span>
                                             </td>
                                             <td class="text-start pe-0">
-                                                @if($po->status === \App\Enum\PurchaseOrderStatus::NEW->value)
+                                                @if($po->status_value === \App\Enum\PurchaseOrderStatus::NEW->value)
                                                     <span class="badge badge-warning">
                                                         {{ Str::upper('Pending') }}
                                                     </span>
-                                                @elseif($po->status === \App\Enum\PurchaseOrderStatus::PAID->value)
+                                                @elseif($po->status_value === \App\Enum\PurchaseOrderStatus::PAID->value)
                                                     <span class="badge badge-success">
-                                                        {{ Str::upper($po->status->value) }}
+                                                        {{ Str::upper($po->status_value) }}
                                                     </span>
                                                 @else
                                                     <span class="badge badge-danger">
-                                                        {{ Str::upper($po->status->value) }}
+                                                        {{ Str::upper($po->status_value) }}
                                                     </span>
                                                 @endif
                                             </td>
@@ -326,7 +326,7 @@ use Illuminate\Support\Arr;
                                                 <?php
                                                     $payLink = \App\Models\Pesaflow\PesaflowRequest::where('purchase_order_id', $po->id)->latest()->value('invoice_link') ?: route('tickets.show', $po->id);
                                                 ?>
-                                                @if($po->status === \App\Enum\PurchaseOrderStatus::NEW->value)
+                                                @if($po->status_value === \App\Enum\PurchaseOrderStatus::NEW->value)
                                                     @if(Str::startsWith($payLink, ['http://', 'https://']))
                                                         <a href="{{ $payLink }}" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-danger">Pay Now</a>
                                                     @else
