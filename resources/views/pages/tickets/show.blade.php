@@ -54,14 +54,16 @@
                 <p>Organization: {{ $order->user?->organization ?? 'N/A' }}</p>
 
                 <div class="mt-4">
-                    @if($order->status !== 'paid')
-                        @php
-                            $payLink = \App\Models\Pesaflow\PesaflowRequest::where('purchase_order_id', $order->id)->latest()->value('invoice_link') ?: '#';
-                        @endphp
-                        @if($payLink !== '#' && $order->status === \App\Enum\PurchaseOrderStatus::NEW)
-                            <a href="{{ $payLink }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Proceed to payment</a>
-                        @else
-                            <a href="{{ route('tickets.show', $order->id) }}" class="btn btn-success">Print receipt</a>
+                    @if($order->payment_receipt)
+                        <a href="{{ asset('storage/' . $order->payment_receipt) }}" target="_blank" rel="noopener noreferrer" class="btn btn-success">Print receipt</a>
+                    @else
+                        @if($order->status !== 'paid')
+                            @php
+                                $payLink = \App\Models\Pesaflow\PesaflowRequest::where('purchase_order_id', $order->id)->latest()->value('invoice_link') ?: '#';
+                            @endphp
+                            @if($payLink !== '#' && $order->status === \App\Enum\PurchaseOrderStatus::NEW)
+                                <a href="{{ $payLink }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Proceed to payment</a>
+                            @endif
                         @endif
                     @endif
                 </div>
