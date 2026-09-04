@@ -133,7 +133,7 @@
                                </div>
                             </div>
                         </div>
-                        <div x-data="{ count: 10, selected:false }" data-ticket-type="Group Registration" data-kes-price="67500" data-usd-price="540" :class="selected
+                        <div x-data="{ count: 5, selected:false }" data-ticket-type="Group Registration" data-kes-price="67500" data-usd-price="540" :class="selected
                                                         ? 'bg-gradient-to-r from-[#175C93] to-[#7BC7F0] border-[#E12035]'
                                                         : 'bg-white border-gray-200'"
                              class="p-4 sm:p-6 rounded-lg border-2 shadow-sm hover:shadow-lg transition-all duration-300 relative"
