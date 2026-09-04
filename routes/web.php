@@ -86,8 +86,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
 Route::group(["prefix" => "pesaflow", "as" => "pesaflow."], function () {
     Route::get("redirect-callback", [PesaflowController::class, "callback"])->name("redirect");
-    Route::get("redirect-callback", [PesaflowController::class, "callback"])->name("redirect");
-    Route::get("get-receipt/{purchaseOrder}", [PesaflowController::class, "receipt"])->name("receipt");
 
 });
 

@@ -55,9 +55,10 @@
 
                 <div class="mt-4">
                     @if($order->payment_receipt)
-                        <a href="{{ asset('storage/' . $order->payment_receipt) }}" target="_blank" rel="noopener noreferrer" class="btn btn-success">Print receipt</a>
+                        <a href="{{ public_path('storage/' . $order->payment_receipt) }}" target="_blank" rel="noopener
+                        noreferrer" class="btn btn-success">Print receipt</a>
                     @else
-                        @if($order->status !== 'paid')
+                        @if($order->status !== \App\Enum\PurchaseOrderStatus::PAID)
                             @php
                                 $payLink = \App\Models\Pesaflow\PesaflowRequest::where('purchase_order_id', $order->id)->latest()->value('invoice_link') ?: '#';
                             @endphp
