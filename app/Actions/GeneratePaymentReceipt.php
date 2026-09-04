@@ -116,8 +116,18 @@ class GeneratePaymentReceipt
                             [40,
                                 10, 56], 14, 'B');
 
+            $this->fillData('E-CITIZEN', 60, 0,
+                            24, 256,
+                            [40,
+                                10, 56], 10, 'i');
 
-        $content = $this->fpdi->Output('', 'S');
+            $this->fillData('222222 / '. $order->pesaflow_response?->invoice_number ?? '', 60, 0,
+                            35, 263,
+                            [40,
+                                10, 56], 10, 'i');
+
+
+        $content = $this->fpdi->Output('', 'I');
 
         Storage::disk('public')->put($outputFile, $content);
 
