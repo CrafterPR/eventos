@@ -35,4 +35,9 @@ class PurchaseOrder extends Model
         return $this->hasOne(\App\Models\Pesaflow\PesaflowRequest::class, 'purchase_order_id');
     }
 
+    public function pesaflow_response(): HasOne
+    {
+        return $this->hasOne(\App\Models\Pesaflow\PesaflowResponse::class, 'purchase_order_id');
+    }
+
 }
