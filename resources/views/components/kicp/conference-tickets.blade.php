@@ -13,7 +13,28 @@
                     <section x-cloak x-show="!showPaymentIframe && currentStep === 0" id="ticket-selection">
                         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6" style="opacity: 1;">
 
-                        <div x-data="{ count: 1, selected:false }" data-ticket-type="Individual Delegate" data-kes-price="63750" data-usd-price="510" :class="selected
+                        <div x-data="{
+                               count: 1,
+                               selected: false,
+                               earlyBirdEnds: '2026-09-25T23:59:59+03:00',
+                               remaining: { days: 0, hours: 0, minutes: 0, seconds: 0 },
+                               format(value) {
+                                   return String(value).padStart(2, '0');
+                               },
+                               updateCountdown() {
+                                   const end = new Date(this.earlyBirdEnds).getTime();
+                                   const difference = Math.max(end - Date.now(), 0);
+
+                                   this.remaining.days = Math.floor(difference / (1000 * 60 * 60 * 24));
+                                   this.remaining.hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
+                                   this.remaining.minutes = Math.floor((difference / (1000 * 60)) % 60);
+                                   this.remaining.seconds = Math.floor((difference / 1000) % 60);
+                               },
+                               initCountdown() {
+                                   this.updateCountdown();
+                                   setInterval(() => this.updateCountdown(), 1000);
+                               }
+                           }" x-init="initCountdown()" data-ticket-type="Individual Delegate" data-kes-price="63750" data-usd-price="510" :class="selected
                                                        ? 'bg-gradient-to-r from-[#175C93] to-[#7BC7F0] border-[#E12035]'
                                                        : 'bg-white border-gray-200'"
                              class="p-4 sm:p-6 rounded-lg border-2 shadow-sm hover:shadow-lg transition-all duration-300 relative"
@@ -33,8 +54,19 @@
                                </div>
                                <div class="mb-3 sm:mb-4">
                                    <span class="inline-flex items-center rounded-full bg-red-50 px-2 py-1 text-[10px] sm:text-[11px] font-semibold uppercase tracking-wide text-red-600">Early Bird</span>
-                                   <div class="mt-2 text-[10px] sm:text-xs font-semibold uppercase tracking-wide
-                                   text-red-500">Ends 25 September 2026 11:59pm</div>
+                                   <div class="mt-2 text-[10px] sm:text-xs font-semibold uppercase tracking-wide text-red-500">Ends 25 September 2026 11:59pm</div>
+                                   <div class="mt-3 text-sm ">
+                                       <div class="flex items-center gap-1 text-[8px] sm:text-xs font-bold
+                                       text-red-600">
+                                           <span x-text="format(remaining.days) + 'd'" aria-label="Days remaining"></span>
+                                           <span>:</span>
+                                           <span x-text="format(remaining.hours) + 'h'" aria-label="Hours remaining"></span>
+                                           <span>:</span>
+                                           <span x-text="format(remaining.minutes) + 'm'" aria-label="Minutes remaining"></span>
+                                           <span>:</span>
+                                           <span x-text="format(remaining.seconds) + 's'" aria-label="Seconds remaining"></span>
+                                       </div>
+                                   </div>
 
                                    <h3 class="text-2xl sm:text-3xl font-bold text-slate-800">Ksh. 63,750</h3>
                                    <h4 class="text-1xl sm:text-1xl font-bold text-slate-800 line-through">Ksh. 75,
@@ -754,15 +786,15 @@
                         <div x-show="showIframeBlocked" class="p-4 bg-yellow-50 border border-yellow-200 rounded-lg mt-4">
                             <div class="flex items-start gap-3">
                                 <div class="flex-1">
-                                    <div class="font-semibold text-yellow-800">Payment page cannot be embedded</div>
-                                    <div class="text-sm text-yellow-700 mt-1">The payment provider prevents embedding this page in an iframe. Click the button below to open the payment page in a new tab.</div>
                                 </div>
                                 <div class="flex-shrink-0">
                                     <a :href="paymentFallbackUrl" target="_blank" rel="noopener noreferrer"
                                        class="bg-gradient-to-r from-[#175C93] to-[#84C1DA] border border-transparent text-white px-6
                          sm:px-8
-                         py-3 rounded-full hover:opacity-90 transition-all duration-300 font-medium text-sm sm:text-base shadow-lg flex items-center justify-center gap-2 w-full sm:w-auto">Open payment
-                                        in new tab</a>
+                         py-3 rounded-full hover:opacity-90 transition-all duration-300 font-medium text-sm
+                         sm:text-base shadow-lg flex items-center justify-center gap-2 w-full sm:w-auto">Click to be
+                                        directed to payment page
+                                    </a>
                                 </div>
                             </div>
                         </div>
