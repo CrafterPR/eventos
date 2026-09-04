@@ -127,7 +127,7 @@ class GeneratePaymentReceipt
                                 10, 56], 10, 'i');
 
 
-        $content = $this->fpdi->Output('', 'I');
+        $content = $this->fpdi->Output('', 'S');
 
         Storage::disk('public')->put($outputFile, $content);
 
