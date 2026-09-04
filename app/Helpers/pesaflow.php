@@ -16,16 +16,16 @@ if (!function_exists("pesaflow_request_payment")) {
      * @param PurchaseOrder $order
      * @param string $billDescription
      * @param string $serviceId
-     * @param string $currency
+     * @param Currency $currency
      * @return mixed
      */
     function pesaflow_request_payment(
         PurchaseOrder  $order,
         string $billDescription,
         string $serviceId,
-        string $currency
+        Currency $currency
     ): mixed {
-        return PesaflowRequestPayment::run($order, $billDescription, $serviceId, $currency);
+        return PesaflowRequestPayment::run($order, $billDescription, $serviceId, $currency->value);
     }
 }
 

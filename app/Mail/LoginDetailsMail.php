@@ -36,6 +36,10 @@ class LoginDetailsMail extends Mailable implements ShouldQueue
     {
         return $this->subject('Registration successful!, Your 2nd KICP Access & Ticket details')
             ->view('emails.login-details')
+            ->attach(public_path($this->purchaseOrder->payment_receipt), [
+                'as' => 'Receipt - ' . $this->purchaseOrder->reference . '.pdf',
+                'mime' => 'application/pdf',
+            ])
             ->with([
                 'user' => $this->user,
                 'password' => $this->password,

@@ -47,20 +47,21 @@
 
                 <hr />
 
-                <h5 class="mb-3">Purchaser</h5>
+                <h5 class="mb-3">Delegate Information</h5>
                 <p>Name: {{ $order->user?->first_name }} {{ $order->user?->last_name }}</p>
                 <p>Email: {{ $order->user?->email }}</p>
                 <p>Phone: {{ $order->payment_phone ?? $order->user?->mobile }}</p>
+                <p>Organization: {{ $order->user?->organization ?? 'N/A' }}</p>
 
                 <div class="mt-4">
                     @if($order->status !== 'paid')
                         @php
                             $payLink = \App\Models\Pesaflow\PesaflowRequest::where('purchase_order_id', $order->id)->latest()->value('invoice_link') ?: '#';
                         @endphp
-                        @if($payLink !== '#')
+                        @if($payLink !== '#' && $order->status === \App\Enum\PurchaseOrderStatus::NEW)
                             <a href="{{ $payLink }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Proceed to payment</a>
                         @else
-                            <a href="{{ route('tickets.show', $order->id) }}" class="btn btn-primary">Proceed to payment</a>
+                            <a href="{{ route('tickets.show', $order->id) }}" class="btn btn-success">Print receipt</a>
                         @endif
                     @endif
                 </div>

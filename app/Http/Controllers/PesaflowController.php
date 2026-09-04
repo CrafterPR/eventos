@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Order;
 use App\Models\PurchaseOrder;
 use Illuminate\Support\Facades\Auth;
+use App\Actions\GeneratePaymentReceipt;
 use App\Models\Pesaflow\PesaflowRequest;
 use Exception;
 use Illuminate\Http\RedirectResponse;
@@ -18,6 +19,12 @@ class PesaflowController extends Controller
      * @return RedirectResponse
      * @throws Exception
      */
+
+    public function receipt($purchaseOrder)
+    {
+        $order = PurchaseOrder::whereReference($purchaseOrder)->firstOrFail();
+        return GeneratePaymentReceipt::run($order);
+    }
     public function callback(Request $request): RedirectResponse
     {
         $reference = $request->reference;

@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use App\Enum\OrderStatus;
 use App\Enum\PaymentStatus;
 use App\Enum\PurchaseOrderStatus;
+use App\Actions\GeneratePaymentReceipt;
 use App\Events\PesaflowPaymentFailedEvent;
 use App\Events\PesaflowPaymentSuccessfulEvent;
 use App\Models\PurchaseOrder;
@@ -75,9 +76,10 @@ class PesaflowQueryPaymentStatus
 
         if ($status === PaymentStatus::SETTLED->value) {
 
+            $payment_receipt = GeneratePaymentReceipt::run($order);
             $order->update([
                 "status" => PurchaseOrderStatus::PAID,
-                'payment_receipt' => $response["ref_no"],
+                'payment_receipt' => $payment_receipt,
                 "check_out_completed_at" => now(),
             ]);
 

@@ -22,6 +22,7 @@ class PurchaseOrder extends Model
         'tickets' => 'array',
         'amount' => 'decimal:2',
         'status' => \App\Enum\PurchaseOrderStatus::class,
+        'currency' => \App\Enum\Currency::class,
     ];
 
     public function user(): BelongsTo

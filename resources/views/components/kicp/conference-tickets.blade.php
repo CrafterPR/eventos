@@ -792,7 +792,8 @@
                                        class="bg-gradient-to-r from-[#175C93] to-[#84C1DA] border border-transparent text-white px-6
                          sm:px-8
                          py-3 rounded-full hover:opacity-90 transition-all duration-300 font-medium text-sm
-                         sm:text-base shadow-lg flex items-center justify-center gap-2 w-full sm:w-auto">Click to be
+                         sm:text-base shadow-lg flex items-center justify-center gap-2 w-full sm:w-auto">Click here
+                                        to be
                                         directed to payment page
                                     </a>
                                 </div>
