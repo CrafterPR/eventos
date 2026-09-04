@@ -149,7 +149,7 @@
                                                                 text-slate-800 mb-2">Group Registration</h2>
                                     <p class="text-slate-800/80 text-xs
                                                                 sm:text-sm">Special pricing for organization with
-                                        more than <strong class="text-lg sm:text-xl font-bold text-red-500">10
+                                        more than <strong class="text-lg sm:text-xl font-bold text-red-500">5
                                             delegates</strong></p>
                                 </div>
                                 <div class="mb-3 sm:mb-4">
@@ -247,7 +247,7 @@
 
                                        <div class="flex items-center gap-2 sm:gap-3">
                                            <!-- subtract -->
-                                           <button @click="if(count > 10) count--" :disabled="count <= 10"
+                                           <button @click="if(count > 5) count--" :disabled="count <= 5"
                                                    class="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-slate-800 flex items-center justify-center hover:bg-slate-800 hover:text-white transition-colors disabled:opacity-50">
                                                <svg class="w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24">
                                                    <path fill="currentColor" d="M19 13H5v-2h14z"></path>
@@ -256,7 +256,8 @@
 
                                            <!-- count -->
                                            <span x-text="count"
-                                                 class="font-semibold text-slate-800 min-w-6 sm:min-w-8 text-center text-sm sm:text-base"></span>
+                                                 class="font-semibold text-slate-800 min-w-6 sm:min-w-8 text-center
+                                                 text-sm sm:text-base"></span>
 
                                            <!-- add -->
                                            <button @click="count++"
