@@ -4,6 +4,9 @@
     <script id="purchase-orders-data" type="application/json">{!! json_encode(['paid' => $paid, 'notPaid' => $notPaid]) !!}</script>
 
     @push('scripts')
+    <style>
+        #purchaseOrdersDoughnutDiv { width:100%; height:360px; min-height:220px; }
+    </style>
     <script>
     (function(){
       var chartInit = false;

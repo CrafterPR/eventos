@@ -4,6 +4,9 @@
     <script id="ticket-purchases-data" type="application/json">{!! json_encode($data) !!}</script>
 
     @push('scripts')
+    <style>
+        #ticketPurchasesChartDiv { width:100%; height:360px; min-height:220px; }
+    </style>
     <script>
     (function(){
       var chartInit = false;
