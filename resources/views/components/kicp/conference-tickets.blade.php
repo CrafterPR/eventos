@@ -447,9 +447,7 @@
                                </div>
                             </div>
                         </div>
-                        <div x-data="{ count: 1, selected:false }" data-ticket-type="Exhibition Booth" data-kes-price="300000" data-usd-price="2330" :class="selected
-                                                       ? 'bg-gradient-to-r from-[#175C93] to-[#7BC7F0] border-[#E12035]'
-                                                       : 'bg-white border-gray-200'"
+                        <div
                              class="p-4 sm:p-6 rounded-lg border-2 shadow-sm hover:shadow-lg transition-all duration-300 relative"
                              tabindex="0" style="opacity: 1; transform: none;">
                             <div class="absolute -top-2 right-2 sm:right-4 px-2 sm:px-3
@@ -532,66 +530,20 @@
                                 </div>
                                 <div class="flex flex-col sm:flex-row items-center justify-between mt-auto gap-3">
                                     <!-- NOT SELECTED -->
-                                    <div x-show="!selected"
+                                    <div
                                          class="flex flex-col sm:flex-row items-center w-full justify-between mt-auto gap-3">
 
-                                        <div class="flex items-center gap-2 sm:gap-3">
-                                            <!-- subtract -->
-                                            <button @click="if(count > 1) count--" :disabled="count <= 1"
-                                                    class="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-slate-800 flex items-center justify-center hover:bg-slate-800 hover:text-white transition-colors disabled:opacity-50">
-                                                <svg class="w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24">
-                                                    <path fill="currentColor" d="M19 13H5v-2h14z"></path>
-                                                </svg>
-                                            </button>
 
-                                            <!-- count -->
-                                            <span x-text="count"
-                                                  class="font-semibold text-slate-800 min-w-6 sm:min-w-8 text-center text-sm sm:text-base"></span>
-
-                                            <!-- add -->
-                                            <button @click="count++"
-                                                    class="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-slate-800 flex items-center justify-center hover:bg-slate-800 hover:text-white transition-colors">
-                                                <svg class="w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24">
-                                                    <path fill="currentColor"
-                                                          d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6z"></path>
-                                                </svg>
-                                            </button>
-                                        </div>
-
-                                        <button @click="selected = true; selectTicket
-                                                                    ('Exhibition Booth', 300000, count)"
+                                       <a href="#contact-us"> <button
                                                 class="rounded-full px-4
                                                                     sm:px-4 py-2 font-medium transition-colors
                                                                     text-sm sm:text-base bg-slate-800 text-white hover:bg-[#84C1D9]">
-                                            Select Ticket
-                                        </button>
+                                            Contact accounts
+                                           </button></a>
                                     </div>
 
                                     <!-- SELECTED -->
-                                    <div x-show="selected" class="w-full flex flex-col gap-2 mt-auto">
 
-                                        <div class="flex items-center justify-between w-full">
-                                            <div class="flex items-center gap-2">
-                                                <svg class="w-5 h-5 text-white" viewBox="0 0 24 24">
-                                                    <path fill="currentColor"
-                                                          d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10s10-4.5 10-10S17.5 2 12 2m-2 15l-5-5l1.41-1.41L10 14.17l7.59-7.59L19 8z"></path>
-                                                </svg>
-                                                <span class="text-white font-semibold text-sm">
-                                                                            Selected: <span x-text="count"></span> ticket(s)
-                                                                        </span>
-                                            </div>
-                                        </div>
-
-                                        <button @click="selected = false"
-                                                class="w-full rounded-full px-4 py-2 font-medium transition-all text-sm bg-white/20 text-white hover:bg-red-500 hover:text-white border border-white/30 flex items-center justify-center gap-2">
-                                            <svg class="w-4 h-4" viewBox="0 0 24 24">
-                                                <path fill="currentColor"
-                                                      d="M12 2c5.53 0 10 4.47 10 10s-4.47 10-10 10S2 17.53 2 12S6.47 2 12 2m3.59 5L12 10.59L8.41 7L7 8.41L10.59 12L7 15.59L8.41 17L12 13.41L15.59 17L17 15.59L13.41 12L17 8.41z"></path>
-                                            </svg>
-                                            Remove Ticket
-                                        </button>
-
-                                    </div>
                                 </div>
                             </div>
                         </div>
