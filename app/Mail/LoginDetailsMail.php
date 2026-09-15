@@ -34,16 +34,21 @@ class LoginDetailsMail extends Mailable implements ShouldQueue
      */
     public function build()
     {
-        return $this->subject('Registration successful!, Your 2nd KICP Access & Ticket details')
-            ->view('emails.login-details')
-            ->attach(public_path($this->purchaseOrder->payment_receipt), [
+        $mail = $this->subject('Registration successful!, Your 2nd KICP Access & Ticket details')
+            ->view('emails.login-details');
+
+        // Attach payment receipt only if it's set and the file exists
+        if ($this->purchaseOrder && !empty($this->purchaseOrder->payment_receipt) && file_exists(public_path($this->purchaseOrder->payment_receipt))) {
+            $mail->attach(public_path($this->purchaseOrder->payment_receipt), [
                 'as' => 'Receipt - ' . $this->purchaseOrder->reference . '.pdf',
                 'mime' => 'application/pdf',
-            ])
-            ->with([
-                'user' => $this->user,
-                'password' => $this->password,
-                'order' => $this->purchaseOrder,
             ]);
+        }
+
+        return $mail->with([
+            'user' => $this->user,
+            'password' => $this->password,
+            'order' => $this->purchaseOrder,
+        ]);
     }
 }
