@@ -59,7 +59,7 @@
                 </div>
             </div>
             @endcan
-            @can('events-management')
+            @can('event-management')
                 <div data-kt-menu-trigger="click"
                      class="menu-item menu-accordion {{ request()->routeIs('events.*') ? 'here show' : '' }}">
                 <!--begin:Menu link-->

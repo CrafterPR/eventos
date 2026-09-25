@@ -85,4 +85,6 @@ class DelegateController extends Controller
     {
         //
     }
+
+    public function edit(Delegate $delegate) {}
 }
