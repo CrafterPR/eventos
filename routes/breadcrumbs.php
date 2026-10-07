@@ -64,6 +64,11 @@ Breadcrumbs::for('events.manage-events.index', function (BreadcrumbTrail $trail)
     $trail->push('Manage Events', route('events.manage-events.index'));
 });
 
+Breadcrumbs::for('events.payment-requests.index', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push('Payment Requests', route('events.payment-requests.index'));
+});
+
 Breadcrumbs::for('events.manage-events.show', function (BreadcrumbTrail $trail, Event $event) {
     $trail->parent('events.manage-events.index');
     $trail->push(ucwords($event->title), route('events.manage-events.show', $event));

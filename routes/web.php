@@ -38,6 +38,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
         // Purchase orders management
         Route::middleware(['can:event-management'])->prefix('events')->name('events.')->group(function () {
+            Route::get('payment-requests', [\App\Http\Controllers\Apps\PaymentRequestsController::class, 'index'])
+                ->name('payment-requests.index');
             Route::get('purchases', [\App\Http\Controllers\TicketController::class, 'orders'])->name('purchases.index');
             Route::get('purchases/export', [\App\Http\Controllers\Apps\PurchaseManagementController::class, 'export'])->name('purchases.export');
             Route::resource('delegates', DelegateController::class);

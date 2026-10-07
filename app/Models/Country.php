@@ -26,4 +26,23 @@ class Country extends Model
     use HasUlids;
 
     protected $guarded = [''];
+
+    public static function idForInput(mixed $value): ?string
+    {
+        if (!is_string($value) && !is_numeric($value)) {
+            return null;
+        }
+
+        $value = trim((string) $value);
+
+        if ($value === '') {
+            return null;
+        }
+
+        return static::query()
+            ->where('id', $value)
+            ->orWhereRaw('LOWER(name) = ?', [mb_strtolower($value)])
+            ->orWhereRaw('LOWER(code) = ?', [mb_strtolower($value)])
+            ->value('id');
+    }
 }

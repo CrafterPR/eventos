@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Enum\Currency;
 use App\Models\PurchaseOrder;
 use App\Models\Role;
+use App\Models\Country;
 use App\Enum\PurchaseOrderStatus;
 use Illuminate\Support\Facades\Log;
 use App\Actions\GeneratePaymentReceipt;
@@ -46,6 +47,7 @@ class PurchaseController extends Controller
         $payload['fullName'] = trim($firstName . ' ' . $lastName);
         $payload['currency'] = strtoupper((string) ($payload['currency'] ?? 'KES'));
         $payload['paymentMethod'] = $payload['paymentMethod'] ?? 'pesaflow';
+        $countryId = Country::idForInput($payload['country'] ?? null);
 
         // For authenticated users (purchase more), skip validating formData like fullName/email/phone
         $isAuthenticatedPurchase = $request->boolean('isPurchaseMore');
@@ -112,6 +114,14 @@ class PurchaseController extends Controller
             ], 422);
         }
 
+        if (!$isAuthenticatedPurchase && !$countryId) {
+            return response()->json([
+                'message' => 'Validation failed',
+                'step' => 1,
+                'errors' => ['country' => ['Please select a valid country.']],
+            ], 422);
+        }
+
         try {
             DB::beginTransaction();
 
@@ -124,8 +134,7 @@ class PurchaseController extends Controller
                         'first_name' => $firstName ?: null,
                         'last_name' => $lastName ?: null,
                         'mobile' => $payload['phone'] ?? null,
-                        'country' => $payload['country'] ?? null,
-                        'organization' => $payload['organization'] ?? null,
+                        'country_id' => $countryId,
                     ]);
 
                     $user = $existingUser;
@@ -138,8 +147,7 @@ class PurchaseController extends Controller
                         'first_name' => $firstName ?: null,
                         'last_name' => $lastName ?: null,
                         'mobile' => $payload['phone'] ?? null,
-                        'country' => $payload['country'] ?? null,
-                        'organization' => $payload['organization'] ?? null,
+                        'country_id' => $countryId,
                         'email' => $payload['email'] ?? null,
                         'password' => $password,
                     ]);

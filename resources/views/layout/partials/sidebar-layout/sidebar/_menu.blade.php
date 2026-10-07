@@ -107,6 +107,15 @@
                             </a>
                         </div>
                     @endcan
+                    <div class="menu-item">
+                        <a class="menu-link {{ request()->routeIs('events.payment-requests.*') ? 'active' : '' }}"
+                           href="{{ route('events.payment-requests.index') }}">
+                            <span class="menu-bullet">
+                                <span class="bullet bullet-line"></span>
+                            </span>
+                            <span class="menu-title">Payment requests</span>
+                        </a>
+                    </div>
                 </div>
                     <!--end:Menu sub-->
             </div>
@@ -145,4 +154,3 @@
     <!--end::Menu-->
 </div>
 <!--end::Menu wrapper-->
-

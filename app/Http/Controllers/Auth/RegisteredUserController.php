@@ -49,6 +49,13 @@ class RegisteredUserController extends Controller
                 'email_verified_at' => now()
             ];
 
+        $countryId = Country::idForInput($request->input('country'));
+        if ($request->filled('country') && !$countryId) {
+            abort(422, 'Please select a valid country.');
+        }
+        $data['country_id'] = $countryId;
+        unset($data['country']);
+
         $user = User::create($data);
         if ($safeRequest->coupon) {
             $coupon = Coupon::where('code', $safeRequest->coupon)->first();
