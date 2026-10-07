@@ -432,7 +432,11 @@
                                </div>
                             </div>
                         </div>
-                        <div
+                        <div x-data="{ count: 1, selected: false }"
+                             data-ticket-type="Exhibition Booth" data-kes-price="300000" data-usd-price="2330"
+                             :class="selected
+                                                       ? 'bg-gradient-to-r from-[#175C93] to-[#7BC7F0] border-[#E12035]'
+                                                       : 'bg-white border-gray-200'"
                              class="p-4 sm:p-6 rounded-lg border-2 shadow-sm hover:shadow-lg transition-all duration-300 relative"
                              tabindex="0" style="opacity: 1; transform: none;">
                             <div class="absolute -top-2 right-2 sm:right-4 px-2 sm:px-3
@@ -514,21 +518,23 @@
                                     </ul>
                                 </div>
                                 <div class="flex flex-col sm:flex-row items-center justify-between mt-auto gap-3">
-                                    <!-- NOT SELECTED -->
-                                    <div
-                                         class="flex flex-col sm:flex-row items-center w-full justify-between mt-auto gap-3">
-
-
-                                       <a href="#contact-us"> <button
-                                                class="rounded-full px-4
-                                                                    sm:px-4 py-2 font-medium transition-colors
-                                                                    text-sm sm:text-base bg-slate-800 text-white hover:bg-[#84C1D9]">
-                                            Contact accounts
-                                           </button></a>
+                                    <div x-show="!selected" class="w-full flex flex-col gap-3 mt-auto">
+                                        <button @click="selected = true; selectTicket('Exhibition Booth', 300000, count)"
+                                                class="rounded-full px-4 sm:px-4 py-2 font-medium transition-colors text-sm sm:text-base bg-slate-800 text-white hover:bg-[#84C1D9]">
+                                            Select Ticket
+                                        </button>
                                     </div>
-
-                                    <!-- SELECTED -->
-
+                                    <div x-show="selected" class="w-full flex flex-col gap-2 mt-auto">
+                                        <div class="flex items-center justify-between w-full">
+                                            <span class="text-white font-semibold text-sm">
+                                                Selected: <span x-text="count"></span> ticket(s)
+                                            </span>
+                                        </div>
+                                        <button @click="selected = false; removeTicket('Exhibition Booth')"
+                                                class="w-full rounded-full px-4 py-2 font-medium transition-all text-sm bg-white/20 text-white hover:bg-red-500 hover:text-white border border-white/30 flex items-center justify-center gap-2">
+                                            Remove Ticket
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -605,7 +611,7 @@
                                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                                 <div>
                                                     <label for="country" class="block text-[#172840] text-sm font-medium mb-2">Country <span class="text-red-500">*</span></label>
-                                                    <div class="relative">
+                                                    <div class="relative z-50">
                                                         <input type="text" name="country" id="country" class="w-full px-4 sm:px-4 py-2.5 sm:py-3 border rounded-lg bg-white focus:outline-none focus:ring-2 transition-all duration-300 text-sm sm:text-base border-gray-300 focus:ring-slate-800 focus:border-slate-800 hover:border-[#84C1D9] shadow-sm hover:shadow-md" />
                                                     </div>
                                                 </div>
@@ -776,49 +782,19 @@
 
 @push('scripts')
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Initialize country select for step 1
+    function initializeCountrySelect() {
         const countryInput = document.querySelector('#country');
-        if (countryInput) {
-            $(countryInput).countrySelect({
-                defaultCountry: "ke",  // No default country
-                preferredCountries: ['ke', 'tz', 'ug', 'rw'], // African countries preferred
-                responsiveDropdown: true
-            });
+        if (!countryInput || countryInput.dataset.countrySelectInitialized) {
+            return;
         }
 
-        // Also initialize for step 2 if needed
-        const countryInputStep2 = document.querySelector('#wizardForm #country');
-        if (countryInputStep2 && countryInputStep2 !== countryInput) {
-            $(countryInputStep2).countrySelect({
-                defaultCountry: "ke",
-                preferredCountries: ['ke', 'tz', 'ug', 'rw'],
-                responsiveDropdown: true
-            });
-        }
-    });
-
-    document.addEventListener('DOMContentLoaded', function() {
-        // Initialize country select for step 1
-        const countryInput = document.querySelector('#country1');
-        if (countryInput) {
-            $(countryInput).countrySelect({
-                defaultCountry: "ke",  // No default country
-                preferredCountries: ['ke', 'tz', 'ug', 'rw'], // African countries preferred
-                responsiveDropdown: true
-            });
-        }
-
-        // Also initialize for step 2 if needed
-        const countryInputStep2 = document.querySelector('#wizardForm #country1');
-        if (countryInputStep2 && countryInputStep2 !== countryInput) {
-            $(countryInputStep2).countrySelect({
-                defaultCountry: "ke",
-                preferredCountries: ['ke', 'tz', 'ug', 'rw'],
-                responsiveDropdown: true
-            });
-        }
-    });
+        $(countryInput).countrySelect({
+            defaultCountry: "ke",
+            preferredCountries: ['ke', 'tz', 'ug', 'rw'],
+            responsiveDropdown: true
+        });
+        countryInput.dataset.countrySelectInitialized = 'true';
+    }
 
     function wizard(config = {}) {
         const isPurchaseMore = config.isPurchaseMore || false;
@@ -2023,6 +1999,10 @@
                 }
 
                 console.log('Moving to step:', this.currentStep);
+
+                if (this.currentStep === 1 && !this.isPurchaseMore) {
+                    this.$nextTick(() => requestAnimationFrame(initializeCountrySelect));
+                }
 
                 // If moving to Payment, prefill payment confirmation fields from step 1
                 if ((this.isPurchaseMore && this.currentStep === 1) || (!this.isPurchaseMore && this.currentStep === 2)) {

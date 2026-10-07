@@ -640,7 +640,7 @@
                     <!-- Morning / first column -->
                     <div
                         class="bg-white rounded-xl shadow-xl overflow-hidden flex flex-col"
-                        :style="day !== 1 ? 'height:680px' : auto"
+                        :style="day !== 1 ? 'height:680px' : 'height:auto'"
                     >
 
                         <div

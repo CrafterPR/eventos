@@ -77,6 +77,21 @@
         .max-w-7xl, .max-w-6xl, .max-w-2xl { max-width: 100% !important; }
     }
 </style>
+
+    <!-- Google Analytics 4 - KASNEB KICP -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BMJDRHYKBF"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-BMJDRHYKBF');
+    </script>
+    <!-- End Google Analytics 4 -->
 </head>
 <!--end::Head-->
 

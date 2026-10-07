@@ -224,7 +224,7 @@
 
         // Close menu when clicking outside
         document.addEventListener('click', function(e) {
-            if (!nav.contains(e.target)) {
+            if (e.target instanceof Node && !mobileMenu.contains(e.target) && !toggleBtn.contains(e.target)) {
                 mobileMenu.classList.add('hidden');
             }
         });
