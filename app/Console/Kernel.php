@@ -17,6 +17,9 @@ class Kernel extends ConsoleKernel
     {
         //$schedule->command("app:invalidate-expired-bookings")->everyFifteenMinutes();
         $schedule->command("app:retry-webhook")->everyMinute();
+        $schedule->command('purchases:send-pending-reminders')
+            ->dailyAt('09:00')
+            ->withoutOverlapping();
     }
 
     /**

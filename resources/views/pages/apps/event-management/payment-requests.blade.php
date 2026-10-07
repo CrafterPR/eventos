@@ -26,7 +26,7 @@
                         <option value="">All statuses</option>
                         @foreach($statuses as $status)
                             <option value="{{ $status->value }}" @selected(request('status') === $status->value)>
-                                {{ strtoupper($status->value) }}
+                                {{ $status->value === 'settled' ? 'Success' : strtoupper($status->value) }}
                             </option>
                         @endforeach
                     </select>
@@ -37,7 +37,7 @@
                         <option value="">All ticket types</option>
                         @foreach($ticketTypes as $value => $label)
                             <option value="{{ $value }}" @selected(request('ticket_type') === $value)>
-                                {{ $label }}
+                                {{ $label['label'] }}
                             </option>
                         @endforeach
                     </select>
@@ -67,6 +67,10 @@
                 <div class="col-12 col-md-2 d-flex gap-2">
                     <button type="submit" class="btn btn-primary">Filter</button>
                     <a href="{{ route('events.payment-requests.index') }}" class="btn btn-light">Clear</a>
+                </div>
+                <div class="col-12">
+                    <a href="{{ route('events.payment-requests.export', request()->only(['status', 'ticket_type', 'currency', 'country'])) }}"
+                       class="btn btn-light-primary">Export to Excel</a>
                 </div>
             </form>
 
@@ -105,7 +109,11 @@
                                 <td>{{ $purchaseOrder?->reference ?: '—' }}</td>
                                 <td>{{ implode(', ', array_unique($ticketLabels)) ?: '—' }}</td>
                                 <td>{{ number_format((float) $paymentRequest->amount_expected, 2) }}</td>
-                                <td><span class="badge badge-light-primary">{{ strtoupper($paymentRequest->status->value) }}</span></td>
+                                <td>
+                                    <span class="badge {{ $paymentRequest->status->value === 'settled' ? 'badge-light-success' : 'badge-light-primary' }}">
+                                        {{ $paymentRequest->status->value === 'settled' ? 'Success' : strtoupper($paymentRequest->status->value) }}
+                                    </span>
+                                </td>
                                 <td>{{ $paymentRequest->currency->value }}</td>
                                 <td>{{ $purchaseOrder?->user?->country?->name ?: '—' }}</td>
                                 <td>{{ $paymentRequest->created_at?->format('Y-m-d H:i') ?: '—' }}</td>

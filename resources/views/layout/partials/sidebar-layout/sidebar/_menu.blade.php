@@ -142,6 +142,15 @@
                             </a>
                             <!--end:Menu link-->
                         </div>
+                        <div class="menu-item">
+                            <a class="menu-link {{ request()->routeIs('reports.delegate-activity.*') ? 'active' : '' }}"
+                               href="{{ route('reports.delegate-activity.index') }}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-line"></span>
+                                </span>
+                                <span class="menu-title">Delegate activity logs</span>
+                            </a>
+                        </div>
 
                 </div>
                   <!--end:Menu sub-->
