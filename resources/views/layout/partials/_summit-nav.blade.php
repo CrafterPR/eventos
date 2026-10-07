@@ -49,7 +49,7 @@
 {{--                       class="text-[#172840] hover:text-gray-900 hover:bg-[#175C93] px-2 sm:px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer text-xs sm:text-sm">--}}
 {{--                        Tracks--}}
 {{--                    </a>--}}
-                    <a href="{{ asset('assets/media/images/KICP SPONSORSHIP PROPOSAL& ORDER FORM.pdf') }}" target="_blank"
+                    <a href="@if(!request()->routeIs('/')) {{ route('/') }}#sponsorship-card @else #sponsorship-card @endif"
                        class="text-[#172840] hover:text-gray-900 hover:bg-[#175C93] px-2 sm:px-3 py-1.5 rounded-full
                        transition-all duration-300 cursor-pointer text-xs sm:text-sm">
                         Sponsorship
@@ -146,9 +146,7 @@
                    class="text-[#172840] hover:text-gray-900 hov er:bg-[#175C93] block px-3 sm:px-4 py-2 sm:py-3
                    rounded-full transition-all duration-300 cursor-pointer text-sm sm:text-base">Tracks
                 </a>
-                <a
-                    href="{{ asset('assets/media/images/2ND KICP SPONSORSHIP PROPOSAL 2026.pdf') }}"
-                     target="_blank"
+                <a href="@if(!request()->routeIs('/')) {{ route('/') }}#sponsorship-card @else #sponsorship-card @endif"
                     class="text-[#172840] hover:text-gray-900 hover:bg-[#175C93] block px-3 sm:px-4 py-2 sm:py-3
                     rounded-full transition-all duration-300 cursor-pointer text-sm sm:text-base">Sponsorship
                 </a>

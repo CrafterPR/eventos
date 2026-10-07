@@ -18,6 +18,7 @@ use App\Http\Controllers\PurchaseController;
 Route::prefix('v1')->group(function () {
  Route::post('tickets/purchase', [\App\Http\Controllers\PurchaseController::class, 'store'])->name('purchase.store');
  Route::get('tickets/purchase-status/{id}', [\App\Http\Controllers\PurchaseController::class, 'status'])->name('purchase.status');
+ Route::post('sponsorships/purchase', [\App\Http\Controllers\SponsorshipController::class, 'store'])->name('sponsorship.store');
+ Route::get('sponsorships/purchase-status/{id}', [\App\Http\Controllers\SponsorshipController::class, 'status'])->name('sponsorship.status');
  Route::webhooks('pesaflow/notification', 'pesaflow-notification');
 });
-

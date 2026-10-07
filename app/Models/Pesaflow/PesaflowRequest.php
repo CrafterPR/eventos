@@ -8,6 +8,7 @@ use App\Models\Order;
 use App\Models\User;
 use Eloquent;
 use App\Models\PurchaseOrder;
+use App\Models\Sponsorship;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -72,6 +73,11 @@ class PesaflowRequest extends Model
     public function purchase_order(): BelongsTo
     {
         return $this->belongsTo(PurchaseOrder::class);
+    }
+
+    public function sponsorship(): BelongsTo
+    {
+        return $this->belongsTo(Sponsorship::class);
     }
 
     public function pesaflowResponse(): HasOne

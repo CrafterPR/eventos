@@ -106,6 +106,15 @@
                                 <span class="menu-title">Tickets Purchased</span>
                             </a>
                         </div>
+                        <div class="menu-item">
+                            <a class="menu-link {{ request()->routeIs('events.sponsorships.*') ? 'active' : '' }}"
+                               href="{{ route('events.sponsorships.index') }}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-line"></span>
+                                </span>
+                                <span class="menu-title">Sponsorships</span>
+                            </a>
+                        </div>
                     @endcan
                     <div class="menu-item">
                         <a class="menu-link {{ request()->routeIs('events.payment-requests.*') ? 'active' : '' }}"

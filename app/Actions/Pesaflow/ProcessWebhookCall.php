@@ -51,12 +51,13 @@ class ProcessWebhookCall
         $pesaflowRequest = $pesaflowResponse->pesaflowRequest;
 
         $purchase_order = $pesaflowRequest->purchase_order;
+        $sponsorship = $pesaflowRequest->sponsorship;
 
         $pesaflowRequest->update([
             "status" => $status,
         ]);
 
-        if ($status == PaymentStatus::SETTLED->value) {
+        if ($status == PaymentStatus::SETTLED->value && $purchase_order) {
 
             $purchase_order->update([
                 "status" => PaymentStatus::SETTLED->value,
@@ -67,8 +68,15 @@ class ProcessWebhookCall
 
             event(new PesaflowPaymentSuccessfulEvent(purchase_order: $purchase_order));
 
-        } else {
+        } elseif ($status == PaymentStatus::SETTLED->value && $sponsorship) {
+            $sponsorship->update([
+                'status' => PaymentStatus::SETTLED->value,
+                'transaction_reference' => $transactionRef,
+            ]);
+        } elseif ($purchase_order) {
             event(new PesaflowPaymentFailedEvent(purchase_order: $purchase_order, status: $status));
+        } elseif ($sponsorship) {
+            $sponsorship->update(['status' => $status]);
         }
 
         $webhookCall->update([

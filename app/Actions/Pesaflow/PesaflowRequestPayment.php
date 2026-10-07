@@ -3,6 +3,7 @@
 namespace App\Actions\Pesaflow;
 
 use App\Models\PurchaseOrder;
+use App\Models\Sponsorship;
 use App\Enum\Currency;
 use App\Enum\PaymentStatus;
 use App\Models\Pesaflow\PesaflowRequest;
@@ -16,7 +17,7 @@ class PesaflowRequestPayment
     use AsAction;
 
     /**
-     * @param PurchaseOrder $order
+     * @param PurchaseOrder|Sponsorship $order
      * @param string $billDescription
      * @param string $serviceId
      * @param string $currency
@@ -24,7 +25,7 @@ class PesaflowRequestPayment
      * @throws RequestException
      */
     public function handle(
-        PurchaseOrder  $order,
+        PurchaseOrder|Sponsorship $order,
         string $billDescription,
         string $serviceId,
         string $currency,
@@ -32,9 +33,9 @@ class PesaflowRequestPayment
         $billRefNumber = $order->reference;
         $client = $order->user;
         $clientName = $client->name;
-        $clientEmail = $order->payment_email;
-        $clientMSISDN = $order->payment_phone;
-        $clientIDNumber = (string) $client->id_number ?? rand(100000000, 999999999);
+        $clientEmail = $order instanceof Sponsorship ? $order->contact_email : $order->payment_email;
+        $clientMSISDN = $order instanceof Sponsorship ? $order->contact_mobile : $order->payment_phone;
+        $clientIDNumber = $client->id_number ?: (string) random_int(100000000, 999999999);
         $amountExpected =  (float)$order->amount;
 
         //use 1 bob for test purposes
@@ -86,12 +87,14 @@ class PesaflowRequestPayment
             ->throw()
             ->json();
 
+        $association = $order instanceof Sponsorship
+            ? ['sponsorship_id' => $order->id, 'purchase_order_id' => null]
+            : ['purchase_order_id' => $order->id, 'sponsorship_id' => null];
+
         return PesaflowRequest::updateOrCreate(
-            [
-            'purchase_order_id' => $order->id,
-            'user_id' => $client->id
-            ],
-            ['api_client_id' => $apiClientId,
+            [...$association, 'user_id' => $client->id],
+            [...$association,
+            'api_client_id' => $apiClientId,
             'service_id' => $serviceId,
             'currency' => $currency,
             'amount_expected' => $amountExpected,

@@ -29,15 +29,16 @@ class PesaflowController extends Controller
     {
         $reference = $request->reference;
 
-        $order = PurchaseOrder::whereReference($reference)->firstOrFail();
-
-        $pesaflowRequest = PesaflowRequest::wherePurchaseOrderId($order->id)->firstOrFail();
+        $pesaflowRequest = PesaflowRequest::query()
+            ->where('invoice_number', $reference)
+            ->orWhereHas('purchase_order', fn ($query) => $query->where('reference', $reference))
+            ->orWhereHas('sponsorship', fn ($query) => $query->where('reference', $reference))
+            ->firstOrFail();
 
         $order = pesaflow_query_status($pesaflowRequest->invoice_number);
+        abort_unless($order?->user, 404);
 
-        $user = $order->user;
-
-        Auth::login($user);
+        Auth::login($order->user);
 
         return redirect()->intended("dashboard?reference={$order->reference}");
     }

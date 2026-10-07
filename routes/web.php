@@ -43,6 +43,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
             Route::get('payment-requests/export', [\App\Http\Controllers\Apps\PaymentRequestsController::class, 'export'])
                 ->name('payment-requests.export');
             Route::get('purchases', [\App\Http\Controllers\TicketController::class, 'orders'])->name('purchases.index');
+            Route::get('sponsorships', [\App\Http\Controllers\Apps\SponsorshipManagementController::class, 'index'])
+                ->name('sponsorships.index');
             Route::get('purchases/export', [\App\Http\Controllers\Apps\PurchaseManagementController::class, 'export'])->name('purchases.export');
             Route::resource('delegates', DelegateController::class);
             Route::get('purchases/{purchaseOrder}', [\App\Http\Controllers\Apps\PurchaseManagementController::class, 'show'])->name('purchases.show');

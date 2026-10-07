@@ -10,6 +10,7 @@ use App\Actions\GeneratePaymentReceipt;
 use App\Events\PesaflowPaymentFailedEvent;
 use App\Events\PesaflowPaymentSuccessfulEvent;
 use App\Models\PurchaseOrder;
+use App\Models\Sponsorship;
 use App\Models\Pesaflow\PesaflowResponse;
 use Illuminate\Http\Client\RequestException;
 use Illuminate\Support\Facades\Http;
@@ -23,10 +24,10 @@ class PesaflowQueryPaymentStatus
 
     /**
      * @param $refNo
-     * @return PurchaseOrder|null
+     * @return PurchaseOrder|Sponsorship|null
      * @throws RequestException
      */
-    public function handle($refNo): ?PurchaseOrder
+    public function handle($refNo): PurchaseOrder|Sponsorship|null
     {
         $url = config("services.pesaflow.url");
         $apiClientId = config("services.pesaflow.api_client_id");
@@ -64,32 +65,44 @@ class PesaflowQueryPaymentStatus
             "client_invoice_ref" => $response["client_invoice_ref"],
             "amount_paid" => $response["amount_paid"],
             "amount_expected" => $response["amount_expected"],
+            "transaction_reference" => $response["transaction_reference"] ?? null,
         ]);
 
         $pesaflowRequest = $pesaflowResponse->pesaflowRequest;
 
         $order = $pesaflowRequest->purchase_order;
+        $sponsorship = $pesaflowRequest->sponsorship;
 
         $pesaflowRequest->update([
             "status" => $status,
         ]);
 
         if ($status === PaymentStatus::SETTLED->value) {
+            if ($order) {
+                $payment_receipt = GeneratePaymentReceipt::run($order);
+                $order->update([
+                    "status" => PurchaseOrderStatus::PAID,
+                    'payment_receipt' => $payment_receipt,
+                    "check_out_completed_at" => now(),
+                ]);
 
-            $payment_receipt = GeneratePaymentReceipt::run($order);
-            $order->update([
-                "status" => PurchaseOrderStatus::PAID,
-                'payment_receipt' => $payment_receipt,
-                "check_out_completed_at" => now(),
-            ]);
-
-            event(new PesaflowPaymentSuccessfulEvent(purchase_order: $order));
+                event(new PesaflowPaymentSuccessfulEvent(purchase_order: $order));
+            } elseif ($sponsorship) {
+                $sponsorship->update([
+                    'status' => PaymentStatus::SETTLED->value,
+                    'transaction_reference' => $pesaflowResponse->transaction_reference,
+                ]);
+            }
         }
 
-        if ($status !== PaymentStatus::SETTLED->value) {
+        if ($status !== PaymentStatus::SETTLED->value && $order) {
             event(new PesaflowPaymentFailedEvent(purchase_order: $order, status: $status));
         }
 
-        return $order;
+        if ($sponsorship && $status !== PaymentStatus::SETTLED->value) {
+            $sponsorship->update(['status' => $status]);
+        }
+
+        return $order ?? $sponsorship;
     }
 }

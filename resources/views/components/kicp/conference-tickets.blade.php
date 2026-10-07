@@ -7,7 +7,11 @@
         <!--Inner Tabs section -->
         <div>
             @php $isPurchaseMore = $isPurchaseMore ?? false; @endphp
-            <div wire:ignore x-data="wizard({ isPurchaseMore: {{ $isPurchaseMore ? 'true' : 'false' }} })">
+            <div wire:ignore
+                 x-data="wizard({ isPurchaseMore: {{ $isPurchaseMore ? 'true' : 'false' }} })"
+                 @ticket-selected="selectTicket($event.detail.type, $event.detail.price, $event.detail.count)"
+                 @sponsorship-selected="selectSponsorship($event.detail.packageName, $event.detail.kesPrice, $event.detail.usdPrice)"
+                 @sponsorship-removed="removeSponsorship()">
                 <section class="relative mx-auto max-w-6xl px-4 sm:px-6 z-10">
                 <main id="wizardForm" @submit.prevent="submitForm">
                     <section x-cloak x-show="!showPaymentIframe && currentStep === 0" id="ticket-selection">
@@ -113,8 +117,7 @@
                                    <div x-show="!selected"
                                          class="w-full flex flex-col gap-3 mt-auto">
 
-                                       <button @click="selected = true; selectTicket
-                                                                    ('Individual Delegate', 75000, count)"
+                                       <button @click="selected = true; $dispatch('ticket-selected', { type: 'Individual Delegate', price: 75000, count })"
                                                class="rounded-full px-4
                                                                     sm:px-4 py-2 font-medium transition-colors
                                                                     text-sm sm:text-base bg-slate-800 text-white hover:bg-[#84C1D9]">
@@ -286,8 +289,7 @@
                                            </button>
                                        </div>
 
-                                       <button @click="selected = true; selectTicket
-                                                                    ('Group registration', 67500, count)"
+                                       <button @click="selected = true; $dispatch('ticket-selected', { type: 'Group registration', price: 67500, count })"
                                                class="rounded-full px-4
                                                                     sm:px-4 py-2 font-medium transition-colors
                                                                     text-sm sm:text-base bg-slate-800 text-white hover:bg-[#84C1D9]">
@@ -361,7 +363,7 @@
                                </div>
                                <div class="flex flex-col sm:flex-row items-center justify-between mt-auto gap-3">
                                    <div x-show="!selected" class="w-full flex flex-col gap-3 mt-auto">
-                                       <button @click="selected = true; selectTicket('Virtual Ticket', 25000, count)" class="rounded-full px-4 sm:px-4 py-2 font-medium transition-colors text-sm sm:text-base bg-slate-800 text-white hover:bg-[#84C1D9]">Select Ticket</button>
+                                       <button @click="selected = true; $dispatch('ticket-selected', { type: 'Virtual Ticket', price: 25000, count })" class="rounded-full px-4 sm:px-4 py-2 font-medium transition-colors text-sm sm:text-base bg-slate-800 text-white hover:bg-[#84C1D9]">Select Ticket</button>
                                    </div>
                                    <div x-show="selected" class="w-full flex flex-col gap-2 mt-auto">
                                        <div class="flex items-center justify-between w-full">
@@ -415,7 +417,7 @@
                                </div>
                                <div class="flex flex-col sm:flex-row items-center justify-between mt-auto gap-3">
                                    <div x-show="!selected" class="w-full flex flex-col gap-3 mt-auto">
-                                       <button @click="selected = true; selectTicket('Student Ticket', 27500, count)" class="rounded-full px-4 sm:px-4 py-2 font-medium transition-colors text-sm sm:text-base bg-slate-800 text-white hover:bg-[#84C1D9]">Select Ticket</button>
+                                       <button @click="selected = true; $dispatch('ticket-selected', { type: 'Student Ticket', price: 27500, count })" class="rounded-full px-4 sm:px-4 py-2 font-medium transition-colors text-sm sm:text-base bg-slate-800 text-white hover:bg-[#84C1D9]">Select Ticket</button>
                                    </div>
                                    <div x-show="selected" class="w-full flex flex-col gap-2 mt-auto">
                                        <div class="flex items-center justify-between w-full">
@@ -519,7 +521,7 @@
                                 </div>
                                 <div class="flex flex-col sm:flex-row items-center justify-between mt-auto gap-3">
                                     <div x-show="!selected" class="w-full flex flex-col gap-3 mt-auto">
-                                        <button @click="selected = true; selectTicket('Exhibition Booth', 300000, count)"
+                                        <button @click="selected = true; $dispatch('ticket-selected', { type: 'Exhibition Booth', price: 300000, count })"
                                                 class="rounded-full px-4 sm:px-4 py-2 font-medium transition-colors text-sm sm:text-base bg-slate-800 text-white hover:bg-[#84C1D9]">
                                             Select Ticket
                                         </button>
@@ -539,14 +541,54 @@
                             </div>
                         </div>
 
+                        <div id="sponsorship-card" x-data="{ selectedPackage: '' }"
+                             :class="isSponsorship ? 'bg-gradient-to-r from-[#175C93] to-[#7BC7F0] border-[#E12035]' : 'bg-white border-gray-200'"
+                             class="p-4 sm:p-6 rounded-lg border-2 shadow-sm hover:shadow-lg transition-all duration-300 relative">
+                            <div class="absolute -top-2 right-2 sm:right-4 px-3 py-1 rounded-full text-xs font-semibold shadow-lg bg-[#175C93] text-white">
+                                SPONSORSHIP
+                            </div>
+                            <div class="flex flex-col h-full">
+                                <div class="mb-4">
+                                    <h2 class="text-lg sm:text-xl font-bold text-slate-800 mb-2">Sponsorship</h2>
+                                    <p class="text-slate-800/80 text-sm">Choose a sponsorship package for your company.</p>
+                                </div>
+                                <a href="{{ asset('assets/media/images/KICP SPONSORSHIP PROPOSAL& ORDER FORM.pdf') }}"
+                                   download
+                                   class="mb-4 inline-flex items-center justify-center rounded-full px-4 py-2 font-medium text-sm bg-[#175C93] text-white hover:bg-slate-800 transition-colors">
+                                    Download Sponsorship Kit
+                                </a>
+                                <label for="sponsorship-package" class="text-slate-800 text-sm font-semibold mb-2">Sponsorship package</label>
+                                <select id="sponsorship-package" x-model="selectedPackage"
+                                        @change="if (selectedPackage) { const option = $event.target.selectedOptions[0]; $dispatch('sponsorship-selected', { packageName: selectedPackage, kesPrice: Number(option.dataset.kes), usdPrice: Number(option.dataset.usd) }); } else if (isSponsorship) { $dispatch('sponsorship-removed'); }"
+                                        class="w-full px-4 py-3 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-slate-800">
+                                    <option value="">Select a package</option>
+                                    <option value="Platinum Sponsor" data-kes="2000000" data-usd="15459">Platinum Sponsor</option>
+                                    <option value="Gold Sponsor" data-kes="1500000" data-usd="11594">Gold Sponsor</option>
+                                    <option value="Silver Sponsor" data-kes="1000000" data-usd="7730">Silver Sponsor</option>
+                                    <option value="Bronze Sponsor" data-kes="750000" data-usd="5800">Bronze Sponsor</option>
+                                    <option value="Session Sponsor" data-kes="400000" data-usd="3100">Session Sponsor</option>
+                                    <option value="Merchandise Sponsor" data-kes="300000" data-usd="2319">Merchandise Sponsor</option>
+                                    <option value="Exhibition Sponsor" data-kes="300000" data-usd="2319">Exhibition Sponsor</option>
+                                </select>
+                                <div class="mt-4 text-slate-600 text-xs sm:text-sm">
+                                    <div>Ksh. <span x-text="selectedPackage ? Number(document.querySelector('#sponsorship-package').selectedOptions[0].dataset.kes).toLocaleString('en-US') : '—'"></span> Standard Price</div>
+                                    <div>USD $<span x-text="selectedPackage ? Number(document.querySelector('#sponsorship-package').selectedOptions[0].dataset.usd).toLocaleString('en-US') : '—'"></span> Standard Price</div>
+                                </div>
+                                <button type="button" x-show="isSponsorship" x-cloak @click="$dispatch('sponsorship-removed')"
+                                        class="w-full mt-auto pt-5 rounded-full px-4 py-2 font-medium bg-white/20 text-slate-800 hover:bg-red-500 hover:text-white border border-gray-300">
+                                    Remove Sponsorship
+                                </button>
+                            </div>
+                        </div>
+
                     </div>
                     </section>
+
                     <section x-cloak x-show="!showPaymentIframe && currentStep === 1 && !isPurchaseMore" id="contact-info-step">
                         <div class="mx-auto max-w-7xl ">
                             <div class="text-slate-800 text-center py-4">
-                                <h2 class="font-bold text-2xl">Your Contact Information</h2>
-                                <p class="font-normal">Let's continue with your basic information to secure your
-                                    registration.</p>
+                                <h2 class="font-bold text-2xl" x-text="isSponsorship ? 'Company Details' : 'Your Contact Information'"></h2>
+                                <p class="font-normal" x-text="isSponsorship ? 'Please provide your company and contact person details.' : 'Continue with your basic information to secure your registration.'"></p>
                             </div>
                             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-12" style="opacity: 1; transform: none;">
                                 <div class="p-6 sm:p-8 lg:p-10 bg-white border border-gray-200 rounded-2xl shadow-xl">
@@ -557,14 +599,15 @@
                                                 </svg>
                                             </div>
                                             <div>
-                                                 <p class="text-gray-500 text-sm sm:text-base mt-1">Step 2 of 3 -
-                                                    Contact Information</p>
+                                                 <p class="text-gray-500 text-sm sm:text-base mt-1"
+                                                    x-text="isSponsorship ? 'Step 2 of 3 - Company Details' : 'Step 2 of 3 - Contact Information'"></p>
                                             </div>
                                         </div>
-                                        <p class="text-gray-600 text-base leading-relaxed">Please provide your contact information. This helps us keep you updated about your registration and follow up if needed.</p>
+                                        <p class="text-gray-600 text-base leading-relaxed"
+                                           x-text="isSponsorship ? 'Please provide your company and sponsor contact information.' : 'Please provide your contact information. This helps us keep you updated about your registration and follow up if needed.'"></p>
                                     </div>
 
-                                    <div class="space-y-6">
+                                    <div class="space-y-6" x-show="!isSponsorship">
                                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                             <div class="">
                                                 <label for="firstName" class="block text-slate-800 text-sm font-semibold mb-2">First Name <span class="text-red-500 ml-0.5">*</span></label>
@@ -625,7 +668,42 @@
                                             </div>
                                         </div>
 
-                                        <div class="pt-8 border-t border-gray-100">
+                                    </div>
+                                    <div class="space-y-6" x-show="isSponsorship" x-cloak>
+                                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                            <div>
+                                                <label for="company_name" class="block text-slate-800 text-sm font-semibold mb-2">Company Name *</label>
+                                                <input id="company_name" name="company_name" x-model="sponsorshipData.company_name" class="w-full px-4 py-3 border border-gray-300 rounded-lg" type="text">
+                                            </div>
+                                            <div>
+                                                <label for="physical_address" class="block text-slate-800 text-sm font-semibold mb-2">Physical Address *</label>
+                                                <input id="physical_address" name="physical_address" x-model="sponsorshipData.physical_address" class="w-full px-4 py-3 border border-gray-300 rounded-lg" type="text">
+                                            </div>
+                                            <div>
+                                                <label for="company_email" class="block text-slate-800 text-sm font-semibold mb-2">Company Email Address *</label>
+                                                <input id="company_email" name="company_email" x-model="sponsorshipData.company_email" class="w-full px-4 py-3 border border-gray-300 rounded-lg" type="email">
+                                            </div>
+                                        </div>
+                                        <div class="border-t border-gray-100 pt-5">
+                                            <h3 class="font-semibold text-slate-800 mb-4">Contact Person</h3>
+                                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                                <div>
+                                                    <label for="contact_name" class="block text-slate-800 text-sm font-semibold mb-2">Name *</label>
+                                                    <input id="contact_name" name="contact_name" x-model="sponsorshipData.contact_name" class="w-full px-4 py-3 border border-gray-300 rounded-lg" type="text">
+                                                </div>
+                                                <div>
+                                                    <label for="contact_email" class="block text-slate-800 text-sm font-semibold mb-2">Email *</label>
+                                                    <input id="contact_email" name="contact_email" x-model="sponsorshipData.contact_email" class="w-full px-4 py-3 border border-gray-300 rounded-lg" type="email">
+                                                </div>
+                                                <div>
+                                                    <label for="contact_mobile" class="block text-slate-800 text-sm font-semibold mb-2">Mobile *</label>
+                                                    <input id="contact_mobile" name="contact_mobile" x-model="sponsorshipData.contact_mobile" class="w-full px-4 py-3 border border-gray-300 rounded-lg" type="tel">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="pt-8 border-t border-gray-100">
                                             <div id="terms-wrapper" class="bg-blue-50 border border-[#84C1D9]/30 rounded-xl p-5 mb-6">
                                                 <div x-show="formErrors.terms" x-cloak class="mt-2 p-3 bg-red-50 border border-red-200 rounded-lg">
                                                     <p x-text="formErrors.terms" class="text-red-600 text-sm"></p>
@@ -649,10 +727,9 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
                     </section>
 
-                    <div x-show="!showPaymentIframe && hasSelectedTickets()" x-cloak
+                    <div x-show="!showPaymentIframe && selectedTickets.length > 0" x-cloak
                          class="fixed bottom-0 left-0 right-0 bg-white border-t-2 border-[#84C1D9] shadow-2xl z-50"
                          style="opacity: 1; transform: none;">
                         <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4">
@@ -668,9 +745,9 @@
                                                   d="M15.58 16.8L12 14.5l-3.58 2.3l1.08-4.12L6.21 10l4.25-.26L12 5.8l1.54 3.94l4.25.26l-3.29 2.68M20 12a2 2 0 0 1 2-2V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v4a2 2 0 0 1 2 2a2 2 0 0 1-2 2v4a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-4a2 2 0 0 1-2-2"></path>
                                         </svg>
                                         <div>
-                                            <p class="text-xs text-gray-500">Selected Tickets</p>
+                                            <p class="text-xs text-gray-500" x-text="isSponsorship ? 'Selected Sponsorship' : 'Selected Tickets'"></p>
                                             <p class="font-bold text-slate-800 text-sm sm:text-base"
-                                               x-text="totalTickets() + ' tickets'"></p>
+                                               x-text="isSponsorship ? selectedTickets[0].type : totalTickets() + ' tickets'"></p>
                                         </div>
                                     </div>
                                     <div class="flex items-center justify-center">
@@ -697,10 +774,10 @@
                                         </svg>
                                         Back
                                     </button>
-                                    <button x-show="hasSelectedTickets()" @click="proceedFromCurrentStep()"
+                                    <button x-show="selectedTickets.length > 0" @click="proceedFromCurrentStep()"
                                             class="flex-1 sm:flex-none bg-red-500 text-white px-6 sm:px-8 py-2.5 sm:py-3
                                             rounded-full font-semibold hover:bg-slate-800 transition-all duration-300 shadow-lg hover:shadow-xl text-sm sm:text-base inline-flex items-center justify-center gap-2">
-                                        Proceed to <span x-text="isPurchaseMore ? 'PesaFlow' : (currentStep === 0 ? 'add your details' : 'make payment')"></span>
+                                        <span x-text="isSponsorship && currentStep === 0 ? 'Proceed to add company details' : 'Proceed to ' + (isPurchaseMore ? 'PesaFlow' : (currentStep === 0 ? 'add your details' : 'make payment'))"></span>
                                         <svg xmlns="http://www.w3.org/2000/svg"
                                              xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
                                              class="w-4 h-4 iconify iconify--mdi" width="1em" height="1em"
@@ -746,10 +823,11 @@
                         </div>
                     </section>
 
-                    <div x-show="!showPaymentIframe && hasSelectedTickets() && currentStep === 0"
+                    <div x-show="!showPaymentIframe && selectedTickets.length > 0 && currentStep === 0"
                         class="mt-4 sm:mt-6 p-4 sm:p-6 bg-white border border-[#84C1D9] rounded-lg max-w-4xl mx-auto shadow-lg"
                         style="opacity: 1; transform: none;">
-                        <h3 class="text-lg sm:text-xl font-bold text-slate-800 mb-3 sm:mb-4">Ticket Summary</h3>
+                        <h3 class="text-lg sm:text-xl font-bold text-slate-800 mb-3 sm:mb-4"
+                            x-text="isSponsorship ? 'Sponsorship Summary' : 'Ticket Summary'"></h3>
                         <div class="space-y-2">
                             <template x-for="(ticket, idx) in selectedTickets" :key="idx">
                                 <div
@@ -815,6 +893,15 @@
                 currency: 'KES',
                 terms: 0
             },
+            sponsorshipData: {
+                company_name: '',
+                physical_address: '',
+                company_email: '',
+                contact_name: '',
+                contact_email: '',
+                contact_mobile: ''
+            },
+            isSponsorship: false,
             purchaserLocked: false,
             paymentMethod: 'pesaflow',
             paymentEmail: '',
@@ -836,6 +923,35 @@
             },
             formErrors: {
                 terms: ''
+            },
+
+            selectSponsorship(packageName, kesPrice, usdPrice) {
+                this.resetAllTicketCards(false);
+                this.isSponsorship = true;
+                this.selectedTickets = [{
+                    type: packageName,
+                    price: kesPrice,
+                    usdPrice: usdPrice,
+                    count: 1
+                }];
+            },
+
+            removeSponsorship() {
+                this.isSponsorship = false;
+                this.selectedTickets = [];
+                this.sponsorshipData = {
+                    company_name: '',
+                    physical_address: '',
+                    company_email: '',
+                    contact_name: '',
+                    contact_email: '',
+                    contact_mobile: ''
+                };
+                const selector = document.querySelector('#sponsorship-package');
+                if (selector) {
+                    selector.value = '';
+                    selector.dispatchEvent(new Event('change', { bubbles: true }));
+                }
             },
 
             init() {
@@ -1170,6 +1286,48 @@
             async validateStep() {
                 console.log('Validating step:', this.currentStep);
 
+                if (!this.isPurchaseMore && this.currentStep === 1 && this.isSponsorship) {
+                    this.clearAllErrors();
+                    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    const requiredFields = [
+                        ['company_name', 'Company name is required', 'Company name is required'],
+                        ['physical_address', 'Physical address is required', 'Physical address is required'],
+                        ['company_email', 'Company email is required', 'Enter a valid company email address'],
+                        ['contact_name', 'Contact person name is required', 'Contact person name is required'],
+                        ['contact_email', 'Contact person email is required', 'Enter a valid contact email address'],
+                        ['contact_mobile', 'Contact mobile number is required', 'Contact mobile number is required']
+                    ];
+                    let valid = true;
+
+                    requiredFields.forEach(([field, requiredMessage, invalidMessage]) => {
+                        const input = document.getElementById(field);
+                        const value = this.sponsorshipData[field].trim();
+                        const isEmail = field === 'company_email' || field === 'contact_email';
+                        const fieldValid = value !== '' && (!isEmail || emailPattern.test(value));
+                        if (!fieldValid) {
+                            valid = false;
+                            input.classList.add('border-red-500');
+                            const error = this.createErrorMessage(value ? invalidMessage : requiredMessage);
+                            error.classList.add('custom-error-container');
+                            input.parentElement.appendChild(error);
+                        }
+                    });
+
+                    const termsCheckbox = document.querySelector('#terms');
+                    if (!termsCheckbox || !termsCheckbox.checked) {
+                        this.formErrors.terms = 'You must accept the terms and conditions to proceed';
+                        valid = false;
+                    }
+
+                    if (!valid) {
+                        const firstError = document.querySelector('.custom-error-container') || document.querySelector('#terms-wrapper');
+                        firstError?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        return false;
+                    }
+
+                    return true;
+                }
+
                 if (!this.isPurchaseMore && this.currentStep === 1) {
                     // Save form data for step 1 and continue to normal validation below.
                     this.saveFormData();
@@ -1391,7 +1549,7 @@
                 this.syncAttendees();
             },
 
-            resetAllTicketCards() {
+            resetAllTicketCards(resetCounts = true) {
                 // Reset all ticket card UI states
                 const ticketCards = document.querySelectorAll('[x-data*="count"]');
 
@@ -1401,7 +1559,9 @@
                         const alpineInstance = card._x_dataStack ? card._x_dataStack[0] : card.__x?.$data;
                         if (alpineInstance) {
                             alpineInstance.selected = false;
-                            alpineInstance.count = alpineInstance.count > 5 ? 10 : 1;
+                            if (resetCounts) {
+                                alpineInstance.count = alpineInstance.count > 5 ? 10 : 1;
+                            }
                             return; // Success, skip other methods
                         }
                     } catch (e) {
@@ -1414,7 +1574,9 @@
                             const data = card.__x_dataStack[0];
                             if (data) {
                                 data.selected = false;
-                                data.count = data.count > 5 ? 10 : 1;
+                                if (resetCounts) {
+                                    data.count = data.count > 5 ? 10 : 1;
+                                }
                             }
                         }
                     } catch (e) {
@@ -1433,13 +1595,20 @@
 
                     // Reset counter input if exists
                     const countInput = card.querySelector('input[type="number"]');
-                    if (countInput) {
+                    if (resetCounts && countInput) {
                         countInput.value = index > 0 && index < 2 ? '10' : '1';
                     }
                 });
             },
 
             selectTicket(ticketType, price, count) {
+                if (this.isSponsorship) {
+                    this.isSponsorship = false;
+                    this.selectedTickets = [];
+                    const sponsorshipSelect = document.querySelector('#sponsorship-package');
+                    if (sponsorshipSelect) sponsorshipSelect.value = '';
+                }
+
                 // Try to detect the clicked ticket card if the caller passed generic/hardcoded values.
                 let type = ticketType;
                 let pr = price;
@@ -1550,16 +1719,18 @@
 
                 if (existingIndex >= 0) {
                     // Update existing ticket
-                    this.selectedTickets[existingIndex].count = count;
-                    this.selectedTickets[existingIndex].usdPrice = usdPrice;
+                    this.selectedTickets = this.selectedTickets.map((ticket, index) => index === existingIndex
+                        ? { ...ticket, count, usdPrice }
+                        : ticket
+                    );
                 } else {
                     // Add new ticket
-                    this.selectedTickets.push({
+                    this.selectedTickets = [...this.selectedTickets, {
                         type: type,
                         price: pr || price,
                         usdPrice: usdPrice,
                         count: count
-                    });
+                    }];
                 }
 
             },
@@ -1775,7 +1946,7 @@
                 if (this.isSubmitting) return;
                 this.clearAllErrors();
                 this.paymentMethod = this.paymentMethod || 'pesaflow';
-                if (!this.isPurchaseMore) {
+                if (!this.isPurchaseMore && !this.isSponsorship) {
                     this.saveFormData();
                 }
 
@@ -1802,7 +1973,12 @@
                 this.isSubmitting = true;
 
                 const currency = (this.formData.currency || 'KES').toUpperCase();
-                const payload = {
+                const payload = this.isSponsorship ? {
+                    ...this.sponsorshipData,
+                    package: this.selectedTickets[0]?.type,
+                    currency,
+                    terms: document.querySelector('#terms')?.checked ? 1 : 0
+                } : {
                     formData: this.isPurchaseMore ? {} : this.formData,
                     selectedTickets: this.selectedTickets,
                     paymentMethod: this.paymentMethod,
@@ -1826,7 +2002,7 @@
                         }
                     });
 
-                    const res = await fetch('/api/v1/tickets/purchase', {
+                    const res = await fetch(this.isSponsorship ? '/api/v1/sponsorships/purchase' : '/api/v1/tickets/purchase', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
@@ -1876,7 +2052,7 @@
                         if (paymentUrl) {
                             // Use pesaflow invoice link — open a modal showing the invoice link for the user to pay.
                             this.paymentIframeUrl = paymentUrl;
-                            this.paymentPurchaseOrderId = data && data.purchase_order_id ? data.purchase_order_id : null;
+                            this.paymentPurchaseOrderId = data && (data.purchase_order_id || data.sponsorship_id) ? (data.purchase_order_id || data.sponsorship_id) : null;
 
                             // Show modal and display invoice link (avoid attempting to embed to prevent framing issues)
                             this.showPaymentIframe = true;
@@ -1918,6 +2094,20 @@
                                 terms: 0
                             };
                             this.selectedTickets = [];
+                            this.isSponsorship = false;
+                            this.sponsorshipData = {
+                                company_name: '',
+                                physical_address: '',
+                                company_email: '',
+                                contact_name: '',
+                                contact_email: '',
+                                contact_mobile: ''
+                            };
+                            const sponsorshipSelect = document.querySelector('#sponsorship-package');
+                            if (sponsorshipSelect) {
+                                sponsorshipSelect.value = '';
+                                sponsorshipSelect.dispatchEvent(new Event('change', { bubbles: true }));
+                            }
                             this.paymentMethod = 'pesaflow';
                             this.paymentEmail = '';
                             this.paymentPhone = '';

@@ -76,6 +76,7 @@ class PaymentRequestsController extends Controller
             'purchase_order_id',
             'created_at',
         ]);
+        $query->whereNotNull('purchase_order_id');
 
         if (!empty($filters['status'])) {
             $query->where('status', $filters['status']);
