@@ -7,8 +7,10 @@ use App\Enum\EventStatus;
 use App\Models\PurchaseOrder;
 use App\Exports\DelegateExport;
 use App\Models\Category;
+use App\Models\Country;
 use App\Models\Delegate;
 use App\Models\Event;
+use App\Models\User;
 use App\Exports\PurchaseExport;
 use App\Enum\PurchaseOrderStatus;
 use Illuminate\Database\Eloquent\Builder;
@@ -55,7 +57,7 @@ class PurchasedTickets extends DataTableComponent
     {
         return PurchaseOrder::query()
                        ->select('purchase_orders.*')
-                       ->with('user', 'pesaflow_request')
+                       ->with('user.country', 'pesaflow_request')
                        ->orderBy('purchase_orders.created_at', 'desc');
     }
 
@@ -130,6 +132,20 @@ class PurchasedTickets extends DataTableComponent
                                      }
                                  });
                              }),
+            SelectFilter::make('Country', 'country_id')
+                ->options(['' => 'Any', ...Country::query()
+                    ->whereIn('id', User::query()
+                        ->whereHas('purchaseOrders')
+                        ->select('country_id')
+                        ->whereNotNull('country_id'))
+                    ->orderBy('name')
+                    ->pluck('name', 'id')
+                    ->all()])
+                ->filter(function (Builder $builder, string $value) {
+                    return $builder->whereHas('user', function (Builder $userQuery) use ($value) {
+                        $userQuery->where('country_id', $value);
+                    });
+                }),
         ];
     }
 
