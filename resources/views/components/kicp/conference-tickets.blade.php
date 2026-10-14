@@ -20,7 +20,7 @@
                         <div x-data="{
                                count: 1,
                                selected: false,
-                               earlyBirdEnds: '2026-09-25T23:59:59+03:00',
+                               earlyBirdEnds: '2026-10-16T23:59:59+03:00',
                                remaining: { days: 0, hours: 0, minutes: 0, seconds: 0 },
                                format(value) {
                                    return String(value).padStart(2, '0');
@@ -38,8 +38,8 @@
                                    this.updateCountdown();
                                    setInterval(() => this.updateCountdown(), 1000);
                                }
-                           }" x-init="initCountdown()" data-ticket-type="Individual Delegate" data-kes-price="75000"
-                             data-usd-price="580" :class="selected
+                            }" x-init="initCountdown()" data-ticket-type="Individual Delegate" data-kes-price="63750" data-usd-price="510" :class="selected
+
                                                        ? 'bg-gradient-to-r from-[#175C93] to-[#7BC7F0] border-[#E12035]'
                                                        : 'bg-white border-gray-200'"
                              class="p-4 sm:p-6 rounded-lg border-2 shadow-sm hover:shadow-lg transition-all duration-300 relative"
@@ -59,8 +59,26 @@
                                </div>
                                <div class="mb-3 sm:mb-4">
 
-                                   <h3 class="text-2xl sm:text-3xl font-bold text-slate-800 ">Ksh. 75,000</h3>
-                                   <div class="mt-1 text-xs sm:text-sm text-slate-600">USD $580</div>
+                                   <span class="inline-flex items-center rounded-full bg-red-50 px-2 py-1 text-[10px] sm:text-[11px] font-semibold uppercase tracking-wide text-red-600">Early Bird</span>
+                                   <div class="mt-2 text-[10px] sm:text-xs font-semibold uppercase tracking-wide
+                                   text-red-500">Ends 16 October 2026 11:59pm</div>
+                                   <div class="mt-3 text-sm ">
+                                       <div class="flex items-center gap-1 text-[8px] sm:text-xs font-bold
+                                       text-red-600">
+                                           <span x-text="format(remaining.days) + 'd'" aria-label="Days remaining"></span>
+                                           <span>:</span>
+                                           <span x-text="format(remaining.hours) + 'h'" aria-label="Hours remaining"></span>
+                                           <span>:</span>
+                                           <span x-text="format(remaining.minutes) + 'm'" aria-label="Minutes remaining"></span>
+                                           <span>:</span>
+                                           <span x-text="format(remaining.seconds) + 's'" aria-label="Seconds remaining"></span>
+                                       </div>
+                                   </div>
+
+                                   <h3 class="text-2xl sm:text-3xl font-bold text-slate-800">Ksh. 63,750</h3>
+                                   <h4 class="text-1xl sm:text-1xl font-bold text-slate-800 line-through">Ksh. 75,
+                                       000</h4>
+                                   <div class="mt-1 text-xs sm:text-sm text-slate-600">USD $510</div>
 
                                </div>
                                <div class="mb-4 sm:mb-6">
@@ -117,7 +135,8 @@
                                    <div x-show="!selected"
                                          class="w-full flex flex-col gap-3 mt-auto">
 
-                                       <button @click="selected = true; $dispatch('ticket-selected', { type: 'Individual Delegate', price: 75000, count })"
+                                       <button @click="selected = true; $dispatch('ticket-selected', { type:
+                                       'Individual Delegate', price: 63750, count })"
                                                class="rounded-full px-4
                                                                     sm:px-4 py-2 font-medium transition-colors
                                                                     text-sm sm:text-base bg-slate-800 text-white hover:bg-[#84C1D9]">
