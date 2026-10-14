@@ -8,6 +8,26 @@
                   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- End Google Tag Manager (noscript) -->
+<div id="site-banner-popup" role="dialog" aria-modal="true" aria-label="Announcement banner"
+     style="position: fixed; inset: 0; z-index: 9999; display: flex; align-items: center; justify-content: center; padding: 1rem; background: rgba(0, 0, 0, 0.75);">
+    <div style="position: relative; max-width: min(960px, 92vw); max-height: 90vh;">
+        <button id="site-banner-close" type="button" aria-label="Close banner"
+                style="position: absolute; top: 0.75rem; right: 0.75rem; z-index: 1; padding: 0.5rem 1rem; border: 0; border-radius: 9999px; background: white; color: #172840; font-weight: 600; cursor: pointer;">
+            Close
+        </button>
+        <img src="{{ asset('assets/media/images/banner.webp') }}" alt="Announcement banner"
+             style="display: block; max-width: 100%; max-height: 85vh; object-fit: contain;">
+    </div>
+</div>
+<script>
+    (function () {
+        const bannerPopup = document.getElementById('site-banner-popup');
+        document.getElementById('site-banner-close').addEventListener('click', function () {
+            bannerPopup.hidden = true;
+            bannerPopup.style.display = 'none';
+        });
+    })();
+</script>
 <div>
     {{ $slot }}
 </div>
