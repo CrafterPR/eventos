@@ -72,57 +72,43 @@
                 return;
             }
 
-            let currentScroll = 0;
-            const speakerCardWidth = 100; // 100% width for each speaker on mobile
-            let itemsPerView = 1; // Default mobile view
-            let gapSize = 16; // Default gap in pixels (gap-4 = 1rem = 16px)
+            const container = track.parentElement;
+            let currentIndex = 0;
+            let itemsPerView = 1;
 
-            // Function to determine items per view based on screen size
             function updateItemsPerView() {
                 const width = window.innerWidth;
-                if (width >= 1024) { // lg breakpoint
+                if (width >= 1024) {
                     itemsPerView = 3;
-                    gapSize = 24; // gap-6 = 1.5rem = 24px on larger screens
-                } else if (width >= 640) { // sm breakpoint
+                } else if (width >= 640) {
                     itemsPerView = 2;
-                    gapSize = 20; // gap-6 adjusted for sm
                 } else {
                     itemsPerView = 1;
-                    gapSize = 16; // gap-4
                 }
+                currentIndex = Math.min(currentIndex, Math.max(0, track.children.length - itemsPerView));
+                moveToCurrentIndex();
             }
 
-            // Calculate scroll amount
-            function getScrollAmount() {
-                const trackWidth = track.parentElement.offsetWidth;
-                // Calculate the width of one item plus gap
-                const itemWidth = (trackWidth - (gapSize * (itemsPerView - 1))) / itemsPerView;
-                return itemWidth + gapSize;
+            function moveToCurrentIndex() {
+                const card = track.children[currentIndex];
+                if (!card) return;
+                const offset = card.offsetLeft - track.offsetLeft;
+                track.style.transform = `translateX(-${offset}px)`;
             }
 
-            // Update carousel on window resize
-            window.addEventListener('resize', () => {
-                updateItemsPerView();
-            });
+            window.addEventListener('resize', updateItemsPerView);
 
-            // Previous button click
             prevBtn.addEventListener('click', () => {
-                updateItemsPerView();
-                const scrollAmount = getScrollAmount();
-                currentScroll = Math.max(0, currentScroll - scrollAmount);
-                track.style.transform = `translateX(-${currentScroll}px)`;
+                currentIndex = Math.max(0, currentIndex - 1);
+                moveToCurrentIndex();
             });
 
-            // Next button click
             nextBtn.addEventListener('click', () => {
-                updateItemsPerView();
-                const scrollAmount = getScrollAmount();
-                const maxScroll = track.scrollWidth - track.parentElement.offsetWidth;
-                currentScroll = Math.min(maxScroll, currentScroll + scrollAmount);
-                track.style.transform = `translateX(-${currentScroll}px)`;
+                const lastStartIndex = Math.max(0, track.children.length - itemsPerView);
+                currentIndex = Math.min(lastStartIndex, currentIndex + 1);
+                moveToCurrentIndex();
             });
 
-            // Initialize
             updateItemsPerView();
         })();
 
@@ -155,4 +141,3 @@
 @endpush
 
 </x-home-layout>
-
