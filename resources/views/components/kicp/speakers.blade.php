@@ -24,6 +24,28 @@
             </button>
         </div>
     </div>
+    @php
+        $additionalSpeakers = [
+            ['name' => 'FCS Jeremiah Karanja', 'role' => 'Chief Executive Officer, Institute of Certified Secretaries', 'image' => 'jeremiah-karanja.webp'],
+            ['name' => 'Dr. Charles Koech, OGW', 'role' => 'Chief Principal, The Eldoret National Polytechnic', 'image' => 'charles-koech-ogw.webp'],
+            ['name' => 'Prof. Manasseh Nshuti', 'role' => 'Chairman, Board of Promoters, University of Kigali', 'image' => 'manasseh-nshuti.webp'],
+            ['name' => 'CS. Debra Ajwang', 'role' => 'CEO, The Leadership Group Limited', 'image' => 'debra-ajwang.webp'],
+            ['name' => 'Dr. Edwin Tarno, PhD, HSC', 'role' => 'Chief Executive Officer, Kenya School of TVET', 'image' => 'edwin-tarno.webp'],
+            ['name' => 'Prof. Isaiah I.C. Wakindiki', 'role' => 'Vice Chancellor, KCA University', 'image' => 'isaiah-i-c-wakindiki.webp'],
+            ['name' => 'Dr. Mwanza', 'role' => 'Director General, Kenya School of Government Affairs', 'image' => 'mwanza.webp'],
+            ['name' => 'Prof. Kenneth Wyne Mutuma', 'role' => 'Honorary Secretary, Association of Professional Societies in East Africa', 'image' => 'kenneth-wyne-mutuma.webp'],
+            ['name' => 'Dr. Susan Musembi, PhD', 'role' => 'Director, Directorate of Innovation, Incubation and University Industry Linkages', 'image' => 'susan-musembi.webp'],
+            ['name' => 'Charles Kanjama', 'role' => 'President, Law Society of Kenya', 'image' => 'charles-kanjama.webp'],
+            ['name' => 'FA Diana Muriuki-Maina', 'role' => 'CEO, ICIFA', 'image' => 'diana-muriuki-maina.webp'],
+            ['name' => 'FCPA Dr. Benson Okundi, PhD', 'role' => 'Partner/Director, PwC', 'image' => 'benson-okundi.webp'],
+            ['name' => 'Prof. Mike Kuria', 'role' => 'Commission Secretary/CEO, CUE', 'image' => 'mike-kuria.webp'],
+            ['name' => 'Dr. Alice Kande, PhD', 'role' => 'Director General, KNQA', 'image' => 'alice-kande.webp'],
+            ['name' => 'Dr. David Njengere, MBS', 'role' => 'CEO, KNEC – sending a representative', 'image' => 'david-njengere.webp'],
+            ['name' => 'Mr. Shadrack Tonui', 'role' => 'National Chairperson, KATTI', 'image' => 'shadrack-tonui.webp'],
+            ['name' => 'Dr. Mutembei Kigige, PhD, OGW', 'role' => 'Chief Principal, The Meru National Polytechnic', 'image' => 'mutembei-kigige.webp'],
+            ['name' => 'Dr. Jay Bosire', 'role' => 'Medical & Health Consultant', 'image' => 'jay-bosire.webp'],
+        ];
+    @endphp
     <!-- Speakers Carousel -->
     <div id="speakers-carousel-container" class="overflow-hidden rounded-xl">
         <div id="speakers-carousel-track"
@@ -206,6 +228,23 @@
                         </div>
                     </div>
                 </div>
+                @foreach ($additionalSpeakers as $speaker)
+                    <div class="flex-shrink-0 w-full sm:w-1/2 lg:w-1/3">
+                        <div class="relative rounded-xl shadow-xl overflow-hidden group cursor-pointer h-80 sm:h-96">
+                            <img alt="{{ $speaker['name'] }}" loading="lazy" width="400" height="500"
+                                 class="w-full h-full object-cover" style="color:transparent"
+                                 src="{{ asset('assets/media/images/speakers/' . $speaker['image']) }}">
+                            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent group-hover:bg-gradient-to-t group-hover:from-black/0 group-hover:to-transparent transition-all duration-300 p-4 sm:p-6">
+                                <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                                     style="background:linear-gradient(to top, #175C93 0%, #BBE1F8 40%, rgba(0,0,0,0) 100%)"></div>
+                                <div class="relative z-10">
+                                    <h4 class="text-lg sm:text-xl font-bold text-white mb-1">{{ $speaker['name'] }}</h4>
+                                    <p class="text-white/90 text-xs sm:text-sm">{{ $speaker['role'] }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
             </div>
         </div>
     </div>
