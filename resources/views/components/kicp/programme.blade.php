@@ -60,7 +60,8 @@
                                     <li><strong>Opening Remarks</strong> (15 minutes)</li>
                                     <li>
                                         <strong>Opening Keynote Address</strong> (20 minutes)<br>
-                                        Topic: Professionals as Catalysts for Global Competitiveness
+                                        Topic: Professionals Advancing Africa’s Global <br />
+                                        Competitiveness: A Perspective on the Kenya Vision 2030 and Beyond
                                     </li>
                                     <li>
                                         <strong>Fireside Chat</strong> (45 minutes)<br>
