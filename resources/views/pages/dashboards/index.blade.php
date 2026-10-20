@@ -301,7 +301,7 @@ use Illuminate\Support\Arr;
                                                     <span class="badge badge-warning">
                                                         {{ Str::upper('Pending') }}
                                                     </span>
-                                                @elseif($po->status_value === \App\Enum\PurchaseOrderStatus::PAID->value)
+                                                @elseif(\App\Enum\PurchaseOrderStatus::isPaid($po->status))
                                                     <span class="badge badge-success">
                                                         {{ Str::upper($po->status_value) }}
                                                     </span>

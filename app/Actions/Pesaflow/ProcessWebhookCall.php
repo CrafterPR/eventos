@@ -3,6 +3,7 @@
 namespace App\Actions\Pesaflow;
 
 use App\Enum\PaymentStatus;
+use App\Enum\PurchaseOrderStatus;
 use App\Events\PesaflowPaymentFailedEvent;
 use App\Events\PesaflowPaymentSuccessfulEvent;
 use App\Models\Pesaflow\PesaflowResponse;
@@ -60,7 +61,7 @@ class ProcessWebhookCall
         if ($status == PaymentStatus::SETTLED->value && $purchase_order) {
 
             $purchase_order->update([
-                "status" => PaymentStatus::SETTLED->value,
+                "status" => PurchaseOrderStatus::PAID,
                 "check_out_completed_at" => now(),
                 "payment_method" => $pesaflowResponse->payment_channel,
                 "transaction_reference" => $transactionRef

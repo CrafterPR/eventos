@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Apps;
 
 use App\Enum\PurchaseOrderStatus;
+use App\Enum\PaymentStatus;
 use App\Http\Controllers\Controller;
 use App\Models\PurchaseOrder;
 use App\Models\Delegate;
@@ -12,6 +13,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Log;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 use App\Models\Pesaflow\PesaflowRequest;
 use Maatwebsite\Excel\Facades\Excel;
@@ -35,7 +37,9 @@ class PurchaseManagementController extends Controller
             $query->where('payment_method', $paymentMethod);
         }
 
-        if ($statusFilter && $statusFilter !== 'all') {
+        if ($statusFilter === PurchaseOrderStatus::PAID->value) {
+            $query->where('status', PurchaseOrderStatus::PAID->value);
+        } elseif ($statusFilter && $statusFilter !== 'all') {
             $query->where('status', $statusFilter);
         }
 
@@ -108,7 +112,9 @@ class PurchaseManagementController extends Controller
             $query->where('payment_method', $paymentMethod);
         }
 
-        if ($statusFilter && $statusFilter !== 'all') {
+        if ($statusFilter === PurchaseOrderStatus::PAID->value) {
+            $query->where('status', PurchaseOrderStatus::PAID->value);
+        } elseif ($statusFilter && $statusFilter !== 'all') {
             $query->where('status', $statusFilter);
         }
 
@@ -208,7 +214,7 @@ class PurchaseManagementController extends Controller
     public function generateDelegates(Request $request, PurchaseOrder $purchaseOrder)
     {
         // Only operate on paid orders
-        if ($purchaseOrder->status !== 'paid') {
+        if (!PurchaseOrderStatus::isPaid($purchaseOrder->status)) {
             return back()->with('error', 'Can only generate delegates for paid purchases.');
         }
 
@@ -276,34 +282,59 @@ class PurchaseManagementController extends Controller
      */
     protected function processApproval(PurchaseOrder $purchaseOrder, Request $request = null)
     {
-        DB::beginTransaction();
         try {
-            $purchaseOrder->status = PurchaseOrderStatus::PAID;
-            $purchaseOrder->approved_by = auth()->id();
-            $purchaseOrder->approved_at = now();
-            $purchaseOrder->save();
+            DB::transaction(function () use ($purchaseOrder) {
+                $purchaseOrder->status = PurchaseOrderStatus::PAID;
+                $purchaseOrder->approved_by = auth()->id();
+                $purchaseOrder->approved_at = now();
+                $purchaseOrder->save();
+            });
+        } catch (\Throwable $e) {
+            Log::error('Failed to mark purchase as paid.', [
+                'purchase_order_id' => $purchaseOrder->id,
+                'exception' => $e,
+            ]);
 
-            // Generate delegates or exhibitors from tickets
-            $tickets = is_array($purchaseOrder->tickets)
-                ? $purchaseOrder->tickets
-                : (json_decode($purchaseOrder->tickets, true) ?: []);
+            $errorMsg = 'Failed to mark purchase as paid: ' . $e->getMessage();
+            if ($request && $request->wantsJson()) {
+                return response()->json(['error' => $errorMsg], 500);
+            }
+            return back()->with('error', $errorMsg);
+        }
 
-            foreach ($tickets as $ticket) {
-                // ticket may be associative array; fallback to purchaser data
-                $firstName = $ticket['first_name'] ?? $purchaseOrder->user?->first_name ?? null;
-                $lastName = $ticket['last_name'] ?? $purchaseOrder->user?->last_name ?? null;
-                $email = $ticket['email'] ?? $purchaseOrder->user?->email ?? null;
-                $mobile = $ticket['mobile'] ?? $purchaseOrder->payment_phone ?? $purchaseOrder->user?->mobile ?? null;
+        $warnings = [];
+        try {
+            $purchaseOrder->pesaflow_request?->update([
+                'status' => PaymentStatus::SETTLED->value,
+            ]);
+        } catch (\Throwable $e) {
+            $warnings[] = 'Payment request status could not be updated.';
+            Log::error('Purchase was marked paid but Pesaflow request status could not be updated.', [
+                'purchase_order_id' => $purchaseOrder->id,
+                'exception' => $e,
+            ]);
+        }
 
-                // find event/category if provided, otherwise pick first available
-                $eventId = $ticket['event_id'] ?? optional(Event::first())->id;
-                $categoryId = $ticket['category_id'] ?? optional(Category::first())->id;
+        try {
+            DB::transaction(function () use ($purchaseOrder) {
+                $tickets = is_array($purchaseOrder->tickets)
+                    ? $purchaseOrder->tickets
+                    : (json_decode($purchaseOrder->tickets, true) ?: []);
 
-                // Create a delegate record when we can
-                if ($firstName && $lastName && $email && $eventId) {
-                    // Only create if delegate with same email doesn't already exist for the event
-                    $exists = Delegate::where('email', $email)->where('event_id', $eventId)->exists();
-                    if (!$exists) {
+                foreach ($tickets as $ticket) {
+                    $firstName = $ticket['first_name'] ?? $purchaseOrder->user?->first_name ?? null;
+                    $lastName = $ticket['last_name'] ?? $purchaseOrder->user?->last_name ?? null;
+                    $email = $ticket['email'] ?? $purchaseOrder->user?->email ?? null;
+                    $mobile = $ticket['mobile'] ?? $purchaseOrder->payment_phone ?? $purchaseOrder->user?->mobile ?? null;
+                    $eventId = $ticket['event_id'] ?? optional(Event::first())->id;
+                    $categoryId = $ticket['category_id'] ?? optional(Category::first())->id;
+
+                    if ($firstName && $lastName && $email && $eventId) {
+                        $exists = Delegate::where('email', $email)->where('event_id', $eventId)->exists();
+                        if ($exists) {
+                            continue;
+                        }
+
                         Delegate::create([
                             'salutation' => $ticket['salutation'] ?? null,
                             'first_name' => $firstName,
@@ -321,27 +352,28 @@ class PurchaseManagementController extends Controller
                         ]);
                     }
                 }
-            }
-
-            DB::commit();
-            $message = 'Purchase marked as paid and delegates created where possible.';
-
-            // Handle AJAX requests
-            if ($request && $request->wantsJson()) {
-                return response()->json(['success' => $message]);
-            }
-
-            return back()->with('success', $message);
-        } catch (\Exception $e) {
-            DB::rollBack();
-            $errorMsg = 'Failed to approve purchase: ' . $e->getMessage();
-
-            // Handle AJAX requests
-            if ($request && $request->wantsJson()) {
-                return response()->json(['error' => $errorMsg], 500);
-            }
-
-            return back()->with('error', $errorMsg);
+            });
+        } catch (\Throwable $e) {
+            $warnings[] = 'Delegate creation failed.';
+            Log::error('Purchase was marked paid but delegate creation failed.', [
+                'purchase_order_id' => $purchaseOrder->id,
+                'exception' => $e,
+            ]);
         }
+
+        $message = 'Purchase marked as paid.';
+        if ($warnings) {
+            $message .= ' ' . implode(' ', $warnings);
+        } else {
+            $message .= ' Delegates created where possible.';
+        }
+
+        if ($request && $request->wantsJson()) {
+            return response()->json($warnings
+                ? ['warning' => $message]
+                : ['success' => $message]);
+        }
+
+        return back()->with($warnings ? 'error' : 'success', $message);
     }
 }

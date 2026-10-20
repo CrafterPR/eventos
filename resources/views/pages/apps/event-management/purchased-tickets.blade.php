@@ -65,6 +65,39 @@
 
             <script>
             document.addEventListener('DOMContentLoaded', function () {
+                document.addEventListener('submit', function (event) {
+                    const form = event.target;
+                    if (!(form instanceof HTMLFormElement) || !form.matches('.mark-paid-form')) {
+                        return;
+                    }
+
+                    event.preventDefault();
+                    const reference = form.dataset.ref || '';
+                    const submitForm = function () {
+                        form.submit();
+                    };
+
+                    if (typeof Swal === 'undefined') {
+                        if (confirm('Mark purchase ' + reference + ' as paid and create delegates?')) {
+                            submitForm();
+                        }
+                        return;
+                    }
+
+                    Swal.fire({
+                        title: 'Mark as paid?',
+                        text: 'This will mark purchase ' + reference + ' as paid and create delegates.',
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonText: 'Yes, mark as paid',
+                        cancelButtonText: 'Cancel'
+                    }).then(function (result) {
+                        if (result.isConfirmed) {
+                            submitForm();
+                        }
+                    });
+                });
+
                 const forms = document.querySelectorAll('.resend-reminder-form');
                 forms.forEach(function (form) {
                 form.addEventListener('submit', function (e) {

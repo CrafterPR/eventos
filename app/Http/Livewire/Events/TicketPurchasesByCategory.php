@@ -40,7 +40,7 @@ class TicketPurchasesByCategory extends Component
             }
 
             $status = ($po->status instanceof \BackedEnum) ? $po->status->value : (string)$po->status;
-            $isPaid = ($status === PurchaseOrderStatus::PAID->value);
+            $isPaid = PurchaseOrderStatus::isPaid($status);
 
             foreach ($tickets as $t) {
                 if (!is_array($t)) {

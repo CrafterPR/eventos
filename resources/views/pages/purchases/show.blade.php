@@ -69,7 +69,7 @@
                         </form>
                     @endif
 
-                    @if($order->status_value === \App\Enum\PurchaseOrderStatus::PAID->value)
+                    @if(\App\Enum\PurchaseOrderStatus::isPaid($order->status))
                         @if(($delegatesCount ?? 0) < ($ticketsCount ?? 0))
                             <form action="{{ route('events.purchases.generate_delegates', $order) }}" method="post" style="display:inline-block; margin-left:8px;" onsubmit="return confirm('Generate delegates for this paid purchase?')">
                                 @csrf

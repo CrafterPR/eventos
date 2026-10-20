@@ -55,7 +55,7 @@
                 <p>Organization: {{ $order->user?->organization ?? 'N/A' }}</p>
 
                 <div class="mt-4">
-                    @if($order->status_value == \App\Enum\PurchaseOrderStatus::PAID->value)
+                    @if(\App\Enum\PurchaseOrderStatus::isPaid($order->status))
                         @if($order->payment_receipt == null)
                             @php
                                 $receiptUrl = GeneratePaymentReceipt::run($order);
@@ -65,7 +65,7 @@
                         <a href="{{ Storage::disk('public')->url($order->payment_receipt) }}" target="_blank" rel="noopener
                         noreferrer" class="btn btn-success">Print receipt</a>
                     @else
-                        @if($order->status_value !== \App\Enum\PurchaseOrderStatus::PAID->value)
+                        @if(!\App\Enum\PurchaseOrderStatus::isPaid($order->status))
                             @php
                                 $payLink = \App\Models\Pesaflow\PesaflowRequest::where('purchase_order_id', $order->id)->latest()->value('invoice_link') ?: '#';
                             @endphp

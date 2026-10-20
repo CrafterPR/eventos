@@ -82,7 +82,7 @@ class PurchasedTickets extends DataTableComponent
                   ->setView('pages.apps.event-management.columns._amount')
                   ->footer(function ($rows) {
                       $totalPaid = $rows
-                          ->where('status', PurchaseOrderStatus::PAID)
+                          ->filter(fn (PurchaseOrder $order) => PurchaseOrderStatus::isPaid($order->status))
                           ->sum('amount');
 
                       $totalPending = $rows
