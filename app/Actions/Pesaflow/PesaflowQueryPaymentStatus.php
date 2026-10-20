@@ -2,15 +2,15 @@
 
 namespace App\Actions\Pesaflow;
 
-use Carbon\Carbon;
+use App\Actions\GeneratePaymentReceipt;
 use App\Enum\PaymentStatus;
 use App\Enum\PurchaseOrderStatus;
-use App\Actions\GeneratePaymentReceipt;
 use App\Events\PesaflowPaymentFailedEvent;
 use App\Events\PesaflowPaymentSuccessfulEvent;
+use App\Models\Pesaflow\PesaflowResponse;
 use App\Models\PurchaseOrder;
 use App\Models\Sponsorship;
-use App\Models\Pesaflow\PesaflowResponse;
+use Carbon\Carbon;
 use Illuminate\Http\Client\RequestException;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
@@ -18,7 +18,6 @@ use Lorisleiva\Actions\Concerns\AsAction;
 
 class PesaflowQueryPaymentStatus
 {
-
     use AsAction;
 
     /**
@@ -28,9 +27,9 @@ class PesaflowQueryPaymentStatus
      */
     public function handle($refNo): PurchaseOrder|Sponsorship|null
     {
-        $url = config("services.pesaflow.url");
-        $apiClientId = config("services.pesaflow.api_client_id");
-        $key = config("services.pesaflow.key");
+        $url = config('services.pesaflow.url');
+        $apiClientId = config('services.pesaflow.api_client_id');
+        $key = config('services.pesaflow.key');
 
         $dataString = $apiClientId . $refNo;
         $hash = base64_encode(hash_hmac('sha256', $dataString, $key));
@@ -48,23 +47,23 @@ class PesaflowQueryPaymentStatus
             ->json();
 
         if (!app()->isProduction()) {
-            Log::info("PESAFLOW QUERY RESPONSE:", $response);
+            Log::info('PESAFLOW QUERY RESPONSE:', $response);
         }
 
-        $status = $response["status"];
+        $status = $response['status'];
 
         $pesaflowResponse = PesaflowResponse::updateOrCreate([
-            "invoice_number" => $refNo
+            'invoice_number' => $refNo,
         ], [
-            "invoice_number" => $refNo,
-            "status" => $status,
-            "name" => $response["name"],
-            "payment_date" => Carbon::parse($response["payment_date"])->format('Y-m-d H:i:s'),
-            "currency" => $response["currency"],
-            "client_invoice_ref" => $response["client_invoice_ref"],
-            "amount_paid" => $response["amount_paid"],
-            "amount_expected" => $response["amount_expected"],
-            "transaction_reference" => $response["transaction_reference"] ?? null,
+            'invoice_number' => $refNo,
+            'status' => $status,
+            'name' => $response['name'],
+            'payment_date' => Carbon::parse($response['payment_date'])->format('Y-m-d H:i:s'),
+            'currency' => $response['currency'],
+            'client_invoice_ref' => $response['client_invoice_ref'],
+            'amount_paid' => $response['amount_paid'],
+            'amount_expected' => $response['amount_expected'],
+            'transaction_reference' => $response['transaction_reference'] ?? null,
         ]);
 
         $pesaflowRequest = $pesaflowResponse->pesaflowRequest;
@@ -73,16 +72,16 @@ class PesaflowQueryPaymentStatus
         $sponsorship = $pesaflowRequest->sponsorship;
 
         $pesaflowRequest->update([
-            "status" => $status,
+            'status' => $status,
         ]);
 
         if ($status === PaymentStatus::SETTLED->value) {
             if ($order) {
                 $payment_receipt = GeneratePaymentReceipt::run($order);
                 $order->update([
-                    "status" => PurchaseOrderStatus::PAID,
+                    'status' => PurchaseOrderStatus::PAID,
                     'payment_receipt' => $payment_receipt,
-                    "check_out_completed_at" => now(),
+                    'check_out_completed_at' => now(),
                 ]);
 
                 event(new PesaflowPaymentSuccessfulEvent(purchase_order: $order));
