@@ -20,6 +20,9 @@ class Kernel extends ConsoleKernel
         $schedule->command('purchases:send-pending-reminders')
             ->dailyAt('09:00')
             ->withoutOverlapping();
+        $schedule->command('purchases:query-pending-pesaflow-payments')
+            ->everyTenMinutes()
+            ->withoutOverlapping();
     }
 
     /**
