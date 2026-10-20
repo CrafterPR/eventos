@@ -44,7 +44,24 @@
             ['name' => 'Mr. Shadrack Tonui', 'role' => 'National Chairperson, KATTI', 'image' => 'shadrack-tonui.webp'],
             ['name' => 'Dr. Mutembei Kigige, PhD, OGW', 'role' => 'Chief Principal, The Meru National Polytechnic', 'image' => 'mutembei-kigige.webp'],
             ['name' => 'Dr. Jay Bosire', 'role' => 'Medical & Health Consultant', 'image' => 'jay-bosire.webp'],
-        ];
+            ['name' => 'Gerald Kiti', 'role' => 'Principal Legal Counsel at the Senate of Kenya and a Legal
+            Practitioner', 'image' => 'Gerald-Kiti.webp'],
+            ['name' => "Dr Julius Kipng'etich", 'role' => 'Group Chief Executive Officer, Jubilee Group', 'image' =>
+            'Dr-Julius-Kipngetich.webp'],
+            ['name' => 'Dr Rose Ngondi', 'role' => 'Head of Training and Research, Chiromo Hospital Group', 'image'
+            => 'Dr-Rose-Ngondi.webp'],
+            ['name' => 'FCS Jacqueline Waihenya', 'role' => 'Chairperson, Institute of Certified Secretaries',
+            'image' => 'Jacqueline-Waihenya.webp'],
+            ['name' => 'Mr. Timothy Wambui', 'role' => 'Director Investments and Executive Director, CPF Asset
+            Managers', 'image' => 'Timothy-Wambui.webp'],
+            ['name' => 'Mr James Maina', 'role' => 'Acting Director General, Vision 2030 Delivery Secretariat',
+            'image' => 'James-Maina.webp'],
+            ['name' => 'Mr. David Koross', 'role' => 'Managing Trustee/CEO, National Social Security Fund', 'image'
+            => 'David-Koross.webp'],
+            ['name' => 'Dr. Hosea Kili, SC, MBS', 'role' => 'Group Managing Director/CEO, CPF Group', 'image' =>
+            'Hosea-Kili.webp'],
+            ['name' => 'Dr. Joel Onyango, Ph.D', 'role' => 'Director of Monitoring, Evaluation, Learning and Impact, The African Centre for Technology Studies (ACTS)', 'image' => 'Joel-Onyango.webp'],
+            ];
     @endphp
     <!-- Speakers Carousel -->
     <div id="speakers-carousel-container" class="overflow-hidden rounded-xl">
@@ -231,10 +248,12 @@
             </div>
             @foreach ($additionalSpeakers as $speaker)
                 <div class="flex-shrink-0 w-full sm:w-1/2 lg:w-1/3">
-                    <div class="relative rounded-xl shadow-xl overflow-hidden group cursor-pointer h-80 sm:h-96">
-                        <img alt="{{ $speaker['name'] }}" loading="lazy" width="400" height="500"
-                             class="w-full h-full object-cover" style="color:transparent"
-                             src="{{ asset('assets/media/images/speakers/' . $speaker['image']) }}">
+                    <div class="relative rounded-xl shadow-xl overflow-hidden group cursor-pointer h-80 sm:h-96 bg-gradient-to-br from-slate-300 to-slate-500">
+                        @if (!empty($speaker['image']))
+                            <img alt="{{ $speaker['name'] }}" loading="lazy" width="400" height="500"
+                                 class="w-full h-full object-cover" style="color:transparent"
+                                 src="{{ asset('assets/media/images/speakers/' . $speaker['image']) }}">
+                        @endif
                         <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent group-hover:bg-gradient-to-t group-hover:from-black/0 group-hover:to-transparent transition-all duration-300 p-4 sm:p-6">
                             <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                                  style="background:linear-gradient(to top, #175C93 0%, #BBE1F8 40%, rgba(0,0,0,0) 100%)"></div>
