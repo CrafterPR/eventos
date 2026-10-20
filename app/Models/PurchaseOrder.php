@@ -2,11 +2,12 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\HasOneThrough;
 
 class PurchaseOrder extends Model
 {
@@ -61,9 +62,16 @@ class PurchaseOrder extends Model
         return $this->hasOne(\App\Models\Pesaflow\PesaflowRequest::class, 'purchase_order_id');
     }
 
-    public function pesaflow_response(): HasOne
+    public function pesaflow_response(): HasOneThrough
     {
-        return $this->hasOne(\App\Models\Pesaflow\PesaflowResponse::class, 'purchase_order_id');
+        return $this->hasOneThrough(
+            \App\Models\Pesaflow\PesaflowResponse::class,
+            \App\Models\Pesaflow\PesaflowRequest::class,
+            'purchase_order_id',
+            'invoice_number',
+            'id',
+            'invoice_number'
+        );
     }
 
 }
