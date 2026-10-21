@@ -202,7 +202,7 @@
                         <div class="relative z-10 flex justify-between items-center">
                             <div>
                                 <h4 class="text-lg sm:text-xl font-bold text-white mb-1">Dr. Joseph M. Kanyi
-                                    PhD</h4>
+                                    PhD,KASNEB</h4>
                                 <p class="text-white/90 text-xs sm:text-sm">Vice Chairman of The Board of
                                     Directors, Representing Ministry of Education</p>
                             </div>
