@@ -174,7 +174,7 @@
                                 <h4 class="text-lg sm:text-xl font-bold text-white mb-1">Dr Percy Opio
                                     PhD</h4>
                                 <p class="text-white/90 text-xs sm:text-sm">Chairman of The Board of
-                                    Directors</p>
+                                    Directors, KASNEB</p>
                             </div>
                             <div class="flex-shrink-0"><a
                                     href="#"
@@ -232,7 +232,7 @@
                         <div class="relative z-10 flex justify-between items-center">
                             <div>
                                 <h4 class="text-lg sm:text-xl font-bold text-white mb-1">Prof. Nicholas
-                                    K. Letting’ PhD, EBS</h4>
+                                    K. Letting’ PhD, EBS, KASNEB</h4>
                                 <p class="text-white/90 text-xs sm:text-sm">Secretary/Chief Executive
                                     Officer</p>
                             </div>
