@@ -56,10 +56,10 @@
             Managers', 'image' => 'Timothy-Wambui.webp'],
             ['name' => 'Mr James Maina', 'role' => 'Acting Director General, Vision 2030 Delivery Secretariat',
             'image' => 'James-Maina.webp'],
-            ['name' => 'Mr. David Koross', 'role' => 'Managing Trustee/CEO, National Social Security Fund', 'image'
-            => 'David-Koross.webp'],
-            ['name' => 'Dr. Hosea Kili, SC, MBS', 'role' => 'Group Managing Director/CEO, CPF Group', 'image' =>
-            'Hosea-Kili.webp'],
+//            ['name' => 'Mr. David Koross', 'role' => 'Managing Trustee/CEO, National Social Security Fund', 'image'
+//            => 'David-Koross.webp'],
+//            ['name' => 'Dr. Hosea Kili, SC, MBS', 'role' => 'Group Managing Director/CEO, CPF Group', 'image' =>
+//            'Hosea-Kili.webp'],
             ['name' => 'Dr. Joel Onyango, Ph.D', 'role' => 'Director of Monitoring, Evaluation, Learning and Impact, The African Centre for Technology Studies (ACTS)', 'image' => 'Joel-Onyango.webp'],
             ['name' => 'Mr Antony Munene Mugambi', 'role' => 'Senior Investment Advisor, ICEA LION Asset Management', 'image' => 'antony-munene-mugambi.webp'],
             ['name' => 'Ms. Linah Ngumba', 'role' => 'In-Charge, ICT and Digital Economy, Kenya National Bureau of Statistics', 'image' => 'linah-ngumba.webp'],
