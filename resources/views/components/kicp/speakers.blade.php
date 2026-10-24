@@ -79,8 +79,9 @@
             ['name' => 'FA Catherine Karita', 'role' => 'Chairperson, Institute of Certified Investment and Financial Analysts', 'image' => 'catherine-karita.webp'],
             ['name' => 'Mr Kenneth Matiba, MBS', 'role' => 'Chief Executive Officer, Kenya Institute of Supplies Management', 'image' => 'kenneth-matiba-mbs.webp'],
             ['name' => 'CPSP Jeniffer Cirindi Njiru, MKISM', 'role' => 'Chairman, Kenya Institute of Supplies Management', 'image' => 'jeniffer-cirindi-njiru.webp'],
-            // No photo provided:
-            // ['name' => 'Mrs Esther Ngari', 'role' => 'Director General, Kenya Bureau of Standards'],
+            ['name' => 'Dr. Josephine Mwanza', 'role' => 'Senior Director, Academic Affairs, Kenya School of
+            Government','image' => 'josephine-mwanza.webp'],
+            ['name' => 'Esther Ngari', 'role' => 'Director General, Kenya Bureau of Standards', 'image' => 'esther-ngari.webp']
             ];
     @endphp
     <!-- Speakers Carousel -->
