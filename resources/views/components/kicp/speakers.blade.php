@@ -61,6 +61,26 @@
             ['name' => 'Dr. Hosea Kili, SC, MBS', 'role' => 'Group Managing Director/CEO, CPF Group', 'image' =>
             'Hosea-Kili.webp'],
             ['name' => 'Dr. Joel Onyango, Ph.D', 'role' => 'Director of Monitoring, Evaluation, Learning and Impact, The African Centre for Technology Studies (ACTS)', 'image' => 'Joel-Onyango.webp'],
+            ['name' => 'Mr Antony Munene Mugambi', 'role' => 'Senior Investment Advisor, ICEA LION Asset Management', 'image' => 'antony-munene-mugambi.webp'],
+            ['name' => 'Ms. Linah Ngumba', 'role' => 'In-Charge, ICT and Digital Economy, Kenya National Bureau of Statistics', 'image' => 'linah-ngumba.webp'],
+            ['name' => 'Mrs. Catherine Nyaga Mbithi', 'role' => 'Board of Director, Institute of Risk Management (IRM Global)', 'image' => 'catherine-nyaga-mbithi.webp'],
+            ['name' => 'Dr. George Wakah', 'role' => 'Director of Administration, Finance and Corporate Affairs, Centre for Parliamentary Studies and Training', 'image' => 'george-wakah.webp'],
+            ['name' => 'Ms. Beryl Khanyile', 'role' => 'Head of the Kenya Country Programme, UN-Habitat in Nairobi', 'image' => 'beryl-khanyile.webp'],
+            ['name' => 'Ms. Clemence Umuhoza', 'role' => 'Finance Manager, MAT Abacus Business School (Rwanda)', 'image' => 'clemence-umuhoza.webp'],
+            ['name' => 'Ms. Caroline Chelangat', 'role' => 'Unit Manager, Global Markets, Standard Investment Bank', 'image' => 'caroline-chelangat.webp'],
+            ['name' => 'Mr. Raphael Owino Otieno', 'role' => 'Director General, Public Debt Management Office, The National Treasury', 'image' => 'raphael-owino-otieno.webp'],
+            ['name' => 'FCPA Pius Mungai Nduatih', 'role' => 'Chairman, Public Sector Accounting Standards Board of Kenya (PSASB)', 'image' => 'pius-mungai-nduatih.webp'],
+            ['name' => 'Mrs. Lina Njoroge', 'role' => 'Chief Executive Officer, Total Lifestyle Change and Wellness Centre', 'image' => 'lina-njoroge.webp'],
+            ['name' => 'Dr. Joshua Aura, Ph.D, CPA', 'role' => 'Chief Executive Officer, RCM College', 'image' => 'joshua-aura.webp'],
+            ['name' => 'Mr. Adam Lane', 'role' => 'Director Policy and Partnerships, Huawei Kenya', 'image' => 'adam-lane.webp'],
+            ['name' => 'Mr. Geoffrey Odundo', 'role' => 'Group Managing Director and Chief Executive Officer, Nation Media Group', 'image' => 'geoffrey-odundo.webp'],
+            ['name' => 'Mr. Lawrence Kibet', 'role' => 'Director General, Public Investments and Portfolio Management, The National Treasury', 'image' => 'lawrence-kibet.webp'],
+            ['name' => 'Dr. Jacqueline Onyango, OGW', 'role' => 'Senior Deputy Director - Curriculum Development Directorate, Kenya Institute of Curriculum Development', 'image' => 'jacqueline-onyango-ogw.webp'],
+            ['name' => 'FA Catherine Karita', 'role' => 'Chairperson, Institute of Certified Investment and Financial Analysts', 'image' => 'catherine-karita.webp'],
+            ['name' => 'Mr Kenneth Matiba, MBS', 'role' => 'Chief Executive Officer, Kenya Institute of Supplies Management', 'image' => 'kenneth-matiba-mbs.webp'],
+            ['name' => 'CPSP Jeniffer Cirindi Njiru, MKISM', 'role' => 'Chairman, Kenya Institute of Supplies Management', 'image' => 'jeniffer-cirindi-njiru.webp'],
+            // No photo provided:
+            // ['name' => 'Mrs Esther Ngari', 'role' => 'Director General, Kenya Bureau of Standards'],
             ];
     @endphp
     <!-- Speakers Carousel -->
