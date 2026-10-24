@@ -43,7 +43,7 @@
             ['name' => 'Dr. David Njengere, MBS', 'role' => 'CEO, KNEC – sending a representative', 'image' => 'david-njengere.webp'],
             ['name' => 'Mr. Shadrack Tonui', 'role' => 'National Chairperson, KATTI', 'image' => 'shadrack-tonui.webp'],
             ['name' => 'Dr. Mutembei Kigige, PhD, OGW', 'role' => 'Chief Principal, The Meru National Polytechnic', 'image' => 'mutembei-kigige.webp'],
-            ['name' => 'Dr. Jay Bosire', 'role' => 'Medical & Health Consultant', 'image' => 'jay-bosire.webp'],
+           /** ['name' => 'Dr. Jay Bosire', 'role' => 'Medical & Health Consultant', 'image' => 'jay-bosire.webp'],**/
             ['name' => 'Gerald Kiti', 'role' => 'Principal Legal Counsel at the Senate of Kenya and a Legal
             Practitioner', 'image' => 'Gerald-Kiti.webp'],
             ['name' => "Dr Julius Kipng'etich", 'role' => 'Group Chief Executive Officer, Jubilee Group', 'image' =>
