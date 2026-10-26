@@ -29,8 +29,8 @@ class EventsDataTable extends DataTable
             ->editColumn('organization', function (Event $event) {
                 return Str::upper($event->organization);
             })
-            ->editColumn('delegates', function (Event $event) {
-                return $event->delegates->count();
+            ->editColumn('delegates_count', function (Event $event) {
+                return $event->delegates_count;
             })
             ->editColumn('start_date', function (Event $event) {
                 return format_date($event->start_date);
@@ -52,7 +52,7 @@ class EventsDataTable extends DataTable
      */
     public function query(Event $model): QueryBuilder
     {
-        return $model->newQuery();
+        return $model->newQuery()->withCount('delegates');
     }
 
     /**
@@ -79,7 +79,7 @@ class EventsDataTable extends DataTable
         return [
             Column::make('title')->title('Title')->addClass('align-items-center'),
             Column::make('organization')->title('Organization')->addClass('align-items-left'),
-            Column::make('delegates')->title('Delegate count')->addClass('align-items-center')->name('delegates'),
+            Column::make('delegates_count')->title('Delegate count')->addClass('align-items-center'),
             Column::make('start_date')->title('Start date')->addClass('align-items-right'),
             Column::make('end_date')->title('End date')->addClass('align-items-center'),
             Column::make('status')->title('Status')->addClass('align-items-center'),
