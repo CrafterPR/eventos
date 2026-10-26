@@ -95,7 +95,7 @@ class CreateDelegatesFromPurchaseOrder
 
         $type = trim((string) ($ticket['type'] ?? $ticket['ticket_type'] ?? ''));
         $categoryTitle = match (strtolower($type)) {
-            'individual delegate', 'group registration', 'virtual ticket', 'student ticket' => 'Delegate',
+            'group registration', 'virtual ticket', 'student ticket' => 'Individual Delegate',
             'exhibition booth' => 'Exhibitor',
             default => $type,
         };
