@@ -314,8 +314,19 @@ use Illuminate\Support\Arr;
                                             <td class="text-start pe-0">
                                                 @if(is_array($po->tickets) || $po->tickets instanceof \Illuminate\Support\Collection)
                                                     <ul class="mb-0">
-                                                        @foreach($po->tickets as $t)
-                                                            <li class="text-gray-600">@if(is_array($t) && isset($t['type'])){{ $t['type'] }} x {{ $t['count'] ?? $t['quantity'] ?? 1 }}@else{{ json_encode($t) }}@endif</li>
+                                                        @foreach($po->tickets as $ticketIndex => $t)
+                                                            <li class="text-gray-600">
+                                                                @if(is_array($t) && (isset($t['type']) || isset($t['ticket_type'])))
+                                                                    {{ $t['type'] ?? $t['ticket_type'] }} x {{ $t['count'] ?? $t['quantity'] ?? 1 }}
+                                                                    @if(\App\Enum\PurchaseOrderStatus::isPaid($po->status))
+                                                                        <a href="{{ route('tickets.print', [$po->id, $ticketIndex]) }}"
+                                                                           target="_blank" rel="noopener noreferrer"
+                                                                           class="btn btn-sm btn-light-primary ms-2">Print ticket</a>
+                                                                    @endif
+                                                                @else
+                                                                    {{ json_encode($t) }}
+                                                                @endif
+                                                            </li>
                                                         @endforeach
                                                     </ul>
                                                 @else

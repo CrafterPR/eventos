@@ -34,6 +34,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
         // Tickets purchase page for delegates and other users
         Route::get('/tickets', [\App\Http\Controllers\TicketController::class, 'index'])->name('tickets.index');
+        Route::get('/tickets/{purchaseOrder}/tickets/{ticketIndex}/print', [\App\Http\Controllers\TicketController::class, 'printTicket'])
+            ->whereNumber('ticketIndex')->name('tickets.print');
         Route::get('/tickets/{purchaseOrder}', [\App\Http\Controllers\TicketController::class, 'show'])->name('tickets.show');
 
         // Purchase orders management

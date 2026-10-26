@@ -87,7 +87,7 @@ class CreateDelegatesFromPurchaseOrder
         return $created;
     }
 
-    private function categoryForTicket(array $ticket): ?Category
+    public function categoryForTicket(array $ticket): ?Category
     {
         if (isset($ticket['category_id'])) {
             return Category::query()->find($ticket['category_id']);
