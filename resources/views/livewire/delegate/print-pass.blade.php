@@ -22,15 +22,17 @@
                     @if($delegate)
                         <h1 class="mb-3">{{ $delegate->name }}</h1>
                         <h3 class="mb-2">{{ $delegate->organization }}</h3>
-                        <div class="m-8">
+                        <div class="m-8 d-flex justify-content-center align-items-center">
                             {!! QrCode::size(100)->color(75, 0, 130)->generate($delegate->id) !!}
                         </div>
-                    @if($delegate->event->show_category)
+                    @if(! $delegate->has_ticket_type || ! $delegate->ticket_type)
+                        @if($delegate->event->show_category)
                         <h4 class="mb-4 text-active-gray-100">{{ $delegate->category->title }}</h4>
+                        @endif
                     @endif
                         <input type="hidden" id="delegate-id" value="{{ $delegate->id }}">
                     @endif
-                    @if($delegate?->has_ticket_type)
+                    @if($delegate?->has_ticket_type && $delegate->ticket_type)
                       <h3 class="mb-4 text-active-gray-100">{{ $delegate->ticket_type }}</h3>
                     @endif
                     <h5 class="text-muted">{{$delegate->event->footer_text ?? 'Powered by www.craftedpr.co.ke' }}</h5>
@@ -76,6 +78,5 @@
 
     </script>
 @endpush
-
 
 
