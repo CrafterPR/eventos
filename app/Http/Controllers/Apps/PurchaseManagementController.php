@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers\Apps;
 
+use App\Actions\CreateDelegatesFromPurchaseOrder;
 use App\Enum\PurchaseOrderStatus;
 use App\Enum\PaymentStatus;
 use App\Http\Controllers\Controller;
 use App\Models\PurchaseOrder;
 use App\Models\Delegate;
-use App\Models\Event;
-use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
@@ -218,49 +217,10 @@ class PurchaseManagementController extends Controller
             return back()->with('error', 'Can only generate delegates for paid purchases.');
         }
 
-        // Reuse delegate creation logic but don't change purchase status
-        $tickets = is_array($purchaseOrder->tickets)
-            ? $purchaseOrder->tickets
-            : (json_decode($purchaseOrder->tickets, true) ?: []);
-
-        $created = 0;
-        DB::beginTransaction();
         try {
-            foreach ($tickets as $ticket) {
-                $firstName = $ticket['first_name'] ?? $purchaseOrder->user?->first_name ?? null;
-                $lastName = $ticket['last_name'] ?? $purchaseOrder->user?->last_name ?? null;
-                $email = $ticket['email'] ?? $purchaseOrder->user?->email ?? null;
-                $mobile = $ticket['mobile'] ?? $purchaseOrder->payment_phone ?? $purchaseOrder->user?->mobile ?? null;
-                $eventId = $ticket['event_id'] ?? optional(Event::first())->id;
-                $categoryId = $ticket['category_id'] ?? optional(Category::first())->id;
-
-                if ($firstName && $lastName && $email && $eventId) {
-                    $exists = Delegate::where('email', $email)->where('event_id', $eventId)->exists();
-                    if (!$exists) {
-                        Delegate::create([
-                            'salutation' => $ticket['salutation'] ?? null,
-                            'first_name' => $firstName,
-                            'last_name' => $lastName,
-                            'email' => $email,
-                            'mobile' => $mobile,
-                            'id_number' => $ticket['id_number'] ?? null,
-                            'gender' => $ticket['gender'] ?? null,
-                            'event_id' => $eventId,
-                            'organization' => $ticket['organization'] ?? $purchaseOrder->user?->organization ?? null,
-                            'position' => $ticket['position'] ?? null,
-                            'category_id' => $categoryId,
-                            'country_id' => $ticket['country_id'] ?? null,
-                            'county_id' => $ticket['county_id'] ?? null,
-                        ]);
-                        $created++;
-                    }
-                }
-            }
-
-            DB::commit();
+            $created = CreateDelegatesFromPurchaseOrder::run($purchaseOrder);
             return back()->with('success', "Created {$created} delegates where possible.");
         } catch (\Throwable $e) {
-            DB::rollBack();
             return back()->with('error', 'Failed to generate delegates: ' . $e->getMessage());
         }
     }
@@ -316,43 +276,7 @@ class PurchaseManagementController extends Controller
         }
 
         try {
-            DB::transaction(function () use ($purchaseOrder) {
-                $tickets = is_array($purchaseOrder->tickets)
-                    ? $purchaseOrder->tickets
-                    : (json_decode($purchaseOrder->tickets, true) ?: []);
-
-                foreach ($tickets as $ticket) {
-                    $firstName = $ticket['first_name'] ?? $purchaseOrder->user?->first_name ?? null;
-                    $lastName = $ticket['last_name'] ?? $purchaseOrder->user?->last_name ?? null;
-                    $email = $ticket['email'] ?? $purchaseOrder->user?->email ?? null;
-                    $mobile = $ticket['mobile'] ?? $purchaseOrder->payment_phone ?? $purchaseOrder->user?->mobile ?? null;
-                    $eventId = $ticket['event_id'] ?? optional(Event::first())->id;
-                    $categoryId = $ticket['category_id'] ?? optional(Category::first())->id;
-
-                    if ($firstName && $lastName && $email && $eventId) {
-                        $exists = Delegate::where('email', $email)->where('event_id', $eventId)->exists();
-                        if ($exists) {
-                            continue;
-                        }
-
-                        Delegate::create([
-                            'salutation' => $ticket['salutation'] ?? null,
-                            'first_name' => $firstName,
-                            'last_name' => $lastName,
-                            'email' => $email,
-                            'mobile' => $mobile,
-                            'id_number' => $ticket['id_number'] ?? null,
-                            'gender' => $ticket['gender'] ?? null,
-                            'event_id' => $eventId,
-                            'organization' => $ticket['organization'] ?? $purchaseOrder->user?->organization ?? null,
-                            'position' => $ticket['position'] ?? null,
-                            'category_id' => $categoryId,
-                            'country_id' => $ticket['country_id'] ?? null,
-                            'county_id' => $ticket['county_id'] ?? null,
-                        ]);
-                    }
-                }
-            });
+            CreateDelegatesFromPurchaseOrder::run($purchaseOrder);
         } catch (\Throwable $e) {
             $warnings[] = 'Delegate creation failed.';
             Log::error('Purchase was marked paid but delegate creation failed.', [

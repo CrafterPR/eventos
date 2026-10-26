@@ -2,17 +2,16 @@
 
 namespace App\Http\Livewire\Purchases;
 
-use App\Models\PurchaseOrder;
+use App\Exports\PurchaseExport;
 use App\Models\Category;
+use App\Models\PurchaseOrder;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Facades\Excel;
-use App\Exports\PurchaseExport;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
-use Rappasoft\LaravelLivewireTables\Views\Columns\LinkColumn;
-use Rappasoft\LaravelLivewireTables\Views\Filters\SelectFilter;
 use Rappasoft\LaravelLivewireTables\Views\Filters\DateRangeFilter;
+use Rappasoft\LaravelLivewireTables\Views\Filters\SelectFilter;
 
 class LpoPurchasesTable extends DataTableComponent
 {
@@ -63,9 +62,9 @@ class LpoPurchasesTable extends DataTableComponent
             $ticketType = null;
         }
         if ($ticketType) {
-            $query->where(function($q) use ($ticketType) {
-                $q->whereJsonContains('tickets->*.category_id', (int) $ticketType)
-                  ->orWhereJsonContains('tickets->*.category_id', (string) $ticketType);
+            $query->where(function ($q) use ($ticketType) {
+                $q->whereJsonContains('tickets->*.category_id', (int)$ticketType)
+                    ->orWhereJsonContains('tickets->*.category_id', (string)$ticketType);
             });
         }
 
@@ -92,15 +91,15 @@ class LpoPurchasesTable extends DataTableComponent
         return [
             Column::make('Reference', 'reference')->searchable()->sortable(),
             Column::make('Purchaser')
-                ->format(function($value, $column, $row) {
+                ->format(function ($value, $column, $row) {
                     return trim(($row->user?->first_name ?? '') . ' ' . ($row->user?->last_name ?? '')) ?: ($row->payment_email ?? '');
                 }),
             Column::make('Email', 'payment_email')->format(fn($v, $c, $row) => $row->payment_email ?? $row->user?->email),
             Column::make('Phone')->format(fn($v, $c, $row) => $row->payment_phone ?? $row->user?->mobile ?? ''),
             Column::make('Organization')->format(fn($v, $c, $row) => $row->user?->organization ?? ''),
             Column::make('Amount', 'amount')->format(fn($v) => number_format($v, 2)),
-            Column::make('Status', 'status')->format(fn($v) => (string) $v),
-            Column::make('Ticket types')->format(function($value, $column, $row) {
+            Column::make('Status', 'status')->format(fn($v) => (string)$v),
+            Column::make('Ticket types')->format(function ($value, $column, $row) {
                 $tickets = is_array($row->tickets) ? $row->tickets : (json_decode($row->tickets, true) ?: []);
                 $types = [];
                 $map = $this->getCategories();
@@ -130,7 +129,7 @@ class LpoPurchasesTable extends DataTableComponent
                     'paid' => 'Approved',
                     'failed' => 'Failed',
                 ])
-                ->filter(function(Builder $builder, string $value) {
+                ->filter(function (Builder $builder, string $value) {
                     return $builder->where('status', $value);
                 }),
 
@@ -139,16 +138,16 @@ class LpoPurchasesTable extends DataTableComponent
                     '' => 'Any',
                     ...$this->getCategories()->toArray(),
                 ])
-                ->filter(function(Builder $builder, string $value) {
+                ->filter(function (Builder $builder, string $value) {
                     // filter orders where any ticket has category_id == $value
-                    return $builder->where(function($q) use ($value) {
-                        $q->whereJsonContains('tickets->*.category_id', (int) $value)
-                          ->orWhereJsonContains('tickets->*.category_id', (string) $value);
+                    return $builder->where(function ($q) use ($value) {
+                        $q->whereJsonContains('tickets->*.category_id', (int)$value)
+                            ->orWhereJsonContains('tickets->*.category_id', (string)$value);
                     });
                 }),
 
             DateRangeFilter::make('Payment date', 'payment_date')
-                ->filter(function(Builder $builder, array $value) {
+                ->filter(function (Builder $builder, array $value) {
                     // $value is ['start' => 'YYYY-MM-DD', 'end' => 'YYYY-MM-DD']
                     $start = $value['start'] ?? null;
                     $end = $value['end'] ?? null;

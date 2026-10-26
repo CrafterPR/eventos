@@ -23,6 +23,9 @@
         <a href="{{ route('events.delegates.show', $row->user) }}" class="text-gray-800 text-hover-primary mb-1">
             <span>{{$row->user->email}}</span>
         </a>
+        <a href="{{ route('events.delegates.show', $row->user) }}" class="text-gray-800 text-hover-primary mb-1">
+            <span>{{$row->payment_phone ?? $row->user->mobile}}</span>
+        </a>
         @if($row->user->country)
             <span class="text-muted fs-7">{{ $row->user->country->name }}</span>
         @endif

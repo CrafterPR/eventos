@@ -2,6 +2,7 @@
 
 namespace App\Listeners;
 
+use App\Actions\CreateDelegatesFromPurchaseOrder;
 use App\Events\PesaflowPaymentSuccessfulEvent;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
@@ -51,6 +52,8 @@ class PesaflowPaymentSuccessfulListener implements ShouldQueue
                 // ignore role assignment failures
             }
 
+            $order->setRelation('user', $user);
+            CreateDelegatesFromPurchaseOrder::run($order);
             Mail::to($user->email)->queue(new LoginDetailsMail($user, $password, $order));
 
             return;
@@ -68,6 +71,7 @@ class PesaflowPaymentSuccessfulListener implements ShouldQueue
             // ignore
         }
 
+        CreateDelegatesFromPurchaseOrder::run($order);
         Mail::to($user->email)->queue(new LoginDetailsMail($user, $password, $order));
     }
 }

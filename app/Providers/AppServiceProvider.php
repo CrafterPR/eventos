@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Core\KTBootstrap;
 use App\Models\Booking;
 use App\Models\Booth;
+use App\Models\Delegate;
 use App\Models\PaymentService;
 use App\Models\Event;
 use App\Models\Ticket;
@@ -51,6 +52,7 @@ class AppServiceProvider extends ServiceProvider
             'role' => Role::class,
             'permission' => Permission::class,
             'event' => Event::class,
+            'delegate' => Delegate::class,
         ]);
     }
 }
