@@ -12,22 +12,9 @@
     <div
         x-data="{
             activeTab: 1,
-            maskSpeaker(name, index = 1) {
-                if (!name || name === 'All') return name;
-                return 'Speaker ' + index;
-            },
-            maskDiscussants(list) {
-                if (!Array.isArray(list)) return [];
-                return list.map((_, index) => 'Speaker ' + (index + 1));
-            },
-            maskFacilitator(value) {
-                if (!value || value === 'All') return value;
-                return 'Speaker';
-            },
-
             days: {
                 1: {
-                    title: 'DAY ONE: MONDAY, 26th OCTOBER 2026',
+                    title: 'DAY 1: MONDAY, 26th OCTOBER 2026',
                     subtitle: 'Arrival & Registration',
                     sessions: [
                         {
@@ -40,161 +27,142 @@
                 },
 
                 2: {
-                    title: 'DAY TWO: TUESDAY, 27th OCTOBER 2026',
+                    title: 'DAY 2: TUESDAY, 27th OCTOBER 2026',
                     subtitle: 'Conference Opening & Leadership',
                     sessions: [
                         {
-                            time: '8:00a.m. – 9:00a.m.',
+                            time: '8:00a.m. – 8:30a.m.',
                             title: 'Registration and Networking Breakfast',
                             facilitator: 'All',
                             type: 'normal'
                         },
-
                         {
-                            time: '9:00a.m. – 10:30a.m.',
+                            time: '8:30a.m. – 10:30a.m.',
                             title: 'Setting the Stage',
                             description: `
                                 <ul class='space-y-2'>
                                     <li><strong>National Anthem & Prayers</strong></li>
-                                    <li><strong>Welcome Remarks</strong> (10 minutes)</li>
-                                    <li><strong>Opening Remarks</strong> (15 minutes)</li>
+                                    <li><strong>Welcome Remarks</strong></li>
+                                    <li><strong>Opening Remarks</strong></li>
                                     <li>
-                                        <strong>Opening Keynote Address</strong> (20 minutes)<br>
-                                        Topic: Professionals Advancing Africa’s Global <br />
+                                        <strong>Keynote Address:</strong> Professionals Advancing Africa’s Global
                                         Competitiveness: A Perspective on the Kenya Vision 2030 and Beyond
                                     </li>
                                     <li>
-                                        <strong>Fireside Chat</strong> (45 minutes)<br>
-                                        Topic: The Reinvented Leader: Leading Evolving Professionals in a Dynamic Work Environment
+                                        <strong>Opening Keynote Address:</strong> The Success Mindset as a
+                                        Competitive Advantage
+                                    </li>
+                                    <li>
+                                        <strong>Fireside Chat:</strong> The Reinvented Leader: Leading Evolving
+                                        Professionals in a Dynamic Work Environment
                                     </li>
                                 </ul>
                             `,
                             facilitator: `
-                                Master of Ceremony<br>
-                                Prof. Nicholas K. Letting’, Ph.D, EBS, HSC<br>
-                                Dr. Percy Opio<br>
-                                Mr. Paul Russo, EBS<br>
-                                Prof. Charles Ochieng’ Ong’ondo
+                                Mr. Johnson Mwakazi, Master of Ceremony<br>
+                                Prof. Nicholas K. Letting’, Ph.D, EBS, Secretary/Chief Executive Officer, KASNEB<br>
+                                Dr. Joseph Kanyi, Ph.D, Vice Chairman, KASNEB Board<br>
+                                Mr. Maina Kiumu, Ag. Director General, Kenya Vision 2030 Delivery Secretariat<br>
+                                Dr. Julius Kipngétich, Regional Chief Executive Officer, Jubilee Holdings Ltd.<br>
+                                Fireside Chat Session Chair: Dr. Joseph Kanyi, Ph.D, Vice Chairman, KASNEB Board<br>
+                                Fireside Chat Speakers: Dr. Julius Kipngétich, Regional Chief Executive Officer,
+                                Jubilee Holdings Ltd.; Dr. Jacqueline Onyango, OGW, Senior Deputy Director,
+                                Curriculum Development Directorate, Kenya Institute of Curriculum Development
                             `,
                             type: 'normal'
                         },
-
                         {
                             time: '10:30a.m. – 11:00a.m.',
                             title: 'Exhibition Tour by Guests & Health Break',
-                            facilitator: 'Dr. Percy Opio, Board Chairman, KASNEB',
+                            facilitator: 'All',
                             type: 'break'
                         },
-
                         {
                             time: '11:00a.m. – 12:30p.m.',
                             title: 'Parallel Sessions',
                             type: 'parallel',
-
                             sessions: [
                                 {
                                     title: 'Session 1',
                                     topic: 'Thriving in a World that is Not Staying Still: Preparing Professionals for What’s Next?',
-                                    chair: 'Prof. Charles Ochieng’ Ong’ondo, Chief Executive Officer, Kenya Institute of Curriculum Development',
-                                    speaker: 'Mrs. Funmi Ekundayo, FCIS, President, Corporate Secretaries International Association',
+                                    chair: 'CS Judy Olive Warui-Omurwa, Board Member, KASNEB',
+                                    speaker: 'Mrs. Catherine Nyaga-Mbithi, Board Director, Institute of Risk Management (IRM-Global)',
                                     discussants: [
                                         'Dr. George Wakah, Director of Administration, Finance and Corporate Affairs, Centre for Parliamentary Studies and Training (CPST)',
-                                        'Prof. Nura Mohamed, Director General, Kenya School of Government'
+                                        'Dr. Josephine Mwanzia, Ph.D, Senior Director, Academic Affairs, Kenya School of Government'
                                     ]
                                 },
-
                                 {
                                     title: 'Session 2',
                                     topic: 'The Smart City',
-                                    chair: 'Prof. Nicholas K. Letting’, Ph.D, EBS, HSC, Chief Executive Officer, KASNEB',
-                                    speaker: 'Ms. Anacláudia Rossbach, Executive Director, UN-Habitat in Nairobi',
+                                    chair: 'CPA Francis M. Kariuki, Board Member, KASNEB',
+                                    speaker: 'Ms. Beryl Khanyile, Head of the Kenya Country Programme, UN-Habitat in Nairobi',
                                     discussants: [
                                         'Mr. John Okwiri, OGW, MBA, MCIPS, Chief Executive Officer, Technopolis Development Authority',
-                                        'Dr. Kenneth Chelule, P. Eng, FIET, EBS, Chief Executive Officer, Special Economic Zones Authority'
+                                        'Dr. Kenneth Chelule, P. Eng, Tech, FIET, EBS, Chief Executive Officer, Special Economic Zones Authority'
                                     ]
                                 },
-
                                 {
                                     title: 'Session 3',
                                     topic: 'Geopolitical Conflicts Driving High Cost of Living: Navigating Crisis the Professional Way',
                                     chair: 'Prof. Isaiah I.C. Wakindiki, Vice Chancellor, KCA University',
-                                    speaker: 'Dr. Workneh Gebeyehu, Executive Director, Intergovernmental Authority on Development',
+                                    speaker: 'Mr. Kenneth Matiba, MBS, Chief Executive Officer, Kenya Institute of Supplies Management',
                                     discussants: [
-                                        'Dr. Korir Sing’Oei, Principal Secretary, Foreign Affairs',
+                                        'Dr. Korir Sing’oei, PhD, EBS, Principal Secretary, State Department for Foreign Affairs',
                                         'Ms. Regina Akoth Ombam, Principal Secretary, State Department for Trade'
                                     ]
                                 }
                             ]
                         },
-
                         {
                             time: '12:30p.m. – 1:00p.m.',
                             title: 'Networking & Tour of Exhibition',
                             facilitator: 'All',
                             type: 'break'
                         },
-
                         {
                             time: '1:00p.m. – 2:00p.m.',
                             title: 'Lunch & Networking',
                             facilitator: 'All',
                             type: 'break'
                         },
-
                         {
                             time: '2:00p.m. – 2:30p.m.',
-                            title: 'The Debate: Can Robots Be Professional?',
-                            facilitator: 'KCA University',
-                            type: 'normal'
+                            title: 'Networking & Tour of Exhibition',
+                            facilitator: 'All',
+                            type: 'break'
                         },
-
                         {
                             time: '2:30p.m. – 4:00p.m.',
                             title: 'Parallel Sessions',
                             type: 'parallel',
-
                             sessions: [
                                 {
                                     title: 'Masterclass',
                                     topic: 'Beyond the Paycheck: Building Wealth That Lasts for Generations',
-                                    chair: 'Dr. George Wakah, Director of Administration, Finance and Corporate Affairs, Centre for Parliamentary Studies and Training (CPST)',
-                                    speaker: 'Mr. Philip Lopokoiyit, Chief Executive Officer, ICEA Lion Group'
+                                    chair: 'Ms Lilian Abishai, Board Member, KASNEB',
+                                    speaker: 'Mr. Antony Munene, Senior Investment Advisor, ICEA Lion Asset Management'
                                 },
-
                                 {
                                     title: 'Panel Session',
                                     topic: 'Evolving Professional Standards in Response to Technological Changes',
-                                    chair: 'CS Judy Olive Warui-Omurwa, Board Member, KASNEB',
+                                    chair: 'FCS Joshua Wambua, Board Member, KASNEB',
+                                    discussantLabel: 'Panelists',
                                     discussants: [
-                                        'Prof. CPA Elizabeth Kalunda, President, Institute of Certified Public Accountants of Kenya',
-                                        'FCS Jacqueline Waihenya, Chairperson, Institute of Certified Secretaries of Kenya',
-                                        'Mr. Charles Kanjama, President, Law Society of Kenya',
-                                        'FFA Leah Nyambura-Kagumba, Chairperson, Institute of Certified Investment and Financial Analysts',
-                                        'Mr. John Karani, MBS, Chairman, Kenya Institute of Supplies Management',
-                                        'CHRP. Dalmas Odero, Chairman, Institute of Human Resource Management'
-                                    ]
-                                },
-
-                                {
-                                    title: 'Keynote',
-                                    topic: 'Professional and Political Leadership: Are They Complementary or Conflicting?',
-                                    chair: 'Seth Abeka, Chief Executive Officer, University of Nairobi Enterprise Services',
-                                    speaker: 'Sen. Justice (Rtd.) Madzayo Stewart Mwachiru, EGH, MP, Senate Deputy Minority Leader',
-                                    discussants: [
-                                        'Dr. David Ndii, Economist, Author and President’s Policy Advisor',
-                                        'Mr. Leonid Ashindu, Vice Chairman, Association of Professional Society in East Africa'
+                                        'Prof. CPA Elizabeth N. Kalunda-Muvui, PhD, Chairperson, Institute of Certified Public Accountants of Kenya',
+                                        'FCS Jacqueline Waihenya, Chairperson, Institute of Certified Secretaries',
+                                        'FA Catherine Karita, Chairperson, Institute of Certified Investment and Financial Analysts',
+                                        'CPSP Jeniffer Cirindi Njiru, Chairperson, Kenya Institute of Supplies Management'
                                     ]
                                 }
                             ]
                         },
-
                         {
                             time: '4:00p.m. – 5:00p.m.',
                             title: 'Health Break',
                             facilitator: 'All',
                             type: 'break'
                         },
-
                         {
                             time: '5:00p.m. – 6:00p.m.',
                             title: 'Networking & Tour of Exhibition',
@@ -205,8 +173,140 @@
                 },
 
                 3: {
-                    title: 'DAY THREE: WEDNESDAY, 28th OCTOBER 2026',
+                    title: 'DAY 3: WEDNESDAY, 28th OCTOBER 2026',
                     subtitle: 'Conference Official Opening',
+                    sessions: [
+                        {
+                            time: '8:00a.m. – 8:30a.m.',
+                            title: 'Registration and Networking Breakfast',
+                            facilitator: 'All',
+                            type: 'normal'
+                        },
+                        {
+                            time: '8:30a.m. – 11:00a.m.',
+                            title: 'Conference Official Opening',
+                            description: `
+                                <ul class='space-y-2'>
+                                    <li><strong>Setting the Stage:</strong> National Anthem & Prayers</li>
+                                    <li><strong>Entertainment</strong></li>
+                                    <li><strong>Introduction & Objectives</strong></li>
+                                    <li><strong>Welcome Remarks</strong></li>
+                                    <li>
+                                        <strong>Remarks:</strong> Professional Fine Tuning: How Can Industry,
+                                        Regulators and Policymakers Collaborate to Build Future-Ready Professionals
+                                        in the Era of AI, Sustainability and Global Disruption
+                                    </li>
+                                    <li>
+                                        <strong>Remarks:</strong> Legislative and Regulatory Agility in a Rapidly
+                                        Evolving World
+                                    </li>
+                                    <li>
+                                        <strong>Official Opening Address:</strong> Professionals Building Resilient
+                                        Economies Through Ethics, Innovation and Accountability
+                                    </li>
+                                </ul>
+                            `,
+                            facilitator: `
+                                Mr. Johnson Mwakazi, Master of Ceremony<br>
+                                Prof. Nicholas K. Letting’, Ph.D, EBS, Secretary/Chief Executive Officer, KASNEB<br>
+                                Dr. Percy Opio, Board Chairman, KASNEB<br>
+                                Mr. Lawrence Kibet, Director General, Public Investments and Portfolio Management,
+                                The National Treasury<br>
+                                Hon. Dorcas Oduor, SC, EGH, The Attorney General<br>
+                                Mr. Felix K. Koskei, EGH, Chief of Staff and The Head of the Public Service, Kenya
+                            `,
+                            type: 'normal'
+                        },
+                        {
+                            time: '11:00a.m. – 11:30a.m.',
+                            title: 'Exhibition Tour by Guests & Tea Break',
+                            facilitator: 'All',
+                            type: 'break'
+                        },
+                        {
+                            time: '11:30a.m. – 12:00p.m.',
+                            title: 'Presentation: Professionals Building Institutions that Outlast the Leader',
+                            facilitator: `
+                                Session Chair: CPA Francis M. Kariuki, Board Member, KASNEB<br>
+                                Ms. Debra Ajwang, Chief Officer: Governance & Board Practice, The Leadership Group Limited
+                            `,
+                            type: 'normal'
+                        },
+                        {
+                            time: '12:00p.m. – 1:00p.m.',
+                            title: 'Parallel Sessions',
+                            type: 'parallel',
+                            sessions: [
+                                {
+                                    title: 'Session 1',
+                                    topic: 'Innovation and Intellectual Property Rights: What Professionals Need to Know',
+                                    chair: 'FCPA Philip Kakai, Board Member, KASNEB',
+                                    speaker: 'Dr. Susan Musembi, Director, Directorate of Innovation, Incubation and University Industry Linkages, Kenyatta University'
+                                },
+                                {
+                                    title: 'Session 2',
+                                    topic: 'Climate Change and Sustainability: Why Professionals Should be on the Drivers Seat',
+                                    chair: 'Prof. CPA Elizabeth N. Kalunda Muvui, PhD, Chairperson, Institute of Certified Public Accountants of Kenya',
+                                    speaker: 'Dr. Joel Onyango, Ph.D, Director, Monitoring, Evaluation, Learning and Impact, African Centre for Technology Studies'
+                                }
+                            ]
+                        },
+                        {
+                            time: '1:00p.m. – 2:00p.m.',
+                            title: 'Lunch & Networking',
+                            facilitator: 'All',
+                            type: 'break'
+                        },
+                        {
+                            time: '2:00p.m. – 2:30p.m.',
+                            title: 'Networking & Tour of Exhibition',
+                            facilitator: 'All',
+                            type: 'break'
+                        },
+                        {
+                            time: '2:30p.m. – 4:00p.m.',
+                            title: 'Panel',
+                            description: `
+                                <ul class='space-y-2'>
+                                    <li><strong>Topic 1:</strong> A Sustainable Future: The Nexus Between Training, Research, Innovation and Impact</li>
+                                    <li><strong>Topic 2:</strong> The Professional in the Age of AI: Competence, Ethics and Accountability</li>
+                                    <li><strong>Topic 3:</strong> Quality Professionals in the New World Order</li>
+                                    <li><strong>Question & Answer Session</strong></li>
+                                </ul>
+                            `,
+                            facilitator: `
+                                Session Chair: Prof. Kenneth Wyne Mutuma, Honorary Secretary, Association of
+                                Professional Societies in East Africa<br>
+                                FCS Jeremiah Karanja, Chief Executive Officer, Institute of Certified Secretaries<br>
+                                Mr. Gerald Kiti, Principal Legal Counsel at the Senate of Kenya and a Legal Practitioner<br>
+                                Mrs. Esther Ngari, EBS, Director General, Kenya Bureau of Standards
+                            `,
+                            type: 'normal'
+                        },
+                        {
+                            time: '2:30p.m. – 4:00p.m.',
+                            title: 'Mentorship Clinic',
+                            facilitator: 'KASNEB',
+                            type: 'normal'
+                        },
+                        {
+                            time: '4:00p.m. – 5:00p.m.',
+                            title: 'Health Break',
+                            facilitator: 'All',
+                            type: 'break'
+                        },
+                        {
+                            time: '5:00p.m. – 6:00p.m.',
+                            title: 'Networking & Tour of Exhibition',
+                            facilitator: 'All',
+                            type: 'break'
+                        }
+                    ]
+                },
+
+                4: {
+                    title: 'DAY 4: THURSDAY, 29th OCTOBER 2026',
+                    subtitle: 'Digital Economy, Policy, Wellness & Innovation',
                     sessions: [
                         {
                             time: '8:00a.m. – 9:00a.m.',
@@ -214,148 +314,154 @@
                             facilitator: 'All',
                             type: 'normal'
                         },
-
                         {
-                            time: '9:00a.m. – 11:05a.m.',
-                            title: 'Setting the Stage',
+                            time: '9:00a.m. – 10:30a.m.',
+                            title: 'Morning Reflection & Plenary Session',
                             description: `
                                 <ul class='space-y-2'>
-                                    <li>National Anthem & Prayers (5 minutes)</li>
-                                    <li>Entertainment (10 minutes)</li>
-                                    <li>Introduction & Objectives (10 minutes)</li>
-                                    <li>Welcome Remarks (15 minutes)</li>
                                     <li>
-                                        Presentation: Legislative and Regulatory Agility in a Rapidly Evolving World
-                                        (20 minutes)
+                                        <strong>Topic 1:</strong> Digital Economy: How Professionals from Diverse
+                                        Sectors Can Capitalize on the Opportunities and Mitigate Threats
                                     </li>
                                     <li>
-                                        Address: Professional Fine Tuning: How Can Industry, Regulators and Policymakers
-                                        Collaborate to Build Future-Ready Professionals in the Era of AI, Sustainability
-                                        and Global Disruption? (20 minutes)
+                                        <strong>Topic 2:</strong> The Investor’s Mindset: Investing for Profit,
+                                        People and Planet the Tech way
                                     </li>
                                     <li>
-                                        Address: Beyond Competence: Professionals as the Architects of Value Driven
-                                        Productivity and National Transformation (20 minutes)
+                                        <strong>Topic 3:</strong> Smarter, Faster, Different & Ethical: Keeping it
+                                        Professional in the Era of AI
                                     </li>
-                                    <li>
-                                        Keynote Address: The Strategic Role of African Professionals in Advancing
-                                        Competitiveness and Economic Transformation Beyond Borders (25 minutes)
-                                    </li>
+                                    <li><strong>Question & Answer Session</strong></li>
                                 </ul>
                             `,
                             facilitator: `
-                                Master of Ceremony<br>
-                                Prof. Nicholas K. Letting’, Ph.D, EBS, HSC<br>
-                                Dr. Percy Opio<br>
-                                Hon. Dorcas Oduor, SC, EGH<br>
-                                FCPA Hon. John Mbadi, EGH<br>
-                                Deputy President of ROK OR The Head of the Public Service<br>
-                                H.E. Chileshe Mpundu Kapwepwe
+                                Mr. Johnson Mwakazi, Master of Ceremony<br>
+                                Session Chair: FCPA Philip Kakai, Board Member, KASNEB<br>
+                                Ms. Linah Ngumba, In-Charge, ICT and Digital Economy, Kenya National Bureau of Statistics<br>
+                                Ms. Caroline Chelangat, Unit Manager - Global Markets, Standard Investment Bank<br>
+                                Mr. Adam Lane, Director, Policy & Partnerships, Huawei Kenya
                             `,
                             type: 'normal'
                         },
-
                         {
-                            time: '11:05a.m. – 11:30a.m.',
-                            title: 'Exhibition Tour by Guests & Tea Break',
-                            facilitator: 'Dr. Percy Opio, Board Chairman, KASNEB',
+                            time: '10:30a.m. – 11:00a.m.',
+                            title: 'Health Break',
+                            facilitator: 'All',
                             type: 'break'
                         },
-
                         {
-                            time: '11:30a.m. – 12:00p.m.',
-                            title: 'Presentation: Professionals Building Institutions that Outlast the Leader',
-                            facilitator: 'Session Chair: CPA Francis M. Kariuki, Board Member, KASNEB',
-                            description: 'Dr. Martin Oduor Otieno, Chief Executive Officer, The Leadership Group Limited',
-                            type: 'normal'
-                        },
-
-                        {
-                            time: '12:00p.m. – 1:00p.m.',
+                            time: '11:00a.m. – 12:30p.m.',
                             title: 'Parallel Sessions',
                             type: 'parallel',
-
                             sessions: [
                                 {
-                                    title: 'Session 1',
-                                    topic: 'Professionals Transversing the World: Global Job Opportunities and How to Clinch Them',
-                                    chair: 'Ms Samantha Kipury, Board Member, KASNEB',
-                                    speaker: 'Mr. Jeremy Awori, Chief Executive Officer, Eco Bank',
+                                    title: 'Keynote Address',
+                                    topic: 'The Role of Parliament in Strengthening Professional Standards and National Competitiveness',
+                                    chair: 'Mr. Charles Kanjama, President, Law Society of Kenya',
+                                    speaker: 'Mr. Samuel Njoroge, CBS, The Clerk of The National Assembly'
+                                },
+                                {
+                                    title: 'Fireside Chat',
+                                    topic: 'Inside Parliament: The Policies and Laws That Will Shape the Next Decade of Professional Practice',
+                                    chair: 'Mr. Charles Kanjama, President, Law Society of Kenya',
+                                    discussantLabel: 'Participants',
                                     discussants: [
-                                        'Mrs. Edith Okoki, Director General, National Employment Authority'
+                                        'Hon. Dick Maungu, Chairman, Public Investment Committee on Governance and Education',
+                                        'Hon. Mohammed Fatuma Zinab, Chairperson, Special Funds Accounts Committee'
                                     ]
                                 },
-
                                 {
-                                    title: 'Session 2',
-                                    topic: 'Innovation and Intellectual Property Rights: What Professionals Need to Know',
-                                    chair: 'FCPA Philip Kakai, Board Member, KASNEB',
-                                    speaker: 'Dr. Tony Omwanza, Chief Executive Officer, Kenya National Innovation Agency',
+                                    title: 'Panel B',
+                                    topic: 'Turning Today’s Savings into Tomorrow’s Financial Wellness: How to Be a Wealthy Retiree',
+                                    chair: 'FA Diana Muriuki-Maina, Chief Executive Officer, Institute of Certified Investment and Financial Analysts',
+                                    discussantLabel: 'Panellists',
+                                    speakerLabel: 'Panellist',
+                                    speaker: 'Ms. Millicent Awiti, General Manager (Strategy, Research & Risk), National Social Security Fund',
                                     discussants: [
-                                        'Dr. Susan Musembi, Director, Directorate of Innovation, Incubation and University Industry Linkages'
+                                        'Mr. Timothy Wambui, Director Investments and Executive Director, CPF Asset Managers, CPF Group'
                                     ]
                                 },
-
                                 {
-                                    title: 'Session 3',
-                                    topic: 'Climate Change and Sustainability: Why Professionals Should be on the Drivers Seat',
-                                    chair: 'FCS Joshua Wambua, Board Member, KASNEB',
-                                    speaker: 'Prof. Tom Ogada, Executive Director, African Centre for Technology Studies (ACTS)',
-                                    discussants: [
-                                        'Dr. Pacifica Achieng Ogola, Director, Climate Change, Ministry of Environment and Forestry'
-                                    ]
+                                    title: 'Panel C, Part I',
+                                    topic: 'Borrowing for Growth: Is Kenya Getting the Balance Right?',
+                                    chair: 'FCPA Julius Mwatu, Board of Trustee, KASNEB Foundation',
+                                    speaker: 'Mr. Raphael Owino Otieno, Director General, Public Debt Management Office, The National Treasury',
+                                    discussants: ['FCPA Dr. Benson Okundi, Partner/Director, PricewaterhouseCoopers']
+                                },
+                                {
+                                    title: 'Panel C, Part II: Presentation',
+                                    topic: 'IPSAS accrual accounting: Overview of milestones and benefits in government accrual accounting',
+                                    chair: 'FCPA Julius Mwatu, Board of Trustee, KASNEB Foundation',
+                                    speaker: 'FCPA Pius Mungai Nduatih, Chairman, Public Sector Accounting Standards Board of Kenya'
                                 }
                             ]
                         },
-
+                        {
+                            time: '12:30p.m. – 1:00p.m.',
+                            title: 'Networking & Tour of Exhibition',
+                            facilitator: 'All',
+                            type: 'break'
+                        },
                         {
                             time: '1:00p.m. – 2:00p.m.',
                             title: 'Lunch & Networking',
                             facilitator: 'All',
                             type: 'break'
                         },
-
                         {
-                            time: '2:00p.m. – 2:30p.m.',
-                            title: 'Debate: Borrowing is the Price to Pay for Prosperity',
-                            facilitator: 'Strathmore University',
-                            type: 'normal'
-                        },
-
-                        {
-                            time: '2:30p.m. – 4:00p.m.',
-                            title: 'Plenary Session',
+                            time: '2:00p.m. – 3:00p.m.',
+                            title: 'Panel Session: Health, Wellness and Work Life Balance',
+                            facilitator: `
+                                Session Chair: Prof. CPA Elizabeth N. Kalunda Muvui, PhD,
+                                Chairperson, Institute of Certified Public Accountants of Kenya
+                            `,
                             description: `
-                                <ul class='space-y-2'>
-                                    <li><strong>Topic 1:</strong> A Sustainable Future: The Nexus Between Training, Research, Innovation and Impact</li>
-                                    <li><strong>Topic 2:</strong> Artificial Intelligence (AI) Ethical Dilemmas</li>
-                                    <li><strong>Topic 3:</strong> Quality Professionals in the New World Order</li>
-                                    <li><strong>Question & Answer Session</strong></li>
+                                <strong>Panellists:</strong>
+                                <ul class='mt-2 space-y-1'>
+                                    <li>Mrs. Lina Njoroge, Chief Executive Officer Nutrition Consultant & Wellness Expert, Total Lifestyle Change and Wellness Centre</li>
+                                    <li>Dr. Rose Ngondi, Head of Training and Research, Chiromo Hospital Group</li>
+                                    <li>Dr. Job Zackariah Bosire, Clinical Instructor OLYMPUS, Consultant BF SUMA, Eagle Wellness Centers East Africa</li>
                                 </ul>
                             `,
+                            type: 'normal'
+                        },
+                        {
+                            time: '3:00p.m. – 3:30p.m.',
+                            title: 'Presentation: The Power of Media in Shaping Professional Reputation, Institutional Credibility and Public Accountability',
                             facilitator: `
-                                Session Chair: Dr. Joseph Kanyi, Ph.D, Vice Chairman, KASNEB Board<br>
-                                Prof. Richard Oduor, Registrar, Research, Innovation and Outreach, Kenyatta University<br>
-                                Dr. Bright Gameli Mawudor, Founder of Africahackon<br>
-                                Mrs. Esther Ngari, EBS, Managing Director, Kenya Bureau of Standards
+                                Session Chair: FCS Joshua Wambua, Board Member, KASNEB<br>
+                                Mr. Geoffrey Odundo, Group Managing Director & Chief Executive Officer, Nation Media Group
                             `,
                             type: 'normal'
                         },
-
+                        {
+                            time: '3:30p.m. – 4:00p.m.',
+                            title: 'Presentation: Transforming TVET for the Future: Bridging Skills, Professional Qualifications and Industry Needs in a Changing Economy',
+                            facilitator: `
+                                Session Chair: CPA Francis M. Kariuki, Board Member, KASNEB<br>
+                                Dr. Esther Thaara Muoria, PhD, Principal Secretary, State Department for Technical,
+                                Vocational Education and Training
+                            `,
+                            type: 'normal'
+                        },
                         {
                             time: '4:00p.m. – 5:00p.m.',
+                            title: 'Innovation Showcase / Tech Demonstrations',
+                            facilitator: 'Universities & TVETs',
+                            type: 'normal'
+                        },
+                        {
+                            time: '5:00p.m. – 5:30p.m.',
                             title: 'Health Break',
                             facilitator: 'All',
                             type: 'break'
                         },
-
                         {
-                            time: '5:00p.m. – 6:00p.m.',
+                            time: '5:30p.m. – 6:30p.m.',
                             title: 'Networking & Tour of Exhibition',
                             facilitator: 'All',
                             type: 'break'
                         },
-
                         {
                             time: '6:30p.m. – 9:00p.m.',
                             title: 'Gala Dinner',
@@ -365,136 +471,8 @@
                     ]
                 },
 
-                4: {
-                    title: 'DAY FOUR: THURSDAY, 29th OCTOBER 2026',
-                    subtitle: 'Digital Economy, Policy, Wellness & Innovation',
-                    sessions: [
-                        {
-                            time: '8:00a.m. – 9:00a.m.',
-                            title: 'Registration and Networking Breakfast',
-                            facilitator: 'All',
-                            type: 'normal'
-                        },
-
-                        {
-                            time: '9:00a.m. – 10:30a.m.',
-                            title: 'Morning Reflection & Plenary Session',
-                            description: `
-                                <ul class='space-y-2'>
-                                    <li>
-                                        <strong>Topic 1:</strong>
-                                        Digital Economy: How Professionals from Diverse Sectors Can Capitalize on
-                                        the Opportunities and Mitigate Threats
-                                    </li>
-                                    <li>
-                                        <strong>Topic 2:</strong>
-                                        The Investor’s Mindset: Investing for Profit, People and Planet the Tech way
-                                    </li>
-                                    <li>
-                                        <strong>Topic 3:</strong>
-                                        Smarter, Faster, Different & Ethical: Keeping it Professional in the AI Era
-                                    </li>
-                                    <li>20 minutes for each presenter</li>
-                                </ul>
-                            `,
-                            facilitator: `
-                                Session Chair: Mr. John Karani, MBS, Chairman, Kenya Institute of Supplies Management<br>
-                                Amb. Bitange Ndemo, Kenyan Ambassador to the Kingdom of Belgium and European Union<br>
-                                Dr. James Mworia Mwirigi, Group Chief Executive Officer and Managing Director,
-                                Centum Investment Company<br>
-                                Ms. Nanjira Sambuli, Senior Advocacy Officer, Gates Foundation
-                            `,
-                            type: 'normal'
-                        },
-
-                        {
-                            time: '10:30a.m. – 11:00a.m.',
-                            title: 'Health Break',
-                            facilitator: 'All',
-                            type: 'break'
-                        },
-
-                        {
-                            time: '11:00a.m. – 11:40a.m.',
-                            title: 'The Role of Parliament in Strengthening Professional Standards and National Competitiveness',
-                            facilitator: `
-                                Hon. Gladys Boss Shollei, Deputy Speaker, National Assembly<br>
-                                Session Chair: Ms. Lillian Abishai, Board Member, KASNEB
-                            `,
-                            type: 'normal'
-                        },
-
-                        {
-                            time: '11:40a.m. – 12:30p.m.',
-                            title: 'Fireside Chat',
-                            description: `
-                                <strong>Topic:</strong>
-                                Inside Parliament: The Policies and Laws That Will Shape the Next Decade of
-                                Professional Practice
-                            `,
-                            facilitator: `
-                                Session Chair: Charles Kanjama, President, Law Society of Kenya<br>
-                                Hon. Jack Wamboka, Chairman, Public Investment Committee on Governance and Education<br>
-                                Hon. Mohammed Fatuma Zinab, Chairperson Special Funds Accounts Committee
-                            `,
-                            type: 'normal'
-                        },
-
-                        {
-                            time: '12:30p.m. – 2:00p.m.',
-                            title: 'Lunch & Networking',
-                            facilitator: 'All',
-                            type: 'break'
-                        },
-
-                        {
-                            time: '2:00p.m. – 3:00p.m.',
-                            title: 'Panel Session: Health, Wellness and Work-Life Balance',
-                            facilitator: `
-                                Session Chair: CHRP Quresha Abdullahi, Chief Executive Officer,
-                                Institute of Human Resource Management (IHRM)
-                            `,
-                            description: `
-                                <strong>Panellists:</strong>
-                                <ul class='mt-2 space-y-1'>
-                                    <li>Mrs. Lina Njoroge, Chief Executive Officer, Nutrition Consultant & Wellness Expert, Total Lifestyle Change and Wellness Centre</li>
-                                    <li>Dr. Vincent Hongo, Chief Executive Officer, Chiromo Hospital Group</li>
-                                    <li>Ms. Chiki Onwukwe, Fitness Instructor, Choreographer and Media Personality</li>
-                                    <li>Dr. Jay Bosire, Health Consultant</li>
-                                </ul>
-                            `,
-                            type: 'normal'
-                        },
-
-                        {
-                            time: '3:00p.m. – 4:00p.m.',
-                            title: 'Innovation Showcase / Tech Demonstrations',
-                            facilitator: `
-                                Safaricom (sponsor)<br>
-                                Jubilee Holdings Limited (sponsor)<br>
-                                Universities (3)
-                            `,
-                            type: 'normal'
-                        },
-
-                        {
-                            time: '4:00p.m. – 5:00p.m.',
-                            title: 'Health Break',
-                            facilitator: 'All',
-                            type: 'break'
-                        },
-
-                        {
-                            time: '5:00p.m. – 6:00p.m.',
-                            title: 'Networking & Tour of Exhibition',
-                            facilitator: 'All',
-                            type: 'break'
-                        }
-                    ]
-                },
-
                 5: {
-                    title: 'DAY FIVE: FRIDAY, 29th OCTOBER 2026',
+                    title: 'DAY 5: FRIDAY, 30th OCTOBER 2026',
                     subtitle: 'Professional Standards, Leadership & Closing',
                     sessions: [
                         {
@@ -503,104 +481,85 @@
                             facilitator: 'All',
                             type: 'normal'
                         },
-
                         {
                             time: '9:00a.m. – 9:10a.m.',
                             title: 'Morning Reflection',
-                            facilitator: 'Master of Ceremony',
+                            facilitator: 'Mr. Johnson Mwakazi, Master of Ceremony',
                             type: 'normal'
                         },
-
                         {
                             time: '9:10a.m. – 10:10a.m.',
                             title: 'Panel Session',
                             description: `
-                                <strong>Topic:</strong>
-                                Future-Proofing Professional Standards Through Innovation in a Rapidly Changing World
+                                <strong>Topic:</strong> Future-Proofing Academic and Professional Standards
+                                Through Innovation in a Rapidly Changing World
                             `,
                             facilitator: `
                                 Session Chair: Dr. Joseph Kanyi, Ph.D, Vice Chairman, KASNEB Board<br>
-                                Prof. Mike Kuria, Chief Executive Officer, Commission of University Education<br>
+                                Prof. Mike Kuria, Commission Secretary/CEO, Commission for University Education<br>
                                 Dr. Alice Kande, Director General, Kenya National Qualifications Authority<br>
-                                Timothy Nyongesa Katiambo, Chief Executive Officer, TVETA<br>
-                                Dr. David Njengere, Chief Executive Officer, Kenya National Examinations Council
+                                Dr. David Njengere, Chief Executive Officer, Kenya National Examinations Council<br>
+                                Mr. Geoffrey Monari, Chief Executive Officer, Higher Education Loans Board
                             `,
                             type: 'normal'
                         },
-
                         {
                             time: '10:10a.m. – 11:10a.m.',
                             title: 'Panel Session',
                             description: `
-                                <strong>Topic:</strong>
-                                Are we Training Professionals for a World That No Longer Exists?:
-                                Showcasing Transformations in Training
+                                <strong>Topic:</strong> Are we Training Professionals for a World That No Longer
+                                Exists?: Showcasing Transformations in Training
                             `,
                             facilitator: `
-                                Session Chair: Prof. CPA Elizabeth N. Kalunda-Muvui, PhD, President, ICPAK<br>
+                                Session Chair: Dr. Edwin Tarno, PhD, HSC, Chief Executive Officer, Kenya School of TVET<br>
                                 Mr. Shadrack Tonui, Chairman, Kenya Association of Technical Training Institutions<br>
-                                Mrs. Rachel N. Kimani, Chief Principal, Nyeri National Polytechnic<br>
                                 Dr. Charles Koech, Chief Principal, Eldoret National Polytechnic<br>
-                                Mr. Michael Maina, Chief Principal, Kenya Coast National Polytechnic<br>
-                                Mr. Mutembei Kigige, Chief Principal, Meru National Polytechnic<br>
-                                Mr. Evans Bosire, Chief Principal, Sigalagala
+                                Dr. Mutembei Kigige, PhD, Chief Principal, Meru National Polytechnic<br>
+                                Dr. Joshua Aura, Ph.D, CPA, Chief Executive Officer, RCM College
                             `,
                             type: 'normal'
                         },
-
                         {
                             time: '11:10a.m. – 11:30a.m.',
                             title: 'Health Break',
                             facilitator: 'All',
                             type: 'break'
                         },
-
                         {
-                            time: '11:30a.m. – 12:30p.m.',
-                            title: 'Keynote Address',
-                            description: `
-                                <strong>Topic:</strong>
-                                Leadership in an Age of Disruption: Courage, Character and Conviction
-                            `,
-                            facilitator: `
-                                Session Chair: FCS Jacqueline Waihenya, Chairperson, Institute of Certified Secretaries of Kenya<br>
-                                Prof. Patrick Lumumba, LLD, D.Litt (hc), D.Sc (hc), FCPS (K), FKIM, FAAS (hon),
-                                Chief Executive Officer, PLO Lumumba Foundation
-                            `,
-                            type: 'normal'
-                        },
-
-                        {
-                            time: '12:30p.m. – 1:30p.m.',
+                            time: '11:30a.m. – 1:30p.m.',
                             title: 'Conference Closing',
                             description: `
                                 <ul class='space-y-2'>
-                                    <li>Brief Entertainment</li>
-                                    <li>Conference Resolutions</li>
-                                    <li>Remarks</li>
-                                    <li>Official Closing Remarks</li>
+                                    <li><strong>Brief Entertainment</strong></li>
+                                    <li>
+                                        <strong>Presentation:</strong> A Reset of Curricula, Learning and
+                                        Assessments to Mold Thriving Professionals in a Rapidly Changing World —
+                                        Prof. Nicholas K. Letting’, Ph.D, EBS
+                                    </li>
+                                    <li>
+                                        <strong>Presentation:</strong> Building the Future We Want Today Through
+                                        Impactful Professional Development — Prof. Manasseh Nshuti, Chairman,
+                                        Board of Promoters, University of Kigali
+                                    </li>
+                                    <li><strong>Conference Resolutions:</strong> Prof. Nicholas K. Letting’, PhD, EBS</li>
+                                    <li><strong>Remarks:</strong> Dr. Percy Opio, Board Chairman, KASNEB</li>
+                                    <li>
+                                        <strong>Official Closing Remarks:</strong> Turning Ideas to Impact Beyond
+                                        the Conference — Mr. Lawrence Kibet, Director General, Public Investments
+                                        and Portfolio Management, The National Treasury
+                                    </li>
                                 </ul>
                             `,
                             facilitator: `
-                                Master of Ceremony<br>
-                                Prof. Nicholas K. Letting’, CEO, KASNEB<br>
-                                Dr. Percy Opio, Board Chairman, KASNEB<br>
-                                FCPA Dr. Fernandes Barasa, OGW, Governor, Kakamega County
+                                Mr. Johnson Mwakazi, Master of Ceremony<br>
+                                Prof. Nicholas K. Letting’, PhD, EBS, Secretary/Chief Executive Officer, KASNEB
                             `,
                             type: 'normal'
                         },
-
                         {
                             time: '1:30p.m. – 2:30p.m.',
                             title: 'Lunch & Networking',
                             facilitator: 'All',
-                            type: 'break'
-                        },
-
-                        {
-                            time: '2:30p.m. – 4:30p.m.',
-                            title: 'Excursion & Networking',
-                            facilitator: 'Conference Planning Committee',
                             type: 'break'
                         }
                     ]
@@ -769,8 +728,8 @@
                                                             x-show="parallel.speaker"
                                                             class="mt-2 text-xs sm:text-sm text-[#84C1D9] italic"
                                                         >
-                                                            <strong>Speaker:</strong>
-                                                            <span x-text="maskSpeaker(parallel.speaker, pIndex + 1)"></span>
+                                                            <strong x-text="parallel.speakerLabel || 'Speaker'"></strong>:
+                                                            <span x-text="parallel.speaker"></span>
                                                         </p>
 
                                                         <div
@@ -778,14 +737,11 @@
                                                             class="mt-2"
                                                         >
                                                             <strong class="text-xs sm:text-sm text-[#84C1D9]">
-                                                                Discussants:
+                                                                <span x-text="parallel.discussantLabel || 'Discussants'"></span>:
                                                             </strong>
 
                                                             <ul class="mt-1 space-y-1">
-                                                                <template
-                                                                    x-for="(person, personIndex) in maskDiscussants(parallel.discussants)"
-                                                                    :key="personIndex"
-                                                                >
+                                                                <template x-for="(person, personIndex) in parallel.discussants" :key="personIndex">
                                                                     <li
                                                                         class="text-xs sm:text-sm text-gray-700"
                                                                         x-text="person"
@@ -820,7 +776,7 @@
 
                                                 <h6
                                                     class="text-[#84C1D9] text-xs italic font-normal leading-tight"
-                                                    x-html="maskFacilitator(session.facilitator)"
+                                                    x-html="session.facilitator"
                                                 ></h6>
 
                                             </div>
@@ -959,8 +915,8 @@
                                                             x-show="parallel.speaker"
                                                             class="mt-2 text-xs sm:text-sm text-[#84C1D9] italic"
                                                         >
-                                                            <strong>Speaker:</strong>
-                                                            <span x-text="maskSpeaker(parallel.speaker, pIndex + 1)"></span>
+                                                            <strong x-text="parallel.speakerLabel || 'Speaker'"></strong>:
+                                                            <span x-text="parallel.speaker"></span>
                                                         </p>
 
                                                         <div
@@ -968,14 +924,11 @@
                                                             class="mt-2"
                                                         >
                                                             <strong class="text-xs sm:text-sm text-[#84C1D9]">
-                                                                Discussants:
+                                                                <span x-text="parallel.discussantLabel || 'Discussants'"></span>:
                                                             </strong>
 
                                                             <ul class="mt-1 space-y-1">
-                                                                <template
-                                                                    x-for="(person, personIndex) in maskDiscussants(parallel.discussants)"
-                                                                    :key="personIndex"
-                                                                >
+                                                                <template x-for="(person, personIndex) in parallel.discussants" :key="personIndex">
                                                                     <li
                                                                         class="text-xs sm:text-sm text-gray-700"
                                                                         x-text="person"
@@ -1009,7 +962,7 @@
 
                                                 <h6
                                                     class="text-[#84C1D9] text-xs italic font-normal leading-tight"
-                                                    x-html="maskFacilitator(session.facilitator)"
+                                                    x-html="session.facilitator"
                                                 ></h6>
 
                                             </div>
@@ -1031,6 +984,17 @@
             </section>
 
         </template>
+
+        <div class="mt-8 text-center">
+            <a
+                href="{{ route('programme') }}"
+                download
+                class="inline-flex items-center justify-center rounded-full bg-[#175C93] px-6 py-3
+                       font-medium text-white shadow-lg transition-colors hover:bg-[#124b78]"
+            >
+                Download the Full Programme (PDF)
+            </a>
+        </div>
 
     </div>
 </section>
