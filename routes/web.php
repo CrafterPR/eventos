@@ -1,5 +1,6 @@
 <?php
 
+use App\Actions\GenerateCertificate;
 use App\Actions\GeneratePaymentReceipt;
 use App\Http\Controllers\Apps\DelegateController;
 use App\Http\Controllers\Apps\PermissionManagementController;
@@ -10,11 +11,23 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\ExportController;
 use App\Http\Controllers\PesaflowController;
 use App\Http\Livewire\Delegate\ImportDelegatesModal;
+use App\Models\Delegate;
 use Illuminate\Support\Facades\Route;
 
 Route::get('kicp2/programme', function () {
     return response()->file(public_path('assets/media/2ND KICP PROGRAMME 25102026.pdf'));
 })->name('programme');
+
+Route::get('certificates/{delegate}', GenerateCertificate::class)->name('certificates.show');
+
+Route::get('certificate-validate/{serial_number}', function (string $serial_number) {
+    $delegate = Delegate::query()
+        ->with('event')
+        ->where('serial_number', $serial_number)
+        ->firstOrFail();
+
+    return view('certificates.validate', compact('delegate'));
+})->name('certificate-validate');
 
 /*
 |--------------------------------------------------------------------------

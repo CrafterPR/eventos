@@ -17,7 +17,7 @@ class CreateDelegatesFromPurchaseOrder
 
     public function handle(PurchaseOrder $purchaseOrder): int
     {
-        if (! PurchaseOrderStatus::isPaid($purchaseOrder->status)) {
+        if (!PurchaseOrderStatus::isPaid($purchaseOrder->status)) {
             return 0;
         }
 
@@ -33,7 +33,7 @@ class CreateDelegatesFromPurchaseOrder
 
         DB::transaction(function () use ($purchaseOrder, $tickets, $defaultEventId, &$created) {
             foreach ($tickets as $ticket) {
-                if (! is_array($ticket)) {
+                if (!is_array($ticket)) {
                     continue;
                 }
 
@@ -44,13 +44,13 @@ class CreateDelegatesFromPurchaseOrder
                 $lastName = $user?->last_name;
                 $email = $user?->email;
 
-                if (! $firstName || ! $lastName || ! $email || ! $eventId || ! $category) {
+                if (!$firstName || !$lastName || !$email || !$eventId || !$category) {
                     Log::warning('Skipping delegate creation for incomplete paid purchase ticket.', [
                         'purchase_order_id' => $purchaseOrder->id,
-                        'has_name' => (bool) ($firstName && $lastName),
-                        'has_email' => (bool) $email,
-                        'has_event' => (bool) $eventId,
-                        'has_category' => (bool) $category,
+                        'has_name' => (bool)($firstName && $lastName),
+                        'has_email' => (bool)$email,
+                        'has_event' => (bool)$eventId,
+                        'has_category' => (bool)$category,
                     ]);
                     continue;
                 }
@@ -93,7 +93,7 @@ class CreateDelegatesFromPurchaseOrder
             return Category::query()->find($ticket['category_id']);
         }
 
-        $type = trim((string) ($ticket['type'] ?? $ticket['ticket_type'] ?? ''));
+        $type = trim((string)($ticket['type'] ?? $ticket['ticket_type'] ?? ''));
         $categoryTitle = match (strtolower($type)) {
             'group registration', 'virtual ticket', 'student ticket' => 'Individual Delegate',
             'exhibition booth' => 'Exhibitor',

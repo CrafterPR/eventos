@@ -2,7 +2,7 @@
 
 namespace App\Actions;
 
-use App\Models\OrderItem;
+use App\Models\Delegate;
 use chillerlan\QRCode\QRCode;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Storage;
@@ -15,7 +15,7 @@ use setasign\Fpdi\PdfParser\Type\PdfTypeException;
 use setasign\Fpdi\PdfReader\PdfReaderException;
 use Spatie\Image\Exceptions\InvalidManipulation;
 
-class GenerateOrderItemTicket
+class GenerateCertificate
 {
     use AsAction;
 
@@ -27,10 +27,11 @@ class GenerateOrderItemTicket
      * @throws PdfParserException
      * @throws PdfTypeException
      * @throws FilterException
+     * @throws InvalidManipulation
      */
-    public function handle(OrderItem $orderItem): string
+    public function handle(Delegate $delegate): string
     {
-        return $this->generateReceipt($orderItem);
+        return $this->generateCertificate($delegate);
     }
 
     /**
@@ -39,16 +40,24 @@ class GenerateOrderItemTicket
      * @throws PdfParserException
      * @throws PdfTypeException
      * @throws FilterException
+     * @throws InvalidManipulation
      */
-    public function asController(OrderItem $orderItem): string
+    public function asController(Delegate $delegate): string
     {
-        return $this->handle($orderItem);
+        $updates = ['certificate_generated_at' => now()];
+
+        if (blank($delegate->serial_number)) {
+            $updates['serial_number'] = 'SN' . time();
+        }
+
+        $delegate->update($updates);
+        return $this->handle($delegate);
     }
 
-    public function jsonResponse(string $ticketUrl): JsonResponse
+    public function jsonResponse(string $certificateUrl): JsonResponse
     {
         return new JsonResponse([
-            "ticketUrl" => $ticketUrl,
+            'certificateUrl' => $certificateUrl,
         ]);
     }
 
@@ -60,16 +69,20 @@ class GenerateOrderItemTicket
      * @throws FilterException
      * @throws InvalidManipulation
      */
-    private function generateReceipt($orderItem): string
+    private function generateCertificate($delegate): string
     {
-        $outputFile = '/tickets/'. $orderItem->reference_no.'.pdf';
+        $outputFile = '/certificates/' . $delegate->id . '.pdf';
 
-        $file = public_path('documents/ticket_template.pdf');
-        $this->fpdi = new FPDI();
+        $delegate->refresh();
+
+//        dd($delegate);
+
+        $file = public_path('documents/' . $delegate->type . '_template.pdf');
+        $this->fpdi = new Fpdi;
         $this->fpdi->setSourceFile($file);
         $this->fpdi->SetAuthor(config('app.name'));
         $this->fpdi->SetCreator(config('app.name'));
-        $this->fpdi->SetSubject($orderItem->title);
+        $this->fpdi->SetSubject($delegate->name);
         $template = $this->fpdi->importPage(1);
         $size = $this->fpdi->getTemplateSize($template);
         $this->fpdi->AddPage($size['orientation'], [$size['width'], $size['height']]);
@@ -77,27 +90,15 @@ class GenerateOrderItemTicket
         /*
          * date
          */
-        $this->fillData($orderItem->reference_no, 10, 0, 25, 46, [250,250,250], 14, 'I', );
+        $this->fillData($delegate->serial_number, 10, 0, 25, 46, [250, 250, 250], 14, 'I');
 
-        $this->fillData("KICP 2026", 70, 0, 70, 79, [250,168,24], 12, 'I', );
+        $this->fillData($delegate->name, 100, 0, 150, 170, [124, 199, 239], 30, 'I');
 
-        $this->fillData("26th Oct - 30`st Oct 2023  NAIROBI hosted @ College of Insurance", 82, 0, 75, 94, [250,168,24],
-                        12, 'I', );
-
-
-        $this->fillData(format_amount($orderItem->total, $orderItem->currency), 48, 0, 42, 110, [250,168,24], 12, 'I', );
-
-        $this->fillData($orderItem->itemable?->title, 48, 0, 42, 124, [250,168,24], 12, 'I', );
-
-        $this->fillData($orderItem->order->reference, 48, 0, 40, 136, [250,168,24], 12, 'I', );
-
-        $this->fillData($orderItem->user->name, 50, 0, 43, 152, [250,168,24], 12, 'I', );
-
-        $url = route('checkin-validate', ['ticket_no' => $orderItem->reference_no], true);
+        $url = route('certificate-validate', ['serial_number' => $delegate->serial_number], true);
 
         $dataUri = (new QRCode)->render($url);
 
-        $this->fpdi->Image($dataUri, 135, 102, 55, 55, 'png');
+        $this->fpdi->Image($dataUri, 200, 210, 30, 30, 'png');
 
         $content = $this->fpdi->Output('', 'S');
 
@@ -114,14 +115,12 @@ class GenerateOrderItemTicket
         $this->fpdi->Cell($width, $height, $text, 0, 1, $align);
     }
 
-    /**
-     */
-    private function getQRCode($orderItem)
+    private function getQRCode($delegate)
     {
-        return QrCode::size(512)
+        return QRCode::size(512)
             ->color(250, 168, 24)
             ->errorCorrection('H')
             ->margin(1)
-            ->generate("Ticket No:" . $orderItem->reference_no);
+            ->generate('Serial No:' . $delegate->reference_no);
     }
 }
