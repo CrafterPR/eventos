@@ -100,7 +100,7 @@ class GenerateCertificate
 
         $this->fpdi->Image($dataUri, 200, 210, 30, 30, 'png');
 
-        $content = $this->fpdi->Output('', 'S');
+        $content = $this->fpdi->Output('', 'D');
 
         Storage::disk('public')->put($outputFile, $content);
 
