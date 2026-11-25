@@ -24,13 +24,7 @@ class GenerateCertificates extends Command
         $skipped = 0;
         $failed = 0;
 
-        $delegates = Delegate::query();
-
-        if (!$this->option('resend')) {
-            $delegates->whereNull('certificate_generated_at');
-        }
-
-        $delegates->chunkById(100, function ($delegates) use (
+        Delegate::query()->chunkById(100, function ($delegates) use (
             $generateCertificate,
             &$delegatesProcessed,
             &$certificatesGenerated,
@@ -39,9 +33,18 @@ class GenerateCertificates extends Command
             &$failed
         ) {
             foreach ($delegates as $delegate) {
+            $certificatePath = "certificates/{$delegate->id}.pdf";
+            $certificateExists = Storage::disk('public')->exists($certificatePath)
+                && Storage::disk('public')->size($certificatePath) > 0;
+            $needsGeneration = blank($delegate->certificate_generated_at) || !$certificateExists;
+
+            if (!$needsGeneration && !$this->option('resend')) {
+                continue;
+            }
+
             $delegatesProcessed++;
 
-            if (blank($delegate->certificate_generated_at)) {
+            if ($needsGeneration) {
                 try {
                     $generateCertificate->asController($delegate);
                     $certificatesGenerated++;
@@ -62,14 +65,15 @@ class GenerateCertificates extends Command
             }
 
             try {
-                $certificatePdf = Storage::disk('public')->get("certificates/{$delegate->id}.pdf");
-
-                if (!is_string($certificatePdf) || $certificatePdf === '') {
+                if (
+                    !Storage::disk('public')->exists($certificatePath)
+                    || Storage::disk('public')->size($certificatePath) === 0
+                ) {
                     throw new \RuntimeException("Generated certificate file is missing or empty for delegate {$delegate->id}.");
                 }
 
                 Mail::to($delegate->email)->queue(
-                    new DelegateCertificateMail($delegate->name, $certificatePdf)
+                    new DelegateCertificateMail($delegate->name, (string)$delegate->id)
                 );
                 $emailsQueued++;
             } catch (\Throwable $exception) {
