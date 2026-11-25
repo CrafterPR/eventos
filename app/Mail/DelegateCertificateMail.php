@@ -25,7 +25,7 @@ class DelegateCertificateMail extends Mailable implements ShouldQueue
             throw new \RuntimeException("Certificate file is missing for delegate {$this->delegateId}.");
         }
 
-        return $this->subject('Your certificate')
+        return $this->subject('2nd KICP Attendance Certificate and appreciation note')
             ->view('emails.delegate-certificate')
             ->attachFromStorageDisk(
                 'public',
