@@ -5,6 +5,7 @@ namespace App\Actions;
 use App\Models\Delegate;
 use chillerlan\QRCode\QRCode;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Lorisleiva\Actions\Concerns\AsAction;
 use setasign\Fpdi\Fpdi;
@@ -48,7 +49,18 @@ class GenerateCertificate
             $delegate->update(['serial_number' => 'SN' . time()]);
         }
 
-        $certificate = $this->handle($delegate);
+        try {
+            $certificate = $this->handle($delegate);
+        } catch (\Throwable $exception) {
+            Log::error('Failed to generate delegate certificate.', [
+                'delegate_id' => $delegate->id,
+                'delegate_type' => $delegate->type,
+                'exception' => $exception,
+            ]);
+
+            throw $exception;
+        }
+
         $delegate->update(['certificate_generated_at' => now()]);
 
         return $certificate;

@@ -41,12 +41,6 @@ class GenerateCertificates extends Command
             } catch (\Throwable $exception) {
                 $failed++;
 
-                Log::error('Failed to generate delegate certificate.', [
-                    'delegate_id' => $delegate->id,
-                    'delegate_type' => $delegate->type,
-                    'exception' => $exception,
-                ]);
-
                 $this->error("Failed to generate certificate for delegate {$delegate->id}: {$exception->getMessage()}");
                 continue;
             }
