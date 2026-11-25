@@ -123,8 +123,12 @@ class GenerateCertificate
 
         $content = $this->fpdi->Output('', 'S');
 
-        if (!Storage::disk('public')->put($outputFile, $content)) {
-            throw new \RuntimeException("Failed to store certificate for delegate {$delegate->id}.");
+        try {
+
+            Storage::disk('public')->put($outputFile, $content);
+
+        } catch (\Exception $exception) {
+            throw new \RuntimeException("Failed to store certificate for delegate {$delegate->id}: {$exception->getMessage()}");
         }
 
         return '/' . $outputFile;
