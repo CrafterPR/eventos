@@ -44,14 +44,14 @@ class GenerateCertificate
      */
     public function asController(Delegate $delegate): string
     {
-        $updates = ['certificate_generated_at' => now()];
-
         if (blank($delegate->serial_number)) {
-            $updates['serial_number'] = 'SN' . time();
+            $delegate->update(['serial_number' => 'SN' . time()]);
         }
 
-        $delegate->update($updates);
-        return $this->handle($delegate);
+        $certificate = $this->handle($delegate);
+        $delegate->update(['certificate_generated_at' => now()]);
+
+        return $certificate;
     }
 
     public function jsonResponse(string $certificateUrl): JsonResponse
@@ -71,13 +71,22 @@ class GenerateCertificate
      */
     private function generateCertificate($delegate): string
     {
-        $outputFile = '/certificates/' . $delegate->id . '.pdf';
+        $outputFile = 'certificates/' . $delegate->id . '.pdf';
 
         $delegate->refresh();
 
 //        dd($delegate);
 
-        $file = public_path('documents/' . $delegate->type . '_template.pdf');
+        $file = public_path('documents/' . $delegate->type . '.pdf');
+        if (!is_file($file) || !is_readable($file) || filesize($file) === 0) {
+            throw new \RuntimeException("Certificate template is missing, unreadable, or empty: {$file}");
+        }
+
+        $header = file_get_contents($file, false, null, 0, 1024);
+        if ($header === false || !str_contains($header, '%PDF-')) {
+            throw new \RuntimeException("Certificate template is not a valid PDF: {$file}");
+        }
+
         $this->fpdi = new Fpdi;
         $this->fpdi->setSourceFile($file);
         $this->fpdi->SetAuthor(config('app.name'));
@@ -100,11 +109,13 @@ class GenerateCertificate
 
         $this->fpdi->Image($dataUri, 200, 210, 30, 30, 'png');
 
-        $content = $this->fpdi->Output('', 'I');
+        $content = $this->fpdi->Output('', 'S');
 
-        Storage::disk('public')->put($outputFile, $content);
+        if (!Storage::disk('public')->put($outputFile, $content)) {
+            throw new \RuntimeException("Failed to store certificate for delegate {$delegate->id}.");
+        }
 
-        return $outputFile;
+        return '/' . $outputFile;
     }
 
     private function fillData($text, $width, $height, $x, $y, $color = [46, 0, 34], $fontSize = 14, $fontStyle = '', $align = 'C'): void
