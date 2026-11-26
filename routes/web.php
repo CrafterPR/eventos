@@ -27,7 +27,7 @@ Route::get('certificate-validate/{serial_number}', function (string $serial_numb
         ->firstOrFail();
 
     return view('certificates.validate', compact('delegate'));
-})->name('certificate-validate');
+})->name('certificate-validate')->withoutMiddleware(['auth', 'verified']);
 
 /*
 |--------------------------------------------------------------------------
